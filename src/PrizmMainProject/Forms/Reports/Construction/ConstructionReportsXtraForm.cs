@@ -29,8 +29,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-            start.SetAsIdentifier();
-            end.SetAsIdentifier();
+            start.SetAsLookUpIdentifier();
+            end.SetAsLookUpIdentifier();
         }
 
         private void BindToViewModel()
