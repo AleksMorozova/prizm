@@ -1,0 +1,12 @@
+-------------------------------------
+One-time conditions:
+
+1. Add full-path reference to createDrive.cmd to Startup folder of Start/All programs menu).
+   Start it manually once or restart PC.
+2. Have installed at standard place (ProgramFiles(x86)):
+   - DevExpress 13.1
+   - Visual Studio 2012
+
+-------------------------------------
+
+Open src/PrizmMainSolution.sln from Visual Studio.
