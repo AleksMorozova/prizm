@@ -16,7 +16,6 @@ namespace PrizmSetupApplication.Forms
         public SetupApplicationMainForm()
         {
             InitializeComponent();
-       
         }
     }
 }
