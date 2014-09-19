@@ -47,5 +47,40 @@ namespace PrizmMain.Forms
                 FramesCanOpen++;
             }
         }
+
+        private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.PipeNewEditXtraForm frmChild = new Forms.PipeNewEditXtraForm();
+            childForms.Add(frmChild);
+            frmChild.MdiParent = this;
+
+            frmChild.Show();
+            frmChild.WindowState = FormWindowState.Maximized;
+            FramesCanOpen--;
+
+        }
+
+        private void barButtonItemNewComponent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.ComponentNewEditXtraForm frmChild = new Forms.ComponentNewEditXtraForm();
+            childForms.Add(frmChild);
+            frmChild.MdiParent = this;
+
+            frmChild.Show();
+            frmChild.WindowState = FormWindowState.Maximized;
+            FramesCanOpen--;
+
+        }
+
+        private void barButtonItemNewJoint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.JointNewEditXtraForm frmChild = new Forms.JointNewEditXtraForm();
+            childForms.Add(frmChild);
+            frmChild.MdiParent = this;
+
+            frmChild.Show();
+            frmChild.WindowState = FormWindowState.Maximized;
+            FramesCanOpen--;
+        }
     }
 }
