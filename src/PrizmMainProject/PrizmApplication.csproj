@@ -58,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Documents\IDocument.cs" />
+    <Compile Include="Forms\AddEditInspectionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditInspectionXtraForm.Designer.cs">
+      <DependentUpon>AddEditInspectionXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     </Compile>
     <Compile Include="Forms\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CopyPipeSettingsXtraForm.Designer.cs">
+      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\JointNewEditXtraForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +108,12 @@
     </Compile>
     <Compile Include="Forms\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserInfoXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserInfoXtraForm.Designer.cs">
+      <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
