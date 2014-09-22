@@ -118,13 +118,11 @@
             // 
             // TabControlSettings
             // 
-            this.TabControlSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabControlSettings.Location = new System.Drawing.Point(0, 1);
+            this.TabControlSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControlSettings.Location = new System.Drawing.Point(0, 0);
             this.TabControlSettings.Name = "TabControlSettings";
             this.TabControlSettings.SelectedTabPage = this.TabPagePipe;
-            this.TabControlSettings.Size = new System.Drawing.Size(845, 515);
+            this.TabControlSettings.Size = new System.Drawing.Size(725, 425);
             this.TabControlSettings.TabIndex = 0;
             this.TabControlSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPagePipe,
@@ -141,7 +139,7 @@
             this.TabPagePipe.Controls.Add(this.PipeSetupTabControl);
             this.TabPagePipe.Controls.Add(this.lblPipeSetup);
             this.TabPagePipe.Name = "TabPagePipe";
-            this.TabPagePipe.Size = new System.Drawing.Size(839, 487);
+            this.TabPagePipe.Size = new System.Drawing.Size(719, 397);
             this.TabPagePipe.Text = "Pip&e";
             // 
             // lblSizeGrade
@@ -186,7 +184,7 @@
             this.PipeSetupTabControl.Location = new System.Drawing.Point(11, 57);
             this.PipeSetupTabControl.Name = "PipeSetupTabControl";
             this.PipeSetupTabControl.SelectedTabPage = this.TabPageGeneralPipeSetup;
-            this.PipeSetupTabControl.Size = new System.Drawing.Size(786, 427);
+            this.PipeSetupTabControl.Size = new System.Drawing.Size(666, 337);
             this.PipeSetupTabControl.TabIndex = 0;
             this.PipeSetupTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPageGeneralPipeSetup,
@@ -200,7 +198,7 @@
             this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditWelded);
             this.TabPageGeneralPipeSetup.Controls.Add(this.lblWeldType);
             this.TabPageGeneralPipeSetup.Name = "TabPageGeneralPipeSetup";
-            this.TabPageGeneralPipeSetup.Size = new System.Drawing.Size(780, 399);
+            this.TabPageGeneralPipeSetup.Size = new System.Drawing.Size(660, 309);
             this.TabPageGeneralPipeSetup.Text = "&General set up";
             // 
             // groupControlInsideCoating
@@ -367,7 +365,7 @@
             // 
             this.TabPageInspection.Controls.Add(this.gridControlInspection);
             this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(780, 399);
+            this.TabPageInspection.Size = new System.Drawing.Size(660, 309);
             this.TabPageInspection.Text = "&Inspection";
             // 
             // gridControlInspection
@@ -378,7 +376,7 @@
             this.gridControlInspection.Location = new System.Drawing.Point(3, 3);
             this.gridControlInspection.MainView = this.GridViewInspection;
             this.gridControlInspection.Name = "gridControlInspection";
-            this.gridControlInspection.Size = new System.Drawing.Size(758, 275);
+            this.gridControlInspection.Size = new System.Drawing.Size(654, 185);
             this.gridControlInspection.TabIndex = 0;
             this.gridControlInspection.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GridViewInspection});
@@ -405,6 +403,7 @@
             this.GridViewInspection.GridControl = this.gridControlInspection;
             this.GridViewInspection.Name = "GridViewInspection";
             this.GridViewInspection.OptionsView.RowAutoHeight = true;
+            this.GridViewInspection.OptionsView.ShowGroupPanel = false;
             // 
             // gridBand2
             // 
@@ -514,7 +513,7 @@
             // TabPagePipeline
             // 
             this.TabPagePipeline.Name = "TabPagePipeline";
-            this.TabPagePipeline.Size = new System.Drawing.Size(839, 487);
+            this.TabPagePipeline.Size = new System.Drawing.Size(719, 397);
             this.TabPagePipeline.Text = "Pipe&line";
             // 
             // TabPageUsers
@@ -522,7 +521,7 @@
             this.TabPageUsers.Controls.Add(this.gridControlUsers);
             this.TabPageUsers.Controls.Add(this.lblUsers);
             this.TabPageUsers.Name = "TabPageUsers";
-            this.TabPageUsers.Size = new System.Drawing.Size(839, 487);
+            this.TabPageUsers.Size = new System.Drawing.Size(719, 397);
             this.TabPageUsers.Text = "&Users";
             // 
             // gridControlUsers
@@ -533,7 +532,7 @@
             this.gridControlUsers.Location = new System.Drawing.Point(31, 56);
             this.gridControlUsers.MainView = this.gridViewUsers;
             this.gridControlUsers.Name = "gridControlUsers";
-            this.gridControlUsers.Size = new System.Drawing.Size(620, 256);
+            this.gridControlUsers.Size = new System.Drawing.Size(500, 166);
             this.gridControlUsers.TabIndex = 1;
             this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewUsers});
@@ -546,6 +545,7 @@
             this.gridColumnUsersRole});
             this.gridViewUsers.GridControl = this.gridControlUsers;
             this.gridViewUsers.Name = "gridViewUsers";
+            this.gridViewUsers.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumnUsersNo
             // 
@@ -580,15 +580,15 @@
             // 
             this.TabPageDictionaries.Controls.Add(this.gridControlDictionaries);
             this.TabPageDictionaries.Name = "TabPageDictionaries";
-            this.TabPageDictionaries.Size = new System.Drawing.Size(839, 487);
+            this.TabPageDictionaries.Size = new System.Drawing.Size(719, 397);
             this.TabPageDictionaries.Text = "&Dictionaries";
             // 
             // gridControlDictionaries
             // 
-            this.gridControlDictionaries.Location = new System.Drawing.Point(32, 30);
+            this.gridControlDictionaries.Location = new System.Drawing.Point(11, 10);
             this.gridControlDictionaries.MainView = this.gridViewDictionary;
             this.gridControlDictionaries.Name = "gridControlDictionaries";
-            this.gridControlDictionaries.Size = new System.Drawing.Size(367, 440);
+            this.gridControlDictionaries.Size = new System.Drawing.Size(359, 368);
             this.gridControlDictionaries.TabIndex = 0;
             this.gridControlDictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDictionary});
@@ -599,6 +599,7 @@
             this.gridColumnDictionary});
             this.gridViewDictionary.GridControl = this.gridControlDictionaries;
             this.gridViewDictionary.Name = "gridViewDictionary";
+            this.gridViewDictionary.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumnDictionary
             // 
@@ -615,7 +616,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 528);
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
             this.Controls.Add(this.TabControlSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

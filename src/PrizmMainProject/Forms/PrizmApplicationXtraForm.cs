@@ -29,9 +29,12 @@ namespace PrizmMain.Forms
                 Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
                 childForms.Add(frmChild);
                 frmChild.MdiParent = this;
-                
+      
                 frmChild.Show();
+                frmChild.WindowState = FormWindowState.Normal;
                 frmChild.WindowState = FormWindowState.Maximized;
+          
+
                 FramesCanOpen--;
             }
         }
@@ -55,6 +58,8 @@ namespace PrizmMain.Forms
             frmChild.MdiParent = this;
 
             frmChild.Show();
+        
+            frmChild.WindowState = FormWindowState.Normal;
             frmChild.WindowState = FormWindowState.Maximized;
             FramesCanOpen--;
 
@@ -65,9 +70,12 @@ namespace PrizmMain.Forms
             Forms.ComponentNewEditXtraForm frmChild = new Forms.ComponentNewEditXtraForm();
             childForms.Add(frmChild);
             frmChild.MdiParent = this;
-
+     
             frmChild.Show();
+
+            frmChild.WindowState = FormWindowState.Normal;
             frmChild.WindowState = FormWindowState.Maximized;
+
             FramesCanOpen--;
 
         }
@@ -78,7 +86,8 @@ namespace PrizmMain.Forms
             childForms.Add(frmChild);
             frmChild.MdiParent = this;
 
-            frmChild.Show();
+            frmChild.Show(); 
+            frmChild.WindowState = FormWindowState.Normal;
             frmChild.WindowState = FormWindowState.Maximized;
             FramesCanOpen--;
         }

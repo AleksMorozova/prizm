@@ -55,6 +55,7 @@
             this.comboBoxPipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtEdtPipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.TabPagePlateParameters = new DevExpress.XtraTab.XtraTabPage();
+            this.lblWelding = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlChemicalComposition = new DevExpress.XtraGrid.GridControl();
@@ -74,7 +75,6 @@
             this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
             this.TabPageSending = new DevExpress.XtraTab.XtraTabPage();
             this.TabPageJoints = new DevExpress.XtraTab.XtraTabPage();
-            this.lblWelding = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlPipe)).BeginInit();
             this.TabControlPipe.SuspendLayout();
             this.TabPageGeneralParameters.SuspendLayout();
@@ -110,10 +110,11 @@
             // 
             // TabControlPipe
             // 
-            this.TabControlPipe.Location = new System.Drawing.Point(2, 1);
+            this.TabControlPipe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControlPipe.Location = new System.Drawing.Point(0, 0);
             this.TabControlPipe.Name = "TabControlPipe";
             this.TabControlPipe.SelectedTabPage = this.TabPageGeneralParameters;
-            this.TabControlPipe.Size = new System.Drawing.Size(823, 471);
+            this.TabControlPipe.Size = new System.Drawing.Size(700, 450);
             this.TabControlPipe.TabIndex = 0;
             this.TabControlPipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPageGeneralParameters,
@@ -138,7 +139,7 @@
             this.TabPageGeneralParameters.Controls.Add(this.comboBoxPipeManufacturer);
             this.TabPageGeneralParameters.Controls.Add(this.txtEdtPipeNumber);
             this.TabPageGeneralParameters.Name = "TabPageGeneralParameters";
-            this.TabPageGeneralParameters.Size = new System.Drawing.Size(817, 443);
+            this.TabPageGeneralParameters.Size = new System.Drawing.Size(694, 422);
             this.TabPageGeneralParameters.Text = "&General parameters";
             // 
             // groupControlGeometricParam
@@ -361,8 +362,16 @@
             this.TabPagePlateParameters.Controls.Add(this.txtEdtHeatNo);
             this.TabPagePlateParameters.Controls.Add(this.labelControl1);
             this.TabPagePlateParameters.Name = "TabPagePlateParameters";
-            this.TabPagePlateParameters.Size = new System.Drawing.Size(817, 443);
+            this.TabPagePlateParameters.Size = new System.Drawing.Size(694, 422);
             this.TabPagePlateParameters.Text = "P&late parameters";
+            // 
+            // lblWelding
+            // 
+            this.lblWelding.Location = new System.Drawing.Point(335, 44);
+            this.lblWelding.Name = "lblWelding";
+            this.lblWelding.Size = new System.Drawing.Size(63, 13);
+            this.lblWelding.TabIndex = 10;
+            this.lblWelding.Text = "Welding date";
             // 
             // dateEdit1
             // 
@@ -409,6 +418,7 @@
             // 
             this.gridView1.GridControl = this.gridControlChemicalComposition;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // lblChemicalComposition
             // 
@@ -432,6 +442,7 @@
             // 
             this.gridView2.GridControl = this.gridControlTensileTests;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // lblTensileTests
             // 
@@ -508,34 +519,27 @@
             // TabPageInspection
             // 
             this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(817, 443);
+            this.TabPageInspection.Size = new System.Drawing.Size(694, 422);
             this.TabPageInspection.Text = "&Inspection operations";
             // 
             // TabPageSending
             // 
             this.TabPageSending.Name = "TabPageSending";
-            this.TabPageSending.Size = new System.Drawing.Size(817, 443);
+            this.TabPageSending.Size = new System.Drawing.Size(694, 422);
             this.TabPageSending.Text = "Se&nding operations";
             // 
             // TabPageJoints
             // 
             this.TabPageJoints.Name = "TabPageJoints";
-            this.TabPageJoints.Size = new System.Drawing.Size(817, 443);
+            this.TabPageJoints.Size = new System.Drawing.Size(694, 422);
             this.TabPageJoints.Text = "Join&ts";
-            // 
-            // lblWelding
-            // 
-            this.lblWelding.Location = new System.Drawing.Point(335, 44);
-            this.lblWelding.Name = "lblWelding";
-            this.lblWelding.Size = new System.Drawing.Size(63, 13);
-            this.lblWelding.TabIndex = 10;
-            this.lblWelding.Text = "Welding date";
             // 
             // PipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 476);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(700, 450);
             this.ControlBox = false;
             this.Controls.Add(this.TabControlPipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -80,10 +80,11 @@
             // 
             // TabControlJoint
             // 
-            this.TabControlJoint.Location = new System.Drawing.Point(3, 3);
+            this.TabControlJoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControlJoint.Location = new System.Drawing.Point(0, 0);
             this.TabControlJoint.Name = "TabControlJoint";
             this.TabControlJoint.SelectedTabPage = this.TabPageGeneralParameters;
-            this.TabControlJoint.Size = new System.Drawing.Size(823, 473);
+            this.TabControlJoint.Size = new System.Drawing.Size(725, 425);
             this.TabControlJoint.TabIndex = 0;
             this.TabControlJoint.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPageGeneralParameters,
@@ -100,7 +101,7 @@
             this.TabPageGeneralParameters.Controls.Add(this.txtEdtJointNo);
             this.TabPageGeneralParameters.Controls.Add(this.lblJointNo);
             this.TabPageGeneralParameters.Name = "TabPageGeneralParameters";
-            this.TabPageGeneralParameters.Size = new System.Drawing.Size(817, 445);
+            this.TabPageGeneralParameters.Size = new System.Drawing.Size(719, 397);
             this.TabPageGeneralParameters.Text = "&General parameters";
             // 
             // groupControlWeldig
@@ -119,15 +120,15 @@
             this.groupControlWeldig.Controls.Add(this.comboBoxEditPlace);
             this.groupControlWeldig.Controls.Add(this.txtEdtInspector);
             this.groupControlWeldig.Controls.Add(this.txtEdtWelder);
-            this.groupControlWeldig.Location = new System.Drawing.Point(18, 247);
+            this.groupControlWeldig.Location = new System.Drawing.Point(11, 253);
             this.groupControlWeldig.Name = "groupControlWeldig";
-            this.groupControlWeldig.Size = new System.Drawing.Size(690, 127);
+            this.groupControlWeldig.Size = new System.Drawing.Size(684, 127);
             this.groupControlWeldig.TabIndex = 6;
             this.groupControlWeldig.Text = "Welding";
             // 
             // lblInspectionDate
             // 
-            this.lblInspectionDate.Location = new System.Drawing.Point(272, 101);
+            this.lblInspectionDate.Location = new System.Drawing.Point(267, 101);
             this.lblInspectionDate.Name = "lblInspectionDate";
             this.lblInspectionDate.Size = new System.Drawing.Size(75, 13);
             this.lblInspectionDate.TabIndex = 13;
@@ -135,7 +136,7 @@
             // 
             // lblWeldinfDate
             // 
-            this.lblWeldinfDate.Location = new System.Drawing.Point(272, 32);
+            this.lblWeldinfDate.Location = new System.Drawing.Point(267, 32);
             this.lblWeldinfDate.Name = "lblWeldinfDate";
             this.lblWeldinfDate.Size = new System.Drawing.Size(63, 13);
             this.lblWeldinfDate.TabIndex = 12;
@@ -143,7 +144,7 @@
             // 
             // lblWelderNo
             // 
-            this.lblWelderNo.Location = new System.Drawing.Point(272, 66);
+            this.lblWelderNo.Location = new System.Drawing.Point(267, 66);
             this.lblWelderNo.Name = "lblWelderNo";
             this.lblWelderNo.Size = new System.Drawing.Size(73, 13);
             this.lblWelderNo.TabIndex = 11;
@@ -167,7 +168,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(499, 32);
+            this.lblStatus.Location = new System.Drawing.Point(483, 32);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(31, 13);
             this.lblStatus.TabIndex = 8;
@@ -184,7 +185,7 @@
             // dateEditInspection
             // 
             this.dateEditInspection.EditValue = null;
-            this.dateEditInspection.Location = new System.Drawing.Point(367, 98);
+            this.dateEditInspection.Location = new System.Drawing.Point(362, 98);
             this.dateEditInspection.Name = "dateEditInspection";
             this.dateEditInspection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -198,7 +199,7 @@
             // dateEditWelding
             // 
             this.dateEditWelding.EditValue = null;
-            this.dateEditWelding.Location = new System.Drawing.Point(367, 29);
+            this.dateEditWelding.Location = new System.Drawing.Point(362, 29);
             this.dateEditWelding.Name = "dateEditWelding";
             this.dateEditWelding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -211,14 +212,14 @@
             // 
             // txtEditWelderNo
             // 
-            this.txtEditWelderNo.Location = new System.Drawing.Point(367, 63);
+            this.txtEditWelderNo.Location = new System.Drawing.Point(362, 63);
             this.txtEditWelderNo.Name = "txtEditWelderNo";
             this.txtEditWelderNo.Size = new System.Drawing.Size(100, 20);
             this.txtEditWelderNo.TabIndex = 4;
             // 
             // comboBoxStatus
             // 
-            this.comboBoxStatus.Location = new System.Drawing.Point(556, 29);
+            this.comboBoxStatus.Location = new System.Drawing.Point(540, 29);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -264,6 +265,7 @@
             this.gridColumnComponentNo});
             this.gridViewJointControl.GridControl = this.gridControlComponentry;
             this.gridViewJointControl.Name = "gridViewJointControl";
+            this.gridViewJointControl.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumnComponentNo
             // 
@@ -274,7 +276,7 @@
             // 
             // gridControlPipes
             // 
-            this.gridControlPipes.Location = new System.Drawing.Point(18, 69);
+            this.gridControlPipes.Location = new System.Drawing.Point(11, 69);
             this.gridControlPipes.MainView = this.PipesControl;
             this.gridControlPipes.Name = "gridControlPipes";
             this.gridControlPipes.Size = new System.Drawing.Size(293, 154);
@@ -288,6 +290,7 @@
             this.gridColumnPipeNo});
             this.PipesControl.GridControl = this.gridControlPipes;
             this.PipesControl.Name = "PipesControl";
+            this.PipesControl.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumnPipeNo
             // 
@@ -330,24 +333,28 @@
             // TabPageInspection
             // 
             this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(817, 445);
+            this.TabPageInspection.Size = new System.Drawing.Size(719, 397);
             this.TabPageInspection.Text = "&Inspection operations";
             // 
             // xtraTabPageTrench
             // 
             this.xtraTabPageTrench.Name = "xtraTabPageTrench";
-            this.xtraTabPageTrench.Size = new System.Drawing.Size(817, 445);
+            this.xtraTabPageTrench.Size = new System.Drawing.Size(719, 397);
             this.xtraTabPageTrench.Text = "&Trench parameters";
             // 
             // JointNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 476);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
             this.Controls.Add(this.TabControlJoint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "JointNewEditXtraForm";
+            this.ShowIcon = false;
             this.Text = "JointNewEditXtraForm";
             ((System.ComponentModel.ISupportInitialize)(this.TabControlJoint)).EndInit();
             this.TabControlJoint.ResumeLayout(false);
