@@ -144,7 +144,7 @@
             // 
             // lblSizeGrade
             // 
-            this.lblSizeGrade.Location = new System.Drawing.Point(473, 25);
+            this.lblSizeGrade.Location = new System.Drawing.Point(502, 12);
             this.lblSizeGrade.Name = "lblSizeGrade";
             this.lblSizeGrade.Size = new System.Drawing.Size(54, 13);
             this.lblSizeGrade.TabIndex = 8;
@@ -152,7 +152,7 @@
             // 
             // lblPipeManufacturer
             // 
-            this.lblPipeManufacturer.Location = new System.Drawing.Point(161, 25);
+            this.lblPipeManufacturer.Location = new System.Drawing.Point(220, 12);
             this.lblPipeManufacturer.Name = "lblPipeManufacturer";
             this.lblPipeManufacturer.Size = new System.Drawing.Size(97, 13);
             this.lblPipeManufacturer.TabIndex = 7;
@@ -160,7 +160,7 @@
             // 
             // ComboBoxSizeGrade
             // 
-            this.ComboBoxSizeGrade.Location = new System.Drawing.Point(541, 22);
+            this.ComboBoxSizeGrade.Location = new System.Drawing.Point(502, 31);
             this.ComboBoxSizeGrade.Name = "ComboBoxSizeGrade";
             this.ComboBoxSizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -169,7 +169,7 @@
             // 
             // PipeManufacturersComboBox
             // 
-            this.PipeManufacturersComboBox.Location = new System.Drawing.Point(270, 22);
+            this.PipeManufacturersComboBox.Location = new System.Drawing.Point(220, 31);
             this.PipeManufacturersComboBox.Name = "PipeManufacturersComboBox";
             this.PipeManufacturersComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -212,7 +212,7 @@
             this.groupControlInsideCoating.Controls.Add(this.txtEdtInsideThickness);
             this.groupControlInsideCoating.Location = new System.Drawing.Point(11, 154);
             this.groupControlInsideCoating.Name = "groupControlInsideCoating";
-            this.groupControlInsideCoating.Size = new System.Drawing.Size(412, 115);
+            this.groupControlInsideCoating.Size = new System.Drawing.Size(479, 115);
             this.groupControlInsideCoating.TabIndex = 8;
             // 
             // lblInsideMaterial
@@ -241,7 +241,7 @@
             // 
             // txtEdtInsideMaterial
             // 
-            this.txtEdtInsideMaterial.Location = new System.Drawing.Point(129, 84);
+            this.txtEdtInsideMaterial.Location = new System.Drawing.Point(166, 84);
             this.txtEdtInsideMaterial.Name = "txtEdtInsideMaterial";
             this.txtEdtInsideMaterial.Size = new System.Drawing.Size(273, 20);
             this.txtEdtInsideMaterial.TabIndex = 2;
@@ -256,14 +256,14 @@
             // 
             // txtEdtInsideAdhesion
             // 
-            this.txtEdtInsideAdhesion.Location = new System.Drawing.Point(129, 55);
+            this.txtEdtInsideAdhesion.Location = new System.Drawing.Point(166, 55);
             this.txtEdtInsideAdhesion.Name = "txtEdtInsideAdhesion";
             this.txtEdtInsideAdhesion.Size = new System.Drawing.Size(100, 20);
             this.txtEdtInsideAdhesion.TabIndex = 1;
             // 
             // txtEdtInsideThickness
             // 
-            this.txtEdtInsideThickness.Location = new System.Drawing.Point(129, 26);
+            this.txtEdtInsideThickness.Location = new System.Drawing.Point(166, 26);
             this.txtEdtInsideThickness.Name = "txtEdtInsideThickness";
             this.txtEdtInsideThickness.Size = new System.Drawing.Size(100, 20);
             this.txtEdtInsideThickness.TabIndex = 0;
@@ -279,7 +279,7 @@
             this.groupControlOuterCoating.Controls.Add(this.CheckEditOuterCoating);
             this.groupControlOuterCoating.Location = new System.Drawing.Point(11, 35);
             this.groupControlOuterCoating.Name = "groupControlOuterCoating";
-            this.groupControlOuterCoating.Size = new System.Drawing.Size(412, 113);
+            this.groupControlOuterCoating.Size = new System.Drawing.Size(479, 113);
             this.groupControlOuterCoating.TabIndex = 7;
             // 
             // lblOuterMaterial
@@ -308,21 +308,21 @@
             // 
             // txtEdtOuterMaterial
             // 
-            this.txtEdtOuterMaterial.Location = new System.Drawing.Point(129, 86);
+            this.txtEdtOuterMaterial.Location = new System.Drawing.Point(166, 86);
             this.txtEdtOuterMaterial.Name = "txtEdtOuterMaterial";
             this.txtEdtOuterMaterial.Size = new System.Drawing.Size(273, 20);
             this.txtEdtOuterMaterial.TabIndex = 8;
             // 
             // txtEdtOuterAdhesion
             // 
-            this.txtEdtOuterAdhesion.Location = new System.Drawing.Point(129, 60);
+            this.txtEdtOuterAdhesion.Location = new System.Drawing.Point(166, 60);
             this.txtEdtOuterAdhesion.Name = "txtEdtOuterAdhesion";
             this.txtEdtOuterAdhesion.Size = new System.Drawing.Size(100, 20);
             this.txtEdtOuterAdhesion.TabIndex = 7;
             // 
             // txtEdtOuterThickness
             // 
-            this.txtEdtOuterThickness.Location = new System.Drawing.Point(129, 31);
+            this.txtEdtOuterThickness.Location = new System.Drawing.Point(166, 31);
             this.txtEdtOuterThickness.Name = "txtEdtOuterThickness";
             this.txtEdtOuterThickness.Size = new System.Drawing.Size(100, 20);
             this.txtEdtOuterThickness.TabIndex = 6;
@@ -504,7 +504,7 @@
             // 
             // lblPipeSetup
             // 
-            this.lblPipeSetup.Location = new System.Drawing.Point(15, 25);
+            this.lblPipeSetup.Location = new System.Drawing.Point(23, 12);
             this.lblPipeSetup.Name = "lblPipeSetup";
             this.lblPipeSetup.Size = new System.Drawing.Size(101, 13);
             this.lblPipeSetup.TabIndex = 4;
