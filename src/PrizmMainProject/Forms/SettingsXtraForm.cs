@@ -17,7 +17,8 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
-            //TODO:Remove dummy data connection
-            gridControlInspection.DataSource = Dev.DummyData.CreateControlOperationTable();}
+            //TODO: Add gridControlInspection.DataSource, and synchronize field name in Grid Control
+            
+        }
     }
 }

@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dev\DummyData.cs" />
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="Forms\AddEditInspectionXtraForm.cs">
       <SubType>Form</SubType>
