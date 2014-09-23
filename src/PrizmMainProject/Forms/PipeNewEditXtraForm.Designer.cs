@@ -114,7 +114,7 @@
             this.TabControlPipe.Location = new System.Drawing.Point(0, 0);
             this.TabControlPipe.Name = "TabControlPipe";
             this.TabControlPipe.SelectedTabPage = this.TabPageGeneralParameters;
-            this.TabControlPipe.Size = new System.Drawing.Size(700, 450);
+            this.TabControlPipe.Size = new System.Drawing.Size(725, 425);
             this.TabControlPipe.TabIndex = 0;
             this.TabControlPipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPageGeneralParameters,
@@ -139,7 +139,7 @@
             this.TabPageGeneralParameters.Controls.Add(this.comboBoxPipeManufacturer);
             this.TabPageGeneralParameters.Controls.Add(this.txtEdtPipeNumber);
             this.TabPageGeneralParameters.Name = "TabPageGeneralParameters";
-            this.TabPageGeneralParameters.Size = new System.Drawing.Size(694, 422);
+            this.TabPageGeneralParameters.Size = new System.Drawing.Size(719, 397);
             this.TabPageGeneralParameters.Text = "&General parameters";
             // 
             // groupControlGeometricParam
@@ -539,7 +539,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(700, 450);
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
             this.Controls.Add(this.TabControlPipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

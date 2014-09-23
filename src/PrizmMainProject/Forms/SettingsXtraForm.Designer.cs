@@ -664,7 +664,6 @@
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl TabControlSettings;
         private DevExpress.XtraTab.XtraTabPage TabPagePipe;
         private DevExpress.XtraTab.XtraTabPage TabPagePipeline;
         private DevExpress.XtraTab.XtraTabControl PipeSetupTabControl;
@@ -721,5 +720,6 @@
         private DevExpress.XtraGrid.GridControl gridControlDictionaries;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDictionary;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDictionary;
+        public DevExpress.XtraTab.XtraTabControl TabControlSettings;
     }
 }
