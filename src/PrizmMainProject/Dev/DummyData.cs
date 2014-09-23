@@ -9,7 +9,8 @@ namespace PrizmMain.Dev
 {
     public class DummyData
     {
-        public static DataTable CreateDataTable()
+        // SeetingsExtraForm ControlOperationTab Grid
+        public static DataTable CreateControlOperationTable()
         {
             //table
             DataTable table = new DataTable("Data");
