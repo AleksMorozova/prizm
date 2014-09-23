@@ -16,6 +16,8 @@ namespace PrizmMain.Forms
         public SettingsXtraForm()
         {
             InitializeComponent();
-        }
+
+            //TODO:Remove dummy data connection
+            gridControlInspection.DataSource = Dev.DummyData.CreateControlOperationTable();}
     }
 }
