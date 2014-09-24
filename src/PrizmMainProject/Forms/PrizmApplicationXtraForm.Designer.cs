@@ -37,7 +37,7 @@
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemPipes = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindPipes = new DevExpress.XtraBars.BarButtonItem();
@@ -102,7 +102,7 @@
             this.barButtonItemNewPipe,
             this.barButtonItemFindPipes,
             this.barSubItemApplication,
-            this.barButtonItem3,
+            this.barButtonItemExit,
             this.barButtonItemNewComponent,
             this.barButtonItemFindComponentry,
             this.barButtonItemNewJoint,
@@ -170,15 +170,15 @@
             this.barSubItemApplication.Caption = "&Application";
             this.barSubItemApplication.Id = 18;
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
             this.barSubItemApplication.Name = "barSubItemApplication";
             // 
-            // barButtonItem3
+            // barButtonItemExit
             // 
-            this.barButtonItem3.Caption = "E&xit";
-            this.barButtonItem3.Id = 19;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.barButtonItemExit.Caption = "E&xit";
+            this.barButtonItemExit.Id = 19;
+            this.barButtonItemExit.Name = "barButtonItemExit";
+            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
             // 
             // barSubItemPipes
             // 
@@ -403,7 +403,7 @@
         private DevExpress.XtraBars.BarSubItem barSubItemReports;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAbout;
         private DevExpress.XtraBars.BarSubItem barSubItemApplication;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewPipe;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindPipes;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;

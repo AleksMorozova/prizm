@@ -36,17 +36,15 @@ namespace PrizmMain.Forms
             }
         }
 
-        private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabpage) 
+        private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabPage) 
         {
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[tabpage];
+            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[tabPage];
             CreateFormChild(frmChild);
         }
 
         private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-            CreateSettingsFormChild(frmChild, 0);
-          
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 0);
         }
 
         private void barButtonClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -63,69 +61,58 @@ namespace PrizmMain.Forms
 
         private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.PipeNewEditXtraForm frmChild = new Forms.PipeNewEditXtraForm();
-
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.PipeNewEditXtraForm());
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.ComponentNewEditXtraForm frmChild = new Forms.ComponentNewEditXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.ComponentNewEditXtraForm());
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.JointNewEditXtraForm frmChild = new Forms.JointNewEditXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.JointNewEditXtraForm());
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-            CreateSettingsFormChild(frmChild, 1);
-
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 1);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-            CreateSettingsFormChild(frmChild, 2);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 2);
         }
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-            CreateSettingsFormChild(frmChild, 3);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 3);
         }
 
         private void barButtonItemFindComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.ComponentSearchXtraForm frmChild = new Forms.ComponentSearchXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.ComponentSearchXtraForm());
         }
 
         private void barButtonItemReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.ReportsXtraForm frmChild = new Forms.ReportsXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.ReportsXtraForm());
         }
 
         private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.JointSearchXtraForm frmChild = new Forms.JointSearchXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.JointSearchXtraForm());
         }
 
         private void barButtonItemFindPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Forms.PipeSearchXtraForm frmChild = new Forms.PipeSearchXtraForm();
-            CreateFormChild(frmChild);
+            CreateFormChild(new Forms.PipeSearchXtraForm());
         }
 
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItemExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
         }
+
     }
 }
