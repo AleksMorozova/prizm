@@ -30,16 +30,16 @@
         {
             this.checkEditPipeSettings = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditListOfTestOperations = new DevExpress.XtraEditors.CheckEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEditPipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEditPipeSizes = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControlPipeManufacturer = new DevExpress.XtraEditors.LabelControl();
             this.labelControlPipeSizes = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonCopy = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonСancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditPipeSettings.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditListOfTestOperations.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeSizes.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // checkEditPipeSettings
@@ -58,23 +58,23 @@
             this.checkEditListOfTestOperations.Size = new System.Drawing.Size(165, 19);
             this.checkEditListOfTestOperations.TabIndex = 1;
             // 
-            // comboBoxEdit1
+            // comboBoxEditPipeManufacturer
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(46, 123);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.comboBoxEditPipeManufacturer.Location = new System.Drawing.Point(46, 123);
+            this.comboBoxEditPipeManufacturer.Name = "comboBoxEditPipeManufacturer";
+            this.comboBoxEditPipeManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(320, 20);
-            this.comboBoxEdit1.TabIndex = 2;
+            this.comboBoxEditPipeManufacturer.Size = new System.Drawing.Size(320, 20);
+            this.comboBoxEditPipeManufacturer.TabIndex = 2;
             // 
-            // comboBoxEdit2
+            // comboBoxEditPipeSizes
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(46, 184);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.comboBoxEditPipeSizes.Location = new System.Drawing.Point(46, 184);
+            this.comboBoxEditPipeSizes.Name = "comboBoxEditPipeSizes";
+            this.comboBoxEditPipeSizes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(320, 20);
-            this.comboBoxEdit2.TabIndex = 3;
+            this.comboBoxEditPipeSizes.Size = new System.Drawing.Size(320, 20);
+            this.comboBoxEditPipeSizes.TabIndex = 3;
             // 
             // labelControlPipeManufacturer
             // 
@@ -117,8 +117,8 @@
             this.Controls.Add(this.simpleButtonCopy);
             this.Controls.Add(this.labelControlPipeSizes);
             this.Controls.Add(this.labelControlPipeManufacturer);
-            this.Controls.Add(this.comboBoxEdit2);
-            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.comboBoxEditPipeSizes);
+            this.Controls.Add(this.comboBoxEditPipeManufacturer);
             this.Controls.Add(this.checkEditListOfTestOperations);
             this.Controls.Add(this.checkEditPipeSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -126,8 +126,8 @@
             this.Text = "Copy pipe settings";
             ((System.ComponentModel.ISupportInitialize)(this.checkEditPipeSettings.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditListOfTestOperations.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeSizes.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,8 +137,8 @@
 
         private DevExpress.XtraEditors.CheckEdit checkEditPipeSettings;
         private DevExpress.XtraEditors.CheckEdit checkEditListOfTestOperations;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditPipeManufacturer;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditPipeSizes;
         private DevExpress.XtraEditors.LabelControl labelControlPipeManufacturer;
         private DevExpress.XtraEditors.LabelControl labelControlPipeSizes;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCopy;
