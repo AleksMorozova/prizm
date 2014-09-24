@@ -375,7 +375,7 @@
             // 
             this.TabPageInspection.Controls.Add(this.gridControlInspection);
             this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(780, 399);
+            this.TabPageInspection.Size = new System.Drawing.Size(814, 399);
             this.TabPageInspection.Text = "&Inspection";
             // 
             // gridControlInspection
@@ -758,7 +758,6 @@
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl TabControlSettings;
         private DevExpress.XtraTab.XtraTabPage TabPagePipe;
         private DevExpress.XtraTab.XtraTabPage TabPagePipeline;
         private DevExpress.XtraTab.XtraTabControl PipeSetupTabControl;
@@ -823,5 +822,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionPlant;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionCustomer;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionOther;
+        public DevExpress.XtraTab.XtraTabControl TabControlSettings;
     }
 }

@@ -147,8 +147,14 @@
     <EmbeddedResource Include="Forms\JointNewEditXtraForm.resx">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JointSearchXtraForm.resx">
+      <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeNewEditXtraForm.resx">
       <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeSearchXtraForm.resx">
+      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>

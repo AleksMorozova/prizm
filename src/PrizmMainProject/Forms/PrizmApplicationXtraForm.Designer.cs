@@ -48,6 +48,7 @@
             this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemReport = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
@@ -105,9 +106,10 @@
             this.barButtonItemNewComponent,
             this.barButtonItemFindComponentry,
             this.barButtonItemNewJoint,
-            this.barButtonItemFindJoints});
+            this.barButtonItemFindJoints,
+            this.barButtonItemReport});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 24;
+            this.barManager1.MaxItemId = 25;
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barTools
@@ -176,6 +178,7 @@
             this.barButtonItem3.Caption = "E&xit";
             this.barButtonItem3.Id = 19;
             this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barSubItemPipes
             // 
@@ -198,6 +201,7 @@
             this.barButtonItemFindPipes.Caption = "&Find pipes...";
             this.barButtonItemFindPipes.Id = 17;
             this.barButtonItemFindPipes.Name = "barButtonItemFindPipes";
+            this.barButtonItemFindPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindPipes_ItemClick);
             // 
             // barSubItemJoints
             // 
@@ -220,6 +224,7 @@
             this.barButtonItemFindJoints.Caption = "&Find joints...";
             this.barButtonItemFindJoints.Id = 23;
             this.barButtonItemFindJoints.Name = "barButtonItemFindJoints";
+            this.barButtonItemFindJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindJoints_ItemClick);
             // 
             // barSubItemComponentry
             // 
@@ -242,12 +247,22 @@
             this.barButtonItemFindComponentry.Caption = "&Find componentry...";
             this.barButtonItemFindComponentry.Id = 21;
             this.barButtonItemFindComponentry.Name = "barButtonItemFindComponentry";
+            this.barButtonItemFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindComponentry_ItemClick);
             // 
             // barSubItemReports
             // 
             this.barSubItemReports.Caption = "&Reports";
             this.barSubItemReports.Id = 14;
+            this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemReport)});
             this.barSubItemReports.Name = "barSubItemReports";
+            // 
+            // barButtonItemReport
+            // 
+            this.barButtonItemReport.Caption = "Report";
+            this.barButtonItemReport.Id = 24;
+            this.barButtonItemReport.Name = "barButtonItemReport";
+            this.barButtonItemReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReport_ItemClick);
             // 
             // barSubItemSettings
             // 
@@ -273,18 +288,21 @@
             this.barButtonItemSettingsPipeline.Caption = "Pipe&line";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
+            this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemSettingsUsers
             // 
             this.barButtonItemSettingsUsers.Caption = "&Users";
             this.barButtonItemSettingsUsers.Id = 4;
             this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
+            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
             // 
             // barButtonItemSettingsDictionaries
             // 
             this.barButtonItemSettingsDictionaries.Caption = "&Dictionaries";
             this.barButtonItemSettingsDictionaries.Id = 5;
             this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
+            this.barButtonItemSettingsDictionaries.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsDictionaries_ItemClick);
             // 
             // barButtonItemAbout
             // 
@@ -392,6 +410,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindJoints;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewComponent;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindComponentry;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemReport;
 
 
 
