@@ -190,5 +190,10 @@ namespace PrizmMain.Forms
 
             FramesCanOpen--;
         }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
