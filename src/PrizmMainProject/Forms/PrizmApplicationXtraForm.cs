@@ -22,22 +22,31 @@ namespace PrizmMain.Forms
             InitializeComponent();
         }
 
-        private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+        private void CreateFormChild(DevExpress.XtraEditors.XtraForm frmChild)
         {
             if (FramesCanOpen > 0)
             {
-                Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-
                 childForms.Add(frmChild);
                 frmChild.MdiParent = this;
-                frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[0];
                 frmChild.Show();
-
                 frmChild.WindowState = FormWindowState.Normal;
                 frmChild.WindowState = FormWindowState.Maximized;
-
                 FramesCanOpen--;
             }
+        }
+
+        private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabpage) 
+        {
+            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[tabpage];
+            CreateFormChild(frmChild);
+        }
+
+        private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
+            CreateSettingsFormChild(frmChild, 0);
+          
         }
 
         private void barButtonClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -55,140 +64,63 @@ namespace PrizmMain.Forms
         private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.PipeNewEditXtraForm frmChild = new Forms.PipeNewEditXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
 
-            frmChild.Show();
-        
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-            FramesCanOpen--;
-
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.ComponentNewEditXtraForm frmChild = new Forms.ComponentNewEditXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-     
-            frmChild.Show();
-
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
-
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.JointNewEditXtraForm frmChild = new Forms.JointNewEditXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-
-            frmChild.Show(); 
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
+            CreateSettingsFormChild(frmChild, 1);
 
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[1];
-            frmChild.Show();
-
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[2];
-            frmChild.Show();
-
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateSettingsFormChild(frmChild, 2);
         }
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.SettingsXtraForm frmChild = new Forms.SettingsXtraForm();
-
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[3];
-            frmChild.Show();
-
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateSettingsFormChild(frmChild, 3);
         }
 
         private void barButtonItemFindComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.ComponentSearchXtraForm frmChild = new Forms.ComponentSearchXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-
-            frmChild.Show();
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.ReportsXtraForm frmChild = new Forms.ReportsXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-
-            frmChild.Show();
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.JointSearchXtraForm frmChild = new Forms.JointSearchXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-
-            frmChild.Show();
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItemFindPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Forms.PipeSearchXtraForm frmChild = new Forms.PipeSearchXtraForm();
-            childForms.Add(frmChild);
-            frmChild.MdiParent = this;
-
-            frmChild.Show();
-            frmChild.WindowState = FormWindowState.Normal;
-            frmChild.WindowState = FormWindowState.Maximized;
-
-            FramesCanOpen--;
+            CreateFormChild(frmChild);
         }
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
