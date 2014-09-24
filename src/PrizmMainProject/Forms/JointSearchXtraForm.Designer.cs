@@ -52,6 +52,7 @@
             this.gridColumnControlState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnControlDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnExtra = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnExtraJoint = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMinutes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSdegrees.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSseconds.Properties)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExtraJoint)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGPS
@@ -192,9 +194,9 @@
             // 
             this.lblJointNo.Location = new System.Drawing.Point(10, 9);
             this.lblJointNo.Name = "lblJointNo";
-            this.lblJointNo.Size = new System.Drawing.Size(38, 13);
+            this.lblJointNo.Size = new System.Drawing.Size(62, 13);
             this.lblJointNo.TabIndex = 34;
-            this.lblJointNo.Text = "Joint no";
+            this.lblJointNo.Text = "Joint number";
             // 
             // gridControlSerchResult
             // 
@@ -204,6 +206,8 @@
             this.gridControlSerchResult.Location = new System.Drawing.Point(10, 108);
             this.gridControlSerchResult.MainView = this.gridViewResult;
             this.gridControlSerchResult.Name = "gridControlSerchResult";
+            this.gridControlSerchResult.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnExtraJoint});
             this.gridControlSerchResult.Size = new System.Drawing.Size(703, 305);
             this.gridControlSerchResult.TabIndex = 33;
             this.gridControlSerchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -249,7 +253,7 @@
             this.gridColumnRepair.Caption = "Repair";
             this.gridColumnRepair.Name = "gridColumnRepair";
             this.gridColumnRepair.Visible = true;
-            this.gridColumnRepair.VisibleIndex = 6;
+            this.gridColumnRepair.VisibleIndex = 4;
             // 
             // gridColumnControlState
             // 
@@ -263,14 +267,23 @@
             this.gridColumnControlDate.Caption = "Control Date";
             this.gridColumnControlDate.Name = "gridColumnControlDate";
             this.gridColumnControlDate.Visible = true;
-            this.gridColumnControlDate.VisibleIndex = 4;
+            this.gridColumnControlDate.VisibleIndex = 5;
             // 
             // gridColumnExtra
             // 
             this.gridColumnExtra.Caption = "Extra";
+            this.gridColumnExtra.ColumnEdit = this.btnExtraJoint;
             this.gridColumnExtra.Name = "gridColumnExtra";
             this.gridColumnExtra.Visible = true;
-            this.gridColumnExtra.VisibleIndex = 5;
+            this.gridColumnExtra.VisibleIndex = 6;
+            // 
+            // btnExtraJoint
+            // 
+            this.btnExtraJoint.AutoHeight = false;
+            this.btnExtraJoint.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnExtraJoint.Name = "btnExtraJoint";
+            this.btnExtraJoint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // JointSearchXtraForm
             // 
@@ -309,6 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExtraJoint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +354,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnControlState;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnControlDate;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnExtra;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnExtraJoint;
 
     }
 }

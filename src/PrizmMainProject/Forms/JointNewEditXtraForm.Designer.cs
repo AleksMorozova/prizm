@@ -138,9 +138,9 @@
             // 
             this.lblWeldinfDate.Location = new System.Drawing.Point(267, 32);
             this.lblWeldinfDate.Name = "lblWeldinfDate";
-            this.lblWeldinfDate.Size = new System.Drawing.Size(63, 13);
+            this.lblWeldinfDate.Size = new System.Drawing.Size(49, 13);
             this.lblWeldinfDate.TabIndex = 12;
-            this.lblWeldinfDate.Text = "Welding date";
+            this.lblWeldinfDate.Text = "Weld date";
             // 
             // lblWelderNo
             // 
@@ -251,7 +251,7 @@
             // 
             // gridControlComponentry
             // 
-            this.gridControlComponentry.Location = new System.Drawing.Point(345, 69);
+            this.gridControlComponentry.Location = new System.Drawing.Point(346, 79);
             this.gridControlComponentry.MainView = this.gridViewJointControl;
             this.gridControlComponentry.Name = "gridControlComponentry";
             this.gridControlComponentry.Size = new System.Drawing.Size(293, 154);
@@ -276,7 +276,7 @@
             // 
             // gridControlPipes
             // 
-            this.gridControlPipes.Location = new System.Drawing.Point(11, 69);
+            this.gridControlPipes.Location = new System.Drawing.Point(12, 79);
             this.gridControlPipes.MainView = this.PipesControl;
             this.gridControlPipes.Name = "gridControlPipes";
             this.gridControlPipes.Size = new System.Drawing.Size(293, 154);
@@ -301,7 +301,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(345, 50);
+            this.labelControl3.Location = new System.Drawing.Point(346, 60);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(69, 13);
             this.labelControl3.TabIndex = 3;
@@ -309,7 +309,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(18, 50);
+            this.labelControl2.Location = new System.Drawing.Point(12, 60);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(29, 13);
             this.labelControl2.TabIndex = 2;
@@ -317,14 +317,14 @@
             // 
             // txtEdtJointNo
             // 
-            this.txtEdtJointNo.Location = new System.Drawing.Point(96, 15);
+            this.txtEdtJointNo.Location = new System.Drawing.Point(12, 31);
             this.txtEdtJointNo.Name = "txtEdtJointNo";
             this.txtEdtJointNo.Size = new System.Drawing.Size(100, 20);
             this.txtEdtJointNo.TabIndex = 1;
             // 
             // lblJointNo
             // 
-            this.lblJointNo.Location = new System.Drawing.Point(18, 18);
+            this.lblJointNo.Location = new System.Drawing.Point(12, 12);
             this.lblJointNo.Name = "lblJointNo";
             this.lblJointNo.Size = new System.Drawing.Size(62, 13);
             this.lblJointNo.TabIndex = 0;

@@ -48,6 +48,7 @@
             this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemReport = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
@@ -60,7 +61,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItemReport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +200,7 @@
             this.barButtonItemFindPipes.Caption = "&Find pipes...";
             this.barButtonItemFindPipes.Id = 17;
             this.barButtonItemFindPipes.Name = "barButtonItemFindPipes";
+            this.barButtonItemFindPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindPipes_ItemClick);
             // 
             // barSubItemJoints
             // 
@@ -222,6 +223,7 @@
             this.barButtonItemFindJoints.Caption = "&Find joints...";
             this.barButtonItemFindJoints.Id = 23;
             this.barButtonItemFindJoints.Name = "barButtonItemFindJoints";
+            this.barButtonItemFindJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindJoints_ItemClick);
             // 
             // barSubItemComponentry
             // 
@@ -253,6 +255,13 @@
             this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemReport)});
             this.barSubItemReports.Name = "barSubItemReports";
+            // 
+            // barButtonItemReport
+            // 
+            this.barButtonItemReport.Caption = "Report";
+            this.barButtonItemReport.Id = 24;
+            this.barButtonItemReport.Name = "barButtonItemReport";
+            this.barButtonItemReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReport_ItemClick);
             // 
             // barSubItemSettings
             // 
@@ -350,13 +359,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(741, 69);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 415);
-            // 
-            // barButtonItemReport
-            // 
-            this.barButtonItemReport.Caption = "Report";
-            this.barButtonItemReport.Id = 24;
-            this.barButtonItemReport.Name = "barButtonItemReport";
-            this.barButtonItemReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReport_ItemClick);
             // 
             // PrizmApplicationXtraForm
             // 

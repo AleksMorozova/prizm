@@ -203,9 +203,9 @@
             // 
             this.lblPipeNo.Location = new System.Drawing.Point(11, 10);
             this.lblPipeNo.Name = "lblPipeNo";
-            this.lblPipeNo.Size = new System.Drawing.Size(35, 13);
+            this.lblPipeNo.Size = new System.Drawing.Size(59, 13);
             this.lblPipeNo.TabIndex = 34;
-            this.lblPipeNo.Text = "Pipe no";
+            this.lblPipeNo.Text = "Pipe number";
             // 
             // grdControlPipesSearchReselt
             // 

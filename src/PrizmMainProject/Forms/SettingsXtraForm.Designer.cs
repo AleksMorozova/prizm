@@ -53,7 +53,7 @@
             this.txtEdtOuterThickness = new DevExpress.XtraEditors.TextEdit();
             this.CheckEditOuterCoating = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditSpiral = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditWelded = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEditStraight = new DevExpress.XtraEditors.CheckEdit();
             this.lblWeldType = new DevExpress.XtraEditors.LabelControl();
             this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlInspection = new DevExpress.XtraGrid.GridControl();
@@ -104,7 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheckEditOuterCoating.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditSpiral.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditWelded.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditStraight.Properties)).BeginInit();
             this.TabPageInspection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewInspection)).BeginInit();
@@ -195,7 +195,7 @@
             this.TabPageGeneralPipeSetup.Controls.Add(this.groupControlInsideCoating);
             this.TabPageGeneralPipeSetup.Controls.Add(this.groupControlOuterCoating);
             this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditSpiral);
-            this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditWelded);
+            this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditStraight);
             this.TabPageGeneralPipeSetup.Controls.Add(this.lblWeldType);
             this.TabPageGeneralPipeSetup.Name = "TabPageGeneralPipeSetup";
             this.TabPageGeneralPipeSetup.Size = new System.Drawing.Size(660, 309);
@@ -344,14 +344,14 @@
             this.checkEditSpiral.Size = new System.Drawing.Size(75, 19);
             this.checkEditSpiral.TabIndex = 6;
             // 
-            // checkEditWelded
+            // checkEditStraight
             // 
-            this.checkEditWelded.Location = new System.Drawing.Point(138, 13);
-            this.checkEditWelded.Name = "checkEditWelded";
-            this.checkEditWelded.Properties.Caption = "Welded";
-            this.checkEditWelded.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.checkEditWelded.Size = new System.Drawing.Size(75, 19);
-            this.checkEditWelded.TabIndex = 4;
+            this.checkEditStraight.Location = new System.Drawing.Point(138, 13);
+            this.checkEditStraight.Name = "checkEditStraight";
+            this.checkEditStraight.Properties.Caption = "Straight";
+            this.checkEditStraight.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
+            this.checkEditStraight.Size = new System.Drawing.Size(75, 19);
+            this.checkEditStraight.TabIndex = 4;
             // 
             // lblWeldType
             // 
@@ -647,7 +647,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheckEditOuterCoating.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditSpiral.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditWelded.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditStraight.Properties)).EndInit();
             this.TabPageInspection.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewInspection)).EndInit();
@@ -669,7 +669,7 @@
         private DevExpress.XtraTab.XtraTabControl PipeSetupTabControl;
         private DevExpress.XtraTab.XtraTabPage TabPageGeneralPipeSetup;
         private DevExpress.XtraTab.XtraTabPage TabPageInspection;
-        private DevExpress.XtraEditors.CheckEdit checkEditWelded;
+        private DevExpress.XtraEditors.CheckEdit checkEditStraight;
         private DevExpress.XtraEditors.LabelControl lblWeldType;
         private DevExpress.XtraEditors.LabelControl lblPipeSetup;
         private DevExpress.XtraEditors.ComboBoxEdit ComboBoxSizeGrade;

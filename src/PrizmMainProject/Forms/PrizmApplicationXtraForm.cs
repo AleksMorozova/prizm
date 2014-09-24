@@ -164,5 +164,31 @@ namespace PrizmMain.Forms
 
             FramesCanOpen--;
         }
+
+        private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.JointSearchXtraForm frmChild = new Forms.JointSearchXtraForm();
+            childForms.Add(frmChild);
+            frmChild.MdiParent = this;
+
+            frmChild.Show();
+            frmChild.WindowState = FormWindowState.Normal;
+            frmChild.WindowState = FormWindowState.Maximized;
+
+            FramesCanOpen--;
+        }
+
+        private void barButtonItemFindPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Forms.PipeSearchXtraForm frmChild = new Forms.PipeSearchXtraForm();
+            childForms.Add(frmChild);
+            frmChild.MdiParent = this;
+
+            frmChild.Show();
+            frmChild.WindowState = FormWindowState.Normal;
+            frmChild.WindowState = FormWindowState.Maximized;
+
+            FramesCanOpen--;
+        }
     }
 }

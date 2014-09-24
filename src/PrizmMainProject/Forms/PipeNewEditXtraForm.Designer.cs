@@ -64,7 +64,13 @@
             this.comboBoxPipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtEdtPipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.TabPagePlateParameters = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.lblWelding = new DevExpress.XtraEditors.LabelControl();
+            this.dateEditWeld = new DevExpress.XtraEditors.DateEdit();
+            this.lblHeatNo = new DevExpress.XtraEditors.LabelControl();
+            this.txtEdtHeatNo = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdtPlateThermalConductivity = new DevExpress.XtraEditors.TextEdit();
+            this.lblPlateThermalConductivity = new DevExpress.XtraEditors.LabelControl();
+            this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlChemicalComposition = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lblChemicalComposition = new DevExpress.XtraEditors.LabelControl();
@@ -80,12 +86,6 @@
             this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
             this.TabPageSending = new DevExpress.XtraTab.XtraTabPage();
             this.TabPageJoints = new DevExpress.XtraTab.XtraTabPage();
-            this.lblPlateThermalConductivity = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.lblWelding = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.lblHeatNo = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtHeatNo = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlPipe)).BeginInit();
             this.TabControlPipe.SuspendLayout();
             this.TabPageGeneralParameters.SuspendLayout();
@@ -111,8 +111,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxPipeManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNumber.Properties)).BeginInit();
             this.TabPagePlateParameters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPlateThermalConductivity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlChemicalComposition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTensileTests)).BeginInit();
@@ -120,10 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditStelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoPlateManuf.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControlPipe
@@ -359,9 +359,9 @@
             // 
             this.lblWeldingDate.Location = new System.Drawing.Point(20, 69);
             this.lblWeldingDate.Name = "lblWeldingDate";
-            this.lblWeldingDate.Size = new System.Drawing.Size(75, 13);
+            this.lblWeldingDate.Size = new System.Drawing.Size(49, 13);
             this.lblWeldingDate.TabIndex = 9;
-            this.lblWeldingDate.Text = "Date of welding";
+            this.lblWeldingDate.Text = "Weld date";
             // 
             // lblConstrStatus
             // 
@@ -446,12 +446,12 @@
             // TabPagePlateParameters
             // 
             this.TabPagePlateParameters.Controls.Add(this.lblWelding);
-            this.TabPagePlateParameters.Controls.Add(this.dateEdit1);
+            this.TabPagePlateParameters.Controls.Add(this.dateEditWeld);
             this.TabPagePlateParameters.Controls.Add(this.lblHeatNo);
             this.TabPagePlateParameters.Controls.Add(this.txtEdtHeatNo);
-            this.TabPagePlateParameters.Controls.Add(this.textEdit1);
+            this.TabPagePlateParameters.Controls.Add(this.txtEdtPlateThermalConductivity);
             this.TabPagePlateParameters.Controls.Add(this.lblPlateThermalConductivity);
-            this.TabPagePlateParameters.Controls.Add(this.splitContainerControl1);
+            this.TabPagePlateParameters.Controls.Add(this.splitContainer);
             this.TabPagePlateParameters.Controls.Add(this.lblThickness);
             this.TabPagePlateParameters.Controls.Add(this.txtEdtThickness);
             this.TabPagePlateParameters.Controls.Add(this.comboBoxEditStelGrade);
@@ -462,22 +462,74 @@
             this.TabPagePlateParameters.Size = new System.Drawing.Size(719, 397);
             this.TabPagePlateParameters.Text = "P&late parameters";
             // 
-            // splitContainerControl1
+            // lblWelding
             // 
-            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(11, 129);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gridControlChemicalComposition);
-            this.splitContainerControl1.Panel1.Controls.Add(this.lblChemicalComposition);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.gridControlTensileTests);
-            this.splitContainerControl1.Panel2.Controls.Add(this.lblTensileTests);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(688, 261);
-            this.splitContainerControl1.SplitterPosition = 131;
-            this.splitContainerControl1.TabIndex = 8;
-            this.splitContainerControl1.Text = "splitContainerControl1";
+            this.lblWelding.Location = new System.Drawing.Point(191, 64);
+            this.lblWelding.Name = "lblWelding";
+            this.lblWelding.Size = new System.Drawing.Size(49, 13);
+            this.lblWelding.TabIndex = 14;
+            this.lblWelding.Text = "Weld date";
+            // 
+            // dateEditWeld
+            // 
+            this.dateEditWeld.EditValue = null;
+            this.dateEditWeld.Location = new System.Drawing.Point(191, 89);
+            this.dateEditWeld.Name = "dateEditWeld";
+            this.dateEditWeld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditWeld.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditWeld.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.dateEditWeld.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.dateEditWeld.Size = new System.Drawing.Size(117, 20);
+            this.dateEditWeld.TabIndex = 13;
+            // 
+            // lblHeatNo
+            // 
+            this.lblHeatNo.Location = new System.Drawing.Point(19, 64);
+            this.lblHeatNo.Name = "lblHeatNo";
+            this.lblHeatNo.Size = new System.Drawing.Size(62, 13);
+            this.lblHeatNo.TabIndex = 12;
+            this.lblHeatNo.Text = "Heat number";
+            // 
+            // txtEdtHeatNo
+            // 
+            this.txtEdtHeatNo.Location = new System.Drawing.Point(19, 89);
+            this.txtEdtHeatNo.Name = "txtEdtHeatNo";
+            this.txtEdtHeatNo.Size = new System.Drawing.Size(127, 20);
+            this.txtEdtHeatNo.TabIndex = 11;
+            // 
+            // txtEdtPlateThermalConductivity
+            // 
+            this.txtEdtPlateThermalConductivity.Location = new System.Drawing.Point(497, 89);
+            this.txtEdtPlateThermalConductivity.Name = "txtEdtPlateThermalConductivity";
+            this.txtEdtPlateThermalConductivity.Size = new System.Drawing.Size(127, 20);
+            this.txtEdtPlateThermalConductivity.TabIndex = 10;
+            // 
+            // lblPlateThermalConductivity
+            // 
+            this.lblPlateThermalConductivity.Location = new System.Drawing.Point(498, 64);
+            this.lblPlateThermalConductivity.Name = "lblPlateThermalConductivity";
+            this.lblPlateThermalConductivity.Size = new System.Drawing.Size(99, 13);
+            this.lblPlateThermalConductivity.TabIndex = 9;
+            this.lblPlateThermalConductivity.Text = "Thermal conductivity";
+            // 
+            // splitContainer
+            // 
+            this.splitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainer.Horizontal = false;
+            this.splitContainer.Location = new System.Drawing.Point(11, 115);
+            this.splitContainer.Name = "splitContainer";
+            this.splitContainer.Panel1.Controls.Add(this.gridControlChemicalComposition);
+            this.splitContainer.Panel1.Controls.Add(this.lblChemicalComposition);
+            this.splitContainer.Panel1.Text = "Panel1";
+            this.splitContainer.Panel2.Controls.Add(this.gridControlTensileTests);
+            this.splitContainer.Panel2.Controls.Add(this.lblTensileTests);
+            this.splitContainer.Panel2.Text = "Panel2";
+            this.splitContainer.Size = new System.Drawing.Size(688, 261);
+            this.splitContainer.SplitterPosition = 131;
+            this.splitContainer.TabIndex = 8;
+            this.splitContainer.Text = "splitContainerControl1";
             // 
             // gridControlChemicalComposition
             // 
@@ -529,7 +581,7 @@
             // 
             // lblThickness
             // 
-            this.lblThickness.Location = new System.Drawing.Point(350, 70);
+            this.lblThickness.Location = new System.Drawing.Point(350, 64);
             this.lblThickness.Name = "lblThickness";
             this.lblThickness.Size = new System.Drawing.Size(47, 13);
             this.lblThickness.TabIndex = 7;
@@ -537,7 +589,7 @@
             // 
             // txtEdtThickness
             // 
-            this.txtEdtThickness.Location = new System.Drawing.Point(349, 95);
+            this.txtEdtThickness.Location = new System.Drawing.Point(349, 89);
             this.txtEdtThickness.Name = "txtEdtThickness";
             this.txtEdtThickness.Size = new System.Drawing.Size(117, 20);
             this.txtEdtThickness.TabIndex = 6;
@@ -594,58 +646,6 @@
             this.TabPageJoints.Size = new System.Drawing.Size(719, 397);
             this.TabPageJoints.Text = "Join&ts";
             // 
-            // lblPlateThermalConductivity
-            // 
-            this.lblPlateThermalConductivity.Location = new System.Drawing.Point(498, 70);
-            this.lblPlateThermalConductivity.Name = "lblPlateThermalConductivity";
-            this.lblPlateThermalConductivity.Size = new System.Drawing.Size(99, 13);
-            this.lblPlateThermalConductivity.TabIndex = 9;
-            this.lblPlateThermalConductivity.Text = "Thermal conductivity";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(497, 95);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(127, 20);
-            this.textEdit1.TabIndex = 10;
-            // 
-            // lblWelding
-            // 
-            this.lblWelding.Location = new System.Drawing.Point(191, 70);
-            this.lblWelding.Name = "lblWelding";
-            this.lblWelding.Size = new System.Drawing.Size(63, 13);
-            this.lblWelding.TabIndex = 14;
-            this.lblWelding.Text = "Welding date";
-            // 
-            // dateEdit1
-            // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(191, 95);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEdit1.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEdit1.Size = new System.Drawing.Size(117, 20);
-            this.dateEdit1.TabIndex = 13;
-            // 
-            // lblHeatNo
-            // 
-            this.lblHeatNo.Location = new System.Drawing.Point(19, 70);
-            this.lblHeatNo.Name = "lblHeatNo";
-            this.lblHeatNo.Size = new System.Drawing.Size(62, 13);
-            this.lblHeatNo.TabIndex = 12;
-            this.lblHeatNo.Text = "Heat number";
-            // 
-            // txtEdtHeatNo
-            // 
-            this.txtEdtHeatNo.Location = new System.Drawing.Point(19, 95);
-            this.txtEdtHeatNo.Name = "txtEdtHeatNo";
-            this.txtEdtHeatNo.Size = new System.Drawing.Size(127, 20);
-            this.txtEdtHeatNo.TabIndex = 11;
-            // 
             // PipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -686,8 +686,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNumber.Properties)).EndInit();
             this.TabPagePlateParameters.ResumeLayout(false);
             this.TabPagePlateParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPlateThermalConductivity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlChemicalComposition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTensileTests)).EndInit();
@@ -695,10 +699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditStelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoPlateManuf.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -741,7 +741,7 @@
         private DevExpress.XtraEditors.LabelControl lblThickness;
         private DevExpress.XtraEditors.TextEdit txtEdtThickness;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditStelGrade;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainer;
         private DevExpress.XtraGrid.GridControl gridControlChemicalComposition;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl lblChemicalComposition;
@@ -757,10 +757,10 @@
         private DevExpress.XtraEditors.LabelControl lblInspectionOtherParam;
         private DevExpress.XtraEditors.TextEdit txtEdtInspectionDiameter;
         private DevExpress.XtraEditors.TextEdit txtEdtMillDiameter;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtEdtPlateThermalConductivity;
         private DevExpress.XtraEditors.LabelControl lblPlateThermalConductivity;
         private DevExpress.XtraEditors.LabelControl lblWelding;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEditWeld;
         private DevExpress.XtraEditors.LabelControl lblHeatNo;
         private DevExpress.XtraEditors.TextEdit txtEdtHeatNo;
     }
