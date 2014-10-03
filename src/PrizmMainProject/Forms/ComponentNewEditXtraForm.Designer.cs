@@ -60,14 +60,14 @@
             // 
             // txtEdtComponentNo
             // 
-            this.txtEdtComponentNo.Location = new System.Drawing.Point(129, 38);
+            this.txtEdtComponentNo.Location = new System.Drawing.Point(26, 34);
             this.txtEdtComponentNo.Name = "txtEdtComponentNo";
             this.txtEdtComponentNo.Size = new System.Drawing.Size(100, 20);
             this.txtEdtComponentNo.TabIndex = 0;
             // 
             // lblComponentNo
             // 
-            this.lblComponentNo.Location = new System.Drawing.Point(26, 41);
+            this.lblComponentNo.Location = new System.Drawing.Point(26, 12);
             this.lblComponentNo.Name = "lblComponentNo";
             this.lblComponentNo.Size = new System.Drawing.Size(94, 13);
             this.lblComponentNo.TabIndex = 1;
@@ -75,14 +75,14 @@
             // 
             // txtEdtCertificateNo
             // 
-            this.txtEdtCertificateNo.Location = new System.Drawing.Point(400, 38);
+            this.txtEdtCertificateNo.Location = new System.Drawing.Point(257, 34);
             this.txtEdtCertificateNo.Name = "txtEdtCertificateNo";
             this.txtEdtCertificateNo.Size = new System.Drawing.Size(100, 20);
             this.txtEdtCertificateNo.TabIndex = 2;
             // 
             // lblCertificateNo
             // 
-            this.lblCertificateNo.Location = new System.Drawing.Point(288, 41);
+            this.lblCertificateNo.Location = new System.Drawing.Point(257, 12);
             this.lblCertificateNo.Name = "lblCertificateNo";
             this.lblCertificateNo.Size = new System.Drawing.Size(89, 13);
             this.lblCertificateNo.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             // gridControlParameters
             // 
-            this.gridControlParameters.Location = new System.Drawing.Point(26, 110);
+            this.gridControlParameters.Location = new System.Drawing.Point(26, 142);
             this.gridControlParameters.MainView = this.gridViewParameters;
             this.gridControlParameters.Name = "gridControlParameters";
             this.gridControlParameters.Size = new System.Drawing.Size(400, 129);
@@ -105,6 +105,7 @@
             this.gridColumnThickness});
             this.gridViewParameters.GridControl = this.gridControlParameters;
             this.gridViewParameters.Name = "gridViewParameters";
+            this.gridViewParameters.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumnDiameter
             // 
@@ -122,7 +123,7 @@
             // 
             // lblType
             // 
-            this.lblType.Location = new System.Drawing.Point(26, 78);
+            this.lblType.Location = new System.Drawing.Point(26, 69);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(24, 13);
             this.lblType.TabIndex = 5;
@@ -130,7 +131,7 @@
             // 
             // comboBoxEditType
             // 
-            this.comboBoxEditType.Location = new System.Drawing.Point(129, 75);
+            this.comboBoxEditType.Location = new System.Drawing.Point(26, 88);
             this.comboBoxEditType.Name = "comboBoxEditType";
             this.comboBoxEditType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -145,7 +146,7 @@
             this.groupControlInspection.Controls.Add(this.dateEditInspection);
             this.groupControlInspection.Controls.Add(this.txtEdtInspector);
             this.groupControlInspection.Controls.Add(this.comboBoxResult);
-            this.groupControlInspection.Location = new System.Drawing.Point(26, 271);
+            this.groupControlInspection.Location = new System.Drawing.Point(26, 299);
             this.groupControlInspection.Name = "groupControlInspection";
             this.groupControlInspection.Size = new System.Drawing.Size(594, 100);
             this.groupControlInspection.TabIndex = 7;
@@ -211,7 +212,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 476);
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
             this.Controls.Add(this.groupControlInspection);
             this.Controls.Add(this.comboBoxEditType);

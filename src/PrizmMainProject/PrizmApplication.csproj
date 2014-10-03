@@ -73,6 +73,12 @@
     <Compile Include="Forms\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ComponentSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ComponentSearchXtraForm.Designer.cs">
+      <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +91,23 @@
     <Compile Include="Forms\JointNewEditXtraForm.Designer.cs">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JointSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JointSearchXtraForm.Designer.cs">
+      <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PipeNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PipeNewEditXtraForm.Designer.cs">
       <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PipeSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeSearchXtraForm.Designer.cs">
+      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PrizmApplicationXtraForm.cs">
       <SubType>Form</SubType>
@@ -115,16 +133,31 @@
     <Compile Include="Forms\UserInfoXtraForm.Designer.cs">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserRolesEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserRolesEditXtraForm.Designer.cs">
+      <DependentUpon>UserRolesEditXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CopyPipeSettingsXtraForm.resx">
+      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\JointNewEditXtraForm.resx">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JointSearchXtraForm.resx">
+      <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeNewEditXtraForm.resx">
       <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeSearchXtraForm.resx">
+      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
