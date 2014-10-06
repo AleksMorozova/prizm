@@ -30,22 +30,26 @@
         {
             this.TabControlPipe = new DevExpress.XtraTab.XtraTabControl();
             this.TabPageGeneralParameters = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControlOtherParameters = new DevExpress.XtraEditors.GroupControl();
-            this.txtEdtInspectionThermalConductivity = new DevExpress.XtraEditors.TextEdit();
-            this.txtEditMillThermalConductivity = new DevExpress.XtraEditors.TextEdit();
-            this.lblPipeThermalConductivity = new DevExpress.XtraEditors.LabelControl();
-            this.lblMillOtherParam = new DevExpress.XtraEditors.LabelControl();
-            this.lblInspectionOtherParam = new DevExpress.XtraEditors.LabelControl();
-            this.lblWeight = new DevExpress.XtraEditors.LabelControl();
-            this.txtMillLength = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtInspectionWeight = new DevExpress.XtraEditors.TextEdit();
+            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdtInternalCoating = new DevExpress.XtraEditors.DateEdit();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdtExternalCoating = new DevExpress.XtraEditors.DateEdit();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlGeometricParam = new DevExpress.XtraEditors.GroupControl();
             this.txtEdtInspectionDiameter = new DevExpress.XtraEditors.TextEdit();
             this.txtEdtMillDiameter = new DevExpress.XtraEditors.TextEdit();
             this.lblDiameter = new DevExpress.XtraEditors.LabelControl();
             this.lblMillGeometricParam = new DevExpress.XtraEditors.LabelControl();
             this.txtEdtInspectionThickness = new DevExpress.XtraEditors.TextEdit();
+            this.lblWeight = new DevExpress.XtraEditors.LabelControl();
+            this.txtMillLength = new DevExpress.XtraEditors.TextEdit();
             this.lblInspectionGeometricParam = new DevExpress.XtraEditors.LabelControl();
+            this.txtEdtInspectionWeight = new DevExpress.XtraEditors.TextEdit();
             this.txtEdtInspectionLength = new DevExpress.XtraEditors.TextEdit();
             this.lblSideThickness = new DevExpress.XtraEditors.LabelControl();
             this.txtEdtMillThickness = new DevExpress.XtraEditors.TextEdit();
@@ -63,20 +67,17 @@
             this.comboBoxMillStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxPipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtEdtPipeNumber = new DevExpress.XtraEditors.TextEdit();
+            this.TabPageHeat = new DevExpress.XtraTab.XtraTabPage();
+            this.txtEditHeatNo = new DevExpress.XtraEditors.TextEdit();
+            this.groupControlLadle = new DevExpress.XtraEditors.GroupControl();
+            this.groupControlProduct = new DevExpress.XtraEditors.GroupControl();
+            this.lblChemicalComp = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.TabPagePlateParameters = new DevExpress.XtraTab.XtraTabPage();
             this.lblWelding = new DevExpress.XtraEditors.LabelControl();
             this.dateEditWeld = new DevExpress.XtraEditors.DateEdit();
             this.lblHeatNo = new DevExpress.XtraEditors.LabelControl();
             this.txtEdtHeatNo = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtPlateThermalConductivity = new DevExpress.XtraEditors.TextEdit();
-            this.lblPlateThermalConductivity = new DevExpress.XtraEditors.LabelControl();
-            this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gridControlChemicalComposition = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblChemicalComposition = new DevExpress.XtraEditors.LabelControl();
-            this.gridControlTensileTests = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblTensileTests = new DevExpress.XtraEditors.LabelControl();
             this.lblThickness = new DevExpress.XtraEditors.LabelControl();
             this.txtEdtThickness = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEditStelGrade = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -85,21 +86,31 @@
             this.lblPipeNo = new DevExpress.XtraEditors.LabelControl();
             this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
             this.TabPageSending = new DevExpress.XtraTab.XtraTabPage();
-            this.TabPageJoints = new DevExpress.XtraTab.XtraTabPage();
+            this.txtEdtShippedDate = new DevExpress.XtraEditors.TextEdit();
+            this.textEditDischargeDate = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdtRailcar = new DevExpress.XtraEditors.TextEdit();
+            this.txtEdtCertificateNo = new DevExpress.XtraEditors.TextEdit();
+            this.lblCertificateNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblShippedDate = new DevExpress.XtraEditors.LabelControl();
+            this.lblRailcarNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblUnloadingDate = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlPipe)).BeginInit();
             this.TabControlPipe.SuspendLayout();
             this.TabPageGeneralParameters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlOtherParameters)).BeginInit();
-            this.groupControlOtherParameters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionThermalConductivity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditMillThermalConductivity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMillLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtInternalCoating.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtInternalCoating.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtExternalCoating.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtExternalCoating.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlGeometricParam)).BeginInit();
             this.groupControlGeometricParam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMillLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillLength.Properties)).BeginInit();
@@ -110,20 +121,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMillStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxPipeManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNumber.Properties)).BeginInit();
+            this.TabPageHeat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEditHeatNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlLadle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlProduct)).BeginInit();
             this.TabPagePlateParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPlateThermalConductivity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-            this.splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlChemicalComposition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlTensileTests)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditStelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoPlateManuf.Properties)).BeginInit();
+            this.TabPageSending.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtShippedDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDischargeDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtRailcar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControlPipe
@@ -136,14 +149,23 @@
             this.TabControlPipe.TabIndex = 0;
             this.TabControlPipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPageGeneralParameters,
+            this.TabPageHeat,
             this.TabPagePlateParameters,
             this.TabPageInspection,
-            this.TabPageSending,
-            this.TabPageJoints});
+            this.TabPageSending});
             // 
             // TabPageGeneralParameters
             // 
-            this.TabPageGeneralParameters.Controls.Add(this.groupControlOtherParameters);
+            this.TabPageGeneralParameters.Controls.Add(this.comboBoxEdit3);
+            this.TabPageGeneralParameters.Controls.Add(this.labelControl5);
+            this.TabPageGeneralParameters.Controls.Add(this.labelControl6);
+            this.TabPageGeneralParameters.Controls.Add(this.dateEdtInternalCoating);
+            this.TabPageGeneralParameters.Controls.Add(this.comboBoxEdit2);
+            this.TabPageGeneralParameters.Controls.Add(this.labelControl3);
+            this.TabPageGeneralParameters.Controls.Add(this.labelControl4);
+            this.TabPageGeneralParameters.Controls.Add(this.dateEdtExternalCoating);
+            this.TabPageGeneralParameters.Controls.Add(this.comboBoxEdit1);
+            this.TabPageGeneralParameters.Controls.Add(this.labelControl2);
             this.TabPageGeneralParameters.Controls.Add(this.groupControlGeometricParam);
             this.TabPageGeneralParameters.Controls.Add(this.lblSizeGrade);
             this.TabPageGeneralParameters.Controls.Add(this.comboBoxSizeGrade);
@@ -161,81 +183,100 @@
             this.TabPageGeneralParameters.Size = new System.Drawing.Size(719, 397);
             this.TabPageGeneralParameters.Text = "&General parameters";
             // 
-            // groupControlOtherParameters
+            // comboBoxEdit3
             // 
-            this.groupControlOtherParameters.Controls.Add(this.txtEdtInspectionThermalConductivity);
-            this.groupControlOtherParameters.Controls.Add(this.txtEditMillThermalConductivity);
-            this.groupControlOtherParameters.Controls.Add(this.lblPipeThermalConductivity);
-            this.groupControlOtherParameters.Controls.Add(this.lblMillOtherParam);
-            this.groupControlOtherParameters.Controls.Add(this.lblInspectionOtherParam);
-            this.groupControlOtherParameters.Controls.Add(this.lblWeight);
-            this.groupControlOtherParameters.Controls.Add(this.txtMillLength);
-            this.groupControlOtherParameters.Controls.Add(this.txtEdtInspectionWeight);
-            this.groupControlOtherParameters.Location = new System.Drawing.Point(20, 261);
-            this.groupControlOtherParameters.Name = "groupControlOtherParameters";
-            this.groupControlOtherParameters.Size = new System.Drawing.Size(446, 108);
-            this.groupControlOtherParameters.TabIndex = 25;
-            this.groupControlOtherParameters.Text = "Other parameters";
+            this.comboBoxEdit3.Location = new System.Drawing.Point(429, 211);
+            this.comboBoxEdit3.Name = "comboBoxEdit3";
+            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit3.Size = new System.Drawing.Size(154, 20);
+            this.comboBoxEdit3.TabIndex = 34;
             // 
-            // txtEdtInspectionThermalConductivity
+            // labelControl5
             // 
-            this.txtEdtInspectionThermalConductivity.Location = new System.Drawing.Point(288, 82);
-            this.txtEdtInspectionThermalConductivity.Name = "txtEdtInspectionThermalConductivity";
-            this.txtEdtInspectionThermalConductivity.Size = new System.Drawing.Size(73, 20);
-            this.txtEdtInspectionThermalConductivity.TabIndex = 28;
+            this.labelControl5.Location = new System.Drawing.Point(429, 192);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(115, 13);
+            this.labelControl5.TabIndex = 33;
+            this.labelControl5.Text = "Internal coating brigade";
             // 
-            // txtEditMillThermalConductivity
+            // labelControl6
             // 
-            this.txtEditMillThermalConductivity.Location = new System.Drawing.Point(288, 50);
-            this.txtEditMillThermalConductivity.Name = "txtEditMillThermalConductivity";
-            this.txtEditMillThermalConductivity.Size = new System.Drawing.Size(73, 20);
-            this.txtEditMillThermalConductivity.TabIndex = 27;
+            this.labelControl6.Location = new System.Drawing.Point(429, 137);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(95, 13);
+            this.labelControl6.TabIndex = 32;
+            this.labelControl6.Text = "Internl coating date";
             // 
-            // lblPipeThermalConductivity
+            // dateEdtInternalCoating
             // 
-            this.lblPipeThermalConductivity.Location = new System.Drawing.Point(289, 24);
-            this.lblPipeThermalConductivity.Name = "lblPipeThermalConductivity";
-            this.lblPipeThermalConductivity.Size = new System.Drawing.Size(99, 13);
-            this.lblPipeThermalConductivity.TabIndex = 26;
-            this.lblPipeThermalConductivity.Text = "Thermal conductivity";
+            this.dateEdtInternalCoating.EditValue = null;
+            this.dateEdtInternalCoating.Location = new System.Drawing.Point(429, 156);
+            this.dateEdtInternalCoating.Name = "dateEdtInternalCoating";
+            this.dateEdtInternalCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdtInternalCoating.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdtInternalCoating.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.dateEdtInternalCoating.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.dateEdtInternalCoating.Size = new System.Drawing.Size(154, 20);
+            this.dateEdtInternalCoating.TabIndex = 31;
             // 
-            // lblMillOtherParam
+            // comboBoxEdit2
             // 
-            this.lblMillOtherParam.Location = new System.Drawing.Point(9, 53);
-            this.lblMillOtherParam.Name = "lblMillOtherParam";
-            this.lblMillOtherParam.Size = new System.Drawing.Size(14, 13);
-            this.lblMillOtherParam.TabIndex = 24;
-            this.lblMillOtherParam.Text = "Mill";
+            this.comboBoxEdit2.Location = new System.Drawing.Point(222, 211);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(154, 20);
+            this.comboBoxEdit2.TabIndex = 30;
             // 
-            // lblInspectionOtherParam
+            // labelControl3
             // 
-            this.lblInspectionOtherParam.Location = new System.Drawing.Point(9, 85);
-            this.lblInspectionOtherParam.Name = "lblInspectionOtherParam";
-            this.lblInspectionOtherParam.Size = new System.Drawing.Size(102, 13);
-            this.lblInspectionOtherParam.TabIndex = 25;
-            this.lblInspectionOtherParam.Text = "Incomming inspection";
+            this.labelControl3.Location = new System.Drawing.Point(222, 192);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(117, 13);
+            this.labelControl3.TabIndex = 29;
+            this.labelControl3.Text = "External coating brigade";
             // 
-            // lblWeight
+            // labelControl4
             // 
-            this.lblWeight.Location = new System.Drawing.Point(155, 24);
-            this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(34, 13);
-            this.lblWeight.TabIndex = 23;
-            this.lblWeight.Text = "Weight";
+            this.labelControl4.Location = new System.Drawing.Point(222, 137);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(103, 13);
+            this.labelControl4.TabIndex = 28;
+            this.labelControl4.Text = "External coating date";
             // 
-            // txtMillLength
+            // dateEdtExternalCoating
             // 
-            this.txtMillLength.Location = new System.Drawing.Point(155, 50);
-            this.txtMillLength.Name = "txtMillLength";
-            this.txtMillLength.Size = new System.Drawing.Size(73, 20);
-            this.txtMillLength.TabIndex = 15;
+            this.dateEdtExternalCoating.EditValue = null;
+            this.dateEdtExternalCoating.Location = new System.Drawing.Point(222, 156);
+            this.dateEdtExternalCoating.Name = "dateEdtExternalCoating";
+            this.dateEdtExternalCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdtExternalCoating.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdtExternalCoating.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.dateEdtExternalCoating.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.dateEdtExternalCoating.Size = new System.Drawing.Size(154, 20);
+            this.dateEdtExternalCoating.TabIndex = 27;
             // 
-            // txtEdtInspectionWeight
+            // comboBoxEdit1
             // 
-            this.txtEdtInspectionWeight.Location = new System.Drawing.Point(155, 82);
-            this.txtEdtInspectionWeight.Name = "txtEdtInspectionWeight";
-            this.txtEdtInspectionWeight.Size = new System.Drawing.Size(73, 20);
-            this.txtEdtInspectionWeight.TabIndex = 18;
+            this.comboBoxEdit1.Location = new System.Drawing.Point(20, 211);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(154, 20);
+            this.comboBoxEdit1.TabIndex = 26;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(20, 192);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(63, 13);
+            this.labelControl2.TabIndex = 25;
+            this.labelControl2.Text = "Weld brigade";
             // 
             // groupControlGeometricParam
             // 
@@ -244,15 +285,18 @@
             this.groupControlGeometricParam.Controls.Add(this.lblDiameter);
             this.groupControlGeometricParam.Controls.Add(this.lblMillGeometricParam);
             this.groupControlGeometricParam.Controls.Add(this.txtEdtInspectionThickness);
+            this.groupControlGeometricParam.Controls.Add(this.lblWeight);
+            this.groupControlGeometricParam.Controls.Add(this.txtMillLength);
             this.groupControlGeometricParam.Controls.Add(this.lblInspectionGeometricParam);
+            this.groupControlGeometricParam.Controls.Add(this.txtEdtInspectionWeight);
             this.groupControlGeometricParam.Controls.Add(this.txtEdtInspectionLength);
             this.groupControlGeometricParam.Controls.Add(this.lblSideThickness);
             this.groupControlGeometricParam.Controls.Add(this.txtEdtMillThickness);
             this.groupControlGeometricParam.Controls.Add(this.lblLength);
             this.groupControlGeometricParam.Controls.Add(this.txtEdtMillLength);
-            this.groupControlGeometricParam.Location = new System.Drawing.Point(20, 128);
+            this.groupControlGeometricParam.Location = new System.Drawing.Point(20, 251);
             this.groupControlGeometricParam.Name = "groupControlGeometricParam";
-            this.groupControlGeometricParam.Size = new System.Drawing.Size(446, 108);
+            this.groupControlGeometricParam.Size = new System.Drawing.Size(563, 108);
             this.groupControlGeometricParam.TabIndex = 24;
             this.groupControlGeometricParam.Text = "Geometric parameters of the pipe";
             // 
@@ -293,6 +337,21 @@
             this.txtEdtInspectionThickness.Size = new System.Drawing.Size(73, 20);
             this.txtEdtInspectionThickness.TabIndex = 17;
             // 
+            // lblWeight
+            // 
+            this.lblWeight.Location = new System.Drawing.Point(438, 23);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(34, 13);
+            this.lblWeight.TabIndex = 23;
+            this.lblWeight.Text = "Weight";
+            // 
+            // txtMillLength
+            // 
+            this.txtMillLength.Location = new System.Drawing.Point(438, 49);
+            this.txtMillLength.Name = "txtMillLength";
+            this.txtMillLength.Size = new System.Drawing.Size(73, 20);
+            this.txtMillLength.TabIndex = 15;
+            // 
             // lblInspectionGeometricParam
             // 
             this.lblInspectionGeometricParam.Location = new System.Drawing.Point(8, 84);
@@ -300,6 +359,13 @@
             this.lblInspectionGeometricParam.Size = new System.Drawing.Size(102, 13);
             this.lblInspectionGeometricParam.TabIndex = 20;
             this.lblInspectionGeometricParam.Text = "Incomming inspection";
+            // 
+            // txtEdtInspectionWeight
+            // 
+            this.txtEdtInspectionWeight.Location = new System.Drawing.Point(438, 81);
+            this.txtEdtInspectionWeight.Name = "txtEdtInspectionWeight";
+            this.txtEdtInspectionWeight.Size = new System.Drawing.Size(73, 20);
+            this.txtEdtInspectionWeight.TabIndex = 18;
             // 
             // txtEdtInspectionLength
             // 
@@ -357,7 +423,7 @@
             // 
             // lblWeldingDate
             // 
-            this.lblWeldingDate.Location = new System.Drawing.Point(20, 69);
+            this.lblWeldingDate.Location = new System.Drawing.Point(20, 137);
             this.lblWeldingDate.Name = "lblWeldingDate";
             this.lblWeldingDate.Size = new System.Drawing.Size(49, 13);
             this.lblWeldingDate.TabIndex = 9;
@@ -365,7 +431,7 @@
             // 
             // lblConstrStatus
             // 
-            this.lblConstrStatus.Location = new System.Drawing.Point(429, 69);
+            this.lblConstrStatus.Location = new System.Drawing.Point(222, 68);
             this.lblConstrStatus.Name = "lblConstrStatus";
             this.lblConstrStatus.Size = new System.Drawing.Size(127, 13);
             this.lblConstrStatus.TabIndex = 8;
@@ -373,7 +439,7 @@
             // 
             // lblMillStatus
             // 
-            this.lblMillStatus.Location = new System.Drawing.Point(222, 69);
+            this.lblMillStatus.Location = new System.Drawing.Point(20, 68);
             this.lblMillStatus.Name = "lblMillStatus";
             this.lblMillStatus.Size = new System.Drawing.Size(82, 13);
             this.lblMillStatus.TabIndex = 7;
@@ -398,7 +464,7 @@
             // dateEditWelding
             // 
             this.dateEditWelding.EditValue = null;
-            this.dateEditWelding.Location = new System.Drawing.Point(20, 88);
+            this.dateEditWelding.Location = new System.Drawing.Point(20, 156);
             this.dateEditWelding.Name = "dateEditWelding";
             this.dateEditWelding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -411,7 +477,7 @@
             // 
             // comboBoxConstrStatus
             // 
-            this.comboBoxConstrStatus.Location = new System.Drawing.Point(429, 88);
+            this.comboBoxConstrStatus.Location = new System.Drawing.Point(222, 87);
             this.comboBoxConstrStatus.Name = "comboBoxConstrStatus";
             this.comboBoxConstrStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -420,7 +486,7 @@
             // 
             // comboBoxMillStatus
             // 
-            this.comboBoxMillStatus.Location = new System.Drawing.Point(222, 88);
+            this.comboBoxMillStatus.Location = new System.Drawing.Point(20, 87);
             this.comboBoxMillStatus.Name = "comboBoxMillStatus";
             this.comboBoxMillStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -443,15 +509,62 @@
             this.txtEdtPipeNumber.Size = new System.Drawing.Size(154, 20);
             this.txtEdtPipeNumber.TabIndex = 0;
             // 
+            // TabPageHeat
+            // 
+            this.TabPageHeat.Controls.Add(this.txtEditHeatNo);
+            this.TabPageHeat.Controls.Add(this.groupControlLadle);
+            this.TabPageHeat.Controls.Add(this.groupControlProduct);
+            this.TabPageHeat.Controls.Add(this.lblChemicalComp);
+            this.TabPageHeat.Controls.Add(this.labelControl1);
+            this.TabPageHeat.Name = "TabPageHeat";
+            this.TabPageHeat.Size = new System.Drawing.Size(719, 397);
+            this.TabPageHeat.Text = "&Heat";
+            // 
+            // txtEditHeatNo
+            // 
+            this.txtEditHeatNo.Location = new System.Drawing.Point(23, 48);
+            this.txtEditHeatNo.Name = "txtEditHeatNo";
+            this.txtEditHeatNo.Size = new System.Drawing.Size(100, 20);
+            this.txtEditHeatNo.TabIndex = 21;
+            // 
+            // groupControlLadle
+            // 
+            this.groupControlLadle.Location = new System.Drawing.Point(23, 242);
+            this.groupControlLadle.Name = "groupControlLadle";
+            this.groupControlLadle.Size = new System.Drawing.Size(484, 100);
+            this.groupControlLadle.TabIndex = 20;
+            this.groupControlLadle.Text = "Ladle";
+            // 
+            // groupControlProduct
+            // 
+            this.groupControlProduct.Location = new System.Drawing.Point(23, 130);
+            this.groupControlProduct.Name = "groupControlProduct";
+            this.groupControlProduct.Size = new System.Drawing.Size(484, 100);
+            this.groupControlProduct.TabIndex = 19;
+            this.groupControlProduct.Text = "Product";
+            // 
+            // lblChemicalComp
+            // 
+            this.lblChemicalComp.Location = new System.Drawing.Point(23, 104);
+            this.lblChemicalComp.Name = "lblChemicalComp";
+            this.lblChemicalComp.Size = new System.Drawing.Size(101, 13);
+            this.lblChemicalComp.TabIndex = 18;
+            this.lblChemicalComp.Text = "Chemical composition";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(23, 29);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(62, 13);
+            this.labelControl1.TabIndex = 17;
+            this.labelControl1.Text = "Heat number";
+            // 
             // TabPagePlateParameters
             // 
             this.TabPagePlateParameters.Controls.Add(this.lblWelding);
             this.TabPagePlateParameters.Controls.Add(this.dateEditWeld);
             this.TabPagePlateParameters.Controls.Add(this.lblHeatNo);
             this.TabPagePlateParameters.Controls.Add(this.txtEdtHeatNo);
-            this.TabPagePlateParameters.Controls.Add(this.txtEdtPlateThermalConductivity);
-            this.TabPagePlateParameters.Controls.Add(this.lblPlateThermalConductivity);
-            this.TabPagePlateParameters.Controls.Add(this.splitContainer);
             this.TabPagePlateParameters.Controls.Add(this.lblThickness);
             this.TabPagePlateParameters.Controls.Add(this.txtEdtThickness);
             this.TabPagePlateParameters.Controls.Add(this.comboBoxEditStelGrade);
@@ -498,86 +611,6 @@
             this.txtEdtHeatNo.Name = "txtEdtHeatNo";
             this.txtEdtHeatNo.Size = new System.Drawing.Size(127, 20);
             this.txtEdtHeatNo.TabIndex = 11;
-            // 
-            // txtEdtPlateThermalConductivity
-            // 
-            this.txtEdtPlateThermalConductivity.Location = new System.Drawing.Point(497, 89);
-            this.txtEdtPlateThermalConductivity.Name = "txtEdtPlateThermalConductivity";
-            this.txtEdtPlateThermalConductivity.Size = new System.Drawing.Size(127, 20);
-            this.txtEdtPlateThermalConductivity.TabIndex = 10;
-            // 
-            // lblPlateThermalConductivity
-            // 
-            this.lblPlateThermalConductivity.Location = new System.Drawing.Point(498, 64);
-            this.lblPlateThermalConductivity.Name = "lblPlateThermalConductivity";
-            this.lblPlateThermalConductivity.Size = new System.Drawing.Size(99, 13);
-            this.lblPlateThermalConductivity.TabIndex = 9;
-            this.lblPlateThermalConductivity.Text = "Thermal conductivity";
-            // 
-            // splitContainer
-            // 
-            this.splitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainer.Horizontal = false;
-            this.splitContainer.Location = new System.Drawing.Point(11, 115);
-            this.splitContainer.Name = "splitContainer";
-            this.splitContainer.Panel1.Controls.Add(this.gridControlChemicalComposition);
-            this.splitContainer.Panel1.Controls.Add(this.lblChemicalComposition);
-            this.splitContainer.Panel1.Text = "Panel1";
-            this.splitContainer.Panel2.Controls.Add(this.gridControlTensileTests);
-            this.splitContainer.Panel2.Controls.Add(this.lblTensileTests);
-            this.splitContainer.Panel2.Text = "Panel2";
-            this.splitContainer.Size = new System.Drawing.Size(688, 261);
-            this.splitContainer.SplitterPosition = 131;
-            this.splitContainer.TabIndex = 8;
-            this.splitContainer.Text = "splitContainerControl1";
-            // 
-            // gridControlChemicalComposition
-            // 
-            this.gridControlChemicalComposition.Location = new System.Drawing.Point(3, 22);
-            this.gridControlChemicalComposition.MainView = this.gridView1;
-            this.gridControlChemicalComposition.Name = "gridControlChemicalComposition";
-            this.gridControlChemicalComposition.Size = new System.Drawing.Size(653, 101);
-            this.gridControlChemicalComposition.TabIndex = 1;
-            this.gridControlChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControlChemicalComposition;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // lblChemicalComposition
-            // 
-            this.lblChemicalComposition.Location = new System.Drawing.Point(3, 3);
-            this.lblChemicalComposition.Name = "lblChemicalComposition";
-            this.lblChemicalComposition.Size = new System.Drawing.Size(101, 13);
-            this.lblChemicalComposition.TabIndex = 0;
-            this.lblChemicalComposition.Text = "Chemical composition";
-            // 
-            // gridControlTensileTests
-            // 
-            this.gridControlTensileTests.Location = new System.Drawing.Point(3, 21);
-            this.gridControlTensileTests.MainView = this.gridView2;
-            this.gridControlTensileTests.Name = "gridControlTensileTests";
-            this.gridControlTensileTests.Size = new System.Drawing.Size(653, 101);
-            this.gridControlTensileTests.TabIndex = 2;
-            this.gridControlTensileTests.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.gridControlTensileTests;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // lblTensileTests
-            // 
-            this.lblTensileTests.Location = new System.Drawing.Point(3, 3);
-            this.lblTensileTests.Name = "lblTensileTests";
-            this.lblTensileTests.Size = new System.Drawing.Size(60, 13);
-            this.lblTensileTests.TabIndex = 0;
-            this.lblTensileTests.Text = "Tensile tests";
             // 
             // lblThickness
             // 
@@ -636,15 +669,81 @@
             // 
             // TabPageSending
             // 
+            this.TabPageSending.Controls.Add(this.txtEdtShippedDate);
+            this.TabPageSending.Controls.Add(this.textEditDischargeDate);
+            this.TabPageSending.Controls.Add(this.txtEdtRailcar);
+            this.TabPageSending.Controls.Add(this.txtEdtCertificateNo);
+            this.TabPageSending.Controls.Add(this.lblCertificateNo);
+            this.TabPageSending.Controls.Add(this.lblShippedDate);
+            this.TabPageSending.Controls.Add(this.lblRailcarNo);
+            this.TabPageSending.Controls.Add(this.lblUnloadingDate);
             this.TabPageSending.Name = "TabPageSending";
             this.TabPageSending.Size = new System.Drawing.Size(719, 397);
-            this.TabPageSending.Text = "Se&nding operations";
+            this.TabPageSending.Text = "&Delivery parameters";
             // 
-            // TabPageJoints
+            // txtEdtShippedDate
             // 
-            this.TabPageJoints.Name = "TabPageJoints";
-            this.TabPageJoints.Size = new System.Drawing.Size(719, 397);
-            this.TabPageJoints.Text = "Join&ts";
+            this.txtEdtShippedDate.Location = new System.Drawing.Point(34, 125);
+            this.txtEdtShippedDate.Name = "txtEdtShippedDate";
+            this.txtEdtShippedDate.Properties.ReadOnly = true;
+            this.txtEdtShippedDate.Size = new System.Drawing.Size(135, 20);
+            this.txtEdtShippedDate.TabIndex = 10;
+            // 
+            // textEditDischargeDate
+            // 
+            this.textEditDischargeDate.Location = new System.Drawing.Point(210, 125);
+            this.textEditDischargeDate.Name = "textEditDischargeDate";
+            this.textEditDischargeDate.Properties.ReadOnly = true;
+            this.textEditDischargeDate.Size = new System.Drawing.Size(135, 20);
+            this.textEditDischargeDate.TabIndex = 9;
+            // 
+            // txtEdtRailcar
+            // 
+            this.txtEdtRailcar.Location = new System.Drawing.Point(34, 50);
+            this.txtEdtRailcar.Name = "txtEdtRailcar";
+            this.txtEdtRailcar.Properties.ReadOnly = true;
+            this.txtEdtRailcar.Size = new System.Drawing.Size(135, 20);
+            this.txtEdtRailcar.TabIndex = 8;
+            // 
+            // txtEdtCertificateNo
+            // 
+            this.txtEdtCertificateNo.Location = new System.Drawing.Point(210, 50);
+            this.txtEdtCertificateNo.Name = "txtEdtCertificateNo";
+            this.txtEdtCertificateNo.Properties.ReadOnly = true;
+            this.txtEdtCertificateNo.Size = new System.Drawing.Size(135, 20);
+            this.txtEdtCertificateNo.TabIndex = 7;
+            // 
+            // lblCertificateNo
+            // 
+            this.lblCertificateNo.Location = new System.Drawing.Point(210, 27);
+            this.lblCertificateNo.Name = "lblCertificateNo";
+            this.lblCertificateNo.Size = new System.Drawing.Size(89, 13);
+            this.lblCertificateNo.TabIndex = 6;
+            this.lblCertificateNo.Text = "Certificate number";
+            // 
+            // lblShippedDate
+            // 
+            this.lblShippedDate.Location = new System.Drawing.Point(34, 94);
+            this.lblShippedDate.Name = "lblShippedDate";
+            this.lblShippedDate.Size = new System.Drawing.Size(63, 13);
+            this.lblShippedDate.TabIndex = 4;
+            this.lblShippedDate.Text = "Shipped date";
+            // 
+            // lblRailcarNo
+            // 
+            this.lblRailcarNo.Location = new System.Drawing.Point(34, 27);
+            this.lblRailcarNo.Name = "lblRailcarNo";
+            this.lblRailcarNo.Size = new System.Drawing.Size(71, 13);
+            this.lblRailcarNo.TabIndex = 2;
+            this.lblRailcarNo.Text = "Railcar number";
+            // 
+            // lblUnloadingDate
+            // 
+            this.lblUnloadingDate.Location = new System.Drawing.Point(210, 94);
+            this.lblUnloadingDate.Name = "lblUnloadingDate";
+            this.lblUnloadingDate.Size = new System.Drawing.Size(72, 13);
+            this.lblUnloadingDate.TabIndex = 0;
+            this.lblUnloadingDate.Text = "Discharge date";
             // 
             // PipeNewEditXtraForm
             // 
@@ -661,19 +760,21 @@
             this.TabControlPipe.ResumeLayout(false);
             this.TabPageGeneralParameters.ResumeLayout(false);
             this.TabPageGeneralParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlOtherParameters)).EndInit();
-            this.groupControlOtherParameters.ResumeLayout(false);
-            this.groupControlOtherParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionThermalConductivity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditMillThermalConductivity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMillLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtInternalCoating.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtInternalCoating.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtExternalCoating.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdtExternalCoating.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlGeometricParam)).EndInit();
             this.groupControlGeometricParam.ResumeLayout(false);
             this.groupControlGeometricParam.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMillLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspectionLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtMillLength.Properties)).EndInit();
@@ -684,21 +785,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMillStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxPipeManufacturer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNumber.Properties)).EndInit();
+            this.TabPageHeat.ResumeLayout(false);
+            this.TabPageHeat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEditHeatNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlLadle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlProduct)).EndInit();
             this.TabPagePlateParameters.ResumeLayout(false);
             this.TabPagePlateParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtHeatNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPlateThermalConductivity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-            this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlChemicalComposition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlTensileTests)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEdtThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditStelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoPlateManuf.Properties)).EndInit();
+            this.TabPageSending.ResumeLayout(false);
+            this.TabPageSending.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtShippedDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDischargeDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtRailcar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -721,7 +826,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxPipeManufacturer;
         private DevExpress.XtraEditors.TextEdit txtEdtPipeNumber;
         private DevExpress.XtraTab.XtraTabPage TabPageSending;
-        private DevExpress.XtraTab.XtraTabPage TabPageJoints;
+        private DevExpress.XtraTab.XtraTabPage TabPageHeat;
         private DevExpress.XtraEditors.LabelControl lblWeight;
         private DevExpress.XtraEditors.LabelControl lblSideThickness;
         private DevExpress.XtraEditors.LabelControl lblLength;
@@ -741,27 +846,35 @@
         private DevExpress.XtraEditors.LabelControl lblThickness;
         private DevExpress.XtraEditors.TextEdit txtEdtThickness;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditStelGrade;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainer;
-        private DevExpress.XtraGrid.GridControl gridControlChemicalComposition;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LabelControl lblChemicalComposition;
-        private DevExpress.XtraGrid.GridControl gridControlTensileTests;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.LabelControl lblTensileTests;
         private DevExpress.XtraEditors.LabelControl lblDiameter;
-        private DevExpress.XtraEditors.GroupControl groupControlOtherParameters;
-        private DevExpress.XtraEditors.TextEdit txtEdtInspectionThermalConductivity;
-        private DevExpress.XtraEditors.TextEdit txtEditMillThermalConductivity;
-        private DevExpress.XtraEditors.LabelControl lblPipeThermalConductivity;
-        private DevExpress.XtraEditors.LabelControl lblMillOtherParam;
-        private DevExpress.XtraEditors.LabelControl lblInspectionOtherParam;
         private DevExpress.XtraEditors.TextEdit txtEdtInspectionDiameter;
         private DevExpress.XtraEditors.TextEdit txtEdtMillDiameter;
-        private DevExpress.XtraEditors.TextEdit txtEdtPlateThermalConductivity;
-        private DevExpress.XtraEditors.LabelControl lblPlateThermalConductivity;
         private DevExpress.XtraEditors.LabelControl lblWelding;
         private DevExpress.XtraEditors.DateEdit dateEditWeld;
         private DevExpress.XtraEditors.LabelControl lblHeatNo;
         private DevExpress.XtraEditors.TextEdit txtEdtHeatNo;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.DateEdit dateEdtInternalCoating;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.DateEdit dateEdtExternalCoating;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtEditHeatNo;
+        private DevExpress.XtraEditors.GroupControl groupControlLadle;
+        private DevExpress.XtraEditors.GroupControl groupControlProduct;
+        private DevExpress.XtraEditors.LabelControl lblChemicalComp;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtEdtShippedDate;
+        private DevExpress.XtraEditors.TextEdit textEditDischargeDate;
+        private DevExpress.XtraEditors.TextEdit txtEdtRailcar;
+        private DevExpress.XtraEditors.TextEdit txtEdtCertificateNo;
+        private DevExpress.XtraEditors.LabelControl lblCertificateNo;
+        private DevExpress.XtraEditors.LabelControl lblShippedDate;
+        private DevExpress.XtraEditors.LabelControl lblRailcarNo;
+        private DevExpress.XtraEditors.LabelControl lblUnloadingDate;
     }
 }
