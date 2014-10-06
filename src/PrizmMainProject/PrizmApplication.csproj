@@ -115,6 +115,18 @@
     <Compile Include="Forms\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RailcarNewEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RailcarNewEditXtraForm.Designer.cs">
+      <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RailcarSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RailcarSearchXtraForm.Designer.cs">
+      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
