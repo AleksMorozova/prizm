@@ -33,16 +33,16 @@
             this.txtDesign = new DevExpress.XtraEditors.TextEdit();
             this.txtClient = new DevExpress.XtraEditors.TextEdit();
             this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.lblPlate = new DevExpress.XtraEditors.LabelControl();
-            this.lblPipe = new DevExpress.XtraEditors.LabelControl();
             this.gridControlPlate = new DevExpress.XtraGrid.GridControl();
             this.gridViewPlate = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.GrdColPlateManufacturer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblPlate = new DevExpress.XtraEditors.LabelControl();
             this.gridControlPipe = new DevExpress.XtraGrid.GridControl();
             this.gridViewPipe = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.GrdColPlateManufacturer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GrdColPipeManufacturer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GrdColPipeSizeGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SizeGradeItemCheckedBox = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.lblPipe = new DevExpress.XtraEditors.LabelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesign.Properties)).BeginInit();
@@ -58,38 +58,32 @@
             // 
             // lblDesign
             // 
-            this.lblDesign.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblDesign.Location = new System.Drawing.Point(29, 76);
+            this.lblDesign.Location = new System.Drawing.Point(29, 63);
             this.lblDesign.Name = "lblDesign";
-            this.lblDesign.Size = new System.Drawing.Size(48, 19);
+            this.lblDesign.Size = new System.Drawing.Size(42, 13);
             this.lblDesign.TabIndex = 7;
-            this.lblDesign.Text = "Design";
+            this.lblDesign.Text = "Designer";
             // 
             // lblClient
             // 
-            this.lblClient.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblClient.Location = new System.Drawing.Point(29, 27);
             this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(40, 19);
+            this.lblClient.Size = new System.Drawing.Size(27, 13);
             this.lblClient.TabIndex = 6;
             this.lblClient.Text = "Client";
             // 
             // txtDesign
             // 
-            this.txtDesign.Location = new System.Drawing.Point(143, 69);
+            this.txtDesign.Location = new System.Drawing.Point(143, 56);
             this.txtDesign.Name = "txtDesign";
-            this.txtDesign.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtDesign.Properties.Appearance.Options.UseFont = true;
-            this.txtDesign.Size = new System.Drawing.Size(251, 26);
+            this.txtDesign.Size = new System.Drawing.Size(251, 20);
             this.txtDesign.TabIndex = 5;
             // 
             // txtClient
             // 
             this.txtClient.Location = new System.Drawing.Point(143, 20);
             this.txtClient.Name = "txtClient";
-            this.txtClient.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtClient.Properties.Appearance.Options.UseFont = true;
-            this.txtClient.Size = new System.Drawing.Size(251, 26);
+            this.txtClient.Size = new System.Drawing.Size(251, 20);
             this.txtClient.TabIndex = 4;
             // 
             // splitContainer
@@ -98,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainer.Location = new System.Drawing.Point(29, 109);
+            this.splitContainer.Location = new System.Drawing.Point(29, 98);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Panel1.Controls.Add(this.gridControlPlate);
             this.splitContainer.Panel1.Controls.Add(this.lblPlate);
@@ -110,24 +104,6 @@
             this.splitContainer.SplitterPosition = 316;
             this.splitContainer.TabIndex = 8;
             this.splitContainer.Text = "splitContainerControl1";
-            // 
-            // lblPlate
-            // 
-            this.lblPlate.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblPlate.Location = new System.Drawing.Point(3, 20);
-            this.lblPlate.Name = "lblPlate";
-            this.lblPlate.Size = new System.Drawing.Size(139, 19);
-            this.lblPlate.TabIndex = 9;
-            this.lblPlate.Text = "Plate manufacturers";
-            // 
-            // lblPipe
-            // 
-            this.lblPipe.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblPipe.Location = new System.Drawing.Point(14, 20);
-            this.lblPipe.Name = "lblPipe";
-            this.lblPipe.Size = new System.Drawing.Size(135, 19);
-            this.lblPipe.TabIndex = 10;
-            this.lblPipe.Text = "Pipe manufacturers";
             // 
             // gridControlPlate
             // 
@@ -148,6 +124,21 @@
             this.GrdColPlateManufacturer});
             this.gridViewPlate.GridControl = this.gridControlPlate;
             this.gridViewPlate.Name = "gridViewPlate";
+            // 
+            // GrdColPlateManufacturer
+            // 
+            this.GrdColPlateManufacturer.Caption = "Manufacture";
+            this.GrdColPlateManufacturer.Name = "GrdColPlateManufacturer";
+            this.GrdColPlateManufacturer.Visible = true;
+            this.GrdColPlateManufacturer.VisibleIndex = 0;
+            // 
+            // lblPlate
+            // 
+            this.lblPlate.Location = new System.Drawing.Point(3, 20);
+            this.lblPlate.Name = "lblPlate";
+            this.lblPlate.Size = new System.Drawing.Size(97, 13);
+            this.lblPlate.TabIndex = 9;
+            this.lblPlate.Text = "Plate manufacturers";
             // 
             // gridControlPipe
             // 
@@ -172,13 +163,6 @@
             this.gridViewPipe.GridControl = this.gridControlPipe;
             this.gridViewPipe.Name = "gridViewPipe";
             // 
-            // GrdColPlateManufacturer
-            // 
-            this.GrdColPlateManufacturer.Caption = "Manufacture";
-            this.GrdColPlateManufacturer.Name = "GrdColPlateManufacturer";
-            this.GrdColPlateManufacturer.Visible = true;
-            this.GrdColPlateManufacturer.VisibleIndex = 0;
-            // 
             // GrdColPipeManufacturer
             // 
             this.GrdColPipeManufacturer.Caption = "Manufacturer";
@@ -201,11 +185,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.SizeGradeItemCheckedBox.Name = "SizeGradeItemCheckedBox";
             // 
+            // lblPipe
+            // 
+            this.lblPipe.Location = new System.Drawing.Point(14, 20);
+            this.lblPipe.Name = "lblPipe";
+            this.lblPipe.Size = new System.Drawing.Size(93, 13);
+            this.lblPipe.TabIndex = 10;
+            this.lblPipe.Text = "Pipe manufacturers";
+            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Location = new System.Drawing.Point(586, 431);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -215,8 +205,6 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.Location = new System.Drawing.Point(475, 431);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
