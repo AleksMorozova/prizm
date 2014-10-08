@@ -38,7 +38,7 @@ namespace PrizmMain.Forms
 
         private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabPage) 
         {
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[tabPage];
+            frmChild.settings.SelectedTabPage = frmChild.settings.TabPages[tabPage];
             CreateFormChild(frmChild);
         }
 
@@ -112,6 +112,16 @@ namespace PrizmMain.Forms
         private void barButtonItemExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void barButtonItemFindRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new Forms.RailcarSearchXtraForm ());
+        }
+
+        private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new Forms.RailcarNewEditXtraForm());
         }
 
     }

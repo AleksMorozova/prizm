@@ -28,262 +28,259 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblGPS = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtMinutes = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtGPSdegrees = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtGPSseconds = new DevExpress.XtraEditors.TextEdit();
-            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.dateEditControl = new DevExpress.XtraEditors.DateEdit();
-            this.lblControlDate = new DevExpress.XtraEditors.LabelControl();
-            this.dateEditWeld = new DevExpress.XtraEditors.DateEdit();
-            this.lblWeldDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblControlState = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxControlState = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxStatus = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblStatus = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtJointNo = new DevExpress.XtraEditors.TextEdit();
-            this.lblJointNo = new DevExpress.XtraEditors.LabelControl();
+            this.coordinateGPSLabel = new DevExpress.XtraEditors.LabelControl();
+            this.coordinateGPSMinutes = new DevExpress.XtraEditors.TextEdit();
+            this.coordinateGPSdegrees = new DevExpress.XtraEditors.TextEdit();
+            this.coordinateGPSSseconds = new DevExpress.XtraEditors.TextEdit();
+            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
+            this.controlDate = new DevExpress.XtraEditors.DateEdit();
+            this.controlDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
+            this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.controlStateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.controlState = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.status = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.statusLabel = new DevExpress.XtraEditors.LabelControl();
+            this.jointNumber = new DevExpress.XtraEditors.TextEdit();
+            this.jointNumberLabel = new DevExpress.XtraEditors.LabelControl();
             this.gridControlSerchResult = new DevExpress.XtraGrid.GridControl();
-            this.gridViewResult = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnJointNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnJoinStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnWeldDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnRepair = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnControlState = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnControlDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnExtra = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnExtraJoint = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtMinutes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSdegrees.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSseconds.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditControl.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditControl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxControlState.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).BeginInit();
+            this.resultView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.jointNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.joinStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSMinutes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSdegrees.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSSseconds.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExtraJoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblGPS
+            // coordinateGPSLabel
             // 
-            this.lblGPS.Location = new System.Drawing.Point(240, 57);
-            this.lblGPS.Name = "lblGPS";
-            this.lblGPS.Size = new System.Drawing.Size(19, 13);
-            this.lblGPS.TabIndex = 48;
-            this.lblGPS.Text = "GPS";
+            this.coordinateGPSLabel.Location = new System.Drawing.Point(240, 57);
+            this.coordinateGPSLabel.Name = "coordinateGPSLabel";
+            this.coordinateGPSLabel.Size = new System.Drawing.Size(19, 13);
+            this.coordinateGPSLabel.TabIndex = 48;
+            this.coordinateGPSLabel.Text = "GPS";
             // 
-            // txtEdtMinutes
+            // coordinateGPSMinutes
             // 
-            this.txtEdtMinutes.Location = new System.Drawing.Point(293, 78);
-            this.txtEdtMinutes.Name = "txtEdtMinutes";
-            this.txtEdtMinutes.Size = new System.Drawing.Size(47, 20);
-            this.txtEdtMinutes.TabIndex = 47;
+            this.coordinateGPSMinutes.Location = new System.Drawing.Point(293, 78);
+            this.coordinateGPSMinutes.Name = "coordinateGPSMinutes";
+            this.coordinateGPSMinutes.Size = new System.Drawing.Size(47, 20);
+            this.coordinateGPSMinutes.TabIndex = 47;
             // 
-            // txtEdtGPSdegrees
+            // coordinateGPSdegrees
             // 
-            this.txtEdtGPSdegrees.Location = new System.Drawing.Point(240, 78);
-            this.txtEdtGPSdegrees.Name = "txtEdtGPSdegrees";
-            this.txtEdtGPSdegrees.Size = new System.Drawing.Size(47, 20);
-            this.txtEdtGPSdegrees.TabIndex = 46;
+            this.coordinateGPSdegrees.Location = new System.Drawing.Point(240, 78);
+            this.coordinateGPSdegrees.Name = "coordinateGPSdegrees";
+            this.coordinateGPSdegrees.Size = new System.Drawing.Size(47, 20);
+            this.coordinateGPSdegrees.TabIndex = 46;
             // 
-            // txtEdtGPSseconds
+            // coordinateGPSSseconds
             // 
-            this.txtEdtGPSseconds.Location = new System.Drawing.Point(346, 78);
-            this.txtEdtGPSseconds.Name = "txtEdtGPSseconds";
-            this.txtEdtGPSseconds.Size = new System.Drawing.Size(47, 20);
-            this.txtEdtGPSseconds.TabIndex = 45;
+            this.coordinateGPSSseconds.Location = new System.Drawing.Point(346, 78);
+            this.coordinateGPSSseconds.Name = "coordinateGPSSseconds";
+            this.coordinateGPSSseconds.Size = new System.Drawing.Size(47, 20);
+            this.coordinateGPSSseconds.TabIndex = 45;
             // 
-            // btnSearch
+            // searchButton
             // 
-            this.btnSearch.Location = new System.Drawing.Point(636, 79);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 44;
-            this.btnSearch.Text = "Search";
+            this.searchButton.Location = new System.Drawing.Point(636, 79);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 44;
+            this.searchButton.Text = "Search";
             // 
-            // dateEditControl
+            // controlDate
             // 
-            this.dateEditControl.EditValue = null;
-            this.dateEditControl.Location = new System.Drawing.Point(591, 29);
-            this.dateEditControl.Name = "dateEditControl";
-            this.dateEditControl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.controlDate.EditValue = null;
+            this.controlDate.Location = new System.Drawing.Point(591, 29);
+            this.controlDate.Name = "controlDate";
+            this.controlDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditControl.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.controlDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditControl.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditControl.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditControl.Size = new System.Drawing.Size(120, 20);
-            this.dateEditControl.TabIndex = 43;
+            this.controlDate.Size = new System.Drawing.Size(120, 20);
+            this.controlDate.TabIndex = 43;
             // 
-            // lblControlDate
+            // controlDateLabel
             // 
-            this.lblControlDate.Location = new System.Drawing.Point(591, 6);
-            this.lblControlDate.Name = "lblControlDate";
-            this.lblControlDate.Size = new System.Drawing.Size(60, 13);
-            this.lblControlDate.TabIndex = 42;
-            this.lblControlDate.Text = "Control date";
+            this.controlDateLabel.Location = new System.Drawing.Point(591, 6);
+            this.controlDateLabel.Name = "controlDateLabel";
+            this.controlDateLabel.Size = new System.Drawing.Size(60, 13);
+            this.controlDateLabel.TabIndex = 42;
+            this.controlDateLabel.Text = "Control date";
             // 
-            // dateEditWeld
+            // weldingDate
             // 
-            this.dateEditWeld.EditValue = null;
-            this.dateEditWeld.Location = new System.Drawing.Point(10, 78);
-            this.dateEditWeld.Name = "dateEditWeld";
-            this.dateEditWeld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDate.EditValue = null;
+            this.weldingDate.Location = new System.Drawing.Point(10, 78);
+            this.weldingDate.Name = "weldingDate";
+            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWeld.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWeld.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditWeld.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditWeld.Size = new System.Drawing.Size(120, 20);
-            this.dateEditWeld.TabIndex = 41;
+            this.weldingDate.Size = new System.Drawing.Size(120, 20);
+            this.weldingDate.TabIndex = 41;
             // 
-            // lblWeldDate
+            // weldingDateLabel
             // 
-            this.lblWeldDate.Location = new System.Drawing.Point(10, 57);
-            this.lblWeldDate.Name = "lblWeldDate";
-            this.lblWeldDate.Size = new System.Drawing.Size(49, 13);
-            this.lblWeldDate.TabIndex = 40;
-            this.lblWeldDate.Text = "Weld date";
+            this.weldingDateLabel.Location = new System.Drawing.Point(10, 57);
+            this.weldingDateLabel.Name = "weldingDateLabel";
+            this.weldingDateLabel.Size = new System.Drawing.Size(63, 13);
+            this.weldingDateLabel.TabIndex = 40;
+            this.weldingDateLabel.Text = "Welding date";
             // 
-            // lblControlState
+            // controlStateLabel
             // 
-            this.lblControlState.Location = new System.Drawing.Point(396, 8);
-            this.lblControlState.Name = "lblControlState";
-            this.lblControlState.Size = new System.Drawing.Size(63, 13);
-            this.lblControlState.TabIndex = 39;
-            this.lblControlState.Text = "Control state";
+            this.controlStateLabel.Location = new System.Drawing.Point(396, 8);
+            this.controlStateLabel.Name = "controlStateLabel";
+            this.controlStateLabel.Size = new System.Drawing.Size(63, 13);
+            this.controlStateLabel.TabIndex = 39;
+            this.controlStateLabel.Text = "Control state";
             // 
-            // comboBoxControlState
+            // controlState
             // 
-            this.comboBoxControlState.Location = new System.Drawing.Point(396, 31);
-            this.comboBoxControlState.Name = "comboBoxControlState";
-            this.comboBoxControlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.controlState.Location = new System.Drawing.Point(396, 31);
+            this.controlState.Name = "controlState";
+            this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxControlState.Size = new System.Drawing.Size(125, 20);
-            this.comboBoxControlState.TabIndex = 38;
+            this.controlState.Size = new System.Drawing.Size(125, 20);
+            this.controlState.TabIndex = 38;
             // 
-            // comboBoxStatus
+            // status
             // 
-            this.comboBoxStatus.Location = new System.Drawing.Point(221, 28);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.status.Location = new System.Drawing.Point(221, 28);
+            this.status.Name = "status";
+            this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxStatus.Size = new System.Drawing.Size(108, 20);
-            this.comboBoxStatus.TabIndex = 37;
+            this.status.Size = new System.Drawing.Size(108, 20);
+            this.status.TabIndex = 37;
             // 
-            // lblStatus
+            // statusLabel
             // 
-            this.lblStatus.Location = new System.Drawing.Point(221, 8);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(31, 13);
-            this.lblStatus.TabIndex = 36;
-            this.lblStatus.Text = "Status";
+            this.statusLabel.Location = new System.Drawing.Point(221, 8);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(31, 13);
+            this.statusLabel.TabIndex = 36;
+            this.statusLabel.Text = "Status";
             // 
-            // txtEdtJointNo
+            // jointNumber
             // 
-            this.txtEdtJointNo.Location = new System.Drawing.Point(10, 28);
-            this.txtEdtJointNo.Name = "txtEdtJointNo";
-            this.txtEdtJointNo.Size = new System.Drawing.Size(119, 20);
-            this.txtEdtJointNo.TabIndex = 35;
+            this.jointNumber.Location = new System.Drawing.Point(10, 28);
+            this.jointNumber.Name = "jointNumber";
+            this.jointNumber.Size = new System.Drawing.Size(119, 20);
+            this.jointNumber.TabIndex = 35;
             // 
-            // lblJointNo
+            // jointNumberLabel
             // 
-            this.lblJointNo.Location = new System.Drawing.Point(10, 9);
-            this.lblJointNo.Name = "lblJointNo";
-            this.lblJointNo.Size = new System.Drawing.Size(62, 13);
-            this.lblJointNo.TabIndex = 34;
-            this.lblJointNo.Text = "Joint number";
+            this.jointNumberLabel.Location = new System.Drawing.Point(10, 9);
+            this.jointNumberLabel.Name = "jointNumberLabel";
+            this.jointNumberLabel.Size = new System.Drawing.Size(62, 13);
+            this.jointNumberLabel.TabIndex = 34;
+            this.jointNumberLabel.Text = "Joint number";
             // 
             // gridControlSerchResult
             // 
             this.gridControlSerchResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlSerchResult.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControlSerchResult.Location = new System.Drawing.Point(10, 108);
-            this.gridControlSerchResult.MainView = this.gridViewResult;
+            this.gridControlSerchResult.MainView = this.resultView;
             this.gridControlSerchResult.Name = "gridControlSerchResult";
             this.gridControlSerchResult.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnExtraJoint});
+            this.extraJointButton});
             this.gridControlSerchResult.Size = new System.Drawing.Size(703, 305);
             this.gridControlSerchResult.TabIndex = 33;
             this.gridControlSerchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewResult});
+            this.resultView});
             // 
-            // gridViewResult
+            // resultView
             // 
-            this.gridViewResult.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnJointNo,
-            this.gridColumnJoinStatus,
-            this.gridColumnWeldDate,
-            this.gridColumnRepair,
-            this.gridColumnControlState,
-            this.gridColumnControlDate,
-            this.gridColumnExtra});
-            this.gridViewResult.GridControl = this.gridControlSerchResult;
-            this.gridViewResult.Name = "gridViewResult";
-            this.gridViewResult.OptionsView.ShowGroupPanel = false;
+            this.resultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.jointNumberGridColumn,
+            this.joinStatusGridColumn,
+            this.weldingDateGridColumn,
+            this.repairGridColumn,
+            this.controlStateGridColumn,
+            this.controlDateGridColumn,
+            this.extraGridColumn});
+            this.resultView.GridControl = this.gridControlSerchResult;
+            this.resultView.Name = "resultView";
+            this.resultView.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumnJointNo
+            // jointNumberGridColumn
             // 
-            this.gridColumnJointNo.Caption = "Joint no";
-            this.gridColumnJointNo.Name = "gridColumnJointNo";
-            this.gridColumnJointNo.Visible = true;
-            this.gridColumnJointNo.VisibleIndex = 0;
+            this.jointNumberGridColumn.Caption = "№";
+            this.jointNumberGridColumn.Name = "jointNumberGridColumn";
+            this.jointNumberGridColumn.Visible = true;
+            this.jointNumberGridColumn.VisibleIndex = 0;
             // 
-            // gridColumnJoinStatus
+            // joinStatusGridColumn
             // 
-            this.gridColumnJoinStatus.Caption = "Status";
-            this.gridColumnJoinStatus.Name = "gridColumnJoinStatus";
-            this.gridColumnJoinStatus.Visible = true;
-            this.gridColumnJoinStatus.VisibleIndex = 1;
+            this.joinStatusGridColumn.Caption = "Status";
+            this.joinStatusGridColumn.Name = "joinStatusGridColumn";
+            this.joinStatusGridColumn.Visible = true;
+            this.joinStatusGridColumn.VisibleIndex = 1;
             // 
-            // gridColumnWeldDate
+            // weldingDateGridColumn
             // 
-            this.gridColumnWeldDate.Caption = "Weld Date";
-            this.gridColumnWeldDate.Name = "gridColumnWeldDate";
-            this.gridColumnWeldDate.Visible = true;
-            this.gridColumnWeldDate.VisibleIndex = 3;
+            this.weldingDateGridColumn.Caption = "Welding Date";
+            this.weldingDateGridColumn.Name = "weldingDateGridColumn";
+            this.weldingDateGridColumn.Visible = true;
+            this.weldingDateGridColumn.VisibleIndex = 3;
             // 
-            // gridColumnRepair
+            // repairGridColumn
             // 
-            this.gridColumnRepair.Caption = "Repair";
-            this.gridColumnRepair.Name = "gridColumnRepair";
-            this.gridColumnRepair.Visible = true;
-            this.gridColumnRepair.VisibleIndex = 4;
+            this.repairGridColumn.Caption = "Repair";
+            this.repairGridColumn.Name = "repairGridColumn";
+            this.repairGridColumn.Visible = true;
+            this.repairGridColumn.VisibleIndex = 4;
             // 
-            // gridColumnControlState
+            // controlStateGridColumn
             // 
-            this.gridColumnControlState.Caption = "Control State";
-            this.gridColumnControlState.Name = "gridColumnControlState";
-            this.gridColumnControlState.Visible = true;
-            this.gridColumnControlState.VisibleIndex = 2;
+            this.controlStateGridColumn.Caption = "Control State";
+            this.controlStateGridColumn.Name = "controlStateGridColumn";
+            this.controlStateGridColumn.Visible = true;
+            this.controlStateGridColumn.VisibleIndex = 2;
             // 
-            // gridColumnControlDate
+            // controlDateGridColumn
             // 
-            this.gridColumnControlDate.Caption = "Control Date";
-            this.gridColumnControlDate.Name = "gridColumnControlDate";
-            this.gridColumnControlDate.Visible = true;
-            this.gridColumnControlDate.VisibleIndex = 5;
+            this.controlDateGridColumn.Caption = "Control Date";
+            this.controlDateGridColumn.Name = "controlDateGridColumn";
+            this.controlDateGridColumn.Visible = true;
+            this.controlDateGridColumn.VisibleIndex = 5;
             // 
-            // gridColumnExtra
+            // extraGridColumn
             // 
-            this.gridColumnExtra.Caption = "Extra";
-            this.gridColumnExtra.ColumnEdit = this.btnExtraJoint;
-            this.gridColumnExtra.Name = "gridColumnExtra";
-            this.gridColumnExtra.Visible = true;
-            this.gridColumnExtra.VisibleIndex = 6;
+            this.extraGridColumn.Caption = "Extra";
+            this.extraGridColumn.ColumnEdit = this.extraJointButton;
+            this.extraGridColumn.Name = "extraGridColumn";
+            this.extraGridColumn.Visible = true;
+            this.extraGridColumn.VisibleIndex = 6;
             // 
-            // btnExtraJoint
+            // extraJointButton
             // 
-            this.btnExtraJoint.AutoHeight = false;
-            this.btnExtraJoint.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.extraJointButton.AutoHeight = false;
+            this.extraJointButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnExtraJoint.Name = "btnExtraJoint";
-            this.btnExtraJoint.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.extraJointButton.Name = "extraJointButton";
+            this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // JointSearchXtraForm
             // 
@@ -291,38 +288,38 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
-            this.Controls.Add(this.lblGPS);
-            this.Controls.Add(this.txtEdtMinutes);
-            this.Controls.Add(this.txtEdtGPSdegrees);
-            this.Controls.Add(this.txtEdtGPSseconds);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dateEditControl);
-            this.Controls.Add(this.lblControlDate);
-            this.Controls.Add(this.dateEditWeld);
-            this.Controls.Add(this.lblWeldDate);
-            this.Controls.Add(this.lblControlState);
-            this.Controls.Add(this.comboBoxControlState);
-            this.Controls.Add(this.comboBoxStatus);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.txtEdtJointNo);
-            this.Controls.Add(this.lblJointNo);
+            this.Controls.Add(this.coordinateGPSLabel);
+            this.Controls.Add(this.coordinateGPSMinutes);
+            this.Controls.Add(this.coordinateGPSdegrees);
+            this.Controls.Add(this.coordinateGPSSseconds);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.controlDate);
+            this.Controls.Add(this.controlDateLabel);
+            this.Controls.Add(this.weldingDate);
+            this.Controls.Add(this.weldingDateLabel);
+            this.Controls.Add(this.controlStateLabel);
+            this.Controls.Add(this.controlState);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.jointNumber);
+            this.Controls.Add(this.jointNumberLabel);
             this.Controls.Add(this.gridControlSerchResult);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JointSearchXtraForm";
             this.Text = "JointSearchXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtMinutes.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSdegrees.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtGPSseconds.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditControl.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditControl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxControlState.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSMinutes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSdegrees.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSSseconds.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExtraJoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,31 +327,31 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl lblGPS;
-        private DevExpress.XtraEditors.TextEdit txtEdtMinutes;
-        private DevExpress.XtraEditors.TextEdit txtEdtGPSdegrees;
-        private DevExpress.XtraEditors.TextEdit txtEdtGPSseconds;
-        private DevExpress.XtraEditors.SimpleButton btnSearch;
-        private DevExpress.XtraEditors.DateEdit dateEditControl;
-        private DevExpress.XtraEditors.LabelControl lblControlDate;
-        private DevExpress.XtraEditors.DateEdit dateEditWeld;
-        private DevExpress.XtraEditors.LabelControl lblWeldDate;
-        private DevExpress.XtraEditors.LabelControl lblControlState;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxControlState;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxStatus;
-        private DevExpress.XtraEditors.LabelControl lblStatus;
-        private DevExpress.XtraEditors.TextEdit txtEdtJointNo;
-        private DevExpress.XtraEditors.LabelControl lblJointNo;
+        private DevExpress.XtraEditors.LabelControl coordinateGPSLabel;
+        private DevExpress.XtraEditors.TextEdit coordinateGPSMinutes;
+        private DevExpress.XtraEditors.TextEdit coordinateGPSdegrees;
+        private DevExpress.XtraEditors.TextEdit coordinateGPSSseconds;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
+        private DevExpress.XtraEditors.DateEdit controlDate;
+        private DevExpress.XtraEditors.LabelControl controlDateLabel;
+        private DevExpress.XtraEditors.DateEdit weldingDate;
+        private DevExpress.XtraEditors.LabelControl weldingDateLabel;
+        private DevExpress.XtraEditors.LabelControl controlStateLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit controlState;
+        private DevExpress.XtraEditors.ComboBoxEdit status;
+        private DevExpress.XtraEditors.LabelControl statusLabel;
+        private DevExpress.XtraEditors.TextEdit jointNumber;
+        private DevExpress.XtraEditors.LabelControl jointNumberLabel;
         private DevExpress.XtraGrid.GridControl gridControlSerchResult;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewResult;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnJointNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnJoinStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnWeldDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnRepair;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnControlState;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnControlDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnExtra;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnExtraJoint;
+        private DevExpress.XtraGrid.Views.Grid.GridView resultView;
+        private DevExpress.XtraGrid.Columns.GridColumn jointNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn joinStatusGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn weldingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn repairGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn controlStateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn controlDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraJointButton;
 
     }
 }

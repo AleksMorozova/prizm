@@ -63,6 +63,9 @@ dlldata.c
 # Chutzpah Test files
 _Chutzpah*
 
+#DevExpress
+*.licx
+
 # Visual C++ cache files
 ipch/
 *.aps

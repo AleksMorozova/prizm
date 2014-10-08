@@ -28,189 +28,189 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelControlLogin = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlPassword = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlConfirmPassword = new DevExpress.XtraEditors.LabelControl();
-            this.textEditLogin = new DevExpress.XtraEditors.TextEdit();
-            this.textEditPassword = new DevExpress.XtraEditors.TextEdit();
-            this.textEditConfirmPassword = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonSave = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonClose = new DevExpress.XtraEditors.SimpleButton();
-            this.checkedListBoxControlUserRights = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.labelControlUserRights = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlLastName = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlFirstName = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlMiddleName = new DevExpress.XtraEditors.LabelControl();
-            this.textEditLastName = new DevExpress.XtraEditors.TextEdit();
-            this.textEditMiddleName = new DevExpress.XtraEditors.TextEdit();
-            this.textEditFirstName = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLogin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditConfirmPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControlUserRights)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditMiddleName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).BeginInit();
+            this.loginLabel = new DevExpress.XtraEditors.LabelControl();
+            this.passwordLabel = new DevExpress.XtraEditors.LabelControl();
+            this.confirmPasswordLabel = new DevExpress.XtraEditors.LabelControl();
+            this.login = new DevExpress.XtraEditors.TextEdit();
+            this.password = new DevExpress.XtraEditors.TextEdit();
+            this.confirmPassword = new DevExpress.XtraEditors.TextEdit();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.closeButton = new DevExpress.XtraEditors.SimpleButton();
+            this.userRights = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.userRightsLabel = new DevExpress.XtraEditors.LabelControl();
+            this.lastNameLabel = new DevExpress.XtraEditors.LabelControl();
+            this.firstNameLabel = new DevExpress.XtraEditors.LabelControl();
+            this.middleNameLabel = new DevExpress.XtraEditors.LabelControl();
+            this.lastName = new DevExpress.XtraEditors.TextEdit();
+            this.middleName = new DevExpress.XtraEditors.TextEdit();
+            this.firstName = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confirmPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRights)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.middleName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelControlLogin
+            // loginLabel
             // 
-            this.labelControlLogin.Location = new System.Drawing.Point(15, 104);
-            this.labelControlLogin.Name = "labelControlLogin";
-            this.labelControlLogin.Size = new System.Drawing.Size(25, 13);
-            this.labelControlLogin.TabIndex = 0;
-            this.labelControlLogin.Text = "Login";
+            this.loginLabel.Location = new System.Drawing.Point(15, 104);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(25, 13);
+            this.loginLabel.TabIndex = 0;
+            this.loginLabel.Text = "Login";
             // 
-            // labelControlPassword
+            // passwordLabel
             // 
-            this.labelControlPassword.Location = new System.Drawing.Point(15, 130);
-            this.labelControlPassword.Name = "labelControlPassword";
-            this.labelControlPassword.Size = new System.Drawing.Size(46, 13);
-            this.labelControlPassword.TabIndex = 0;
-            this.labelControlPassword.Text = "Password";
+            this.passwordLabel.Location = new System.Drawing.Point(15, 130);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(46, 13);
+            this.passwordLabel.TabIndex = 0;
+            this.passwordLabel.Text = "Password";
             // 
-            // labelControlConfirmPassword
+            // confirmPasswordLabel
             // 
-            this.labelControlConfirmPassword.Location = new System.Drawing.Point(15, 156);
-            this.labelControlConfirmPassword.Name = "labelControlConfirmPassword";
-            this.labelControlConfirmPassword.Size = new System.Drawing.Size(86, 13);
-            this.labelControlConfirmPassword.TabIndex = 0;
-            this.labelControlConfirmPassword.Text = "Confirm Password";
+            this.confirmPasswordLabel.Location = new System.Drawing.Point(15, 156);
+            this.confirmPasswordLabel.Name = "confirmPasswordLabel";
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(86, 13);
+            this.confirmPasswordLabel.TabIndex = 0;
+            this.confirmPasswordLabel.Text = "Confirm Password";
             // 
-            // textEditLogin
+            // login
             // 
-            this.textEditLogin.Location = new System.Drawing.Point(107, 101);
-            this.textEditLogin.Name = "textEditLogin";
-            this.textEditLogin.Size = new System.Drawing.Size(224, 20);
-            this.textEditLogin.TabIndex = 4;
+            this.login.Location = new System.Drawing.Point(107, 101);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(224, 20);
+            this.login.TabIndex = 4;
             // 
-            // textEditPassword
+            // password
             // 
-            this.textEditPassword.Location = new System.Drawing.Point(107, 127);
-            this.textEditPassword.Name = "textEditPassword";
-            this.textEditPassword.Size = new System.Drawing.Size(224, 20);
-            this.textEditPassword.TabIndex = 5;
+            this.password.Location = new System.Drawing.Point(107, 127);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(224, 20);
+            this.password.TabIndex = 5;
             // 
-            // textEditConfirmPassword
+            // confirmPassword
             // 
-            this.textEditConfirmPassword.Location = new System.Drawing.Point(107, 153);
-            this.textEditConfirmPassword.Name = "textEditConfirmPassword";
-            this.textEditConfirmPassword.Size = new System.Drawing.Size(224, 20);
-            this.textEditConfirmPassword.TabIndex = 6;
+            this.confirmPassword.Location = new System.Drawing.Point(107, 153);
+            this.confirmPassword.Name = "confirmPassword";
+            this.confirmPassword.Size = new System.Drawing.Size(224, 20);
+            this.confirmPassword.TabIndex = 6;
             // 
-            // simpleButtonSave
+            // saveButton
             // 
-            this.simpleButtonSave.Location = new System.Drawing.Point(174, 294);
-            this.simpleButtonSave.Name = "simpleButtonSave";
-            this.simpleButtonSave.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonSave.TabIndex = 8;
-            this.simpleButtonSave.Text = "&Save";
+            this.saveButton.Location = new System.Drawing.Point(174, 294);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 8;
+            this.saveButton.Text = "&Save";
             // 
-            // simpleButtonClose
+            // closeButton
             // 
-            this.simpleButtonClose.Location = new System.Drawing.Point(255, 294);
-            this.simpleButtonClose.Name = "simpleButtonClose";
-            this.simpleButtonClose.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonClose.TabIndex = 9;
-            this.simpleButtonClose.Text = "&Close";
+            this.closeButton.Location = new System.Drawing.Point(255, 294);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 9;
+            this.closeButton.Text = "&Close";
             // 
-            // checkedListBoxControlUserRights
+            // userRights
             // 
-            this.checkedListBoxControlUserRights.HorzScrollStep = 3;
-            this.checkedListBoxControlUserRights.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            this.userRights.HorzScrollStep = 3;
+            this.userRights.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Operator in manufacturing"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Operator in construction"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Inspector in manufacturing"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Inspector in construction"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Administrator")});
-            this.checkedListBoxControlUserRights.Location = new System.Drawing.Point(14, 211);
-            this.checkedListBoxControlUserRights.MultiColumn = true;
-            this.checkedListBoxControlUserRights.Name = "checkedListBoxControlUserRights";
-            this.checkedListBoxControlUserRights.Size = new System.Drawing.Size(317, 66);
-            this.checkedListBoxControlUserRights.TabIndex = 7;
+            this.userRights.Location = new System.Drawing.Point(14, 211);
+            this.userRights.MultiColumn = true;
+            this.userRights.Name = "userRights";
+            this.userRights.Size = new System.Drawing.Size(317, 66);
+            this.userRights.TabIndex = 7;
             // 
-            // labelControlUserRights
+            // userRightsLabel
             // 
-            this.labelControlUserRights.Location = new System.Drawing.Point(14, 192);
-            this.labelControlUserRights.Name = "labelControlUserRights";
-            this.labelControlUserRights.Size = new System.Drawing.Size(55, 13);
-            this.labelControlUserRights.TabIndex = 8;
-            this.labelControlUserRights.Text = "User Rights";
+            this.userRightsLabel.Location = new System.Drawing.Point(14, 192);
+            this.userRightsLabel.Name = "userRightsLabel";
+            this.userRightsLabel.Size = new System.Drawing.Size(55, 13);
+            this.userRightsLabel.TabIndex = 8;
+            this.userRightsLabel.Text = "User Rights";
             // 
-            // labelControlLastName
+            // lastNameLabel
             // 
-            this.labelControlLastName.Location = new System.Drawing.Point(14, 26);
-            this.labelControlLastName.Name = "labelControlLastName";
-            this.labelControlLastName.Size = new System.Drawing.Size(50, 13);
-            this.labelControlLastName.TabIndex = 0;
-            this.labelControlLastName.Text = "Last Name";
+            this.lastNameLabel.Location = new System.Drawing.Point(14, 26);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(50, 13);
+            this.lastNameLabel.TabIndex = 0;
+            this.lastNameLabel.Text = "Last Name";
             // 
-            // labelControlFirstName
+            // firstNameLabel
             // 
-            this.labelControlFirstName.Location = new System.Drawing.Point(14, 52);
-            this.labelControlFirstName.Name = "labelControlFirstName";
-            this.labelControlFirstName.Size = new System.Drawing.Size(51, 13);
-            this.labelControlFirstName.TabIndex = 0;
-            this.labelControlFirstName.Text = "First Name";
+            this.firstNameLabel.Location = new System.Drawing.Point(14, 52);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(51, 13);
+            this.firstNameLabel.TabIndex = 0;
+            this.firstNameLabel.Text = "First Name";
             // 
-            // labelControlMiddleName
+            // middleNameLabel
             // 
-            this.labelControlMiddleName.Location = new System.Drawing.Point(15, 78);
-            this.labelControlMiddleName.Name = "labelControlMiddleName";
-            this.labelControlMiddleName.Size = new System.Drawing.Size(60, 13);
-            this.labelControlMiddleName.TabIndex = 0;
-            this.labelControlMiddleName.Text = "Middle Name";
+            this.middleNameLabel.Location = new System.Drawing.Point(15, 78);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(60, 13);
+            this.middleNameLabel.TabIndex = 0;
+            this.middleNameLabel.Text = "Middle Name";
             // 
-            // textEditLastName
+            // lastName
             // 
-            this.textEditLastName.Location = new System.Drawing.Point(106, 23);
-            this.textEditLastName.Name = "textEditLastName";
-            this.textEditLastName.Size = new System.Drawing.Size(224, 20);
-            this.textEditLastName.TabIndex = 1;
+            this.lastName.Location = new System.Drawing.Point(106, 23);
+            this.lastName.Name = "lastName";
+            this.lastName.Size = new System.Drawing.Size(224, 20);
+            this.lastName.TabIndex = 1;
             // 
-            // textEditMiddleName
+            // middleName
             // 
-            this.textEditMiddleName.Location = new System.Drawing.Point(107, 75);
-            this.textEditMiddleName.Name = "textEditMiddleName";
-            this.textEditMiddleName.Size = new System.Drawing.Size(224, 20);
-            this.textEditMiddleName.TabIndex = 3;
+            this.middleName.Location = new System.Drawing.Point(107, 75);
+            this.middleName.Name = "middleName";
+            this.middleName.Size = new System.Drawing.Size(224, 20);
+            this.middleName.TabIndex = 3;
             // 
-            // textEditFirstName
+            // firstName
             // 
-            this.textEditFirstName.Location = new System.Drawing.Point(106, 49);
-            this.textEditFirstName.Name = "textEditFirstName";
-            this.textEditFirstName.Size = new System.Drawing.Size(224, 20);
-            this.textEditFirstName.TabIndex = 2;
+            this.firstName.Location = new System.Drawing.Point(106, 49);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(224, 20);
+            this.firstName.TabIndex = 2;
             // 
             // UserInfoXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 329);
-            this.Controls.Add(this.textEditFirstName);
-            this.Controls.Add(this.textEditMiddleName);
-            this.Controls.Add(this.textEditLastName);
-            this.Controls.Add(this.labelControlMiddleName);
-            this.Controls.Add(this.labelControlFirstName);
-            this.Controls.Add(this.labelControlLastName);
-            this.Controls.Add(this.labelControlUserRights);
-            this.Controls.Add(this.checkedListBoxControlUserRights);
-            this.Controls.Add(this.simpleButtonClose);
-            this.Controls.Add(this.simpleButtonSave);
-            this.Controls.Add(this.textEditConfirmPassword);
-            this.Controls.Add(this.textEditPassword);
-            this.Controls.Add(this.textEditLogin);
-            this.Controls.Add(this.labelControlConfirmPassword);
-            this.Controls.Add(this.labelControlPassword);
-            this.Controls.Add(this.labelControlLogin);
+            this.Controls.Add(this.firstName);
+            this.Controls.Add(this.middleName);
+            this.Controls.Add(this.lastName);
+            this.Controls.Add(this.middleNameLabel);
+            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.lastNameLabel);
+            this.Controls.Add(this.userRightsLabel);
+            this.Controls.Add(this.userRights);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.confirmPassword);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.login);
+            this.Controls.Add(this.confirmPasswordLabel);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.loginLabel);
             this.Name = "UserInfoXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLogin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditConfirmPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControlUserRights)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLastName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditMiddleName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confirmPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRights)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.middleName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,21 +218,21 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControlLogin;
-        private DevExpress.XtraEditors.LabelControl labelControlPassword;
-        private DevExpress.XtraEditors.LabelControl labelControlConfirmPassword;
-        private DevExpress.XtraEditors.TextEdit textEditLogin;
-        private DevExpress.XtraEditors.TextEdit textEditPassword;
-        private DevExpress.XtraEditors.TextEdit textEditConfirmPassword;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonSave;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonClose;
-        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControlUserRights;
-        private DevExpress.XtraEditors.LabelControl labelControlUserRights;
-        private DevExpress.XtraEditors.LabelControl labelControlLastName;
-        private DevExpress.XtraEditors.LabelControl labelControlFirstName;
-        private DevExpress.XtraEditors.LabelControl labelControlMiddleName;
-        private DevExpress.XtraEditors.TextEdit textEditLastName;
-        private DevExpress.XtraEditors.TextEdit textEditMiddleName;
-        private DevExpress.XtraEditors.TextEdit textEditFirstName;
+        private DevExpress.XtraEditors.LabelControl loginLabel;
+        private DevExpress.XtraEditors.LabelControl passwordLabel;
+        private DevExpress.XtraEditors.LabelControl confirmPasswordLabel;
+        private DevExpress.XtraEditors.TextEdit login;
+        private DevExpress.XtraEditors.TextEdit password;
+        private DevExpress.XtraEditors.TextEdit confirmPassword;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton closeButton;
+        private DevExpress.XtraEditors.CheckedListBoxControl userRights;
+        private DevExpress.XtraEditors.LabelControl userRightsLabel;
+        private DevExpress.XtraEditors.LabelControl lastNameLabel;
+        private DevExpress.XtraEditors.LabelControl firstNameLabel;
+        private DevExpress.XtraEditors.LabelControl middleNameLabel;
+        private DevExpress.XtraEditors.TextEdit lastName;
+        private DevExpress.XtraEditors.TextEdit middleName;
+        private DevExpress.XtraEditors.TextEdit firstName;
     }
 }

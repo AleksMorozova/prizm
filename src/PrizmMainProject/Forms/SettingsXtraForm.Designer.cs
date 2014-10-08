@@ -28,377 +28,378 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TabControlSettings = new DevExpress.XtraTab.XtraTabControl();
-            this.TabPagePipe = new DevExpress.XtraTab.XtraTabPage();
-            this.lblSizeGrade = new DevExpress.XtraEditors.LabelControl();
-            this.lblPipeManufacturer = new DevExpress.XtraEditors.LabelControl();
-            this.ComboBoxSizeGrade = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.PipeManufacturersComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.PipeSetupTabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.TabPageGeneralPipeSetup = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControlInsideCoating = new DevExpress.XtraEditors.GroupControl();
-            this.lblInsideMaterial = new DevExpress.XtraEditors.LabelControl();
-            this.lblInsideAdhesion = new DevExpress.XtraEditors.LabelControl();
-            this.lblInsideThickness = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtInsideMaterial = new DevExpress.XtraEditors.TextEdit();
-            this.CheckEditInsideCoating = new DevExpress.XtraEditors.CheckEdit();
-            this.txtEdtInsideAdhesion = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtInsideThickness = new DevExpress.XtraEditors.TextEdit();
-            this.groupControlOuterCoating = new DevExpress.XtraEditors.GroupControl();
-            this.lblOuterMaterial = new DevExpress.XtraEditors.LabelControl();
-            this.lblOuterAdhesion = new DevExpress.XtraEditors.LabelControl();
-            this.lblOuterThickness = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtOuterMaterial = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtOuterAdhesion = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtOuterThickness = new DevExpress.XtraEditors.TextEdit();
-            this.CheckEditOuterCoating = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditSpiral = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditWelded = new DevExpress.XtraEditors.CheckEdit();
-            this.lblWeldType = new DevExpress.XtraEditors.LabelControl();
-            this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControlInspection = new DevExpress.XtraGrid.GridControl();
-            this.GridViewInspection = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.settings = new DevExpress.XtraTab.XtraTabControl();
+            this.pipePage = new DevExpress.XtraTab.XtraTabPage();
+            this.sizeGradeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipeManufacturerLabel = new DevExpress.XtraEditors.LabelControl();
+            this.sizeGrade = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeManufacturers = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeSetup = new DevExpress.XtraTab.XtraTabControl();
+            this.generalPipeSetupPage = new DevExpress.XtraTab.XtraTabPage();
+            this.internalCoating = new DevExpress.XtraEditors.GroupControl();
+            this.internalMaterialLabel = new DevExpress.XtraEditors.LabelControl();
+            this.internalAdhesionLabel = new DevExpress.XtraEditors.LabelControl();
+            this.internalThicknessLabel = new DevExpress.XtraEditors.LabelControl();
+            this.internalMaterial = new DevExpress.XtraEditors.TextEdit();
+            this.internalCoatingCheck = new DevExpress.XtraEditors.CheckEdit();
+            this.internalAdhesion = new DevExpress.XtraEditors.TextEdit();
+            this.internalThickness = new DevExpress.XtraEditors.TextEdit();
+            this.externalCoating = new DevExpress.XtraEditors.GroupControl();
+            this.externalMaterialLabel = new DevExpress.XtraEditors.LabelControl();
+            this.externalAdhesionLabel = new DevExpress.XtraEditors.LabelControl();
+            this.externalThicknessLabel = new DevExpress.XtraEditors.LabelControl();
+            this.externalMaterial = new DevExpress.XtraEditors.TextEdit();
+            this.externalAdhesion = new DevExpress.XtraEditors.TextEdit();
+            this.externalThickness = new DevExpress.XtraEditors.TextEdit();
+            this.externalCoatingCheck = new DevExpress.XtraEditors.CheckEdit();
+            this.helical = new DevExpress.XtraEditors.CheckEdit();
+            this.longitudinal = new DevExpress.XtraEditors.CheckEdit();
+            this.weldTypeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
+            this.inspection = new DevExpress.XtraGrid.GridControl();
+            this.inspectionView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.bandGridInspectionId = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnNumber = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.numberGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionStage = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnStageOrInspection = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.stageOrInspectionGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionObject = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnResearchObject = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.researchObjectGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionFrequency = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnFrequency = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.frequencyGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionDocument = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnDocumentAndCriteria = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.documentAndCriteriaGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionSertification = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnDocumentCertification = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.documentCertificationGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspection = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandGridInspectionPlant = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnPlant = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.plantGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionCustomer = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnClient = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.clientGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandGridInspectionOther = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.ColumnThirdPart = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.lblPipeSetup = new DevExpress.XtraEditors.LabelControl();
-            this.TabPagePipeline = new DevExpress.XtraTab.XtraTabPage();
-            this.TabPageUsers = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControlUsers = new DevExpress.XtraGrid.GridControl();
-            this.gridViewUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnUsersNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnUsersName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnUsersRole = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblUsers = new DevExpress.XtraEditors.LabelControl();
-            this.TabPageDictionaries = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControlDictionaries = new DevExpress.XtraGrid.GridControl();
-            this.gridViewDictionary = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.thirdPartGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
+            this.usersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.users = new DevExpress.XtraGrid.GridControl();
+            this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersLabel = new DevExpress.XtraEditors.LabelControl();
+            this.ictionariesPage = new DevExpress.XtraTab.XtraTabPage();
+            this.dictionaries = new DevExpress.XtraGrid.GridControl();
+            this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlSettings)).BeginInit();
-            this.TabControlSettings.SuspendLayout();
-            this.TabPagePipe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSizeGrade.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeManufacturersComboBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeSetupTabControl)).BeginInit();
-            this.PipeSetupTabControl.SuspendLayout();
-            this.TabPageGeneralPipeSetup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlInsideCoating)).BeginInit();
-            this.groupControlInsideCoating.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideMaterial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckEditInsideCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideAdhesion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideThickness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlOuterCoating)).BeginInit();
-            this.groupControlOuterCoating.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterMaterial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterAdhesion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterThickness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckEditOuterCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditSpiral.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditWelded.Properties)).BeginInit();
-            this.TabPageInspection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewInspection)).BeginInit();
-            this.TabPageUsers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewUsers)).BeginInit();
-            this.TabPageDictionaries.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDictionaries)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDictionary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
+            this.settings.SuspendLayout();
+            this.pipePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeManufacturers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSetup)).BeginInit();
+            this.pipeSetup.SuspendLayout();
+            this.generalPipeSetupPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoating)).BeginInit();
+            this.internalCoating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.internalMaterial.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingCheck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalAdhesion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoating)).BeginInit();
+            this.externalCoating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.externalMaterial.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalAdhesion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingCheck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).BeginInit();
+            this.inspectionPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
+            this.usersPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
+            this.ictionariesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
             this.SuspendLayout();
             // 
-            // TabControlSettings
+            // settings
             // 
-            this.TabControlSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabControlSettings.Location = new System.Drawing.Point(0, 1);
-            this.TabControlSettings.Name = "TabControlSettings";
-            this.TabControlSettings.SelectedTabPage = this.TabPagePipe;
-            this.TabControlSettings.Size = new System.Drawing.Size(845, 515);
-            this.TabControlSettings.TabIndex = 0;
-            this.TabControlSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.TabPagePipe,
-            this.TabPagePipeline,
-            this.TabPageUsers,
-            this.TabPageDictionaries});
+            this.settings.Location = new System.Drawing.Point(0, 1);
+            this.settings.Name = "settings";
+            this.settings.SelectedTabPage = this.pipePage;
+            this.settings.Size = new System.Drawing.Size(845, 515);
+            this.settings.TabIndex = 0;
+            this.settings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.pipePage,
+            this.pipelinePage,
+            this.usersPage,
+            this.ictionariesPage});
             // 
-            // TabPagePipe
+            // pipePage
             // 
-            this.TabPagePipe.Controls.Add(this.lblSizeGrade);
-            this.TabPagePipe.Controls.Add(this.lblPipeManufacturer);
-            this.TabPagePipe.Controls.Add(this.ComboBoxSizeGrade);
-            this.TabPagePipe.Controls.Add(this.PipeManufacturersComboBox);
-            this.TabPagePipe.Controls.Add(this.PipeSetupTabControl);
-            this.TabPagePipe.Controls.Add(this.lblPipeSetup);
-            this.TabPagePipe.Name = "TabPagePipe";
-            this.TabPagePipe.Size = new System.Drawing.Size(839, 487);
-            this.TabPagePipe.Text = "Pip&e";
+            this.pipePage.Controls.Add(this.sizeGradeLabel);
+            this.pipePage.Controls.Add(this.pipeManufacturerLabel);
+            this.pipePage.Controls.Add(this.sizeGrade);
+            this.pipePage.Controls.Add(this.pipeManufacturers);
+            this.pipePage.Controls.Add(this.pipeSetup);
+            this.pipePage.Controls.Add(this.pipeSetupLabel);
+            this.pipePage.Name = "pipePage";
+            this.pipePage.Size = new System.Drawing.Size(839, 487);
+            this.pipePage.Text = "Pip&e";
             // 
-            // lblSizeGrade
+            // sizeGradeLabel
             // 
-            this.lblSizeGrade.Location = new System.Drawing.Point(473, 25);
-            this.lblSizeGrade.Name = "lblSizeGrade";
-            this.lblSizeGrade.Size = new System.Drawing.Size(54, 13);
-            this.lblSizeGrade.TabIndex = 8;
-            this.lblSizeGrade.Text = "Size grade:";
+            this.sizeGradeLabel.Location = new System.Drawing.Point(473, 25);
+            this.sizeGradeLabel.Name = "sizeGradeLabel";
+            this.sizeGradeLabel.Size = new System.Drawing.Size(54, 13);
+            this.sizeGradeLabel.TabIndex = 8;
+            this.sizeGradeLabel.Text = "Size grade:";
             // 
-            // lblPipeManufacturer
+            // pipeManufacturerLabel
             // 
-            this.lblPipeManufacturer.Location = new System.Drawing.Point(161, 25);
-            this.lblPipeManufacturer.Name = "lblPipeManufacturer";
-            this.lblPipeManufacturer.Size = new System.Drawing.Size(97, 13);
-            this.lblPipeManufacturer.TabIndex = 7;
-            this.lblPipeManufacturer.Text = "Pipe manufacturers:";
+            this.pipeManufacturerLabel.Location = new System.Drawing.Point(161, 25);
+            this.pipeManufacturerLabel.Name = "pipeManufacturerLabel";
+            this.pipeManufacturerLabel.Size = new System.Drawing.Size(97, 13);
+            this.pipeManufacturerLabel.TabIndex = 7;
+            this.pipeManufacturerLabel.Text = "Pipe manufacturers:";
             // 
-            // ComboBoxSizeGrade
+            // sizeGrade
             // 
-            this.ComboBoxSizeGrade.Location = new System.Drawing.Point(541, 22);
-            this.ComboBoxSizeGrade.Name = "ComboBoxSizeGrade";
-            this.ComboBoxSizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.sizeGrade.Location = new System.Drawing.Point(541, 22);
+            this.sizeGrade.Name = "sizeGrade";
+            this.sizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ComboBoxSizeGrade.Size = new System.Drawing.Size(165, 20);
-            this.ComboBoxSizeGrade.TabIndex = 6;
+            this.sizeGrade.Size = new System.Drawing.Size(165, 20);
+            this.sizeGrade.TabIndex = 6;
             // 
-            // PipeManufacturersComboBox
+            // pipeManufacturers
             // 
-            this.PipeManufacturersComboBox.Location = new System.Drawing.Point(270, 22);
-            this.PipeManufacturersComboBox.Name = "PipeManufacturersComboBox";
-            this.PipeManufacturersComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.pipeManufacturers.Location = new System.Drawing.Point(270, 22);
+            this.pipeManufacturers.Name = "pipeManufacturers";
+            this.pipeManufacturers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.PipeManufacturersComboBox.Size = new System.Drawing.Size(165, 20);
-            this.PipeManufacturersComboBox.TabIndex = 5;
+            this.pipeManufacturers.Size = new System.Drawing.Size(165, 20);
+            this.pipeManufacturers.TabIndex = 5;
             // 
-            // PipeSetupTabControl
+            // pipeSetup
             // 
-            this.PipeSetupTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pipeSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PipeSetupTabControl.Location = new System.Drawing.Point(11, 57);
-            this.PipeSetupTabControl.Name = "PipeSetupTabControl";
-            this.PipeSetupTabControl.SelectedTabPage = this.TabPageGeneralPipeSetup;
-            this.PipeSetupTabControl.Size = new System.Drawing.Size(820, 427);
-            this.PipeSetupTabControl.TabIndex = 0;
-            this.PipeSetupTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.TabPageGeneralPipeSetup,
-            this.TabPageInspection});
+            this.pipeSetup.Location = new System.Drawing.Point(11, 57);
+            this.pipeSetup.Name = "pipeSetup";
+            this.pipeSetup.SelectedTabPage = this.generalPipeSetupPage;
+            this.pipeSetup.Size = new System.Drawing.Size(820, 427);
+            this.pipeSetup.TabIndex = 0;
+            this.pipeSetup.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.generalPipeSetupPage,
+            this.inspectionPage});
             // 
-            // TabPageGeneralPipeSetup
+            // generalPipeSetupPage
             // 
-            this.TabPageGeneralPipeSetup.Controls.Add(this.groupControlInsideCoating);
-            this.TabPageGeneralPipeSetup.Controls.Add(this.groupControlOuterCoating);
-            this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditSpiral);
-            this.TabPageGeneralPipeSetup.Controls.Add(this.checkEditWelded);
-            this.TabPageGeneralPipeSetup.Controls.Add(this.lblWeldType);
-            this.TabPageGeneralPipeSetup.Name = "TabPageGeneralPipeSetup";
-            this.TabPageGeneralPipeSetup.Size = new System.Drawing.Size(814, 399);
-            this.TabPageGeneralPipeSetup.Text = "&General set up";
+            this.generalPipeSetupPage.Controls.Add(this.internalCoating);
+            this.generalPipeSetupPage.Controls.Add(this.externalCoating);
+            this.generalPipeSetupPage.Controls.Add(this.helical);
+            this.generalPipeSetupPage.Controls.Add(this.longitudinal);
+            this.generalPipeSetupPage.Controls.Add(this.weldTypeLabel);
+            this.generalPipeSetupPage.Name = "generalPipeSetupPage";
+            this.generalPipeSetupPage.Size = new System.Drawing.Size(814, 399);
+            this.generalPipeSetupPage.Text = "&General set up";
             // 
-            // groupControlInsideCoating
+            // internalCoating
             // 
-            this.groupControlInsideCoating.Controls.Add(this.lblInsideMaterial);
-            this.groupControlInsideCoating.Controls.Add(this.lblInsideAdhesion);
-            this.groupControlInsideCoating.Controls.Add(this.lblInsideThickness);
-            this.groupControlInsideCoating.Controls.Add(this.txtEdtInsideMaterial);
-            this.groupControlInsideCoating.Controls.Add(this.CheckEditInsideCoating);
-            this.groupControlInsideCoating.Controls.Add(this.txtEdtInsideAdhesion);
-            this.groupControlInsideCoating.Controls.Add(this.txtEdtInsideThickness);
-            this.groupControlInsideCoating.Location = new System.Drawing.Point(11, 154);
-            this.groupControlInsideCoating.Name = "groupControlInsideCoating";
-            this.groupControlInsideCoating.Size = new System.Drawing.Size(412, 115);
-            this.groupControlInsideCoating.TabIndex = 8;
+            this.internalCoating.Controls.Add(this.internalMaterialLabel);
+            this.internalCoating.Controls.Add(this.internalAdhesionLabel);
+            this.internalCoating.Controls.Add(this.internalThicknessLabel);
+            this.internalCoating.Controls.Add(this.internalMaterial);
+            this.internalCoating.Controls.Add(this.internalCoatingCheck);
+            this.internalCoating.Controls.Add(this.internalAdhesion);
+            this.internalCoating.Controls.Add(this.internalThickness);
+            this.internalCoating.Location = new System.Drawing.Point(11, 154);
+            this.internalCoating.Name = "internalCoating";
+            this.internalCoating.Size = new System.Drawing.Size(412, 115);
+            this.internalCoating.TabIndex = 8;
             // 
-            // lblInsideMaterial
+            // internalMaterialLabel
             // 
-            this.lblInsideMaterial.Location = new System.Drawing.Point(19, 87);
-            this.lblInsideMaterial.Name = "lblInsideMaterial";
-            this.lblInsideMaterial.Size = new System.Drawing.Size(38, 13);
-            this.lblInsideMaterial.TabIndex = 6;
-            this.lblInsideMaterial.Text = "Material";
+            this.internalMaterialLabel.Location = new System.Drawing.Point(19, 87);
+            this.internalMaterialLabel.Name = "internalMaterialLabel";
+            this.internalMaterialLabel.Size = new System.Drawing.Size(38, 13);
+            this.internalMaterialLabel.TabIndex = 6;
+            this.internalMaterialLabel.Text = "Material";
             // 
-            // lblInsideAdhesion
+            // internalAdhesionLabel
             // 
-            this.lblInsideAdhesion.Location = new System.Drawing.Point(19, 58);
-            this.lblInsideAdhesion.Name = "lblInsideAdhesion";
-            this.lblInsideAdhesion.Size = new System.Drawing.Size(89, 13);
-            this.lblInsideAdhesion.TabIndex = 5;
-            this.lblInsideAdhesion.Text = "Adhesion, kgf/cm2";
+            this.internalAdhesionLabel.Location = new System.Drawing.Point(19, 58);
+            this.internalAdhesionLabel.Name = "internalAdhesionLabel";
+            this.internalAdhesionLabel.Size = new System.Drawing.Size(89, 13);
+            this.internalAdhesionLabel.TabIndex = 5;
+            this.internalAdhesionLabel.Text = "Adhesion, kgf/cm2";
             // 
-            // lblInsideThickness
+            // internalThicknessLabel
             // 
-            this.lblInsideThickness.Location = new System.Drawing.Point(18, 29);
-            this.lblInsideThickness.Name = "lblInsideThickness";
-            this.lblInsideThickness.Size = new System.Drawing.Size(69, 13);
-            this.lblInsideThickness.TabIndex = 4;
-            this.lblInsideThickness.Text = "Thickness, mm";
+            this.internalThicknessLabel.Location = new System.Drawing.Point(18, 29);
+            this.internalThicknessLabel.Name = "internalThicknessLabel";
+            this.internalThicknessLabel.Size = new System.Drawing.Size(69, 13);
+            this.internalThicknessLabel.TabIndex = 4;
+            this.internalThicknessLabel.Text = "Thickness, mm";
             // 
-            // txtEdtInsideMaterial
+            // internalMaterial
             // 
-            this.txtEdtInsideMaterial.Location = new System.Drawing.Point(129, 84);
-            this.txtEdtInsideMaterial.Name = "txtEdtInsideMaterial";
-            this.txtEdtInsideMaterial.Size = new System.Drawing.Size(273, 20);
-            this.txtEdtInsideMaterial.TabIndex = 2;
+            this.internalMaterial.Location = new System.Drawing.Point(129, 84);
+            this.internalMaterial.Name = "internalMaterial";
+            this.internalMaterial.Size = new System.Drawing.Size(273, 20);
+            this.internalMaterial.TabIndex = 2;
             // 
-            // CheckEditInsideCoating
+            // internalCoatingCheck
             // 
-            this.CheckEditInsideCoating.Location = new System.Drawing.Point(5, 1);
-            this.CheckEditInsideCoating.Name = "CheckEditInsideCoating";
-            this.CheckEditInsideCoating.Properties.Caption = "Inside coating";
-            this.CheckEditInsideCoating.Size = new System.Drawing.Size(103, 19);
-            this.CheckEditInsideCoating.TabIndex = 1;
+            this.internalCoatingCheck.Location = new System.Drawing.Point(5, 1);
+            this.internalCoatingCheck.Name = "internalCoatingCheck";
+            this.internalCoatingCheck.Properties.Caption = "Internal coating";
+            this.internalCoatingCheck.Size = new System.Drawing.Size(103, 19);
+            this.internalCoatingCheck.TabIndex = 1;
             // 
-            // txtEdtInsideAdhesion
+            // internalAdhesion
             // 
-            this.txtEdtInsideAdhesion.Location = new System.Drawing.Point(129, 55);
-            this.txtEdtInsideAdhesion.Name = "txtEdtInsideAdhesion";
-            this.txtEdtInsideAdhesion.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtInsideAdhesion.TabIndex = 1;
+            this.internalAdhesion.Location = new System.Drawing.Point(129, 55);
+            this.internalAdhesion.Name = "internalAdhesion";
+            this.internalAdhesion.Size = new System.Drawing.Size(100, 20);
+            this.internalAdhesion.TabIndex = 1;
             // 
-            // txtEdtInsideThickness
+            // internalThickness
             // 
-            this.txtEdtInsideThickness.Location = new System.Drawing.Point(129, 26);
-            this.txtEdtInsideThickness.Name = "txtEdtInsideThickness";
-            this.txtEdtInsideThickness.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtInsideThickness.TabIndex = 0;
+            this.internalThickness.Location = new System.Drawing.Point(129, 26);
+            this.internalThickness.Name = "internalThickness";
+            this.internalThickness.Size = new System.Drawing.Size(100, 20);
+            this.internalThickness.TabIndex = 0;
             // 
-            // groupControlOuterCoating
+            // externalCoating
             // 
-            this.groupControlOuterCoating.Controls.Add(this.lblOuterMaterial);
-            this.groupControlOuterCoating.Controls.Add(this.lblOuterAdhesion);
-            this.groupControlOuterCoating.Controls.Add(this.lblOuterThickness);
-            this.groupControlOuterCoating.Controls.Add(this.txtEdtOuterMaterial);
-            this.groupControlOuterCoating.Controls.Add(this.txtEdtOuterAdhesion);
-            this.groupControlOuterCoating.Controls.Add(this.txtEdtOuterThickness);
-            this.groupControlOuterCoating.Controls.Add(this.CheckEditOuterCoating);
-            this.groupControlOuterCoating.Location = new System.Drawing.Point(11, 35);
-            this.groupControlOuterCoating.Name = "groupControlOuterCoating";
-            this.groupControlOuterCoating.Size = new System.Drawing.Size(412, 113);
-            this.groupControlOuterCoating.TabIndex = 7;
+            this.externalCoating.Controls.Add(this.externalMaterialLabel);
+            this.externalCoating.Controls.Add(this.externalAdhesionLabel);
+            this.externalCoating.Controls.Add(this.externalThicknessLabel);
+            this.externalCoating.Controls.Add(this.externalMaterial);
+            this.externalCoating.Controls.Add(this.externalAdhesion);
+            this.externalCoating.Controls.Add(this.externalThickness);
+            this.externalCoating.Controls.Add(this.externalCoatingCheck);
+            this.externalCoating.Location = new System.Drawing.Point(11, 35);
+            this.externalCoating.Name = "externalCoating";
+            this.externalCoating.Size = new System.Drawing.Size(412, 113);
+            this.externalCoating.TabIndex = 7;
             // 
-            // lblOuterMaterial
+            // externalMaterialLabel
             // 
-            this.lblOuterMaterial.Location = new System.Drawing.Point(20, 92);
-            this.lblOuterMaterial.Name = "lblOuterMaterial";
-            this.lblOuterMaterial.Size = new System.Drawing.Size(38, 13);
-            this.lblOuterMaterial.TabIndex = 11;
-            this.lblOuterMaterial.Text = "Material";
+            this.externalMaterialLabel.Location = new System.Drawing.Point(20, 92);
+            this.externalMaterialLabel.Name = "externalMaterialLabel";
+            this.externalMaterialLabel.Size = new System.Drawing.Size(38, 13);
+            this.externalMaterialLabel.TabIndex = 11;
+            this.externalMaterialLabel.Text = "Material";
             // 
-            // lblOuterAdhesion
+            // externalAdhesionLabel
             // 
-            this.lblOuterAdhesion.Location = new System.Drawing.Point(20, 63);
-            this.lblOuterAdhesion.Name = "lblOuterAdhesion";
-            this.lblOuterAdhesion.Size = new System.Drawing.Size(89, 13);
-            this.lblOuterAdhesion.TabIndex = 10;
-            this.lblOuterAdhesion.Text = "Adhesion, kgf/cm2";
+            this.externalAdhesionLabel.Location = new System.Drawing.Point(20, 63);
+            this.externalAdhesionLabel.Name = "externalAdhesionLabel";
+            this.externalAdhesionLabel.Size = new System.Drawing.Size(89, 13);
+            this.externalAdhesionLabel.TabIndex = 10;
+            this.externalAdhesionLabel.Text = "Adhesion, kgf/cm2";
             // 
-            // lblOuterThickness
+            // externalThicknessLabel
             // 
-            this.lblOuterThickness.Location = new System.Drawing.Point(19, 34);
-            this.lblOuterThickness.Name = "lblOuterThickness";
-            this.lblOuterThickness.Size = new System.Drawing.Size(69, 13);
-            this.lblOuterThickness.TabIndex = 9;
-            this.lblOuterThickness.Text = "Thickness, mm";
+            this.externalThicknessLabel.Location = new System.Drawing.Point(19, 34);
+            this.externalThicknessLabel.Name = "externalThicknessLabel";
+            this.externalThicknessLabel.Size = new System.Drawing.Size(69, 13);
+            this.externalThicknessLabel.TabIndex = 9;
+            this.externalThicknessLabel.Text = "Thickness, mm";
             // 
-            // txtEdtOuterMaterial
+            // externalMaterial
             // 
-            this.txtEdtOuterMaterial.Location = new System.Drawing.Point(129, 86);
-            this.txtEdtOuterMaterial.Name = "txtEdtOuterMaterial";
-            this.txtEdtOuterMaterial.Size = new System.Drawing.Size(273, 20);
-            this.txtEdtOuterMaterial.TabIndex = 8;
+            this.externalMaterial.Location = new System.Drawing.Point(129, 86);
+            this.externalMaterial.Name = "externalMaterial";
+            this.externalMaterial.Size = new System.Drawing.Size(273, 20);
+            this.externalMaterial.TabIndex = 8;
             // 
-            // txtEdtOuterAdhesion
+            // externalAdhesion
             // 
-            this.txtEdtOuterAdhesion.Location = new System.Drawing.Point(129, 60);
-            this.txtEdtOuterAdhesion.Name = "txtEdtOuterAdhesion";
-            this.txtEdtOuterAdhesion.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtOuterAdhesion.TabIndex = 7;
+            this.externalAdhesion.Location = new System.Drawing.Point(129, 60);
+            this.externalAdhesion.Name = "externalAdhesion";
+            this.externalAdhesion.Size = new System.Drawing.Size(100, 20);
+            this.externalAdhesion.TabIndex = 7;
             // 
-            // txtEdtOuterThickness
+            // externalThickness
             // 
-            this.txtEdtOuterThickness.Location = new System.Drawing.Point(129, 31);
-            this.txtEdtOuterThickness.Name = "txtEdtOuterThickness";
-            this.txtEdtOuterThickness.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtOuterThickness.TabIndex = 6;
+            this.externalThickness.Location = new System.Drawing.Point(129, 31);
+            this.externalThickness.Name = "externalThickness";
+            this.externalThickness.Size = new System.Drawing.Size(100, 20);
+            this.externalThickness.TabIndex = 6;
             // 
-            // CheckEditOuterCoating
+            // externalCoatingCheck
             // 
-            this.CheckEditOuterCoating.Location = new System.Drawing.Point(5, 1);
-            this.CheckEditOuterCoating.Name = "CheckEditOuterCoating";
-            this.CheckEditOuterCoating.Properties.Caption = "Outer coating";
-            this.CheckEditOuterCoating.Size = new System.Drawing.Size(103, 19);
-            this.CheckEditOuterCoating.TabIndex = 1;
+            this.externalCoatingCheck.Location = new System.Drawing.Point(5, 1);
+            this.externalCoatingCheck.Name = "externalCoatingCheck";
+            this.externalCoatingCheck.Properties.Caption = "External coating";
+            this.externalCoatingCheck.Size = new System.Drawing.Size(103, 19);
+            this.externalCoatingCheck.TabIndex = 1;
             // 
-            // checkEditSpiral
+            // helical
             // 
-            this.checkEditSpiral.Location = new System.Drawing.Point(277, 13);
-            this.checkEditSpiral.Name = "checkEditSpiral";
-            this.checkEditSpiral.Properties.Caption = "Spiral";
-            this.checkEditSpiral.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.checkEditSpiral.Size = new System.Drawing.Size(75, 19);
-            this.checkEditSpiral.TabIndex = 6;
+            this.helical.Location = new System.Drawing.Point(277, 13);
+            this.helical.Name = "helical";
+            this.helical.Properties.Caption = "Helical";
+            this.helical.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
+            this.helical.Size = new System.Drawing.Size(75, 19);
+            this.helical.TabIndex = 6;
             // 
-            // checkEditWelded
+            // longitudinal
             // 
-            this.checkEditWelded.Location = new System.Drawing.Point(138, 13);
-            this.checkEditWelded.Name = "checkEditWelded";
-            this.checkEditWelded.Properties.Caption = "Welded";
-            this.checkEditWelded.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.checkEditWelded.Size = new System.Drawing.Size(75, 19);
-            this.checkEditWelded.TabIndex = 4;
+            this.longitudinal.Location = new System.Drawing.Point(138, 13);
+            this.longitudinal.Name = "longitudinal";
+            this.longitudinal.Properties.Caption = "Longitudinal";
+            this.longitudinal.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
+            this.longitudinal.Size = new System.Drawing.Size(75, 19);
+            this.longitudinal.TabIndex = 4;
             // 
-            // lblWeldType
+            // weldTypeLabel
             // 
-            this.lblWeldType.Location = new System.Drawing.Point(18, 16);
-            this.lblWeldType.Name = "lblWeldType";
-            this.lblWeldType.Size = new System.Drawing.Size(49, 13);
-            this.lblWeldType.TabIndex = 3;
-            this.lblWeldType.Text = "Weld type";
+            this.weldTypeLabel.Location = new System.Drawing.Point(18, 16);
+            this.weldTypeLabel.Name = "weldTypeLabel";
+            this.weldTypeLabel.Size = new System.Drawing.Size(49, 13);
+            this.weldTypeLabel.TabIndex = 3;
+            this.weldTypeLabel.Text = "Weld type";
             // 
-            // TabPageInspection
+            // inspectionPage
             // 
-            this.TabPageInspection.Controls.Add(this.gridControlInspection);
-            this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(814, 399);
-            this.TabPageInspection.Text = "&Inspection";
+            this.inspectionPage.Controls.Add(this.inspection);
+            this.inspectionPage.Name = "inspectionPage";
+            this.inspectionPage.Size = new System.Drawing.Size(814, 399);
+            this.inspectionPage.Text = "&Inspection";
             // 
-            // gridControlInspection
+            // inspection
             // 
-            this.gridControlInspection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.inspection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlInspection.Location = new System.Drawing.Point(3, 3);
-            this.gridControlInspection.MainView = this.GridViewInspection;
-            this.gridControlInspection.Name = "gridControlInspection";
-            this.gridControlInspection.Size = new System.Drawing.Size(774, 275);
-            this.gridControlInspection.TabIndex = 0;
-            this.gridControlInspection.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.GridViewInspection});
+            this.inspection.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspection.Location = new System.Drawing.Point(3, 3);
+            this.inspection.MainView = this.inspectionView;
+            this.inspection.Name = "inspection";
+            this.inspection.Size = new System.Drawing.Size(774, 275);
+            this.inspection.TabIndex = 0;
+            this.inspection.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.inspectionView});
             // 
-            // GridViewInspection
+            // inspectionView
             // 
-            this.GridViewInspection.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 6.25F, System.Drawing.FontStyle.Bold);
-            this.GridViewInspection.Appearance.HeaderPanel.Options.UseFont = true;
-            this.GridViewInspection.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.GridViewInspection.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.GridViewInspection.Appearance.ViewCaption.Options.UseTextOptions = true;
-            this.GridViewInspection.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.GridViewInspection.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.inspectionView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 6.25F, System.Drawing.FontStyle.Bold);
+            this.inspectionView.Appearance.HeaderPanel.Options.UseFont = true;
+            this.inspectionView.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.inspectionView.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.inspectionView.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.inspectionView.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.inspectionView.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.bandGridInspectionId,
             this.bandGridInspectionStage,
             this.bandGridInspectionObject,
@@ -406,133 +407,133 @@
             this.bandGridInspectionDocument,
             this.bandGridInspectionSertification,
             this.bandGridInspection});
-            this.GridViewInspection.ColumnPanelRowHeight = 1;
-            this.GridViewInspection.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.ColumnNumber,
-            this.ColumnStageOrInspection,
-            this.ColumnResearchObject,
-            this.ColumnFrequency,
-            this.ColumnDocumentAndCriteria,
-            this.ColumnDocumentCertification,
-            this.ColumnPlant,
-            this.ColumnClient,
-            this.ColumnThirdPart});
-            this.GridViewInspection.FixedLineWidth = 3;
-            this.GridViewInspection.GridControl = this.gridControlInspection;
-            this.GridViewInspection.Name = "GridViewInspection";
+            this.inspectionView.ColumnPanelRowHeight = 1;
+            this.inspectionView.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.numberGridColumn,
+            this.stageOrInspectionGridColumn,
+            this.researchObjectGridColumn,
+            this.frequencyGridColumn,
+            this.documentAndCriteriaGridColumn,
+            this.documentCertificationGridColumn,
+            this.plantGridColumn,
+            this.clientGridColumn,
+            this.thirdPartGridColumn});
+            this.inspectionView.FixedLineWidth = 3;
+            this.inspectionView.GridControl = this.inspection;
+            this.inspectionView.Name = "inspectionView";
             // 
             // bandGridInspectionId
             // 
             this.bandGridInspectionId.Caption = "Id";
-            this.bandGridInspectionId.Columns.Add(this.ColumnNumber);
+            this.bandGridInspectionId.Columns.Add(this.numberGridColumn);
             this.bandGridInspectionId.MinWidth = 54;
             this.bandGridInspectionId.Name = "bandGridInspectionId";
             this.bandGridInspectionId.OptionsBand.FixedWidth = true;
             this.bandGridInspectionId.VisibleIndex = 0;
             this.bandGridInspectionId.Width = 54;
             // 
-            // ColumnNumber
+            // numberGridColumn
             // 
-            this.ColumnNumber.Caption = "(1)";
-            this.ColumnNumber.FieldName = "Id";
-            this.ColumnNumber.Name = "ColumnNumber";
-            this.ColumnNumber.Visible = true;
-            this.ColumnNumber.Width = 54;
+            this.numberGridColumn.Caption = "(1)";
+            this.numberGridColumn.FieldName = "Id";
+            this.numberGridColumn.Name = "numberGridColumn";
+            this.numberGridColumn.Visible = true;
+            this.numberGridColumn.Width = 54;
             // 
             // bandGridInspectionStage
             // 
             this.bandGridInspectionStage.Caption = "Stage";
-            this.bandGridInspectionStage.Columns.Add(this.ColumnStageOrInspection);
+            this.bandGridInspectionStage.Columns.Add(this.stageOrInspectionGridColumn);
             this.bandGridInspectionStage.Name = "bandGridInspectionStage";
             this.bandGridInspectionStage.VisibleIndex = 1;
             this.bandGridInspectionStage.Width = 192;
             // 
-            // ColumnStageOrInspection
+            // stageOrInspectionGridColumn
             // 
-            this.ColumnStageOrInspection.AppearanceCell.Options.UseTextOptions = true;
-            this.ColumnStageOrInspection.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.ColumnStageOrInspection.AppearanceHeader.Options.UseTextOptions = true;
-            this.ColumnStageOrInspection.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ColumnStageOrInspection.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.ColumnStageOrInspection.AutoFillDown = true;
-            this.ColumnStageOrInspection.Caption = "(2)";
-            this.ColumnStageOrInspection.FieldName = "Stage";
-            this.ColumnStageOrInspection.Name = "ColumnStageOrInspection";
-            this.ColumnStageOrInspection.RowCount = 2;
-            this.ColumnStageOrInspection.Visible = true;
-            this.ColumnStageOrInspection.Width = 192;
+            this.stageOrInspectionGridColumn.AppearanceCell.Options.UseTextOptions = true;
+            this.stageOrInspectionGridColumn.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.stageOrInspectionGridColumn.AppearanceHeader.Options.UseTextOptions = true;
+            this.stageOrInspectionGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.stageOrInspectionGridColumn.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.stageOrInspectionGridColumn.AutoFillDown = true;
+            this.stageOrInspectionGridColumn.Caption = "(2)";
+            this.stageOrInspectionGridColumn.FieldName = "Stage";
+            this.stageOrInspectionGridColumn.Name = "stageOrInspectionGridColumn";
+            this.stageOrInspectionGridColumn.RowCount = 2;
+            this.stageOrInspectionGridColumn.Visible = true;
+            this.stageOrInspectionGridColumn.Width = 192;
             // 
             // bandGridInspectionObject
             // 
             this.bandGridInspectionObject.Caption = "Object";
-            this.bandGridInspectionObject.Columns.Add(this.ColumnResearchObject);
+            this.bandGridInspectionObject.Columns.Add(this.researchObjectGridColumn);
             this.bandGridInspectionObject.Name = "bandGridInspectionObject";
             this.bandGridInspectionObject.VisibleIndex = 2;
             this.bandGridInspectionObject.Width = 192;
             // 
-            // ColumnResearchObject
+            // researchObjectGridColumn
             // 
-            this.ColumnResearchObject.AppearanceHeader.Options.UseTextOptions = true;
-            this.ColumnResearchObject.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ColumnResearchObject.AutoFillDown = true;
-            this.ColumnResearchObject.Caption = "(3)";
-            this.ColumnResearchObject.FieldName = "Object";
-            this.ColumnResearchObject.Name = "ColumnResearchObject";
-            this.ColumnResearchObject.RowCount = 2;
-            this.ColumnResearchObject.Visible = true;
-            this.ColumnResearchObject.Width = 192;
+            this.researchObjectGridColumn.AppearanceHeader.Options.UseTextOptions = true;
+            this.researchObjectGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.researchObjectGridColumn.AutoFillDown = true;
+            this.researchObjectGridColumn.Caption = "(3)";
+            this.researchObjectGridColumn.FieldName = "Object";
+            this.researchObjectGridColumn.Name = "researchObjectGridColumn";
+            this.researchObjectGridColumn.RowCount = 2;
+            this.researchObjectGridColumn.Visible = true;
+            this.researchObjectGridColumn.Width = 192;
             // 
             // bandGridInspectionFrequency
             // 
             this.bandGridInspectionFrequency.Caption = "Frequency";
-            this.bandGridInspectionFrequency.Columns.Add(this.ColumnFrequency);
+            this.bandGridInspectionFrequency.Columns.Add(this.frequencyGridColumn);
             this.bandGridInspectionFrequency.Name = "bandGridInspectionFrequency";
             this.bandGridInspectionFrequency.VisibleIndex = 3;
             this.bandGridInspectionFrequency.Width = 192;
             // 
-            // ColumnFrequency
+            // frequencyGridColumn
             // 
-            this.ColumnFrequency.AutoFillDown = true;
-            this.ColumnFrequency.Caption = "(4)";
-            this.ColumnFrequency.FieldName = "Frequency";
-            this.ColumnFrequency.Name = "ColumnFrequency";
-            this.ColumnFrequency.RowCount = 2;
-            this.ColumnFrequency.Visible = true;
-            this.ColumnFrequency.Width = 192;
+            this.frequencyGridColumn.AutoFillDown = true;
+            this.frequencyGridColumn.Caption = "(4)";
+            this.frequencyGridColumn.FieldName = "Frequency";
+            this.frequencyGridColumn.Name = "frequencyGridColumn";
+            this.frequencyGridColumn.RowCount = 2;
+            this.frequencyGridColumn.Visible = true;
+            this.frequencyGridColumn.Width = 192;
             // 
             // bandGridInspectionDocument
             // 
             this.bandGridInspectionDocument.Caption = "Document";
-            this.bandGridInspectionDocument.Columns.Add(this.ColumnDocumentAndCriteria);
+            this.bandGridInspectionDocument.Columns.Add(this.documentAndCriteriaGridColumn);
             this.bandGridInspectionDocument.Name = "bandGridInspectionDocument";
             this.bandGridInspectionDocument.VisibleIndex = 4;
             this.bandGridInspectionDocument.Width = 192;
             // 
-            // ColumnDocumentAndCriteria
+            // documentAndCriteriaGridColumn
             // 
-            this.ColumnDocumentAndCriteria.AutoFillDown = true;
-            this.ColumnDocumentAndCriteria.Caption = "(5)";
-            this.ColumnDocumentAndCriteria.FieldName = "Document";
-            this.ColumnDocumentAndCriteria.Name = "ColumnDocumentAndCriteria";
-            this.ColumnDocumentAndCriteria.Visible = true;
-            this.ColumnDocumentAndCriteria.Width = 192;
+            this.documentAndCriteriaGridColumn.AutoFillDown = true;
+            this.documentAndCriteriaGridColumn.Caption = "(5)";
+            this.documentAndCriteriaGridColumn.FieldName = "Document";
+            this.documentAndCriteriaGridColumn.Name = "documentAndCriteriaGridColumn";
+            this.documentAndCriteriaGridColumn.Visible = true;
+            this.documentAndCriteriaGridColumn.Width = 192;
             // 
             // bandGridInspectionSertification
             // 
             this.bandGridInspectionSertification.Caption = "Serification";
-            this.bandGridInspectionSertification.Columns.Add(this.ColumnDocumentCertification);
+            this.bandGridInspectionSertification.Columns.Add(this.documentCertificationGridColumn);
             this.bandGridInspectionSertification.Name = "bandGridInspectionSertification";
             this.bandGridInspectionSertification.VisibleIndex = 5;
             this.bandGridInspectionSertification.Width = 198;
             // 
-            // ColumnDocumentCertification
+            // documentCertificationGridColumn
             // 
-            this.ColumnDocumentCertification.AutoFillDown = true;
-            this.ColumnDocumentCertification.Caption = "(6)";
-            this.ColumnDocumentCertification.FieldName = "Sertification";
-            this.ColumnDocumentCertification.Name = "ColumnDocumentCertification";
-            this.ColumnDocumentCertification.Visible = true;
-            this.ColumnDocumentCertification.Width = 198;
+            this.documentCertificationGridColumn.AutoFillDown = true;
+            this.documentCertificationGridColumn.Caption = "(6)";
+            this.documentCertificationGridColumn.FieldName = "Sertification";
+            this.documentCertificationGridColumn.Name = "documentCertificationGridColumn";
+            this.documentCertificationGridColumn.Visible = true;
+            this.documentCertificationGridColumn.Width = 198;
             // 
             // bandGridInspection
             // 
@@ -550,157 +551,159 @@
             // bandGridInspectionPlant
             // 
             this.bandGridInspectionPlant.Caption = "Plant";
-            this.bandGridInspectionPlant.Columns.Add(this.ColumnPlant);
+            this.bandGridInspectionPlant.Columns.Add(this.plantGridColumn);
             this.bandGridInspectionPlant.Name = "bandGridInspectionPlant";
             this.bandGridInspectionPlant.VisibleIndex = 0;
             this.bandGridInspectionPlant.Width = 185;
             // 
-            // ColumnPlant
+            // plantGridColumn
             // 
-            this.ColumnPlant.AutoFillDown = true;
-            this.ColumnPlant.Caption = "(7)";
-            this.ColumnPlant.FieldName = "InspectionPlant";
-            this.ColumnPlant.Name = "ColumnPlant";
-            this.ColumnPlant.Visible = true;
-            this.ColumnPlant.Width = 185;
+            this.plantGridColumn.AutoFillDown = true;
+            this.plantGridColumn.Caption = "(7)";
+            this.plantGridColumn.FieldName = "InspectionPlant";
+            this.plantGridColumn.Name = "plantGridColumn";
+            this.plantGridColumn.Visible = true;
+            this.plantGridColumn.Width = 185;
             // 
             // bandGridInspectionCustomer
             // 
             this.bandGridInspectionCustomer.Caption = "Customer";
-            this.bandGridInspectionCustomer.Columns.Add(this.ColumnClient);
+            this.bandGridInspectionCustomer.Columns.Add(this.clientGridColumn);
             this.bandGridInspectionCustomer.Name = "bandGridInspectionCustomer";
             this.bandGridInspectionCustomer.VisibleIndex = 1;
             this.bandGridInspectionCustomer.Width = 185;
             // 
-            // ColumnClient
+            // clientGridColumn
             // 
-            this.ColumnClient.AutoFillDown = true;
-            this.ColumnClient.Caption = "(8)";
-            this.ColumnClient.FieldName = "InspectionCustomer";
-            this.ColumnClient.Name = "ColumnClient";
-            this.ColumnClient.Visible = true;
-            this.ColumnClient.Width = 185;
+            this.clientGridColumn.AutoFillDown = true;
+            this.clientGridColumn.Caption = "(8)";
+            this.clientGridColumn.FieldName = "InspectionCustomer";
+            this.clientGridColumn.Name = "clientGridColumn";
+            this.clientGridColumn.Visible = true;
+            this.clientGridColumn.Width = 185;
             // 
             // bandGridInspectionOther
             // 
             this.bandGridInspectionOther.Caption = "Other";
-            this.bandGridInspectionOther.Columns.Add(this.ColumnThirdPart);
+            this.bandGridInspectionOther.Columns.Add(this.thirdPartGridColumn);
             this.bandGridInspectionOther.Name = "bandGridInspectionOther";
             this.bandGridInspectionOther.VisibleIndex = 2;
             this.bandGridInspectionOther.Width = 194;
             // 
-            // ColumnThirdPart
+            // thirdPartGridColumn
             // 
-            this.ColumnThirdPart.AutoFillDown = true;
-            this.ColumnThirdPart.Caption = "(9)";
-            this.ColumnThirdPart.FieldName = "InspectionOther";
-            this.ColumnThirdPart.Name = "ColumnThirdPart";
-            this.ColumnThirdPart.Visible = true;
-            this.ColumnThirdPart.Width = 194;
+            this.thirdPartGridColumn.AutoFillDown = true;
+            this.thirdPartGridColumn.Caption = "(9)";
+            this.thirdPartGridColumn.FieldName = "InspectionOther";
+            this.thirdPartGridColumn.Name = "thirdPartGridColumn";
+            this.thirdPartGridColumn.Visible = true;
+            this.thirdPartGridColumn.Width = 194;
             // 
-            // lblPipeSetup
+            // pipeSetupLabel
             // 
-            this.lblPipeSetup.Location = new System.Drawing.Point(15, 25);
-            this.lblPipeSetup.Name = "lblPipeSetup";
-            this.lblPipeSetup.Size = new System.Drawing.Size(101, 13);
-            this.lblPipeSetup.TabIndex = 4;
-            this.lblPipeSetup.Text = "Set pipe parameters:";
+            this.pipeSetupLabel.Location = new System.Drawing.Point(15, 25);
+            this.pipeSetupLabel.Name = "pipeSetupLabel";
+            this.pipeSetupLabel.Size = new System.Drawing.Size(101, 13);
+            this.pipeSetupLabel.TabIndex = 4;
+            this.pipeSetupLabel.Text = "Set pipe parameters:";
             // 
-            // TabPagePipeline
+            // pipelinePage
             // 
-            this.TabPagePipeline.Name = "TabPagePipeline";
-            this.TabPagePipeline.Size = new System.Drawing.Size(839, 487);
-            this.TabPagePipeline.Text = "Pipe&line";
+            this.pipelinePage.Name = "pipelinePage";
+            this.pipelinePage.Size = new System.Drawing.Size(839, 487);
+            this.pipelinePage.Text = "Pipe&line";
             // 
-            // TabPageUsers
+            // usersPage
             // 
-            this.TabPageUsers.Controls.Add(this.gridControlUsers);
-            this.TabPageUsers.Controls.Add(this.lblUsers);
-            this.TabPageUsers.Name = "TabPageUsers";
-            this.TabPageUsers.Size = new System.Drawing.Size(839, 487);
-            this.TabPageUsers.Text = "&Users";
+            this.usersPage.Controls.Add(this.users);
+            this.usersPage.Controls.Add(this.usersLabel);
+            this.usersPage.Name = "usersPage";
+            this.usersPage.Size = new System.Drawing.Size(839, 487);
+            this.usersPage.Text = "&Users";
             // 
-            // gridControlUsers
+            // users
             // 
-            this.gridControlUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlUsers.Location = new System.Drawing.Point(31, 56);
-            this.gridControlUsers.MainView = this.gridViewUsers;
-            this.gridControlUsers.Name = "gridControlUsers";
-            this.gridControlUsers.Size = new System.Drawing.Size(620, 256);
-            this.gridControlUsers.TabIndex = 1;
-            this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewUsers});
+            this.users.Cursor = System.Windows.Forms.Cursors.Default;
+            this.users.Location = new System.Drawing.Point(31, 46);
+            this.users.MainView = this.usersView;
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(620, 256);
+            this.users.TabIndex = 1;
+            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.usersView});
             // 
-            // gridViewUsers
+            // usersView
             // 
-            this.gridViewUsers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnUsersNo,
-            this.gridColumnUsersName,
-            this.gridColumnUsersRole});
-            this.gridViewUsers.GridControl = this.gridControlUsers;
-            this.gridViewUsers.Name = "gridViewUsers";
+            this.usersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.usersNumberGridColumn,
+            this.usersFullNameGridColumn,
+            this.usersRoleGridColumn});
+            this.usersView.GridControl = this.users;
+            this.usersView.Name = "usersView";
             // 
-            // gridColumnUsersNo
+            // usersNumberGridColumn
             // 
-            this.gridColumnUsersNo.Caption = "№";
-            this.gridColumnUsersNo.Name = "gridColumnUsersNo";
-            this.gridColumnUsersNo.Visible = true;
-            this.gridColumnUsersNo.VisibleIndex = 0;
+            this.usersNumberGridColumn.Caption = "№";
+            this.usersNumberGridColumn.Name = "usersNumberGridColumn";
+            this.usersNumberGridColumn.Visible = true;
+            this.usersNumberGridColumn.VisibleIndex = 0;
             // 
-            // gridColumnUsersName
+            // usersFullNameGridColumn
             // 
-            this.gridColumnUsersName.Caption = "User full name";
-            this.gridColumnUsersName.Name = "gridColumnUsersName";
-            this.gridColumnUsersName.Visible = true;
-            this.gridColumnUsersName.VisibleIndex = 1;
+            this.usersFullNameGridColumn.Caption = "User full name";
+            this.usersFullNameGridColumn.Name = "usersFullNameGridColumn";
+            this.usersFullNameGridColumn.Visible = true;
+            this.usersFullNameGridColumn.VisibleIndex = 1;
             // 
-            // gridColumnUsersRole
+            // usersRoleGridColumn
             // 
-            this.gridColumnUsersRole.Caption = "Role";
-            this.gridColumnUsersRole.Name = "gridColumnUsersRole";
-            this.gridColumnUsersRole.Visible = true;
-            this.gridColumnUsersRole.VisibleIndex = 2;
+            this.usersRoleGridColumn.Caption = "Role";
+            this.usersRoleGridColumn.Name = "usersRoleGridColumn";
+            this.usersRoleGridColumn.Visible = true;
+            this.usersRoleGridColumn.VisibleIndex = 2;
             // 
-            // lblUsers
+            // usersLabel
             // 
-            this.lblUsers.Location = new System.Drawing.Point(31, 27);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(27, 13);
-            this.lblUsers.TabIndex = 0;
-            this.lblUsers.Text = "Users";
+            this.usersLabel.Location = new System.Drawing.Point(31, 27);
+            this.usersLabel.Name = "usersLabel";
+            this.usersLabel.Size = new System.Drawing.Size(27, 13);
+            this.usersLabel.TabIndex = 0;
+            this.usersLabel.Text = "Users";
             // 
-            // TabPageDictionaries
+            // ictionariesPage
             // 
-            this.TabPageDictionaries.Controls.Add(this.gridControlDictionaries);
-            this.TabPageDictionaries.Name = "TabPageDictionaries";
-            this.TabPageDictionaries.Size = new System.Drawing.Size(839, 487);
-            this.TabPageDictionaries.Text = "&Dictionaries";
+            this.ictionariesPage.Controls.Add(this.dictionaries);
+            this.ictionariesPage.Name = "ictionariesPage";
+            this.ictionariesPage.Size = new System.Drawing.Size(839, 487);
+            this.ictionariesPage.Text = "&Dictionaries";
             // 
-            // gridControlDictionaries
+            // dictionaries
             // 
-            this.gridControlDictionaries.Location = new System.Drawing.Point(32, 30);
-            this.gridControlDictionaries.MainView = this.gridViewDictionary;
-            this.gridControlDictionaries.Name = "gridControlDictionaries";
-            this.gridControlDictionaries.Size = new System.Drawing.Size(367, 440);
-            this.gridControlDictionaries.TabIndex = 0;
-            this.gridControlDictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewDictionary});
+            this.dictionaries.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dictionaries.Location = new System.Drawing.Point(32, 30);
+            this.dictionaries.MainView = this.dictionaryView;
+            this.dictionaries.Name = "dictionaries";
+            this.dictionaries.Size = new System.Drawing.Size(367, 440);
+            this.dictionaries.TabIndex = 0;
+            this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dictionaryView});
             // 
-            // gridViewDictionary
+            // dictionaryView
             // 
-            this.gridViewDictionary.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnDictionary});
-            this.gridViewDictionary.GridControl = this.gridControlDictionaries;
-            this.gridViewDictionary.Name = "gridViewDictionary";
+            this.dictionaryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dictionaryNameGridColumn});
+            this.dictionaryView.GridControl = this.dictionaries;
+            this.dictionaryView.Name = "dictionaryView";
             // 
-            // gridColumnDictionary
+            // dictionaryNameGridColumn
             // 
-            this.gridColumnDictionary.Caption = "Dictionary";
-            this.gridColumnDictionary.Name = "gridColumnDictionary";
-            this.gridColumnDictionary.Visible = true;
-            this.gridColumnDictionary.VisibleIndex = 0;
+            this.dictionaryNameGridColumn.Caption = "Dictionary";
+            this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
+            this.dictionaryNameGridColumn.Visible = true;
+            this.dictionaryNameGridColumn.VisibleIndex = 0;
             // 
             // bandedGridColumn1
             // 
@@ -712,106 +715,106 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 528);
             this.ControlBox = false;
-            this.Controls.Add(this.TabControlSettings);
+            this.Controls.Add(this.settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsXtraForm";
             this.Text = "SettingsXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlSettings)).EndInit();
-            this.TabControlSettings.ResumeLayout(false);
-            this.TabPagePipe.ResumeLayout(false);
-            this.TabPagePipe.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSizeGrade.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeManufacturersComboBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeSetupTabControl)).EndInit();
-            this.PipeSetupTabControl.ResumeLayout(false);
-            this.TabPageGeneralPipeSetup.ResumeLayout(false);
-            this.TabPageGeneralPipeSetup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlInsideCoating)).EndInit();
-            this.groupControlInsideCoating.ResumeLayout(false);
-            this.groupControlInsideCoating.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideMaterial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckEditInsideCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideAdhesion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInsideThickness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlOuterCoating)).EndInit();
-            this.groupControlOuterCoating.ResumeLayout(false);
-            this.groupControlOuterCoating.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterMaterial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterAdhesion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtOuterThickness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckEditOuterCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditSpiral.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditWelded.Properties)).EndInit();
-            this.TabPageInspection.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewInspection)).EndInit();
-            this.TabPageUsers.ResumeLayout(false);
-            this.TabPageUsers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewUsers)).EndInit();
-            this.TabPageDictionaries.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDictionaries)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDictionary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
+            this.settings.ResumeLayout(false);
+            this.pipePage.ResumeLayout(false);
+            this.pipePage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeManufacturers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSetup)).EndInit();
+            this.pipeSetup.ResumeLayout(false);
+            this.generalPipeSetupPage.ResumeLayout(false);
+            this.generalPipeSetupPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoating)).EndInit();
+            this.internalCoating.ResumeLayout(false);
+            this.internalCoating.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.internalMaterial.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingCheck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalAdhesion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoating)).EndInit();
+            this.externalCoating.ResumeLayout(false);
+            this.externalCoating.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.externalMaterial.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalAdhesion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingCheck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).EndInit();
+            this.inspectionPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inspection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
+            this.usersPage.ResumeLayout(false);
+            this.usersPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
+            this.ictionariesPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabPage TabPagePipe;
-        private DevExpress.XtraTab.XtraTabPage TabPagePipeline;
-        private DevExpress.XtraTab.XtraTabControl PipeSetupTabControl;
-        private DevExpress.XtraTab.XtraTabPage TabPageGeneralPipeSetup;
-        private DevExpress.XtraTab.XtraTabPage TabPageInspection;
-        private DevExpress.XtraEditors.CheckEdit checkEditWelded;
-        private DevExpress.XtraEditors.LabelControl lblWeldType;
-        private DevExpress.XtraEditors.LabelControl lblPipeSetup;
-        private DevExpress.XtraEditors.ComboBoxEdit ComboBoxSizeGrade;
-        private DevExpress.XtraEditors.ComboBoxEdit PipeManufacturersComboBox;
-        private DevExpress.XtraEditors.CheckEdit checkEditSpiral;
-        private DevExpress.XtraEditors.LabelControl lblSizeGrade;
-        private DevExpress.XtraEditors.LabelControl lblPipeManufacturer;
-        private DevExpress.XtraEditors.GroupControl groupControlInsideCoating;
-        private DevExpress.XtraEditors.LabelControl lblInsideMaterial;
-        private DevExpress.XtraEditors.LabelControl lblInsideAdhesion;
-        private DevExpress.XtraEditors.LabelControl lblInsideThickness;
-        private DevExpress.XtraEditors.TextEdit txtEdtInsideMaterial;
-        private DevExpress.XtraEditors.CheckEdit CheckEditInsideCoating;
-        private DevExpress.XtraEditors.TextEdit txtEdtInsideAdhesion;
-        private DevExpress.XtraEditors.TextEdit txtEdtInsideThickness;
-        private DevExpress.XtraEditors.GroupControl groupControlOuterCoating;
-        private DevExpress.XtraEditors.LabelControl lblOuterMaterial;
-        private DevExpress.XtraEditors.LabelControl lblOuterAdhesion;
-        private DevExpress.XtraEditors.LabelControl lblOuterThickness;
-        private DevExpress.XtraEditors.TextEdit txtEdtOuterMaterial;
-        private DevExpress.XtraEditors.TextEdit txtEdtOuterAdhesion;
-        private DevExpress.XtraEditors.TextEdit txtEdtOuterThickness;
-        private DevExpress.XtraEditors.CheckEdit CheckEditOuterCoating;
+        private DevExpress.XtraTab.XtraTabPage pipePage;
+        private DevExpress.XtraTab.XtraTabPage pipelinePage;
+        private DevExpress.XtraTab.XtraTabControl pipeSetup;
+        private DevExpress.XtraTab.XtraTabPage generalPipeSetupPage;
+        private DevExpress.XtraTab.XtraTabPage inspectionPage;
+        private DevExpress.XtraEditors.CheckEdit longitudinal;
+        private DevExpress.XtraEditors.LabelControl weldTypeLabel;
+        private DevExpress.XtraEditors.LabelControl pipeSetupLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit sizeGrade;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeManufacturers;
+        private DevExpress.XtraEditors.CheckEdit helical;
+        private DevExpress.XtraEditors.LabelControl sizeGradeLabel;
+        private DevExpress.XtraEditors.LabelControl pipeManufacturerLabel;
+        private DevExpress.XtraEditors.GroupControl internalCoating;
+        private DevExpress.XtraEditors.LabelControl internalMaterialLabel;
+        private DevExpress.XtraEditors.LabelControl internalAdhesionLabel;
+        private DevExpress.XtraEditors.LabelControl internalThicknessLabel;
+        private DevExpress.XtraEditors.TextEdit internalMaterial;
+        private DevExpress.XtraEditors.CheckEdit internalCoatingCheck;
+        private DevExpress.XtraEditors.TextEdit internalAdhesion;
+        private DevExpress.XtraEditors.TextEdit internalThickness;
+        private DevExpress.XtraEditors.GroupControl externalCoating;
+        private DevExpress.XtraEditors.LabelControl externalMaterialLabel;
+        private DevExpress.XtraEditors.LabelControl externalAdhesionLabel;
+        private DevExpress.XtraEditors.LabelControl externalThicknessLabel;
+        private DevExpress.XtraEditors.TextEdit externalMaterial;
+        private DevExpress.XtraEditors.TextEdit externalAdhesion;
+        private DevExpress.XtraEditors.TextEdit externalThickness;
+        private DevExpress.XtraEditors.CheckEdit externalCoatingCheck;
 
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
 
-        private DevExpress.XtraGrid.GridControl gridControlInspection;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView GridViewInspection;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnStageOrInspection;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnResearchObject;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnFrequency;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnDocumentAndCriteria;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnNumber;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnDocumentCertification;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnPlant;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnClient;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ColumnThirdPart;
-        private DevExpress.XtraTab.XtraTabPage TabPageUsers;
-        private DevExpress.XtraTab.XtraTabPage TabPageDictionaries;
-        private DevExpress.XtraGrid.GridControl gridControlUsers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewUsers;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnUsersNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnUsersName;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnUsersRole;
-        private DevExpress.XtraEditors.LabelControl lblUsers;
-        private DevExpress.XtraGrid.GridControl gridControlDictionaries;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDictionary;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDictionary;
+        private DevExpress.XtraGrid.GridControl inspection;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView inspectionView;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn stageOrInspectionGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn researchObjectGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn frequencyGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn documentAndCriteriaGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn numberGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn documentCertificationGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn plantGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn clientGridColumn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn thirdPartGridColumn;
+        private DevExpress.XtraTab.XtraTabPage usersPage;
+        private DevExpress.XtraTab.XtraTabPage ictionariesPage;
+        private DevExpress.XtraGrid.GridControl users;
+        private DevExpress.XtraGrid.Views.Grid.GridView usersView;
+        private DevExpress.XtraGrid.Columns.GridColumn usersNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn usersFullNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn usersRoleGridColumn;
+        private DevExpress.XtraEditors.LabelControl usersLabel;
+        private DevExpress.XtraGrid.GridControl dictionaries;
+        private DevExpress.XtraGrid.Views.Grid.GridView dictionaryView;
+        private DevExpress.XtraGrid.Columns.GridColumn dictionaryNameGridColumn;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionId;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionStage;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionObject;
@@ -822,6 +825,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionPlant;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionCustomer;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionOther;
-        public DevExpress.XtraTab.XtraTabControl TabControlSettings;
+        public DevExpress.XtraTab.XtraTabControl settings;
     }
 }
