@@ -28,183 +28,182 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEdtComponentNo = new DevExpress.XtraEditors.TextEdit();
-            this.lblComponentNo = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtCertificateNo = new DevExpress.XtraEditors.TextEdit();
-            this.lblCertificateNo = new DevExpress.XtraEditors.LabelControl();
-            this.gridControlParameters = new DevExpress.XtraGrid.GridControl();
-            this.gridViewParameters = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnDiameter = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnThickness = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblType = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEditType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.groupControlInspection = new DevExpress.XtraEditors.GroupControl();
-            this.lblInspectionDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblInspector = new DevExpress.XtraEditors.LabelControl();
-            this.lblResult = new DevExpress.XtraEditors.LabelControl();
-            this.dateEditInspection = new DevExpress.XtraEditors.DateEdit();
-            this.txtEdtInspector = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxResult = new DevExpress.XtraEditors.ComboBoxEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtComponentNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlParameters)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewParameters)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlInspection)).BeginInit();
-            this.groupControlInspection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspector.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxResult.Properties)).BeginInit();
+            this.componentNumber = new DevExpress.XtraEditors.TextEdit();
+            this.componentNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
+            this.certificateNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.componentParameters = new DevExpress.XtraGrid.GridControl();
+            this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.wallThicknessGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.typeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.type = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.inspection = new DevExpress.XtraEditors.GroupControl();
+            this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectorLabel = new DevExpress.XtraEditors.LabelControl();
+            this.resultLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionDate = new DevExpress.XtraEditors.DateEdit();
+            this.inspector = new DevExpress.XtraEditors.TextEdit();
+            this.result = new DevExpress.XtraEditors.ComboBoxEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
+            this.inspection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtEdtComponentNo
+            // componentNumber
             // 
-            this.txtEdtComponentNo.Location = new System.Drawing.Point(26, 34);
-            this.txtEdtComponentNo.Name = "txtEdtComponentNo";
-            this.txtEdtComponentNo.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtComponentNo.TabIndex = 0;
+            this.componentNumber.Location = new System.Drawing.Point(26, 34);
+            this.componentNumber.Name = "componentNumber";
+            this.componentNumber.Size = new System.Drawing.Size(100, 20);
+            this.componentNumber.TabIndex = 0;
             // 
-            // lblComponentNo
+            // componentNumberLabel
             // 
-            this.lblComponentNo.Location = new System.Drawing.Point(26, 12);
-            this.lblComponentNo.Name = "lblComponentNo";
-            this.lblComponentNo.Size = new System.Drawing.Size(94, 13);
-            this.lblComponentNo.TabIndex = 1;
-            this.lblComponentNo.Text = "Component number";
+            this.componentNumberLabel.Location = new System.Drawing.Point(26, 12);
+            this.componentNumberLabel.Name = "componentNumberLabel";
+            this.componentNumberLabel.Size = new System.Drawing.Size(94, 13);
+            this.componentNumberLabel.TabIndex = 1;
+            this.componentNumberLabel.Text = "Component number";
             // 
-            // txtEdtCertificateNo
+            // certificateNumber
             // 
-            this.txtEdtCertificateNo.Location = new System.Drawing.Point(257, 34);
-            this.txtEdtCertificateNo.Name = "txtEdtCertificateNo";
-            this.txtEdtCertificateNo.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtCertificateNo.TabIndex = 2;
+            this.certificateNumber.Location = new System.Drawing.Point(257, 34);
+            this.certificateNumber.Name = "certificateNumber";
+            this.certificateNumber.Size = new System.Drawing.Size(100, 20);
+            this.certificateNumber.TabIndex = 2;
             // 
-            // lblCertificateNo
+            // certificateNumberLabel
             // 
-            this.lblCertificateNo.Location = new System.Drawing.Point(257, 12);
-            this.lblCertificateNo.Name = "lblCertificateNo";
-            this.lblCertificateNo.Size = new System.Drawing.Size(89, 13);
-            this.lblCertificateNo.TabIndex = 3;
-            this.lblCertificateNo.Text = "Certificate number";
+            this.certificateNumberLabel.Location = new System.Drawing.Point(257, 12);
+            this.certificateNumberLabel.Name = "certificateNumberLabel";
+            this.certificateNumberLabel.Size = new System.Drawing.Size(89, 13);
+            this.certificateNumberLabel.TabIndex = 3;
+            this.certificateNumberLabel.Text = "Certificate number";
             // 
-            // gridControlParameters
+            // componentParameters
             // 
-            this.gridControlParameters.Location = new System.Drawing.Point(26, 142);
-            this.gridControlParameters.MainView = this.gridViewParameters;
-            this.gridControlParameters.Name = "gridControlParameters";
-            this.gridControlParameters.Size = new System.Drawing.Size(400, 129);
-            this.gridControlParameters.TabIndex = 4;
-            this.gridControlParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewParameters});
+            this.componentParameters.Cursor = System.Windows.Forms.Cursors.Default;
+            this.componentParameters.Location = new System.Drawing.Point(26, 142);
+            this.componentParameters.MainView = this.componentParametersView;
+            this.componentParameters.Name = "componentParameters";
+            this.componentParameters.Size = new System.Drawing.Size(400, 129);
+            this.componentParameters.TabIndex = 4;
+            this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.componentParametersView});
             // 
-            // gridViewParameters
+            // componentParametersView
             // 
-            this.gridViewParameters.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnDiameter,
-            this.gridColumnThickness});
-            this.gridViewParameters.GridControl = this.gridControlParameters;
-            this.gridViewParameters.Name = "gridViewParameters";
-            this.gridViewParameters.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.diameterGridColumn,
+            this.wallThicknessGridColumn});
+            this.componentParametersView.GridControl = this.componentParameters;
+            this.componentParametersView.Name = "componentParametersView";
+            this.componentParametersView.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumnDiameter
+            // diameterGridColumn
             // 
-            this.gridColumnDiameter.Caption = "Bore diameter";
-            this.gridColumnDiameter.Name = "gridColumnDiameter";
-            this.gridColumnDiameter.Visible = true;
-            this.gridColumnDiameter.VisibleIndex = 0;
+            this.diameterGridColumn.Caption = "Bore diameter";
+            this.diameterGridColumn.Name = "diameterGridColumn";
+            this.diameterGridColumn.Visible = true;
+            this.diameterGridColumn.VisibleIndex = 0;
             // 
-            // gridColumnThickness
+            // wallThicknessGridColumn
             // 
-            this.gridColumnThickness.Caption = "Side thickness";
-            this.gridColumnThickness.Name = "gridColumnThickness";
-            this.gridColumnThickness.Visible = true;
-            this.gridColumnThickness.VisibleIndex = 1;
+            this.wallThicknessGridColumn.Caption = "Wall thickness";
+            this.wallThicknessGridColumn.Name = "wallThicknessGridColumn";
+            this.wallThicknessGridColumn.Visible = true;
+            this.wallThicknessGridColumn.VisibleIndex = 1;
             // 
-            // lblType
+            // typeLabel
             // 
-            this.lblType.Location = new System.Drawing.Point(26, 69);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(24, 13);
-            this.lblType.TabIndex = 5;
-            this.lblType.Text = "Type";
+            this.typeLabel.Location = new System.Drawing.Point(26, 69);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(24, 13);
+            this.typeLabel.TabIndex = 5;
+            this.typeLabel.Text = "Type";
             // 
-            // comboBoxEditType
+            // type
             // 
-            this.comboBoxEditType.Location = new System.Drawing.Point(26, 88);
-            this.comboBoxEditType.Name = "comboBoxEditType";
-            this.comboBoxEditType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.type.Location = new System.Drawing.Point(26, 88);
+            this.type.Name = "type";
+            this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditType.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxEditType.TabIndex = 6;
+            this.type.Size = new System.Drawing.Size(100, 20);
+            this.type.TabIndex = 6;
             // 
-            // groupControlInspection
+            // inspection
             // 
-            this.groupControlInspection.Controls.Add(this.lblInspectionDate);
-            this.groupControlInspection.Controls.Add(this.lblInspector);
-            this.groupControlInspection.Controls.Add(this.lblResult);
-            this.groupControlInspection.Controls.Add(this.dateEditInspection);
-            this.groupControlInspection.Controls.Add(this.txtEdtInspector);
-            this.groupControlInspection.Controls.Add(this.comboBoxResult);
-            this.groupControlInspection.Location = new System.Drawing.Point(26, 299);
-            this.groupControlInspection.Name = "groupControlInspection";
-            this.groupControlInspection.Size = new System.Drawing.Size(594, 100);
-            this.groupControlInspection.TabIndex = 7;
-            this.groupControlInspection.Text = "Inspection";
+            this.inspection.Controls.Add(this.inspectionDateLabel);
+            this.inspection.Controls.Add(this.inspectorLabel);
+            this.inspection.Controls.Add(this.resultLabel);
+            this.inspection.Controls.Add(this.inspectionDate);
+            this.inspection.Controls.Add(this.inspector);
+            this.inspection.Controls.Add(this.result);
+            this.inspection.Location = new System.Drawing.Point(26, 299);
+            this.inspection.Name = "inspection";
+            this.inspection.Size = new System.Drawing.Size(594, 100);
+            this.inspection.TabIndex = 7;
+            this.inspection.Text = "Inspection";
             // 
-            // lblInspectionDate
+            // inspectionDateLabel
             // 
-            this.lblInspectionDate.Location = new System.Drawing.Point(348, 70);
-            this.lblInspectionDate.Name = "lblInspectionDate";
-            this.lblInspectionDate.Size = new System.Drawing.Size(75, 13);
-            this.lblInspectionDate.TabIndex = 5;
-            this.lblInspectionDate.Text = "Inspection date";
+            this.inspectionDateLabel.Location = new System.Drawing.Point(348, 70);
+            this.inspectionDateLabel.Name = "inspectionDateLabel";
+            this.inspectionDateLabel.Size = new System.Drawing.Size(75, 13);
+            this.inspectionDateLabel.TabIndex = 5;
+            this.inspectionDateLabel.Text = "Inspection date";
             // 
-            // lblInspector
+            // inspectorLabel
             // 
-            this.lblInspector.Location = new System.Drawing.Point(14, 70);
-            this.lblInspector.Name = "lblInspector";
-            this.lblInspector.Size = new System.Drawing.Size(46, 13);
-            this.lblInspector.TabIndex = 4;
-            this.lblInspector.Text = "Inspector";
+            this.inspectorLabel.Location = new System.Drawing.Point(14, 70);
+            this.inspectorLabel.Name = "inspectorLabel";
+            this.inspectorLabel.Size = new System.Drawing.Size(46, 13);
+            this.inspectorLabel.TabIndex = 4;
+            this.inspectorLabel.Text = "Inspector";
             // 
-            // lblResult
+            // resultLabel
             // 
-            this.lblResult.Location = new System.Drawing.Point(14, 36);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(30, 13);
-            this.lblResult.TabIndex = 3;
-            this.lblResult.Text = "Result";
+            this.resultLabel.Location = new System.Drawing.Point(14, 36);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(30, 13);
+            this.resultLabel.TabIndex = 3;
+            this.resultLabel.Text = "Result";
             // 
-            // dateEditInspection
+            // inspectionDate
             // 
-            this.dateEditInspection.EditValue = null;
-            this.dateEditInspection.Location = new System.Drawing.Point(457, 67);
-            this.dateEditInspection.Name = "dateEditInspection";
-            this.dateEditInspection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.inspectionDate.EditValue = null;
+            this.inspectionDate.Location = new System.Drawing.Point(457, 67);
+            this.inspectionDate.Name = "inspectionDate";
+            this.inspectionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInspection.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.inspectionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInspection.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditInspection.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditInspection.Size = new System.Drawing.Size(100, 20);
-            this.dateEditInspection.TabIndex = 2;
+            this.inspectionDate.Size = new System.Drawing.Size(100, 20);
+            this.inspectionDate.TabIndex = 2;
             // 
-            // txtEdtInspector
+            // inspector
             // 
-            this.txtEdtInspector.Location = new System.Drawing.Point(93, 67);
-            this.txtEdtInspector.Name = "txtEdtInspector";
-            this.txtEdtInspector.Size = new System.Drawing.Size(209, 20);
-            this.txtEdtInspector.TabIndex = 1;
+            this.inspector.Location = new System.Drawing.Point(93, 67);
+            this.inspector.Name = "inspector";
+            this.inspector.Size = new System.Drawing.Size(209, 20);
+            this.inspector.TabIndex = 1;
             // 
-            // comboBoxResult
+            // result
             // 
-            this.comboBoxResult.Location = new System.Drawing.Point(92, 33);
-            this.comboBoxResult.Name = "comboBoxResult";
-            this.comboBoxResult.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.result.Location = new System.Drawing.Point(92, 33);
+            this.result.Name = "result";
+            this.result.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxResult.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxResult.TabIndex = 0;
+            this.result.Size = new System.Drawing.Size(100, 20);
+            this.result.TabIndex = 0;
             // 
             // ComponentNewEditXtraForm
             // 
@@ -214,29 +213,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
-            this.Controls.Add(this.groupControlInspection);
-            this.Controls.Add(this.comboBoxEditType);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.gridControlParameters);
-            this.Controls.Add(this.lblCertificateNo);
-            this.Controls.Add(this.txtEdtCertificateNo);
-            this.Controls.Add(this.lblComponentNo);
-            this.Controls.Add(this.txtEdtComponentNo);
+            this.Controls.Add(this.inspection);
+            this.Controls.Add(this.type);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.componentParameters);
+            this.Controls.Add(this.certificateNumberLabel);
+            this.Controls.Add(this.certificateNumber);
+            this.Controls.Add(this.componentNumberLabel);
+            this.Controls.Add(this.componentNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentNewEditXtraForm";
             this.Text = "ComponentryNewEditXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtComponentNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlParameters)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewParameters)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlInspection)).EndInit();
-            this.groupControlInspection.ResumeLayout(false);
-            this.groupControlInspection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspector.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxResult.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection)).EndInit();
+            this.inspection.ResumeLayout(false);
+            this.inspection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,22 +243,22 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit txtEdtComponentNo;
-        private DevExpress.XtraEditors.LabelControl lblComponentNo;
-        private DevExpress.XtraEditors.TextEdit txtEdtCertificateNo;
-        private DevExpress.XtraEditors.LabelControl lblCertificateNo;
-        private DevExpress.XtraGrid.GridControl gridControlParameters;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewParameters;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDiameter;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnThickness;
-        private DevExpress.XtraEditors.LabelControl lblType;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditType;
-        private DevExpress.XtraEditors.GroupControl groupControlInspection;
-        private DevExpress.XtraEditors.LabelControl lblInspectionDate;
-        private DevExpress.XtraEditors.LabelControl lblInspector;
-        private DevExpress.XtraEditors.LabelControl lblResult;
-        private DevExpress.XtraEditors.DateEdit dateEditInspection;
-        private DevExpress.XtraEditors.TextEdit txtEdtInspector;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxResult;
+        private DevExpress.XtraEditors.TextEdit componentNumber;
+        private DevExpress.XtraEditors.LabelControl componentNumberLabel;
+        private DevExpress.XtraEditors.TextEdit certificateNumber;
+        private DevExpress.XtraEditors.LabelControl certificateNumberLabel;
+        private DevExpress.XtraGrid.GridControl componentParameters;
+        private DevExpress.XtraGrid.Views.Grid.GridView componentParametersView;
+        private DevExpress.XtraGrid.Columns.GridColumn diameterGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn wallThicknessGridColumn;
+        private DevExpress.XtraEditors.LabelControl typeLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit type;
+        private DevExpress.XtraEditors.GroupControl inspection;
+        private DevExpress.XtraEditors.LabelControl inspectionDateLabel;
+        private DevExpress.XtraEditors.LabelControl inspectorLabel;
+        private DevExpress.XtraEditors.LabelControl resultLabel;
+        private DevExpress.XtraEditors.DateEdit inspectionDate;
+        private DevExpress.XtraEditors.TextEdit inspector;
+        private DevExpress.XtraEditors.ComboBoxEdit result;
     }
 }

@@ -28,192 +28,189 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDesigner = new DevExpress.XtraEditors.LabelControl();
-            this.lblClient = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxDesigner = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxClient = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblPurchaseOrder = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtPurchaseOrder = new DevExpress.XtraEditors.TextEdit();
-            this.lblRailcar = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxRailcar = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.gridControlPipesList = new DevExpress.XtraGrid.GridControl();
-            this.gridViewPipesList = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblDeliveryDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblShippedDate = new DevExpress.XtraEditors.LabelControl();
-            this.dateEditDelivery = new DevExpress.XtraEditors.DateEdit();
-            this.dateEditShipped = new DevExpress.XtraEditors.DateEdit();
-            this.lblCertificate = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtCertificateNo = new DevExpress.XtraEditors.TextEdit();
-            this.btnunship = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDesigner.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxClient.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPurchaseOrder.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxRailcar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPipesList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPipesList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDelivery.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDelivery.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditShipped.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditShipped.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).BeginInit();
+            this.designerLabel = new DevExpress.XtraEditors.LabelControl();
+            this.clientLabel = new DevExpress.XtraEditors.LabelControl();
+            this.designer = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.client = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.purchaseOrderLabel = new DevExpress.XtraEditors.LabelControl();
+            this.purchaseOrder = new DevExpress.XtraEditors.TextEdit();
+            this.railcarLabel = new DevExpress.XtraEditors.LabelControl();
+            this.railcar = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipesList = new DevExpress.XtraGrid.GridControl();
+            this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.deliveryDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.shippedDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.deliveryDate = new DevExpress.XtraEditors.DateEdit();
+            this.shippedDate = new DevExpress.XtraEditors.DateEdit();
+            this.certificateNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
+            this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.designer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblDesigner
+            // designerLabel
             // 
-            this.lblDesigner.Location = new System.Drawing.Point(12, 68);
-            this.lblDesigner.Name = "lblDesigner";
-            this.lblDesigner.Size = new System.Drawing.Size(42, 13);
-            this.lblDesigner.TabIndex = 0;
-            this.lblDesigner.Text = "Designer";
+            this.designerLabel.Location = new System.Drawing.Point(12, 68);
+            this.designerLabel.Name = "designerLabel";
+            this.designerLabel.Size = new System.Drawing.Size(42, 13);
+            this.designerLabel.TabIndex = 0;
+            this.designerLabel.Text = "Designer";
             // 
-            // lblClient
+            // clientLabel
             // 
-            this.lblClient.Location = new System.Drawing.Point(187, 68);
-            this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(27, 13);
-            this.lblClient.TabIndex = 1;
-            this.lblClient.Text = "Client";
+            this.clientLabel.Location = new System.Drawing.Point(187, 68);
+            this.clientLabel.Name = "clientLabel";
+            this.clientLabel.Size = new System.Drawing.Size(27, 13);
+            this.clientLabel.TabIndex = 1;
+            this.clientLabel.Text = "Client";
             // 
-            // comboBoxDesigner
+            // designer
             // 
-            this.comboBoxDesigner.Location = new System.Drawing.Point(12, 87);
-            this.comboBoxDesigner.Name = "comboBoxDesigner";
-            this.comboBoxDesigner.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.designer.Location = new System.Drawing.Point(12, 87);
+            this.designer.Name = "designer";
+            this.designer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxDesigner.Size = new System.Drawing.Size(138, 20);
-            this.comboBoxDesigner.TabIndex = 2;
+            this.designer.Size = new System.Drawing.Size(138, 20);
+            this.designer.TabIndex = 2;
             // 
-            // comboBoxClient
+            // client
             // 
-            this.comboBoxClient.Location = new System.Drawing.Point(187, 87);
-            this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.client.Location = new System.Drawing.Point(187, 87);
+            this.client.Name = "client";
+            this.client.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxClient.Size = new System.Drawing.Size(138, 20);
-            this.comboBoxClient.TabIndex = 3;
+            this.client.Size = new System.Drawing.Size(138, 20);
+            this.client.TabIndex = 3;
             // 
-            // lblPurchaseOrder
+            // purchaseOrderLabel
             // 
-            this.lblPurchaseOrder.Location = new System.Drawing.Point(357, 68);
-            this.lblPurchaseOrder.Name = "lblPurchaseOrder";
-            this.lblPurchaseOrder.Size = new System.Drawing.Size(73, 13);
-            this.lblPurchaseOrder.TabIndex = 4;
-            this.lblPurchaseOrder.Text = "Purchase order";
+            this.purchaseOrderLabel.Location = new System.Drawing.Point(357, 68);
+            this.purchaseOrderLabel.Name = "purchaseOrderLabel";
+            this.purchaseOrderLabel.Size = new System.Drawing.Size(73, 13);
+            this.purchaseOrderLabel.TabIndex = 4;
+            this.purchaseOrderLabel.Text = "Purchase order";
             // 
-            // txtEdtPurchaseOrder
+            // purchaseOrder
             // 
-            this.txtEdtPurchaseOrder.Location = new System.Drawing.Point(357, 87);
-            this.txtEdtPurchaseOrder.Name = "txtEdtPurchaseOrder";
-            this.txtEdtPurchaseOrder.Size = new System.Drawing.Size(132, 20);
-            this.txtEdtPurchaseOrder.TabIndex = 5;
+            this.purchaseOrder.Location = new System.Drawing.Point(357, 87);
+            this.purchaseOrder.Name = "purchaseOrder";
+            this.purchaseOrder.Size = new System.Drawing.Size(132, 20);
+            this.purchaseOrder.TabIndex = 5;
             // 
-            // lblRailcar
+            // railcarLabel
             // 
-            this.lblRailcar.Location = new System.Drawing.Point(12, 14);
-            this.lblRailcar.Name = "lblRailcar";
-            this.lblRailcar.Size = new System.Drawing.Size(71, 13);
-            this.lblRailcar.TabIndex = 6;
-            this.lblRailcar.Text = "Railcar number";
+            this.railcarLabel.Location = new System.Drawing.Point(12, 14);
+            this.railcarLabel.Name = "railcarLabel";
+            this.railcarLabel.Size = new System.Drawing.Size(71, 13);
+            this.railcarLabel.TabIndex = 6;
+            this.railcarLabel.Text = "Railcar number";
             // 
-            // comboBoxRailcar
+            // railcar
             // 
-            this.comboBoxRailcar.Location = new System.Drawing.Point(12, 33);
-            this.comboBoxRailcar.Name = "comboBoxRailcar";
-            this.comboBoxRailcar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.railcar.Location = new System.Drawing.Point(12, 33);
+            this.railcar.Name = "railcar";
+            this.railcar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxRailcar.Size = new System.Drawing.Size(71, 20);
-            this.comboBoxRailcar.TabIndex = 7;
+            this.railcar.Size = new System.Drawing.Size(71, 20);
+            this.railcar.TabIndex = 7;
             // 
-            // gridControlPipesList
+            // pipesList
             // 
-            this.gridControlPipesList.Location = new System.Drawing.Point(12, 177);
-            this.gridControlPipesList.MainView = this.gridViewPipesList;
-            this.gridControlPipesList.Name = "gridControlPipesList";
-            this.gridControlPipesList.Size = new System.Drawing.Size(685, 159);
-            this.gridControlPipesList.TabIndex = 8;
-            this.gridControlPipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewPipesList});
+            this.pipesList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pipesList.Location = new System.Drawing.Point(12, 177);
+            this.pipesList.MainView = this.pipesListView;
+            this.pipesList.Name = "pipesList";
+            this.pipesList.Size = new System.Drawing.Size(685, 159);
+            this.pipesList.TabIndex = 8;
+            this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pipesListView});
             // 
-            // gridViewPipesList
+            // pipesListView
             // 
-            this.gridViewPipesList.GridControl = this.gridControlPipesList;
-            this.gridViewPipesList.Name = "gridViewPipesList";
+            this.pipesListView.GridControl = this.pipesList;
+            this.pipesListView.Name = "pipesListView";
             // 
-            // lblDeliveryDate
+            // deliveryDateLabel
             // 
-            this.lblDeliveryDate.Location = new System.Drawing.Point(12, 121);
-            this.lblDeliveryDate.Name = "lblDeliveryDate";
-            this.lblDeliveryDate.Size = new System.Drawing.Size(64, 13);
-            this.lblDeliveryDate.TabIndex = 9;
-            this.lblDeliveryDate.Text = "Delivery date";
+            this.deliveryDateLabel.Location = new System.Drawing.Point(12, 121);
+            this.deliveryDateLabel.Name = "deliveryDateLabel";
+            this.deliveryDateLabel.Size = new System.Drawing.Size(64, 13);
+            this.deliveryDateLabel.TabIndex = 9;
+            this.deliveryDateLabel.Text = "Delivery date";
             // 
-            // lblShippedDate
+            // shippedDateLabel
             // 
-            this.lblShippedDate.Location = new System.Drawing.Point(187, 121);
-            this.lblShippedDate.Name = "lblShippedDate";
-            this.lblShippedDate.Size = new System.Drawing.Size(63, 13);
-            this.lblShippedDate.TabIndex = 10;
-            this.lblShippedDate.Text = "Shipped date";
+            this.shippedDateLabel.Location = new System.Drawing.Point(187, 121);
+            this.shippedDateLabel.Name = "shippedDateLabel";
+            this.shippedDateLabel.Size = new System.Drawing.Size(65, 13);
+            this.shippedDateLabel.TabIndex = 10;
+            this.shippedDateLabel.Text = "Shipping date";
             // 
-            // dateEditDelivery
+            // deliveryDate
             // 
-            this.dateEditDelivery.EditValue = null;
-            this.dateEditDelivery.Location = new System.Drawing.Point(12, 140);
-            this.dateEditDelivery.Name = "dateEditDelivery";
-            this.dateEditDelivery.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deliveryDate.EditValue = null;
+            this.deliveryDate.Location = new System.Drawing.Point(12, 140);
+            this.deliveryDate.Name = "deliveryDate";
+            this.deliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDelivery.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDelivery.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditDelivery.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditDelivery.Size = new System.Drawing.Size(138, 20);
-            this.dateEditDelivery.TabIndex = 11;
+            this.deliveryDate.Size = new System.Drawing.Size(138, 20);
+            this.deliveryDate.TabIndex = 11;
             // 
-            // dateEditShipped
+            // shippedDate
             // 
-            this.dateEditShipped.EditValue = null;
-            this.dateEditShipped.Location = new System.Drawing.Point(187, 140);
-            this.dateEditShipped.Name = "dateEditShipped";
-            this.dateEditShipped.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.shippedDate.EditValue = null;
+            this.shippedDate.Location = new System.Drawing.Point(187, 140);
+            this.shippedDate.Name = "shippedDate";
+            this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditShipped.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.shippedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditShipped.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditShipped.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditShipped.Size = new System.Drawing.Size(138, 20);
-            this.dateEditShipped.TabIndex = 12;
+            this.shippedDate.Size = new System.Drawing.Size(138, 20);
+            this.shippedDate.TabIndex = 12;
             // 
-            // lblCertificate
+            // certificateNumberLabel
             // 
-            this.lblCertificate.Location = new System.Drawing.Point(116, 12);
-            this.lblCertificate.Name = "lblCertificate";
-            this.lblCertificate.Size = new System.Drawing.Size(89, 13);
-            this.lblCertificate.TabIndex = 13;
-            this.lblCertificate.Text = "Certificate number";
+            this.certificateNumberLabel.Location = new System.Drawing.Point(116, 12);
+            this.certificateNumberLabel.Name = "certificateNumberLabel";
+            this.certificateNumberLabel.Size = new System.Drawing.Size(89, 13);
+            this.certificateNumberLabel.TabIndex = 13;
+            this.certificateNumberLabel.Text = "Certificate number";
             // 
-            // txtEdtCertificateNo
+            // certificateNumber
             // 
-            this.txtEdtCertificateNo.Location = new System.Drawing.Point(116, 33);
-            this.txtEdtCertificateNo.Name = "txtEdtCertificateNo";
-            this.txtEdtCertificateNo.Size = new System.Drawing.Size(289, 20);
-            this.txtEdtCertificateNo.TabIndex = 14;
+            this.certificateNumber.Location = new System.Drawing.Point(116, 33);
+            this.certificateNumber.Name = "certificateNumber";
+            this.certificateNumber.Size = new System.Drawing.Size(289, 20);
+            this.certificateNumber.TabIndex = 14;
             // 
-            // btnunship
+            // unshipButton
             // 
-            this.btnunship.Location = new System.Drawing.Point(519, 351);
-            this.btnunship.Name = "btnunship";
-            this.btnunship.Size = new System.Drawing.Size(75, 23);
-            this.btnunship.TabIndex = 15;
-            this.btnunship.Text = "Unship";
+            this.unshipButton.Location = new System.Drawing.Point(519, 351);
+            this.unshipButton.Name = "unshipButton";
+            this.unshipButton.Size = new System.Drawing.Size(75, 23);
+            this.unshipButton.TabIndex = 15;
+            this.unshipButton.Text = "Unship";
             // 
-            // btnSave
+            // saveButton
             // 
-            this.btnSave.Location = new System.Drawing.Point(622, 351);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Save";
+            this.saveButton.Location = new System.Drawing.Point(622, 351);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 16;
+            this.saveButton.Text = "Save";
             // 
             // RailcarNewEditXtraForm
             // 
@@ -221,37 +218,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 386);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnunship);
-            this.Controls.Add(this.txtEdtCertificateNo);
-            this.Controls.Add(this.lblCertificate);
-            this.Controls.Add(this.dateEditShipped);
-            this.Controls.Add(this.dateEditDelivery);
-            this.Controls.Add(this.lblShippedDate);
-            this.Controls.Add(this.lblDeliveryDate);
-            this.Controls.Add(this.gridControlPipesList);
-            this.Controls.Add(this.comboBoxRailcar);
-            this.Controls.Add(this.lblRailcar);
-            this.Controls.Add(this.txtEdtPurchaseOrder);
-            this.Controls.Add(this.lblPurchaseOrder);
-            this.Controls.Add(this.comboBoxClient);
-            this.Controls.Add(this.comboBoxDesigner);
-            this.Controls.Add(this.lblClient);
-            this.Controls.Add(this.lblDesigner);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.unshipButton);
+            this.Controls.Add(this.certificateNumber);
+            this.Controls.Add(this.certificateNumberLabel);
+            this.Controls.Add(this.shippedDate);
+            this.Controls.Add(this.deliveryDate);
+            this.Controls.Add(this.shippedDateLabel);
+            this.Controls.Add(this.deliveryDateLabel);
+            this.Controls.Add(this.pipesList);
+            this.Controls.Add(this.railcar);
+            this.Controls.Add(this.railcarLabel);
+            this.Controls.Add(this.purchaseOrder);
+            this.Controls.Add(this.purchaseOrderLabel);
+            this.Controls.Add(this.client);
+            this.Controls.Add(this.designer);
+            this.Controls.Add(this.clientLabel);
+            this.Controls.Add(this.designerLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarNewEditXtraForm";
             this.Text = "RailcarNewEditXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDesigner.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxClient.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPurchaseOrder.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxRailcar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPipesList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPipesList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDelivery.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDelivery.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditShipped.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditShipped.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtCertificateNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.designer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,23 +256,23 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl lblDesigner;
-        private DevExpress.XtraEditors.LabelControl lblClient;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxDesigner;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxClient;
-        private DevExpress.XtraEditors.LabelControl lblPurchaseOrder;
-        private DevExpress.XtraEditors.TextEdit txtEdtPurchaseOrder;
-        private DevExpress.XtraEditors.LabelControl lblRailcar;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxRailcar;
-        private DevExpress.XtraGrid.GridControl gridControlPipesList;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPipesList;
-        private DevExpress.XtraEditors.LabelControl lblDeliveryDate;
-        private DevExpress.XtraEditors.LabelControl lblShippedDate;
-        private DevExpress.XtraEditors.DateEdit dateEditDelivery;
-        private DevExpress.XtraEditors.DateEdit dateEditShipped;
-        private DevExpress.XtraEditors.LabelControl lblCertificate;
-        private DevExpress.XtraEditors.TextEdit txtEdtCertificateNo;
-        private DevExpress.XtraEditors.SimpleButton btnunship;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.LabelControl designerLabel;
+        private DevExpress.XtraEditors.LabelControl clientLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit designer;
+        private DevExpress.XtraEditors.ComboBoxEdit client;
+        private DevExpress.XtraEditors.LabelControl purchaseOrderLabel;
+        private DevExpress.XtraEditors.TextEdit purchaseOrder;
+        private DevExpress.XtraEditors.LabelControl railcarLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit railcar;
+        private DevExpress.XtraGrid.GridControl pipesList;
+        private DevExpress.XtraGrid.Views.Grid.GridView pipesListView;
+        private DevExpress.XtraEditors.LabelControl deliveryDateLabel;
+        private DevExpress.XtraEditors.LabelControl shippedDateLabel;
+        private DevExpress.XtraEditors.DateEdit deliveryDate;
+        private DevExpress.XtraEditors.DateEdit shippedDate;
+        private DevExpress.XtraEditors.LabelControl certificateNumberLabel;
+        private DevExpress.XtraEditors.TextEdit certificateNumber;
+        private DevExpress.XtraEditors.SimpleButton unshipButton;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
     }
 }
