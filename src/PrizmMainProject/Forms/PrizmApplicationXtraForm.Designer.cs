@@ -65,6 +65,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,9 +116,10 @@
             this.barButtonItemRailcar,
             this.barSubItemRailcar,
             this.barButtonItemNewRailcar,
-            this.barButtonItemFindRailcar});
+            this.barButtonItemFindRailcar,
+            this.barButtonItemSetingsProject});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 29;
+            this.barManager1.MaxItemId = 30;
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barTools
@@ -301,6 +303,7 @@
             this.barSubItemSettings.Caption = "&Settings";
             this.barSubItemSettings.Id = 1;
             this.barSubItemSettings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSetingsProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
@@ -399,6 +402,13 @@
             this.barButtonItemRailcar.Id = 25;
             this.barButtonItemRailcar.Name = "barButtonItemRailcar";
             // 
+            // barButtonItemSetingsProject
+            // 
+            this.barButtonItemSetingsProject.Caption = "P&roject";
+            this.barButtonItemSetingsProject.Id = 29;
+            this.barButtonItemSetingsProject.Name = "barButtonItemSetingsProject";
+            this.barButtonItemSetingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSetingsProject_ItemClick);
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +463,7 @@
         private DevExpress.XtraBars.BarSubItem barSubItemRailcar;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewRailcar;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindRailcar;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemSetingsProject;
 
 
 
