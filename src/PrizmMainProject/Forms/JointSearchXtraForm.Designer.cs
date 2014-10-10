@@ -53,6 +53,8 @@
             this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.pegNumber = new DevExpress.XtraEditors.TextEdit();
+            this.pegNumberLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSMinutes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSdegrees.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSSseconds.Properties)).BeginInit();
@@ -66,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // coordinateGPSLabel
@@ -108,7 +111,7 @@
             // controlDate
             // 
             this.controlDate.EditValue = null;
-            this.controlDate.Location = new System.Drawing.Point(591, 29);
+            this.controlDate.Location = new System.Drawing.Point(456, 28);
             this.controlDate.Name = "controlDate";
             this.controlDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -119,7 +122,7 @@
             // 
             // controlDateLabel
             // 
-            this.controlDateLabel.Location = new System.Drawing.Point(591, 6);
+            this.controlDateLabel.Location = new System.Drawing.Point(456, 9);
             this.controlDateLabel.Name = "controlDateLabel";
             this.controlDateLabel.Size = new System.Drawing.Size(60, 13);
             this.controlDateLabel.TabIndex = 42;
@@ -147,7 +150,7 @@
             // 
             // controlStateLabel
             // 
-            this.controlStateLabel.Location = new System.Drawing.Point(396, 8);
+            this.controlStateLabel.Location = new System.Drawing.Point(299, 9);
             this.controlStateLabel.Name = "controlStateLabel";
             this.controlStateLabel.Size = new System.Drawing.Size(63, 13);
             this.controlStateLabel.TabIndex = 39;
@@ -155,7 +158,7 @@
             // 
             // controlState
             // 
-            this.controlState.Location = new System.Drawing.Point(396, 31);
+            this.controlState.Location = new System.Drawing.Point(299, 28);
             this.controlState.Name = "controlState";
             this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -164,7 +167,7 @@
             // 
             // status
             // 
-            this.status.Location = new System.Drawing.Point(221, 28);
+            this.status.Location = new System.Drawing.Point(159, 28);
             this.status.Name = "status";
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -173,7 +176,7 @@
             // 
             // statusLabel
             // 
-            this.statusLabel.Location = new System.Drawing.Point(221, 8);
+            this.statusLabel.Location = new System.Drawing.Point(159, 9);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(31, 13);
             this.statusLabel.TabIndex = 36;
@@ -282,12 +285,29 @@
             this.extraJointButton.Name = "extraJointButton";
             this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // pegNumber
+            // 
+            this.pegNumber.Location = new System.Drawing.Point(598, 28);
+            this.pegNumber.Name = "pegNumber";
+            this.pegNumber.Size = new System.Drawing.Size(115, 20);
+            this.pegNumber.TabIndex = 52;
+            // 
+            // pegNumberLabel
+            // 
+            this.pegNumberLabel.Location = new System.Drawing.Point(598, 9);
+            this.pegNumberLabel.Name = "pegNumberLabel";
+            this.pegNumberLabel.Size = new System.Drawing.Size(57, 13);
+            this.pegNumberLabel.TabIndex = 51;
+            this.pegNumberLabel.Text = "Peg number";
+            // 
             // JointSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
+            this.Controls.Add(this.pegNumber);
+            this.Controls.Add(this.pegNumberLabel);
             this.Controls.Add(this.coordinateGPSLabel);
             this.Controls.Add(this.coordinateGPSMinutes);
             this.Controls.Add(this.coordinateGPSdegrees);
@@ -320,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +373,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn controlDateGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraJointButton;
+        private DevExpress.XtraEditors.TextEdit pegNumber;
+        private DevExpress.XtraEditors.LabelControl pegNumberLabel;
 
     }
 }
