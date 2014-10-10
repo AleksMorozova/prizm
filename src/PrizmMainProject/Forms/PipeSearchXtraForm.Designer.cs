@@ -37,7 +37,7 @@
             this.internalCoatingLabel = new DevExpress.XtraEditors.LabelControl();
             this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
             this.externalCoatingLabel = new DevExpress.XtraEditors.LabelControl();
-            this.sizeGradeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.sizeLabel = new DevExpress.XtraEditors.LabelControl();
             this.pipeLocation = new DevExpress.XtraEditors.TextEdit();
             this.locationLabel = new DevExpress.XtraEditors.LabelControl();
             this.pipeStatus = new DevExpress.XtraEditors.TextEdit();
@@ -56,6 +56,8 @@
             this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.pegNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pegNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).BeginInit();
@@ -69,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchReselt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -93,7 +96,7 @@
             // 
             // sizeGrade
             // 
-            this.sizeGrade.Location = new System.Drawing.Point(522, 29);
+            this.sizeGrade.Location = new System.Drawing.Point(406, 29);
             this.sizeGrade.Name = "sizeGrade";
             this.sizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -148,24 +151,24 @@
             this.externalCoatingLabel.TabIndex = 41;
             this.externalCoatingLabel.Text = "External coating date";
             // 
-            // sizeGradeLabel
+            // sizeLabel
             // 
-            this.sizeGradeLabel.Location = new System.Drawing.Point(522, 10);
-            this.sizeGradeLabel.Name = "sizeGradeLabel";
-            this.sizeGradeLabel.Size = new System.Drawing.Size(50, 13);
-            this.sizeGradeLabel.TabIndex = 40;
-            this.sizeGradeLabel.Text = "Size grade";
+            this.sizeLabel.Location = new System.Drawing.Point(406, 10);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(41, 13);
+            this.sizeLabel.TabIndex = 40;
+            this.sizeLabel.Text = "Pipe size";
             // 
             // pipeLocation
             // 
-            this.pipeLocation.Location = new System.Drawing.Point(345, 29);
+            this.pipeLocation.Location = new System.Drawing.Point(265, 29);
             this.pipeLocation.Name = "pipeLocation";
             this.pipeLocation.Size = new System.Drawing.Size(110, 20);
             this.pipeLocation.TabIndex = 39;
             // 
             // locationLabel
             // 
-            this.locationLabel.Location = new System.Drawing.Point(345, 10);
+            this.locationLabel.Location = new System.Drawing.Point(265, 10);
             this.locationLabel.Name = "locationLabel";
             this.locationLabel.Size = new System.Drawing.Size(40, 13);
             this.locationLabel.TabIndex = 38;
@@ -173,14 +176,14 @@
             // 
             // pipeStatus
             // 
-            this.pipeStatus.Location = new System.Drawing.Point(171, 29);
+            this.pipeStatus.Location = new System.Drawing.Point(133, 29);
             this.pipeStatus.Name = "pipeStatus";
             this.pipeStatus.Size = new System.Drawing.Size(102, 20);
             this.pipeStatus.TabIndex = 37;
             // 
             // pipeStatusLabel
             // 
-            this.pipeStatusLabel.Location = new System.Drawing.Point(171, 10);
+            this.pipeStatusLabel.Location = new System.Drawing.Point(133, 10);
             this.pipeStatusLabel.Name = "pipeStatusLabel";
             this.pipeStatusLabel.Size = new System.Drawing.Size(31, 13);
             this.pipeStatusLabel.TabIndex = 36;
@@ -306,12 +309,29 @@
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // pegNumberLabel
+            // 
+            this.pegNumberLabel.Location = new System.Drawing.Point(554, 10);
+            this.pegNumberLabel.Name = "pegNumberLabel";
+            this.pegNumberLabel.Size = new System.Drawing.Size(57, 13);
+            this.pegNumberLabel.TabIndex = 49;
+            this.pegNumberLabel.Text = "Peg number";
+            // 
+            // pegNumber
+            // 
+            this.pegNumber.Location = new System.Drawing.Point(554, 29);
+            this.pegNumber.Name = "pegNumber";
+            this.pegNumber.Size = new System.Drawing.Size(115, 20);
+            this.pegNumber.TabIndex = 50;
+            // 
             // PipeSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
+            this.Controls.Add(this.pegNumber);
+            this.Controls.Add(this.pegNumberLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.internalCoatingDate);
             this.Controls.Add(this.sizeGrade);
@@ -320,7 +340,7 @@
             this.Controls.Add(this.internalCoatingLabel);
             this.Controls.Add(this.externalCoatingDate);
             this.Controls.Add(this.externalCoatingLabel);
-            this.Controls.Add(this.sizeGradeLabel);
+            this.Controls.Add(this.sizeLabel);
             this.Controls.Add(this.pipeLocation);
             this.Controls.Add(this.locationLabel);
             this.Controls.Add(this.pipeStatus);
@@ -344,6 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchReselt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +380,7 @@
         private DevExpress.XtraEditors.LabelControl internalCoatingLabel;
         private DevExpress.XtraEditors.DateEdit externalCoatingDate;
         private DevExpress.XtraEditors.LabelControl externalCoatingLabel;
-        private DevExpress.XtraEditors.LabelControl sizeGradeLabel;
+        private DevExpress.XtraEditors.LabelControl sizeLabel;
         private DevExpress.XtraEditors.TextEdit pipeLocation;
         private DevExpress.XtraEditors.LabelControl locationLabel;
         private DevExpress.XtraEditors.TextEdit pipeStatus;
@@ -378,6 +399,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn externalCoatingDateGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraButton;
+        private DevExpress.XtraEditors.LabelControl pegNumberLabel;
+        private DevExpress.XtraEditors.TextEdit pegNumber;
 
 
     }
