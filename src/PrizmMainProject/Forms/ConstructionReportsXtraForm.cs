@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class ReportsXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class ConstructionReportsXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public ReportsXtraForm()
+        public ConstructionReportsXtraForm()
         {
             InitializeComponent();
         }

@@ -96,7 +96,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new Forms.ReportsXtraForm());
+            CreateFormChild(new Forms.CustomReportsXtraForm());
         }
 
         private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
