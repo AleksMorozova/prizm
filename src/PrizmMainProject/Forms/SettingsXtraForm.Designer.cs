@@ -78,19 +78,6 @@
             this.bandGridInspectionOther = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.thirdPartGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
-            this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
-            this.usersPage = new DevExpress.XtraTab.XtraTabPage();
-            this.users = new DevExpress.XtraGrid.GridControl();
-            this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.usersLabel = new DevExpress.XtraEditors.LabelControl();
-            this.ictionariesPage = new DevExpress.XtraTab.XtraTabPage();
-            this.dictionaries = new DevExpress.XtraGrid.GridControl();
-            this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.oKButton = new DevExpress.XtraEditors.SimpleButton();
@@ -109,6 +96,22 @@
             this.clientLabel = new DevExpress.XtraEditors.LabelControl();
             this.design = new DevExpress.XtraEditors.TextEdit();
             this.client = new DevExpress.XtraEditors.TextEdit();
+            this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
+            this.usersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.users = new DevExpress.XtraGrid.GridControl();
+            this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersLabel = new DevExpress.XtraEditors.LabelControl();
+            this.dictionariesPage = new DevExpress.XtraTab.XtraTabPage();
+            this.dictionaries = new DevExpress.XtraGrid.GridControl();
+            this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.generalPage = new DevExpress.XtraTab.XtraTabPage();
+            this.sizeLimitLabel = new DevExpress.XtraEditors.LabelControl();
+            this.sizeLimit = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -134,12 +137,6 @@
             this.inspectionPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
-            this.usersPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
-            this.ictionariesPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
             this.projectPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
@@ -150,6 +147,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.design.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
+            this.usersPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
+            this.dictionariesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
+            this.generalPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -165,7 +170,8 @@
             this.pipePage,
             this.pipelinePage,
             this.usersPage,
-            this.ictionariesPage});
+            this.dictionariesPage,
+            this.generalPage});
             // 
             // pipePage
             // 
@@ -402,7 +408,7 @@
             // 
             this.inspectionPage.Controls.Add(this.inspection);
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(814, 399);
+            this.inspectionPage.Size = new System.Drawing.Size(694, 309);
             this.inspectionPage.Text = "&Inspection";
             // 
             // inspection
@@ -634,108 +640,6 @@
             this.pipeSetupLabel.TabIndex = 4;
             this.pipeSetupLabel.Text = "Set pipe parameters:";
             // 
-            // pipelinePage
-            // 
-            this.pipelinePage.Name = "pipelinePage";
-            this.pipelinePage.Size = new System.Drawing.Size(719, 397);
-            this.pipelinePage.Text = "Pipe&line";
-            // 
-            // usersPage
-            // 
-            this.usersPage.Controls.Add(this.users);
-            this.usersPage.Controls.Add(this.usersLabel);
-            this.usersPage.Name = "usersPage";
-            this.usersPage.Size = new System.Drawing.Size(719, 397);
-            this.usersPage.Text = "&Users";
-            // 
-            // users
-            // 
-            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.users.Cursor = System.Windows.Forms.Cursors.Default;
-            this.users.Location = new System.Drawing.Point(31, 46);
-            this.users.MainView = this.usersView;
-            this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(500, 166);
-            this.users.TabIndex = 1;
-            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.usersView});
-            // 
-            // usersView
-            // 
-            this.usersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.usersNumberGridColumn,
-            this.usersFullNameGridColumn,
-            this.usersRoleGridColumn});
-            this.usersView.GridControl = this.users;
-            this.usersView.Name = "usersView";
-            // 
-            // usersNumberGridColumn
-            // 
-            this.usersNumberGridColumn.Caption = "№";
-            this.usersNumberGridColumn.Name = "usersNumberGridColumn";
-            this.usersNumberGridColumn.Visible = true;
-            this.usersNumberGridColumn.VisibleIndex = 0;
-            // 
-            // usersFullNameGridColumn
-            // 
-            this.usersFullNameGridColumn.Caption = "User full name";
-            this.usersFullNameGridColumn.Name = "usersFullNameGridColumn";
-            this.usersFullNameGridColumn.Visible = true;
-            this.usersFullNameGridColumn.VisibleIndex = 1;
-            // 
-            // usersRoleGridColumn
-            // 
-            this.usersRoleGridColumn.Caption = "Role";
-            this.usersRoleGridColumn.Name = "usersRoleGridColumn";
-            this.usersRoleGridColumn.Visible = true;
-            this.usersRoleGridColumn.VisibleIndex = 2;
-            // 
-            // usersLabel
-            // 
-            this.usersLabel.Location = new System.Drawing.Point(31, 27);
-            this.usersLabel.Name = "usersLabel";
-            this.usersLabel.Size = new System.Drawing.Size(27, 13);
-            this.usersLabel.TabIndex = 0;
-            this.usersLabel.Text = "Users";
-            // 
-            // ictionariesPage
-            // 
-            this.ictionariesPage.Controls.Add(this.dictionaries);
-            this.ictionariesPage.Name = "ictionariesPage";
-            this.ictionariesPage.Size = new System.Drawing.Size(719, 397);
-            this.ictionariesPage.Text = "&Dictionaries";
-            // 
-            // dictionaries
-            // 
-            this.dictionaries.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dictionaries.Location = new System.Drawing.Point(11, 18);
-            this.dictionaries.MainView = this.dictionaryView;
-            this.dictionaries.Name = "dictionaries";
-            this.dictionaries.Size = new System.Drawing.Size(347, 346);
-            this.dictionaries.TabIndex = 0;
-            this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dictionaryView});
-            // 
-            // dictionaryView
-            // 
-            this.dictionaryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dictionaryNameGridColumn});
-            this.dictionaryView.GridControl = this.dictionaries;
-            this.dictionaryView.Name = "dictionaryView";
-            // 
-            // dictionaryNameGridColumn
-            // 
-            this.dictionaryNameGridColumn.Caption = "Dictionary";
-            this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
-            this.dictionaryNameGridColumn.Visible = true;
-            this.dictionaryNameGridColumn.VisibleIndex = 0;
-            // 
-            // bandedGridColumn1
-            // 
-            this.bandedGridColumn1.Name = "bandedGridColumn1";
-            // 
             // projectPage
             // 
             this.projectPage.Controls.Add(this.cancelButton);
@@ -906,6 +810,132 @@
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.TabIndex = 12;
             // 
+            // pipelinePage
+            // 
+            this.pipelinePage.Name = "pipelinePage";
+            this.pipelinePage.Size = new System.Drawing.Size(719, 397);
+            this.pipelinePage.Text = "Pipe&line";
+            // 
+            // usersPage
+            // 
+            this.usersPage.Controls.Add(this.users);
+            this.usersPage.Controls.Add(this.usersLabel);
+            this.usersPage.Name = "usersPage";
+            this.usersPage.Size = new System.Drawing.Size(719, 397);
+            this.usersPage.Text = "&Users";
+            // 
+            // users
+            // 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.users.Cursor = System.Windows.Forms.Cursors.Default;
+            this.users.Location = new System.Drawing.Point(31, 46);
+            this.users.MainView = this.usersView;
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(500, 166);
+            this.users.TabIndex = 1;
+            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.usersView});
+            // 
+            // usersView
+            // 
+            this.usersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.usersNumberGridColumn,
+            this.usersFullNameGridColumn,
+            this.usersRoleGridColumn});
+            this.usersView.GridControl = this.users;
+            this.usersView.Name = "usersView";
+            // 
+            // usersNumberGridColumn
+            // 
+            this.usersNumberGridColumn.Caption = "№";
+            this.usersNumberGridColumn.Name = "usersNumberGridColumn";
+            this.usersNumberGridColumn.Visible = true;
+            this.usersNumberGridColumn.VisibleIndex = 0;
+            // 
+            // usersFullNameGridColumn
+            // 
+            this.usersFullNameGridColumn.Caption = "User full name";
+            this.usersFullNameGridColumn.Name = "usersFullNameGridColumn";
+            this.usersFullNameGridColumn.Visible = true;
+            this.usersFullNameGridColumn.VisibleIndex = 1;
+            // 
+            // usersRoleGridColumn
+            // 
+            this.usersRoleGridColumn.Caption = "Role";
+            this.usersRoleGridColumn.Name = "usersRoleGridColumn";
+            this.usersRoleGridColumn.Visible = true;
+            this.usersRoleGridColumn.VisibleIndex = 2;
+            // 
+            // usersLabel
+            // 
+            this.usersLabel.Location = new System.Drawing.Point(31, 27);
+            this.usersLabel.Name = "usersLabel";
+            this.usersLabel.Size = new System.Drawing.Size(27, 13);
+            this.usersLabel.TabIndex = 0;
+            this.usersLabel.Text = "Users";
+            // 
+            // dictionariesPage
+            // 
+            this.dictionariesPage.Controls.Add(this.dictionaries);
+            this.dictionariesPage.Name = "dictionariesPage";
+            this.dictionariesPage.Size = new System.Drawing.Size(719, 397);
+            this.dictionariesPage.Text = "&Dictionaries";
+            // 
+            // dictionaries
+            // 
+            this.dictionaries.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dictionaries.Location = new System.Drawing.Point(11, 18);
+            this.dictionaries.MainView = this.dictionaryView;
+            this.dictionaries.Name = "dictionaries";
+            this.dictionaries.Size = new System.Drawing.Size(347, 346);
+            this.dictionaries.TabIndex = 0;
+            this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dictionaryView});
+            // 
+            // dictionaryView
+            // 
+            this.dictionaryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dictionaryNameGridColumn});
+            this.dictionaryView.GridControl = this.dictionaries;
+            this.dictionaryView.Name = "dictionaryView";
+            // 
+            // dictionaryNameGridColumn
+            // 
+            this.dictionaryNameGridColumn.Caption = "Dictionary";
+            this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
+            this.dictionaryNameGridColumn.Visible = true;
+            this.dictionaryNameGridColumn.VisibleIndex = 0;
+            // 
+            // bandedGridColumn1
+            // 
+            this.bandedGridColumn1.Name = "bandedGridColumn1";
+            // 
+            // generalPage
+            // 
+            this.generalPage.Controls.Add(this.sizeLimit);
+            this.generalPage.Controls.Add(this.sizeLimitLabel);
+            this.generalPage.Name = "generalPage";
+            this.generalPage.Size = new System.Drawing.Size(719, 397);
+            this.generalPage.Text = "General";
+            // 
+            // sizeLimitLabel
+            // 
+            this.sizeLimitLabel.Location = new System.Drawing.Point(31, 45);
+            this.sizeLimitLabel.Name = "sizeLimitLabel";
+            this.sizeLimitLabel.Size = new System.Drawing.Size(172, 13);
+            this.sizeLimitLabel.TabIndex = 0;
+            this.sizeLimitLabel.Text = "External document size limit, Kbytes";
+            // 
+            // sizeLimit
+            // 
+            this.sizeLimit.EditValue = "1024";
+            this.sizeLimit.Location = new System.Drawing.Point(231, 42);
+            this.sizeLimit.Name = "sizeLimit";
+            this.sizeLimit.Size = new System.Drawing.Size(100, 20);
+            this.sizeLimit.TabIndex = 1;
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -945,13 +975,6 @@
             this.inspectionPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
-            this.usersPage.ResumeLayout(false);
-            this.usersPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
-            this.ictionariesPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
@@ -963,6 +986,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.design.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).EndInit();
+            this.usersPage.ResumeLayout(false);
+            this.usersPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
+            this.dictionariesPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
+            this.generalPage.ResumeLayout(false);
+            this.generalPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1013,7 +1046,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn clientGridColumn;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn thirdPartGridColumn;
         private DevExpress.XtraTab.XtraTabPage usersPage;
-        private DevExpress.XtraTab.XtraTabPage ictionariesPage;
+        private DevExpress.XtraTab.XtraTabPage dictionariesPage;
         private DevExpress.XtraGrid.GridControl users;
         private DevExpress.XtraGrid.Views.Grid.GridView usersView;
         private DevExpress.XtraGrid.Columns.GridColumn usersNumberGridColumn;
@@ -1052,5 +1085,8 @@
         private DevExpress.XtraEditors.LabelControl clientLabel;
         private DevExpress.XtraEditors.TextEdit design;
         private DevExpress.XtraEditors.TextEdit client;
+        private DevExpress.XtraTab.XtraTabPage generalPage;
+        private DevExpress.XtraEditors.TextEdit sizeLimit;
+        private DevExpress.XtraEditors.LabelControl sizeLimitLabel;
     }
 }
