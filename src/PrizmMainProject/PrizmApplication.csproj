@@ -79,11 +79,23 @@
     <Compile Include="Forms\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConstructionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConstructionXtraForm.Designer.cs">
+      <DependentUpon>ConstructionXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.Designer.cs">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InspectionReportXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionReportXtraForm.Designer.cs">
+      <DependentUpon>InspectionReportXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\JointNewEditXtraForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +108,12 @@
     </Compile>
     <Compile Include="Forms\JointSearchXtraForm.Designer.cs">
       <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MillReportsXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MillReportsXtraForm.Designer.cs">
+      <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeNewEditXtraForm.cs">
       <SubType>Form</SubType>
@@ -127,11 +145,11 @@
     <Compile Include="Forms\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReportsXtraForm.cs">
+    <Compile Include="Forms\CustomReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReportsXtraForm.Designer.cs">
-      <DependentUpon>ReportsXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\CustomReportsXtraForm.Designer.cs">
+      <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SettingsXtraForm.cs">
       <SubType>Form</SubType>
