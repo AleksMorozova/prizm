@@ -29,287 +29,300 @@
         private void InitializeComponent()
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.dateEditOuterCoating = new DevExpress.XtraEditors.DateEdit();
-            this.comboBoxSizeGrade = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.dateEditWeld = new DevExpress.XtraEditors.DateEdit();
-            this.lblWeldDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblOuterCoating = new DevExpress.XtraEditors.LabelControl();
-            this.dateEditInnerCoating = new DevExpress.XtraEditors.DateEdit();
-            this.lblInnerCoating = new DevExpress.XtraEditors.LabelControl();
-            this.lblSizeGrade = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtPipeLocation = new DevExpress.XtraEditors.TextEdit();
-            this.lblLocation = new DevExpress.XtraEditors.LabelControl();
-            this.txtEditPipeStatus = new DevExpress.XtraEditors.TextEdit();
-            this.lblPipeStatus = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtPipeNo = new DevExpress.XtraEditors.TextEdit();
-            this.lblPipeNo = new DevExpress.XtraEditors.LabelControl();
-            this.grdControlPipesSearchReselt = new DevExpress.XtraGrid.GridControl();
-            this.gridViewResult = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnPipeNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnHeatNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnLocation = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnWeldDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInnerCoatingDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnOuterCoatingDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnExtra = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditOuterCoating.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditOuterCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxSizeGrade.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInnerCoating.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInnerCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeLocation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditPipeStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdControlPipesSearchReselt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
+            this.internalCoatingDate = new DevExpress.XtraEditors.DateEdit();
+            this.sizeGrade = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.welding = new DevExpress.XtraEditors.DateEdit();
+            this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.internalCoatingLabel = new DevExpress.XtraEditors.LabelControl();
+            this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
+            this.externalCoatingLabel = new DevExpress.XtraEditors.LabelControl();
+            this.sizeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipeLocation = new DevExpress.XtraEditors.TextEdit();
+            this.locationLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipeStatus = new DevExpress.XtraEditors.TextEdit();
+            this.pipeStatusLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
+            this.pipeNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipesSearchReselt = new DevExpress.XtraGrid.GridControl();
+            this.pipesSearchResultview = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificateNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.heatNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.statusSearchGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.locationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.internalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.pegNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pegNumber = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLocation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchReselt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSearch
+            // searchButton
             // 
-            this.btnSearch.Location = new System.Drawing.Point(566, 82);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 48;
-            this.btnSearch.Text = "Search";
+            this.searchButton.Location = new System.Drawing.Point(566, 82);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 48;
+            this.searchButton.Text = "Search";
             // 
-            // dateEditOuterCoating
+            // internalCoatingDate
             // 
-            this.dateEditOuterCoating.EditValue = null;
-            this.dateEditOuterCoating.Location = new System.Drawing.Point(346, 85);
-            this.dateEditOuterCoating.Name = "dateEditOuterCoating";
-            this.dateEditOuterCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.internalCoatingDate.EditValue = null;
+            this.internalCoatingDate.Location = new System.Drawing.Point(346, 85);
+            this.internalCoatingDate.Name = "internalCoatingDate";
+            this.internalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditOuterCoating.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.internalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditOuterCoating.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditOuterCoating.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditOuterCoating.Size = new System.Drawing.Size(126, 20);
-            this.dateEditOuterCoating.TabIndex = 47;
+            this.internalCoatingDate.Size = new System.Drawing.Size(126, 20);
+            this.internalCoatingDate.TabIndex = 47;
             // 
-            // comboBoxSizeGrade
+            // sizeGrade
             // 
-            this.comboBoxSizeGrade.Location = new System.Drawing.Point(522, 29);
-            this.comboBoxSizeGrade.Name = "comboBoxSizeGrade";
-            this.comboBoxSizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.sizeGrade.Location = new System.Drawing.Point(406, 29);
+            this.sizeGrade.Name = "sizeGrade";
+            this.sizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxSizeGrade.Size = new System.Drawing.Size(119, 20);
-            this.comboBoxSizeGrade.TabIndex = 46;
+            this.sizeGrade.Size = new System.Drawing.Size(119, 20);
+            this.sizeGrade.TabIndex = 46;
             // 
-            // dateEditWeld
+            // welding
             // 
-            this.dateEditWeld.EditValue = null;
-            this.dateEditWeld.Location = new System.Drawing.Point(13, 85);
-            this.dateEditWeld.Name = "dateEditWeld";
-            this.dateEditWeld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.welding.EditValue = null;
+            this.welding.Location = new System.Drawing.Point(13, 85);
+            this.welding.Name = "welding";
+            this.welding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWeld.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.welding.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWeld.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditWeld.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditWeld.Size = new System.Drawing.Size(100, 20);
-            this.dateEditWeld.TabIndex = 45;
+            this.welding.Size = new System.Drawing.Size(100, 20);
+            this.welding.TabIndex = 45;
             // 
-            // lblWeldDate
+            // weldingDateLabel
             // 
-            this.lblWeldDate.Location = new System.Drawing.Point(12, 66);
-            this.lblWeldDate.Name = "lblWeldDate";
-            this.lblWeldDate.Size = new System.Drawing.Size(49, 13);
-            this.lblWeldDate.TabIndex = 44;
-            this.lblWeldDate.Text = "Weld date";
+            this.weldingDateLabel.Location = new System.Drawing.Point(12, 66);
+            this.weldingDateLabel.Name = "weldingDateLabel";
+            this.weldingDateLabel.Size = new System.Drawing.Size(49, 13);
+            this.weldingDateLabel.TabIndex = 44;
+            this.weldingDateLabel.Text = "Weld date";
             // 
-            // lblOuterCoating
+            // internalCoatingLabel
             // 
-            this.lblOuterCoating.Location = new System.Drawing.Point(346, 66);
-            this.lblOuterCoating.Name = "lblOuterCoating";
-            this.lblOuterCoating.Size = new System.Drawing.Size(91, 13);
-            this.lblOuterCoating.TabIndex = 43;
-            this.lblOuterCoating.Text = "Outer coating date";
+            this.internalCoatingLabel.Location = new System.Drawing.Point(346, 66);
+            this.internalCoatingLabel.Name = "internalCoatingLabel";
+            this.internalCoatingLabel.Size = new System.Drawing.Size(101, 13);
+            this.internalCoatingLabel.TabIndex = 43;
+            this.internalCoatingLabel.Text = "Internal coating date";
             // 
-            // dateEditInnerCoating
+            // externalCoatingDate
             // 
-            this.dateEditInnerCoating.EditValue = null;
-            this.dateEditInnerCoating.Location = new System.Drawing.Point(172, 85);
-            this.dateEditInnerCoating.Name = "dateEditInnerCoating";
-            this.dateEditInnerCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.externalCoatingDate.EditValue = null;
+            this.externalCoatingDate.Location = new System.Drawing.Point(172, 85);
+            this.externalCoatingDate.Name = "externalCoatingDate";
+            this.externalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInnerCoating.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.externalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInnerCoating.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditInnerCoating.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditInnerCoating.Size = new System.Drawing.Size(126, 20);
-            this.dateEditInnerCoating.TabIndex = 42;
+            this.externalCoatingDate.Size = new System.Drawing.Size(126, 20);
+            this.externalCoatingDate.TabIndex = 42;
             // 
-            // lblInnerCoating
+            // externalCoatingLabel
             // 
-            this.lblInnerCoating.Location = new System.Drawing.Point(172, 66);
-            this.lblInnerCoating.Name = "lblInnerCoating";
-            this.lblInnerCoating.Size = new System.Drawing.Size(89, 13);
-            this.lblInnerCoating.TabIndex = 41;
-            this.lblInnerCoating.Text = "Inner coating date";
+            this.externalCoatingLabel.Location = new System.Drawing.Point(172, 66);
+            this.externalCoatingLabel.Name = "externalCoatingLabel";
+            this.externalCoatingLabel.Size = new System.Drawing.Size(103, 13);
+            this.externalCoatingLabel.TabIndex = 41;
+            this.externalCoatingLabel.Text = "External coating date";
             // 
-            // lblSizeGrade
+            // sizeLabel
             // 
-            this.lblSizeGrade.Location = new System.Drawing.Point(522, 10);
-            this.lblSizeGrade.Name = "lblSizeGrade";
-            this.lblSizeGrade.Size = new System.Drawing.Size(50, 13);
-            this.lblSizeGrade.TabIndex = 40;
-            this.lblSizeGrade.Text = "Size grade";
+            this.sizeLabel.Location = new System.Drawing.Point(406, 10);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(41, 13);
+            this.sizeLabel.TabIndex = 40;
+            this.sizeLabel.Text = "Pipe size";
             // 
-            // txtEdtPipeLocation
+            // pipeLocation
             // 
-            this.txtEdtPipeLocation.Location = new System.Drawing.Point(345, 29);
-            this.txtEdtPipeLocation.Name = "txtEdtPipeLocation";
-            this.txtEdtPipeLocation.Size = new System.Drawing.Size(110, 20);
-            this.txtEdtPipeLocation.TabIndex = 39;
+            this.pipeLocation.Location = new System.Drawing.Point(265, 29);
+            this.pipeLocation.Name = "pipeLocation";
+            this.pipeLocation.Size = new System.Drawing.Size(110, 20);
+            this.pipeLocation.TabIndex = 39;
             // 
-            // lblLocation
+            // locationLabel
             // 
-            this.lblLocation.Location = new System.Drawing.Point(345, 10);
-            this.lblLocation.Name = "lblLocation";
-            this.lblLocation.Size = new System.Drawing.Size(40, 13);
-            this.lblLocation.TabIndex = 38;
-            this.lblLocation.Text = "Location";
+            this.locationLabel.Location = new System.Drawing.Point(265, 10);
+            this.locationLabel.Name = "locationLabel";
+            this.locationLabel.Size = new System.Drawing.Size(40, 13);
+            this.locationLabel.TabIndex = 38;
+            this.locationLabel.Text = "Location";
             // 
-            // txtEditPipeStatus
+            // pipeStatus
             // 
-            this.txtEditPipeStatus.Location = new System.Drawing.Point(171, 29);
-            this.txtEditPipeStatus.Name = "txtEditPipeStatus";
-            this.txtEditPipeStatus.Size = new System.Drawing.Size(102, 20);
-            this.txtEditPipeStatus.TabIndex = 37;
+            this.pipeStatus.Location = new System.Drawing.Point(133, 29);
+            this.pipeStatus.Name = "pipeStatus";
+            this.pipeStatus.Size = new System.Drawing.Size(102, 20);
+            this.pipeStatus.TabIndex = 37;
             // 
-            // lblPipeStatus
+            // pipeStatusLabel
             // 
-            this.lblPipeStatus.Location = new System.Drawing.Point(171, 10);
-            this.lblPipeStatus.Name = "lblPipeStatus";
-            this.lblPipeStatus.Size = new System.Drawing.Size(31, 13);
-            this.lblPipeStatus.TabIndex = 36;
-            this.lblPipeStatus.Text = "Status";
+            this.pipeStatusLabel.Location = new System.Drawing.Point(133, 10);
+            this.pipeStatusLabel.Name = "pipeStatusLabel";
+            this.pipeStatusLabel.Size = new System.Drawing.Size(31, 13);
+            this.pipeStatusLabel.TabIndex = 36;
+            this.pipeStatusLabel.Text = "Status";
             // 
-            // txtEdtPipeNo
+            // pipeNumber
             // 
-            this.txtEdtPipeNo.Location = new System.Drawing.Point(11, 29);
-            this.txtEdtPipeNo.Name = "txtEdtPipeNo";
-            this.txtEdtPipeNo.Size = new System.Drawing.Size(99, 20);
-            this.txtEdtPipeNo.TabIndex = 35;
+            this.pipeNumber.Location = new System.Drawing.Point(11, 29);
+            this.pipeNumber.Name = "pipeNumber";
+            this.pipeNumber.Size = new System.Drawing.Size(99, 20);
+            this.pipeNumber.TabIndex = 35;
             // 
-            // lblPipeNo
+            // pipeNumberLabel
             // 
-            this.lblPipeNo.Location = new System.Drawing.Point(11, 10);
-            this.lblPipeNo.Name = "lblPipeNo";
-            this.lblPipeNo.Size = new System.Drawing.Size(59, 13);
-            this.lblPipeNo.TabIndex = 34;
-            this.lblPipeNo.Text = "Pipe number";
+            this.pipeNumberLabel.Location = new System.Drawing.Point(11, 10);
+            this.pipeNumberLabel.Name = "pipeNumberLabel";
+            this.pipeNumberLabel.Size = new System.Drawing.Size(59, 13);
+            this.pipeNumberLabel.TabIndex = 34;
+            this.pipeNumberLabel.Text = "Pipe number";
             // 
-            // grdControlPipesSearchReselt
+            // pipesSearchReselt
             // 
-            this.grdControlPipesSearchReselt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pipesSearchReselt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdControlPipesSearchReselt.Location = new System.Drawing.Point(11, 121);
-            this.grdControlPipesSearchReselt.MainView = this.gridViewResult;
-            this.grdControlPipesSearchReselt.Name = "grdControlPipesSearchReselt";
-            this.grdControlPipesSearchReselt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1});
-            this.grdControlPipesSearchReselt.Size = new System.Drawing.Size(702, 293);
-            this.grdControlPipesSearchReselt.TabIndex = 33;
-            this.grdControlPipesSearchReselt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewResult});
+            this.pipesSearchReselt.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pipesSearchReselt.Location = new System.Drawing.Point(11, 121);
+            this.pipesSearchReselt.MainView = this.pipesSearchResultview;
+            this.pipesSearchReselt.Name = "pipesSearchReselt";
+            this.pipesSearchReselt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.extraButton});
+            this.pipesSearchReselt.Size = new System.Drawing.Size(702, 293);
+            this.pipesSearchReselt.TabIndex = 33;
+            this.pipesSearchReselt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pipesSearchResultview});
             // 
-            // gridViewResult
+            // pipesSearchResultview
             // 
-            this.gridViewResult.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnPipeNo,
-            this.gridColumnCertificate,
-            this.gridColumnHeatNo,
-            this.gridColumnStatus,
-            this.gridColumnLocation,
-            this.gridColumnWeldDate,
-            this.gridColumnInnerCoatingDate,
-            this.gridColumnOuterCoatingDate,
-            this.gridColumnExtra});
-            this.gridViewResult.GridControl = this.grdControlPipesSearchReselt;
-            this.gridViewResult.Name = "gridViewResult";
-            this.gridViewResult.OptionsView.ShowGroupPanel = false;
+            this.pipesSearchResultview.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.pipeNumberGridColumn,
+            this.certificateNumberGridColumn,
+            this.heatNumberGridColumn,
+            this.statusSearchGridColumn,
+            this.locationGridColumn,
+            this.weldingDateGridColumn,
+            this.internalCoatingDateGridColumn,
+            this.externalCoatingDateGridColumn,
+            this.extraGridColumn});
+            this.pipesSearchResultview.GridControl = this.pipesSearchReselt;
+            this.pipesSearchResultview.Name = "pipesSearchResultview";
+            this.pipesSearchResultview.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumnPipeNo
+            // pipeNumberGridColumn
             // 
-            this.gridColumnPipeNo.Caption = "Pipe no";
-            this.gridColumnPipeNo.Name = "gridColumnPipeNo";
-            this.gridColumnPipeNo.Visible = true;
-            this.gridColumnPipeNo.VisibleIndex = 0;
+            this.pipeNumberGridColumn.Caption = "№";
+            this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
+            this.pipeNumberGridColumn.Visible = true;
+            this.pipeNumberGridColumn.VisibleIndex = 0;
             // 
-            // gridColumnCertificate
+            // certificateNumberGridColumn
             // 
-            this.gridColumnCertificate.Caption = "Certificate no";
-            this.gridColumnCertificate.Name = "gridColumnCertificate";
-            this.gridColumnCertificate.Visible = true;
-            this.gridColumnCertificate.VisibleIndex = 1;
+            this.certificateNumberGridColumn.Caption = "Certificate number";
+            this.certificateNumberGridColumn.Name = "certificateNumberGridColumn";
+            this.certificateNumberGridColumn.Visible = true;
+            this.certificateNumberGridColumn.VisibleIndex = 1;
             // 
-            // gridColumnHeatNo
+            // heatNumberGridColumn
             // 
-            this.gridColumnHeatNo.Caption = "Heat no";
-            this.gridColumnHeatNo.Name = "gridColumnHeatNo";
-            this.gridColumnHeatNo.Visible = true;
-            this.gridColumnHeatNo.VisibleIndex = 2;
+            this.heatNumberGridColumn.Caption = "Heat no";
+            this.heatNumberGridColumn.Name = "heatNumberGridColumn";
+            this.heatNumberGridColumn.Visible = true;
+            this.heatNumberGridColumn.VisibleIndex = 2;
             // 
-            // gridColumnStatus
+            // statusSearchGridColumn
             // 
-            this.gridColumnStatus.Caption = "Status";
-            this.gridColumnStatus.Name = "gridColumnStatus";
-            this.gridColumnStatus.Visible = true;
-            this.gridColumnStatus.VisibleIndex = 3;
+            this.statusSearchGridColumn.Caption = "Status";
+            this.statusSearchGridColumn.Name = "statusSearchGridColumn";
+            this.statusSearchGridColumn.Visible = true;
+            this.statusSearchGridColumn.VisibleIndex = 3;
             // 
-            // gridColumnLocation
+            // locationGridColumn
             // 
-            this.gridColumnLocation.Caption = "Location";
-            this.gridColumnLocation.Name = "gridColumnLocation";
-            this.gridColumnLocation.Visible = true;
-            this.gridColumnLocation.VisibleIndex = 4;
+            this.locationGridColumn.Caption = "Location";
+            this.locationGridColumn.Name = "locationGridColumn";
+            this.locationGridColumn.Visible = true;
+            this.locationGridColumn.VisibleIndex = 4;
             // 
-            // gridColumnWeldDate
+            // weldingDateGridColumn
             // 
-            this.gridColumnWeldDate.Caption = "Weld date";
-            this.gridColumnWeldDate.Name = "gridColumnWeldDate";
-            this.gridColumnWeldDate.Visible = true;
-            this.gridColumnWeldDate.VisibleIndex = 5;
+            this.weldingDateGridColumn.Caption = "Weld date";
+            this.weldingDateGridColumn.Name = "weldingDateGridColumn";
+            this.weldingDateGridColumn.Visible = true;
+            this.weldingDateGridColumn.VisibleIndex = 5;
             // 
-            // gridColumnInnerCoatingDate
+            // internalCoatingDateGridColumn
             // 
-            this.gridColumnInnerCoatingDate.Caption = "Inner coating date";
-            this.gridColumnInnerCoatingDate.Name = "gridColumnInnerCoatingDate";
-            this.gridColumnInnerCoatingDate.Visible = true;
-            this.gridColumnInnerCoatingDate.VisibleIndex = 6;
+            this.internalCoatingDateGridColumn.Caption = "Internal coating date";
+            this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
+            this.internalCoatingDateGridColumn.Visible = true;
+            this.internalCoatingDateGridColumn.VisibleIndex = 6;
             // 
-            // gridColumnOuterCoatingDate
+            // externalCoatingDateGridColumn
             // 
-            this.gridColumnOuterCoatingDate.Caption = "Outer coating date";
-            this.gridColumnOuterCoatingDate.Name = "gridColumnOuterCoatingDate";
-            this.gridColumnOuterCoatingDate.Visible = true;
-            this.gridColumnOuterCoatingDate.VisibleIndex = 7;
+            this.externalCoatingDateGridColumn.Caption = "External coating date";
+            this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
+            this.externalCoatingDateGridColumn.Visible = true;
+            this.externalCoatingDateGridColumn.VisibleIndex = 7;
             // 
-            // gridColumnExtra
+            // extraGridColumn
             // 
-            this.gridColumnExtra.Caption = "Extra";
-            this.gridColumnExtra.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.gridColumnExtra.Name = "gridColumnExtra";
-            this.gridColumnExtra.Visible = true;
-            this.gridColumnExtra.VisibleIndex = 8;
+            this.extraGridColumn.Caption = "Extra";
+            this.extraGridColumn.ColumnEdit = this.extraButton;
+            this.extraGridColumn.Name = "extraGridColumn";
+            this.extraGridColumn.Visible = true;
+            this.extraGridColumn.VisibleIndex = 8;
             // 
-            // repositoryItemButtonEdit1
+            // extraButton
             // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.extraButton.AutoHeight = false;
+            this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.extraButton.Name = "extraButton";
+            this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // pegNumberLabel
+            // 
+            this.pegNumberLabel.Location = new System.Drawing.Point(554, 10);
+            this.pegNumberLabel.Name = "pegNumberLabel";
+            this.pegNumberLabel.Size = new System.Drawing.Size(57, 13);
+            this.pegNumberLabel.TabIndex = 49;
+            this.pegNumberLabel.Text = "Peg number";
+            // 
+            // pegNumber
+            // 
+            this.pegNumber.Location = new System.Drawing.Point(554, 29);
+            this.pegNumber.Name = "pegNumber";
+            this.pegNumber.Size = new System.Drawing.Size(115, 20);
+            this.pegNumber.TabIndex = 50;
             // 
             // PipeSearchXtraForm
             // 
@@ -317,38 +330,41 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dateEditOuterCoating);
-            this.Controls.Add(this.comboBoxSizeGrade);
-            this.Controls.Add(this.dateEditWeld);
-            this.Controls.Add(this.lblWeldDate);
-            this.Controls.Add(this.lblOuterCoating);
-            this.Controls.Add(this.dateEditInnerCoating);
-            this.Controls.Add(this.lblInnerCoating);
-            this.Controls.Add(this.lblSizeGrade);
-            this.Controls.Add(this.txtEdtPipeLocation);
-            this.Controls.Add(this.lblLocation);
-            this.Controls.Add(this.txtEditPipeStatus);
-            this.Controls.Add(this.lblPipeStatus);
-            this.Controls.Add(this.txtEdtPipeNo);
-            this.Controls.Add(this.lblPipeNo);
-            this.Controls.Add(this.grdControlPipesSearchReselt);
+            this.Controls.Add(this.pegNumber);
+            this.Controls.Add(this.pegNumberLabel);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.internalCoatingDate);
+            this.Controls.Add(this.sizeGrade);
+            this.Controls.Add(this.welding);
+            this.Controls.Add(this.weldingDateLabel);
+            this.Controls.Add(this.internalCoatingLabel);
+            this.Controls.Add(this.externalCoatingDate);
+            this.Controls.Add(this.externalCoatingLabel);
+            this.Controls.Add(this.sizeLabel);
+            this.Controls.Add(this.pipeLocation);
+            this.Controls.Add(this.locationLabel);
+            this.Controls.Add(this.pipeStatus);
+            this.Controls.Add(this.pipeStatusLabel);
+            this.Controls.Add(this.pipeNumber);
+            this.Controls.Add(this.pipeNumberLabel);
+            this.Controls.Add(this.pipesSearchReselt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PipeSearchXtraForm";
             this.Text = "PipeSearchXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditOuterCoating.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditOuterCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxSizeGrade.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWeld.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInnerCoating.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInnerCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeLocation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditPipeStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtPipeNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdControlPipesSearchReselt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLocation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchReselt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,33 +372,35 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnSearch;
-        private DevExpress.XtraEditors.DateEdit dateEditOuterCoating;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxSizeGrade;
-        private DevExpress.XtraEditors.DateEdit dateEditWeld;
-        private DevExpress.XtraEditors.LabelControl lblWeldDate;
-        private DevExpress.XtraEditors.LabelControl lblOuterCoating;
-        private DevExpress.XtraEditors.DateEdit dateEditInnerCoating;
-        private DevExpress.XtraEditors.LabelControl lblInnerCoating;
-        private DevExpress.XtraEditors.LabelControl lblSizeGrade;
-        private DevExpress.XtraEditors.TextEdit txtEdtPipeLocation;
-        private DevExpress.XtraEditors.LabelControl lblLocation;
-        private DevExpress.XtraEditors.TextEdit txtEditPipeStatus;
-        private DevExpress.XtraEditors.LabelControl lblPipeStatus;
-        private DevExpress.XtraEditors.TextEdit txtEdtPipeNo;
-        private DevExpress.XtraEditors.LabelControl lblPipeNo;
-        private DevExpress.XtraGrid.GridControl grdControlPipesSearchReselt;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewResult;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPipeNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCertificate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnHeatNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnLocation;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnWeldDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnInnerCoatingDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnOuterCoatingDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnExtra;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
+        private DevExpress.XtraEditors.DateEdit internalCoatingDate;
+        private DevExpress.XtraEditors.ComboBoxEdit sizeGrade;
+        private DevExpress.XtraEditors.DateEdit welding;
+        private DevExpress.XtraEditors.LabelControl weldingDateLabel;
+        private DevExpress.XtraEditors.LabelControl internalCoatingLabel;
+        private DevExpress.XtraEditors.DateEdit externalCoatingDate;
+        private DevExpress.XtraEditors.LabelControl externalCoatingLabel;
+        private DevExpress.XtraEditors.LabelControl sizeLabel;
+        private DevExpress.XtraEditors.TextEdit pipeLocation;
+        private DevExpress.XtraEditors.LabelControl locationLabel;
+        private DevExpress.XtraEditors.TextEdit pipeStatus;
+        private DevExpress.XtraEditors.LabelControl pipeStatusLabel;
+        private DevExpress.XtraEditors.TextEdit pipeNumber;
+        private DevExpress.XtraEditors.LabelControl pipeNumberLabel;
+        private DevExpress.XtraGrid.GridControl pipesSearchReselt;
+        private DevExpress.XtraGrid.Views.Grid.GridView pipesSearchResultview;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn certificateNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn heatNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn statusSearchGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn locationGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn weldingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn internalCoatingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn externalCoatingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraButton;
+        private DevExpress.XtraEditors.LabelControl pegNumberLabel;
+        private DevExpress.XtraEditors.TextEdit pegNumber;
 
 
     }

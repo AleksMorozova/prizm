@@ -28,106 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkEditPipeSettings = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditListOfTestOperations = new DevExpress.XtraEditors.CheckEdit();
-            this.comboBoxEditPipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEditPipeSizes = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControlPipeManufacturer = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlPipeSizes = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButtonCopy = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonСancel = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditPipeSettings.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditListOfTestOperations.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeManufacturer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeSizes.Properties)).BeginInit();
+            this.pipeSettings = new DevExpress.XtraEditors.CheckEdit();
+            this.listOfTestOperations = new DevExpress.XtraEditors.CheckEdit();
+            this.pipeManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeSizes = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeManufacturerLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipeSizesLabel = new DevExpress.XtraEditors.LabelControl();
+            this.copyButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSettings.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listOfTestOperations.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSizes.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkEditPipeSettings
+            // pipeSettings
             // 
-            this.checkEditPipeSettings.Location = new System.Drawing.Point(44, 25);
-            this.checkEditPipeSettings.Name = "checkEditPipeSettings";
-            this.checkEditPipeSettings.Properties.Caption = "Pipe settings";
-            this.checkEditPipeSettings.Size = new System.Drawing.Size(165, 19);
-            this.checkEditPipeSettings.TabIndex = 0;
+            this.pipeSettings.Location = new System.Drawing.Point(44, 25);
+            this.pipeSettings.Name = "pipeSettings";
+            this.pipeSettings.Properties.Caption = "Pipe settings";
+            this.pipeSettings.Size = new System.Drawing.Size(165, 19);
+            this.pipeSettings.TabIndex = 0;
             // 
-            // checkEditListOfTestOperations
+            // listOfTestOperations
             // 
-            this.checkEditListOfTestOperations.Location = new System.Drawing.Point(44, 63);
-            this.checkEditListOfTestOperations.Name = "checkEditListOfTestOperations";
-            this.checkEditListOfTestOperations.Properties.Caption = "List of test operations";
-            this.checkEditListOfTestOperations.Size = new System.Drawing.Size(165, 19);
-            this.checkEditListOfTestOperations.TabIndex = 1;
+            this.listOfTestOperations.Location = new System.Drawing.Point(44, 63);
+            this.listOfTestOperations.Name = "listOfTestOperations";
+            this.listOfTestOperations.Properties.Caption = "List of test operations";
+            this.listOfTestOperations.Size = new System.Drawing.Size(165, 19);
+            this.listOfTestOperations.TabIndex = 1;
             // 
-            // comboBoxEditPipeManufacturer
+            // pipeManufacturer
             // 
-            this.comboBoxEditPipeManufacturer.Location = new System.Drawing.Point(46, 123);
-            this.comboBoxEditPipeManufacturer.Name = "comboBoxEditPipeManufacturer";
-            this.comboBoxEditPipeManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.pipeManufacturer.Location = new System.Drawing.Point(46, 123);
+            this.pipeManufacturer.Name = "pipeManufacturer";
+            this.pipeManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditPipeManufacturer.Size = new System.Drawing.Size(320, 20);
-            this.comboBoxEditPipeManufacturer.TabIndex = 2;
+            this.pipeManufacturer.Size = new System.Drawing.Size(320, 20);
+            this.pipeManufacturer.TabIndex = 2;
             // 
-            // comboBoxEditPipeSizes
+            // pipeSizes
             // 
-            this.comboBoxEditPipeSizes.Location = new System.Drawing.Point(46, 184);
-            this.comboBoxEditPipeSizes.Name = "comboBoxEditPipeSizes";
-            this.comboBoxEditPipeSizes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.pipeSizes.Location = new System.Drawing.Point(46, 184);
+            this.pipeSizes.Name = "pipeSizes";
+            this.pipeSizes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditPipeSizes.Size = new System.Drawing.Size(320, 20);
-            this.comboBoxEditPipeSizes.TabIndex = 3;
+            this.pipeSizes.Size = new System.Drawing.Size(320, 20);
+            this.pipeSizes.TabIndex = 3;
             // 
-            // labelControlPipeManufacturer
+            // pipeManufacturerLabel
             // 
-            this.labelControlPipeManufacturer.Location = new System.Drawing.Point(46, 103);
-            this.labelControlPipeManufacturer.Name = "labelControlPipeManufacturer";
-            this.labelControlPipeManufacturer.Size = new System.Drawing.Size(126, 13);
-            this.labelControlPipeManufacturer.TabIndex = 4;
-            this.labelControlPipeManufacturer.Text = "Set the pipe manufacturer";
+            this.pipeManufacturerLabel.Location = new System.Drawing.Point(46, 103);
+            this.pipeManufacturerLabel.Name = "pipeManufacturerLabel";
+            this.pipeManufacturerLabel.Size = new System.Drawing.Size(126, 13);
+            this.pipeManufacturerLabel.TabIndex = 4;
+            this.pipeManufacturerLabel.Text = "Set the pipe manufacturer";
             // 
-            // labelControlPipeSizes
+            // pipeSizesLabel
             // 
-            this.labelControlPipeSizes.Location = new System.Drawing.Point(46, 164);
-            this.labelControlPipeSizes.Name = "labelControlPipeSizes";
-            this.labelControlPipeSizes.Size = new System.Drawing.Size(186, 13);
-            this.labelControlPipeSizes.TabIndex = 5;
-            this.labelControlPipeSizes.Text = "Pipe sizes, performance characteristics";
+            this.pipeSizesLabel.Location = new System.Drawing.Point(46, 164);
+            this.pipeSizesLabel.Name = "pipeSizesLabel";
+            this.pipeSizesLabel.Size = new System.Drawing.Size(186, 13);
+            this.pipeSizesLabel.TabIndex = 5;
+            this.pipeSizesLabel.Text = "Pipe sizes, performance characteristics";
             // 
-            // simpleButtonCopy
+            // copyButton
             // 
-            this.simpleButtonCopy.Location = new System.Drawing.Point(291, 226);
-            this.simpleButtonCopy.Name = "simpleButtonCopy";
-            this.simpleButtonCopy.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonCopy.TabIndex = 6;
-            this.simpleButtonCopy.Text = "Copy";
+            this.copyButton.Location = new System.Drawing.Point(291, 226);
+            this.copyButton.Name = "copyButton";
+            this.copyButton.Size = new System.Drawing.Size(75, 23);
+            this.copyButton.TabIndex = 6;
+            this.copyButton.Text = "Copy";
             // 
-            // simpleButtonСancel
+            // cancelButton
             // 
-            this.simpleButtonСancel.Location = new System.Drawing.Point(394, 226);
-            this.simpleButtonСancel.Name = "simpleButtonСancel";
-            this.simpleButtonСancel.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonСancel.TabIndex = 7;
-            this.simpleButtonСancel.Text = "Сancel";
+            this.cancelButton.Location = new System.Drawing.Point(394, 226);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 7;
+            this.cancelButton.Text = "Сancel";
             // 
             // CopyPipeSettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 261);
-            this.Controls.Add(this.simpleButtonСancel);
-            this.Controls.Add(this.simpleButtonCopy);
-            this.Controls.Add(this.labelControlPipeSizes);
-            this.Controls.Add(this.labelControlPipeManufacturer);
-            this.Controls.Add(this.comboBoxEditPipeSizes);
-            this.Controls.Add(this.comboBoxEditPipeManufacturer);
-            this.Controls.Add(this.checkEditListOfTestOperations);
-            this.Controls.Add(this.checkEditPipeSettings);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.copyButton);
+            this.Controls.Add(this.pipeSizesLabel);
+            this.Controls.Add(this.pipeManufacturerLabel);
+            this.Controls.Add(this.pipeSizes);
+            this.Controls.Add(this.pipeManufacturer);
+            this.Controls.Add(this.listOfTestOperations);
+            this.Controls.Add(this.pipeSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CopyPipeSettingsXtraForm";
             this.Text = "Copy pipe settings";
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditPipeSettings.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditListOfTestOperations.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeManufacturer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPipeSizes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSettings.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listOfTestOperations.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSizes.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,13 +135,13 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.CheckEdit checkEditPipeSettings;
-        private DevExpress.XtraEditors.CheckEdit checkEditListOfTestOperations;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditPipeManufacturer;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditPipeSizes;
-        private DevExpress.XtraEditors.LabelControl labelControlPipeManufacturer;
-        private DevExpress.XtraEditors.LabelControl labelControlPipeSizes;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonCopy;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonСancel;
+        private DevExpress.XtraEditors.CheckEdit pipeSettings;
+        private DevExpress.XtraEditors.CheckEdit listOfTestOperations;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeManufacturer;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeSizes;
+        private DevExpress.XtraEditors.LabelControl pipeManufacturerLabel;
+        private DevExpress.XtraEditors.LabelControl pipeSizesLabel;
+        private DevExpress.XtraEditors.SimpleButton copyButton;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
     }
 }

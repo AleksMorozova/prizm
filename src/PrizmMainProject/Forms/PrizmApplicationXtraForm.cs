@@ -38,13 +38,13 @@ namespace PrizmMain.Forms
 
         private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabPage) 
         {
-            frmChild.TabControlSettings.SelectedTabPage = frmChild.TabControlSettings.TabPages[tabPage];
+            frmChild.settings.SelectedTabPage = frmChild.settings.TabPages[tabPage];
             CreateFormChild(frmChild);
         }
 
         private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 0);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 1);
         }
 
         private void barButtonClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -76,17 +76,17 @@ namespace PrizmMain.Forms
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 1);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 2);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 2);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 3);
         }
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 3);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
         }
 
         private void barButtonItemFindComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -96,7 +96,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new Forms.ReportsXtraForm());
+            CreateFormChild(new Forms.CustomReportsXtraForm());
         }
 
         private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -112,6 +112,21 @@ namespace PrizmMain.Forms
         private void barButtonItemExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void barButtonItemFindRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new Forms.RailcarSearchXtraForm ());
+        }
+
+        private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new Forms.RailcarNewEditXtraForm());
+        }
+
+        private void barButtonItemSetingsProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 0);
         }
 
     }

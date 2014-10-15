@@ -1,6 +1,6 @@
 ﻿namespace PrizmMain.Forms
 {
-    partial class ReportsXtraForm
+    partial class InspectionReportsXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ReportsXtraForm";
+            this.Text = "InspectionsReportXtraForm";
         }
 
         #endregion

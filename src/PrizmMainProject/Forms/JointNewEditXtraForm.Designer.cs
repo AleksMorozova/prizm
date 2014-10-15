@@ -28,319 +28,317 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TabControlJoint = new DevExpress.XtraTab.XtraTabControl();
-            this.TabPageGeneralParameters = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControlWeldig = new DevExpress.XtraEditors.GroupControl();
-            this.lblInspectionDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblWeldinfDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblWelderNo = new DevExpress.XtraEditors.LabelControl();
-            this.lblInspector = new DevExpress.XtraEditors.LabelControl();
-            this.lblWelder = new DevExpress.XtraEditors.LabelControl();
-            this.lblStatus = new DevExpress.XtraEditors.LabelControl();
-            this.lblPlace = new DevExpress.XtraEditors.LabelControl();
-            this.dateEditInspection = new DevExpress.XtraEditors.DateEdit();
-            this.dateEditWelding = new DevExpress.XtraEditors.DateEdit();
-            this.txtEditWelderNo = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxStatus = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEditPlace = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtEdtInspector = new DevExpress.XtraEditors.TextEdit();
-            this.txtEdtWelder = new DevExpress.XtraEditors.TextEdit();
-            this.gridControlComponentry = new DevExpress.XtraGrid.GridControl();
-            this.gridViewJointControl = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnComponentNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControlPipes = new DevExpress.XtraGrid.GridControl();
-            this.PipesControl = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnPipeNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtEdtJointNo = new DevExpress.XtraEditors.TextEdit();
-            this.lblJointNo = new DevExpress.XtraEditors.LabelControl();
-            this.TabPageInspection = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPageTrench = new DevExpress.XtraTab.XtraTabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlJoint)).BeginInit();
-            this.TabControlJoint.SuspendLayout();
-            this.TabPageGeneralParameters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlWeldig)).BeginInit();
-            this.groupControlWeldig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWelding.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWelding.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditWelderNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPlace.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspector.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtWelder.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlComponentry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewJointControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPipes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipesControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).BeginInit();
+            this.joint = new DevExpress.XtraTab.XtraTabControl();
+            this.generalParameters = new DevExpress.XtraTab.XtraTabPage();
+            this.weldig = new DevExpress.XtraEditors.GroupControl();
+            this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.welderNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectorLabel = new DevExpress.XtraEditors.LabelControl();
+            this.welderLabel = new DevExpress.XtraEditors.LabelControl();
+            this.statusLabel = new DevExpress.XtraEditors.LabelControl();
+            this.placeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspection = new DevExpress.XtraEditors.DateEdit();
+            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
+            this.welderNumber = new DevExpress.XtraEditors.TextEdit();
+            this.status = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.place = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.inspector = new DevExpress.XtraEditors.TextEdit();
+            this.welder = new DevExpress.XtraEditors.TextEdit();
+            this.componentry = new DevExpress.XtraGrid.GridControl();
+            this.componentryView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.componentNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipes = new DevExpress.XtraGrid.GridControl();
+            this.pipesView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.componentryLabel = new DevExpress.XtraEditors.LabelControl();
+            this.pipesLabel = new DevExpress.XtraEditors.LabelControl();
+            this.jointNumber = new DevExpress.XtraEditors.TextEdit();
+            this.jointNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionOperations = new DevExpress.XtraTab.XtraTabPage();
+            this.trenchParameters = new DevExpress.XtraTab.XtraTabPage();
+            ((System.ComponentModel.ISupportInitialize)(this.joint)).BeginInit();
+            this.joint.SuspendLayout();
+            this.generalParameters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weldig)).BeginInit();
+            this.weldig.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welderNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.place.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // TabControlJoint
+            // joint
             // 
-            this.TabControlJoint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControlJoint.Location = new System.Drawing.Point(0, 0);
-            this.TabControlJoint.Name = "TabControlJoint";
-            this.TabControlJoint.SelectedTabPage = this.TabPageGeneralParameters;
-            this.TabControlJoint.Size = new System.Drawing.Size(725, 425);
-            this.TabControlJoint.TabIndex = 0;
-            this.TabControlJoint.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.TabPageGeneralParameters,
-            this.TabPageInspection,
-            this.xtraTabPageTrench});
+            this.joint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.joint.Location = new System.Drawing.Point(0, 0);
+            this.joint.Name = "joint";
+            this.joint.SelectedTabPage = this.generalParameters;
+            this.joint.Size = new System.Drawing.Size(725, 425);
+            this.joint.TabIndex = 0;
+            this.joint.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.generalParameters,
+            this.inspectionOperations,
+            this.trenchParameters});
             // 
-            // TabPageGeneralParameters
+            // generalParameters
             // 
-            this.TabPageGeneralParameters.Controls.Add(this.groupControlWeldig);
-            this.TabPageGeneralParameters.Controls.Add(this.gridControlComponentry);
-            this.TabPageGeneralParameters.Controls.Add(this.gridControlPipes);
-            this.TabPageGeneralParameters.Controls.Add(this.labelControl3);
-            this.TabPageGeneralParameters.Controls.Add(this.labelControl2);
-            this.TabPageGeneralParameters.Controls.Add(this.txtEdtJointNo);
-            this.TabPageGeneralParameters.Controls.Add(this.lblJointNo);
-            this.TabPageGeneralParameters.Name = "TabPageGeneralParameters";
-            this.TabPageGeneralParameters.Size = new System.Drawing.Size(719, 397);
-            this.TabPageGeneralParameters.Text = "&General parameters";
+            this.generalParameters.Controls.Add(this.weldig);
+            this.generalParameters.Controls.Add(this.componentry);
+            this.generalParameters.Controls.Add(this.pipes);
+            this.generalParameters.Controls.Add(this.componentryLabel);
+            this.generalParameters.Controls.Add(this.pipesLabel);
+            this.generalParameters.Controls.Add(this.jointNumber);
+            this.generalParameters.Controls.Add(this.jointNumberLabel);
+            this.generalParameters.Name = "generalParameters";
+            this.generalParameters.Size = new System.Drawing.Size(719, 397);
+            this.generalParameters.Text = "&General parameters";
             // 
-            // groupControlWeldig
+            // weldig
             // 
-            this.groupControlWeldig.Controls.Add(this.lblInspectionDate);
-            this.groupControlWeldig.Controls.Add(this.lblWeldinfDate);
-            this.groupControlWeldig.Controls.Add(this.lblWelderNo);
-            this.groupControlWeldig.Controls.Add(this.lblInspector);
-            this.groupControlWeldig.Controls.Add(this.lblWelder);
-            this.groupControlWeldig.Controls.Add(this.lblStatus);
-            this.groupControlWeldig.Controls.Add(this.lblPlace);
-            this.groupControlWeldig.Controls.Add(this.dateEditInspection);
-            this.groupControlWeldig.Controls.Add(this.dateEditWelding);
-            this.groupControlWeldig.Controls.Add(this.txtEditWelderNo);
-            this.groupControlWeldig.Controls.Add(this.comboBoxStatus);
-            this.groupControlWeldig.Controls.Add(this.comboBoxEditPlace);
-            this.groupControlWeldig.Controls.Add(this.txtEdtInspector);
-            this.groupControlWeldig.Controls.Add(this.txtEdtWelder);
-            this.groupControlWeldig.Location = new System.Drawing.Point(11, 253);
-            this.groupControlWeldig.Name = "groupControlWeldig";
-            this.groupControlWeldig.Size = new System.Drawing.Size(684, 127);
-            this.groupControlWeldig.TabIndex = 6;
-            this.groupControlWeldig.Text = "Welding";
+            this.weldig.Controls.Add(this.inspectionDateLabel);
+            this.weldig.Controls.Add(this.weldingDateLabel);
+            this.weldig.Controls.Add(this.welderNumberLabel);
+            this.weldig.Controls.Add(this.inspectorLabel);
+            this.weldig.Controls.Add(this.welderLabel);
+            this.weldig.Controls.Add(this.statusLabel);
+            this.weldig.Controls.Add(this.placeLabel);
+            this.weldig.Controls.Add(this.inspection);
+            this.weldig.Controls.Add(this.weldingDate);
+            this.weldig.Controls.Add(this.welderNumber);
+            this.weldig.Controls.Add(this.status);
+            this.weldig.Controls.Add(this.place);
+            this.weldig.Controls.Add(this.inspector);
+            this.weldig.Controls.Add(this.welder);
+            this.weldig.Location = new System.Drawing.Point(11, 253);
+            this.weldig.Name = "weldig";
+            this.weldig.Size = new System.Drawing.Size(684, 127);
+            this.weldig.TabIndex = 6;
+            this.weldig.Text = "Welding";
             // 
-            // lblInspectionDate
+            // inspectionDateLabel
             // 
-            this.lblInspectionDate.Location = new System.Drawing.Point(267, 101);
-            this.lblInspectionDate.Name = "lblInspectionDate";
-            this.lblInspectionDate.Size = new System.Drawing.Size(75, 13);
-            this.lblInspectionDate.TabIndex = 13;
-            this.lblInspectionDate.Text = "Inspection date";
+            this.inspectionDateLabel.Location = new System.Drawing.Point(267, 101);
+            this.inspectionDateLabel.Name = "inspectionDateLabel";
+            this.inspectionDateLabel.Size = new System.Drawing.Size(75, 13);
+            this.inspectionDateLabel.TabIndex = 13;
+            this.inspectionDateLabel.Text = "Inspection date";
             // 
-            // lblWeldinfDate
+            // weldingDateLabel
             // 
-            this.lblWeldinfDate.Location = new System.Drawing.Point(267, 32);
-            this.lblWeldinfDate.Name = "lblWeldinfDate";
-            this.lblWeldinfDate.Size = new System.Drawing.Size(49, 13);
-            this.lblWeldinfDate.TabIndex = 12;
-            this.lblWeldinfDate.Text = "Weld date";
+            this.weldingDateLabel.Location = new System.Drawing.Point(267, 32);
+            this.weldingDateLabel.Name = "weldingDateLabel";
+            this.weldingDateLabel.Size = new System.Drawing.Size(63, 13);
+            this.weldingDateLabel.TabIndex = 12;
+            this.weldingDateLabel.Text = "Welding date";
             // 
-            // lblWelderNo
+            // welderNumberLabel
             // 
-            this.lblWelderNo.Location = new System.Drawing.Point(267, 66);
-            this.lblWelderNo.Name = "lblWelderNo";
-            this.lblWelderNo.Size = new System.Drawing.Size(73, 13);
-            this.lblWelderNo.TabIndex = 11;
-            this.lblWelderNo.Text = "Welder number";
+            this.welderNumberLabel.Location = new System.Drawing.Point(267, 66);
+            this.welderNumberLabel.Name = "welderNumberLabel";
+            this.welderNumberLabel.Size = new System.Drawing.Size(73, 13);
+            this.welderNumberLabel.TabIndex = 11;
+            this.welderNumberLabel.Text = "Welder number";
             // 
-            // lblInspector
+            // inspectorLabel
             // 
-            this.lblInspector.Location = new System.Drawing.Point(18, 101);
-            this.lblInspector.Name = "lblInspector";
-            this.lblInspector.Size = new System.Drawing.Size(46, 13);
-            this.lblInspector.TabIndex = 10;
-            this.lblInspector.Text = "Inspector";
+            this.inspectorLabel.Location = new System.Drawing.Point(18, 101);
+            this.inspectorLabel.Name = "inspectorLabel";
+            this.inspectorLabel.Size = new System.Drawing.Size(46, 13);
+            this.inspectorLabel.TabIndex = 10;
+            this.inspectorLabel.Text = "Inspector";
             // 
-            // lblWelder
+            // welderLabel
             // 
-            this.lblWelder.Location = new System.Drawing.Point(18, 70);
-            this.lblWelder.Name = "lblWelder";
-            this.lblWelder.Size = new System.Drawing.Size(34, 13);
-            this.lblWelder.TabIndex = 9;
-            this.lblWelder.Text = "Welder";
+            this.welderLabel.Location = new System.Drawing.Point(18, 70);
+            this.welderLabel.Name = "welderLabel";
+            this.welderLabel.Size = new System.Drawing.Size(34, 13);
+            this.welderLabel.TabIndex = 9;
+            this.welderLabel.Text = "Welder";
             // 
-            // lblStatus
+            // statusLabel
             // 
-            this.lblStatus.Location = new System.Drawing.Point(483, 32);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(31, 13);
-            this.lblStatus.TabIndex = 8;
-            this.lblStatus.Text = "Status";
+            this.statusLabel.Location = new System.Drawing.Point(483, 32);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(31, 13);
+            this.statusLabel.TabIndex = 8;
+            this.statusLabel.Text = "Status";
             // 
-            // lblPlace
+            // placeLabel
             // 
-            this.lblPlace.Location = new System.Drawing.Point(18, 32);
-            this.lblPlace.Name = "lblPlace";
-            this.lblPlace.Size = new System.Drawing.Size(25, 13);
-            this.lblPlace.TabIndex = 7;
-            this.lblPlace.Text = "Place";
+            this.placeLabel.Location = new System.Drawing.Point(18, 32);
+            this.placeLabel.Name = "placeLabel";
+            this.placeLabel.Size = new System.Drawing.Size(25, 13);
+            this.placeLabel.TabIndex = 7;
+            this.placeLabel.Text = "Place";
             // 
-            // dateEditInspection
+            // inspection
             // 
-            this.dateEditInspection.EditValue = null;
-            this.dateEditInspection.Location = new System.Drawing.Point(362, 98);
-            this.dateEditInspection.Name = "dateEditInspection";
-            this.dateEditInspection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.inspection.EditValue = null;
+            this.inspection.Location = new System.Drawing.Point(362, 98);
+            this.inspection.Name = "inspection";
+            this.inspection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInspection.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.inspection.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditInspection.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditInspection.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditInspection.Size = new System.Drawing.Size(100, 20);
-            this.dateEditInspection.TabIndex = 6;
+            this.inspection.Size = new System.Drawing.Size(100, 20);
+            this.inspection.TabIndex = 6;
             // 
-            // dateEditWelding
+            // weldingDate
             // 
-            this.dateEditWelding.EditValue = null;
-            this.dateEditWelding.Location = new System.Drawing.Point(362, 29);
-            this.dateEditWelding.Name = "dateEditWelding";
-            this.dateEditWelding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDate.EditValue = null;
+            this.weldingDate.Location = new System.Drawing.Point(362, 29);
+            this.weldingDate.Name = "weldingDate";
+            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWelding.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditWelding.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEditWelding.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.dateEditWelding.Size = new System.Drawing.Size(100, 20);
-            this.dateEditWelding.TabIndex = 5;
+            this.weldingDate.Size = new System.Drawing.Size(100, 20);
+            this.weldingDate.TabIndex = 5;
             // 
-            // txtEditWelderNo
+            // welderNumber
             // 
-            this.txtEditWelderNo.Location = new System.Drawing.Point(362, 63);
-            this.txtEditWelderNo.Name = "txtEditWelderNo";
-            this.txtEditWelderNo.Size = new System.Drawing.Size(100, 20);
-            this.txtEditWelderNo.TabIndex = 4;
+            this.welderNumber.Location = new System.Drawing.Point(362, 63);
+            this.welderNumber.Name = "welderNumber";
+            this.welderNumber.Size = new System.Drawing.Size(100, 20);
+            this.welderNumber.TabIndex = 4;
             // 
-            // comboBoxStatus
+            // status
             // 
-            this.comboBoxStatus.Location = new System.Drawing.Point(540, 29);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.status.Location = new System.Drawing.Point(540, 29);
+            this.status.Name = "status";
+            this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxStatus.Size = new System.Drawing.Size(128, 20);
-            this.comboBoxStatus.TabIndex = 3;
+            this.status.Size = new System.Drawing.Size(128, 20);
+            this.status.TabIndex = 3;
             // 
-            // comboBoxEditPlace
+            // place
             // 
-            this.comboBoxEditPlace.Location = new System.Drawing.Point(78, 29);
-            this.comboBoxEditPlace.Name = "comboBoxEditPlace";
-            this.comboBoxEditPlace.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.place.Location = new System.Drawing.Point(78, 29);
+            this.place.Name = "place";
+            this.place.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditPlace.Size = new System.Drawing.Size(164, 20);
-            this.comboBoxEditPlace.TabIndex = 2;
+            this.place.Size = new System.Drawing.Size(164, 20);
+            this.place.TabIndex = 2;
             // 
-            // txtEdtInspector
+            // inspector
             // 
-            this.txtEdtInspector.Location = new System.Drawing.Point(78, 98);
-            this.txtEdtInspector.Name = "txtEdtInspector";
-            this.txtEdtInspector.Size = new System.Drawing.Size(164, 20);
-            this.txtEdtInspector.TabIndex = 1;
+            this.inspector.Location = new System.Drawing.Point(78, 98);
+            this.inspector.Name = "inspector";
+            this.inspector.Size = new System.Drawing.Size(164, 20);
+            this.inspector.TabIndex = 1;
             // 
-            // txtEdtWelder
+            // welder
             // 
-            this.txtEdtWelder.Location = new System.Drawing.Point(78, 63);
-            this.txtEdtWelder.Name = "txtEdtWelder";
-            this.txtEdtWelder.Size = new System.Drawing.Size(164, 20);
-            this.txtEdtWelder.TabIndex = 0;
+            this.welder.Location = new System.Drawing.Point(78, 63);
+            this.welder.Name = "welder";
+            this.welder.Size = new System.Drawing.Size(164, 20);
+            this.welder.TabIndex = 0;
             // 
-            // gridControlComponentry
+            // componentry
             // 
-            this.gridControlComponentry.Location = new System.Drawing.Point(346, 79);
-            this.gridControlComponentry.MainView = this.gridViewJointControl;
-            this.gridControlComponentry.Name = "gridControlComponentry";
-            this.gridControlComponentry.Size = new System.Drawing.Size(293, 154);
-            this.gridControlComponentry.TabIndex = 5;
-            this.gridControlComponentry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewJointControl});
+            this.componentry.Cursor = System.Windows.Forms.Cursors.Default;
+            this.componentry.Location = new System.Drawing.Point(346, 79);
+            this.componentry.MainView = this.componentryView;
+            this.componentry.Name = "componentry";
+            this.componentry.Size = new System.Drawing.Size(293, 154);
+            this.componentry.TabIndex = 5;
+            this.componentry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.componentryView});
             // 
-            // gridViewJointControl
+            // componentryView
             // 
-            this.gridViewJointControl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnComponentNo});
-            this.gridViewJointControl.GridControl = this.gridControlComponentry;
-            this.gridViewJointControl.Name = "gridViewJointControl";
-            this.gridViewJointControl.OptionsView.ShowGroupPanel = false;
+            this.componentryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.componentNumberGridColumn});
+            this.componentryView.GridControl = this.componentry;
+            this.componentryView.Name = "componentryView";
+            this.componentryView.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumnComponentNo
+            // componentNumberGridColumn
             // 
-            this.gridColumnComponentNo.Caption = "Component no";
-            this.gridColumnComponentNo.Name = "gridColumnComponentNo";
-            this.gridColumnComponentNo.Visible = true;
-            this.gridColumnComponentNo.VisibleIndex = 0;
+            this.componentNumberGridColumn.Caption = "Component number";
+            this.componentNumberGridColumn.Name = "componentNumberGridColumn";
+            this.componentNumberGridColumn.Visible = true;
+            this.componentNumberGridColumn.VisibleIndex = 0;
             // 
-            // gridControlPipes
+            // pipes
             // 
-            this.gridControlPipes.Location = new System.Drawing.Point(12, 79);
-            this.gridControlPipes.MainView = this.PipesControl;
-            this.gridControlPipes.Name = "gridControlPipes";
-            this.gridControlPipes.Size = new System.Drawing.Size(293, 154);
-            this.gridControlPipes.TabIndex = 4;
-            this.gridControlPipes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.PipesControl});
+            this.pipes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pipes.Location = new System.Drawing.Point(12, 79);
+            this.pipes.MainView = this.pipesView;
+            this.pipes.Name = "pipes";
+            this.pipes.Size = new System.Drawing.Size(293, 154);
+            this.pipes.TabIndex = 4;
+            this.pipes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pipesView});
             // 
-            // PipesControl
+            // pipesView
             // 
-            this.PipesControl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnPipeNo});
-            this.PipesControl.GridControl = this.gridControlPipes;
-            this.PipesControl.Name = "PipesControl";
-            this.PipesControl.OptionsView.ShowGroupPanel = false;
+            this.pipesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.pipeNumberGridColumn});
+            this.pipesView.GridControl = this.pipes;
+            this.pipesView.Name = "pipesView";
+            this.pipesView.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumnPipeNo
+            // pipeNumberGridColumn
             // 
-            this.gridColumnPipeNo.Caption = "Pipe no";
-            this.gridColumnPipeNo.Name = "gridColumnPipeNo";
-            this.gridColumnPipeNo.Visible = true;
-            this.gridColumnPipeNo.VisibleIndex = 0;
+            this.pipeNumberGridColumn.Caption = "Pipe number";
+            this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
+            this.pipeNumberGridColumn.Visible = true;
+            this.pipeNumberGridColumn.VisibleIndex = 0;
             // 
-            // labelControl3
+            // componentryLabel
             // 
-            this.labelControl3.Location = new System.Drawing.Point(346, 60);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(69, 13);
-            this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Componentry:";
+            this.componentryLabel.Location = new System.Drawing.Point(346, 60);
+            this.componentryLabel.Name = "componentryLabel";
+            this.componentryLabel.Size = new System.Drawing.Size(69, 13);
+            this.componentryLabel.TabIndex = 3;
+            this.componentryLabel.Text = "Componentry:";
             // 
-            // labelControl2
+            // pipesLabel
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 60);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(29, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Pipes:";
+            this.pipesLabel.Location = new System.Drawing.Point(12, 60);
+            this.pipesLabel.Name = "pipesLabel";
+            this.pipesLabel.Size = new System.Drawing.Size(29, 13);
+            this.pipesLabel.TabIndex = 2;
+            this.pipesLabel.Text = "Pipes:";
             // 
-            // txtEdtJointNo
+            // jointNumber
             // 
-            this.txtEdtJointNo.Location = new System.Drawing.Point(12, 31);
-            this.txtEdtJointNo.Name = "txtEdtJointNo";
-            this.txtEdtJointNo.Size = new System.Drawing.Size(100, 20);
-            this.txtEdtJointNo.TabIndex = 1;
+            this.jointNumber.Location = new System.Drawing.Point(12, 31);
+            this.jointNumber.Name = "jointNumber";
+            this.jointNumber.Size = new System.Drawing.Size(100, 20);
+            this.jointNumber.TabIndex = 1;
             // 
-            // lblJointNo
+            // jointNumberLabel
             // 
-            this.lblJointNo.Location = new System.Drawing.Point(12, 12);
-            this.lblJointNo.Name = "lblJointNo";
-            this.lblJointNo.Size = new System.Drawing.Size(62, 13);
-            this.lblJointNo.TabIndex = 0;
-            this.lblJointNo.Text = "Joint number";
+            this.jointNumberLabel.Location = new System.Drawing.Point(12, 12);
+            this.jointNumberLabel.Name = "jointNumberLabel";
+            this.jointNumberLabel.Size = new System.Drawing.Size(62, 13);
+            this.jointNumberLabel.TabIndex = 0;
+            this.jointNumberLabel.Text = "Joint number";
             // 
-            // TabPageInspection
+            // inspectionOperations
             // 
-            this.TabPageInspection.Name = "TabPageInspection";
-            this.TabPageInspection.Size = new System.Drawing.Size(719, 397);
-            this.TabPageInspection.Text = "&Inspection operations";
+            this.inspectionOperations.Name = "inspectionOperations";
+            this.inspectionOperations.Size = new System.Drawing.Size(719, 397);
+            this.inspectionOperations.Text = "&Inspection operations";
             // 
-            // xtraTabPageTrench
+            // trenchParameters
             // 
-            this.xtraTabPageTrench.Name = "xtraTabPageTrench";
-            this.xtraTabPageTrench.Size = new System.Drawing.Size(719, 397);
-            this.xtraTabPageTrench.Text = "&Trench parameters";
+            this.trenchParameters.Name = "trenchParameters";
+            this.trenchParameters.Size = new System.Drawing.Size(719, 397);
+            this.trenchParameters.Text = "&Trench parameters";
             // 
             // JointNewEditXtraForm
             // 
@@ -349,68 +347,68 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(725, 425);
             this.ControlBox = false;
-            this.Controls.Add(this.TabControlJoint);
+            this.Controls.Add(this.joint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
             this.Text = "JointNewEditXtraForm";
-            ((System.ComponentModel.ISupportInitialize)(this.TabControlJoint)).EndInit();
-            this.TabControlJoint.ResumeLayout(false);
-            this.TabPageGeneralParameters.ResumeLayout(false);
-            this.TabPageGeneralParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlWeldig)).EndInit();
-            this.groupControlWeldig.ResumeLayout(false);
-            this.groupControlWeldig.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditInspection.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWelding.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditWelding.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditWelderNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditPlace.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtInspector.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtWelder.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlComponentry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewJointControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPipes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipesControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEdtJointNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.joint)).EndInit();
+            this.joint.ResumeLayout(false);
+            this.generalParameters.ResumeLayout(false);
+            this.generalParameters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weldig)).EndInit();
+            this.weldig.ResumeLayout(false);
+            this.weldig.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welderNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.place.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl TabControlJoint;
-        private DevExpress.XtraTab.XtraTabPage TabPageGeneralParameters;
-        private DevExpress.XtraTab.XtraTabPage TabPageInspection;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPageTrench;
-        private DevExpress.XtraEditors.GroupControl groupControlWeldig;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxStatus;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditPlace;
-        private DevExpress.XtraEditors.TextEdit txtEdtInspector;
-        private DevExpress.XtraEditors.TextEdit txtEdtWelder;
-        private DevExpress.XtraGrid.GridControl gridControlComponentry;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewJointControl;
-        private DevExpress.XtraGrid.GridControl gridControlPipes;
-        private DevExpress.XtraGrid.Views.Grid.GridView PipesControl;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit txtEdtJointNo;
-        private DevExpress.XtraEditors.LabelControl lblJointNo;
-        private DevExpress.XtraEditors.LabelControl lblInspectionDate;
-        private DevExpress.XtraEditors.LabelControl lblWeldinfDate;
-        private DevExpress.XtraEditors.LabelControl lblWelderNo;
-        private DevExpress.XtraEditors.LabelControl lblInspector;
-        private DevExpress.XtraEditors.LabelControl lblWelder;
-        private DevExpress.XtraEditors.LabelControl lblStatus;
-        private DevExpress.XtraEditors.LabelControl lblPlace;
-        private DevExpress.XtraEditors.DateEdit dateEditInspection;
-        private DevExpress.XtraEditors.DateEdit dateEditWelding;
-        private DevExpress.XtraEditors.TextEdit txtEditWelderNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnComponentNo;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPipeNo;
+        private DevExpress.XtraTab.XtraTabControl joint;
+        private DevExpress.XtraTab.XtraTabPage generalParameters;
+        private DevExpress.XtraTab.XtraTabPage inspectionOperations;
+        private DevExpress.XtraTab.XtraTabPage trenchParameters;
+        private DevExpress.XtraEditors.GroupControl weldig;
+        private DevExpress.XtraEditors.ComboBoxEdit status;
+        private DevExpress.XtraEditors.ComboBoxEdit place;
+        private DevExpress.XtraEditors.TextEdit inspector;
+        private DevExpress.XtraEditors.TextEdit welder;
+        private DevExpress.XtraGrid.GridControl componentry;
+        private DevExpress.XtraGrid.Views.Grid.GridView componentryView;
+        private DevExpress.XtraGrid.GridControl pipes;
+        private DevExpress.XtraGrid.Views.Grid.GridView pipesView;
+        private DevExpress.XtraEditors.LabelControl componentryLabel;
+        private DevExpress.XtraEditors.LabelControl pipesLabel;
+        private DevExpress.XtraEditors.TextEdit jointNumber;
+        private DevExpress.XtraEditors.LabelControl jointNumberLabel;
+        private DevExpress.XtraEditors.LabelControl inspectionDateLabel;
+        private DevExpress.XtraEditors.LabelControl weldingDateLabel;
+        private DevExpress.XtraEditors.LabelControl welderNumberLabel;
+        private DevExpress.XtraEditors.LabelControl inspectorLabel;
+        private DevExpress.XtraEditors.LabelControl welderLabel;
+        private DevExpress.XtraEditors.LabelControl statusLabel;
+        private DevExpress.XtraEditors.LabelControl placeLabel;
+        private DevExpress.XtraEditors.DateEdit inspection;
+        private DevExpress.XtraEditors.DateEdit weldingDate;
+        private DevExpress.XtraEditors.TextEdit welderNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn componentNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
     }
 }
