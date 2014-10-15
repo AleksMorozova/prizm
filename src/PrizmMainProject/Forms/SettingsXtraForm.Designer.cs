@@ -79,6 +79,9 @@
             this.thirdPartGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.oKButton = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
@@ -109,9 +112,6 @@
             this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.generalPage = new DevExpress.XtraTab.XtraTabPage();
-            this.sizeLimitLabel = new DevExpress.XtraEditors.LabelControl();
-            this.sizeLimit = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -138,6 +138,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.projectPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).BeginInit();
@@ -153,8 +156,6 @@
             this.dictionariesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
-            this.generalPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -170,8 +171,7 @@
             this.pipePage,
             this.pipelinePage,
             this.usersPage,
-            this.dictionariesPage,
-            this.generalPage});
+            this.dictionariesPage});
             // 
             // pipePage
             // 
@@ -642,6 +642,7 @@
             // 
             // projectPage
             // 
+            this.projectPage.Controls.Add(this.panelControl1);
             this.projectPage.Controls.Add(this.cancelButton);
             this.projectPage.Controls.Add(this.oKButton);
             this.projectPage.Controls.Add(this.splitContainer);
@@ -653,10 +654,38 @@
             this.projectPage.Size = new System.Drawing.Size(719, 397);
             this.projectPage.Text = "Project";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.textEdit1);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Location = new System.Drawing.Point(25, 314);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(365, 43);
+            this.panelControl1.TabIndex = 20;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.EditValue = "1024";
+            this.textEdit1.Location = new System.Drawing.Point(199, 10);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 3;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(172, 13);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "External document size limit, Kbytes";
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(627, 346);
+            this.cancelButton.Location = new System.Drawing.Point(627, 362);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 18;
@@ -665,7 +694,7 @@
             // oKButton
             // 
             this.oKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.oKButton.Location = new System.Drawing.Point(516, 346);
+            this.oKButton.Location = new System.Drawing.Point(546, 362);
             this.oKButton.Name = "oKButton";
             this.oKButton.Size = new System.Drawing.Size(75, 23);
             this.oKButton.TabIndex = 17;
@@ -677,7 +706,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainer.Location = new System.Drawing.Point(25, 98);
+            this.splitContainer.Location = new System.Drawing.Point(25, 82);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Panel1.Controls.Add(this.plateManufacturersList);
             this.splitContainer.Panel1.Controls.Add(this.plateManufacturersLabel);
@@ -685,7 +714,7 @@
             this.splitContainer.Panel2.Controls.Add(this.pipeManufacturersList);
             this.splitContainer.Panel2.Controls.Add(this.pipeManufacturersLabel);
             this.splitContainer.Panel2.Text = "PipePanel";
-            this.splitContainer.Size = new System.Drawing.Size(678, 225);
+            this.splitContainer.Size = new System.Drawing.Size(678, 226);
             this.splitContainer.SplitterPosition = 339;
             this.splitContainer.TabIndex = 16;
             this.splitContainer.Text = "splitContainerControl1";
@@ -699,7 +728,7 @@
             this.plateManufacturersList.Location = new System.Drawing.Point(3, 57);
             this.plateManufacturersList.MainView = this.plateManufacturersListView;
             this.plateManufacturersList.Name = "plateManufacturersList";
-            this.plateManufacturersList.Size = new System.Drawing.Size(325, 160);
+            this.plateManufacturersList.Size = new System.Drawing.Size(325, 169);
             this.plateManufacturersList.TabIndex = 10;
             this.plateManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateManufacturersListView});
@@ -737,7 +766,7 @@
             this.pipeManufacturersList.Name = "pipeManufacturersList";
             this.pipeManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.pipeSizeItem});
-            this.pipeManufacturersList.Size = new System.Drawing.Size(325, 160);
+            this.pipeManufacturersList.Size = new System.Drawing.Size(325, 169);
             this.pipeManufacturersList.TabIndex = 11;
             this.pipeManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipeManufacturerListView});
@@ -782,7 +811,7 @@
             // 
             // designLabel
             // 
-            this.designLabel.Location = new System.Drawing.Point(25, 63);
+            this.designLabel.Location = new System.Drawing.Point(25, 56);
             this.designLabel.Name = "designLabel";
             this.designLabel.Size = new System.Drawing.Size(42, 13);
             this.designLabel.TabIndex = 15;
@@ -790,7 +819,7 @@
             // 
             // clientLabel
             // 
-            this.clientLabel.Location = new System.Drawing.Point(25, 27);
+            this.clientLabel.Location = new System.Drawing.Point(25, 20);
             this.clientLabel.Name = "clientLabel";
             this.clientLabel.Size = new System.Drawing.Size(27, 13);
             this.clientLabel.TabIndex = 14;
@@ -798,14 +827,14 @@
             // 
             // design
             // 
-            this.design.Location = new System.Drawing.Point(139, 56);
+            this.design.Location = new System.Drawing.Point(139, 49);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(251, 20);
             this.design.TabIndex = 13;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(139, 20);
+            this.client.Location = new System.Drawing.Point(139, 13);
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.TabIndex = 12;
@@ -912,30 +941,6 @@
             // 
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             // 
-            // generalPage
-            // 
-            this.generalPage.Controls.Add(this.sizeLimit);
-            this.generalPage.Controls.Add(this.sizeLimitLabel);
-            this.generalPage.Name = "generalPage";
-            this.generalPage.Size = new System.Drawing.Size(719, 397);
-            this.generalPage.Text = "General";
-            // 
-            // sizeLimitLabel
-            // 
-            this.sizeLimitLabel.Location = new System.Drawing.Point(31, 45);
-            this.sizeLimitLabel.Name = "sizeLimitLabel";
-            this.sizeLimitLabel.Size = new System.Drawing.Size(172, 13);
-            this.sizeLimitLabel.TabIndex = 0;
-            this.sizeLimitLabel.Text = "External document size limit, Kbytes";
-            // 
-            // sizeLimit
-            // 
-            this.sizeLimit.EditValue = "1024";
-            this.sizeLimit.Location = new System.Drawing.Point(231, 42);
-            this.sizeLimit.Name = "sizeLimit";
-            this.sizeLimit.Size = new System.Drawing.Size(100, 20);
-            this.sizeLimit.TabIndex = 1;
-            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -977,6 +982,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).EndInit();
@@ -993,9 +1002,6 @@
             this.dictionariesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
-            this.generalPage.ResumeLayout(false);
-            this.generalPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1085,8 +1091,8 @@
         private DevExpress.XtraEditors.LabelControl clientLabel;
         private DevExpress.XtraEditors.TextEdit design;
         private DevExpress.XtraEditors.TextEdit client;
-        private DevExpress.XtraTab.XtraTabPage generalPage;
-        private DevExpress.XtraEditors.TextEdit sizeLimit;
-        private DevExpress.XtraEditors.LabelControl sizeLimitLabel;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }
