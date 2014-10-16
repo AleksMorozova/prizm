@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // CustomReportsXtraForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ReportsXtraForm";
+            this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Name = "CustomReportsXtraForm";
+            this.Text = "Custom reports";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

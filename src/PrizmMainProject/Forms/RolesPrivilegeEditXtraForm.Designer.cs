@@ -106,7 +106,7 @@
             this.Controls.Add(this.privilegesCheckedList);
             this.Controls.Add(this.roleLabel);
             this.Name = "RolesPrivilegeEditXtraForm";
-            this.Text = "RolesPrivilegeEditXtraForm";
+            this.Text = "Edit roles";
             ((System.ComponentModel.ISupportInitialize)(this.privilegesCheckedList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);

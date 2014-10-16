@@ -326,7 +326,7 @@
             this.Controls.Add(this.gridControlSerchResult);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JointSearchXtraForm";
-            this.Text = "JointSearchXtraForm";
+            this.Text = "Find joint";
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSMinutes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSdegrees.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coordinateGPSSseconds.Properties)).EndInit();
