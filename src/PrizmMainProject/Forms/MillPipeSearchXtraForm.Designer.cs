@@ -1,6 +1,6 @@
 ﻿namespace PrizmMain.Forms
 {
-    partial class PipeSearchXtraForm
+    partial class MillPipeSearchXtraForm
     {
         /// <summary>
         /// Required designer variable.

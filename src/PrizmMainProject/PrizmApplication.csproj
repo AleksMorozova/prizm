@@ -91,6 +91,12 @@
     <Compile Include="Forms\CopyPipeSettingsXtraForm.Designer.cs">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.Designer.cs">
+      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InspectionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,11 +127,11 @@
     <Compile Include="Forms\MillPipeNewEditXtraForm.Designer.cs">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeSearchXtraForm.cs">
+    <Compile Include="Forms\MillPipeSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeSearchXtraForm.Designer.cs">
-      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\MillPipeSearchXtraForm.Designer.cs">
+      <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PrizmApplicationXtraForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +156,12 @@
     </Compile>
     <Compile Include="Forms\CustomReportsXtraForm.Designer.cs">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsEditDictionaryXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsEditDictionaryXtraForm.Designer.cs">
+      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SettingsXtraForm.cs">
       <SubType>Form</SubType>
@@ -195,8 +207,8 @@
     <EmbeddedResource Include="Forms\MillPipeNewEditXtraForm.resx">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeSearchXtraForm.resx">
-      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MillPipeSearchXtraForm.resx">
+      <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>

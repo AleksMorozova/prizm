@@ -66,7 +66,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new PipeSearchXtraForm());
+            CreateFormChild(new MillPipeSearchXtraForm());
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
