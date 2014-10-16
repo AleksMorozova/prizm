@@ -16,9 +16,20 @@ namespace PrizmMain.Forms
         public SettingsXtraForm()
         {
             InitializeComponent();
+        }
 
-            
-            
+        private void editRoleButton_Click(object sender, EventArgs e)
+        {
+            //TODO: change for normal logic
+            var editForm = new RolesPrivilegeEditXtraForm();
+            editForm.ShowDialog();
+        }
+
+        private void userEditButton_Click(object sender, EventArgs e)
+        {
+            //TODO: change for normal logic
+            var editUser = new UserInfoXtraForm();
+            editUser.ShowDialog();
         }
     }
 }
