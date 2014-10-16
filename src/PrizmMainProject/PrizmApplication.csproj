@@ -192,6 +192,9 @@
     <EmbeddedResource Include="Forms\CopyPipeSettingsXtraForm.resx">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionPipeSearchEditXtraForm.resx">
+      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InspectionReportsXtraForm.resx">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
