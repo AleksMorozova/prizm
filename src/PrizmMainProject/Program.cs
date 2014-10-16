@@ -16,7 +16,8 @@ namespace PrizmMain
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.PrizmApplicationXtraForm());
+            //Application.Run(new Forms.PrizmApplicationXtraForm());
+            Application.Run(new Forms.RolesPrivilegeEditXtraForm());
         }
     }
 }
