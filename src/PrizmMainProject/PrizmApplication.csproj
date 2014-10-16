@@ -216,6 +216,9 @@
     <EmbeddedResource Include="Forms\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsEditDictionaryXtraForm.resx">
+      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
