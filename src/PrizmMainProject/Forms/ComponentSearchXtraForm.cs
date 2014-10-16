@@ -16,6 +16,9 @@ namespace PrizmMain.Forms
         public ComponentSearchXtraForm()
         {
             InitializeComponent();
+
         }
+
+
     }
 }

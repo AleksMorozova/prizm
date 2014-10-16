@@ -192,6 +192,9 @@
     <EmbeddedResource Include="Forms\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ComponentSearchXtraForm.resx">
+      <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
