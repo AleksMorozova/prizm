@@ -31,5 +31,12 @@ namespace PrizmMain.Forms
             var editUser = new UserInfoXtraForm();
             editUser.ShowDialog();
         }
+
+        private void editItem_Click(object sender, EventArgs e)
+        {
+            //TODO: change for normal logic
+            var editDictionary = new SettingsEditDictionaryXtraForm();
+            editDictionary.ShowDialog();
+        }
     }
 }
