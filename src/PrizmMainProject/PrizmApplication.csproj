@@ -198,6 +198,9 @@
     <EmbeddedResource Include="Forms\CopyPipeSettingsXtraForm.resx">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionPipeSearchEditXtraForm.resx">
+      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InspectionReportsXtraForm.resx">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,8 +225,14 @@
     <EmbeddedResource Include="Forms\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RailcarSearchXtraForm.resx">
+      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpoolsXtraForm.resx">
+      <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserInfoXtraForm.resx">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
