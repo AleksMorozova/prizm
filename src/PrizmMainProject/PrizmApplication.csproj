@@ -231,6 +231,9 @@
     <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpoolsXtraForm.resx">
+      <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserInfoXtraForm.resx">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
     </EmbeddedResource>

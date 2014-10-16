@@ -128,12 +128,37 @@ namespace PrizmMain.Forms
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 5);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CreateFormChild(new RailcarSearchXtraForm());
+        }
+
+        private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new InspectionPipeSearchEditXtraForm());
+        }
+
+        private void barButtonItemSpool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new SpoolsXtraForm());
+        }
+
+        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new InspectionPipeSearchEditXtraForm());
+        }
+
+        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new ComponentSearchXtraForm());
+        }
+
+        private void barButtonItemRoles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
         }
 
 

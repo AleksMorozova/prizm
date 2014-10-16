@@ -35,7 +35,7 @@
             this.purchaseOrderLabel = new DevExpress.XtraEditors.LabelControl();
             this.purchaseOrder = new DevExpress.XtraEditors.TextEdit();
             this.railcarLabel = new DevExpress.XtraEditors.LabelControl();
-            this.railcar = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.railcarNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.deliveryDateLabel = new DevExpress.XtraEditors.LabelControl();
@@ -47,11 +47,11 @@
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeSizeLabel = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.designer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // designerLabel
@@ -119,14 +119,14 @@
             this.railcarLabel.TabIndex = 6;
             this.railcarLabel.Text = "Railcar number";
             // 
-            // railcar
+            // railcarNumber
             // 
-            this.railcar.Location = new System.Drawing.Point(12, 33);
-            this.railcar.Name = "railcar";
-            this.railcar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.railcarNumber.Location = new System.Drawing.Point(12, 33);
+            this.railcarNumber.Name = "railcarNumber";
+            this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.railcar.Size = new System.Drawing.Size(71, 20);
-            this.railcar.TabIndex = 7;
+            this.railcarNumber.Size = new System.Drawing.Size(71, 20);
+            this.railcarNumber.TabIndex = 7;
             // 
             // pipesList
             // 
@@ -223,14 +223,14 @@
             this.pipeSizeLabel.TabIndex = 17;
             this.pipeSizeLabel.Text = "Pipe size";
             // 
-            // comboBoxEdit1
+            // pipeSize
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(439, 33);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.pipeSize.Location = new System.Drawing.Point(439, 33);
+            this.pipeSize.Name = "pipeSize";
+            this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(118, 20);
-            this.comboBoxEdit1.TabIndex = 18;
+            this.pipeSize.Size = new System.Drawing.Size(118, 20);
+            this.pipeSize.TabIndex = 18;
             // 
             // RailcarNewEditXtraForm
             // 
@@ -238,7 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 386);
             this.ControlBox = false;
-            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.pipeSize);
             this.Controls.Add(this.pipeSizeLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.unshipButton);
@@ -249,7 +249,7 @@
             this.Controls.Add(this.shippedDateLabel);
             this.Controls.Add(this.deliveryDateLabel);
             this.Controls.Add(this.pipesList);
-            this.Controls.Add(this.railcar);
+            this.Controls.Add(this.railcarNumber);
             this.Controls.Add(this.railcarLabel);
             this.Controls.Add(this.purchaseOrder);
             this.Controls.Add(this.purchaseOrderLabel);
@@ -263,7 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.designer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDate.Properties.CalendarTimeProperties)).EndInit();
@@ -271,7 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +286,7 @@
         private DevExpress.XtraEditors.LabelControl purchaseOrderLabel;
         private DevExpress.XtraEditors.TextEdit purchaseOrder;
         private DevExpress.XtraEditors.LabelControl railcarLabel;
-        private DevExpress.XtraEditors.ComboBoxEdit railcar;
+        private DevExpress.XtraEditors.ComboBoxEdit railcarNumber;
         private DevExpress.XtraGrid.GridControl pipesList;
         private DevExpress.XtraGrid.Views.Grid.GridView pipesListView;
         private DevExpress.XtraEditors.LabelControl deliveryDateLabel;
@@ -298,6 +298,6 @@
         private DevExpress.XtraEditors.SimpleButton unshipButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.LabelControl pipeSizeLabel;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeSize;
     }
 }

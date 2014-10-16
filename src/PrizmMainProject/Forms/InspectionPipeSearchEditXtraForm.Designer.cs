@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.unloadedDate = new DevExpress.XtraEditors.DateEdit();
             this.unloadedDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionResult = new DevExpress.XtraEditors.GroupControl();
@@ -83,18 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(586, 344);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 43;
-            this.saveButton.Text = "Save";
-            // 
             // unloadedDate
             // 
             this.unloadedDate.EditValue = null;
-            this.unloadedDate.Location = new System.Drawing.Point(294, 134);
+            this.unloadedDate.Location = new System.Drawing.Point(363, 134);
             this.unloadedDate.Name = "unloadedDate";
             this.unloadedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -105,7 +96,7 @@
             // 
             // unloadedDateLabel
             // 
-            this.unloadedDateLabel.Location = new System.Drawing.Point(294, 115);
+            this.unloadedDateLabel.Location = new System.Drawing.Point(363, 115);
             this.unloadedDateLabel.Name = "unloadedDateLabel";
             this.unloadedDateLabel.Size = new System.Drawing.Size(70, 13);
             this.unloadedDateLabel.TabIndex = 41;
@@ -150,6 +141,7 @@
             // 
             // aceepted
             // 
+            this.aceepted.EditValue = true;
             this.aceepted.Location = new System.Drawing.Point(14, 34);
             this.aceepted.Name = "aceepted";
             this.aceepted.Properties.Caption = "aceepted";
@@ -161,7 +153,7 @@
             // 
             this.certificateNumber.Location = new System.Drawing.Point(59, 134);
             this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(191, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(279, 20);
             this.certificateNumber.TabIndex = 39;
             // 
             // certificateNumberLabel
@@ -358,7 +350,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.unloadedDate);
             this.Controls.Add(this.unloadedDateLabel);
             this.Controls.Add(this.inspectionResult);
@@ -401,7 +392,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.DateEdit unloadedDate;
         private DevExpress.XtraEditors.LabelControl unloadedDateLabel;
         private DevExpress.XtraEditors.GroupControl inspectionResult;
