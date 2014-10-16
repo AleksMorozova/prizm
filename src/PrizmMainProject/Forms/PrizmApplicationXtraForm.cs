@@ -56,7 +56,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new PipeNewEditXtraForm());
+            CreateFormChild(new MillPipeNewEditXtraForm());
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -66,7 +66,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new PipeSearchXtraForm());
+            CreateFormChild(new MillPipeSearchXtraForm());
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -128,8 +128,39 @@ namespace PrizmMain.Forms
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 5);
+        }
+
+        private void barButtonItemFindEditShipRailcars_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new RailcarSearchXtraForm());
+        }
+
+        private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new InspectionPipeSearchEditXtraForm());
+        }
+
+        private void barButtonItemSpool_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new SpoolsXtraForm());
+        }
+
+        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new InspectionPipeSearchEditXtraForm());
+        }
+
+        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new ComponentSearchXtraForm());
+        }
+
+        private void barButtonItemRoles_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
             CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
         }
+
 
     }
 }

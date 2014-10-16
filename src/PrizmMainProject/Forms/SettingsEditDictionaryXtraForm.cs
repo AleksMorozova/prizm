@@ -11,14 +11,11 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class ComponentSearchXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsEditDictionaryXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public ComponentSearchXtraForm()
+        public SettingsEditDictionaryXtraForm()
         {
             InitializeComponent();
-
         }
-
-
     }
 }

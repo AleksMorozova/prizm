@@ -132,11 +132,23 @@
     <Compile Include="Forms\ConstructionReportsXtraForm.Designer.cs">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SpoolsXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SpoolsXtraForm.Designer.cs">
+      <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.Designer.cs">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.Designer.cs">
+      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InspectionReportsXtraForm.cs">
       <SubType>Form</SubType>
@@ -162,17 +174,17 @@
     <Compile Include="Forms\MillReportsXtraForm.Designer.cs">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeNewEditXtraForm.cs">
+    <Compile Include="Forms\MillPipeNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeNewEditXtraForm.Designer.cs">
-      <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\MillPipeNewEditXtraForm.Designer.cs">
+      <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeSearchXtraForm.cs">
+    <Compile Include="Forms\MillPipeSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeSearchXtraForm.Designer.cs">
-      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\MillPipeSearchXtraForm.Designer.cs">
+      <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PrizmApplicationXtraForm.cs">
       <SubType>Form</SubType>
@@ -198,6 +210,12 @@
     <Compile Include="Forms\CustomReportsXtraForm.Designer.cs">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingsEditDictionaryXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsEditDictionaryXtraForm.Designer.cs">
+      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,11 +239,17 @@
     <EmbeddedResource Include="Forms\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ComponentSearchXtraForm.resx">
+      <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CopyPipeSettingsXtraForm.resx">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionPipeSearchEditXtraForm.resx">
+      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InspectionReportsXtraForm.resx">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
@@ -239,11 +263,11 @@
     <EmbeddedResource Include="Forms\MillReportsXtraForm.resx">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeNewEditXtraForm.resx">
-      <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MillPipeNewEditXtraForm.resx">
+      <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeSearchXtraForm.resx">
-      <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MillPipeSearchXtraForm.resx">
+      <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
@@ -251,8 +275,17 @@
     <EmbeddedResource Include="Forms\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsEditDictionaryXtraForm.resx">
+      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RailcarSearchXtraForm.resx">
+      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpoolsXtraForm.resx">
+      <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserInfoXtraForm.resx">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>

@@ -122,6 +122,8 @@
             this.dictionaries = new DevExpress.XtraGrid.GridControl();
             this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
@@ -170,6 +172,7 @@
             this.dictionariesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editItem)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -933,7 +936,7 @@
             // 
             // usersLabel
             // 
-            this.usersLabel.Location = new System.Drawing.Point(11, 12);
+            this.usersLabel.Location = new System.Drawing.Point(31, 27);
             this.usersLabel.Name = "usersLabel";
             this.usersLabel.Size = new System.Drawing.Size(27, 13);
             this.usersLabel.TabIndex = 0;
@@ -1031,6 +1034,8 @@
             this.dictionaries.Location = new System.Drawing.Point(11, 18);
             this.dictionaries.MainView = this.dictionaryView;
             this.dictionaries.Name = "dictionaries";
+            this.dictionaries.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.editItem});
             this.dictionaries.Size = new System.Drawing.Size(347, 346);
             this.dictionaries.TabIndex = 0;
             this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1039,7 +1044,8 @@
             // dictionaryView
             // 
             this.dictionaryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dictionaryNameGridColumn});
+            this.dictionaryNameGridColumn,
+            this.editDictionary});
             this.dictionaryView.GridControl = this.dictionaries;
             this.dictionaryView.Name = "dictionaryView";
             // 
@@ -1049,6 +1055,23 @@
             this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
             this.dictionaryNameGridColumn.Visible = true;
             this.dictionaryNameGridColumn.VisibleIndex = 0;
+            // 
+            // editDictionary
+            // 
+            this.editDictionary.Caption = "Edit";
+            this.editDictionary.ColumnEdit = this.editItem;
+            this.editDictionary.Name = "editDictionary";
+            this.editDictionary.Visible = true;
+            this.editDictionary.VisibleIndex = 1;
+            this.editDictionary.Width = 117;
+            // 
+            // editItem
+            // 
+            this.editItem.AutoHeight = false;
+            this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.editItem.Name = "editItem";
+            this.editItem.Click += new System.EventHandler(this.editItem_Click);
             // 
             // bandedGridColumn1
             // 
@@ -1119,6 +1142,7 @@
             this.dictionariesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1222,5 +1246,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.SimpleButton userAddButton;
         private DevExpress.XtraEditors.SimpleButton roleAddButton;
+        private DevExpress.XtraGrid.Columns.GridColumn editDictionary;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit editItem;
     }
 }

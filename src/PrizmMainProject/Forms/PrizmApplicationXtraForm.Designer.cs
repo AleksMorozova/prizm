@@ -39,6 +39,7 @@
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemExportImport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
@@ -56,15 +57,19 @@
             this.barButtonItemConstructionFindEditComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
@@ -74,7 +79,9 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barSubItemJoints = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // bar2
@@ -111,7 +118,6 @@
             this.barSubItemJoints,
             this.barSubItemComponentry,
             this.barSubItemReports,
-            this.barButtonItemAbout,
             this.barButtonItemNewPipe,
             this.barButtonItemMillFindEditPipes,
             this.barSubItemApplication,
@@ -133,23 +139,29 @@
             this.barButtonItemInspectionReports,
             this.barButtonItemNewRailcar,
             this.barButtonItemFindEditShipRailcars,
-            this.barButtonItemMillReports});
+            this.barButtonItemMillReports,
+            this.barButtonItemSpool,
+            this.barSubItemHelp,
+            this.barButtonItemAbout,
+            this.barButtonItemAudit,
+            this.barButtonItemExportImport,
+            this.barButtonItemRoles});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 41;
+            this.barManager1.MaxItemId = 48;
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barTools
             // 
             this.barTools.BarName = "Tools";
-            this.barTools.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+            this.barTools.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
             this.barTools.DockCol = 0;
             this.barTools.DockRow = 1;
-            this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.barTools.FloatLocation = new System.Drawing.Point(277, 228);
+            this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.barTools.FloatLocation = new System.Drawing.Point(962, 406);
             this.barTools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonClose, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barTools.Offset = 4;
+            this.barTools.Offset = 631;
             this.barTools.OptionsBar.AllowQuickCustomization = false;
             this.barTools.OptionsBar.DisableClose = true;
             this.barTools.OptionsBar.DisableCustomization = true;
@@ -185,7 +197,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemConstruction),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemSettings),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemReports),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAbout)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemHelp)});
             this.barMenu.OptionsBar.DisableClose = true;
             this.barMenu.OptionsBar.DisableCustomization = true;
             this.barMenu.OptionsBar.MultiLine = true;
@@ -199,6 +211,7 @@
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemChangeCurrentProject),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExportImport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
             this.barSubItemApplication.Name = "barSubItemApplication";
             // 
@@ -213,6 +226,12 @@
             this.barButtonItemChangeCurrentProject.Caption = "&Change current project...";
             this.barButtonItemChangeCurrentProject.Id = 30;
             this.barButtonItemChangeCurrentProject.Name = "barButtonItemChangeCurrentProject";
+            // 
+            // barButtonItemExportImport
+            // 
+            this.barButtonItemExportImport.Caption = "Export/import ...";
+            this.barButtonItemExportImport.Id = 46;
+            this.barButtonItemExportImport.Name = "barButtonItemExportImport";
             // 
             // barButtonItemExit
             // 
@@ -258,6 +277,7 @@
             this.barButtonItemFindEditShipRailcars.Caption = "Find/&edit/ship railcars...";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
+            this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
             // 
             // barButtonItemMillReports
             // 
@@ -282,6 +302,7 @@
             this.barButtonItemInspectionFindEditPipes.Caption = "&Find/edit pipes ...";
             this.barButtonItemInspectionFindEditPipes.Id = 35;
             this.barButtonItemInspectionFindEditPipes.Name = "barButtonItemInspectionFindEditPipes";
+            this.barButtonItemInspectionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindEditPipes_ItemClick);
             // 
             // barButtonItemNewComponent
             // 
@@ -313,6 +334,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditComponentry),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
@@ -321,12 +343,14 @@
             this.barButtonItemConstructionFindEditPipes.Caption = "&Find/edit pipes ...";
             this.barButtonItemConstructionFindEditPipes.Id = 27;
             this.barButtonItemConstructionFindEditPipes.Name = "barButtonItemConstructionFindEditPipes";
+            this.barButtonItemConstructionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditPipes_ItemClick);
             // 
             // barButtonItemConstructionFindEditComponentry
             // 
             this.barButtonItemConstructionFindEditComponentry.Caption = "Find/&edit componentry...";
             this.barButtonItemConstructionFindEditComponentry.Id = 28;
             this.barButtonItemConstructionFindEditComponentry.Name = "barButtonItemConstructionFindEditComponentry";
+            this.barButtonItemConstructionFindEditComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditComponentry_ItemClick);
             // 
             // barButtonItemNewJoint
             // 
@@ -337,14 +361,21 @@
             // 
             // barButtonItemFindEditJoints
             // 
-            this.barButtonItemFindEditJoints.Caption = "Find/edit joints ...";
+            this.barButtonItemFindEditJoints.Caption = "Find/edit &joints ...";
             this.barButtonItemFindEditJoints.Id = 33;
             this.barButtonItemFindEditJoints.Name = "barButtonItemFindEditJoints";
             this.barButtonItemFindEditJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditJoints_ItemClick);
             // 
+            // barButtonItemSpool
+            // 
+            this.barButtonItemSpool.Caption = "&Spool";
+            this.barButtonItemSpool.Id = 41;
+            this.barButtonItemSpool.Name = "barButtonItemSpool";
+            this.barButtonItemSpool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSpool_ItemClick);
+            // 
             // barButtonItemConstructionReports
             // 
-            this.barButtonItemConstructionReports.Caption = "Reports";
+            this.barButtonItemConstructionReports.Caption = "&Reports";
             this.barButtonItemConstructionReports.Id = 34;
             this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
             this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
@@ -358,6 +389,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsDictionaries)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
@@ -390,6 +422,13 @@
             this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
             this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
             // 
+            // barButtonItemRoles
+            // 
+            this.barButtonItemRoles.Caption = "&Roles";
+            this.barButtonItemRoles.Id = 47;
+            this.barButtonItemRoles.Name = "barButtonItemRoles";
+            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
+            // 
             // barButtonItemSettingsDictionaries
             // 
             this.barButtonItemSettingsDictionaries.Caption = "&Dictionaries";
@@ -402,19 +441,34 @@
             this.barSubItemReports.Caption = "&Reports";
             this.barSubItemReports.Id = 14;
             this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAudit)});
             this.barSubItemReports.Name = "barSubItemReports";
             // 
             // barButtonItemCustomReport
             // 
-            this.barButtonItemCustomReport.Caption = "Custom report";
+            this.barButtonItemCustomReport.Caption = "&Custom report";
             this.barButtonItemCustomReport.Id = 24;
             this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
             // 
+            // barButtonItemAudit
+            // 
+            this.barButtonItemAudit.Caption = "&Audit";
+            this.barButtonItemAudit.Id = 45;
+            this.barButtonItemAudit.Name = "barButtonItemAudit";
+            // 
+            // barSubItemHelp
+            // 
+            this.barSubItemHelp.Caption = "&Help";
+            this.barSubItemHelp.Id = 43;
+            this.barSubItemHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAbout)});
+            this.barSubItemHelp.Name = "barSubItemHelp";
+            // 
             // barButtonItemAbout
             // 
-            this.barButtonItemAbout.Caption = "Help";
-            this.barButtonItemAbout.Id = 15;
+            this.barButtonItemAbout.Caption = "&About";
+            this.barButtonItemAbout.Id = 44;
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             // 
             // barStatus
@@ -445,27 +499,27 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(741, 69);
+            this.barDockControlTop.Size = new System.Drawing.Size(749, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 484);
-            this.barDockControlBottom.Size = new System.Drawing.Size(741, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 437);
+            this.barDockControlBottom.Size = new System.Drawing.Size(749, 72);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 415);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(741, 69);
+            this.barDockControlRight.Location = new System.Drawing.Point(749, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 415);
             // 
             // barSubItemJoints
@@ -479,11 +533,16 @@
             this.barButtonItemRailcar.Id = 25;
             this.barButtonItemRailcar.Name = "barButtonItemRailcar";
             // 
+            // galleryDropDown1
+            // 
+            this.galleryDropDown1.Manager = this.barManager1;
+            this.galleryDropDown1.Name = "galleryDropDown1";
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 509);
+            this.ClientSize = new System.Drawing.Size(749, 509);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -492,6 +551,7 @@
             this.Name = "PrizmApplicationXtraForm";
             this.Text = "PRIZMA";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -519,7 +579,6 @@
         private DevExpress.XtraBars.BarSubItem barSubItemJoints;
         private DevExpress.XtraBars.BarSubItem barSubItemComponentry;
         private DevExpress.XtraBars.BarSubItem barSubItemReports;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemAbout;
         private DevExpress.XtraBars.BarSubItem barSubItemApplication;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewPipe;
@@ -542,6 +601,13 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditShipRailcars;
         private DevExpress.XtraBars.BarButtonItem barButtonItemMillReports;
         private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionReports;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemSpool;
+        private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemAudit;
+        private DevExpress.XtraBars.BarSubItem barSubItemHelp;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemAbout;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemExportImport;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemRoles;
 
 
 
