@@ -30,6 +30,9 @@
         {
             this.joint = new DevExpress.XtraTab.XtraTabControl();
             this.generalParameters = new DevExpress.XtraTab.XtraTabPage();
+            this.lowering = new DevExpress.XtraEditors.GroupControl();
+            this.loweringDate = new DevExpress.XtraEditors.DateEdit();
+            this.loweringDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.weldig = new DevExpress.XtraEditors.GroupControl();
             this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
@@ -58,6 +61,7 @@
             this.inspectionOperations = new DevExpress.XtraTab.XtraTabPage();
             this.controls = new DevExpress.XtraGrid.GridControl();
             this.controlsView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repeatedControl = new DevExpress.XtraEditors.CheckEdit();
             this.resultLabel = new DevExpress.XtraEditors.LabelControl();
             this.result = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -67,10 +71,17 @@
             this.controlDate = new DevExpress.XtraEditors.DateEdit();
             this.controlTypeLabel = new DevExpress.XtraEditors.LabelControl();
             this.controlType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GPSLat = new DevExpress.XtraEditors.TextEdit();
+            this.GPSLong = new DevExpress.XtraEditors.TextEdit();
+            this.GPSLatLabel = new DevExpress.XtraEditors.LabelControl();
+            this.GPSLongLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.joint)).BeginInit();
             this.joint.SuspendLayout();
             this.generalParameters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lowering)).BeginInit();
+            this.lowering.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldig)).BeginInit();
             this.weldig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties.CalendarTimeProperties)).BeginInit();
@@ -96,6 +107,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // joint
@@ -112,6 +125,7 @@
             // 
             // generalParameters
             // 
+            this.generalParameters.Controls.Add(this.lowering);
             this.generalParameters.Controls.Add(this.weldig);
             this.generalParameters.Controls.Add(this.componentry);
             this.generalParameters.Controls.Add(this.pipes);
@@ -122,6 +136,40 @@
             this.generalParameters.Name = "generalParameters";
             this.generalParameters.Size = new System.Drawing.Size(719, 397);
             this.generalParameters.Text = "&General parameters";
+            // 
+            // lowering
+            // 
+            this.lowering.Controls.Add(this.GPSLongLabel);
+            this.lowering.Controls.Add(this.GPSLatLabel);
+            this.lowering.Controls.Add(this.GPSLong);
+            this.lowering.Controls.Add(this.GPSLat);
+            this.lowering.Controls.Add(this.loweringDate);
+            this.lowering.Controls.Add(this.loweringDateLabel);
+            this.lowering.Location = new System.Drawing.Point(306, 12);
+            this.lowering.Name = "lowering";
+            this.lowering.Size = new System.Drawing.Size(389, 51);
+            this.lowering.TabIndex = 9;
+            this.lowering.Text = "Lowering";
+            // 
+            // loweringDate
+            // 
+            this.loweringDate.EditValue = null;
+            this.loweringDate.Location = new System.Drawing.Point(34, 24);
+            this.loweringDate.Name = "loweringDate";
+            this.loweringDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.loweringDate.Size = new System.Drawing.Size(100, 20);
+            this.loweringDate.TabIndex = 7;
+            // 
+            // loweringDateLabel
+            // 
+            this.loweringDateLabel.Location = new System.Drawing.Point(5, 27);
+            this.loweringDateLabel.Name = "loweringDateLabel";
+            this.loweringDateLabel.Size = new System.Drawing.Size(23, 13);
+            this.loweringDateLabel.TabIndex = 8;
+            this.loweringDateLabel.Text = "Date";
             // 
             // weldig
             // 
@@ -267,10 +315,10 @@
             // componentry
             // 
             this.componentry.Cursor = System.Windows.Forms.Cursors.Default;
-            this.componentry.Location = new System.Drawing.Point(346, 79);
+            this.componentry.Location = new System.Drawing.Point(346, 97);
             this.componentry.MainView = this.componentryView;
             this.componentry.Name = "componentry";
-            this.componentry.Size = new System.Drawing.Size(293, 154);
+            this.componentry.Size = new System.Drawing.Size(293, 136);
             this.componentry.TabIndex = 5;
             this.componentry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.componentryView});
@@ -293,10 +341,10 @@
             // pipes
             // 
             this.pipes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipes.Location = new System.Drawing.Point(12, 79);
+            this.pipes.Location = new System.Drawing.Point(12, 97);
             this.pipes.MainView = this.pipesView;
             this.pipes.Name = "pipes";
-            this.pipes.Size = new System.Drawing.Size(293, 154);
+            this.pipes.Size = new System.Drawing.Size(293, 136);
             this.pipes.TabIndex = 4;
             this.pipes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesView});
@@ -318,7 +366,7 @@
             // 
             // componentryLabel
             // 
-            this.componentryLabel.Location = new System.Drawing.Point(346, 60);
+            this.componentryLabel.Location = new System.Drawing.Point(346, 78);
             this.componentryLabel.Name = "componentryLabel";
             this.componentryLabel.Size = new System.Drawing.Size(69, 13);
             this.componentryLabel.TabIndex = 3;
@@ -326,7 +374,7 @@
             // 
             // pipesLabel
             // 
-            this.pipesLabel.Location = new System.Drawing.Point(12, 60);
+            this.pipesLabel.Location = new System.Drawing.Point(12, 78);
             this.pipesLabel.Name = "pipesLabel";
             this.pipesLabel.Size = new System.Drawing.Size(29, 13);
             this.pipesLabel.TabIndex = 2;
@@ -381,6 +429,13 @@
             this.controlsView.GridControl = this.controls;
             this.controlsView.Name = "controlsView";
             this.controlsView.OptionsView.ShowGroupPanel = false;
+            // 
+            // controlTypeGridColumn
+            // 
+            this.controlTypeGridColumn.Caption = "Control type";
+            this.controlTypeGridColumn.Name = "controlTypeGridColumn";
+            this.controlTypeGridColumn.Visible = true;
+            this.controlTypeGridColumn.VisibleIndex = 0;
             // 
             // repeatedControl
             // 
@@ -461,12 +516,35 @@
             this.controlType.Size = new System.Drawing.Size(168, 20);
             this.controlType.TabIndex = 0;
             // 
-            // controlTypeGridColumn
+            // GPSLat
             // 
-            this.controlTypeGridColumn.Caption = "Control type";
-            this.controlTypeGridColumn.Name = "controlTypeGridColumn";
-            this.controlTypeGridColumn.Visible = true;
-            this.controlTypeGridColumn.VisibleIndex = 0;
+            this.GPSLat.Location = new System.Drawing.Point(196, 24);
+            this.GPSLat.Name = "GPSLat";
+            this.GPSLat.Size = new System.Drawing.Size(57, 20);
+            this.GPSLat.TabIndex = 9;
+            // 
+            // GPSLong
+            // 
+            this.GPSLong.Location = new System.Drawing.Point(316, 24);
+            this.GPSLong.Name = "GPSLong";
+            this.GPSLong.Size = new System.Drawing.Size(57, 20);
+            this.GPSLong.TabIndex = 10;
+            // 
+            // GPSLatLabel
+            // 
+            this.GPSLatLabel.Location = new System.Drawing.Point(153, 27);
+            this.GPSLatLabel.Name = "GPSLatLabel";
+            this.GPSLatLabel.Size = new System.Drawing.Size(37, 13);
+            this.GPSLatLabel.TabIndex = 11;
+            this.GPSLatLabel.Text = "GPS Lat";
+            // 
+            // GPSLongLabel
+            // 
+            this.GPSLongLabel.Location = new System.Drawing.Point(265, 27);
+            this.GPSLongLabel.Name = "GPSLongLabel";
+            this.GPSLongLabel.Size = new System.Drawing.Size(45, 13);
+            this.GPSLongLabel.TabIndex = 12;
+            this.GPSLongLabel.Text = "GPS Long";
             // 
             // JointNewEditXtraForm
             // 
@@ -486,6 +564,11 @@
             this.joint.ResumeLayout(false);
             this.generalParameters.ResumeLayout(false);
             this.generalParameters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lowering)).EndInit();
+            this.lowering.ResumeLayout(false);
+            this.lowering.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldig)).EndInit();
             this.weldig.ResumeLayout(false);
             this.weldig.PerformLayout();
@@ -513,6 +596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -559,5 +644,12 @@
         private DevExpress.XtraGrid.GridControl controls;
         private DevExpress.XtraGrid.Views.Grid.GridView controlsView;
         private DevExpress.XtraGrid.Columns.GridColumn controlTypeGridColumn;
+        private DevExpress.XtraEditors.LabelControl loweringDateLabel;
+        private DevExpress.XtraEditors.DateEdit loweringDate;
+        private DevExpress.XtraEditors.GroupControl lowering;
+        private DevExpress.XtraEditors.LabelControl GPSLongLabel;
+        private DevExpress.XtraEditors.LabelControl GPSLatLabel;
+        private DevExpress.XtraEditors.TextEdit GPSLong;
+        private DevExpress.XtraEditors.TextEdit GPSLat;
     }
 }
