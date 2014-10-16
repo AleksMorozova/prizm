@@ -115,11 +115,11 @@
     <Compile Include="Forms\MillReportsXtraForm.Designer.cs">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeNewEditXtraForm.cs">
+    <Compile Include="Forms\MillPipeNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeNewEditXtraForm.Designer.cs">
-      <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\MillPipeNewEditXtraForm.Designer.cs">
+      <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeSearchXtraForm.cs">
       <SubType>Form</SubType>
@@ -192,8 +192,8 @@
     <EmbeddedResource Include="Forms\MillReportsXtraForm.resx">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeNewEditXtraForm.resx">
-      <DependentUpon>PipeNewEditXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MillPipeNewEditXtraForm.resx">
+      <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeSearchXtraForm.resx">
       <DependentUpon>PipeSearchXtraForm.cs</DependentUpon>

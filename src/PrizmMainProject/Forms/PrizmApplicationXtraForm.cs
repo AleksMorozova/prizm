@@ -56,7 +56,7 @@ namespace PrizmMain.Forms
 
         private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new PipeNewEditXtraForm());
+            CreateFormChild(new MillPipeNewEditXtraForm());
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

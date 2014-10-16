@@ -1,6 +1,6 @@
 ﻿namespace PrizmMain.Forms
 {
-    partial class PipeNewEditXtraForm
+    partial class MillPipeNewEditXtraForm
     {
         /// <summary>
         /// Required designer variable.
