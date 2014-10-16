@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class PipeNewEditXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsEditDictionaryXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public PipeNewEditXtraForm()
+        public SettingsEditDictionaryXtraForm()
         {
             InitializeComponent();
         }
