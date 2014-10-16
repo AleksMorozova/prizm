@@ -37,26 +37,34 @@
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItemPipes = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemFindPipes = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItemJoints = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemFindJoints = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItemComponentry = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemFindComponentry = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItemRailcar = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemMillFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewRailcar = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemFindRailcar = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemReport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemComponentry = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemInspectionFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemInspectionFindComponentry = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemConstruction = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemConstructionFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemConstructionFindEditComponentry = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
@@ -64,8 +72,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barSubItemJoints = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +99,7 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barSubItemPipes,
+            this.barSubItemMill,
             this.barSubItemSettings,
             this.barButtonItemSettingsPipe,
             this.barButtonItemSettingsPipeline,
@@ -105,21 +113,29 @@
             this.barSubItemReports,
             this.barButtonItemAbout,
             this.barButtonItemNewPipe,
-            this.barButtonItemFindPipes,
+            this.barButtonItemMillFindEditPipes,
             this.barSubItemApplication,
-            this.barButtonItemExit,
+            this.barButtonItemNewProject,
             this.barButtonItemNewComponent,
-            this.barButtonItemFindComponentry,
-            this.barButtonItemNewJoint,
-            this.barButtonItemFindJoints,
-            this.barButtonItemReport,
+            this.barButtonItemInspectionFindComponentry,
+            this.barButtonItemCustomReport,
             this.barButtonItemRailcar,
-            this.barSubItemRailcar,
+            this.barSubItemConstruction,
+            this.barButtonItemConstructionFindEditPipes,
+            this.barButtonItemConstructionFindEditComponentry,
+            this.barButtonItemSetingsProject,
+            this.barButtonItemChangeCurrentProject,
+            this.barButtonItemExit,
+            this.barButtonItemNewJoint,
+            this.barButtonItemFindEditJoints,
+            this.barButtonItemConstructionReports,
+            this.barButtonItemInspectionFindEditPipes,
+            this.barButtonItemInspectionReports,
             this.barButtonItemNewRailcar,
-            this.barButtonItemFindRailcar,
-            this.barButtonItemSetingsProject});
+            this.barButtonItemFindEditShipRailcars,
+            this.barButtonItemMillReports});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 30;
+            this.barManager1.MaxItemId = 41;
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barTools
@@ -129,10 +145,11 @@
             this.barTools.DockCol = 0;
             this.barTools.DockRow = 1;
             this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.barTools.FloatLocation = new System.Drawing.Point(1247, 600);
+            this.barTools.FloatLocation = new System.Drawing.Point(277, 228);
             this.barTools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonClose, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonClose, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.barTools.Offset = 4;
             this.barTools.OptionsBar.AllowQuickCustomization = false;
             this.barTools.OptionsBar.DisableClose = true;
             this.barTools.OptionsBar.DisableCustomization = true;
@@ -163,12 +180,11 @@
             this.barMenu.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemApplication),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemPipes),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemJoints),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemMill),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemComponentry),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemRailcar),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemReports),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemConstruction),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemSettings),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemReports),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAbout)});
             this.barMenu.OptionsBar.DisableClose = true;
             this.barMenu.OptionsBar.DisableCustomization = true;
@@ -178,27 +194,43 @@
             // 
             // barSubItemApplication
             // 
-            this.barSubItemApplication.Caption = "&Application";
+            this.barSubItemApplication.Caption = "&File";
             this.barSubItemApplication.Id = 18;
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewProject),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemChangeCurrentProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
             this.barSubItemApplication.Name = "barSubItemApplication";
             // 
+            // barButtonItemNewProject
+            // 
+            this.barButtonItemNewProject.Caption = "&New project";
+            this.barButtonItemNewProject.Id = 19;
+            this.barButtonItemNewProject.Name = "barButtonItemNewProject";
+            // 
+            // barButtonItemChangeCurrentProject
+            // 
+            this.barButtonItemChangeCurrentProject.Caption = "&Change current project...";
+            this.barButtonItemChangeCurrentProject.Id = 30;
+            this.barButtonItemChangeCurrentProject.Name = "barButtonItemChangeCurrentProject";
+            // 
             // barButtonItemExit
             // 
-            this.barButtonItemExit.Caption = "E&xit";
-            this.barButtonItemExit.Id = 19;
+            this.barButtonItemExit.Caption = "&Exit";
+            this.barButtonItemExit.Id = 31;
             this.barButtonItemExit.Name = "barButtonItemExit";
-            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
             // 
-            // barSubItemPipes
+            // barSubItemMill
             // 
-            this.barSubItemPipes.Caption = "&Pipes";
-            this.barSubItemPipes.Id = 0;
-            this.barSubItemPipes.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemMill.Caption = "&Mill";
+            this.barSubItemMill.Id = 0;
+            this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewPipe),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindPipes)});
-            this.barSubItemPipes.Name = "barSubItemPipes";
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillFindEditPipes),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditShipRailcars),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillReports)});
+            this.barSubItemMill.Name = "barSubItemMill";
             // 
             // barButtonItemNewPipe
             // 
@@ -207,44 +239,49 @@
             this.barButtonItemNewPipe.Name = "barButtonItemNewPipe";
             this.barButtonItemNewPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewPipe_ItemClick);
             // 
-            // barButtonItemFindPipes
+            // barButtonItemMillFindEditPipes
             // 
-            this.barButtonItemFindPipes.Caption = "&Find pipes...";
-            this.barButtonItemFindPipes.Id = 17;
-            this.barButtonItemFindPipes.Name = "barButtonItemFindPipes";
-            this.barButtonItemFindPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindPipes_ItemClick);
+            this.barButtonItemMillFindEditPipes.Caption = "&Find/edit pipes...";
+            this.barButtonItemMillFindEditPipes.Id = 17;
+            this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
+            this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
             // 
-            // barSubItemJoints
+            // barButtonItemNewRailcar
             // 
-            this.barSubItemJoints.Caption = "&Joints";
-            this.barSubItemJoints.Id = 12;
-            this.barSubItemJoints.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindJoints)});
-            this.barSubItemJoints.Name = "barSubItemJoints";
+            this.barButtonItemNewRailcar.Caption = "New r&ailcar";
+            this.barButtonItemNewRailcar.Id = 37;
+            this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
+            this.barButtonItemNewRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRailcar_ItemClick);
             // 
-            // barButtonItemNewJoint
+            // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemNewJoint.Caption = "&New joint";
-            this.barButtonItemNewJoint.Id = 22;
-            this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
-            this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
+            this.barButtonItemFindEditShipRailcars.Caption = "Find/&edit/ship railcars...";
+            this.barButtonItemFindEditShipRailcars.Id = 38;
+            this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             // 
-            // barButtonItemFindJoints
+            // barButtonItemMillReports
             // 
-            this.barButtonItemFindJoints.Caption = "&Find joints...";
-            this.barButtonItemFindJoints.Id = 23;
-            this.barButtonItemFindJoints.Name = "barButtonItemFindJoints";
-            this.barButtonItemFindJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindJoints_ItemClick);
+            this.barButtonItemMillReports.Caption = "&Reports";
+            this.barButtonItemMillReports.Id = 39;
+            this.barButtonItemMillReports.Name = "barButtonItemMillReports";
+            this.barButtonItemMillReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillReports_ItemClick);
             // 
             // barSubItemComponentry
             // 
-            this.barSubItemComponentry.Caption = "C&omponentry";
+            this.barSubItemComponentry.Caption = "&Incoming inspection";
             this.barSubItemComponentry.Id = 13;
             this.barSubItemComponentry.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindEditPipes),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindComponentry)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindComponentry),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports)});
             this.barSubItemComponentry.Name = "barSubItemComponentry";
+            // 
+            // barButtonItemInspectionFindEditPipes
+            // 
+            this.barButtonItemInspectionFindEditPipes.Caption = "&Find/edit pipes ...";
+            this.barButtonItemInspectionFindEditPipes.Id = 35;
+            this.barButtonItemInspectionFindEditPipes.Name = "barButtonItemInspectionFindEditPipes";
             // 
             // barButtonItemNewComponent
             // 
@@ -253,50 +290,64 @@
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
             this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
             // 
-            // barButtonItemFindComponentry
+            // barButtonItemInspectionFindComponentry
             // 
-            this.barButtonItemFindComponentry.Caption = "&Find componentry...";
-            this.barButtonItemFindComponentry.Id = 21;
-            this.barButtonItemFindComponentry.Name = "barButtonItemFindComponentry";
-            this.barButtonItemFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindComponentry_ItemClick);
+            this.barButtonItemInspectionFindComponentry.Caption = "Find/&edit componentry...";
+            this.barButtonItemInspectionFindComponentry.Id = 21;
+            this.barButtonItemInspectionFindComponentry.Name = "barButtonItemInspectionFindComponentry";
+            this.barButtonItemInspectionFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindComponentry_ItemClick);
             // 
-            // barSubItemRailcar
+            // barButtonItemInspectionReports
             // 
-            this.barSubItemRailcar.Caption = "Ra&ilcar";
-            this.barSubItemRailcar.Id = 26;
-            this.barSubItemRailcar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindRailcar)});
-            this.barSubItemRailcar.Name = "barSubItemRailcar";
+            this.barButtonItemInspectionReports.Caption = "&Reports";
+            this.barButtonItemInspectionReports.Id = 36;
+            this.barButtonItemInspectionReports.Name = "barButtonItemInspectionReports";
+            this.barButtonItemInspectionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionReports_ItemClick);
             // 
-            // barButtonItemNewRailcar
+            // barSubItemConstruction
             // 
-            this.barButtonItemNewRailcar.Caption = "&New railcar";
-            this.barButtonItemNewRailcar.Id = 27;
-            this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
-            this.barButtonItemNewRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRailcar_ItemClick);
+            this.barSubItemConstruction.Caption = "&Construction";
+            this.barSubItemConstruction.Id = 26;
+            this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditPipes),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditComponentry),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
+            this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
-            // barButtonItemFindRailcar
+            // barButtonItemConstructionFindEditPipes
             // 
-            this.barButtonItemFindRailcar.Caption = "&Find railcar...";
-            this.barButtonItemFindRailcar.Id = 28;
-            this.barButtonItemFindRailcar.Name = "barButtonItemFindRailcar";
-            this.barButtonItemFindRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindRailcar_ItemClick);
+            this.barButtonItemConstructionFindEditPipes.Caption = "&Find/edit pipes ...";
+            this.barButtonItemConstructionFindEditPipes.Id = 27;
+            this.barButtonItemConstructionFindEditPipes.Name = "barButtonItemConstructionFindEditPipes";
             // 
-            // barSubItemReports
+            // barButtonItemConstructionFindEditComponentry
             // 
-            this.barSubItemReports.Caption = "&Reports";
-            this.barSubItemReports.Id = 14;
-            this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemReport)});
-            this.barSubItemReports.Name = "barSubItemReports";
+            this.barButtonItemConstructionFindEditComponentry.Caption = "Find/&edit componentry...";
+            this.barButtonItemConstructionFindEditComponentry.Id = 28;
+            this.barButtonItemConstructionFindEditComponentry.Name = "barButtonItemConstructionFindEditComponentry";
             // 
-            // barButtonItemReport
+            // barButtonItemNewJoint
             // 
-            this.barButtonItemReport.Caption = "Report";
-            this.barButtonItemReport.Id = 24;
-            this.barButtonItemReport.Name = "barButtonItemReport";
-            this.barButtonItemReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReport_ItemClick);
+            this.barButtonItemNewJoint.Caption = "&New joint";
+            this.barButtonItemNewJoint.Id = 32;
+            this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
+            this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
+            // 
+            // barButtonItemFindEditJoints
+            // 
+            this.barButtonItemFindEditJoints.Caption = "Find/edit joints ...";
+            this.barButtonItemFindEditJoints.Id = 33;
+            this.barButtonItemFindEditJoints.Name = "barButtonItemFindEditJoints";
+            this.barButtonItemFindEditJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditJoints_ItemClick);
+            // 
+            // barButtonItemConstructionReports
+            // 
+            this.barButtonItemConstructionReports.Caption = "Reports";
+            this.barButtonItemConstructionReports.Id = 34;
+            this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
+            this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
             // 
             // barSubItemSettings
             // 
@@ -309,6 +360,13 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsDictionaries)});
             this.barSubItemSettings.Name = "barSubItemSettings";
+            // 
+            // barButtonItemSetingsProject
+            // 
+            this.barButtonItemSetingsProject.Caption = "P&roject";
+            this.barButtonItemSetingsProject.Id = 29;
+            this.barButtonItemSetingsProject.Name = "barButtonItemSetingsProject";
+            this.barButtonItemSetingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSetingsProject_ItemClick);
             // 
             // barButtonItemSettingsPipe
             // 
@@ -339,9 +397,23 @@
             this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
             this.barButtonItemSettingsDictionaries.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsDictionaries_ItemClick);
             // 
+            // barSubItemReports
+            // 
+            this.barSubItemReports.Caption = "&Reports";
+            this.barSubItemReports.Id = 14;
+            this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true)});
+            this.barSubItemReports.Name = "barSubItemReports";
+            // 
+            // barButtonItemCustomReport
+            // 
+            this.barButtonItemCustomReport.Caption = "Custom report";
+            this.barButtonItemCustomReport.Id = 24;
+            this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
+            // 
             // barButtonItemAbout
             // 
-            this.barButtonItemAbout.Caption = "A&bout";
+            this.barButtonItemAbout.Caption = "Help";
             this.barButtonItemAbout.Id = 15;
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             // 
@@ -396,18 +468,16 @@
             this.barDockControlRight.Location = new System.Drawing.Point(741, 69);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 415);
             // 
+            // barSubItemJoints
+            // 
+            this.barSubItemJoints.Id = 40;
+            this.barSubItemJoints.Name = "barSubItemJoints";
+            // 
             // barButtonItemRailcar
             // 
             this.barButtonItemRailcar.Caption = "Railcar";
             this.barButtonItemRailcar.Id = 25;
             this.barButtonItemRailcar.Name = "barButtonItemRailcar";
-            // 
-            // barButtonItemSetingsProject
-            // 
-            this.barButtonItemSetingsProject.Caption = "P&roject";
-            this.barButtonItemSetingsProject.Id = 29;
-            this.barButtonItemSetingsProject.Name = "barButtonItemSetingsProject";
-            this.barButtonItemSetingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSetingsProject_ItemClick);
             // 
             // PrizmApplicationXtraForm
             // 
@@ -432,7 +502,7 @@
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar barTools;
         private DevExpress.XtraBars.Bar barMenu;
-        private DevExpress.XtraBars.BarSubItem barSubItemPipes;
+        private DevExpress.XtraBars.BarSubItem barSubItemMill;
         private DevExpress.XtraBars.BarSubItem barSubItemSettings;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsPipe;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsPipeline;
@@ -451,19 +521,27 @@
         private DevExpress.XtraBars.BarSubItem barSubItemReports;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAbout;
         private DevExpress.XtraBars.BarSubItem barSubItemApplication;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemNewProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewPipe;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemFindPipes;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemFindJoints;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemMillFindEditPipes;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewComponent;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemFindComponentry;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemReport;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindComponentry;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemCustomReport;
         private DevExpress.XtraBars.BarButtonItem barButtonItemRailcar;
-        private DevExpress.XtraBars.BarSubItem barSubItemRailcar;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemNewRailcar;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemFindRailcar;
+        private DevExpress.XtraBars.BarSubItem barSubItemConstruction;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditPipes;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSetingsProject;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemChangeCurrentProject;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindEditPipes;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditJoints;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionReports;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemNewRailcar;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditShipRailcars;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemMillReports;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionReports;
 
 
 

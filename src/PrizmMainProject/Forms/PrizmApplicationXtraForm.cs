@@ -42,11 +42,6 @@ namespace PrizmMain.Forms
             CreateFormChild(frmChild);
         }
 
-        private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 1);
-        }
-
         private void barButtonClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             // TODO: documents manager
@@ -61,22 +56,69 @@ namespace PrizmMain.Forms
 
         private void barButtonItemNewPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new Forms.PipeNewEditXtraForm());
+            CreateFormChild(new MillPipeNewEditXtraForm());
+        }
+
+        private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new RailcarNewEditXtraForm());
+        }
+
+        private void barButtonItemMillFindEditPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new MillPipeSearchXtraForm());
+        }
+
+        private void barButtonItemMillReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new MillReportsXtraForm());
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new Forms.ComponentNewEditXtraForm());
+            CreateFormChild(new ComponentNewEditXtraForm());
+
+        }
+
+        private void barButtonItemInspectionReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new InspectionReportsXtraForm());
+        }
+
+        private void barButtonItemInspectionFindComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new ComponentSearchXtraForm());
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            CreateFormChild(new Forms.JointNewEditXtraForm());
+            CreateFormChild(new JointNewEditXtraForm());
+        }
+
+        private void barButtonItemFindEditJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new JointSearchXtraForm());
+        }
+
+        private void barButtonItemConstructionReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new ConstructionReportsXtraForm());
+
+        }
+
+        private void barButtonItemSetingsProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 0);
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CreateSettingsFormChild(new Forms.SettingsXtraForm(), 2);
+        }
+
+        private void barButtonItemSettingsPipe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 1);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -87,46 +129,6 @@ namespace PrizmMain.Forms
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
-        }
-
-        private void barButtonItemFindComponentry_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.ComponentSearchXtraForm());
-        }
-
-        private void barButtonItemReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.CustomReportsXtraForm());
-        }
-
-        private void barButtonItemFindJoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.JointSearchXtraForm());
-        }
-
-        private void barButtonItemFindPipes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.PipeSearchXtraForm());
-        }
-
-        private void barButtonItemExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void barButtonItemFindRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.RailcarSearchXtraForm ());
-        }
-
-        private void barButtonItemNewRailcar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateFormChild(new Forms.RailcarNewEditXtraForm());
-        }
-
-        private void barButtonItemSetingsProject_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            CreateSettingsFormChild(new Forms.SettingsXtraForm(), 0);
         }
 
     }

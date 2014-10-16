@@ -79,6 +79,9 @@
             this.thirdPartGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.oKButton = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
@@ -98,20 +101,28 @@
             this.client = new DevExpress.XtraEditors.TextEdit();
             this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
             this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.usersLabel = new DevExpress.XtraEditors.LabelControl();
+            this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
+            this.editRoleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.roles = new DevExpress.XtraGrid.GridControl();
+            this.rolesView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rolesLabel = new DevExpress.XtraEditors.LabelControl();
             this.dictionariesPage = new DevExpress.XtraTab.XtraTabPage();
             this.dictionaries = new DevExpress.XtraGrid.GridControl();
             this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.generalPage = new DevExpress.XtraTab.XtraTabPage();
-            this.sizeLimitLabel = new DevExpress.XtraEditors.LabelControl();
-            this.sizeLimit = new DevExpress.XtraEditors.TextEdit();
+            this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
+            this.roleAddButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -138,6 +149,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.projectPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).BeginInit();
@@ -150,11 +164,12 @@
             this.usersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
+            this.rolesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesView)).BeginInit();
             this.dictionariesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
-            this.generalPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -170,8 +185,8 @@
             this.pipePage,
             this.pipelinePage,
             this.usersPage,
-            this.dictionariesPage,
-            this.generalPage});
+            this.rolesPage,
+            this.dictionariesPage});
             // 
             // pipePage
             // 
@@ -642,6 +657,7 @@
             // 
             // projectPage
             // 
+            this.projectPage.Controls.Add(this.panelControl1);
             this.projectPage.Controls.Add(this.cancelButton);
             this.projectPage.Controls.Add(this.oKButton);
             this.projectPage.Controls.Add(this.splitContainer);
@@ -653,10 +669,38 @@
             this.projectPage.Size = new System.Drawing.Size(719, 397);
             this.projectPage.Text = "Project";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.textEdit1);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Location = new System.Drawing.Point(25, 314);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(365, 43);
+            this.panelControl1.TabIndex = 20;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.EditValue = "1024";
+            this.textEdit1.Location = new System.Drawing.Point(199, 10);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 3;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(172, 13);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "External document size limit, Kbytes";
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(627, 346);
+            this.cancelButton.Location = new System.Drawing.Point(627, 362);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 18;
@@ -665,7 +709,7 @@
             // oKButton
             // 
             this.oKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.oKButton.Location = new System.Drawing.Point(516, 346);
+            this.oKButton.Location = new System.Drawing.Point(546, 362);
             this.oKButton.Name = "oKButton";
             this.oKButton.Size = new System.Drawing.Size(75, 23);
             this.oKButton.TabIndex = 17;
@@ -677,7 +721,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainer.Location = new System.Drawing.Point(25, 98);
+            this.splitContainer.Location = new System.Drawing.Point(25, 82);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Panel1.Controls.Add(this.plateManufacturersList);
             this.splitContainer.Panel1.Controls.Add(this.plateManufacturersLabel);
@@ -685,7 +729,7 @@
             this.splitContainer.Panel2.Controls.Add(this.pipeManufacturersList);
             this.splitContainer.Panel2.Controls.Add(this.pipeManufacturersLabel);
             this.splitContainer.Panel2.Text = "PipePanel";
-            this.splitContainer.Size = new System.Drawing.Size(678, 225);
+            this.splitContainer.Size = new System.Drawing.Size(678, 226);
             this.splitContainer.SplitterPosition = 339;
             this.splitContainer.TabIndex = 16;
             this.splitContainer.Text = "splitContainerControl1";
@@ -699,7 +743,7 @@
             this.plateManufacturersList.Location = new System.Drawing.Point(3, 57);
             this.plateManufacturersList.MainView = this.plateManufacturersListView;
             this.plateManufacturersList.Name = "plateManufacturersList";
-            this.plateManufacturersList.Size = new System.Drawing.Size(325, 160);
+            this.plateManufacturersList.Size = new System.Drawing.Size(325, 169);
             this.plateManufacturersList.TabIndex = 10;
             this.plateManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateManufacturersListView});
@@ -737,7 +781,7 @@
             this.pipeManufacturersList.Name = "pipeManufacturersList";
             this.pipeManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.pipeSizeItem});
-            this.pipeManufacturersList.Size = new System.Drawing.Size(325, 160);
+            this.pipeManufacturersList.Size = new System.Drawing.Size(325, 169);
             this.pipeManufacturersList.TabIndex = 11;
             this.pipeManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipeManufacturerListView});
@@ -782,7 +826,7 @@
             // 
             // designLabel
             // 
-            this.designLabel.Location = new System.Drawing.Point(25, 63);
+            this.designLabel.Location = new System.Drawing.Point(25, 56);
             this.designLabel.Name = "designLabel";
             this.designLabel.Size = new System.Drawing.Size(42, 13);
             this.designLabel.TabIndex = 15;
@@ -790,7 +834,7 @@
             // 
             // clientLabel
             // 
-            this.clientLabel.Location = new System.Drawing.Point(25, 27);
+            this.clientLabel.Location = new System.Drawing.Point(25, 20);
             this.clientLabel.Name = "clientLabel";
             this.clientLabel.Size = new System.Drawing.Size(27, 13);
             this.clientLabel.TabIndex = 14;
@@ -798,14 +842,14 @@
             // 
             // design
             // 
-            this.design.Location = new System.Drawing.Point(139, 56);
+            this.design.Location = new System.Drawing.Point(139, 49);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(251, 20);
             this.design.TabIndex = 13;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(139, 20);
+            this.client.Location = new System.Drawing.Point(139, 13);
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.TabIndex = 12;
@@ -818,11 +862,22 @@
             // 
             // usersPage
             // 
+            this.usersPage.Controls.Add(this.userAddButton);
+            this.usersPage.Controls.Add(this.userEditButton);
             this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.usersLabel);
             this.usersPage.Name = "usersPage";
             this.usersPage.Size = new System.Drawing.Size(719, 397);
             this.usersPage.Text = "&Users";
+            // 
+            // userEditButton
+            // 
+            this.userEditButton.Location = new System.Drawing.Point(124, 218);
+            this.userEditButton.Name = "userEditButton";
+            this.userEditButton.Size = new System.Drawing.Size(75, 23);
+            this.userEditButton.TabIndex = 2;
+            this.userEditButton.Text = "Edit User";
+            this.userEditButton.Click += new System.EventHandler(this.userEditButton_Click);
             // 
             // users
             // 
@@ -876,6 +931,77 @@
             this.usersLabel.TabIndex = 0;
             this.usersLabel.Text = "Users";
             // 
+            // rolesPage
+            // 
+            this.rolesPage.Controls.Add(this.roleAddButton);
+            this.rolesPage.Controls.Add(this.editRoleButton);
+            this.rolesPage.Controls.Add(this.roles);
+            this.rolesPage.Controls.Add(this.rolesLabel);
+            this.rolesPage.Name = "rolesPage";
+            this.rolesPage.Size = new System.Drawing.Size(719, 397);
+            this.rolesPage.Text = "Roles";
+            // 
+            // editRoleButton
+            // 
+            this.editRoleButton.Location = new System.Drawing.Point(124, 218);
+            this.editRoleButton.Name = "editRoleButton";
+            this.editRoleButton.Size = new System.Drawing.Size(75, 23);
+            this.editRoleButton.TabIndex = 3;
+            this.editRoleButton.Text = "Edit Role";
+            this.editRoleButton.Click += new System.EventHandler(this.editRoleButton_Click);
+            // 
+            // roles
+            // 
+            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roles.Cursor = System.Windows.Forms.Cursors.Default;
+            this.roles.Location = new System.Drawing.Point(31, 46);
+            this.roles.MainView = this.rolesView;
+            this.roles.Name = "roles";
+            this.roles.Size = new System.Drawing.Size(500, 166);
+            this.roles.TabIndex = 2;
+            this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.rolesView});
+            // 
+            // rolesView
+            // 
+            this.rolesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
+            this.rolesView.GridControl = this.roles;
+            this.rolesView.Name = "rolesView";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "№";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "User full name";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Role";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // rolesLabel
+            // 
+            this.rolesLabel.Location = new System.Drawing.Point(31, 27);
+            this.rolesLabel.Name = "rolesLabel";
+            this.rolesLabel.Size = new System.Drawing.Size(26, 13);
+            this.rolesLabel.TabIndex = 1;
+            this.rolesLabel.Text = "Roles";
+            // 
             // dictionariesPage
             // 
             this.dictionariesPage.Controls.Add(this.dictionaries);
@@ -912,29 +1038,21 @@
             // 
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             // 
-            // generalPage
+            // userAddButton
             // 
-            this.generalPage.Controls.Add(this.sizeLimit);
-            this.generalPage.Controls.Add(this.sizeLimitLabel);
-            this.generalPage.Name = "generalPage";
-            this.generalPage.Size = new System.Drawing.Size(719, 397);
-            this.generalPage.Text = "General";
+            this.userAddButton.Location = new System.Drawing.Point(31, 218);
+            this.userAddButton.Name = "userAddButton";
+            this.userAddButton.Size = new System.Drawing.Size(87, 23);
+            this.userAddButton.TabIndex = 3;
+            this.userAddButton.Text = "Add New User";
             // 
-            // sizeLimitLabel
+            // roleAddButton
             // 
-            this.sizeLimitLabel.Location = new System.Drawing.Point(31, 45);
-            this.sizeLimitLabel.Name = "sizeLimitLabel";
-            this.sizeLimitLabel.Size = new System.Drawing.Size(172, 13);
-            this.sizeLimitLabel.TabIndex = 0;
-            this.sizeLimitLabel.Text = "External document size limit, Kbytes";
-            // 
-            // sizeLimit
-            // 
-            this.sizeLimit.EditValue = "1024";
-            this.sizeLimit.Location = new System.Drawing.Point(231, 42);
-            this.sizeLimit.Name = "sizeLimit";
-            this.sizeLimit.Size = new System.Drawing.Size(100, 20);
-            this.sizeLimit.TabIndex = 1;
+            this.roleAddButton.Location = new System.Drawing.Point(31, 218);
+            this.roleAddButton.Name = "roleAddButton";
+            this.roleAddButton.Size = new System.Drawing.Size(87, 23);
+            this.roleAddButton.TabIndex = 4;
+            this.roleAddButton.Text = "Add New Role";
             // 
             // SettingsXtraForm
             // 
@@ -977,6 +1095,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).EndInit();
@@ -990,12 +1112,13 @@
             this.usersPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
+            this.rolesPage.ResumeLayout(false);
+            this.rolesPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesView)).EndInit();
             this.dictionariesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
-            this.generalPage.ResumeLayout(false);
-            this.generalPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeLimit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1085,8 +1208,19 @@
         private DevExpress.XtraEditors.LabelControl clientLabel;
         private DevExpress.XtraEditors.TextEdit design;
         private DevExpress.XtraEditors.TextEdit client;
-        private DevExpress.XtraTab.XtraTabPage generalPage;
-        private DevExpress.XtraEditors.TextEdit sizeLimit;
-        private DevExpress.XtraEditors.LabelControl sizeLimitLabel;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraTab.XtraTabPage rolesPage;
+        private DevExpress.XtraEditors.LabelControl rolesLabel;
+        private DevExpress.XtraEditors.SimpleButton userEditButton;
+        private DevExpress.XtraEditors.SimpleButton editRoleButton;
+        private DevExpress.XtraGrid.GridControl roles;
+        private DevExpress.XtraGrid.Views.Grid.GridView rolesView;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton userAddButton;
+        private DevExpress.XtraEditors.SimpleButton roleAddButton;
     }
 }
