@@ -36,21 +36,21 @@
             this.confirmPassword = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
-            this.userRights = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.userRightsLabel = new DevExpress.XtraEditors.LabelControl();
+            this.userRoleLabel = new DevExpress.XtraEditors.LabelControl();
             this.lastNameLabel = new DevExpress.XtraEditors.LabelControl();
             this.firstNameLabel = new DevExpress.XtraEditors.LabelControl();
             this.middleNameLabel = new DevExpress.XtraEditors.LabelControl();
             this.lastName = new DevExpress.XtraEditors.TextEdit();
             this.middleName = new DevExpress.XtraEditors.TextEdit();
             this.firstName = new DevExpress.XtraEditors.TextEdit();
+            this.userRoleComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userRights)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRoleComboBox.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -114,28 +114,13 @@
             this.closeButton.TabIndex = 9;
             this.closeButton.Text = "&Close";
             // 
-            // userRights
+            // userRoleLabel
             // 
-            this.userRights.HorzScrollStep = 3;
-            this.userRights.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Operator in manufacturing"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Operator in construction"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Inspector in manufacturing"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Inspector in construction"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Administrator")});
-            this.userRights.Location = new System.Drawing.Point(14, 211);
-            this.userRights.MultiColumn = true;
-            this.userRights.Name = "userRights";
-            this.userRights.Size = new System.Drawing.Size(317, 66);
-            this.userRights.TabIndex = 7;
-            // 
-            // userRightsLabel
-            // 
-            this.userRightsLabel.Location = new System.Drawing.Point(14, 192);
-            this.userRightsLabel.Name = "userRightsLabel";
-            this.userRightsLabel.Size = new System.Drawing.Size(55, 13);
-            this.userRightsLabel.TabIndex = 8;
-            this.userRightsLabel.Text = "User Rights";
+            this.userRoleLabel.Location = new System.Drawing.Point(14, 192);
+            this.userRoleLabel.Name = "userRoleLabel";
+            this.userRoleLabel.Size = new System.Drawing.Size(46, 13);
+            this.userRoleLabel.TabIndex = 8;
+            this.userRoleLabel.Text = "User Role";
             // 
             // lastNameLabel
             // 
@@ -182,19 +167,29 @@
             this.firstName.Size = new System.Drawing.Size(224, 20);
             this.firstName.TabIndex = 2;
             // 
+            // userRoleComboBox
+            // 
+            this.userRoleComboBox.Enabled = false;
+            this.userRoleComboBox.Location = new System.Drawing.Point(12, 211);
+            this.userRoleComboBox.Name = "userRoleComboBox";
+            this.userRoleComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.userRoleComboBox.Size = new System.Drawing.Size(318, 20);
+            this.userRoleComboBox.TabIndex = 10;
+            // 
             // UserInfoXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 329);
+            this.Controls.Add(this.userRoleComboBox);
             this.Controls.Add(this.firstName);
             this.Controls.Add(this.middleName);
             this.Controls.Add(this.lastName);
             this.Controls.Add(this.middleNameLabel);
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.userRightsLabel);
-            this.Controls.Add(this.userRights);
+            this.Controls.Add(this.userRoleLabel);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.confirmPassword);
@@ -204,13 +199,14 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.loginLabel);
             this.Name = "UserInfoXtraForm";
+            this.Text = "Edit User";
             ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userRights)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRoleComboBox.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,13 +222,13 @@
         private DevExpress.XtraEditors.TextEdit confirmPassword;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton closeButton;
-        private DevExpress.XtraEditors.CheckedListBoxControl userRights;
-        private DevExpress.XtraEditors.LabelControl userRightsLabel;
+        private DevExpress.XtraEditors.LabelControl userRoleLabel;
         private DevExpress.XtraEditors.LabelControl lastNameLabel;
         private DevExpress.XtraEditors.LabelControl firstNameLabel;
         private DevExpress.XtraEditors.LabelControl middleNameLabel;
         private DevExpress.XtraEditors.TextEdit lastName;
         private DevExpress.XtraEditors.TextEdit middleName;
         private DevExpress.XtraEditors.TextEdit firstName;
+        private DevExpress.XtraEditors.ComboBoxEdit userRoleComboBox;
     }
 }
