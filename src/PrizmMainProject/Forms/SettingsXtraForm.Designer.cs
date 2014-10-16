@@ -875,7 +875,7 @@
             // 
             // userAddButton
             // 
-            this.userAddButton.Location = new System.Drawing.Point(11, 367);
+            this.userAddButton.Location = new System.Drawing.Point(11, 330);
             this.userAddButton.Name = "userAddButton";
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
@@ -883,7 +883,7 @@
             // 
             // userEditButton
             // 
-            this.userEditButton.Location = new System.Drawing.Point(104, 367);
+            this.userEditButton.Location = new System.Drawing.Point(104, 330);
             this.userEditButton.Name = "userEditButton";
             this.userEditButton.Size = new System.Drawing.Size(75, 23);
             this.userEditButton.TabIndex = 2;
@@ -899,7 +899,7 @@
             this.users.Location = new System.Drawing.Point(11, 37);
             this.users.MainView = this.usersView;
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(701, 324);
+            this.users.Size = new System.Drawing.Size(701, 287);
             this.users.TabIndex = 1;
             this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.usersView});
@@ -954,7 +954,7 @@
             // 
             // roleAddButton
             // 
-            this.roleAddButton.Location = new System.Drawing.Point(11, 367);
+            this.roleAddButton.Location = new System.Drawing.Point(11, 330);
             this.roleAddButton.Name = "roleAddButton";
             this.roleAddButton.Size = new System.Drawing.Size(87, 23);
             this.roleAddButton.TabIndex = 4;
@@ -962,7 +962,7 @@
             // 
             // editRoleButton
             // 
-            this.editRoleButton.Location = new System.Drawing.Point(104, 367);
+            this.editRoleButton.Location = new System.Drawing.Point(104, 330);
             this.editRoleButton.Name = "editRoleButton";
             this.editRoleButton.Size = new System.Drawing.Size(75, 23);
             this.editRoleButton.TabIndex = 3;
@@ -978,7 +978,7 @@
             this.roles.Location = new System.Drawing.Point(11, 37);
             this.roles.MainView = this.rolesView;
             this.roles.Name = "roles";
-            this.roles.Size = new System.Drawing.Size(701, 324);
+            this.roles.Size = new System.Drawing.Size(701, 287);
             this.roles.TabIndex = 2;
             this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.rolesView});
