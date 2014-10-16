@@ -121,6 +121,8 @@
             this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
+            this.roleAddButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -860,6 +862,7 @@
             // 
             // usersPage
             // 
+            this.usersPage.Controls.Add(this.userAddButton);
             this.usersPage.Controls.Add(this.userEditButton);
             this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.usersLabel);
@@ -869,7 +872,7 @@
             // 
             // userEditButton
             // 
-            this.userEditButton.Location = new System.Drawing.Point(31, 218);
+            this.userEditButton.Location = new System.Drawing.Point(124, 218);
             this.userEditButton.Name = "userEditButton";
             this.userEditButton.Size = new System.Drawing.Size(75, 23);
             this.userEditButton.TabIndex = 2;
@@ -930,6 +933,7 @@
             // 
             // rolesPage
             // 
+            this.rolesPage.Controls.Add(this.roleAddButton);
             this.rolesPage.Controls.Add(this.editRoleButton);
             this.rolesPage.Controls.Add(this.roles);
             this.rolesPage.Controls.Add(this.rolesLabel);
@@ -939,7 +943,7 @@
             // 
             // editRoleButton
             // 
-            this.editRoleButton.Location = new System.Drawing.Point(31, 218);
+            this.editRoleButton.Location = new System.Drawing.Point(124, 218);
             this.editRoleButton.Name = "editRoleButton";
             this.editRoleButton.Size = new System.Drawing.Size(75, 23);
             this.editRoleButton.TabIndex = 3;
@@ -1033,6 +1037,22 @@
             // bandedGridColumn1
             // 
             this.bandedGridColumn1.Name = "bandedGridColumn1";
+            // 
+            // userAddButton
+            // 
+            this.userAddButton.Location = new System.Drawing.Point(31, 218);
+            this.userAddButton.Name = "userAddButton";
+            this.userAddButton.Size = new System.Drawing.Size(87, 23);
+            this.userAddButton.TabIndex = 3;
+            this.userAddButton.Text = "Add New User";
+            // 
+            // roleAddButton
+            // 
+            this.roleAddButton.Location = new System.Drawing.Point(31, 218);
+            this.roleAddButton.Name = "roleAddButton";
+            this.roleAddButton.Size = new System.Drawing.Size(87, 23);
+            this.roleAddButton.TabIndex = 4;
+            this.roleAddButton.Text = "Add New Role";
             // 
             // SettingsXtraForm
             // 
@@ -1200,5 +1220,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton userAddButton;
+        private DevExpress.XtraEditors.SimpleButton roleAddButton;
     }
 }
