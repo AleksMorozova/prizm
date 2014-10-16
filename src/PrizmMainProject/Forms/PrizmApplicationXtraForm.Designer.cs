@@ -141,15 +141,15 @@
             // barTools
             // 
             this.barTools.BarName = "Tools";
-            this.barTools.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+            this.barTools.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
             this.barTools.DockCol = 0;
             this.barTools.DockRow = 1;
-            this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.barTools.FloatLocation = new System.Drawing.Point(277, 228);
+            this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.barTools.FloatLocation = new System.Drawing.Point(962, 406);
             this.barTools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonClose, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barTools.Offset = 4;
+            this.barTools.Offset = 631;
             this.barTools.OptionsBar.AllowQuickCustomization = false;
             this.barTools.OptionsBar.DisableClose = true;
             this.barTools.OptionsBar.DisableCustomization = true;
@@ -258,6 +258,7 @@
             this.barButtonItemFindEditShipRailcars.Caption = "Find/&edit/ship railcars...";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
+            this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
             // 
             // barButtonItemMillReports
             // 
@@ -445,27 +446,27 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(741, 69);
+            this.barDockControlTop.Size = new System.Drawing.Size(749, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 484);
-            this.barDockControlBottom.Size = new System.Drawing.Size(741, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 437);
+            this.barDockControlBottom.Size = new System.Drawing.Size(749, 72);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 69);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 415);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(741, 69);
+            this.barDockControlRight.Location = new System.Drawing.Point(749, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 415);
             // 
             // barSubItemJoints
@@ -483,7 +484,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 509);
+            this.ClientSize = new System.Drawing.Size(749, 509);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);

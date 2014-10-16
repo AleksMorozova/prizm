@@ -46,6 +46,8 @@
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.pipeSizeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.designer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // designerLabel
@@ -212,12 +215,31 @@
             this.saveButton.TabIndex = 16;
             this.saveButton.Text = "Save";
             // 
+            // pipeSizeLabel
+            // 
+            this.pipeSizeLabel.Location = new System.Drawing.Point(439, 14);
+            this.pipeSizeLabel.Name = "pipeSizeLabel";
+            this.pipeSizeLabel.Size = new System.Drawing.Size(41, 13);
+            this.pipeSizeLabel.TabIndex = 17;
+            this.pipeSizeLabel.Text = "Pipe size";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(439, 33);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(118, 20);
+            this.comboBoxEdit1.TabIndex = 18;
+            // 
             // RailcarNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 386);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.pipeSizeLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.unshipButton);
             this.Controls.Add(this.certificateNumber);
@@ -249,6 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +297,7 @@
         private DevExpress.XtraEditors.TextEdit certificateNumber;
         private DevExpress.XtraEditors.SimpleButton unshipButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.LabelControl pipeSizeLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

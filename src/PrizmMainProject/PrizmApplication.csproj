@@ -204,6 +204,9 @@
     <EmbeddedResource Include="Forms\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RailcarSearchXtraForm.resx">
+      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>

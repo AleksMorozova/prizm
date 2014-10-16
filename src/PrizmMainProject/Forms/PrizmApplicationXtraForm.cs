@@ -131,5 +131,11 @@ namespace PrizmMain.Forms
             CreateSettingsFormChild(new Forms.SettingsXtraForm(), 4);
         }
 
+        private void barButtonItemFindEditShipRailcars_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateFormChild(new RailcarSearchXtraForm());
+        }
+
+
     }
 }
