@@ -11,13 +11,13 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class SettingsXtraForm : ChildForm
+    public partial class SettingsXtraForm : DevExpress.XtraEditors.XtraForm
     {
         public SettingsXtraForm()
         {
             InitializeComponent();
 
-            //TODO: Add gridControlInspection.DataSource, and synchronize field name in Grid Control
+            
             
         }
     }

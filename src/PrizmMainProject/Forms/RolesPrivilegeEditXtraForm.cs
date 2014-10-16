@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class UserRolesEditXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class RolesPrivilegeEditXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public UserRolesEditXtraForm()
+        public RolesPrivilegeEditXtraForm()
         {
             InitializeComponent();
         }
