@@ -85,6 +85,12 @@
     <Compile Include="Forms\ConstructionReportsXtraForm.Designer.cs">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SpoolsXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SpoolsXtraForm.Designer.cs">
+      <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
