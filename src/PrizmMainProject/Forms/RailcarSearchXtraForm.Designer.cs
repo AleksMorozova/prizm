@@ -33,8 +33,8 @@
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.railcarNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.deliveryDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shippingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.deliveryDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
@@ -88,8 +88,8 @@
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.railcarNumberGridColumn,
             this.statusGridColumn,
-            this.deliveryDateGridColumn,
             this.shippingDateGridColumn,
+            this.deliveryDateGridColumn,
             this.editGridColumn});
             this.railcarListView.GridControl = this.railcarList;
             this.railcarListView.Name = "railcarListView";
@@ -108,23 +108,22 @@
             this.statusGridColumn.Visible = true;
             this.statusGridColumn.VisibleIndex = 1;
             // 
-            // deliveryDateGridColumn
-            // 
-            this.deliveryDateGridColumn.Caption = "Delivery date";
-            this.deliveryDateGridColumn.Name = "deliveryDateGridColumn";
-            this.deliveryDateGridColumn.Visible = true;
-            this.deliveryDateGridColumn.VisibleIndex = 2;
-            // 
             // shippingDateGridColumn
             // 
             this.shippingDateGridColumn.Caption = "Shiping date";
             this.shippingDateGridColumn.Name = "shippingDateGridColumn";
             this.shippingDateGridColumn.Visible = true;
-            this.shippingDateGridColumn.VisibleIndex = 3;
+            this.shippingDateGridColumn.VisibleIndex = 2;
+            // 
+            // deliveryDateGridColumn
+            // 
+            this.deliveryDateGridColumn.Caption = "Delivery date";
+            this.deliveryDateGridColumn.Name = "deliveryDateGridColumn";
+            this.deliveryDateGridColumn.Visible = true;
+            this.deliveryDateGridColumn.VisibleIndex = 3;
             // 
             // editGridColumn
             // 
-            this.editGridColumn.Caption = "Edit";
             this.editGridColumn.Name = "editGridColumn";
             this.editGridColumn.Visible = true;
             this.editGridColumn.VisibleIndex = 4;

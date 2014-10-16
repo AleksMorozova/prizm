@@ -43,7 +43,7 @@
             // 
             // previewButton
             // 
-            this.previewButton.Location = new System.Drawing.Point(471, 17);
+            this.previewButton.Location = new System.Drawing.Point(475, 33);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(73, 23);
             this.previewButton.TabIndex = 56;
@@ -51,7 +51,7 @@
             // 
             // createReportButton
             // 
-            this.createReportButton.Location = new System.Drawing.Point(566, 17);
+            this.createReportButton.Location = new System.Drawing.Point(570, 33);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(75, 23);
             this.createReportButton.TabIndex = 55;
@@ -60,7 +60,7 @@
             // toDate
             // 
             this.toDate.EditValue = null;
-            this.toDate.Location = new System.Drawing.Point(174, 14);
+            this.toDate.Location = new System.Drawing.Point(178, 30);
             this.toDate.Name = "toDate";
             this.toDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -72,7 +72,7 @@
             // fromDate
             // 
             this.fromDate.EditValue = null;
-            this.fromDate.Location = new System.Drawing.Point(40, 14);
+            this.fromDate.Location = new System.Drawing.Point(44, 30);
             this.fromDate.Name = "fromDate";
             this.fromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -83,7 +83,7 @@
             // 
             // toLabel
             // 
-            this.toLabel.Location = new System.Drawing.Point(158, 17);
+            this.toLabel.Location = new System.Drawing.Point(162, 33);
             this.toLabel.Name = "toLabel";
             this.toLabel.Size = new System.Drawing.Size(10, 13);
             this.toLabel.TabIndex = 52;
@@ -91,7 +91,7 @@
             // 
             // fromLabel
             // 
-            this.fromLabel.Location = new System.Drawing.Point(12, 17);
+            this.fromLabel.Location = new System.Drawing.Point(16, 33);
             this.fromLabel.Name = "fromLabel";
             this.fromLabel.Size = new System.Drawing.Size(22, 13);
             this.fromLabel.TabIndex = 51;
@@ -101,16 +101,16 @@
             // 
             this.previewReportDocument.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.previewReportDocument.IsMetric = false;
-            this.previewReportDocument.Location = new System.Drawing.Point(0, 72);
+            this.previewReportDocument.Location = new System.Drawing.Point(0, 75);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(709, 314);
+            this.previewReportDocument.Size = new System.Drawing.Size(725, 350);
             this.previewReportDocument.TabIndex = 50;
             // 
             // InspectionReportsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 386);
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.Controls.Add(this.previewButton);
             this.Controls.Add(this.createReportButton);
             this.Controls.Add(this.toDate);
