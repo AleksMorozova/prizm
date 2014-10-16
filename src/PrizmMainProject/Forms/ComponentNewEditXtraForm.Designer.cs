@@ -40,8 +40,8 @@
             this.type = new DevExpress.XtraEditors.ComboBoxEdit();
             this.inspection = new DevExpress.XtraEditors.GroupControl();
             this.reasonLabel = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.rejectedReason = new DevExpress.XtraEditors.TextEdit();
+            this.resultRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectorLabel = new DevExpress.XtraEditors.LabelControl();
             this.resultLabel = new DevExpress.XtraEditors.LabelControl();
@@ -54,8 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
             this.inspection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).BeginInit();
@@ -145,8 +145,8 @@
             // inspection
             // 
             this.inspection.Controls.Add(this.reasonLabel);
-            this.inspection.Controls.Add(this.textEdit1);
-            this.inspection.Controls.Add(this.radioGroup1);
+            this.inspection.Controls.Add(this.rejectedReason);
+            this.inspection.Controls.Add(this.resultRadioGroup);
             this.inspection.Controls.Add(this.inspectionDateLabel);
             this.inspection.Controls.Add(this.inspectorLabel);
             this.inspection.Controls.Add(this.resultLabel);
@@ -166,25 +166,25 @@
             this.reasonLabel.TabIndex = 8;
             this.reasonLabel.Text = "Reason";
             // 
-            // textEdit1
+            // rejectedReason
             // 
-            this.textEdit1.Location = new System.Drawing.Point(493, 58);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(165, 20);
-            this.textEdit1.TabIndex = 7;
+            this.rejectedReason.Location = new System.Drawing.Point(493, 58);
+            this.rejectedReason.Name = "rejectedReason";
+            this.rejectedReason.Size = new System.Drawing.Size(165, 20);
+            this.rejectedReason.TabIndex = 7;
             // 
-            // radioGroup1
+            // resultRadioGroup
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(393, 58);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.resultRadioGroup.Location = new System.Drawing.Point(393, 58);
+            this.resultRadioGroup.Name = "resultRadioGroup";
+            this.resultRadioGroup.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.resultRadioGroup.Properties.Appearance.Options.UseBackColor = true;
+            this.resultRadioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "accepted"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "hold "),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "rejected ")});
-            this.radioGroup1.Size = new System.Drawing.Size(85, 96);
-            this.radioGroup1.TabIndex = 6;
+            this.resultRadioGroup.Size = new System.Drawing.Size(85, 96);
+            this.resultRadioGroup.TabIndex = 6;
             // 
             // inspectionDateLabel
             // 
@@ -256,8 +256,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspection)).EndInit();
             this.inspection.ResumeLayout(false);
             this.inspection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).EndInit();
@@ -285,7 +285,7 @@
         private DevExpress.XtraEditors.DateEdit inspectionDate;
         private DevExpress.XtraEditors.TextEdit inspector;
         private DevExpress.XtraEditors.LabelControl reasonLabel;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.TextEdit rejectedReason;
+        private DevExpress.XtraEditors.RadioGroup resultRadioGroup;
     }
 }
