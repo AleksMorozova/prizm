@@ -56,7 +56,18 @@
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.jointNumberLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionOperations = new DevExpress.XtraTab.XtraTabPage();
-            this.trenchParameters = new DevExpress.XtraTab.XtraTabPage();
+            this.controls = new DevExpress.XtraGrid.GridControl();
+            this.controlsView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repeatedControl = new DevExpress.XtraEditors.CheckEdit();
+            this.resultLabel = new DevExpress.XtraEditors.LabelControl();
+            this.result = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.inspectorNameLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectorName = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.controlDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.controlDate = new DevExpress.XtraEditors.DateEdit();
+            this.controlTypeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.controlType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.joint)).BeginInit();
             this.joint.SuspendLayout();
             this.generalParameters.SuspendLayout();
@@ -76,6 +87,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
+            this.inspectionOperations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.controls)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedControl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // joint
@@ -88,8 +108,7 @@
             this.joint.TabIndex = 0;
             this.joint.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParameters,
-            this.inspectionOperations,
-            this.trenchParameters});
+            this.inspectionOperations});
             // 
             // generalParameters
             // 
@@ -330,15 +349,124 @@
             // 
             // inspectionOperations
             // 
+            this.inspectionOperations.Controls.Add(this.controls);
+            this.inspectionOperations.Controls.Add(this.repeatedControl);
+            this.inspectionOperations.Controls.Add(this.resultLabel);
+            this.inspectionOperations.Controls.Add(this.result);
+            this.inspectionOperations.Controls.Add(this.inspectorNameLabel);
+            this.inspectionOperations.Controls.Add(this.inspectorName);
+            this.inspectionOperations.Controls.Add(this.controlDateLabel);
+            this.inspectionOperations.Controls.Add(this.controlDate);
+            this.inspectionOperations.Controls.Add(this.controlTypeLabel);
+            this.inspectionOperations.Controls.Add(this.controlType);
             this.inspectionOperations.Name = "inspectionOperations";
             this.inspectionOperations.Size = new System.Drawing.Size(719, 397);
             this.inspectionOperations.Text = "&Inspection operations";
             // 
-            // trenchParameters
+            // controls
             // 
-            this.trenchParameters.Name = "trenchParameters";
-            this.trenchParameters.Size = new System.Drawing.Size(719, 397);
-            this.trenchParameters.Text = "&Trench parameters";
+            this.controls.Cursor = System.Windows.Forms.Cursors.Default;
+            this.controls.Location = new System.Drawing.Point(227, 34);
+            this.controls.MainView = this.controlsView;
+            this.controls.Name = "controls";
+            this.controls.Size = new System.Drawing.Size(289, 177);
+            this.controls.TabIndex = 9;
+            this.controls.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.controlsView});
+            // 
+            // controlsView
+            // 
+            this.controlsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.controlTypeGridColumn});
+            this.controlsView.GridControl = this.controls;
+            this.controlsView.Name = "controlsView";
+            this.controlsView.OptionsView.ShowGroupPanel = false;
+            // 
+            // repeatedControl
+            // 
+            this.repeatedControl.Location = new System.Drawing.Point(11, 192);
+            this.repeatedControl.Name = "repeatedControl";
+            this.repeatedControl.Properties.Caption = "Repeated control";
+            this.repeatedControl.Size = new System.Drawing.Size(112, 19);
+            this.repeatedControl.TabIndex = 8;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.Location = new System.Drawing.Point(12, 147);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(30, 13);
+            this.resultLabel.TabIndex = 7;
+            this.resultLabel.Text = "Result";
+            // 
+            // result
+            // 
+            this.result.Location = new System.Drawing.Point(11, 166);
+            this.result.Name = "result";
+            this.result.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.result.Size = new System.Drawing.Size(167, 20);
+            this.result.TabIndex = 6;
+            // 
+            // inspectorNameLabel
+            // 
+            this.inspectorNameLabel.Location = new System.Drawing.Point(11, 102);
+            this.inspectorNameLabel.Name = "inspectorNameLabel";
+            this.inspectorNameLabel.Size = new System.Drawing.Size(46, 13);
+            this.inspectorNameLabel.TabIndex = 5;
+            this.inspectorNameLabel.Text = "Inspector";
+            // 
+            // inspectorName
+            // 
+            this.inspectorName.Location = new System.Drawing.Point(11, 121);
+            this.inspectorName.Name = "inspectorName";
+            this.inspectorName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectorName.Size = new System.Drawing.Size(168, 20);
+            this.inspectorName.TabIndex = 4;
+            // 
+            // controlDateLabel
+            // 
+            this.controlDateLabel.Location = new System.Drawing.Point(11, 57);
+            this.controlDateLabel.Name = "controlDateLabel";
+            this.controlDateLabel.Size = new System.Drawing.Size(23, 13);
+            this.controlDateLabel.TabIndex = 3;
+            this.controlDateLabel.Text = "Date";
+            // 
+            // controlDate
+            // 
+            this.controlDate.EditValue = null;
+            this.controlDate.Location = new System.Drawing.Point(11, 76);
+            this.controlDate.Name = "controlDate";
+            this.controlDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlDate.Size = new System.Drawing.Size(168, 20);
+            this.controlDate.TabIndex = 2;
+            // 
+            // controlTypeLabel
+            // 
+            this.controlTypeLabel.Location = new System.Drawing.Point(12, 12);
+            this.controlTypeLabel.Name = "controlTypeLabel";
+            this.controlTypeLabel.Size = new System.Drawing.Size(60, 13);
+            this.controlTypeLabel.TabIndex = 1;
+            this.controlTypeLabel.Text = "Control type";
+            // 
+            // controlType
+            // 
+            this.controlType.Location = new System.Drawing.Point(11, 31);
+            this.controlType.Name = "controlType";
+            this.controlType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlType.Size = new System.Drawing.Size(168, 20);
+            this.controlType.TabIndex = 0;
+            // 
+            // controlTypeGridColumn
+            // 
+            this.controlTypeGridColumn.Caption = "Control type";
+            this.controlTypeGridColumn.Name = "controlTypeGridColumn";
+            this.controlTypeGridColumn.Visible = true;
+            this.controlTypeGridColumn.VisibleIndex = 0;
             // 
             // JointNewEditXtraForm
             // 
@@ -375,6 +503,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
+            this.inspectionOperations.ResumeLayout(false);
+            this.inspectionOperations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.controls)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedControl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,7 +522,6 @@
         private DevExpress.XtraTab.XtraTabControl joint;
         private DevExpress.XtraTab.XtraTabPage generalParameters;
         private DevExpress.XtraTab.XtraTabPage inspectionOperations;
-        private DevExpress.XtraTab.XtraTabPage trenchParameters;
         private DevExpress.XtraEditors.GroupControl weldig;
         private DevExpress.XtraEditors.ComboBoxEdit status;
         private DevExpress.XtraEditors.ComboBoxEdit place;
@@ -410,5 +547,17 @@
         private DevExpress.XtraEditors.TextEdit welderNumber;
         private DevExpress.XtraGrid.Columns.GridColumn componentNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
+        private DevExpress.XtraEditors.DateEdit controlDate;
+        private DevExpress.XtraEditors.LabelControl controlTypeLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit controlType;
+        private DevExpress.XtraEditors.CheckEdit repeatedControl;
+        private DevExpress.XtraEditors.LabelControl resultLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit result;
+        private DevExpress.XtraEditors.LabelControl inspectorNameLabel;
+        private DevExpress.XtraEditors.ComboBoxEdit inspectorName;
+        private DevExpress.XtraEditors.LabelControl controlDateLabel;
+        private DevExpress.XtraGrid.GridControl controls;
+        private DevExpress.XtraGrid.Views.Grid.GridView controlsView;
+        private DevExpress.XtraGrid.Columns.GridColumn controlTypeGridColumn;
     }
 }
