@@ -1129,7 +1129,7 @@
             this.Controls.Add(this.settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsXtraForm";
-            this.Text = "SettingsXtraForm";
+            this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             this.settings.ResumeLayout(false);
             this.pipePage.ResumeLayout(false);
