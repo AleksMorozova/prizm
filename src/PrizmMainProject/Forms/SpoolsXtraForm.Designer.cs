@@ -38,6 +38,7 @@
             this.spoolNumberLabel = new DevExpress.XtraEditors.LabelControl();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.length = new DevExpress.XtraEditors.GroupControl();
+            this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
@@ -129,11 +130,20 @@
             this.length.TabIndex = 42;
             this.length.Text = "Length";
             // 
+            // cutButton
+            // 
+            this.cutButton.Location = new System.Drawing.Point(273, 254);
+            this.cutButton.Name = "cutButton";
+            this.cutButton.Size = new System.Drawing.Size(75, 23);
+            this.cutButton.TabIndex = 43;
+            this.cutButton.Text = "Cut";
+            // 
             // SpoolsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 386);
+            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.Controls.Add(this.cutButton);
             this.Controls.Add(this.length);
             this.Controls.Add(this.spoolNumber);
             this.Controls.Add(this.spoolNumberLabel);
@@ -167,5 +177,6 @@
         private DevExpress.XtraEditors.LabelControl spoolNumberLabel;
         private DevExpress.XtraEditors.TextEdit spoolNumber;
         private DevExpress.XtraEditors.GroupControl length;
+        private DevExpress.XtraEditors.SimpleButton cutButton;
     }
 }
