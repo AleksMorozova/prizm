@@ -26,36 +26,14 @@ namespace PrizmMain.Forms
             deliveryDate.Text = "10.09.2014";
             shippedDate.Text = "16.10.2014";
 
-            List<PipesDummy> pipeList = new List<PipesDummy>();
-            PipesDummy pipe1 = new PipesDummy();
-            pipe1.PipeNumber = 1342352;
-            pipe1.Status = "production";
-            pipe1.Size = "1100x20";
-            pipe1.Manufacturer = "Mill 1";
-            pipeList.Add(pipe1);
+            BindingList<PipesDummy> pipeList = new BindingList<PipesDummy>();
+            pipeList.Add(new PipesDummy { PipeNumber = 1342352, Size = "1100x20", Status = "production" });
+            pipeList.Add(new PipesDummy { PipeNumber = 9634626, Size = "1100x20", Status = "production" });
+            pipeList.Add(new PipesDummy { PipeNumber = 2141532, Size = "1100x20", Status = "production" });
+            pipeList.Add(new PipesDummy { PipeNumber = 9634624, Size = "1100x20", Status = "production" });
 
-            PipesDummy pipe2 = new PipesDummy();
-            pipe2.PipeNumber = 1342352;
-            pipe2.Status = "production";
-            pipe2.Size = "1100x20";
-            pipe2.Manufacturer = "Mill 1";
-            pipeList.Add(pipe2);
+            pipesList.DataSource = pipeList;
 
-            PipesDummy pipe3 = new PipesDummy();
-            pipe3.PipeNumber = 1342352;
-            pipe3.Status = "production";
-            pipe3.Size = "1100x20";
-            pipe3.Manufacturer = "Mill 1";
-            pipeList.Add(pipe3);
-
-            PipesDummy pipe4 = new PipesDummy();
-            pipe4.PipeNumber = 1342352;
-            pipe4.Status = "production";
-            pipe4.Size = "1100x20";
-            pipe4.Manufacturer = "Mill 1";
-            pipeList.Add(pipe4);
-
-            pipesList.DataSource = pipesList;
         }
     }
 }
