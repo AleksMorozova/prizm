@@ -30,6 +30,11 @@
         {
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.pipeChemicalComposition = new DevExpress.XtraGrid.GridControl();
+            this.pipeChemicalCompositionGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.elementNamePipeCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.elementQuantityPipeCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipeChemicalCompositionLabel = new DevExpress.XtraEditors.LabelControl();
             this.externalCoatingTeam = new DevExpress.XtraEditors.ComboBoxEdit();
             this.externalCoatingTeamLable = new DevExpress.XtraEditors.LabelControl();
             this.internalCoatingDateLabel = new DevExpress.XtraEditors.LabelControl();
@@ -120,6 +125,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipe)).BeginInit();
             this.pipe.SuspendLayout();
             this.generalParametersPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties)).BeginInit();
@@ -182,7 +189,7 @@
             this.pipe.Location = new System.Drawing.Point(2, 106);
             this.pipe.Name = "pipe";
             this.pipe.SelectedTabPage = this.generalParametersPage;
-            this.pipe.Size = new System.Drawing.Size(720, 315);
+            this.pipe.Size = new System.Drawing.Size(938, 341);
             this.pipe.TabIndex = 0;
             this.pipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParametersPage,
@@ -193,6 +200,8 @@
             // 
             // generalParametersPage
             // 
+            this.generalParametersPage.Controls.Add(this.pipeChemicalComposition);
+            this.generalParametersPage.Controls.Add(this.pipeChemicalCompositionLabel);
             this.generalParametersPage.Controls.Add(this.externalCoatingTeam);
             this.generalParametersPage.Controls.Add(this.externalCoatingTeamLable);
             this.generalParametersPage.Controls.Add(this.internalCoatingDateLabel);
@@ -207,8 +216,49 @@
             this.generalParametersPage.Controls.Add(this.weldingDateLabel);
             this.generalParametersPage.Controls.Add(this.weldingDate);
             this.generalParametersPage.Name = "generalParametersPage";
-            this.generalParametersPage.Size = new System.Drawing.Size(714, 287);
+            this.generalParametersPage.Size = new System.Drawing.Size(932, 313);
             this.generalParametersPage.Text = "&General parameters";
+            // 
+            // pipeChemicalComposition
+            // 
+            this.pipeChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pipeChemicalComposition.Location = new System.Drawing.Point(20, 170);
+            this.pipeChemicalComposition.MainView = this.pipeChemicalCompositionGridView;
+            this.pipeChemicalComposition.Name = "pipeChemicalComposition";
+            this.pipeChemicalComposition.Size = new System.Drawing.Size(369, 130);
+            this.pipeChemicalComposition.TabIndex = 36;
+            this.pipeChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pipeChemicalCompositionGridView});
+            // 
+            // pipeChemicalCompositionGridView
+            // 
+            this.pipeChemicalCompositionGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.elementNamePipeCompositionGridColumn,
+            this.elementQuantityPipeCompositionGridColumn});
+            this.pipeChemicalCompositionGridView.GridControl = this.pipeChemicalComposition;
+            this.pipeChemicalCompositionGridView.Name = "pipeChemicalCompositionGridView";
+            // 
+            // elementNamePipeCompositionGridColumn
+            // 
+            this.elementNamePipeCompositionGridColumn.Caption = "Name";
+            this.elementNamePipeCompositionGridColumn.Name = "elementNamePipeCompositionGridColumn";
+            this.elementNamePipeCompositionGridColumn.Visible = true;
+            this.elementNamePipeCompositionGridColumn.VisibleIndex = 0;
+            // 
+            // elementQuantityPipeCompositionGridColumn
+            // 
+            this.elementQuantityPipeCompositionGridColumn.Caption = "Quantity";
+            this.elementQuantityPipeCompositionGridColumn.Name = "elementQuantityPipeCompositionGridColumn";
+            this.elementQuantityPipeCompositionGridColumn.Visible = true;
+            this.elementQuantityPipeCompositionGridColumn.VisibleIndex = 1;
+            // 
+            // pipeChemicalCompositionLabel
+            // 
+            this.pipeChemicalCompositionLabel.Location = new System.Drawing.Point(20, 151);
+            this.pipeChemicalCompositionLabel.Name = "pipeChemicalCompositionLabel";
+            this.pipeChemicalCompositionLabel.Size = new System.Drawing.Size(101, 13);
+            this.pipeChemicalCompositionLabel.TabIndex = 35;
+            this.pipeChemicalCompositionLabel.Text = "Chemical composition";
             // 
             // externalCoatingTeam
             // 
@@ -317,37 +367,37 @@
             this.geometricParameters.Controls.Add(this.millThickness);
             this.geometricParameters.Controls.Add(this.lengthLabel);
             this.geometricParameters.Controls.Add(this.millLength);
-            this.geometricParameters.Location = new System.Drawing.Point(20, 160);
+            this.geometricParameters.Location = new System.Drawing.Point(421, 9);
             this.geometricParameters.Name = "geometricParameters";
-            this.geometricParameters.Size = new System.Drawing.Size(542, 108);
+            this.geometricParameters.Size = new System.Drawing.Size(302, 159);
             this.geometricParameters.TabIndex = 24;
             this.geometricParameters.Text = "Geometric parameters of the pipe";
             // 
             // inspectionDiameter
             // 
-            this.inspectionDiameter.Location = new System.Drawing.Point(345, 81);
+            this.inspectionDiameter.Location = new System.Drawing.Point(181, 101);
             this.inspectionDiameter.Name = "inspectionDiameter";
             this.inspectionDiameter.Size = new System.Drawing.Size(73, 20);
             this.inspectionDiameter.TabIndex = 25;
             // 
             // millDiameter
             // 
-            this.millDiameter.Location = new System.Drawing.Point(345, 49);
+            this.millDiameter.Location = new System.Drawing.Point(87, 101);
             this.millDiameter.Name = "millDiameter";
             this.millDiameter.Size = new System.Drawing.Size(73, 20);
             this.millDiameter.TabIndex = 25;
             // 
             // diameterLabel
             // 
-            this.diameterLabel.Location = new System.Drawing.Point(345, 23);
+            this.diameterLabel.Location = new System.Drawing.Point(5, 101);
             this.diameterLabel.Name = "diameterLabel";
-            this.diameterLabel.Size = new System.Drawing.Size(43, 13);
+            this.diameterLabel.Size = new System.Drawing.Size(58, 13);
             this.diameterLabel.TabIndex = 24;
-            this.diameterLabel.Text = "Diameter";
+            this.diameterLabel.Text = "Diameter, m";
             // 
             // millGeometricParamLabel
             // 
-            this.millGeometricParamLabel.Location = new System.Drawing.Point(8, 52);
+            this.millGeometricParamLabel.Location = new System.Drawing.Point(87, 26);
             this.millGeometricParamLabel.Name = "millGeometricParamLabel";
             this.millGeometricParamLabel.Size = new System.Drawing.Size(14, 13);
             this.millGeometricParamLabel.TabIndex = 19;
@@ -355,29 +405,29 @@
             // 
             // inspectionThickness
             // 
-            this.inspectionThickness.Location = new System.Drawing.Point(233, 81);
+            this.inspectionThickness.Location = new System.Drawing.Point(181, 74);
             this.inspectionThickness.Name = "inspectionThickness";
             this.inspectionThickness.Size = new System.Drawing.Size(73, 20);
             this.inspectionThickness.TabIndex = 17;
             // 
             // weightLabel
             // 
-            this.weightLabel.Location = new System.Drawing.Point(438, 23);
+            this.weightLabel.Location = new System.Drawing.Point(8, 132);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(34, 13);
+            this.weightLabel.Size = new System.Drawing.Size(52, 13);
             this.weightLabel.TabIndex = 23;
-            this.weightLabel.Text = "Weight";
+            this.weightLabel.Text = "Weight, kg";
             // 
             // millWeight
             // 
-            this.millWeight.Location = new System.Drawing.Point(438, 49);
+            this.millWeight.Location = new System.Drawing.Point(87, 128);
             this.millWeight.Name = "millWeight";
             this.millWeight.Size = new System.Drawing.Size(73, 20);
             this.millWeight.TabIndex = 15;
             // 
             // inspectionGeometricParamLabel
             // 
-            this.inspectionGeometricParamLabel.Location = new System.Drawing.Point(8, 84);
+            this.inspectionGeometricParamLabel.Location = new System.Drawing.Point(181, 27);
             this.inspectionGeometricParamLabel.Name = "inspectionGeometricParamLabel";
             this.inspectionGeometricParamLabel.Size = new System.Drawing.Size(102, 13);
             this.inspectionGeometricParamLabel.TabIndex = 20;
@@ -385,44 +435,44 @@
             // 
             // inspectionWeight
             // 
-            this.inspectionWeight.Location = new System.Drawing.Point(438, 81);
+            this.inspectionWeight.Location = new System.Drawing.Point(181, 128);
             this.inspectionWeight.Name = "inspectionWeight";
             this.inspectionWeight.Size = new System.Drawing.Size(73, 20);
             this.inspectionWeight.TabIndex = 18;
             // 
             // inspectionLength
             // 
-            this.inspectionLength.Location = new System.Drawing.Point(126, 81);
+            this.inspectionLength.Location = new System.Drawing.Point(181, 46);
             this.inspectionLength.Name = "inspectionLength";
             this.inspectionLength.Size = new System.Drawing.Size(73, 20);
             this.inspectionLength.TabIndex = 16;
             // 
             // thicknessLabel
             // 
-            this.thicknessLabel.Location = new System.Drawing.Point(233, 23);
+            this.thicknessLabel.Location = new System.Drawing.Point(8, 46);
             this.thicknessLabel.Name = "thicknessLabel";
-            this.thicknessLabel.Size = new System.Drawing.Size(46, 13);
+            this.thicknessLabel.Size = new System.Drawing.Size(61, 13);
             this.thicknessLabel.TabIndex = 22;
-            this.thicknessLabel.Text = "Thickness";
+            this.thicknessLabel.Text = "Thickness, m";
             // 
             // millThickness
             // 
-            this.millThickness.Location = new System.Drawing.Point(233, 49);
+            this.millThickness.Location = new System.Drawing.Point(87, 75);
             this.millThickness.Name = "millThickness";
             this.millThickness.Size = new System.Drawing.Size(73, 20);
             this.millThickness.TabIndex = 14;
             // 
             // lengthLabel
             // 
-            this.lengthLabel.Location = new System.Drawing.Point(126, 23);
+            this.lengthLabel.Location = new System.Drawing.Point(8, 74);
             this.lengthLabel.Name = "lengthLabel";
-            this.lengthLabel.Size = new System.Drawing.Size(33, 13);
+            this.lengthLabel.Size = new System.Drawing.Size(48, 13);
             this.lengthLabel.TabIndex = 21;
-            this.lengthLabel.Text = "Length";
+            this.lengthLabel.Text = "Length, m";
             // 
             // millLength
             // 
-            this.millLength.Location = new System.Drawing.Point(126, 49);
+            this.millLength.Location = new System.Drawing.Point(87, 46);
             this.millLength.Name = "millLength";
             this.millLength.Size = new System.Drawing.Size(73, 20);
             this.millLength.TabIndex = 13;
@@ -451,7 +501,7 @@
             // 
             this.heatParametrsPage.Controls.Add(this.splitContainerChemicalComposition);
             this.heatParametrsPage.Name = "heatParametrsPage";
-            this.heatParametrsPage.Size = new System.Drawing.Size(714, 287);
+            this.heatParametrsPage.Size = new System.Drawing.Size(932, 313);
             this.heatParametrsPage.Text = "&Heat parameters";
             // 
             // splitContainerChemicalComposition
@@ -465,8 +515,8 @@
             this.splitContainerChemicalComposition.Panel2.Controls.Add(this.ladelMechanicalProperties);
             this.splitContainerChemicalComposition.Panel2.Controls.Add(this.ladelMechanicalPropertiesLabel);
             this.splitContainerChemicalComposition.Panel2.Text = "Panel2";
-            this.splitContainerChemicalComposition.Size = new System.Drawing.Size(702, 257);
-            this.splitContainerChemicalComposition.SplitterPosition = 350;
+            this.splitContainerChemicalComposition.Size = new System.Drawing.Size(917, 261);
+            this.splitContainerChemicalComposition.SplitterPosition = 458;
             this.splitContainerChemicalComposition.TabIndex = 22;
             this.splitContainerChemicalComposition.Text = "splitContainerControl1";
             // 
@@ -480,11 +530,14 @@
             // 
             // ladleChemicalComposition
             // 
+            this.ladleChemicalComposition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ladleChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
             this.ladleChemicalComposition.Location = new System.Drawing.Point(10, 19);
             this.ladleChemicalComposition.MainView = this.ladleChemicalCompositionView;
             this.ladleChemicalComposition.Name = "ladleChemicalComposition";
-            this.ladleChemicalComposition.Size = new System.Drawing.Size(326, 235);
+            this.ladleChemicalComposition.Size = new System.Drawing.Size(444, 235);
             this.ladleChemicalComposition.TabIndex = 2;
             this.ladleChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ladleChemicalCompositionView});
@@ -513,11 +566,14 @@
             // 
             // ladelMechanicalProperties
             // 
+            this.ladelMechanicalProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ladelMechanicalProperties.Cursor = System.Windows.Forms.Cursors.Default;
             this.ladelMechanicalProperties.Location = new System.Drawing.Point(14, 19);
             this.ladelMechanicalProperties.MainView = this.ladelMechanicalPropertiesGridView;
             this.ladelMechanicalProperties.Name = "ladelMechanicalProperties";
-            this.ladelMechanicalProperties.Size = new System.Drawing.Size(326, 235);
+            this.ladelMechanicalProperties.Size = new System.Drawing.Size(437, 235);
             this.ladelMechanicalProperties.TabIndex = 1;
             this.ladelMechanicalProperties.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ladelMechanicalPropertiesGridView});
@@ -549,7 +605,7 @@
             this.plateParametersPage.Controls.Add(this.plateManufacturer);
             this.plateParametersPage.Controls.Add(this.plateManufacturerLabel);
             this.plateParametersPage.Name = "plateParametersPage";
-            this.plateParametersPage.Size = new System.Drawing.Size(714, 287);
+            this.plateParametersPage.Size = new System.Drawing.Size(932, 313);
             this.plateParametersPage.Text = "P&late parameters";
             // 
             // splitContainerControl1
@@ -563,18 +619,21 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.tensileTests);
             this.splitContainerControl1.Panel2.Controls.Add(this.tensileTestsLable);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(673, 158);
-            this.splitContainerControl1.SplitterPosition = 337;
+            this.splitContainerControl1.Size = new System.Drawing.Size(906, 180);
+            this.splitContainerControl1.SplitterPosition = 454;
             this.splitContainerControl1.TabIndex = 21;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
             // plateChemicalComposition
             // 
+            this.plateChemicalComposition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.plateChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
             this.plateChemicalComposition.Location = new System.Drawing.Point(3, 19);
             this.plateChemicalComposition.MainView = this.plateChemicalCompositionView;
             this.plateChemicalComposition.Name = "plateChemicalComposition";
-            this.plateChemicalComposition.Size = new System.Drawing.Size(327, 118);
+            this.plateChemicalComposition.Size = new System.Drawing.Size(444, 158);
             this.plateChemicalComposition.TabIndex = 20;
             this.plateChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateChemicalCompositionView});
@@ -611,11 +670,14 @@
             // 
             // tensileTests
             // 
+            this.tensileTests.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tensileTests.Cursor = System.Windows.Forms.Cursors.Default;
             this.tensileTests.Location = new System.Drawing.Point(3, 19);
             this.tensileTests.MainView = this.tensileTestsGridView;
             this.tensileTests.Name = "tensileTests";
-            this.tensileTests.Size = new System.Drawing.Size(327, 115);
+            this.tensileTests.Size = new System.Drawing.Size(441, 158);
             this.tensileTests.TabIndex = 1;
             this.tensileTests.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tensileTestsGridView});
@@ -720,7 +782,7 @@
             // inspectionPage
             // 
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(714, 287);
+            this.inspectionPage.Size = new System.Drawing.Size(932, 313);
             this.inspectionPage.Text = "&Inspection operations";
             // 
             // deliveryParametersPage
@@ -740,7 +802,7 @@
             this.deliveryParametersPage.Controls.Add(this.railcarNumberLabel);
             this.deliveryParametersPage.Controls.Add(this.deliveryDateLabel);
             this.deliveryParametersPage.Name = "deliveryParametersPage";
-            this.deliveryParametersPage.Size = new System.Drawing.Size(714, 287);
+            this.deliveryParametersPage.Size = new System.Drawing.Size(932, 313);
             this.deliveryParametersPage.Text = "&Delivery parameters";
             // 
             // purchaseOrder
@@ -982,7 +1044,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(725, 425);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.ControlBox = false;
             this.Controls.Add(this.pipeCreationDate);
             this.Controls.Add(this.pipeCreationDateLabel);
@@ -1006,6 +1068,8 @@
             this.pipe.ResumeLayout(false);
             this.generalParametersPage.ResumeLayout(false);
             this.generalParametersPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties)).EndInit();
@@ -1160,5 +1224,10 @@
         private DevExpress.XtraEditors.LabelControl tensileTestsLable;
         private DevExpress.XtraEditors.LabelControl pipeCreationDateLabel;
         private DevExpress.XtraEditors.DateEdit pipeCreationDate;
+        private DevExpress.XtraGrid.GridControl pipeChemicalComposition;
+        private DevExpress.XtraGrid.Views.Grid.GridView pipeChemicalCompositionGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn elementNamePipeCompositionGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn elementQuantityPipeCompositionGridColumn;
+        private DevExpress.XtraEditors.LabelControl pipeChemicalCompositionLabel;
     }
 }

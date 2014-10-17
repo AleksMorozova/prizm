@@ -38,6 +38,9 @@
             this.railcarNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipeStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.deliveryDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.shippedDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.deliveryDate = new DevExpress.XtraEditors.DateEdit();
@@ -72,7 +75,7 @@
             // 
             // clientLabel
             // 
-            this.clientLabel.Location = new System.Drawing.Point(187, 68);
+            this.clientLabel.Location = new System.Drawing.Point(214, 68);
             this.clientLabel.Name = "clientLabel";
             this.clientLabel.Size = new System.Drawing.Size(27, 13);
             this.clientLabel.TabIndex = 1;
@@ -84,21 +87,21 @@
             this.designer.Name = "designer";
             this.designer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.designer.Size = new System.Drawing.Size(138, 20);
+            this.designer.Size = new System.Drawing.Size(167, 20);
             this.designer.TabIndex = 2;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(187, 87);
+            this.client.Location = new System.Drawing.Point(214, 87);
             this.client.Name = "client";
             this.client.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.client.Size = new System.Drawing.Size(138, 20);
+            this.client.Size = new System.Drawing.Size(167, 20);
             this.client.TabIndex = 3;
             // 
             // purchaseOrderLabel
             // 
-            this.purchaseOrderLabel.Location = new System.Drawing.Point(357, 68);
+            this.purchaseOrderLabel.Location = new System.Drawing.Point(591, 14);
             this.purchaseOrderLabel.Name = "purchaseOrderLabel";
             this.purchaseOrderLabel.Size = new System.Drawing.Size(73, 13);
             this.purchaseOrderLabel.TabIndex = 4;
@@ -106,7 +109,7 @@
             // 
             // purchaseOrder
             // 
-            this.purchaseOrder.Location = new System.Drawing.Point(357, 87);
+            this.purchaseOrder.Location = new System.Drawing.Point(591, 33);
             this.purchaseOrder.Name = "purchaseOrder";
             this.purchaseOrder.Size = new System.Drawing.Size(132, 20);
             this.purchaseOrder.TabIndex = 5;
@@ -131,22 +134,51 @@
             // pipesList
             // 
             this.pipesList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipesList.Location = new System.Drawing.Point(12, 177);
+            this.pipesList.Location = new System.Drawing.Point(12, 130);
             this.pipesList.MainView = this.pipesListView;
             this.pipesList.Name = "pipesList";
-            this.pipesList.Size = new System.Drawing.Size(685, 159);
+            this.pipesList.Size = new System.Drawing.Size(916, 261);
             this.pipesList.TabIndex = 8;
             this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesListView});
             // 
             // pipesListView
             // 
+            this.pipesListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.pipeNumberGridColumn,
+            this.pipeSizeGridColumn,
+            this.pipeStatusGridColumn});
             this.pipesListView.GridControl = this.pipesList;
             this.pipesListView.Name = "pipesListView";
+            this.pipesListView.OptionsView.ShowGroupPanel = false;
+            // 
+            // pipeNumberGridColumn
+            // 
+            this.pipeNumberGridColumn.Caption = "Pipe number";
+            this.pipeNumberGridColumn.FieldName = "PipeNumber";
+            this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
+            this.pipeNumberGridColumn.Visible = true;
+            this.pipeNumberGridColumn.VisibleIndex = 0;
+            // 
+            // pipeSizeGridColumn
+            // 
+            this.pipeSizeGridColumn.Caption = "Size";
+            this.pipeSizeGridColumn.FieldName = "Size";
+            this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
+            this.pipeSizeGridColumn.Visible = true;
+            this.pipeSizeGridColumn.VisibleIndex = 1;
+            // 
+            // pipeStatusGridColumn
+            // 
+            this.pipeStatusGridColumn.Caption = "Status";
+            this.pipeStatusGridColumn.FieldName = "Status";
+            this.pipeStatusGridColumn.Name = "pipeStatusGridColumn";
+            this.pipeStatusGridColumn.Visible = true;
+            this.pipeStatusGridColumn.VisibleIndex = 2;
             // 
             // deliveryDateLabel
             // 
-            this.deliveryDateLabel.Location = new System.Drawing.Point(12, 121);
+            this.deliveryDateLabel.Location = new System.Drawing.Point(591, 68);
             this.deliveryDateLabel.Name = "deliveryDateLabel";
             this.deliveryDateLabel.Size = new System.Drawing.Size(64, 13);
             this.deliveryDateLabel.TabIndex = 9;
@@ -154,7 +186,7 @@
             // 
             // shippedDateLabel
             // 
-            this.shippedDateLabel.Location = new System.Drawing.Point(187, 121);
+            this.shippedDateLabel.Location = new System.Drawing.Point(416, 68);
             this.shippedDateLabel.Name = "shippedDateLabel";
             this.shippedDateLabel.Size = new System.Drawing.Size(65, 13);
             this.shippedDateLabel.TabIndex = 10;
@@ -163,7 +195,7 @@
             // deliveryDate
             // 
             this.deliveryDate.EditValue = null;
-            this.deliveryDate.Location = new System.Drawing.Point(12, 140);
+            this.deliveryDate.Location = new System.Drawing.Point(591, 87);
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -175,7 +207,7 @@
             // shippedDate
             // 
             this.shippedDate.EditValue = null;
-            this.shippedDate.Location = new System.Drawing.Point(187, 140);
+            this.shippedDate.Location = new System.Drawing.Point(416, 87);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -196,12 +228,12 @@
             // 
             this.certificateNumber.Location = new System.Drawing.Point(116, 33);
             this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(289, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(265, 20);
             this.certificateNumber.TabIndex = 14;
             // 
             // unshipButton
             // 
-            this.unshipButton.Location = new System.Drawing.Point(519, 351);
+            this.unshipButton.Location = new System.Drawing.Point(750, 404);
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.Size = new System.Drawing.Size(75, 23);
             this.unshipButton.TabIndex = 15;
@@ -209,7 +241,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(622, 351);
+            this.saveButton.Location = new System.Drawing.Point(853, 404);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 16;
@@ -217,7 +249,7 @@
             // 
             // pipeSizeLabel
             // 
-            this.pipeSizeLabel.Location = new System.Drawing.Point(439, 14);
+            this.pipeSizeLabel.Location = new System.Drawing.Point(416, 14);
             this.pipeSizeLabel.Name = "pipeSizeLabel";
             this.pipeSizeLabel.Size = new System.Drawing.Size(41, 13);
             this.pipeSizeLabel.TabIndex = 17;
@@ -225,18 +257,18 @@
             // 
             // pipeSize
             // 
-            this.pipeSize.Location = new System.Drawing.Point(439, 33);
+            this.pipeSize.Location = new System.Drawing.Point(416, 33);
             this.pipeSize.Name = "pipeSize";
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeSize.Size = new System.Drawing.Size(118, 20);
+            this.pipeSize.Size = new System.Drawing.Size(138, 20);
             this.pipeSize.TabIndex = 18;
             // 
             // RailcarNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 386);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.ControlBox = false;
             this.Controls.Add(this.pipeSize);
             this.Controls.Add(this.pipeSizeLabel);
@@ -299,5 +331,8 @@
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.LabelControl pipeSizeLabel;
         private DevExpress.XtraEditors.ComboBoxEdit pipeSize;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeSizeGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeStatusGridColumn;
     }
 }

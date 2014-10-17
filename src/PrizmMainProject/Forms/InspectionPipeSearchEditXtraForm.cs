@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 
 namespace PrizmMain.Forms
 {
@@ -29,6 +30,15 @@ namespace PrizmMain.Forms
             inspectionDiameter.Text = "20";
             inspectionWeight.Text = "3";
             inspectionHeatNumber.Text = "142526";
+
+
+            // Create five items.
+            object[] itemValues = new object[] { 0, 1, 2};
+            string[] itemDescriptions = new string[] { "Aceepted", "Hold", "Rejected"};
+            for (int i = 0; i < itemValues.Length; i++)
+            {
+                inspectionResult.Properties.Items.Add(new RadioGroupItem(itemValues[i], itemDescriptions[i]));
+            }
         }
     }
 }
