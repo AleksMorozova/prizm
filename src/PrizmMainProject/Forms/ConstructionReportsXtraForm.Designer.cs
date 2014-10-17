@@ -137,7 +137,7 @@
             this.previewReportDocument.IsMetric = false;
             this.previewReportDocument.Location = new System.Drawing.Point(0, 71);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(900, 379);
+            this.previewReportDocument.Size = new System.Drawing.Size(940, 379);
             this.previewReportDocument.TabIndex = 56;
             // 
             // countPoints
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 450);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.countPoints);
             this.Controls.Add(this.reportType);
             this.Controls.Add(this.reportTypeLabel);
@@ -170,6 +170,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
             this.Text = "Construction reports";
+            this.Load += new System.EventHandler(this.ConstructionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.from.Properties)).EndInit();

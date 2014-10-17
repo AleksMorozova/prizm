@@ -73,7 +73,7 @@
             this.railcarList.Location = new System.Drawing.Point(12, 124);
             this.railcarList.MainView = this.railcarListView;
             this.railcarList.Name = "railcarList";
-            this.railcarList.Size = new System.Drawing.Size(860, 278);
+            this.railcarList.Size = new System.Drawing.Size(916, 278);
             this.railcarList.TabIndex = 1;
             this.railcarList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.railcarListView});
@@ -126,7 +126,7 @@
             // 
             // shipButton
             // 
-            this.shipButton.Location = new System.Drawing.Point(797, 410);
+            this.shipButton.Location = new System.Drawing.Point(853, 408);
             this.shipButton.Name = "shipButton";
             this.shipButton.Size = new System.Drawing.Size(75, 23);
             this.shipButton.TabIndex = 3;
@@ -134,7 +134,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(797, 82);
+            this.searchButton.Location = new System.Drawing.Point(773, 82);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 29;
@@ -282,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 450);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.pipeSize);
             this.Controls.Add(this.pipeSizeLabel);
             this.Controls.Add(this.certificateNumber);
