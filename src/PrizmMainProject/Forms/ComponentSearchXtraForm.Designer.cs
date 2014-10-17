@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.searchResultsGrid = new DevExpress.XtraGrid.GridControl();
+            this.searchResultsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.searchParametersGroup = new DevExpress.XtraEditors.GroupControl();
             this.certificateLabel = new DevExpress.XtraEditors.LabelControl();
             this.TypeLabel = new DevExpress.XtraEditors.LabelControl();
@@ -38,17 +42,9 @@
             this.componentType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
             this.searchResultsGroup = new DevExpress.XtraEditors.GroupControl();
-            this.searchResultsGrid = new DevExpress.XtraGrid.GridControl();
-            this.searchResultsView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.componentNumberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.componentTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.certificateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersGroup)).BeginInit();
             this.searchParametersGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).BeginInit();
@@ -56,10 +52,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGroup)).BeginInit();
             this.searchResultsGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // diameterThicknessSubGrid
+            // 
+            this.diameterThicknessSubGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.diameterColumn,
+            this.thicknessColumn});
+            this.diameterThicknessSubGrid.GridControl = this.searchResultsGrid;
+            this.diameterThicknessSubGrid.Name = "diameterThicknessSubGrid";
+            // 
+            // diameterColumn
+            // 
+            this.diameterColumn.Caption = "Bore diameter";
+            this.diameterColumn.Name = "diameterColumn";
+            this.diameterColumn.Visible = true;
+            this.diameterColumn.VisibleIndex = 0;
+            // 
+            // thicknessColumn
+            // 
+            this.thicknessColumn.Caption = "Wall thickness";
+            this.thicknessColumn.Name = "thicknessColumn";
+            this.thicknessColumn.Visible = true;
+            this.thicknessColumn.VisibleIndex = 1;
+            // 
+            // searchResultsGrid
+            // 
+            this.searchResultsGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchResultsGrid.Location = new System.Drawing.Point(7, 24);
+            this.searchResultsGrid.MainView = this.searchResultsView;
+            this.searchResultsGrid.Name = "searchResultsGrid";
+            this.searchResultsGrid.Size = new System.Drawing.Size(689, 290);
+            this.searchResultsGrid.TabIndex = 7;
+            this.searchResultsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.searchResultsView,
+            this.diameterThicknessSubGrid});
+            // 
+            // searchResultsView
+            // 
+            this.searchResultsView.GridControl = this.searchResultsGrid;
+            this.searchResultsView.Name = "searchResultsView";
+            this.searchResultsView.OptionsView.ShowGroupPanel = false;
             // 
             // searchParametersGroup
             // 
@@ -80,9 +113,9 @@
             // 
             this.certificateLabel.Location = new System.Drawing.Point(378, 30);
             this.certificateLabel.Name = "certificateLabel";
-            this.certificateLabel.Size = new System.Drawing.Size(50, 13);
+            this.certificateLabel.Size = new System.Drawing.Size(89, 13);
             this.certificateLabel.TabIndex = 6;
-            this.certificateLabel.Text = "Certificate";
+            this.certificateLabel.Text = "Certificate number";
             // 
             // TypeLabel
             // 
@@ -140,98 +173,6 @@
             this.searchResultsGroup.TabIndex = 1;
             this.searchResultsGroup.Text = "Search results";
             // 
-            // searchResultsGrid
-            // 
-            this.searchResultsGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode1.LevelTemplate = this.diameterThicknessSubGrid;
-            gridLevelNode1.RelationName = "diameterThicknessGrid";
-            this.searchResultsGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.searchResultsGrid.Location = new System.Drawing.Point(7, 24);
-            this.searchResultsGrid.MainView = this.searchResultsView;
-            this.searchResultsGrid.Name = "searchResultsGrid";
-            this.searchResultsGrid.Size = new System.Drawing.Size(689, 290);
-            this.searchResultsGrid.TabIndex = 7;
-            this.searchResultsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.searchResultsView,
-            this.diameterThicknessSubGrid});
-            // 
-            // searchResultsView
-            // 
-            this.searchResultsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.componentNumberColumn,
-            this.componentTypeColumn,
-            this.certificateColumn,
-            this.inspectionResultColumn,
-            this.inspectorColumn,
-            this.inspectionDateColumn});
-            this.searchResultsView.GridControl = this.searchResultsGrid;
-            this.searchResultsView.Name = "searchResultsView";
-            // 
-            // componentNumberColumn
-            // 
-            this.componentNumberColumn.Caption = "Number";
-            this.componentNumberColumn.Name = "componentNumberColumn";
-            this.componentNumberColumn.Visible = true;
-            this.componentNumberColumn.VisibleIndex = 0;
-            // 
-            // componentTypeColumn
-            // 
-            this.componentTypeColumn.Caption = "Type";
-            this.componentTypeColumn.Name = "componentTypeColumn";
-            this.componentTypeColumn.Visible = true;
-            this.componentTypeColumn.VisibleIndex = 1;
-            // 
-            // certificateColumn
-            // 
-            this.certificateColumn.Caption = "Certificate";
-            this.certificateColumn.Name = "certificateColumn";
-            this.certificateColumn.Visible = true;
-            this.certificateColumn.VisibleIndex = 2;
-            // 
-            // inspectionResultColumn
-            // 
-            this.inspectionResultColumn.Caption = "Inspection result";
-            this.inspectionResultColumn.Name = "inspectionResultColumn";
-            this.inspectionResultColumn.Visible = true;
-            this.inspectionResultColumn.VisibleIndex = 3;
-            // 
-            // inspectorColumn
-            // 
-            this.inspectorColumn.Caption = "Inspector";
-            this.inspectorColumn.Name = "inspectorColumn";
-            this.inspectorColumn.Visible = true;
-            this.inspectorColumn.VisibleIndex = 4;
-            // 
-            // inspectionDateColumn
-            // 
-            this.inspectionDateColumn.Caption = "Inspection date";
-            this.inspectionDateColumn.Name = "inspectionDateColumn";
-            this.inspectionDateColumn.Visible = true;
-            this.inspectionDateColumn.VisibleIndex = 5;
-            // 
-            // diameterThicknessSubGrid
-            // 
-            this.diameterThicknessSubGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.diameterColumn,
-            this.thicknessColumn});
-            this.diameterThicknessSubGrid.GridControl = this.searchResultsGrid;
-            this.diameterThicknessSubGrid.Name = "diameterThicknessSubGrid";
-            // 
-            // diameterColumn
-            // 
-            this.diameterColumn.Caption = "Bore diameter";
-            this.diameterColumn.Name = "diameterColumn";
-            this.diameterColumn.Visible = true;
-            this.diameterColumn.VisibleIndex = 0;
-            // 
-            // thicknessColumn
-            // 
-            this.thicknessColumn.Caption = "Wall thickness";
-            this.thicknessColumn.Name = "thicknessColumn";
-            this.thicknessColumn.Visible = true;
-            this.thicknessColumn.VisibleIndex = 1;
-            // 
             // ComponentSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +183,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
             this.Text = "ComponentSearchXtraForm";
+            ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersGroup)).EndInit();
             this.searchParametersGroup.ResumeLayout(false);
             this.searchParametersGroup.PerformLayout();
@@ -250,9 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGroup)).EndInit();
             this.searchResultsGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,12 +211,6 @@
         private DevExpress.XtraEditors.LabelControl componentNumberLabel;
         private DevExpress.XtraGrid.GridControl searchResultsGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView searchResultsView;
-        private DevExpress.XtraGrid.Columns.GridColumn componentNumberColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn componentTypeColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn certificateColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn inspectionResultColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn inspectionDateColumn;
         private DevExpress.XtraGrid.Views.Grid.GridView diameterThicknessSubGrid;
         private DevExpress.XtraGrid.Columns.GridColumn diameterColumn;
         private DevExpress.XtraGrid.Columns.GridColumn thicknessColumn;

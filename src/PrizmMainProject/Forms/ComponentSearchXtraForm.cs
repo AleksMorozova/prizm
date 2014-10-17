@@ -17,12 +17,26 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
-            //please remove this data in real project
+            //please remove data at this region in real project
             #region demoData
-            componentNumber.Text = "11-22-33";
-            componentType.Text = "Valve";
-            certificate.Text = "certificate";
+            //==============================================================
+            //==============================================================
+
+            componentNumber.Text = PrizmMain.DummyData.ComponentryDummy.componentNumber;
+            certificate.Text = PrizmMain.DummyData.ComponentryDummy.certificate;
+
+            DevExpress.XtraEditors.Controls.ComboBoxItemCollection coll = componentType.Properties.Items;
+
+            PrizmMain.DummyData.ComponentryDummy.FillComboComponentType(coll);
+
+            componentType.SelectedIndex = 2;
+
+            searchResultsGrid.DataSource = PrizmMain.DummyData.ComponentryDummy.GetCmpDummy();
+
+            //==============================================================
+            //==============================================================
             #endregion
+
         }
      }
 }
