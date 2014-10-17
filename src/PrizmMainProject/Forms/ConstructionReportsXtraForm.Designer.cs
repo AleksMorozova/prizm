@@ -180,7 +180,7 @@
             this.Controls.Add(this.previewReportDocument);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
-            this.Text = "ConstructionXtraForm";
+            this.Text = "Construction reports";
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.from.Properties)).EndInit();

@@ -17,15 +17,29 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
-            #region Role Setting
-            // User & Role dummy data init
-            
+            #region User & Role Setting
+            var userDs = new PrizmMain.DummyData.UsersDummy();
+            var userData = userDs.GetDummyUsers();
+            users.DataSource = userData;
+
+            var roleDs = new PrizmMain.DummyData.RolesDummy();
+            var roleData = roleDs.GetRoles();
+            roles.DataSource = roleData;
+
+
             #endregion
 
         }
 
         #region Role Setting
         private void editRoleButton_Click(object sender, EventArgs e)
+        {
+            //TODO: change for normal logic
+            var editForm = new RolesPrivilegeEditXtraForm(false);
+            editForm.ShowDialog();
+        }
+
+        private void roleAddButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
             var editForm = new RolesPrivilegeEditXtraForm();
@@ -37,11 +51,16 @@ namespace PrizmMain.Forms
         private void userEditButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
+            var editUser = new UserInfoXtraForm(false);
+            editUser.ShowDialog();
+        }
+
+        private void userAddButton_Click(object sender, EventArgs e)
+        {
             var editUser = new UserInfoXtraForm();
             editUser.ShowDialog();
         }
         #endregion
-
 
         private void editItem_Click(object sender, EventArgs e)
         {
@@ -49,5 +68,6 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
+        
     }
 }
