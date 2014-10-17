@@ -524,7 +524,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.textEdit1);
             this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Location = new System.Drawing.Point(25, 314);
+            this.panelControl1.Location = new System.Drawing.Point(25, 345);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(365, 43);
             this.panelControl1.TabIndex = 20;
@@ -539,7 +539,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 17);
+            this.labelControl1.Location = new System.Drawing.Point(3, 14);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(172, 13);
             this.labelControl1.TabIndex = 2;
@@ -656,7 +656,7 @@
             // 
             // designLabel
             // 
-            this.designLabel.Location = new System.Drawing.Point(25, 56);
+            this.designLabel.Location = new System.Drawing.Point(383, 22);
             this.designLabel.Name = "designLabel";
             this.designLabel.Size = new System.Drawing.Size(42, 13);
             this.designLabel.TabIndex = 15;
@@ -664,7 +664,7 @@
             // 
             // clientLabel
             // 
-            this.clientLabel.Location = new System.Drawing.Point(25, 20);
+            this.clientLabel.Location = new System.Drawing.Point(25, 22);
             this.clientLabel.Name = "clientLabel";
             this.clientLabel.Size = new System.Drawing.Size(27, 13);
             this.clientLabel.TabIndex = 14;
@@ -672,14 +672,14 @@
             // 
             // design
             // 
-            this.design.Location = new System.Drawing.Point(139, 49);
+            this.design.Location = new System.Drawing.Point(383, 41);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(251, 20);
             this.design.TabIndex = 13;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(139, 13);
+            this.client.Location = new System.Drawing.Point(25, 41);
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.TabIndex = 12;
