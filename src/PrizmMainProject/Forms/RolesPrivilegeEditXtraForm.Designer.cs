@@ -30,12 +30,12 @@
         {
             this.roleLabel = new DevExpress.XtraEditors.LabelControl();
             this.privilegesCheckedList = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.roleEdit = new DevExpress.XtraEditors.TextEdit();
             this.privilegesLabel = new DevExpress.XtraEditors.LabelControl();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.privilegesCheckedList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // roleLabel
@@ -48,27 +48,18 @@
             // 
             // privilegesCheckedList
             // 
-            this.privilegesCheckedList.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can Edit User"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can Edit Role"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can view reports", System.Windows.Forms.CheckState.Checked),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can view mill", System.Windows.Forms.CheckState.Checked),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can edit mill setting"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can edit joint", System.Windows.Forms.CheckState.Checked),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Can view joints", System.Windows.Forms.CheckState.Checked)});
             this.privilegesCheckedList.Location = new System.Drawing.Point(12, 76);
             this.privilegesCheckedList.Name = "privilegesCheckedList";
             this.privilegesCheckedList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.privilegesCheckedList.Size = new System.Drawing.Size(318, 212);
             this.privilegesCheckedList.TabIndex = 10;
             // 
-            // textEdit1
+            // roleEdit
             // 
-            this.textEdit1.Enabled = false;
-            this.textEdit1.Location = new System.Drawing.Point(12, 31);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(318, 20);
-            this.textEdit1.TabIndex = 11;
+            this.roleEdit.Location = new System.Drawing.Point(12, 31);
+            this.roleEdit.Name = "roleEdit";
+            this.roleEdit.Size = new System.Drawing.Size(318, 20);
+            this.roleEdit.TabIndex = 11;
             // 
             // privilegesLabel
             // 
@@ -93,6 +84,7 @@
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // RolesPrivilegeEditXtraForm
             // 
@@ -102,13 +94,13 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.privilegesLabel);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.roleEdit);
             this.Controls.Add(this.privilegesCheckedList);
             this.Controls.Add(this.roleLabel);
             this.Name = "RolesPrivilegeEditXtraForm";
             this.Text = "Edit roles";
             ((System.ComponentModel.ISupportInitialize)(this.privilegesCheckedList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,7 +110,7 @@
 
         private DevExpress.XtraEditors.LabelControl roleLabel;
         private DevExpress.XtraEditors.CheckedListBoxControl privilegesCheckedList;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit roleEdit;
         private DevExpress.XtraEditors.LabelControl privilegesLabel;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
