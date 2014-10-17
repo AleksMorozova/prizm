@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Prizm Demo"
-#define MyAppVersion "0.0.3.4"
+#define MyAppVersion "0.0.0.4"
 #define MyAppPublisher "ISD"
 #define MyAppURL "http://www.isd.dp.ua/"
 #define MyAppExeName "prizm.exe"
@@ -23,7 +23,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=..\install\Relise
-OutputBaseFilename=setup_prism
+OutputBaseFilename=setup_prism_{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 ShowTasksTreeLines=True
@@ -33,6 +33,7 @@ DisableWelcomePage=True
 DisableReadyPage=True
 DisableReadyMemo=True
 MinVersion=0,6.1
+UninstallDisplayIcon={uninstallexe}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -49,6 +50,7 @@ Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
