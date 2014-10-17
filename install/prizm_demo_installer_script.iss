@@ -22,14 +22,17 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=D:\Installs\eula.txt.txt
-OutputDir=D:\Inno\out
+OutputDir=..\install\Relise
 OutputBaseFilename=setup_prism
 Compression=lzma
 SolidCompression=yes
 ShowTasksTreeLines=True
 AlwaysShowDirOnReadyPage=True
 PrivilegesRequired=none
+DisableWelcomePage=True
+DisableReadyPage=True
+DisableReadyMemo=True
+MinVersion=0,6.1
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -39,9 +42,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Publish\prizm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\redistr\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64"; Flags: ignoreversion nocompression
+Source: "..\src\PrizmMainProject\bin\Release\prizm.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\PrizmMainProject\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64"; Flags: ignoreversion nocompression
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
