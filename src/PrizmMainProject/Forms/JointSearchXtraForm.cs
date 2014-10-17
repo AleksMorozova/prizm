@@ -16,6 +16,7 @@ namespace PrizmMain.Forms
         public JointSearchXtraForm()
         {
             InitializeComponent();
+            gridControlSerchResult.DataSource = PrizmMain.DummyData.JointsDummy.GetAllJoints();
         }
     }
 }

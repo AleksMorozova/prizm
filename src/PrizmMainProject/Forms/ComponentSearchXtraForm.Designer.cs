@@ -182,7 +182,7 @@
             this.Controls.Add(this.searchParametersGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
-            this.Text = "ComponentSearchXtraForm";
+            this.Text = "Find components";
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();
