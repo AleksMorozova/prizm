@@ -788,6 +788,7 @@
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
             this.userAddButton.Text = "Add New User";
+            this.userAddButton.Click += new System.EventHandler(this.userAddButton_Click_1);
             // 
             // userEditButton
             // 
