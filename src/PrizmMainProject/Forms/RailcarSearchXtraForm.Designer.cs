@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.railcarNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -35,6 +36,7 @@
             this.shippingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.deliveryDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.openRailcarButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -55,6 +57,7 @@
             this.designerLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.railcarList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -73,6 +76,8 @@
             this.railcarList.Location = new System.Drawing.Point(12, 124);
             this.railcarList.MainView = this.railcarListView;
             this.railcarList.Name = "railcarList";
+            this.railcarList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.openRailcarButton});
             this.railcarList.Size = new System.Drawing.Size(916, 278);
             this.railcarList.TabIndex = 1;
             this.railcarList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -92,6 +97,7 @@
             // railcarNumberGridColumn
             // 
             this.railcarNumberGridColumn.Caption = "Railcar number";
+            this.railcarNumberGridColumn.FieldName = "RailcarNumber";
             this.railcarNumberGridColumn.Name = "railcarNumberGridColumn";
             this.railcarNumberGridColumn.Visible = true;
             this.railcarNumberGridColumn.VisibleIndex = 0;
@@ -99,6 +105,7 @@
             // statusGridColumn
             // 
             this.statusGridColumn.Caption = "Status";
+            this.statusGridColumn.FieldName = "Status";
             this.statusGridColumn.Name = "statusGridColumn";
             this.statusGridColumn.Visible = true;
             this.statusGridColumn.VisibleIndex = 1;
@@ -106,6 +113,7 @@
             // shippingDateGridColumn
             // 
             this.shippingDateGridColumn.Caption = "Shiping date";
+            this.shippingDateGridColumn.FieldName = "ShipingDate";
             this.shippingDateGridColumn.Name = "shippingDateGridColumn";
             this.shippingDateGridColumn.Visible = true;
             this.shippingDateGridColumn.VisibleIndex = 2;
@@ -113,16 +121,26 @@
             // deliveryDateGridColumn
             // 
             this.deliveryDateGridColumn.Caption = "Delivery date";
+            this.deliveryDateGridColumn.FieldName = "DeliveryDate";
             this.deliveryDateGridColumn.Name = "deliveryDateGridColumn";
             this.deliveryDateGridColumn.Visible = true;
             this.deliveryDateGridColumn.VisibleIndex = 3;
             // 
             // editGridColumn
             // 
-            this.editGridColumn.Caption = "Edit";
+            this.editGridColumn.ColumnEdit = this.openRailcarButton;
             this.editGridColumn.Name = "editGridColumn";
             this.editGridColumn.Visible = true;
             this.editGridColumn.VisibleIndex = 4;
+            // 
+            // openRailcarButton
+            // 
+            this.openRailcarButton.AutoHeight = false;
+            this.openRailcarButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "view railcar", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.openRailcarButton.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.openRailcarButton.Name = "openRailcarButton";
+            this.openRailcarButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // shipButton
             // 
@@ -307,6 +325,7 @@
             this.Text = "Find railcars";
             ((System.ComponentModel.ISupportInitialize)(this.railcarList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
@@ -349,5 +368,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit designer;
         private DevExpress.XtraEditors.LabelControl clientLabel;
         private DevExpress.XtraEditors.LabelControl designerLabel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit openRailcarButton;
     }
 }
