@@ -41,6 +41,12 @@ namespace PrizmMain.DummyData
         };
             return users;
         }
+
+        public User GetUser(int id) 
+        {
+            var users = GetDummyUsers();
+            return users[id];
+        }
     }
 
     public class User

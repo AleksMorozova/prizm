@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms
 {
@@ -16,6 +17,24 @@ namespace PrizmMain.Forms
         public UserInfoXtraForm()
         {
             InitializeComponent();
+
+            var repository = new UsersDummy();
+            var user = repository.GetUser(2);
+
+            lastName.Text = user.LastName;
+            firstName.Text = user.FirstName;
+            middleName.Text = user.MiddleName;
+
+            login.Text = user.Login;
+            password.Text = user.Password;
+            confirmPassword.Text = user.Password;
+            userRoleComboBox.Properties.Items.Add(user.Role.Name);
+            userRoleComboBox.SelectedIndex = 0;
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

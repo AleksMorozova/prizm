@@ -9,9 +9,9 @@ namespace PrizmMain.DummyData
 {
     public class RolesDummy
     {
-        public BindingList<Role> GetRoles() 
+        public BindingList<Privilege> GetAllPrivileges() 
         {
-            var priveleges = new BindingList<Privilege>
+            return new BindingList<Privilege>
             {
                 new Privilege{Id=0,Name="millset",Description="Can setup mill"},
                 new Privilege{Id=1,Name="construct",Description="Can setup constructions"},
@@ -25,6 +25,11 @@ namespace PrizmMain.DummyData
                 new Privilege{Id=9,Name="deljoi",Description="Can delete joint"},
                 new Privilege{Id=10,Name="deluser",Description="Can delete user"}
             };
+        }
+
+        public BindingList<Role> GetRoles() 
+        {
+            var priveleges = GetAllPrivileges();
 
             var roles = new BindingList<Role>
             {
@@ -83,6 +88,19 @@ namespace PrizmMain.DummyData
         public string Name { get; set; }
         public string Description { get; set; }
         public IList<Privilege> Privileges { get; set; }
+
+        public bool Equals(Role other)
+        {
+            if (this.Id == other.Id) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 
     public class Privilege
