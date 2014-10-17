@@ -137,7 +137,7 @@
             this.pipesList.Location = new System.Drawing.Point(12, 130);
             this.pipesList.MainView = this.pipesListView;
             this.pipesList.Name = "pipesList";
-            this.pipesList.Size = new System.Drawing.Size(916, 261);
+            this.pipesList.Size = new System.Drawing.Size(858, 261);
             this.pipesList.TabIndex = 8;
             this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesListView});
@@ -150,7 +150,6 @@
             this.pipeStatusGridColumn});
             this.pipesListView.GridControl = this.pipesList;
             this.pipesListView.Name = "pipesListView";
-            this.pipesListView.OptionsView.ShowGroupPanel = false;
             // 
             // pipeNumberGridColumn
             // 
@@ -233,7 +232,7 @@
             // 
             // unshipButton
             // 
-            this.unshipButton.Location = new System.Drawing.Point(750, 404);
+            this.unshipButton.Location = new System.Drawing.Point(692, 409);
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.Size = new System.Drawing.Size(75, 23);
             this.unshipButton.TabIndex = 15;
@@ -241,7 +240,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(853, 404);
+            this.saveButton.Location = new System.Drawing.Point(795, 409);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 16;
@@ -268,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.ClientSize = new System.Drawing.Size(900, 450);
             this.ControlBox = false;
             this.Controls.Add(this.pipeSize);
             this.Controls.Add(this.pipeSizeLabel);

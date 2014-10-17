@@ -23,16 +23,6 @@ namespace PrizmMain.Forms
             {
                 countPoints.Properties.Items.Add(new RadioGroupItem(itemValues[i], itemDescriptions[i]));
             }
-
-           
-
-        }
-
-        private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
-        {
-            reportType.Properties.Items.Add("Report about used products");
-            reportType.Properties.Items.Add("Report about highway");
-            reportType.Properties.Items.Add("Report about pipeline length");
         }
     }
 }

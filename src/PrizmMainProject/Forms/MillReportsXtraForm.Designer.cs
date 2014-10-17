@@ -66,7 +66,7 @@
             this.previewReportDocument.IsMetric = false;
             this.previewReportDocument.Location = new System.Drawing.Point(0, 111);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(940, 339);
+            this.previewReportDocument.Size = new System.Drawing.Size(900, 339);
             this.previewReportDocument.TabIndex = 78;
             // 
             // date
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.ClientSize = new System.Drawing.Size(900, 450);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.previewReportDocument);
             this.Controls.Add(this.date);
