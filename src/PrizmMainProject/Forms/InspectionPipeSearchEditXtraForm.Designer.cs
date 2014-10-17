@@ -42,19 +42,19 @@
             this.inspectionDiameter = new DevExpress.XtraEditors.TextEdit();
             this.millDiameter = new DevExpress.XtraEditors.TextEdit();
             this.diameterLabel = new DevExpress.XtraEditors.LabelControl();
-            this.millGeometricParamLabel = new DevExpress.XtraEditors.LabelControl();
-            this.heatNumberLbel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionHeatNumber = new DevExpress.XtraEditors.TextEdit();
+            this.millGeometricParamLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionThickness = new DevExpress.XtraEditors.TextEdit();
+            this.heatNumberLbel = new DevExpress.XtraEditors.LabelControl();
             this.weightLabel = new DevExpress.XtraEditors.LabelControl();
             this.millWeight = new DevExpress.XtraEditors.TextEdit();
-            this.thicknessLabel = new DevExpress.XtraEditors.LabelControl();
-            this.inspectionThickness = new DevExpress.XtraEditors.TextEdit();
-            this.millThickness = new DevExpress.XtraEditors.TextEdit();
-            this.lengthLabel = new DevExpress.XtraEditors.LabelControl();
-            this.millLength = new DevExpress.XtraEditors.TextEdit();
             this.inspectionGeometricParamLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionWeight = new DevExpress.XtraEditors.TextEdit();
             this.inspectionLength = new DevExpress.XtraEditors.TextEdit();
+            this.thicknessLabel = new DevExpress.XtraEditors.LabelControl();
+            this.millThickness = new DevExpress.XtraEditors.TextEdit();
+            this.lengthLabel = new DevExpress.XtraEditors.LabelControl();
+            this.millLength = new DevExpress.XtraEditors.TextEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeNumberLabel = new DevExpress.XtraEditors.LabelControl();
@@ -73,19 +73,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHeatNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionThickness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // unloadedDate
             // 
             this.unloadedDate.EditValue = null;
-            this.unloadedDate.Location = new System.Drawing.Point(364, 113);
+            this.unloadedDate.Location = new System.Drawing.Point(363, 134);
             this.unloadedDate.Name = "unloadedDate";
             this.unloadedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -96,7 +96,7 @@
             // 
             // unloadedDateLabel
             // 
-            this.unloadedDateLabel.Location = new System.Drawing.Point(364, 94);
+            this.unloadedDateLabel.Location = new System.Drawing.Point(363, 115);
             this.unloadedDateLabel.Name = "unloadedDateLabel";
             this.unloadedDateLabel.Size = new System.Drawing.Size(70, 13);
             this.unloadedDateLabel.TabIndex = 41;
@@ -108,7 +108,7 @@
             this.inspectionResult.Controls.Add(this.rejected);
             this.inspectionResult.Controls.Add(this.hold);
             this.inspectionResult.Controls.Add(this.aceepted);
-            this.inspectionResult.Location = new System.Drawing.Point(364, 148);
+            this.inspectionResult.Location = new System.Drawing.Point(396, 169);
             this.inspectionResult.Name = "inspectionResult";
             this.inspectionResult.Size = new System.Drawing.Size(270, 115);
             this.inspectionResult.TabIndex = 40;
@@ -134,7 +134,7 @@
             // 
             this.hold.Location = new System.Drawing.Point(14, 59);
             this.hold.Name = "hold";
-            this.hold.Properties.Caption = "hold ";
+            this.hold.Properties.Caption = "hold +";
             this.hold.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
             this.hold.Size = new System.Drawing.Size(80, 19);
             this.hold.TabIndex = 1;
@@ -151,14 +151,14 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(27, 113);
+            this.certificateNumber.Location = new System.Drawing.Point(59, 134);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Size = new System.Drawing.Size(279, 20);
             this.certificateNumber.TabIndex = 39;
             // 
             // certificateNumberLabel
             // 
-            this.certificateNumberLabel.Location = new System.Drawing.Point(27, 94);
+            this.certificateNumberLabel.Location = new System.Drawing.Point(59, 115);
             this.certificateNumberLabel.Name = "certificateNumberLabel";
             this.certificateNumberLabel.Size = new System.Drawing.Size(89, 13);
             this.certificateNumberLabel.TabIndex = 38;
@@ -170,20 +170,20 @@
             this.pipeParameters.Controls.Add(this.inspectionDiameter);
             this.pipeParameters.Controls.Add(this.millDiameter);
             this.pipeParameters.Controls.Add(this.diameterLabel);
-            this.pipeParameters.Controls.Add(this.millGeometricParamLabel);
-            this.pipeParameters.Controls.Add(this.heatNumberLbel);
             this.pipeParameters.Controls.Add(this.inspectionHeatNumber);
+            this.pipeParameters.Controls.Add(this.millGeometricParamLabel);
+            this.pipeParameters.Controls.Add(this.inspectionThickness);
+            this.pipeParameters.Controls.Add(this.heatNumberLbel);
             this.pipeParameters.Controls.Add(this.weightLabel);
             this.pipeParameters.Controls.Add(this.millWeight);
-            this.pipeParameters.Controls.Add(this.thicknessLabel);
-            this.pipeParameters.Controls.Add(this.inspectionThickness);
-            this.pipeParameters.Controls.Add(this.millThickness);
-            this.pipeParameters.Controls.Add(this.lengthLabel);
-            this.pipeParameters.Controls.Add(this.millLength);
             this.pipeParameters.Controls.Add(this.inspectionGeometricParamLabel);
             this.pipeParameters.Controls.Add(this.inspectionWeight);
             this.pipeParameters.Controls.Add(this.inspectionLength);
-            this.pipeParameters.Location = new System.Drawing.Point(27, 148);
+            this.pipeParameters.Controls.Add(this.thicknessLabel);
+            this.pipeParameters.Controls.Add(this.millThickness);
+            this.pipeParameters.Controls.Add(this.lengthLabel);
+            this.pipeParameters.Controls.Add(this.millLength);
+            this.pipeParameters.Location = new System.Drawing.Point(59, 169);
             this.pipeParameters.Name = "pipeParameters";
             this.pipeParameters.Size = new System.Drawing.Size(308, 198);
             this.pipeParameters.TabIndex = 37;
@@ -191,7 +191,7 @@
             // 
             // millHeatNumber
             // 
-            this.millHeatNumber.Location = new System.Drawing.Point(221, 166);
+            this.millHeatNumber.Location = new System.Drawing.Point(96, 166);
             this.millHeatNumber.Name = "millHeatNumber";
             this.millHeatNumber.Properties.ReadOnly = true;
             this.millHeatNumber.Size = new System.Drawing.Size(73, 20);
@@ -199,14 +199,14 @@
             // 
             // inspectionDiameter
             // 
-            this.inspectionDiameter.Location = new System.Drawing.Point(98, 110);
+            this.inspectionDiameter.Location = new System.Drawing.Point(194, 110);
             this.inspectionDiameter.Name = "inspectionDiameter";
             this.inspectionDiameter.Size = new System.Drawing.Size(73, 20);
             this.inspectionDiameter.TabIndex = 25;
             // 
             // millDiameter
             // 
-            this.millDiameter.Location = new System.Drawing.Point(221, 110);
+            this.millDiameter.Location = new System.Drawing.Point(96, 110);
             this.millDiameter.Name = "millDiameter";
             this.millDiameter.Properties.ReadOnly = true;
             this.millDiameter.Size = new System.Drawing.Size(73, 20);
@@ -216,17 +216,31 @@
             // 
             this.diameterLabel.Location = new System.Drawing.Point(10, 113);
             this.diameterLabel.Name = "diameterLabel";
-            this.diameterLabel.Size = new System.Drawing.Size(58, 13);
+            this.diameterLabel.Size = new System.Drawing.Size(43, 13);
             this.diameterLabel.TabIndex = 24;
-            this.diameterLabel.Text = "Diameter, m";
+            this.diameterLabel.Text = "Diameter";
+            // 
+            // inspectionHeatNumber
+            // 
+            this.inspectionHeatNumber.Location = new System.Drawing.Point(194, 166);
+            this.inspectionHeatNumber.Name = "inspectionHeatNumber";
+            this.inspectionHeatNumber.Size = new System.Drawing.Size(73, 20);
+            this.inspectionHeatNumber.TabIndex = 29;
             // 
             // millGeometricParamLabel
             // 
-            this.millGeometricParamLabel.Location = new System.Drawing.Point(221, 24);
+            this.millGeometricParamLabel.Location = new System.Drawing.Point(96, 24);
             this.millGeometricParamLabel.Name = "millGeometricParamLabel";
             this.millGeometricParamLabel.Size = new System.Drawing.Size(14, 13);
             this.millGeometricParamLabel.TabIndex = 19;
             this.millGeometricParamLabel.Text = "Mill";
+            // 
+            // inspectionThickness
+            // 
+            this.inspectionThickness.Location = new System.Drawing.Point(194, 79);
+            this.inspectionThickness.Name = "inspectionThickness";
+            this.inspectionThickness.Size = new System.Drawing.Size(73, 20);
+            this.inspectionThickness.TabIndex = 17;
             // 
             // heatNumberLbel
             // 
@@ -236,47 +250,55 @@
             this.heatNumberLbel.TabIndex = 27;
             this.heatNumberLbel.Text = "Heat number";
             // 
-            // inspectionHeatNumber
-            // 
-            this.inspectionHeatNumber.Location = new System.Drawing.Point(98, 166);
-            this.inspectionHeatNumber.Name = "inspectionHeatNumber";
-            this.inspectionHeatNumber.Size = new System.Drawing.Size(73, 20);
-            this.inspectionHeatNumber.TabIndex = 29;
-            // 
             // weightLabel
             // 
             this.weightLabel.Location = new System.Drawing.Point(10, 143);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(52, 13);
+            this.weightLabel.Size = new System.Drawing.Size(34, 13);
             this.weightLabel.TabIndex = 23;
-            this.weightLabel.Text = "Weight, kg";
+            this.weightLabel.Text = "Weight";
             // 
             // millWeight
             // 
-            this.millWeight.Location = new System.Drawing.Point(221, 140);
+            this.millWeight.Location = new System.Drawing.Point(96, 140);
             this.millWeight.Name = "millWeight";
             this.millWeight.Properties.ReadOnly = true;
             this.millWeight.Size = new System.Drawing.Size(73, 20);
             this.millWeight.TabIndex = 15;
             // 
+            // inspectionGeometricParamLabel
+            // 
+            this.inspectionGeometricParamLabel.Location = new System.Drawing.Point(194, 22);
+            this.inspectionGeometricParamLabel.Name = "inspectionGeometricParamLabel";
+            this.inspectionGeometricParamLabel.Size = new System.Drawing.Size(102, 13);
+            this.inspectionGeometricParamLabel.TabIndex = 20;
+            this.inspectionGeometricParamLabel.Text = "Incomming inspection";
+            // 
+            // inspectionWeight
+            // 
+            this.inspectionWeight.Location = new System.Drawing.Point(194, 140);
+            this.inspectionWeight.Name = "inspectionWeight";
+            this.inspectionWeight.Size = new System.Drawing.Size(73, 20);
+            this.inspectionWeight.TabIndex = 18;
+            // 
+            // inspectionLength
+            // 
+            this.inspectionLength.Location = new System.Drawing.Point(194, 47);
+            this.inspectionLength.Name = "inspectionLength";
+            this.inspectionLength.Size = new System.Drawing.Size(73, 20);
+            this.inspectionLength.TabIndex = 16;
+            // 
             // thicknessLabel
             // 
             this.thicknessLabel.Location = new System.Drawing.Point(10, 82);
             this.thicknessLabel.Name = "thicknessLabel";
-            this.thicknessLabel.Size = new System.Drawing.Size(61, 13);
+            this.thicknessLabel.Size = new System.Drawing.Size(46, 13);
             this.thicknessLabel.TabIndex = 22;
-            this.thicknessLabel.Text = "Thickness, m";
-            // 
-            // inspectionThickness
-            // 
-            this.inspectionThickness.Location = new System.Drawing.Point(98, 79);
-            this.inspectionThickness.Name = "inspectionThickness";
-            this.inspectionThickness.Size = new System.Drawing.Size(73, 20);
-            this.inspectionThickness.TabIndex = 17;
+            this.thicknessLabel.Text = "Thickness";
             // 
             // millThickness
             // 
-            this.millThickness.Location = new System.Drawing.Point(221, 79);
+            this.millThickness.Location = new System.Drawing.Point(96, 79);
             this.millThickness.Name = "millThickness";
             this.millThickness.Properties.ReadOnly = true;
             this.millThickness.Size = new System.Drawing.Size(73, 20);
@@ -286,39 +308,17 @@
             // 
             this.lengthLabel.Location = new System.Drawing.Point(10, 50);
             this.lengthLabel.Name = "lengthLabel";
-            this.lengthLabel.Size = new System.Drawing.Size(48, 13);
+            this.lengthLabel.Size = new System.Drawing.Size(33, 13);
             this.lengthLabel.TabIndex = 21;
-            this.lengthLabel.Text = "Length, m";
+            this.lengthLabel.Text = "Length";
             // 
             // millLength
             // 
-            this.millLength.Location = new System.Drawing.Point(221, 47);
+            this.millLength.Location = new System.Drawing.Point(96, 47);
             this.millLength.Name = "millLength";
             this.millLength.Properties.ReadOnly = true;
             this.millLength.Size = new System.Drawing.Size(73, 20);
             this.millLength.TabIndex = 13;
-            // 
-            // inspectionGeometricParamLabel
-            // 
-            this.inspectionGeometricParamLabel.Location = new System.Drawing.Point(98, 24);
-            this.inspectionGeometricParamLabel.Name = "inspectionGeometricParamLabel";
-            this.inspectionGeometricParamLabel.Size = new System.Drawing.Size(102, 13);
-            this.inspectionGeometricParamLabel.TabIndex = 20;
-            this.inspectionGeometricParamLabel.Text = "Incomming inspection";
-            // 
-            // inspectionWeight
-            // 
-            this.inspectionWeight.Location = new System.Drawing.Point(98, 140);
-            this.inspectionWeight.Name = "inspectionWeight";
-            this.inspectionWeight.Size = new System.Drawing.Size(73, 20);
-            this.inspectionWeight.TabIndex = 18;
-            // 
-            // inspectionLength
-            // 
-            this.inspectionLength.Location = new System.Drawing.Point(98, 47);
-            this.inspectionLength.Name = "inspectionLength";
-            this.inspectionLength.Size = new System.Drawing.Size(73, 20);
-            this.inspectionLength.TabIndex = 16;
             // 
             // searchButton
             // 
@@ -378,12 +378,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHeatNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionThickness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

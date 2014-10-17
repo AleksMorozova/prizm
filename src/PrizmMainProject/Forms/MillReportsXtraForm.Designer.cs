@@ -66,7 +66,7 @@
             this.previewReportDocument.IsMetric = false;
             this.previewReportDocument.Location = new System.Drawing.Point(0, 111);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(725, 314);
+            this.previewReportDocument.Size = new System.Drawing.Size(709, 275);
             this.previewReportDocument.TabIndex = 78;
             // 
             // date
@@ -88,7 +88,6 @@
             this.previewButton.Size = new System.Drawing.Size(73, 23);
             this.previewButton.TabIndex = 76;
             this.previewButton.Text = "Preview";
-            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
             // createReportButton
             // 
@@ -97,7 +96,6 @@
             this.createReportButton.Size = new System.Drawing.Size(75, 23);
             this.createReportButton.TabIndex = 75;
             this.createReportButton.Text = "Create report";
-            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
             // 
             // millStatus
             // 
@@ -186,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 425);
+            this.ClientSize = new System.Drawing.Size(709, 386);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.previewReportDocument);
             this.Controls.Add(this.date);
@@ -220,6 +218,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl dateLabel;
+        private DevExpress.XtraPrinting.Preview.DocumentViewer previewReportDocument;
         private DevExpress.XtraEditors.DateEdit date;
         private DevExpress.XtraEditors.SimpleButton previewButton;
         private DevExpress.XtraEditors.SimpleButton createReportButton;
@@ -233,6 +232,5 @@
         private DevExpress.XtraEditors.ComboBoxEdit weldingTeam;
         private DevExpress.XtraEditors.LabelControl weldingTeamLabel;
         private DevExpress.XtraEditors.LabelControl heatNumberLabel;
-        public DevExpress.XtraPrinting.Preview.DocumentViewer previewReportDocument;
     }
 }

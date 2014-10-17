@@ -146,7 +146,7 @@
             // 
             // deliveryDateLabel
             // 
-            this.deliveryDateLabel.Location = new System.Drawing.Point(187, 113);
+            this.deliveryDateLabel.Location = new System.Drawing.Point(12, 121);
             this.deliveryDateLabel.Name = "deliveryDateLabel";
             this.deliveryDateLabel.Size = new System.Drawing.Size(64, 13);
             this.deliveryDateLabel.TabIndex = 9;
@@ -154,7 +154,7 @@
             // 
             // shippedDateLabel
             // 
-            this.shippedDateLabel.Location = new System.Drawing.Point(12, 113);
+            this.shippedDateLabel.Location = new System.Drawing.Point(187, 121);
             this.shippedDateLabel.Name = "shippedDateLabel";
             this.shippedDateLabel.Size = new System.Drawing.Size(65, 13);
             this.shippedDateLabel.TabIndex = 10;
@@ -163,7 +163,7 @@
             // deliveryDate
             // 
             this.deliveryDate.EditValue = null;
-            this.deliveryDate.Location = new System.Drawing.Point(187, 132);
+            this.deliveryDate.Location = new System.Drawing.Point(12, 140);
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -175,7 +175,7 @@
             // shippedDate
             // 
             this.shippedDate.EditValue = null;
-            this.shippedDate.Location = new System.Drawing.Point(12, 132);
+            this.shippedDate.Location = new System.Drawing.Point(187, 140);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
