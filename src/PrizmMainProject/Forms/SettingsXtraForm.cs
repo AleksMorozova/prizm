@@ -35,6 +35,13 @@ namespace PrizmMain.Forms
         private void editRoleButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
+            var editForm = new RolesPrivilegeEditXtraForm(false);
+            editForm.ShowDialog();
+        }
+
+        private void roleAddButton_Click(object sender, EventArgs e)
+        {
+            //TODO: change for normal logic
             var editForm = new RolesPrivilegeEditXtraForm();
             editForm.ShowDialog();
         }
@@ -44,11 +51,16 @@ namespace PrizmMain.Forms
         private void userEditButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
+            var editUser = new UserInfoXtraForm(false);
+            editUser.ShowDialog();
+        }
+
+        private void userAddButton_Click(object sender, EventArgs e)
+        {
             var editUser = new UserInfoXtraForm();
             editUser.ShowDialog();
         }
         #endregion
-
 
         private void editItem_Click(object sender, EventArgs e)
         {
@@ -56,5 +68,6 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
+        
     }
 }

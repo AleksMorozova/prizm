@@ -884,6 +884,8 @@
             // 
             // users
             // 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.users.Cursor = System.Windows.Forms.Cursors.Default;
             this.users.DataSource = this.userBindingSource;
             this.users.Location = new System.Drawing.Point(11, 37);
@@ -953,15 +955,14 @@
             // 
             this.colPassword.FieldName = "Password";
             this.colPassword.Name = "colPassword";
-            this.colPassword.Visible = true;
-            this.colPassword.VisibleIndex = 5;
             // 
             // colRole
             // 
+            this.colRole.Caption = "Role";
             this.colRole.FieldName = "Role.Name";
             this.colRole.Name = "colRole";
             this.colRole.Visible = true;
-            this.colRole.VisibleIndex = 6;
+            this.colRole.VisibleIndex = 5;
             // 
             // userAddButton
             // 
@@ -970,6 +971,7 @@
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
             this.userAddButton.Text = "Add New User";
+            this.userAddButton.Click += new System.EventHandler(this.userAddButton_Click);
             // 
             // userEditButton
             // 
@@ -1000,6 +1002,8 @@
             // 
             // roles
             // 
+            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.roles.Cursor = System.Windows.Forms.Cursors.Default;
             this.roles.DataSource = this.roleBindingSource;
             this.roles.Location = new System.Drawing.Point(11, 37);
@@ -1054,6 +1058,7 @@
             this.roleAddButton.Size = new System.Drawing.Size(87, 23);
             this.roleAddButton.TabIndex = 4;
             this.roleAddButton.Text = "Add New Role";
+            this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
             // 
             // editRoleButton
             // 

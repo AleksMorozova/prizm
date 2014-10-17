@@ -56,7 +56,6 @@
             // 
             // roleEdit
             // 
-            this.roleEdit.Enabled = false;
             this.roleEdit.Location = new System.Drawing.Point(12, 31);
             this.roleEdit.Name = "roleEdit";
             this.roleEdit.Size = new System.Drawing.Size(318, 20);

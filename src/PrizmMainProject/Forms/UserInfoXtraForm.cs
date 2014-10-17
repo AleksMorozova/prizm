@@ -14,9 +14,28 @@ namespace PrizmMain.Forms
 {
     public partial class UserInfoXtraForm : DevExpress.XtraEditors.XtraForm
     {
+
         public UserInfoXtraForm()
         {
             InitializeComponent();
+
+            var reposirory = new RolesDummy();
+            var roles = reposirory.GetRoles();
+
+            foreach (var item in roles)
+            {
+                userRoleComboBox.Properties.Items.Add(item.Name);
+            }
+        }
+
+        public UserInfoXtraForm(bool isNew)
+        {
+            InitializeComponent();
+
+            if (isNew)
+            {
+                return;
+            }
 
             var repository = new UsersDummy();
             var user = repository.GetUser(2);
@@ -30,6 +49,7 @@ namespace PrizmMain.Forms
             confirmPassword.Text = user.Password;
             userRoleComboBox.Properties.Items.Add(user.Role.Name);
             userRoleComboBox.SelectedIndex = 0;
+            
         }
 
         private void closeButton_Click(object sender, EventArgs e)
