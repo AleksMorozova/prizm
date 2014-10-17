@@ -17,16 +17,17 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
-            #region Role Setting
-            // User & Role dummy data init
-            var ds = new PrizmMain.DummyData.UsersDummy();
-            var data = ds.GetDummyUsers();
+            #region User & Role Setting
+            var userDs = new PrizmMain.DummyData.UsersDummy();
+            var userData = userDs.GetDummyUsers();
+            users.DataSource = userData;
 
-            users.DataSource = data;
+            var roleDs = new PrizmMain.DummyData.RolesDummy();
+            var roleData = roleDs.GetRoles();
+            roles.DataSource = roleData;
 
 
             #endregion
-
 
         }
 
