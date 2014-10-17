@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.settings = new DevExpress.XtraTab.XtraTabControl();
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.sizeGradeLabel = new DevExpress.XtraEditors.LabelControl();
@@ -57,34 +56,11 @@
             this.longitudinal = new DevExpress.XtraEditors.CheckEdit();
             this.weldTypeLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
-            this.inspection = new DevExpress.XtraGrid.GridControl();
-            this.inspectionView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.bandGridInspectionId = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.numberGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionStage = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.stageOrInspectionGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionObject = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.researchObjectGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionFrequency = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.frequencyGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionDocument = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.documentAndCriteriaGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionSertification = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.documentCertificationGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspection = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.bandGridInspectionPlant = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.plantGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionCustomer = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.clientGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandGridInspectionOther = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.thirdPartGridColumn = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.oKButton = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.plateManufacturersList = new DevExpress.XtraGrid.GridControl();
             this.plateManufacturersListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -102,18 +78,13 @@
             this.client = new DevExpress.XtraEditors.TextEdit();
             this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
-            this.users = new DevExpress.XtraGrid.GridControl();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLogin = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPassword = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRole = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
+            this.users = new DevExpress.XtraGrid.GridControl();
+            this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.usersLabel = new DevExpress.XtraEditors.LabelControl();
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.roleAddButton = new DevExpress.XtraEditors.SimpleButton();
@@ -131,6 +102,15 @@
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.inspectionGrid = new DevExpress.XtraGrid.GridControl();
+            this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.stageColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.objectColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.frequencyColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.documentColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -154,8 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).BeginInit();
             this.inspectionPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inspection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.projectPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -171,8 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             this.usersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
             this.rolesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesView)).BeginInit();
@@ -180,6 +157,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -431,231 +410,10 @@
             // 
             // inspectionPage
             // 
-            this.inspectionPage.Controls.Add(this.inspection);
+            this.inspectionPage.Controls.Add(this.inspectionGrid);
             this.inspectionPage.Name = "inspectionPage";
             this.inspectionPage.Size = new System.Drawing.Size(694, 309);
             this.inspectionPage.Text = "&Inspection";
-            // 
-            // inspection
-            // 
-            this.inspection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.inspection.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspection.Location = new System.Drawing.Point(3, 3);
-            this.inspection.MainView = this.inspectionView;
-            this.inspection.Name = "inspection";
-            this.inspection.Size = new System.Drawing.Size(774, 275);
-            this.inspection.TabIndex = 0;
-            this.inspection.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.inspectionView});
-            // 
-            // inspectionView
-            // 
-            this.inspectionView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 6.25F, System.Drawing.FontStyle.Bold);
-            this.inspectionView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.inspectionView.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.inspectionView.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.inspectionView.Appearance.ViewCaption.Options.UseTextOptions = true;
-            this.inspectionView.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.inspectionView.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.bandGridInspectionId,
-            this.bandGridInspectionStage,
-            this.bandGridInspectionObject,
-            this.bandGridInspectionFrequency,
-            this.bandGridInspectionDocument,
-            this.bandGridInspectionSertification,
-            this.bandGridInspection});
-            this.inspectionView.ColumnPanelRowHeight = 1;
-            this.inspectionView.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.numberGridColumn,
-            this.stageOrInspectionGridColumn,
-            this.researchObjectGridColumn,
-            this.frequencyGridColumn,
-            this.documentAndCriteriaGridColumn,
-            this.documentCertificationGridColumn,
-            this.plantGridColumn,
-            this.clientGridColumn,
-            this.thirdPartGridColumn});
-            this.inspectionView.FixedLineWidth = 3;
-            this.inspectionView.GridControl = this.inspection;
-            this.inspectionView.Name = "inspectionView";
-            // 
-            // bandGridInspectionId
-            // 
-            this.bandGridInspectionId.Caption = "Id";
-            this.bandGridInspectionId.Columns.Add(this.numberGridColumn);
-            this.bandGridInspectionId.MinWidth = 54;
-            this.bandGridInspectionId.Name = "bandGridInspectionId";
-            this.bandGridInspectionId.OptionsBand.FixedWidth = true;
-            this.bandGridInspectionId.VisibleIndex = 0;
-            this.bandGridInspectionId.Width = 54;
-            // 
-            // numberGridColumn
-            // 
-            this.numberGridColumn.Caption = "(1)";
-            this.numberGridColumn.FieldName = "Id";
-            this.numberGridColumn.Name = "numberGridColumn";
-            this.numberGridColumn.Visible = true;
-            this.numberGridColumn.Width = 54;
-            // 
-            // bandGridInspectionStage
-            // 
-            this.bandGridInspectionStage.Caption = "Stage";
-            this.bandGridInspectionStage.Columns.Add(this.stageOrInspectionGridColumn);
-            this.bandGridInspectionStage.Name = "bandGridInspectionStage";
-            this.bandGridInspectionStage.VisibleIndex = 1;
-            this.bandGridInspectionStage.Width = 192;
-            // 
-            // stageOrInspectionGridColumn
-            // 
-            this.stageOrInspectionGridColumn.AppearanceCell.Options.UseTextOptions = true;
-            this.stageOrInspectionGridColumn.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.stageOrInspectionGridColumn.AppearanceHeader.Options.UseTextOptions = true;
-            this.stageOrInspectionGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.stageOrInspectionGridColumn.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.stageOrInspectionGridColumn.AutoFillDown = true;
-            this.stageOrInspectionGridColumn.Caption = "(2)";
-            this.stageOrInspectionGridColumn.FieldName = "Stage";
-            this.stageOrInspectionGridColumn.Name = "stageOrInspectionGridColumn";
-            this.stageOrInspectionGridColumn.RowCount = 2;
-            this.stageOrInspectionGridColumn.Visible = true;
-            this.stageOrInspectionGridColumn.Width = 192;
-            // 
-            // bandGridInspectionObject
-            // 
-            this.bandGridInspectionObject.Caption = "Object";
-            this.bandGridInspectionObject.Columns.Add(this.researchObjectGridColumn);
-            this.bandGridInspectionObject.Name = "bandGridInspectionObject";
-            this.bandGridInspectionObject.VisibleIndex = 2;
-            this.bandGridInspectionObject.Width = 192;
-            // 
-            // researchObjectGridColumn
-            // 
-            this.researchObjectGridColumn.AppearanceHeader.Options.UseTextOptions = true;
-            this.researchObjectGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.researchObjectGridColumn.AutoFillDown = true;
-            this.researchObjectGridColumn.Caption = "(3)";
-            this.researchObjectGridColumn.FieldName = "Object";
-            this.researchObjectGridColumn.Name = "researchObjectGridColumn";
-            this.researchObjectGridColumn.RowCount = 2;
-            this.researchObjectGridColumn.Visible = true;
-            this.researchObjectGridColumn.Width = 192;
-            // 
-            // bandGridInspectionFrequency
-            // 
-            this.bandGridInspectionFrequency.Caption = "Frequency";
-            this.bandGridInspectionFrequency.Columns.Add(this.frequencyGridColumn);
-            this.bandGridInspectionFrequency.Name = "bandGridInspectionFrequency";
-            this.bandGridInspectionFrequency.VisibleIndex = 3;
-            this.bandGridInspectionFrequency.Width = 192;
-            // 
-            // frequencyGridColumn
-            // 
-            this.frequencyGridColumn.AutoFillDown = true;
-            this.frequencyGridColumn.Caption = "(4)";
-            this.frequencyGridColumn.FieldName = "Frequency";
-            this.frequencyGridColumn.Name = "frequencyGridColumn";
-            this.frequencyGridColumn.RowCount = 2;
-            this.frequencyGridColumn.Visible = true;
-            this.frequencyGridColumn.Width = 192;
-            // 
-            // bandGridInspectionDocument
-            // 
-            this.bandGridInspectionDocument.Caption = "Document";
-            this.bandGridInspectionDocument.Columns.Add(this.documentAndCriteriaGridColumn);
-            this.bandGridInspectionDocument.Name = "bandGridInspectionDocument";
-            this.bandGridInspectionDocument.VisibleIndex = 4;
-            this.bandGridInspectionDocument.Width = 192;
-            // 
-            // documentAndCriteriaGridColumn
-            // 
-            this.documentAndCriteriaGridColumn.AutoFillDown = true;
-            this.documentAndCriteriaGridColumn.Caption = "(5)";
-            this.documentAndCriteriaGridColumn.FieldName = "Document";
-            this.documentAndCriteriaGridColumn.Name = "documentAndCriteriaGridColumn";
-            this.documentAndCriteriaGridColumn.Visible = true;
-            this.documentAndCriteriaGridColumn.Width = 192;
-            // 
-            // bandGridInspectionSertification
-            // 
-            this.bandGridInspectionSertification.Caption = "Serification";
-            this.bandGridInspectionSertification.Columns.Add(this.documentCertificationGridColumn);
-            this.bandGridInspectionSertification.Name = "bandGridInspectionSertification";
-            this.bandGridInspectionSertification.VisibleIndex = 5;
-            this.bandGridInspectionSertification.Width = 198;
-            // 
-            // documentCertificationGridColumn
-            // 
-            this.documentCertificationGridColumn.AutoFillDown = true;
-            this.documentCertificationGridColumn.Caption = "(6)";
-            this.documentCertificationGridColumn.FieldName = "Sertification";
-            this.documentCertificationGridColumn.Name = "documentCertificationGridColumn";
-            this.documentCertificationGridColumn.Visible = true;
-            this.documentCertificationGridColumn.Width = 198;
-            // 
-            // bandGridInspection
-            // 
-            this.bandGridInspection.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandGridInspection.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandGridInspection.Caption = "Inspection";
-            this.bandGridInspection.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.bandGridInspectionPlant,
-            this.bandGridInspectionCustomer,
-            this.bandGridInspectionOther});
-            this.bandGridInspection.Name = "bandGridInspection";
-            this.bandGridInspection.VisibleIndex = 6;
-            this.bandGridInspection.Width = 564;
-            // 
-            // bandGridInspectionPlant
-            // 
-            this.bandGridInspectionPlant.Caption = "Plant";
-            this.bandGridInspectionPlant.Columns.Add(this.plantGridColumn);
-            this.bandGridInspectionPlant.Name = "bandGridInspectionPlant";
-            this.bandGridInspectionPlant.VisibleIndex = 0;
-            this.bandGridInspectionPlant.Width = 185;
-            // 
-            // plantGridColumn
-            // 
-            this.plantGridColumn.AutoFillDown = true;
-            this.plantGridColumn.Caption = "(7)";
-            this.plantGridColumn.FieldName = "InspectionPlant";
-            this.plantGridColumn.Name = "plantGridColumn";
-            this.plantGridColumn.Visible = true;
-            this.plantGridColumn.Width = 185;
-            // 
-            // bandGridInspectionCustomer
-            // 
-            this.bandGridInspectionCustomer.Caption = "Customer";
-            this.bandGridInspectionCustomer.Columns.Add(this.clientGridColumn);
-            this.bandGridInspectionCustomer.Name = "bandGridInspectionCustomer";
-            this.bandGridInspectionCustomer.VisibleIndex = 1;
-            this.bandGridInspectionCustomer.Width = 185;
-            // 
-            // clientGridColumn
-            // 
-            this.clientGridColumn.AutoFillDown = true;
-            this.clientGridColumn.Caption = "(8)";
-            this.clientGridColumn.FieldName = "InspectionCustomer";
-            this.clientGridColumn.Name = "clientGridColumn";
-            this.clientGridColumn.Visible = true;
-            this.clientGridColumn.Width = 185;
-            // 
-            // bandGridInspectionOther
-            // 
-            this.bandGridInspectionOther.Caption = "Other";
-            this.bandGridInspectionOther.Columns.Add(this.thirdPartGridColumn);
-            this.bandGridInspectionOther.Name = "bandGridInspectionOther";
-            this.bandGridInspectionOther.VisibleIndex = 2;
-            this.bandGridInspectionOther.Width = 194;
-            // 
-            // thirdPartGridColumn
-            // 
-            this.thirdPartGridColumn.AutoFillDown = true;
-            this.thirdPartGridColumn.Caption = "(9)";
-            this.thirdPartGridColumn.FieldName = "InspectionOther";
-            this.thirdPartGridColumn.Name = "thirdPartGridColumn";
-            this.thirdPartGridColumn.Visible = true;
-            this.thirdPartGridColumn.Width = 194;
             // 
             // pipeSetupLabel
             // 
@@ -668,8 +426,6 @@
             // projectPage
             // 
             this.projectPage.Controls.Add(this.panelControl1);
-            this.projectPage.Controls.Add(this.cancelButton);
-            this.projectPage.Controls.Add(this.oKButton);
             this.projectPage.Controls.Add(this.splitContainer);
             this.projectPage.Controls.Add(this.designLabel);
             this.projectPage.Controls.Add(this.clientLabel);
@@ -706,24 +462,6 @@
             this.labelControl1.Size = new System.Drawing.Size(172, 13);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "External document size limit, Kbytes";
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(627, 362);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 18;
-            this.cancelButton.Text = "Cancel";
-            // 
-            // oKButton
-            // 
-            this.oKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.oKButton.Location = new System.Drawing.Point(546, 362);
-            this.oKButton.Name = "oKButton";
-            this.oKButton.Size = new System.Drawing.Size(75, 23);
-            this.oKButton.TabIndex = 17;
-            this.oKButton.Text = "OK";
             // 
             // splitContainer
             // 
@@ -786,12 +524,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pipeManufacturersList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipeManufacturersList.Location = new System.Drawing.Point(8, 57);
+            this.pipeManufacturersList.Location = new System.Drawing.Point(14, 57);
             this.pipeManufacturersList.MainView = this.pipeManufacturerListView;
             this.pipeManufacturersList.Name = "pipeManufacturersList";
             this.pipeManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.pipeSizeItem});
-            this.pipeManufacturersList.Size = new System.Drawing.Size(325, 169);
+            this.pipeManufacturersList.Size = new System.Drawing.Size(319, 169);
             this.pipeManufacturersList.TabIndex = 11;
             this.pipeManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipeManufacturerListView});
@@ -872,93 +610,13 @@
             // 
             // usersPage
             // 
-            this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.userAddButton);
             this.usersPage.Controls.Add(this.userEditButton);
+            this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.usersLabel);
             this.usersPage.Name = "usersPage";
             this.usersPage.Size = new System.Drawing.Size(719, 397);
             this.usersPage.Text = "&Users";
-            // 
-            // users
-            // 
-            this.users.Cursor = System.Windows.Forms.Cursors.Default;
-            this.users.DataSource = this.userBindingSource;
-            this.users.Location = new System.Drawing.Point(11, 37);
-            this.users.MainView = this.gridView1;
-            this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(701, 287);
-            this.users.TabIndex = 4;
-            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId,
-            this.colLastName,
-            this.colFirstName,
-            this.colMiddleName,
-            this.colLogin,
-            this.colPassword,
-            this.colRole});
-            this.gridView1.GridControl = this.users;
-            this.gridView1.Name = "gridView1";
-            // 
-            // colId
-            // 
-            this.colId.FieldName = "Id";
-            this.colId.MaxWidth = 50;
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
-            this.colId.Width = 50;
-            // 
-            // colLastName
-            // 
-            this.colLastName.FieldName = "LastName";
-            this.colLastName.Name = "colLastName";
-            this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 1;
-            // 
-            // colFirstName
-            // 
-            this.colFirstName.FieldName = "FirstName";
-            this.colFirstName.Name = "colFirstName";
-            this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 2;
-            // 
-            // colMiddleName
-            // 
-            this.colMiddleName.FieldName = "MiddleName";
-            this.colMiddleName.Name = "colMiddleName";
-            this.colMiddleName.Visible = true;
-            this.colMiddleName.VisibleIndex = 3;
-            // 
-            // colLogin
-            // 
-            this.colLogin.FieldName = "Login";
-            this.colLogin.Name = "colLogin";
-            this.colLogin.Visible = true;
-            this.colLogin.VisibleIndex = 4;
-            // 
-            // colPassword
-            // 
-            this.colPassword.FieldName = "Password";
-            this.colPassword.Name = "colPassword";
-            this.colPassword.Visible = true;
-            this.colPassword.VisibleIndex = 5;
-            // 
-            // colRole
-            // 
-            this.colRole.FieldName = "Role.Name";
-            this.colRole.Name = "colRole";
-            this.colRole.Visible = true;
-            this.colRole.VisibleIndex = 6;
             // 
             // userAddButton
             // 
@@ -976,6 +634,50 @@
             this.userEditButton.TabIndex = 2;
             this.userEditButton.Text = "Edit User";
             this.userEditButton.Click += new System.EventHandler(this.userEditButton_Click);
+            // 
+            // users
+            // 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.users.Cursor = System.Windows.Forms.Cursors.Default;
+            this.users.Location = new System.Drawing.Point(11, 37);
+            this.users.MainView = this.usersView;
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(701, 287);
+            this.users.TabIndex = 1;
+            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.usersView});
+            // 
+            // usersView
+            // 
+            this.usersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.usersNumberGridColumn,
+            this.usersFullNameGridColumn,
+            this.usersRoleGridColumn});
+            this.usersView.GridControl = this.users;
+            this.usersView.Name = "usersView";
+            // 
+            // usersNumberGridColumn
+            // 
+            this.usersNumberGridColumn.Caption = "№";
+            this.usersNumberGridColumn.Name = "usersNumberGridColumn";
+            this.usersNumberGridColumn.Visible = true;
+            this.usersNumberGridColumn.VisibleIndex = 0;
+            // 
+            // usersFullNameGridColumn
+            // 
+            this.usersFullNameGridColumn.Caption = "User full name";
+            this.usersFullNameGridColumn.Name = "usersFullNameGridColumn";
+            this.usersFullNameGridColumn.Visible = true;
+            this.usersFullNameGridColumn.VisibleIndex = 1;
+            // 
+            // usersRoleGridColumn
+            // 
+            this.usersRoleGridColumn.Caption = "Role";
+            this.usersRoleGridColumn.Name = "usersRoleGridColumn";
+            this.usersRoleGridColumn.Visible = true;
+            this.usersRoleGridColumn.VisibleIndex = 2;
             // 
             // usersLabel
             // 
@@ -1120,6 +822,79 @@
             // 
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             // 
+            // inspectionGrid
+            // 
+            this.inspectionGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspectionGrid.Location = new System.Drawing.Point(4, 4);
+            this.inspectionGrid.MainView = this.inspectionView;
+            this.inspectionGrid.Name = "inspectionGrid";
+            this.inspectionGrid.Size = new System.Drawing.Size(687, 302);
+            this.inspectionGrid.TabIndex = 0;
+            this.inspectionGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.inspectionView});
+            // 
+            // inspectionView
+            // 
+            this.inspectionView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idColumn,
+            this.stageColumn,
+            this.objectColumn,
+            this.frequencyColumn,
+            this.documentColumn,
+            this.certificationColumn,
+            this.inspectionColumn});
+            this.inspectionView.GridControl = this.inspectionGrid;
+            this.inspectionView.Name = "inspectionView";
+            // 
+            // idColumn
+            // 
+            this.idColumn.Caption = "ID";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.Visible = true;
+            this.idColumn.VisibleIndex = 0;
+            // 
+            // stageColumn
+            // 
+            this.stageColumn.Caption = "Stage";
+            this.stageColumn.Name = "stageColumn";
+            this.stageColumn.Visible = true;
+            this.stageColumn.VisibleIndex = 1;
+            // 
+            // objectColumn
+            // 
+            this.objectColumn.Caption = "Object";
+            this.objectColumn.Name = "objectColumn";
+            this.objectColumn.Visible = true;
+            this.objectColumn.VisibleIndex = 2;
+            // 
+            // frequencyColumn
+            // 
+            this.frequencyColumn.Caption = "Frequency";
+            this.frequencyColumn.Name = "frequencyColumn";
+            this.frequencyColumn.Visible = true;
+            this.frequencyColumn.VisibleIndex = 3;
+            // 
+            // documentColumn
+            // 
+            this.documentColumn.Caption = "Document";
+            this.documentColumn.Name = "documentColumn";
+            this.documentColumn.Visible = true;
+            this.documentColumn.VisibleIndex = 4;
+            // 
+            // certificationColumn
+            // 
+            this.certificationColumn.Caption = "Certification";
+            this.certificationColumn.Name = "certificationColumn";
+            this.certificationColumn.Visible = true;
+            this.certificationColumn.VisibleIndex = 5;
+            // 
+            // inspectionColumn
+            // 
+            this.inspectionColumn.Caption = "Inspection";
+            this.inspectionColumn.Name = "inspectionColumn";
+            this.inspectionColumn.Visible = true;
+            this.inspectionColumn.VisibleIndex = 6;
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1129,7 +904,7 @@
             this.Controls.Add(this.settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsXtraForm";
-            this.Text = "Settings";
+            this.Text = "SettingsXtraForm";
             ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             this.settings.ResumeLayout(false);
             this.pipePage.ResumeLayout(false);
@@ -1157,8 +932,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).EndInit();
             this.inspectionPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inspection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -1177,8 +950,7 @@
             this.usersPage.ResumeLayout(false);
             this.usersPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
             this.rolesPage.ResumeLayout(false);
             this.rolesPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roles)).EndInit();
@@ -1187,6 +959,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1224,38 +998,19 @@
         private DevExpress.XtraEditors.CheckEdit externalCoatingCheck;
 
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
-
-        private DevExpress.XtraGrid.GridControl inspection;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView inspectionView;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn stageOrInspectionGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn researchObjectGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn frequencyGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn documentAndCriteriaGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn numberGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn documentCertificationGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn plantGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn clientGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn thirdPartGridColumn;
         private DevExpress.XtraTab.XtraTabPage usersPage;
         private DevExpress.XtraTab.XtraTabPage dictionariesPage;
+        private DevExpress.XtraGrid.GridControl users;
+        private DevExpress.XtraGrid.Views.Grid.GridView usersView;
+        private DevExpress.XtraGrid.Columns.GridColumn usersNumberGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn usersFullNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn usersRoleGridColumn;
         private DevExpress.XtraEditors.LabelControl usersLabel;
         private DevExpress.XtraGrid.GridControl dictionaries;
         private DevExpress.XtraGrid.Views.Grid.GridView dictionaryView;
         private DevExpress.XtraGrid.Columns.GridColumn dictionaryNameGridColumn;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionId;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionStage;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionObject;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionFrequency;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionDocument;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionSertification;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspection;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionPlant;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionCustomer;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandGridInspectionOther;
         public DevExpress.XtraTab.XtraTabControl settings;
         private DevExpress.XtraTab.XtraTabPage projectPage;
-        private DevExpress.XtraEditors.SimpleButton cancelButton;
-        private DevExpress.XtraEditors.SimpleButton oKButton;
         private DevExpress.XtraEditors.SplitContainerControl splitContainer;
         private DevExpress.XtraGrid.GridControl plateManufacturersList;
         private DevExpress.XtraGrid.Views.Grid.GridView plateManufacturersListView;
@@ -1287,15 +1042,14 @@
         private DevExpress.XtraEditors.SimpleButton roleAddButton;
         private DevExpress.XtraGrid.Columns.GridColumn editDictionary;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit editItem;
-        private DevExpress.XtraGrid.GridControl users;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
-        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
-        private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
-        private DevExpress.XtraGrid.Columns.GridColumn colLogin;
-        private DevExpress.XtraGrid.Columns.GridColumn colPassword;
-        private DevExpress.XtraGrid.Columns.GridColumn colRole;
+        private DevExpress.XtraGrid.GridControl inspectionGrid;
+        private DevExpress.XtraGrid.Views.Grid.GridView inspectionView;
+        private DevExpress.XtraGrid.Columns.GridColumn idColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn stageColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn objectColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn frequencyColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn documentColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn certificationColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionColumn;
     }
 }
