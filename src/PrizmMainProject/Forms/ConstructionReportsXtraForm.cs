@@ -17,22 +17,21 @@ namespace PrizmMain.Forms
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-            object[] itemValues = new object[] { 0, 1};
-            string[] itemDescriptions = new string[] { "Joint", "Kilometer post" };
-            for (int i = 0; i < itemValues.Length; i++)
-            {
-                countPoints.Properties.Items.Add(new RadioGroupItem(itemValues[i], itemDescriptions[i]));
-            }
-
-           
-
+            RadioGroupItem item1 = new RadioGroupItem(0, "Joint");
+            RadioGroupItem item2 = new RadioGroupItem(1, "Kilometer post");
+            countPoints.Properties.Items.Add(item1);
+            countPoints.Properties.Items.Add(item2);
+            countPoints.SelectedIndex = 0;
         }
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
-            reportType.Properties.Items.Add("Report about used products");
-            reportType.Properties.Items.Add("Report about highway");
-            reportType.Properties.Items.Add("Report about pipeline length");
+            reportType.Properties.Items.Add("Used products");
+            reportType.Properties.Items.Add("Highway");
+            reportType.Properties.Items.Add("Pipeline length");
+            type.Properties.Items.Add("All");
+            type.Properties.Items.Add("Pipes");
+            type.Properties.Items.Add("Components");
         }
     }
 }

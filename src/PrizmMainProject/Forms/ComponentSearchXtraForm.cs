@@ -35,10 +35,6 @@ namespace PrizmMain.Forms
             //Set GridControl's dataSource
             searchResultsGrid.DataSource = bs;
 
-
-            componentNumber.Text = PrizmMain.DummyData.ComponentryDummy.componentNumber;
-            certificate.Text = PrizmMain.DummyData.ComponentryDummy.certificate;
-
             DevExpress.XtraEditors.Controls.ComboBoxItemCollection coll = componentType.Properties.Items;
 
             PrizmMain.DummyData.ComponentryDummy.FillComboComponentType(coll);
