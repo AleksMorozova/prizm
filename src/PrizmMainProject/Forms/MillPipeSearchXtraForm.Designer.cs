@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.internalCoatingDate = new DevExpress.XtraEditors.DateEdit();
@@ -242,6 +243,7 @@
             this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
             this.pipeNumberGridColumn.Visible = true;
             this.pipeNumberGridColumn.VisibleIndex = 0;
+            this.pipeNumberGridColumn.Width = 76;
             // 
             // certificateNumberGridColumn
             // 
@@ -249,6 +251,7 @@
             this.certificateNumberGridColumn.Name = "certificateNumberGridColumn";
             this.certificateNumberGridColumn.Visible = true;
             this.certificateNumberGridColumn.VisibleIndex = 1;
+            this.certificateNumberGridColumn.Width = 76;
             // 
             // heatNumberGridColumn
             // 
@@ -256,6 +259,7 @@
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
             this.heatNumberGridColumn.Visible = true;
             this.heatNumberGridColumn.VisibleIndex = 2;
+            this.heatNumberGridColumn.Width = 76;
             // 
             // statusSearchGridColumn
             // 
@@ -263,6 +267,7 @@
             this.statusSearchGridColumn.Name = "statusSearchGridColumn";
             this.statusSearchGridColumn.Visible = true;
             this.statusSearchGridColumn.VisibleIndex = 3;
+            this.statusSearchGridColumn.Width = 76;
             // 
             // locationGridColumn
             // 
@@ -270,6 +275,7 @@
             this.locationGridColumn.Name = "locationGridColumn";
             this.locationGridColumn.Visible = true;
             this.locationGridColumn.VisibleIndex = 4;
+            this.locationGridColumn.Width = 76;
             // 
             // weldingDateGridColumn
             // 
@@ -277,6 +283,7 @@
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
             this.weldingDateGridColumn.Visible = true;
             this.weldingDateGridColumn.VisibleIndex = 5;
+            this.weldingDateGridColumn.Width = 76;
             // 
             // internalCoatingDateGridColumn
             // 
@@ -284,6 +291,7 @@
             this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
             this.internalCoatingDateGridColumn.Visible = true;
             this.internalCoatingDateGridColumn.VisibleIndex = 6;
+            this.internalCoatingDateGridColumn.Width = 76;
             // 
             // externalCoatingDateGridColumn
             // 
@@ -291,21 +299,22 @@
             this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
             this.externalCoatingDateGridColumn.Visible = true;
             this.externalCoatingDateGridColumn.VisibleIndex = 7;
+            this.externalCoatingDateGridColumn.Width = 110;
             // 
             // extraGridColumn
             // 
-            this.extraGridColumn.Caption = "Extra";
             this.extraGridColumn.ColumnEdit = this.extraButton;
             this.extraGridColumn.Name = "extraGridColumn";
             this.extraGridColumn.Visible = true;
             this.extraGridColumn.VisibleIndex = 8;
+            this.extraGridColumn.Width = 42;
             // 
             // extraButton
             // 
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 

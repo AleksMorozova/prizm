@@ -25,8 +25,10 @@ namespace PrizmMain.Forms
             var roleDs = new PrizmMain.DummyData.RolesDummy();
             var roleData = roleDs.GetRoles();
             roles.DataSource = roleData;
+            #endregion
 
-
+            #region Dictionary Grid
+            this.dictionaries.DataSource = PrizmMain.DummyData.DictionaryDummy.GetDictionaries();
             #endregion
 
         }

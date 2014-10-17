@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barTools = new DevExpress.XtraBars.Bar();
             this.barButtonClose = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
@@ -80,9 +79,9 @@
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
@@ -255,6 +254,7 @@
             // 
             this.barButtonItemNewPipe.Caption = "&New pipe";
             this.barButtonItemNewPipe.Id = 16;
+            this.barButtonItemNewPipe.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
             this.barButtonItemNewPipe.Name = "barButtonItemNewPipe";
             this.barButtonItemNewPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewPipe_ItemClick);
             // 
@@ -308,6 +308,7 @@
             // 
             this.barButtonItemNewComponent.Caption = "&New component";
             this.barButtonItemNewComponent.Id = 20;
+            this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
             this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
             // 
@@ -356,6 +357,7 @@
             // 
             this.barButtonItemNewJoint.Caption = "&New joint";
             this.barButtonItemNewJoint.Id = 32;
+            this.barButtonItemNewJoint.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J));
             this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
             this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
             // 
@@ -499,28 +501,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(952, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(952, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 501);
-            this.barDockControlBottom.Size = new System.Drawing.Size(952, 72);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 503);
+            this.barDockControlBottom.Size = new System.Drawing.Size(952, 70);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 479);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 483);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(952, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 479);
+            this.barDockControlRight.Location = new System.Drawing.Point(952, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 483);
             // 
             // barSubItemJoints
             // 
