@@ -361,7 +361,7 @@
             this.Controls.Add(this.pipeNumberLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionPipeSearchEditXtraForm";
-            this.Text = "InspectionPipeSearchEditXtraForm";
+            this.Text = "Inspection - Find or Edit pipe";
             ((System.ComponentModel.ISupportInitialize)(this.unloadedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unloadedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionResult)).EndInit();

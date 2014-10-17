@@ -39,22 +39,22 @@
             this.searchResultsGroup = new DevExpress.XtraEditors.GroupControl();
             this.searchResultsGrid = new DevExpress.XtraGrid.GridControl();
             this.searchResultsView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.inspectorLabel = new DevExpress.XtraEditors.LabelControl();
-            this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
-            this.inspectionResultLabel = new DevExpress.XtraEditors.LabelControl();
-            this.diameterThicknessGrid = new DevExpress.XtraGrid.GridControl();
-            this.diameterThocknessView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.inspectionDate = new DevExpress.XtraEditors.TextEdit();
-            this.inspector = new DevExpress.XtraEditors.TextEdit();
-            this.inspectionResult = new DevExpress.XtraEditors.TextEdit();
-            this.boreDiameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.wallThicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.componentNumberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.componentTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.inspectionResultLabel = new DevExpress.XtraEditors.LabelControl();
+            this.diameterThicknessGrid = new DevExpress.XtraGrid.GridControl();
+            this.diameterThocknessView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.boreDiameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.wallThicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionDate = new DevExpress.XtraEditors.TextEdit();
+            this.inspector = new DevExpress.XtraEditors.TextEdit();
+            this.inspectionResult = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersGroup)).BeginInit();
             this.searchParametersGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).BeginInit();
@@ -180,6 +180,48 @@
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
             // 
+            // componentNumberColumn
+            // 
+            this.componentNumberColumn.Caption = "Number";
+            this.componentNumberColumn.Name = "componentNumberColumn";
+            this.componentNumberColumn.Visible = true;
+            this.componentNumberColumn.VisibleIndex = 0;
+            // 
+            // componentTypeColumn
+            // 
+            this.componentTypeColumn.Caption = "Type";
+            this.componentTypeColumn.Name = "componentTypeColumn";
+            this.componentTypeColumn.Visible = true;
+            this.componentTypeColumn.VisibleIndex = 1;
+            // 
+            // certificateColumn
+            // 
+            this.certificateColumn.Caption = "Certificate";
+            this.certificateColumn.Name = "certificateColumn";
+            this.certificateColumn.Visible = true;
+            this.certificateColumn.VisibleIndex = 2;
+            // 
+            // inspectionResultColumn
+            // 
+            this.inspectionResultColumn.Caption = "Inspection result";
+            this.inspectionResultColumn.Name = "inspectionResultColumn";
+            this.inspectionResultColumn.Visible = true;
+            this.inspectionResultColumn.VisibleIndex = 3;
+            // 
+            // inspectorColumn
+            // 
+            this.inspectorColumn.Caption = "Inspector";
+            this.inspectorColumn.Name = "inspectorColumn";
+            this.inspectorColumn.Visible = true;
+            this.inspectorColumn.VisibleIndex = 4;
+            // 
+            // inspectionDateColumn
+            // 
+            this.inspectionDateColumn.Caption = "Inspection date";
+            this.inspectionDateColumn.Name = "inspectionDateColumn";
+            this.inspectionDateColumn.Visible = true;
+            this.inspectionDateColumn.VisibleIndex = 5;
+            // 
             // inspectorLabel
             // 
             this.inspectorLabel.Location = new System.Drawing.Point(193, 36);
@@ -223,6 +265,20 @@
             this.diameterThocknessView.GridControl = this.diameterThicknessGrid;
             this.diameterThocknessView.Name = "diameterThocknessView";
             // 
+            // boreDiameterColumn
+            // 
+            this.boreDiameterColumn.Caption = "Bore diameter";
+            this.boreDiameterColumn.Name = "boreDiameterColumn";
+            this.boreDiameterColumn.Visible = true;
+            this.boreDiameterColumn.VisibleIndex = 0;
+            // 
+            // wallThicknessColumn
+            // 
+            this.wallThicknessColumn.Caption = "Wall thickness";
+            this.wallThicknessColumn.Name = "wallThicknessColumn";
+            this.wallThicknessColumn.Visible = true;
+            this.wallThicknessColumn.VisibleIndex = 1;
+            // 
             // inspectionDate
             // 
             this.inspectionDate.Location = new System.Drawing.Point(7, 104);
@@ -244,62 +300,6 @@
             this.inspectionResult.Size = new System.Drawing.Size(136, 20);
             this.inspectionResult.TabIndex = 0;
             // 
-            // boreDiameterColumn
-            // 
-            this.boreDiameterColumn.Caption = "Bore diameter";
-            this.boreDiameterColumn.Name = "boreDiameterColumn";
-            this.boreDiameterColumn.Visible = true;
-            this.boreDiameterColumn.VisibleIndex = 0;
-            // 
-            // wallThicknessColumn
-            // 
-            this.wallThicknessColumn.Caption = "Wall thickness";
-            this.wallThicknessColumn.Name = "wallThicknessColumn";
-            this.wallThicknessColumn.Visible = true;
-            this.wallThicknessColumn.VisibleIndex = 1;
-            // 
-            // componentNumberColumn
-            // 
-            this.componentNumberColumn.Caption = "Number";
-            this.componentNumberColumn.Name = "componentNumberColumn";
-            this.componentNumberColumn.Visible = true;
-            this.componentNumberColumn.VisibleIndex = 0;
-            // 
-            // componentTypeColumn
-            // 
-            this.componentTypeColumn.Caption = "Type";
-            this.componentTypeColumn.Name = "componentTypeColumn";
-            this.componentTypeColumn.Visible = true;
-            this.componentTypeColumn.VisibleIndex = 1;
-            // 
-            // certificateColumn
-            // 
-            this.certificateColumn.Caption = "Certificate";
-            this.certificateColumn.Name = "certificateColumn";
-            this.certificateColumn.Visible = true;
-            this.certificateColumn.VisibleIndex = 2;
-            // 
-            // inspectionResultColumn
-            // 
-            this.inspectionResultColumn.Caption = "Inspection result";
-            this.inspectionResultColumn.Name = "inspectionResultColumn";
-            this.inspectionResultColumn.Visible = true;
-            this.inspectionResultColumn.VisibleIndex = 3;
-            // 
-            // inspectorColumn
-            // 
-            this.inspectorColumn.Caption = "Inspector";
-            this.inspectorColumn.Name = "inspectorColumn";
-            this.inspectorColumn.Visible = true;
-            this.inspectorColumn.VisibleIndex = 4;
-            // 
-            // inspectionDateColumn
-            // 
-            this.inspectionDateColumn.Caption = "Inspection date";
-            this.inspectionDateColumn.Name = "inspectionDateColumn";
-            this.inspectionDateColumn.Visible = true;
-            this.inspectionDateColumn.VisibleIndex = 5;
-            // 
             // ComponentSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,7 +309,7 @@
             this.Controls.Add(this.searchParametersGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
-            this.Text = "ComponentSearchXtraForm";
+            this.Text = "Find Components";
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersGroup)).EndInit();
             this.searchParametersGroup.ResumeLayout(false);
             this.searchParametersGroup.PerformLayout();
