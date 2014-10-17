@@ -35,18 +35,16 @@
             this.from = new DevExpress.XtraEditors.ComboBoxEdit();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
             this.type = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.pK = new DevExpress.XtraEditors.CheckEdit();
-            this.joint = new DevExpress.XtraEditors.CheckEdit();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
             this.fromLabel = new DevExpress.XtraEditors.LabelControl();
             this.toLabel = new DevExpress.XtraEditors.LabelControl();
             this.previewReportDocument = new DevExpress.XtraPrinting.Preview.DocumentViewer();
+            this.countPoints = new DevExpress.XtraEditors.RadioGroup();
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.from.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pK.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.joint.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countPoints.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // reportType
@@ -94,7 +92,7 @@
             // 
             // previewButton
             // 
-            this.previewButton.Location = new System.Drawing.Point(510, 42);
+            this.previewButton.Location = new System.Drawing.Point(553, 37);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(73, 23);
             this.previewButton.TabIndex = 65;
@@ -109,27 +107,9 @@
             this.type.Size = new System.Drawing.Size(99, 20);
             this.type.TabIndex = 63;
             // 
-            // pK
-            // 
-            this.pK.Location = new System.Drawing.Point(267, 39);
-            this.pK.Name = "pK";
-            this.pK.Properties.Caption = "PK";
-            this.pK.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.pK.Size = new System.Drawing.Size(42, 19);
-            this.pK.TabIndex = 60;
-            // 
-            // joint
-            // 
-            this.joint.Location = new System.Drawing.Point(210, 39);
-            this.joint.Name = "joint";
-            this.joint.Properties.Caption = "Joint";
-            this.joint.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.joint.Size = new System.Drawing.Size(51, 19);
-            this.joint.TabIndex = 59;
-            // 
             // createReportButton
             // 
-            this.createReportButton.Location = new System.Drawing.Point(605, 42);
+            this.createReportButton.Location = new System.Drawing.Point(648, 37);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(75, 23);
             this.createReportButton.TabIndex = 64;
@@ -155,16 +135,27 @@
             // 
             this.previewReportDocument.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.previewReportDocument.IsMetric = false;
-            this.previewReportDocument.Location = new System.Drawing.Point(0, 75);
+            this.previewReportDocument.Location = new System.Drawing.Point(0, 71);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(709, 311);
+            this.previewReportDocument.Size = new System.Drawing.Size(900, 379);
             this.previewReportDocument.TabIndex = 56;
+            // 
+            // countPoints
+            // 
+            this.countPoints.Location = new System.Drawing.Point(209, 35);
+            this.countPoints.Name = "countPoints";
+            this.countPoints.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.countPoints.Properties.Appearance.Options.UseBackColor = true;
+            this.countPoints.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.countPoints.Size = new System.Drawing.Size(132, 30);
+            this.countPoints.TabIndex = 69;
             // 
             // ConstructionReportsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 386);
+            this.ClientSize = new System.Drawing.Size(900, 450);
+            this.Controls.Add(this.countPoints);
             this.Controls.Add(this.reportType);
             this.Controls.Add(this.reportTypeLabel);
             this.Controls.Add(this.typeLabel);
@@ -172,8 +163,6 @@
             this.Controls.Add(this.from);
             this.Controls.Add(this.previewButton);
             this.Controls.Add(this.type);
-            this.Controls.Add(this.pK);
-            this.Controls.Add(this.joint);
             this.Controls.Add(this.createReportButton);
             this.Controls.Add(this.fromLabel);
             this.Controls.Add(this.toLabel);
@@ -185,8 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.from.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pK.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.joint.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countPoints.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,11 +189,10 @@
         private DevExpress.XtraEditors.ComboBoxEdit from;
         private DevExpress.XtraEditors.SimpleButton previewButton;
         private DevExpress.XtraEditors.ComboBoxEdit type;
-        private DevExpress.XtraEditors.CheckEdit pK;
-        private DevExpress.XtraEditors.CheckEdit joint;
         private DevExpress.XtraEditors.SimpleButton createReportButton;
         private DevExpress.XtraEditors.LabelControl fromLabel;
         private DevExpress.XtraEditors.LabelControl toLabel;
         private DevExpress.XtraPrinting.Preview.DocumentViewer previewReportDocument;
+        private DevExpress.XtraEditors.RadioGroup countPoints;
     }
 }
