@@ -599,7 +599,6 @@ namespace PrizmMain.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(940, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.joint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
