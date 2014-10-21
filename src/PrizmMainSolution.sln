@@ -1,12 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrizmApplication", "PrizmMainProject\PrizmApplication.csproj", "{B950DA6A-6F29-42FD-A021-433CECBE5046}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7EDA58AA-43C2-4788-89D4-416F9DDD2379}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B950DA6A-6F29-42FD-A021-433CECBE5046} = {B950DA6A-6F29-42FD-A021-433CECBE5046}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{495328AA-7441-4E86-8003-3D881E8E0FDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{843DA113-0EE6-4DA3-A182-008B3BD09199}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +26,14 @@ Global
 		{7EDA58AA-43C2-4788-89D4-416F9DDD2379}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EDA58AA-43C2-4788-89D4-416F9DDD2379}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EDA58AA-43C2-4788-89D4-416F9DDD2379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495328AA-7441-4E86-8003-3D881E8E0FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495328AA-7441-4E86-8003-3D881E8E0FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495328AA-7441-4E86-8003-3D881E8E0FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495328AA-7441-4E86-8003-3D881E8E0FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{843DA113-0EE6-4DA3-A182-008B3BD09199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843DA113-0EE6-4DA3-A182-008B3BD09199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843DA113-0EE6-4DA3-A182-008B3BD09199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843DA113-0EE6-4DA3-A182-008B3BD09199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
