@@ -17,7 +17,7 @@ namespace Domain.Entity.Joint
         public Guid JointID { get; set; }
         public string Number { get; set; }
         public DateTime LoweringDate { get; set; }
-        public float DistansFromKilomiterPost { get; set; }
+        public KilometerPost DistansFromKilomiterPost { get; set; }
 
         public ICollection<ConstructionWelding> Weldings { get; set; }
         public ICollection<JointInspection> Inspections { get; set; }
