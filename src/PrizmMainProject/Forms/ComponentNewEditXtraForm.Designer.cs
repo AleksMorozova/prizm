@@ -70,7 +70,7 @@
             // 
             // componentNumberLabel
             // 
-            this.componentNumberLabel.Location = new System.Drawing.Point(26, 12);
+            this.componentNumberLabel.Location = new System.Drawing.Point(26, 15);
             this.componentNumberLabel.Name = "componentNumberLabel";
             this.componentNumberLabel.Size = new System.Drawing.Size(94, 13);
             this.componentNumberLabel.TabIndex = 1;
@@ -78,14 +78,14 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(26, 146);
+            this.certificateNumber.Location = new System.Drawing.Point(26, 176);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Size = new System.Drawing.Size(100, 20);
             this.certificateNumber.TabIndex = 2;
             // 
             // certificateNumberLabel
             // 
-            this.certificateNumberLabel.Location = new System.Drawing.Point(26, 127);
+            this.certificateNumberLabel.Location = new System.Drawing.Point(26, 157);
             this.certificateNumberLabel.Name = "certificateNumberLabel";
             this.certificateNumberLabel.Size = new System.Drawing.Size(89, 13);
             this.certificateNumberLabel.TabIndex = 3;
@@ -94,10 +94,10 @@
             // componentParameters
             // 
             this.componentParameters.Cursor = System.Windows.Forms.Cursors.Default;
-            this.componentParameters.Location = new System.Drawing.Point(284, 37);
+            this.componentParameters.Location = new System.Drawing.Point(189, 37);
             this.componentParameters.MainView = this.componentParametersView;
             this.componentParameters.Name = "componentParameters";
-            this.componentParameters.Size = new System.Drawing.Size(400, 129);
+            this.componentParameters.Size = new System.Drawing.Size(400, 159);
             this.componentParameters.TabIndex = 4;
             this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.componentParametersView});
@@ -127,7 +127,7 @@
             // 
             // typeLabel
             // 
-            this.typeLabel.Location = new System.Drawing.Point(26, 71);
+            this.typeLabel.Location = new System.Drawing.Point(26, 86);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(24, 13);
             this.typeLabel.TabIndex = 5;
@@ -135,7 +135,7 @@
             // 
             // type
             // 
-            this.type.Location = new System.Drawing.Point(26, 90);
+            this.type.Location = new System.Drawing.Point(26, 105);
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -152,15 +152,15 @@
             this.inspection.Controls.Add(this.resultLabel);
             this.inspection.Controls.Add(this.inspectionDate);
             this.inspection.Controls.Add(this.inspector);
-            this.inspection.Location = new System.Drawing.Point(26, 222);
+            this.inspection.Location = new System.Drawing.Point(26, 259);
             this.inspection.Name = "inspection";
-            this.inspection.Size = new System.Drawing.Size(672, 165);
+            this.inspection.Size = new System.Drawing.Size(563, 165);
             this.inspection.TabIndex = 7;
             this.inspection.Text = "Inspection";
             // 
             // reasonLabel
             // 
-            this.reasonLabel.Location = new System.Drawing.Point(493, 39);
+            this.reasonLabel.Location = new System.Drawing.Point(368, 36);
             this.reasonLabel.Name = "reasonLabel";
             this.reasonLabel.Size = new System.Drawing.Size(36, 13);
             this.reasonLabel.TabIndex = 8;
@@ -168,14 +168,14 @@
             // 
             // rejectedReason
             // 
-            this.rejectedReason.Location = new System.Drawing.Point(493, 58);
+            this.rejectedReason.Location = new System.Drawing.Point(368, 55);
             this.rejectedReason.Name = "rejectedReason";
             this.rejectedReason.Size = new System.Drawing.Size(165, 20);
             this.rejectedReason.TabIndex = 7;
             // 
             // resultRadioGroup
             // 
-            this.resultRadioGroup.Location = new System.Drawing.Point(393, 58);
+            this.resultRadioGroup.Location = new System.Drawing.Point(277, 55);
             this.resultRadioGroup.Name = "resultRadioGroup";
             this.resultRadioGroup.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.resultRadioGroup.Properties.Appearance.Options.UseBackColor = true;
@@ -204,7 +204,7 @@
             // 
             // resultLabel
             // 
-            this.resultLabel.Location = new System.Drawing.Point(393, 39);
+            this.resultLabel.Location = new System.Drawing.Point(277, 36);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(30, 13);
             this.resultLabel.TabIndex = 3;
@@ -235,8 +235,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 425);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.inspection);
             this.Controls.Add(this.type);
             this.Controls.Add(this.typeLabel);

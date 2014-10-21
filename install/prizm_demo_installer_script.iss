@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Prizm Demo"
-#define MyAppVersion "0.0.3.4"
+#define MyAppVersion "0.0.0.4"
 #define MyAppPublisher "ISD"
 #define MyAppURL "http://www.isd.dp.ua/"
 #define MyAppExeName "prizm.exe"
@@ -22,14 +22,18 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=D:\Installs\eula.txt.txt
-OutputDir=D:\Inno\out
-OutputBaseFilename=setup_prism
+OutputDir=..\install\Relise
+OutputBaseFilename=setup_prism_{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 ShowTasksTreeLines=True
 AlwaysShowDirOnReadyPage=True
 PrivilegesRequired=none
+DisableWelcomePage=True
+DisableReadyPage=True
+DisableReadyMemo=True
+MinVersion=0,6.1
+UninstallDisplayIcon={uninstallexe}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -39,13 +43,14 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Publish\prizm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\redistr\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64"; Flags: ignoreversion nocompression
+Source: "..\src\PrizmMainProject\bin\Release\prizm.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\PrizmMainProject\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64"; Flags: ignoreversion nocompression
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"

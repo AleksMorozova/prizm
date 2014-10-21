@@ -255,6 +255,7 @@
             // 
             this.barButtonItemNewPipe.Caption = "&New pipe";
             this.barButtonItemNewPipe.Id = 16;
+            this.barButtonItemNewPipe.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
             this.barButtonItemNewPipe.Name = "barButtonItemNewPipe";
             this.barButtonItemNewPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewPipe_ItemClick);
             // 
@@ -308,6 +309,7 @@
             // 
             this.barButtonItemNewComponent.Caption = "&New component";
             this.barButtonItemNewComponent.Id = 20;
+            this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
             this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
             // 
@@ -356,6 +358,7 @@
             // 
             this.barButtonItemNewJoint.Caption = "&New joint";
             this.barButtonItemNewJoint.Id = 32;
+            this.barButtonItemNewJoint.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J));
             this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
             this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
             // 
@@ -560,9 +563,10 @@
             // 
             // tabbedView1
             // 
-            this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InTabControlHeader;
+            this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.tabbedView1.DocumentProperties.AllowFloat = false;
             this.tabbedView1.DocumentProperties.AllowFloatOnDoubleClick = false;
+            this.tabbedView1.DocumentProperties.AllowPin = true;
             this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
             // 
             // PrizmApplicationXtraForm

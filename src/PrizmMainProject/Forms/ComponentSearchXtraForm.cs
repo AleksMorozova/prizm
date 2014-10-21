@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
+using PrizmMain.DummyData;
+
 namespace PrizmMain.Forms
 {
     public partial class ComponentSearchXtraForm : DevExpress.XtraEditors.XtraForm
     {
+        private List<ComponentDataDemo> MyComponent;
+
         public ComponentSearchXtraForm()
         {
             InitializeComponent();
@@ -22,8 +26,14 @@ namespace PrizmMain.Forms
             //==============================================================
             //==============================================================
 
-            componentNumber.Text = PrizmMain.DummyData.ComponentryDummy.componentNumber;
-            certificate.Text = PrizmMain.DummyData.ComponentryDummy.certificate;
+            MyComponent = ComponentryDummy.GetCmpDummy();
+
+            //Initialize bindingSource
+            BindingSource bs = new BindingSource();
+            bs.DataSource = MyComponent;
+
+            //Set GridControl's dataSource
+            searchResultsGrid.DataSource = bs;
 
             DevExpress.XtraEditors.Controls.ComboBoxItemCollection coll = componentType.Properties.Items;
 
@@ -31,7 +41,7 @@ namespace PrizmMain.Forms
 
             componentType.SelectedIndex = 2;
 
-            searchResultsGrid.DataSource = PrizmMain.DummyData.ComponentryDummy.GetCmpDummy();
+            //searchResultsGrid.DataSource = PrizmMain.DummyData.ComponentryDummy.GetCmpDummy();
 
             //==============================================================
             //==============================================================

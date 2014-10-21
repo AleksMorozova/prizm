@@ -82,7 +82,7 @@
             this.searchResultsGrid.Location = new System.Drawing.Point(7, 24);
             this.searchResultsGrid.MainView = this.searchResultsView;
             this.searchResultsGrid.Name = "searchResultsGrid";
-            this.searchResultsGrid.Size = new System.Drawing.Size(689, 290);
+            this.searchResultsGrid.Size = new System.Drawing.Size(904, 315);
             this.searchResultsGrid.TabIndex = 7;
             this.searchResultsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.searchResultsView,
@@ -105,7 +105,7 @@
             this.searchParametersGroup.Controls.Add(this.componentNumber);
             this.searchParametersGroup.Location = new System.Drawing.Point(13, 13);
             this.searchParametersGroup.Name = "searchParametersGroup";
-            this.searchParametersGroup.Size = new System.Drawing.Size(700, 75);
+            this.searchParametersGroup.Size = new System.Drawing.Size(915, 75);
             this.searchParametersGroup.TabIndex = 0;
             this.searchParametersGroup.Text = "Search parameters";
             // 
@@ -135,7 +135,7 @@
             // 
             // searchComponentryButton
             // 
-            this.searchComponentryButton.Location = new System.Drawing.Point(620, 47);
+            this.searchComponentryButton.Location = new System.Drawing.Point(835, 47);
             this.searchComponentryButton.Name = "searchComponentryButton";
             this.searchComponentryButton.Size = new System.Drawing.Size(75, 23);
             this.searchComponentryButton.TabIndex = 3;
@@ -169,7 +169,7 @@
             this.searchResultsGroup.Controls.Add(this.searchResultsGrid);
             this.searchResultsGroup.Location = new System.Drawing.Point(12, 94);
             this.searchResultsGroup.Name = "searchResultsGroup";
-            this.searchResultsGroup.Size = new System.Drawing.Size(701, 319);
+            this.searchResultsGroup.Size = new System.Drawing.Size(916, 344);
             this.searchResultsGroup.TabIndex = 1;
             this.searchResultsGroup.Text = "Search results";
             // 
@@ -177,12 +177,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 425);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.searchResultsGroup);
             this.Controls.Add(this.searchParametersGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
-            this.Text = "ComponentSearchXtraForm";
+            this.Text = "Find components";
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();

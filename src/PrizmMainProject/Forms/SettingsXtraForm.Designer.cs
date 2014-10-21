@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+namespace PrizmMain.Forms
 {
     partial class SettingsXtraForm
     {
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.settings = new DevExpress.XtraTab.XtraTabControl();
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.sizeGradeLabel = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +59,15 @@
             this.longitudinal = new DevExpress.XtraEditors.CheckEdit();
             this.weldTypeLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
+            this.inspectionGrid = new DevExpress.XtraGrid.GridControl();
+            this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.stageColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.objectColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.frequencyColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.documentColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -78,22 +90,28 @@
             this.client = new DevExpress.XtraEditors.TextEdit();
             this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.users = new DevExpress.XtraGrid.GridControl();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLogin = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPassword = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRole = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
-            this.users = new DevExpress.XtraGrid.GridControl();
-            this.usersView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.usersNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.usersFullNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.usersRoleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.usersLabel = new DevExpress.XtraEditors.LabelControl();
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
+            this.roles = new DevExpress.XtraGrid.GridControl();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.editRoleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.roles = new DevExpress.XtraGrid.GridControl();
-            this.rolesView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rolesLabel = new DevExpress.XtraEditors.LabelControl();
             this.dictionariesPage = new DevExpress.XtraTab.XtraTabPage();
             this.dictionaries = new DevExpress.XtraGrid.GridControl();
@@ -102,15 +120,6 @@
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.inspectionGrid = new DevExpress.XtraGrid.GridControl();
-            this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.stageColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.objectColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.frequencyColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.documentColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.certificationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             this.settings.SuspendLayout();
             this.pipePage.SuspendLayout();
@@ -134,6 +143,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).BeginInit();
             this.inspectionPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.projectPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -149,16 +160,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             this.usersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.rolesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.dictionariesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.SuspendLayout();
             // 
             // settings
@@ -167,7 +178,7 @@
             this.settings.Location = new System.Drawing.Point(0, 0);
             this.settings.Name = "settings";
             this.settings.SelectedTabPage = this.pipePage;
-            this.settings.Size = new System.Drawing.Size(725, 425);
+            this.settings.Size = new System.Drawing.Size(940, 450);
             this.settings.TabIndex = 0;
             this.settings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.projectPage,
@@ -186,7 +197,7 @@
             this.pipePage.Controls.Add(this.pipeSetup);
             this.pipePage.Controls.Add(this.pipeSetupLabel);
             this.pipePage.Name = "pipePage";
-            this.pipePage.Size = new System.Drawing.Size(719, 397);
+            this.pipePage.Size = new System.Drawing.Size(934, 422);
             this.pipePage.Text = "Pip&e";
             // 
             // sizeGradeLabel
@@ -231,7 +242,7 @@
             this.pipeSetup.Location = new System.Drawing.Point(11, 57);
             this.pipeSetup.Name = "pipeSetup";
             this.pipeSetup.SelectedTabPage = this.generalPipeSetupPage;
-            this.pipeSetup.Size = new System.Drawing.Size(700, 337);
+            this.pipeSetup.Size = new System.Drawing.Size(915, 362);
             this.pipeSetup.TabIndex = 0;
             this.pipeSetup.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalPipeSetupPage,
@@ -245,7 +256,7 @@
             this.generalPipeSetupPage.Controls.Add(this.longitudinal);
             this.generalPipeSetupPage.Controls.Add(this.weldTypeLabel);
             this.generalPipeSetupPage.Name = "generalPipeSetupPage";
-            this.generalPipeSetupPage.Size = new System.Drawing.Size(694, 309);
+            this.generalPipeSetupPage.Size = new System.Drawing.Size(909, 334);
             this.generalPipeSetupPage.Text = "&General set up";
             // 
             // internalCoating
@@ -412,8 +423,81 @@
             // 
             this.inspectionPage.Controls.Add(this.inspectionGrid);
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(694, 309);
+            this.inspectionPage.Size = new System.Drawing.Size(909, 334);
             this.inspectionPage.Text = "&Inspection";
+            // 
+            // inspectionGrid
+            // 
+            this.inspectionGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspectionGrid.Location = new System.Drawing.Point(4, 4);
+            this.inspectionGrid.MainView = this.inspectionView;
+            this.inspectionGrid.Name = "inspectionGrid";
+            this.inspectionGrid.Size = new System.Drawing.Size(687, 302);
+            this.inspectionGrid.TabIndex = 0;
+            this.inspectionGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.inspectionView});
+            // 
+            // inspectionView
+            // 
+            this.inspectionView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idColumn,
+            this.stageColumn,
+            this.objectColumn,
+            this.frequencyColumn,
+            this.documentColumn,
+            this.certificationColumn,
+            this.inspectionColumn});
+            this.inspectionView.GridControl = this.inspectionGrid;
+            this.inspectionView.Name = "inspectionView";
+            // 
+            // idColumn
+            // 
+            this.idColumn.Caption = "ID";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.Visible = true;
+            this.idColumn.VisibleIndex = 0;
+            // 
+            // stageColumn
+            // 
+            this.stageColumn.Caption = "Stage";
+            this.stageColumn.Name = "stageColumn";
+            this.stageColumn.Visible = true;
+            this.stageColumn.VisibleIndex = 1;
+            // 
+            // objectColumn
+            // 
+            this.objectColumn.Caption = "Object";
+            this.objectColumn.Name = "objectColumn";
+            this.objectColumn.Visible = true;
+            this.objectColumn.VisibleIndex = 2;
+            // 
+            // frequencyColumn
+            // 
+            this.frequencyColumn.Caption = "Frequency";
+            this.frequencyColumn.Name = "frequencyColumn";
+            this.frequencyColumn.Visible = true;
+            this.frequencyColumn.VisibleIndex = 3;
+            // 
+            // documentColumn
+            // 
+            this.documentColumn.Caption = "Document";
+            this.documentColumn.Name = "documentColumn";
+            this.documentColumn.Visible = true;
+            this.documentColumn.VisibleIndex = 4;
+            // 
+            // certificationColumn
+            // 
+            this.certificationColumn.Caption = "Certification";
+            this.certificationColumn.Name = "certificationColumn";
+            this.certificationColumn.Visible = true;
+            this.certificationColumn.VisibleIndex = 5;
+            // 
+            // inspectionColumn
+            // 
+            this.inspectionColumn.Caption = "Inspection";
+            this.inspectionColumn.Name = "inspectionColumn";
+            this.inspectionColumn.Visible = true;
+            this.inspectionColumn.VisibleIndex = 6;
             // 
             // pipeSetupLabel
             // 
@@ -432,7 +516,7 @@
             this.projectPage.Controls.Add(this.design);
             this.projectPage.Controls.Add(this.client);
             this.projectPage.Name = "projectPage";
-            this.projectPage.Size = new System.Drawing.Size(719, 397);
+            this.projectPage.Size = new System.Drawing.Size(934, 422);
             this.projectPage.Text = "Project";
             // 
             // panelControl1
@@ -442,7 +526,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.textEdit1);
             this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Location = new System.Drawing.Point(25, 314);
+            this.panelControl1.Location = new System.Drawing.Point(25, 345);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(365, 43);
             this.panelControl1.TabIndex = 20;
@@ -457,7 +541,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 17);
+            this.labelControl1.Location = new System.Drawing.Point(3, 14);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(172, 13);
             this.labelControl1.TabIndex = 2;
@@ -574,7 +658,7 @@
             // 
             // designLabel
             // 
-            this.designLabel.Location = new System.Drawing.Point(25, 56);
+            this.designLabel.Location = new System.Drawing.Point(383, 22);
             this.designLabel.Name = "designLabel";
             this.designLabel.Size = new System.Drawing.Size(42, 13);
             this.designLabel.TabIndex = 15;
@@ -582,7 +666,7 @@
             // 
             // clientLabel
             // 
-            this.clientLabel.Location = new System.Drawing.Point(25, 20);
+            this.clientLabel.Location = new System.Drawing.Point(25, 22);
             this.clientLabel.Name = "clientLabel";
             this.clientLabel.Size = new System.Drawing.Size(27, 13);
             this.clientLabel.TabIndex = 14;
@@ -590,14 +674,14 @@
             // 
             // design
             // 
-            this.design.Location = new System.Drawing.Point(139, 49);
+            this.design.Location = new System.Drawing.Point(383, 41);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(251, 20);
             this.design.TabIndex = 13;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(139, 13);
+            this.client.Location = new System.Drawing.Point(25, 41);
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.TabIndex = 12;
@@ -605,18 +689,101 @@
             // pipelinePage
             // 
             this.pipelinePage.Name = "pipelinePage";
-            this.pipelinePage.Size = new System.Drawing.Size(719, 397);
+            this.pipelinePage.Size = new System.Drawing.Size(934, 422);
             this.pipelinePage.Text = "Pipe&line";
             // 
             // usersPage
             // 
+            this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.userAddButton);
             this.usersPage.Controls.Add(this.userEditButton);
-            this.usersPage.Controls.Add(this.users);
             this.usersPage.Controls.Add(this.usersLabel);
             this.usersPage.Name = "usersPage";
-            this.usersPage.Size = new System.Drawing.Size(719, 397);
+            this.usersPage.Size = new System.Drawing.Size(934, 422);
             this.usersPage.Text = "&Users";
+            // 
+            // users
+            // 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.users.Cursor = System.Windows.Forms.Cursors.Default;
+            this.users.DataSource = this.userBindingSource;
+            this.users.Location = new System.Drawing.Point(11, 37);
+            this.users.MainView = this.gridView1;
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(701, 287);
+            this.users.TabIndex = 4;
+            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId,
+            this.colLastName,
+            this.colFirstName,
+            this.colMiddleName,
+            this.colLogin,
+            this.colPassword,
+            this.colRole});
+            this.gridView1.GridControl = this.users;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            // 
+            // colId
+            // 
+            this.colId.FieldName = "Id";
+            this.colId.MaxWidth = 50;
+            this.colId.Name = "colId";
+            this.colId.Visible = true;
+            this.colId.VisibleIndex = 0;
+            this.colId.Width = 50;
+            // 
+            // colLastName
+            // 
+            this.colLastName.FieldName = "LastName";
+            this.colLastName.Name = "colLastName";
+            this.colLastName.Visible = true;
+            this.colLastName.VisibleIndex = 1;
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.FieldName = "FirstName";
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.Visible = true;
+            this.colFirstName.VisibleIndex = 2;
+            // 
+            // colMiddleName
+            // 
+            this.colMiddleName.FieldName = "MiddleName";
+            this.colMiddleName.Name = "colMiddleName";
+            this.colMiddleName.Visible = true;
+            this.colMiddleName.VisibleIndex = 3;
+            // 
+            // colLogin
+            // 
+            this.colLogin.FieldName = "Login";
+            this.colLogin.Name = "colLogin";
+            this.colLogin.Visible = true;
+            this.colLogin.VisibleIndex = 4;
+            // 
+            // colPassword
+            // 
+            this.colPassword.FieldName = "Password";
+            this.colPassword.MaxWidth = 50;
+            this.colPassword.Name = "colPassword";
+            this.colPassword.Width = 50;
+            // 
+            // colRole
+            // 
+            this.colRole.FieldName = "Role.Name";
+            this.colRole.Name = "colRole";
+            this.colRole.Visible = true;
+            this.colRole.VisibleIndex = 5;
             // 
             // userAddButton
             // 
@@ -625,6 +792,7 @@
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
             this.userAddButton.Text = "Add New User";
+            this.userAddButton.Click += new System.EventHandler(this.userAddButton_Click_1);
             // 
             // userEditButton
             // 
@@ -634,50 +802,6 @@
             this.userEditButton.TabIndex = 2;
             this.userEditButton.Text = "Edit User";
             this.userEditButton.Click += new System.EventHandler(this.userEditButton_Click);
-            // 
-            // users
-            // 
-            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.users.Cursor = System.Windows.Forms.Cursors.Default;
-            this.users.Location = new System.Drawing.Point(11, 37);
-            this.users.MainView = this.usersView;
-            this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(701, 287);
-            this.users.TabIndex = 1;
-            this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.usersView});
-            // 
-            // usersView
-            // 
-            this.usersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.usersNumberGridColumn,
-            this.usersFullNameGridColumn,
-            this.usersRoleGridColumn});
-            this.usersView.GridControl = this.users;
-            this.usersView.Name = "usersView";
-            // 
-            // usersNumberGridColumn
-            // 
-            this.usersNumberGridColumn.Caption = "№";
-            this.usersNumberGridColumn.Name = "usersNumberGridColumn";
-            this.usersNumberGridColumn.Visible = true;
-            this.usersNumberGridColumn.VisibleIndex = 0;
-            // 
-            // usersFullNameGridColumn
-            // 
-            this.usersFullNameGridColumn.Caption = "User full name";
-            this.usersFullNameGridColumn.Name = "usersFullNameGridColumn";
-            this.usersFullNameGridColumn.Visible = true;
-            this.usersFullNameGridColumn.VisibleIndex = 1;
-            // 
-            // usersRoleGridColumn
-            // 
-            this.usersRoleGridColumn.Caption = "Role";
-            this.usersRoleGridColumn.Name = "usersRoleGridColumn";
-            this.usersRoleGridColumn.Visible = true;
-            this.usersRoleGridColumn.VisibleIndex = 2;
             // 
             // usersLabel
             // 
@@ -689,13 +813,64 @@
             // 
             // rolesPage
             // 
+            this.rolesPage.Controls.Add(this.roles);
             this.rolesPage.Controls.Add(this.roleAddButton);
             this.rolesPage.Controls.Add(this.editRoleButton);
-            this.rolesPage.Controls.Add(this.roles);
             this.rolesPage.Controls.Add(this.rolesLabel);
             this.rolesPage.Name = "rolesPage";
-            this.rolesPage.Size = new System.Drawing.Size(719, 397);
+            this.rolesPage.Size = new System.Drawing.Size(934, 422);
             this.rolesPage.Text = "Roles";
+            // 
+            // roles
+            // 
+            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roles.Cursor = System.Windows.Forms.Cursors.Default;
+            this.roles.DataSource = this.roleBindingSource;
+            this.roles.Location = new System.Drawing.Point(11, 37);
+            this.roles.MainView = this.gridView2;
+            this.roles.Name = "roles";
+            this.roles.Size = new System.Drawing.Size(701, 287);
+            this.roles.TabIndex = 5;
+            this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // roleBindingSource
+            // 
+            this.roleBindingSource.DataSource = typeof(PrizmMain.DummyData.Role);
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId1,
+            this.colName,
+            this.colDescription});
+            this.gridView2.GridControl = this.roles;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
+            // 
+            // colId1
+            // 
+            this.colId1.FieldName = "Id";
+            this.colId1.MaxWidth = 50;
+            this.colId1.Name = "colId1";
+            this.colId1.Visible = true;
+            this.colId1.VisibleIndex = 0;
+            this.colId1.Width = 50;
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 1;
+            // 
+            // colDescription
+            // 
+            this.colDescription.FieldName = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 2;
             // 
             // roleAddButton
             // 
@@ -704,6 +879,7 @@
             this.roleAddButton.Size = new System.Drawing.Size(87, 23);
             this.roleAddButton.TabIndex = 4;
             this.roleAddButton.Text = "Add New Role";
+            this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
             // 
             // editRoleButton
             // 
@@ -713,50 +889,6 @@
             this.editRoleButton.TabIndex = 3;
             this.editRoleButton.Text = "Edit Role";
             this.editRoleButton.Click += new System.EventHandler(this.editRoleButton_Click);
-            // 
-            // roles
-            // 
-            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roles.Cursor = System.Windows.Forms.Cursors.Default;
-            this.roles.Location = new System.Drawing.Point(11, 37);
-            this.roles.MainView = this.rolesView;
-            this.roles.Name = "roles";
-            this.roles.Size = new System.Drawing.Size(701, 287);
-            this.roles.TabIndex = 2;
-            this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.rolesView});
-            // 
-            // rolesView
-            // 
-            this.rolesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
-            this.rolesView.GridControl = this.roles;
-            this.rolesView.Name = "rolesView";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "№";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "User full name";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Role";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
             // 
             // rolesLabel
             // 
@@ -770,18 +902,19 @@
             // 
             this.dictionariesPage.Controls.Add(this.dictionaries);
             this.dictionariesPage.Name = "dictionariesPage";
-            this.dictionariesPage.Size = new System.Drawing.Size(719, 397);
+            this.dictionariesPage.Size = new System.Drawing.Size(934, 422);
             this.dictionariesPage.Text = "&Dictionaries";
             // 
             // dictionaries
             // 
             this.dictionaries.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dictionaries.Location = new System.Drawing.Point(11, 18);
+            this.dictionaries.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dictionaries.Location = new System.Drawing.Point(0, 0);
             this.dictionaries.MainView = this.dictionaryView;
             this.dictionaries.Name = "dictionaries";
             this.dictionaries.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.editItem});
-            this.dictionaries.Size = new System.Drawing.Size(347, 346);
+            this.dictionaries.Size = new System.Drawing.Size(934, 422);
             this.dictionaries.TabIndex = 0;
             this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dictionaryView});
@@ -797,114 +930,42 @@
             // dictionaryNameGridColumn
             // 
             this.dictionaryNameGridColumn.Caption = "Dictionary";
+            this.dictionaryNameGridColumn.FieldName = "DictionaryName";
             this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
             this.dictionaryNameGridColumn.Visible = true;
             this.dictionaryNameGridColumn.VisibleIndex = 0;
+            this.dictionaryNameGridColumn.Width = 864;
             // 
             // editDictionary
             // 
-            this.editDictionary.Caption = "Edit";
             this.editDictionary.ColumnEdit = this.editItem;
             this.editDictionary.Name = "editDictionary";
             this.editDictionary.Visible = true;
             this.editDictionary.VisibleIndex = 1;
-            this.editDictionary.Width = 117;
+            this.editDictionary.Width = 52;
             // 
             // editItem
             // 
             this.editItem.AutoHeight = false;
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.editItem.Name = "editItem";
+            this.editItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.editItem.Click += new System.EventHandler(this.editItem_Click);
             // 
             // bandedGridColumn1
             // 
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             // 
-            // inspectionGrid
-            // 
-            this.inspectionGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspectionGrid.Location = new System.Drawing.Point(4, 4);
-            this.inspectionGrid.MainView = this.inspectionView;
-            this.inspectionGrid.Name = "inspectionGrid";
-            this.inspectionGrid.Size = new System.Drawing.Size(687, 302);
-            this.inspectionGrid.TabIndex = 0;
-            this.inspectionGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.inspectionView});
-            // 
-            // inspectionView
-            // 
-            this.inspectionView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idColumn,
-            this.stageColumn,
-            this.objectColumn,
-            this.frequencyColumn,
-            this.documentColumn,
-            this.certificationColumn,
-            this.inspectionColumn});
-            this.inspectionView.GridControl = this.inspectionGrid;
-            this.inspectionView.Name = "inspectionView";
-            // 
-            // idColumn
-            // 
-            this.idColumn.Caption = "ID";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = true;
-            this.idColumn.VisibleIndex = 0;
-            // 
-            // stageColumn
-            // 
-            this.stageColumn.Caption = "Stage";
-            this.stageColumn.Name = "stageColumn";
-            this.stageColumn.Visible = true;
-            this.stageColumn.VisibleIndex = 1;
-            // 
-            // objectColumn
-            // 
-            this.objectColumn.Caption = "Object";
-            this.objectColumn.Name = "objectColumn";
-            this.objectColumn.Visible = true;
-            this.objectColumn.VisibleIndex = 2;
-            // 
-            // frequencyColumn
-            // 
-            this.frequencyColumn.Caption = "Frequency";
-            this.frequencyColumn.Name = "frequencyColumn";
-            this.frequencyColumn.Visible = true;
-            this.frequencyColumn.VisibleIndex = 3;
-            // 
-            // documentColumn
-            // 
-            this.documentColumn.Caption = "Document";
-            this.documentColumn.Name = "documentColumn";
-            this.documentColumn.Visible = true;
-            this.documentColumn.VisibleIndex = 4;
-            // 
-            // certificationColumn
-            // 
-            this.certificationColumn.Caption = "Certification";
-            this.certificationColumn.Name = "certificationColumn";
-            this.certificationColumn.Visible = true;
-            this.certificationColumn.VisibleIndex = 5;
-            // 
-            // inspectionColumn
-            // 
-            this.inspectionColumn.Caption = "Inspection";
-            this.inspectionColumn.Name = "inspectionColumn";
-            this.inspectionColumn.Visible = true;
-            this.inspectionColumn.VisibleIndex = 6;
-            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 425);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsXtraForm";
-            this.Text = "SettingsXtraForm";
+            this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             this.settings.ResumeLayout(false);
             this.pipePage.ResumeLayout(false);
@@ -932,6 +993,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.helical.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.longitudinal.Properties)).EndInit();
             this.inspectionPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -950,17 +1013,17 @@
             this.usersPage.ResumeLayout(false);
             this.usersPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.rolesPage.ResumeLayout(false);
             this.rolesPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.dictionariesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1000,11 +1063,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
         private DevExpress.XtraTab.XtraTabPage usersPage;
         private DevExpress.XtraTab.XtraTabPage dictionariesPage;
-        private DevExpress.XtraGrid.GridControl users;
-        private DevExpress.XtraGrid.Views.Grid.GridView usersView;
-        private DevExpress.XtraGrid.Columns.GridColumn usersNumberGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn usersFullNameGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn usersRoleGridColumn;
         private DevExpress.XtraEditors.LabelControl usersLabel;
         private DevExpress.XtraGrid.GridControl dictionaries;
         private DevExpress.XtraGrid.Views.Grid.GridView dictionaryView;
@@ -1033,11 +1091,6 @@
         private DevExpress.XtraEditors.LabelControl rolesLabel;
         private DevExpress.XtraEditors.SimpleButton userEditButton;
         private DevExpress.XtraEditors.SimpleButton editRoleButton;
-        private DevExpress.XtraGrid.GridControl roles;
-        private DevExpress.XtraGrid.Views.Grid.GridView rolesView;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.SimpleButton userAddButton;
         private DevExpress.XtraEditors.SimpleButton roleAddButton;
         private DevExpress.XtraGrid.Columns.GridColumn editDictionary;
@@ -1051,5 +1104,21 @@
         private DevExpress.XtraGrid.Columns.GridColumn documentColumn;
         private DevExpress.XtraGrid.Columns.GridColumn certificationColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionColumn;
+        private DevExpress.XtraGrid.GridControl users;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
+        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
+        private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
+        private DevExpress.XtraGrid.Columns.GridColumn colLogin;
+        private DevExpress.XtraGrid.Columns.GridColumn colPassword;
+        private DevExpress.XtraGrid.Columns.GridColumn colRole;
+        private DevExpress.XtraGrid.GridControl roles;
+        private System.Windows.Forms.BindingSource roleBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colId1;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
     }
 }

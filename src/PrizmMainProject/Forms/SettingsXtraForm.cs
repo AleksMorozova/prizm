@@ -25,8 +25,10 @@ namespace PrizmMain.Forms
             var roleDs = new PrizmMain.DummyData.RolesDummy();
             var roleData = roleDs.GetRoles();
             roles.DataSource = roleData;
+            #endregion
 
-
+            #region Dictionary Grid
+            this.dictionaries.DataSource = PrizmMain.DummyData.DictionaryDummy.GetDictionaries();
             #endregion
 
         }
@@ -54,12 +56,12 @@ namespace PrizmMain.Forms
             var editUser = new UserInfoXtraForm(false);
             editUser.ShowDialog();
         }
-
-        private void userAddButton_Click(object sender, EventArgs e)
+        private void userAddButton_Click_1(object sender, EventArgs e)
         {
             var editUser = new UserInfoXtraForm();
             editUser.ShowDialog();
         }
+
         #endregion
 
         private void editItem_Click(object sender, EventArgs e)
@@ -68,6 +70,8 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
+
+
         
     }
 }

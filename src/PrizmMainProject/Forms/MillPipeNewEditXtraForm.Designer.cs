@@ -823,7 +823,7 @@
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(209, 106);
+            this.client.Location = new System.Drawing.Point(211, 106);
             this.client.Name = "client";
             this.client.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -867,7 +867,7 @@
             // 
             // dischargeDate
             // 
-            this.dischargeDate.Location = new System.Drawing.Point(210, 170);
+            this.dischargeDate.Location = new System.Drawing.Point(211, 170);
             this.dischargeDate.Name = "dischargeDate";
             this.dischargeDate.Properties.ReadOnly = true;
             this.dischargeDate.Size = new System.Drawing.Size(135, 20);
@@ -883,7 +883,7 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(145, 50);
+            this.certificateNumber.Location = new System.Drawing.Point(211, 50);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Properties.ReadOnly = true;
             this.certificateNumber.Size = new System.Drawing.Size(289, 20);
@@ -891,7 +891,7 @@
             // 
             // certificateNumberLabel
             // 
-            this.certificateNumberLabel.Location = new System.Drawing.Point(145, 27);
+            this.certificateNumberLabel.Location = new System.Drawing.Point(211, 27);
             this.certificateNumberLabel.Name = "certificateNumberLabel";
             this.certificateNumberLabel.Size = new System.Drawing.Size(89, 13);
             this.certificateNumberLabel.TabIndex = 6;
@@ -915,7 +915,7 @@
             // 
             // deliveryDateLabel
             // 
-            this.deliveryDateLabel.Location = new System.Drawing.Point(210, 147);
+            this.deliveryDateLabel.Location = new System.Drawing.Point(211, 147);
             this.deliveryDateLabel.Name = "deliveryDateLabel";
             this.deliveryDateLabel.Size = new System.Drawing.Size(64, 13);
             this.deliveryDateLabel.TabIndex = 0;
@@ -1045,7 +1045,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(940, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.pipeCreationDate);
             this.Controls.Add(this.pipeCreationDateLabel);
             this.Controls.Add(this.pipe);

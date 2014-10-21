@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+namespace PrizmMain.Forms
 {
     partial class JointNewEditXtraForm
     {
@@ -31,12 +31,13 @@
             this.joint = new DevExpress.XtraTab.XtraTabControl();
             this.generalParameters = new DevExpress.XtraTab.XtraTabPage();
             this.lowering = new DevExpress.XtraEditors.GroupControl();
+            this.seaLevelLabel = new DevExpress.XtraEditors.LabelControl();
+            this.seaLevel = new DevExpress.XtraEditors.TextEdit();
+            this.GPSLabel = new DevExpress.XtraEditors.LabelControl();
             this.GPSLongLabel = new DevExpress.XtraEditors.LabelControl();
             this.GPSLatLabel = new DevExpress.XtraEditors.LabelControl();
             this.GPSLong = new DevExpress.XtraEditors.TextEdit();
             this.GPSLat = new DevExpress.XtraEditors.TextEdit();
-            this.loweringDate = new DevExpress.XtraEditors.DateEdit();
-            this.loweringDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.weldig = new DevExpress.XtraEditors.GroupControl();
             this.inspectionDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
@@ -62,6 +63,8 @@
             this.pipesLabel = new DevExpress.XtraEditors.LabelControl();
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.jointNumberLabel = new DevExpress.XtraEditors.LabelControl();
+            this.loweringDate = new DevExpress.XtraEditors.DateEdit();
+            this.loweringDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.inspectionOperations = new DevExpress.XtraTab.XtraTabPage();
             this.controls = new DevExpress.XtraGrid.GridControl();
             this.controlsView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -80,10 +83,9 @@
             this.generalParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lowering)).BeginInit();
             this.lowering.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldig)).BeginInit();
             this.weldig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspection.Properties.CalendarTimeProperties)).BeginInit();
@@ -100,6 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).BeginInit();
             this.inspectionOperations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.controls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlsView)).BeginInit();
@@ -117,7 +121,7 @@
             this.joint.Location = new System.Drawing.Point(0, 0);
             this.joint.Name = "joint";
             this.joint.SelectedTabPage = this.generalParameters;
-            this.joint.Size = new System.Drawing.Size(725, 425);
+            this.joint.Size = new System.Drawing.Size(940, 450);
             this.joint.TabIndex = 0;
             this.joint.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParameters,
@@ -133,73 +137,79 @@
             this.generalParameters.Controls.Add(this.pipesLabel);
             this.generalParameters.Controls.Add(this.jointNumber);
             this.generalParameters.Controls.Add(this.jointNumberLabel);
+            this.generalParameters.Controls.Add(this.loweringDate);
+            this.generalParameters.Controls.Add(this.loweringDateLabel);
             this.generalParameters.Name = "generalParameters";
-            this.generalParameters.Size = new System.Drawing.Size(719, 397);
+            this.generalParameters.Size = new System.Drawing.Size(934, 422);
             this.generalParameters.Text = "&General parameters";
             // 
             // lowering
             // 
+            this.lowering.Controls.Add(this.seaLevelLabel);
+            this.lowering.Controls.Add(this.seaLevel);
+            this.lowering.Controls.Add(this.GPSLabel);
             this.lowering.Controls.Add(this.GPSLongLabel);
             this.lowering.Controls.Add(this.GPSLatLabel);
             this.lowering.Controls.Add(this.GPSLong);
             this.lowering.Controls.Add(this.GPSLat);
-            this.lowering.Controls.Add(this.loweringDate);
-            this.lowering.Controls.Add(this.loweringDateLabel);
-            this.lowering.Location = new System.Drawing.Point(306, 12);
+            this.lowering.Location = new System.Drawing.Point(478, 20);
             this.lowering.Name = "lowering";
-            this.lowering.Size = new System.Drawing.Size(389, 51);
+            this.lowering.Size = new System.Drawing.Size(422, 78);
             this.lowering.TabIndex = 9;
             this.lowering.Text = "Lowering";
             // 
+            // seaLevelLabel
+            // 
+            this.seaLevelLabel.Location = new System.Drawing.Point(304, 23);
+            this.seaLevelLabel.Name = "seaLevelLabel";
+            this.seaLevelLabel.Size = new System.Drawing.Size(43, 13);
+            this.seaLevelLabel.TabIndex = 15;
+            this.seaLevelLabel.Text = "Sea level";
+            // 
+            // seaLevel
+            // 
+            this.seaLevel.Location = new System.Drawing.Point(303, 43);
+            this.seaLevel.Name = "seaLevel";
+            this.seaLevel.Size = new System.Drawing.Size(95, 20);
+            this.seaLevel.TabIndex = 14;
+            // 
+            // GPSLabel
+            // 
+            this.GPSLabel.Location = new System.Drawing.Point(12, 46);
+            this.GPSLabel.Name = "GPSLabel";
+            this.GPSLabel.Size = new System.Drawing.Size(19, 13);
+            this.GPSLabel.TabIndex = 13;
+            this.GPSLabel.Text = "GPS";
+            // 
             // GPSLongLabel
             // 
-            this.GPSLongLabel.Location = new System.Drawing.Point(265, 27);
+            this.GPSLongLabel.Location = new System.Drawing.Point(174, 22);
             this.GPSLongLabel.Name = "GPSLongLabel";
-            this.GPSLongLabel.Size = new System.Drawing.Size(45, 13);
+            this.GPSLongLabel.Size = new System.Drawing.Size(47, 13);
             this.GPSLongLabel.TabIndex = 12;
-            this.GPSLongLabel.Text = "GPS Long";
+            this.GPSLongLabel.Text = "Longitude";
             // 
             // GPSLatLabel
             // 
-            this.GPSLatLabel.Location = new System.Drawing.Point(153, 27);
+            this.GPSLatLabel.Location = new System.Drawing.Point(45, 24);
             this.GPSLatLabel.Name = "GPSLatLabel";
-            this.GPSLatLabel.Size = new System.Drawing.Size(37, 13);
+            this.GPSLatLabel.Size = new System.Drawing.Size(39, 13);
             this.GPSLatLabel.TabIndex = 11;
-            this.GPSLatLabel.Text = "GPS Lat";
+            this.GPSLatLabel.Text = "Latitude";
             // 
             // GPSLong
             // 
-            this.GPSLong.Location = new System.Drawing.Point(316, 24);
+            this.GPSLong.Location = new System.Drawing.Point(174, 43);
             this.GPSLong.Name = "GPSLong";
-            this.GPSLong.Size = new System.Drawing.Size(57, 20);
+            this.GPSLong.Size = new System.Drawing.Size(95, 20);
             this.GPSLong.TabIndex = 10;
             // 
             // GPSLat
             // 
-            this.GPSLat.Location = new System.Drawing.Point(196, 24);
+            this.GPSLat.Location = new System.Drawing.Point(45, 43);
             this.GPSLat.Name = "GPSLat";
-            this.GPSLat.Size = new System.Drawing.Size(57, 20);
+            this.GPSLat.Size = new System.Drawing.Size(95, 20);
             this.GPSLat.TabIndex = 9;
-            // 
-            // loweringDate
-            // 
-            this.loweringDate.EditValue = null;
-            this.loweringDate.Location = new System.Drawing.Point(34, 24);
-            this.loweringDate.Name = "loweringDate";
-            this.loweringDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.loweringDate.Size = new System.Drawing.Size(100, 20);
-            this.loweringDate.TabIndex = 7;
-            // 
-            // loweringDateLabel
-            // 
-            this.loweringDateLabel.Location = new System.Drawing.Point(5, 27);
-            this.loweringDateLabel.Name = "loweringDateLabel";
-            this.loweringDateLabel.Size = new System.Drawing.Size(23, 13);
-            this.loweringDateLabel.TabIndex = 8;
-            this.loweringDateLabel.Text = "Date";
             // 
             // weldig
             // 
@@ -217,15 +227,15 @@
             this.weldig.Controls.Add(this.place);
             this.weldig.Controls.Add(this.inspector);
             this.weldig.Controls.Add(this.welder);
-            this.weldig.Location = new System.Drawing.Point(11, 253);
+            this.weldig.Location = new System.Drawing.Point(20, 275);
             this.weldig.Name = "weldig";
-            this.weldig.Size = new System.Drawing.Size(684, 127);
+            this.weldig.Size = new System.Drawing.Size(880, 123);
             this.weldig.TabIndex = 6;
             this.weldig.Text = "Welding";
             // 
             // inspectionDateLabel
             // 
-            this.inspectionDateLabel.Location = new System.Drawing.Point(267, 101);
+            this.inspectionDateLabel.Location = new System.Drawing.Point(473, 75);
             this.inspectionDateLabel.Name = "inspectionDateLabel";
             this.inspectionDateLabel.Size = new System.Drawing.Size(75, 13);
             this.inspectionDateLabel.TabIndex = 13;
@@ -233,7 +243,7 @@
             // 
             // weldingDateLabel
             // 
-            this.weldingDateLabel.Location = new System.Drawing.Point(267, 32);
+            this.weldingDateLabel.Location = new System.Drawing.Point(280, 30);
             this.weldingDateLabel.Name = "weldingDateLabel";
             this.weldingDateLabel.Size = new System.Drawing.Size(63, 13);
             this.weldingDateLabel.TabIndex = 12;
@@ -241,7 +251,7 @@
             // 
             // welderNumberLabel
             // 
-            this.welderNumberLabel.Location = new System.Drawing.Point(267, 66);
+            this.welderNumberLabel.Location = new System.Drawing.Point(280, 75);
             this.welderNumberLabel.Name = "welderNumberLabel";
             this.welderNumberLabel.Size = new System.Drawing.Size(73, 13);
             this.welderNumberLabel.TabIndex = 11;
@@ -249,7 +259,7 @@
             // 
             // inspectorLabel
             // 
-            this.inspectorLabel.Location = new System.Drawing.Point(18, 101);
+            this.inspectorLabel.Location = new System.Drawing.Point(473, 30);
             this.inspectorLabel.Name = "inspectorLabel";
             this.inspectorLabel.Size = new System.Drawing.Size(46, 13);
             this.inspectorLabel.TabIndex = 10;
@@ -257,7 +267,7 @@
             // 
             // welderLabel
             // 
-            this.welderLabel.Location = new System.Drawing.Point(18, 70);
+            this.welderLabel.Location = new System.Drawing.Point(23, 75);
             this.welderLabel.Name = "welderLabel";
             this.welderLabel.Size = new System.Drawing.Size(34, 13);
             this.welderLabel.TabIndex = 9;
@@ -265,7 +275,7 @@
             // 
             // statusLabel
             // 
-            this.statusLabel.Location = new System.Drawing.Point(483, 32);
+            this.statusLabel.Location = new System.Drawing.Point(730, 30);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(31, 13);
             this.statusLabel.TabIndex = 8;
@@ -273,7 +283,7 @@
             // 
             // placeLabel
             // 
-            this.placeLabel.Location = new System.Drawing.Point(18, 32);
+            this.placeLabel.Location = new System.Drawing.Point(23, 30);
             this.placeLabel.Name = "placeLabel";
             this.placeLabel.Size = new System.Drawing.Size(25, 13);
             this.placeLabel.TabIndex = 7;
@@ -282,19 +292,19 @@
             // inspection
             // 
             this.inspection.EditValue = null;
-            this.inspection.Location = new System.Drawing.Point(362, 98);
+            this.inspection.Location = new System.Drawing.Point(473, 94);
             this.inspection.Name = "inspection";
             this.inspection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.inspection.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspection.Size = new System.Drawing.Size(100, 20);
+            this.inspection.Size = new System.Drawing.Size(164, 20);
             this.inspection.TabIndex = 6;
             // 
             // weldingDate
             // 
             this.weldingDate.EditValue = null;
-            this.weldingDate.Location = new System.Drawing.Point(362, 29);
+            this.weldingDate.Location = new System.Drawing.Point(280, 49);
             this.weldingDate.Name = "weldingDate";
             this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -305,14 +315,14 @@
             // 
             // welderNumber
             // 
-            this.welderNumber.Location = new System.Drawing.Point(362, 63);
+            this.welderNumber.Location = new System.Drawing.Point(280, 94);
             this.welderNumber.Name = "welderNumber";
             this.welderNumber.Size = new System.Drawing.Size(100, 20);
             this.welderNumber.TabIndex = 4;
             // 
             // status
             // 
-            this.status.Location = new System.Drawing.Point(540, 29);
+            this.status.Location = new System.Drawing.Point(730, 49);
             this.status.Name = "status";
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -321,23 +331,26 @@
             // 
             // place
             // 
-            this.place.Location = new System.Drawing.Point(78, 29);
+            this.place.Location = new System.Drawing.Point(23, 49);
             this.place.Name = "place";
             this.place.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.place.Properties.Items.AddRange(new object[] {
+            "Pipe base",
+            "Pipeline"});
             this.place.Size = new System.Drawing.Size(164, 20);
             this.place.TabIndex = 2;
             // 
             // inspector
             // 
-            this.inspector.Location = new System.Drawing.Point(78, 98);
+            this.inspector.Location = new System.Drawing.Point(473, 49);
             this.inspector.Name = "inspector";
             this.inspector.Size = new System.Drawing.Size(164, 20);
             this.inspector.TabIndex = 1;
             // 
             // welder
             // 
-            this.welder.Location = new System.Drawing.Point(78, 63);
+            this.welder.Location = new System.Drawing.Point(23, 94);
             this.welder.Name = "welder";
             this.welder.Size = new System.Drawing.Size(164, 20);
             this.welder.TabIndex = 0;
@@ -345,10 +358,10 @@
             // componentry
             // 
             this.componentry.Cursor = System.Windows.Forms.Cursors.Default;
-            this.componentry.Location = new System.Drawing.Point(346, 97);
+            this.componentry.Location = new System.Drawing.Point(477, 133);
             this.componentry.MainView = this.componentryView;
             this.componentry.Name = "componentry";
-            this.componentry.Size = new System.Drawing.Size(293, 136);
+            this.componentry.Size = new System.Drawing.Size(423, 136);
             this.componentry.TabIndex = 5;
             this.componentry.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.componentryView});
@@ -371,10 +384,10 @@
             // pipes
             // 
             this.pipes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipes.Location = new System.Drawing.Point(12, 97);
+            this.pipes.Location = new System.Drawing.Point(20, 133);
             this.pipes.MainView = this.pipesView;
             this.pipes.Name = "pipes";
-            this.pipes.Size = new System.Drawing.Size(293, 136);
+            this.pipes.Size = new System.Drawing.Size(423, 136);
             this.pipes.TabIndex = 4;
             this.pipes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesView});
@@ -396,7 +409,7 @@
             // 
             // componentryLabel
             // 
-            this.componentryLabel.Location = new System.Drawing.Point(346, 78);
+            this.componentryLabel.Location = new System.Drawing.Point(477, 114);
             this.componentryLabel.Name = "componentryLabel";
             this.componentryLabel.Size = new System.Drawing.Size(69, 13);
             this.componentryLabel.TabIndex = 3;
@@ -404,7 +417,7 @@
             // 
             // pipesLabel
             // 
-            this.pipesLabel.Location = new System.Drawing.Point(12, 78);
+            this.pipesLabel.Location = new System.Drawing.Point(20, 114);
             this.pipesLabel.Name = "pipesLabel";
             this.pipesLabel.Size = new System.Drawing.Size(29, 13);
             this.pipesLabel.TabIndex = 2;
@@ -412,18 +425,38 @@
             // 
             // jointNumber
             // 
-            this.jointNumber.Location = new System.Drawing.Point(12, 31);
+            this.jointNumber.Location = new System.Drawing.Point(20, 39);
             this.jointNumber.Name = "jointNumber";
             this.jointNumber.Size = new System.Drawing.Size(100, 20);
             this.jointNumber.TabIndex = 1;
             // 
             // jointNumberLabel
             // 
-            this.jointNumberLabel.Location = new System.Drawing.Point(12, 12);
+            this.jointNumberLabel.Location = new System.Drawing.Point(20, 20);
             this.jointNumberLabel.Name = "jointNumberLabel";
             this.jointNumberLabel.Size = new System.Drawing.Size(62, 13);
             this.jointNumberLabel.TabIndex = 0;
             this.jointNumberLabel.Text = "Joint number";
+            // 
+            // loweringDate
+            // 
+            this.loweringDate.EditValue = null;
+            this.loweringDate.Location = new System.Drawing.Point(230, 39);
+            this.loweringDate.Name = "loweringDate";
+            this.loweringDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.loweringDate.Size = new System.Drawing.Size(100, 20);
+            this.loweringDate.TabIndex = 7;
+            // 
+            // loweringDateLabel
+            // 
+            this.loweringDateLabel.Location = new System.Drawing.Point(230, 20);
+            this.loweringDateLabel.Name = "loweringDateLabel";
+            this.loweringDateLabel.Size = new System.Drawing.Size(68, 13);
+            this.loweringDateLabel.TabIndex = 8;
+            this.loweringDateLabel.Text = "Lowering date";
             // 
             // inspectionOperations
             // 
@@ -438,7 +471,7 @@
             this.inspectionOperations.Controls.Add(this.controlTypeLabel);
             this.inspectionOperations.Controls.Add(this.controlType);
             this.inspectionOperations.Name = "inspectionOperations";
-            this.inspectionOperations.Size = new System.Drawing.Size(719, 397);
+            this.inspectionOperations.Size = new System.Drawing.Size(934, 422);
             this.inspectionOperations.Text = "&Inspection operations";
             // 
             // controls
@@ -463,13 +496,14 @@
             // controlTypeGridColumn
             // 
             this.controlTypeGridColumn.Caption = "Control type";
+            this.controlTypeGridColumn.FieldName = "Type";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 0;
             // 
             // repeatedControl
             // 
-            this.repeatedControl.Location = new System.Drawing.Point(11, 192);
+            this.repeatedControl.Location = new System.Drawing.Point(20, 200);
             this.repeatedControl.Name = "repeatedControl";
             this.repeatedControl.Properties.Caption = "Repeated control";
             this.repeatedControl.Size = new System.Drawing.Size(112, 19);
@@ -477,7 +511,7 @@
             // 
             // resultLabel
             // 
-            this.resultLabel.Location = new System.Drawing.Point(12, 147);
+            this.resultLabel.Location = new System.Drawing.Point(20, 155);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(30, 13);
             this.resultLabel.TabIndex = 7;
@@ -485,16 +519,20 @@
             // 
             // result
             // 
-            this.result.Location = new System.Drawing.Point(11, 166);
+            this.result.Location = new System.Drawing.Point(20, 174);
             this.result.Name = "result";
             this.result.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.result.Properties.Items.AddRange(new object[] {
+            "Accepted",
+            "Repair",
+            "Cutting"});
             this.result.Size = new System.Drawing.Size(167, 20);
             this.result.TabIndex = 6;
             // 
             // inspectorNameLabel
             // 
-            this.inspectorNameLabel.Location = new System.Drawing.Point(11, 102);
+            this.inspectorNameLabel.Location = new System.Drawing.Point(20, 110);
             this.inspectorNameLabel.Name = "inspectorNameLabel";
             this.inspectorNameLabel.Size = new System.Drawing.Size(46, 13);
             this.inspectorNameLabel.TabIndex = 5;
@@ -502,7 +540,7 @@
             // 
             // inspectorName
             // 
-            this.inspectorName.Location = new System.Drawing.Point(11, 121);
+            this.inspectorName.Location = new System.Drawing.Point(20, 129);
             this.inspectorName.Name = "inspectorName";
             this.inspectorName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -511,7 +549,7 @@
             // 
             // controlDateLabel
             // 
-            this.controlDateLabel.Location = new System.Drawing.Point(11, 57);
+            this.controlDateLabel.Location = new System.Drawing.Point(20, 65);
             this.controlDateLabel.Name = "controlDateLabel";
             this.controlDateLabel.Size = new System.Drawing.Size(23, 13);
             this.controlDateLabel.TabIndex = 3;
@@ -520,7 +558,7 @@
             // controlDate
             // 
             this.controlDate.EditValue = null;
-            this.controlDate.Location = new System.Drawing.Point(11, 76);
+            this.controlDate.Location = new System.Drawing.Point(19, 84);
             this.controlDate.Name = "controlDate";
             this.controlDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -531,7 +569,7 @@
             // 
             // controlTypeLabel
             // 
-            this.controlTypeLabel.Location = new System.Drawing.Point(12, 12);
+            this.controlTypeLabel.Location = new System.Drawing.Point(20, 20);
             this.controlTypeLabel.Name = "controlTypeLabel";
             this.controlTypeLabel.Size = new System.Drawing.Size(60, 13);
             this.controlTypeLabel.TabIndex = 1;
@@ -539,10 +577,19 @@
             // 
             // controlType
             // 
-            this.controlType.Location = new System.Drawing.Point(11, 31);
+            this.controlType.Location = new System.Drawing.Point(20, 39);
             this.controlType.Name = "controlType";
             this.controlType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlType.Properties.Items.AddRange(new object[] {
+            "Joint cutting",
+            "Joint welding",
+            "Joint repair",
+            "Welding control",
+            "Radiography ",
+            "Ultrasound ",
+            "Joint isolation",
+            "Control of adhesion "});
             this.controlType.Size = new System.Drawing.Size(168, 20);
             this.controlType.TabIndex = 0;
             // 
@@ -551,8 +598,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(725, 425);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.joint);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -567,10 +613,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lowering)).EndInit();
             this.lowering.ResumeLayout(false);
             this.lowering.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldig)).EndInit();
             this.weldig.ResumeLayout(false);
             this.weldig.PerformLayout();
@@ -588,6 +633,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).EndInit();
             this.inspectionOperations.ResumeLayout(false);
             this.inspectionOperations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.controls)).EndInit();
@@ -651,5 +698,8 @@
         private DevExpress.XtraEditors.LabelControl GPSLatLabel;
         private DevExpress.XtraEditors.TextEdit GPSLong;
         private DevExpress.XtraEditors.TextEdit GPSLat;
+        private DevExpress.XtraEditors.LabelControl seaLevelLabel;
+        private DevExpress.XtraEditors.TextEdit seaLevel;
+        private DevExpress.XtraEditors.LabelControl GPSLabel;
     }
 }

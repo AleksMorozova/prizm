@@ -26,6 +26,7 @@ namespace PrizmMain.Forms
             {
                 userRoleComboBox.Properties.Items.Add(item.Name);
             }
+            userRoleComboBox.SelectedIndex = 1;
         }
 
         public UserInfoXtraForm(bool isNew)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -101,6 +102,7 @@
             this.railcarNumberGridColumn.Name = "railcarNumberGridColumn";
             this.railcarNumberGridColumn.Visible = true;
             this.railcarNumberGridColumn.VisibleIndex = 0;
+            this.railcarNumberGridColumn.Width = 179;
             // 
             // statusGridColumn
             // 
@@ -109,6 +111,7 @@
             this.statusGridColumn.Name = "statusGridColumn";
             this.statusGridColumn.Visible = true;
             this.statusGridColumn.VisibleIndex = 1;
+            this.statusGridColumn.Width = 179;
             // 
             // shippingDateGridColumn
             // 
@@ -117,6 +120,7 @@
             this.shippingDateGridColumn.Name = "shippingDateGridColumn";
             this.shippingDateGridColumn.Visible = true;
             this.shippingDateGridColumn.VisibleIndex = 2;
+            this.shippingDateGridColumn.Width = 179;
             // 
             // deliveryDateGridColumn
             // 
@@ -125,6 +129,7 @@
             this.deliveryDateGridColumn.Name = "deliveryDateGridColumn";
             this.deliveryDateGridColumn.Visible = true;
             this.deliveryDateGridColumn.VisibleIndex = 3;
+            this.deliveryDateGridColumn.Width = 308;
             // 
             // editGridColumn
             // 
@@ -132,12 +137,13 @@
             this.editGridColumn.Name = "editGridColumn";
             this.editGridColumn.Visible = true;
             this.editGridColumn.VisibleIndex = 4;
+            this.editGridColumn.Width = 53;
             // 
             // openRailcarButton
             // 
             this.openRailcarButton.AutoHeight = false;
             this.openRailcarButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "view railcar", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "view railcar", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("openRailcarButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.openRailcarButton.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.openRailcarButton.Name = "openRailcarButton";
             this.openRailcarButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;

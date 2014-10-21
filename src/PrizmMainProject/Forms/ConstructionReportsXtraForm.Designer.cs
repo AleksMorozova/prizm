@@ -49,6 +49,7 @@
             // 
             // reportType
             // 
+            this.reportType.EditValue = "Used products";
             this.reportType.Location = new System.Drawing.Point(107, 5);
             this.reportType.Name = "reportType";
             this.reportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -68,9 +69,9 @@
             // 
             this.typeLabel.Location = new System.Drawing.Point(23, 42);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(22, 13);
+            this.typeLabel.Size = new System.Drawing.Size(24, 13);
             this.typeLabel.TabIndex = 66;
-            this.typeLabel.Text = "type";
+            this.typeLabel.Text = "Type";
             // 
             // to
             // 
@@ -100,6 +101,7 @@
             // 
             // type
             // 
+            this.type.EditValue = "All";
             this.type.Location = new System.Drawing.Point(70, 39);
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

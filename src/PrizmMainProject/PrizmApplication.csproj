@@ -115,6 +115,8 @@
   <ItemGroup>
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
+    <Compile Include="DummyData\DictionaryDummy.cs" />
+    <Compile Include="DummyData\JointsDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
@@ -145,6 +147,12 @@
     </Compile>
     <Compile Include="Forms\ConstructionReportsXtraForm.Designer.cs">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginXtraForm.Designer.cs">
+      <DependentUpon>LoginXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MillReportsXtraReport.cs">
       <SubType>Component</SubType>
@@ -487,6 +495,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{495328aa-7441-4e86-8003-3d881e8e0fdf}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
