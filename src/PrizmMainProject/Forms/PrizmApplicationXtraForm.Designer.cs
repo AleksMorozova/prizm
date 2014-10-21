@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barTools = new DevExpress.XtraBars.Bar();
             this.barButtonClose = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
@@ -79,9 +80,9 @@
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
@@ -501,28 +502,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(952, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(952, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 503);
-            this.barDockControlBottom.Size = new System.Drawing.Size(952, 70);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 501);
+            this.barDockControlBottom.Size = new System.Drawing.Size(952, 72);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 483);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 479);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(952, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 483);
+            this.barDockControlRight.Location = new System.Drawing.Point(952, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 479);
             // 
             // barSubItemJoints
             // 
@@ -562,9 +563,10 @@
             // 
             // tabbedView1
             // 
-            this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InTabControlHeader;
+            this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.tabbedView1.DocumentProperties.AllowFloat = false;
             this.tabbedView1.DocumentProperties.AllowFloatOnDoubleClick = false;
+            this.tabbedView1.DocumentProperties.AllowPin = true;
             this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
             // 
             // PrizmApplicationXtraForm
