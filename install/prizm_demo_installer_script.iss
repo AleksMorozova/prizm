@@ -3,9 +3,10 @@
 
 #define MyAppName "Prizm Demo"
 #define MyAppVersion "0.0.0.4"
-#define MyAppPublisher "ISD"
-#define MyAppURL "http://www.isd.dp.ua/"
+#define MyAppPublisher ""
+#define MyAppURL ""
 #define MyAppExeName "prizm.exe"
+#define MyDateTimeString GetDateTimeString('dm', '', '');
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -23,7 +24,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=..\install\Relise
-OutputBaseFilename=setup_prism_{#MyAppVersion}
+OutputBaseFilename=setup_prism_{#MyDateTimeString}
 Compression=lzma
 SolidCompression=yes
 ShowTasksTreeLines=True

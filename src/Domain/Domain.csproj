@@ -42,6 +42,13 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IRoleRepository.cs" />
     <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="Entity\Inspection.cs" />
+    <Compile Include="Entity\Joint\ConstructionWelding.cs" />
+    <Compile Include="Entity\Joint\GPS.cs" />
+    <Compile Include="Entity\Joint\Joint.cs" />
+    <Compile Include="Entity\Joint\JointInspection.cs" />
+    <Compile Include="Entity\KilometerPost.cs" />
+    <Compile Include="Entity\PipelinePiece.cs" />
     <Compile Include="Entity\Component.cs" />
     <Compile Include="Entity\ComponentInspection.cs" />
     <Compile Include="Entity\Connector.cs" />
@@ -54,6 +61,8 @@
     <Compile Include="Entity\Railcar.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\Welder.cs" />
+    <Compile Include="Entity\Welding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
