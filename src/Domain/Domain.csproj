@@ -42,8 +42,12 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IRoleRepository.cs" />
     <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="Entity\Inspection.cs" />
+    <Compile Include="Entity\Joint\ConstructionWelding.cs" />
     <Compile Include="Entity\Joint\GPS.cs" />
     <Compile Include="Entity\Joint\Joint.cs" />
+    <Compile Include="Entity\Joint\JointInspection.cs" />
+    <Compile Include="Entity\KilometerPost.cs" />
     <Compile Include="Entity\PipelinePiece.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\User.cs" />
