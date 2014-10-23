@@ -49,6 +49,16 @@
     <Compile Include="Entity\Joint\JointInspection.cs" />
     <Compile Include="Entity\KilometerPost.cs" />
     <Compile Include="Entity\PipelinePiece.cs" />
+    <Compile Include="Entity\Component.cs" />
+    <Compile Include="Entity\ComponentInspection.cs" />
+    <Compile Include="Entity\Connector.cs" />
+    <Compile Include="Entity\CoatingSettings.cs" />
+    <Compile Include="Entity\Heat.cs" />
+    <Compile Include="Entity\PhysicalParameters.cs" />
+    <Compile Include="Entity\PipeInspectionSettings.cs" />
+    <Compile Include="Entity\PipeSettings.cs" />
+    <Compile Include="Entity\Project.cs" />
+    <Compile Include="Entity\Railcar.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\Welder.cs" />
