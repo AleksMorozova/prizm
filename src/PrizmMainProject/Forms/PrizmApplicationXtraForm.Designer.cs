@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barButtonClose = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -75,7 +72,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barSubItemJoints = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
@@ -116,9 +112,6 @@
             this.barButtonItemSettingsUsers,
             this.barButtonItemSettingsDictionaries,
             this.barStaticItem1,
-            this.barButtonClose,
-            this.barButtonSave,
-            this.barSubItemJoints,
             this.barSubItemComponentry,
             this.barSubItemReports,
             this.barButtonItemNewPipe,
@@ -153,23 +146,6 @@
             this.barManager1.MainMenu = this.barMenu;
             this.barManager1.MaxItemId = 49;
             this.barManager1.StatusBar = this.barStatus;
-            // 
-            // barButtonClose
-            // 
-            this.barButtonClose.Caption = "&Close";
-            this.barButtonClose.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonClose.Glyph")));
-            this.barButtonClose.Id = 9;
-            this.barButtonClose.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonClose.LargeGlyph")));
-            this.barButtonClose.Name = "barButtonClose";
-            this.barButtonClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonClose_ItemClick);
-            // 
-            // barButtonSave
-            // 
-            this.barButtonSave.Caption = "&Save";
-            this.barButtonSave.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonSave.Glyph")));
-            this.barButtonSave.Id = 10;
-            this.barButtonSave.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonSave.LargeGlyph")));
-            this.barButtonSave.Name = "barButtonSave";
             // 
             // barMenu
             // 
@@ -483,33 +459,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(952, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1292, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 550);
-            this.barDockControlBottom.Size = new System.Drawing.Size(952, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 600);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1292, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 530);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 580);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(952, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 530);
-            // 
-            // barSubItemJoints
-            // 
-            this.barSubItemJoints.Id = 40;
-            this.barSubItemJoints.Name = "barSubItemJoints";
+            this.barDockControlRight.Location = new System.Drawing.Point(1292, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 580);
             // 
             // barButtonItemNewProject
             // 
@@ -554,7 +525,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 573);
+            this.ClientSize = new System.Drawing.Size(1292, 623);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -587,9 +558,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonClose;
-        private DevExpress.XtraBars.BarButtonItem barButtonSave;
-        private DevExpress.XtraBars.BarSubItem barSubItemJoints;
         private DevExpress.XtraBars.BarSubItem barSubItemComponentry;
         private DevExpress.XtraBars.BarSubItem barSubItemReports;
         private DevExpress.XtraBars.BarSubItem barSubItemApplication;
