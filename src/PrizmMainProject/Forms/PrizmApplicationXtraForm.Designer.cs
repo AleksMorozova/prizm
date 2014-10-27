@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barTools = new DevExpress.XtraBars.Bar();
             this.barButtonClose = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
             this.barMenu = new DevExpress.XtraBars.Bar();
@@ -102,7 +101,6 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.barTools,
             this.barMenu,
             this.barStatus});
             this.barManager1.DockControls.Add(this.barDockControlTop);
@@ -155,23 +153,6 @@
             this.barManager1.MainMenu = this.barMenu;
             this.barManager1.MaxItemId = 49;
             this.barManager1.StatusBar = this.barStatus;
-            // 
-            // barTools
-            // 
-            this.barTools.BarName = "Tools";
-            this.barTools.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.barTools.DockCol = 0;
-            this.barTools.DockRow = 1;
-            this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.barTools.FloatLocation = new System.Drawing.Point(962, 406);
-            this.barTools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonClose, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barTools.Offset = 631;
-            this.barTools.OptionsBar.AllowQuickCustomization = false;
-            this.barTools.OptionsBar.DisableClose = true;
-            this.barTools.OptionsBar.DisableCustomization = true;
-            this.barTools.Text = "Tools";
             // 
             // barButtonClose
             // 
@@ -502,28 +483,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(952, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(952, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 501);
-            this.barDockControlBottom.Size = new System.Drawing.Size(952, 72);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 550);
+            this.barDockControlBottom.Size = new System.Drawing.Size(952, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 479);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 530);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(952, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 479);
+            this.barDockControlRight.Location = new System.Drawing.Point(952, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 530);
             // 
             // barSubItemJoints
             // 
@@ -593,7 +574,6 @@
 
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar barTools;
         private DevExpress.XtraBars.Bar barMenu;
         private DevExpress.XtraBars.BarSubItem barSubItemMill;
         private DevExpress.XtraBars.BarSubItem barSubItemSettings;
