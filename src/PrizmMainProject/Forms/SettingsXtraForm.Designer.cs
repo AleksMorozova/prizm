@@ -704,14 +704,15 @@ namespace PrizmMain.Forms
             // 
             // users
             // 
-            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.users.Cursor = System.Windows.Forms.Cursors.Default;
             this.users.DataSource = this.userBindingSource;
             this.users.Location = new System.Drawing.Point(11, 37);
             this.users.MainView = this.gridView1;
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(701, 287);
+            this.users.Size = new System.Drawing.Size(916, 378);
             this.users.TabIndex = 4;
             this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -787,7 +788,8 @@ namespace PrizmMain.Forms
             // 
             // userAddButton
             // 
-            this.userAddButton.Location = new System.Drawing.Point(11, 330);
+            this.userAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userAddButton.Location = new System.Drawing.Point(759, 7);
             this.userAddButton.Name = "userAddButton";
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
@@ -796,7 +798,8 @@ namespace PrizmMain.Forms
             // 
             // userEditButton
             // 
-            this.userEditButton.Location = new System.Drawing.Point(104, 330);
+            this.userEditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userEditButton.Location = new System.Drawing.Point(852, 7);
             this.userEditButton.Name = "userEditButton";
             this.userEditButton.Size = new System.Drawing.Size(75, 23);
             this.userEditButton.TabIndex = 2;
@@ -805,7 +808,7 @@ namespace PrizmMain.Forms
             // 
             // usersLabel
             // 
-            this.usersLabel.Location = new System.Drawing.Point(11, 18);
+            this.usersLabel.Location = new System.Drawing.Point(11, 13);
             this.usersLabel.Name = "usersLabel";
             this.usersLabel.Size = new System.Drawing.Size(27, 13);
             this.usersLabel.TabIndex = 0;
@@ -823,14 +826,15 @@ namespace PrizmMain.Forms
             // 
             // roles
             // 
-            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.roles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roles.Cursor = System.Windows.Forms.Cursors.Default;
             this.roles.DataSource = this.roleBindingSource;
-            this.roles.Location = new System.Drawing.Point(11, 37);
+            this.roles.Location = new System.Drawing.Point(11, 32);
             this.roles.MainView = this.gridView2;
             this.roles.Name = "roles";
-            this.roles.Size = new System.Drawing.Size(701, 287);
+            this.roles.Size = new System.Drawing.Size(916, 383);
             this.roles.TabIndex = 5;
             this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -874,7 +878,8 @@ namespace PrizmMain.Forms
             // 
             // roleAddButton
             // 
-            this.roleAddButton.Location = new System.Drawing.Point(11, 330);
+            this.roleAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.roleAddButton.Location = new System.Drawing.Point(759, 4);
             this.roleAddButton.Name = "roleAddButton";
             this.roleAddButton.Size = new System.Drawing.Size(87, 23);
             this.roleAddButton.TabIndex = 4;
@@ -883,7 +888,8 @@ namespace PrizmMain.Forms
             // 
             // editRoleButton
             // 
-            this.editRoleButton.Location = new System.Drawing.Point(104, 330);
+            this.editRoleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editRoleButton.Location = new System.Drawing.Point(852, 4);
             this.editRoleButton.Name = "editRoleButton";
             this.editRoleButton.Size = new System.Drawing.Size(75, 23);
             this.editRoleButton.TabIndex = 3;
@@ -892,7 +898,7 @@ namespace PrizmMain.Forms
             // 
             // rolesLabel
             // 
-            this.rolesLabel.Location = new System.Drawing.Point(11, 18);
+            this.rolesLabel.Location = new System.Drawing.Point(11, 13);
             this.rolesLabel.Name = "rolesLabel";
             this.rolesLabel.Size = new System.Drawing.Size(26, 13);
             this.rolesLabel.TabIndex = 1;
