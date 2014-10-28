@@ -30,30 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.roleEdit = new DevExpress.XtraEditors.TextEdit();
-            this.roleLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.priveleges = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.roleEdit = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.roleLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.privilegesLabel = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priveleges)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -72,23 +76,13 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
+            // priveleges
             // 
-            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.roleLabel,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.emptySpaceItem1,
-            this.emptySpaceItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(342, 329);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
-            this.layoutControlGroup1.TextVisible = false;
+            this.priveleges.Location = new System.Drawing.Point(12, 71);
+            this.priveleges.Name = "priveleges";
+            this.priveleges.Size = new System.Drawing.Size(318, 219);
+            this.priveleges.StyleController = this.layoutControl1;
+            this.priveleges.TabIndex = 5;
             // 
             // roleEdit
             // 
@@ -98,37 +92,6 @@
             this.roleEdit.StyleController = this.layoutControl1;
             this.roleEdit.TabIndex = 4;
             // 
-            // roleLabel
-            // 
-            this.roleLabel.Control = this.roleEdit;
-            this.roleLabel.CustomizationFormText = "Role";
-            this.roleLabel.Location = new System.Drawing.Point(0, 0);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(322, 40);
-            this.roleLabel.Text = "Role";
-            this.roleLabel.TextLocation = DevExpress.Utils.Locations.Top;
-            this.roleLabel.TextSize = new System.Drawing.Size(21, 13);
-            // 
-            // priveleges
-            // 
-            this.priveleges.Location = new System.Drawing.Point(12, 52);
-            this.priveleges.Name = "priveleges";
-            this.priveleges.Size = new System.Drawing.Size(318, 238);
-            this.priveleges.StyleController = this.layoutControl1;
-            this.priveleges.TabIndex = 5;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.priveleges;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(322, 242);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
-            this.layoutControlItem2.TextVisible = false;
-            // 
             // saveButton
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -137,7 +100,7 @@
             this.saveButton.Size = new System.Drawing.Size(66, 23);
             this.saveButton.StyleController = this.layoutControl1;
             this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "OK";
+            this.saveButton.Text = "Сохранить";
             // 
             // cancelButton
             // 
@@ -147,7 +110,50 @@
             this.cancelButton.Size = new System.Drawing.Size(66, 23);
             this.cancelButton.StyleController = this.layoutControl1;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Отменить";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.CustomizationFormText = "Root";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2,
+            this.roleLabel,
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.emptySpaceItem1,
+            this.emptySpaceItem2,
+            this.privilegesLabel,
+            this.simpleSeparator1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(342, 329);
+            this.layoutControlGroup1.Text = "Root";
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.priveleges;
+            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 59);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(322, 223);
+            this.layoutControlItem2.Text = "layoutControlItem2";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextToControlDistance = 0;
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.Control = this.roleEdit;
+            this.roleLabel.CustomizationFormText = "Role";
+            this.roleLabel.Location = new System.Drawing.Point(0, 0);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(322, 40);
+            this.roleLabel.Text = "Роль пользователя";
+            this.roleLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.roleLabel.TextSize = new System.Drawing.Size(172, 13);
             // 
             // layoutControlItem6
             // 
@@ -206,6 +212,25 @@
             // 
             this.roleBindingSource.DataSource = typeof(PrizmMain.DummyData.Role);
             // 
+            // privilegesLabel
+            // 
+            this.privilegesLabel.AllowHotTrack = false;
+            this.privilegesLabel.CustomizationFormText = "Список привилегий пользователя";
+            this.privilegesLabel.Location = new System.Drawing.Point(0, 42);
+            this.privilegesLabel.Name = "privilegesLabel";
+            this.privilegesLabel.Size = new System.Drawing.Size(322, 17);
+            this.privilegesLabel.Text = "Список привилегий пользователя";
+            this.privilegesLabel.TextSize = new System.Drawing.Size(172, 13);
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.CustomizationFormText = "simpleSeparator1";
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 40);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(322, 2);
+            this.simpleSeparator1.Text = "simpleSeparator1";
+            // 
             // RolesPrivilegeEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,16 +241,18 @@
             this.Text = "Edit roles";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priveleges)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +272,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.SimpleLabelItem privilegesLabel;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
 
     }
 }

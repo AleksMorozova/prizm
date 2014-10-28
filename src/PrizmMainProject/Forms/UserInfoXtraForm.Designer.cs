@@ -30,59 +30,59 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ItemForId = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ItemForLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.FirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ItemForFirstName = new DevExpress.XtraLayout.LayoutControlItem();
             this.MiddleNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ItemForMiddleName = new DevExpress.XtraLayout.LayoutControlItem();
             this.LoginTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ItemForLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.PasswordTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ItemForPassword = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.IdSpinEdit = new DevExpress.XtraEditors.TextEdit();
+            this.RoleComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForId = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForLastName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForFirstName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForMiddleName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ItemForLogin = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForPassword = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.IdSpinEdit = new DevExpress.XtraEditors.TextEdit();
-            this.RoleComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MiddleNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForMiddleName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleComboBoxEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMiddleName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IdSpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RoleComboBoxEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,6 +108,102 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
+            // LastNameTextEdit
+            // 
+            this.LastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "LastName", true));
+            this.LastNameTextEdit.Location = new System.Drawing.Point(24, 99);
+            this.LastNameTextEdit.Name = "LastNameTextEdit";
+            this.LastNameTextEdit.Size = new System.Drawing.Size(100, 20);
+            this.LastNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.LastNameTextEdit.TabIndex = 5;
+            // 
+            // FirstNameTextEdit
+            // 
+            this.FirstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "FirstName", true));
+            this.FirstNameTextEdit.Location = new System.Drawing.Point(128, 99);
+            this.FirstNameTextEdit.Name = "FirstNameTextEdit";
+            this.FirstNameTextEdit.Size = new System.Drawing.Size(96, 20);
+            this.FirstNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.FirstNameTextEdit.TabIndex = 6;
+            // 
+            // MiddleNameTextEdit
+            // 
+            this.MiddleNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "MiddleName", true));
+            this.MiddleNameTextEdit.Location = new System.Drawing.Point(228, 99);
+            this.MiddleNameTextEdit.Name = "MiddleNameTextEdit";
+            this.MiddleNameTextEdit.Size = new System.Drawing.Size(90, 20);
+            this.MiddleNameTextEdit.StyleController = this.dataLayoutControl1;
+            this.MiddleNameTextEdit.TabIndex = 7;
+            // 
+            // LoginTextEdit
+            // 
+            this.LoginTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Login", true));
+            this.LoginTextEdit.Location = new System.Drawing.Point(24, 182);
+            this.LoginTextEdit.Name = "LoginTextEdit";
+            this.LoginTextEdit.Size = new System.Drawing.Size(145, 20);
+            this.LoginTextEdit.StyleController = this.dataLayoutControl1;
+            this.LoginTextEdit.TabIndex = 8;
+            // 
+            // PasswordTextEdit
+            // 
+            this.PasswordTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Password", true));
+            this.PasswordTextEdit.Location = new System.Drawing.Point(173, 182);
+            this.PasswordTextEdit.Name = "PasswordTextEdit";
+            this.PasswordTextEdit.Properties.PasswordChar = '*';
+            this.PasswordTextEdit.Size = new System.Drawing.Size(145, 20);
+            this.PasswordTextEdit.StyleController = this.dataLayoutControl1;
+            this.PasswordTextEdit.TabIndex = 9;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.simpleButton1.Location = new System.Drawing.Point(184, 294);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(66, 23);
+            this.simpleButton1.StyleController = this.dataLayoutControl1;
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "Сохранить";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.simpleButton2.Location = new System.Drawing.Point(264, 294);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(66, 23);
+            this.simpleButton2.StyleController = this.dataLayoutControl1;
+            this.simpleButton2.TabIndex = 6;
+            this.simpleButton2.Text = "Отменить";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // IdSpinEdit
+            // 
+            this.IdSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Id", true));
+            this.IdSpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.IdSpinEdit.Enabled = false;
+            this.IdSpinEdit.Location = new System.Drawing.Point(12, 28);
+            this.IdSpinEdit.Name = "IdSpinEdit";
+            this.IdSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.IdSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.IdSpinEdit.Properties.ReadOnly = true;
+            this.IdSpinEdit.Size = new System.Drawing.Size(86, 20);
+            this.IdSpinEdit.StyleController = this.dataLayoutControl1;
+            this.IdSpinEdit.TabIndex = 4;
+            // 
+            // RoleComboBoxEdit
+            // 
+            this.RoleComboBoxEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Role", true));
+            this.RoleComboBoxEdit.Location = new System.Drawing.Point(12, 234);
+            this.RoleComboBoxEdit.Name = "RoleComboBoxEdit";
+            this.RoleComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.RoleComboBoxEdit.Size = new System.Drawing.Size(318, 20);
+            this.RoleComboBoxEdit.StyleController = this.dataLayoutControl1;
+            this.RoleComboBoxEdit.TabIndex = 11;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "Root";
@@ -126,17 +222,6 @@
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // ItemForId
-            // 
-            this.ItemForId.Control = this.IdSpinEdit;
-            this.ItemForId.CustomizationFormText = "Id";
-            this.ItemForId.Location = new System.Drawing.Point(0, 0);
-            this.ItemForId.Name = "ItemForId";
-            this.ItemForId.Size = new System.Drawing.Size(88, 40);
-            this.ItemForId.Text = "Id";
-            this.ItemForId.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForId.TextSize = new System.Drawing.Size(60, 13);
-            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.AllowDrawBackground = false;
@@ -153,14 +238,38 @@
             this.layoutControlGroup2.Size = new System.Drawing.Size(322, 246);
             this.layoutControlGroup2.Text = "autoGeneratedGroup0";
             // 
-            // LastNameTextEdit
+            // ItemForId
             // 
-            this.LastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "LastName", true));
-            this.LastNameTextEdit.Location = new System.Drawing.Point(24, 99);
-            this.LastNameTextEdit.Name = "LastNameTextEdit";
-            this.LastNameTextEdit.Size = new System.Drawing.Size(100, 20);
-            this.LastNameTextEdit.StyleController = this.dataLayoutControl1;
-            this.LastNameTextEdit.TabIndex = 5;
+            this.ItemForId.Control = this.IdSpinEdit;
+            this.ItemForId.CustomizationFormText = "Id";
+            this.ItemForId.Location = new System.Drawing.Point(0, 0);
+            this.ItemForId.Name = "ItemForId";
+            this.ItemForId.Size = new System.Drawing.Size(90, 40);
+            this.ItemForId.Text = "№";
+            this.ItemForId.TextLocation = DevExpress.Utils.Locations.Top;
+            this.ItemForId.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(90, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(232, 40);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.CustomizationFormText = "User Name";
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForLastName,
+            this.ItemForFirstName,
+            this.ItemForMiddleName});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 40);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(322, 83);
+            this.layoutControlGroup3.Text = "Имя пользователя";
             // 
             // ItemForLastName
             // 
@@ -169,18 +278,9 @@
             this.ItemForLastName.Location = new System.Drawing.Point(0, 0);
             this.ItemForLastName.Name = "ItemForLastName";
             this.ItemForLastName.Size = new System.Drawing.Size(104, 40);
-            this.ItemForLastName.Text = "Last Name";
+            this.ItemForLastName.Text = "Фамилия";
             this.ItemForLastName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForLastName.TextSize = new System.Drawing.Size(60, 13);
-            // 
-            // FirstNameTextEdit
-            // 
-            this.FirstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "FirstName", true));
-            this.FirstNameTextEdit.Location = new System.Drawing.Point(128, 99);
-            this.FirstNameTextEdit.Name = "FirstNameTextEdit";
-            this.FirstNameTextEdit.Size = new System.Drawing.Size(96, 20);
-            this.FirstNameTextEdit.StyleController = this.dataLayoutControl1;
-            this.FirstNameTextEdit.TabIndex = 6;
+            this.ItemForLastName.TextSize = new System.Drawing.Size(86, 13);
             // 
             // ItemForFirstName
             // 
@@ -189,18 +289,9 @@
             this.ItemForFirstName.Location = new System.Drawing.Point(104, 0);
             this.ItemForFirstName.Name = "ItemForFirstName";
             this.ItemForFirstName.Size = new System.Drawing.Size(100, 40);
-            this.ItemForFirstName.Text = "First Name";
+            this.ItemForFirstName.Text = "Имя";
             this.ItemForFirstName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForFirstName.TextSize = new System.Drawing.Size(60, 13);
-            // 
-            // MiddleNameTextEdit
-            // 
-            this.MiddleNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "MiddleName", true));
-            this.MiddleNameTextEdit.Location = new System.Drawing.Point(228, 99);
-            this.MiddleNameTextEdit.Name = "MiddleNameTextEdit";
-            this.MiddleNameTextEdit.Size = new System.Drawing.Size(90, 20);
-            this.MiddleNameTextEdit.StyleController = this.dataLayoutControl1;
-            this.MiddleNameTextEdit.TabIndex = 7;
+            this.ItemForFirstName.TextSize = new System.Drawing.Size(86, 13);
             // 
             // ItemForMiddleName
             // 
@@ -209,18 +300,20 @@
             this.ItemForMiddleName.Location = new System.Drawing.Point(204, 0);
             this.ItemForMiddleName.Name = "ItemForMiddleName";
             this.ItemForMiddleName.Size = new System.Drawing.Size(94, 40);
-            this.ItemForMiddleName.Text = "Middle Name";
+            this.ItemForMiddleName.Text = "Отчество";
             this.ItemForMiddleName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForMiddleName.TextSize = new System.Drawing.Size(60, 13);
+            this.ItemForMiddleName.TextSize = new System.Drawing.Size(86, 13);
             // 
-            // LoginTextEdit
+            // layoutControlGroup4
             // 
-            this.LoginTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Login", true));
-            this.LoginTextEdit.Location = new System.Drawing.Point(24, 182);
-            this.LoginTextEdit.Name = "LoginTextEdit";
-            this.LoginTextEdit.Size = new System.Drawing.Size(145, 20);
-            this.LoginTextEdit.StyleController = this.dataLayoutControl1;
-            this.LoginTextEdit.TabIndex = 8;
+            this.layoutControlGroup4.CustomizationFormText = "User Login";
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForLogin,
+            this.ItemForPassword});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 123);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(322, 83);
+            this.layoutControlGroup4.Text = "Аутентификация";
             // 
             // ItemForLogin
             // 
@@ -229,19 +322,9 @@
             this.ItemForLogin.Location = new System.Drawing.Point(0, 0);
             this.ItemForLogin.Name = "ItemForLogin";
             this.ItemForLogin.Size = new System.Drawing.Size(149, 40);
-            this.ItemForLogin.Text = "Login";
+            this.ItemForLogin.Text = "Логин";
             this.ItemForLogin.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForLogin.TextSize = new System.Drawing.Size(60, 13);
-            // 
-            // PasswordTextEdit
-            // 
-            this.PasswordTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Password", true));
-            this.PasswordTextEdit.Location = new System.Drawing.Point(173, 182);
-            this.PasswordTextEdit.Name = "PasswordTextEdit";
-            this.PasswordTextEdit.Properties.PasswordChar = '*';
-            this.PasswordTextEdit.Size = new System.Drawing.Size(145, 20);
-            this.PasswordTextEdit.StyleController = this.dataLayoutControl1;
-            this.PasswordTextEdit.TabIndex = 9;
+            this.ItemForLogin.TextSize = new System.Drawing.Size(86, 13);
             // 
             // ItemForPassword
             // 
@@ -250,9 +333,20 @@
             this.ItemForPassword.Location = new System.Drawing.Point(149, 0);
             this.ItemForPassword.Name = "ItemForPassword";
             this.ItemForPassword.Size = new System.Drawing.Size(149, 40);
-            this.ItemForPassword.Text = "Password";
+            this.ItemForPassword.Text = "Пароль";
             this.ItemForPassword.TextLocation = DevExpress.Utils.Locations.Top;
-            this.ItemForPassword.TextSize = new System.Drawing.Size(60, 13);
+            this.ItemForPassword.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.RoleComboBoxEdit;
+            this.layoutControlItem1.CustomizationFormText = "Role";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 206);
+            this.layoutControlItem1.Name = "ItemForRole";
+            this.layoutControlItem1.Size = new System.Drawing.Size(322, 40);
+            this.layoutControlItem1.Text = "Роль позователя";
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(86, 13);
             // 
             // emptySpaceItem1
             // 
@@ -263,27 +357,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(322, 36);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton1.Location = new System.Drawing.Point(184, 294);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(66, 23);
-            this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "Save";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton2.Location = new System.Drawing.Point(264, 294);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(66, 23);
-            this.simpleButton2.StyleController = this.dataLayoutControl1;
-            this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Cancel";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // layoutControlItem6
             // 
@@ -338,78 +411,6 @@
             this.emptySpaceItem3.Text = "emptySpaceItem2";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(88, 0);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(234, 40);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.CustomizationFormText = "User Name";
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ItemForLastName,
-            this.ItemForFirstName,
-            this.ItemForMiddleName});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(322, 83);
-            this.layoutControlGroup3.Text = "User Name";
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.CustomizationFormText = "User Login";
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ItemForLogin,
-            this.ItemForPassword});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 123);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(322, 83);
-            this.layoutControlGroup4.Text = "User Login";
-            // 
-            // IdSpinEdit
-            // 
-            this.IdSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Id", true));
-            this.IdSpinEdit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.IdSpinEdit.Location = new System.Drawing.Point(12, 28);
-            this.IdSpinEdit.Name = "IdSpinEdit";
-            this.IdSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.IdSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.IdSpinEdit.Properties.ReadOnly = true;
-            this.IdSpinEdit.Size = new System.Drawing.Size(84, 20);
-            this.IdSpinEdit.StyleController = this.dataLayoutControl1;
-            this.IdSpinEdit.TabIndex = 4;
-            // 
-            // RoleComboBoxEdit
-            // 
-            this.RoleComboBoxEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.userBindingSource, "Role", true));
-            this.RoleComboBoxEdit.Location = new System.Drawing.Point(12, 234);
-            this.RoleComboBoxEdit.Name = "RoleComboBoxEdit";
-            this.RoleComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.RoleComboBoxEdit.Size = new System.Drawing.Size(318, 20);
-            this.RoleComboBoxEdit.StyleController = this.dataLayoutControl1;
-            this.RoleComboBoxEdit.TabIndex = 11;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.RoleComboBoxEdit;
-            this.layoutControlItem1.CustomizationFormText = "Role";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 206);
-            this.layoutControlItem1.Name = "ItemForRole";
-            this.layoutControlItem1.Size = new System.Drawing.Size(322, 40);
-            this.layoutControlItem1.Text = "Role";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(60, 13);
-            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
@@ -424,30 +425,30 @@
             this.Text = "Edit User";
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MiddleNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForMiddleName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleComboBoxEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMiddleName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IdSpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RoleComboBoxEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 

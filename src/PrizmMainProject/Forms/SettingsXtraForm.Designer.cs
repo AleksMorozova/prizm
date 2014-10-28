@@ -737,6 +737,7 @@ namespace PrizmMain.Forms
             // 
             // colId
             // 
+            this.colId.Caption = "№";
             this.colId.FieldName = "Id";
             this.colId.MaxWidth = 50;
             this.colId.Name = "colId";
@@ -746,6 +747,7 @@ namespace PrizmMain.Forms
             // 
             // colLastName
             // 
+            this.colLastName.Caption = "Фамилия";
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
@@ -753,6 +755,7 @@ namespace PrizmMain.Forms
             // 
             // colFirstName
             // 
+            this.colFirstName.Caption = "Имя";
             this.colFirstName.FieldName = "FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
@@ -760,6 +763,7 @@ namespace PrizmMain.Forms
             // 
             // colMiddleName
             // 
+            this.colMiddleName.Caption = "Отчество";
             this.colMiddleName.FieldName = "MiddleName";
             this.colMiddleName.Name = "colMiddleName";
             this.colMiddleName.Visible = true;
@@ -767,6 +771,7 @@ namespace PrizmMain.Forms
             // 
             // colLogin
             // 
+            this.colLogin.Caption = "Логин";
             this.colLogin.FieldName = "Login";
             this.colLogin.Name = "colLogin";
             this.colLogin.Visible = true;
@@ -774,6 +779,7 @@ namespace PrizmMain.Forms
             // 
             // colPassword
             // 
+            this.colPassword.Caption = "Пароль";
             this.colPassword.FieldName = "Password";
             this.colPassword.MaxWidth = 50;
             this.colPassword.Name = "colPassword";
@@ -781,6 +787,7 @@ namespace PrizmMain.Forms
             // 
             // colRole
             // 
+            this.colRole.Caption = "Роль";
             this.colRole.FieldName = "Role.Name";
             this.colRole.Name = "colRole";
             this.colRole.Visible = true;
@@ -789,30 +796,30 @@ namespace PrizmMain.Forms
             // userAddButton
             // 
             this.userAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.userAddButton.Location = new System.Drawing.Point(759, 7);
+            this.userAddButton.Location = new System.Drawing.Point(733, 7);
             this.userAddButton.Name = "userAddButton";
             this.userAddButton.Size = new System.Drawing.Size(87, 23);
             this.userAddButton.TabIndex = 3;
-            this.userAddButton.Text = "Add New User";
+            this.userAddButton.Text = "Добавить";
             this.userAddButton.Click += new System.EventHandler(this.userAddButton_Click_1);
             // 
             // userEditButton
             // 
             this.userEditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.userEditButton.Location = new System.Drawing.Point(852, 7);
+            this.userEditButton.Location = new System.Drawing.Point(826, 7);
             this.userEditButton.Name = "userEditButton";
-            this.userEditButton.Size = new System.Drawing.Size(75, 23);
+            this.userEditButton.Size = new System.Drawing.Size(101, 23);
             this.userEditButton.TabIndex = 2;
-            this.userEditButton.Text = "Edit User";
+            this.userEditButton.Text = "Редактировать";
             this.userEditButton.Click += new System.EventHandler(this.userEditButton_Click);
             // 
             // usersLabel
             // 
             this.usersLabel.Location = new System.Drawing.Point(11, 13);
             this.usersLabel.Name = "usersLabel";
-            this.usersLabel.Size = new System.Drawing.Size(27, 13);
+            this.usersLabel.Size = new System.Drawing.Size(72, 13);
             this.usersLabel.TabIndex = 0;
-            this.usersLabel.Text = "Users";
+            this.usersLabel.Text = "Пользователи";
             // 
             // rolesPage
             // 
@@ -855,6 +862,7 @@ namespace PrizmMain.Forms
             // 
             // colId1
             // 
+            this.colId1.Caption = "№";
             this.colId1.FieldName = "Id";
             this.colId1.MaxWidth = 50;
             this.colId1.Name = "colId1";
@@ -864,6 +872,7 @@ namespace PrizmMain.Forms
             // 
             // colName
             // 
+            this.colName.Caption = "Роль";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
@@ -871,6 +880,7 @@ namespace PrizmMain.Forms
             // 
             // colDescription
             // 
+            this.colDescription.Caption = "Описание";
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
@@ -879,30 +889,30 @@ namespace PrizmMain.Forms
             // roleAddButton
             // 
             this.roleAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roleAddButton.Location = new System.Drawing.Point(759, 4);
+            this.roleAddButton.Location = new System.Drawing.Point(724, 4);
             this.roleAddButton.Name = "roleAddButton";
             this.roleAddButton.Size = new System.Drawing.Size(87, 23);
             this.roleAddButton.TabIndex = 4;
-            this.roleAddButton.Text = "Add New Role";
+            this.roleAddButton.Text = "Добавить";
             this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
             // 
             // editRoleButton
             // 
             this.editRoleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editRoleButton.Location = new System.Drawing.Point(852, 4);
+            this.editRoleButton.Location = new System.Drawing.Point(817, 4);
             this.editRoleButton.Name = "editRoleButton";
-            this.editRoleButton.Size = new System.Drawing.Size(75, 23);
+            this.editRoleButton.Size = new System.Drawing.Size(110, 23);
             this.editRoleButton.TabIndex = 3;
-            this.editRoleButton.Text = "Edit Role";
+            this.editRoleButton.Text = "Редактировать";
             this.editRoleButton.Click += new System.EventHandler(this.editRoleButton_Click);
             // 
             // rolesLabel
             // 
             this.rolesLabel.Location = new System.Drawing.Point(11, 13);
             this.rolesLabel.Name = "rolesLabel";
-            this.rolesLabel.Size = new System.Drawing.Size(26, 13);
+            this.rolesLabel.Size = new System.Drawing.Size(104, 13);
             this.rolesLabel.TabIndex = 1;
-            this.rolesLabel.Text = "Roles";
+            this.rolesLabel.Text = "Роли пользователей";
             // 
             // dictionariesPage
             // 
