@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public enum PipeType
+    public enum SeamType
     { 
         Helical,
-        Longitudinal
+        Longitudinal,
+        Seamless
     }
 
     public class PipeSettings
@@ -19,9 +20,8 @@ namespace Domain.Entity
             this.CoatingSettings = new List<CoatingSettings>(2);
             this.PipeInspectionSettings = new List<PipeInspectionSettings>();
         }
-        
-        public string WeldType { get; set; }
-        public PipeType PipeType { get; set; }
+
+        public SeamType SeamType { get; set; }
 
         public virtual ICollection<CoatingSettings> CoatingSettings { get; set; }
         public virtual ICollection<PipeInspectionSettings> PipeInspectionSettings { get; set; } //not sure
