@@ -28,11 +28,12 @@ namespace PrizmMain.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.items = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.English = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Russian = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.itemsView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ruRu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.enEn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.Tools = new DevExpress.XtraBars.Bar();
             this.addItem = new DevExpress.XtraBars.BarButtonItem();
             this.removeItem = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +42,7 @@ namespace PrizmMain.Forms
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.items)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,36 +51,36 @@ namespace PrizmMain.Forms
             this.items.Cursor = System.Windows.Forms.Cursors.Default;
             this.items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.items.Location = new System.Drawing.Point(0, 29);
-            this.items.MainView = this.gridView1;
+            this.items.MainView = this.itemsView;
             this.items.Name = "items";
             this.items.Size = new System.Drawing.Size(391, 232);
             this.items.TabIndex = 0;
             this.items.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.itemsView});
             // 
-            // gridView1
+            // itemsView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Russian,
-            this.English});
-            this.gridView1.GridControl = this.items;
-            this.gridView1.Name = "gridView1";
+            this.itemsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ruRu,
+            this.enEn});
+            this.itemsView.GridControl = this.items;
+            this.itemsView.Name = "itemsView";
             // 
-            // English
+            // ruRu
             // 
-            this.English.Caption = "English";
-            this.English.FieldName = "enEn";
-            this.English.Name = "English";
-            this.English.Visible = true;
-            this.English.VisibleIndex = 0;
+            this.ruRu.Caption = "ru-Ru";
+            this.ruRu.FieldName = "ruRu";
+            this.ruRu.Name = "ruRu";
+            this.ruRu.Visible = true;
+            this.ruRu.VisibleIndex = 1;
             // 
-            // Russian
+            // enEn
             // 
-            this.Russian.Caption = "Russian";
-            this.Russian.FieldName = "ruRu";
-            this.Russian.Name = "Russian";
-            this.Russian.Visible = true;
-            this.Russian.VisibleIndex = 1;
+            this.enEn.Caption = "en-En";
+            this.enEn.FieldName = "enEn";
+            this.enEn.Name = "enEn";
+            this.enEn.Visible = true;
+            this.enEn.VisibleIndex = 0;
             // 
             // barManager1
             // 
@@ -162,7 +163,7 @@ namespace PrizmMain.Forms
             this.Name = "SettingsEditDictionaryXtraForm";
             this.Text = "Настройки - Редактирование словаря";
             ((System.ComponentModel.ISupportInitialize)(this.items)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
 
@@ -171,9 +172,9 @@ namespace PrizmMain.Forms
         #endregion
 
         private DevExpress.XtraGrid.GridControl items;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn English;
-        private DevExpress.XtraGrid.Columns.GridColumn Russian;
+        private DevExpress.XtraGrid.Views.Grid.GridView itemsView;
+        private DevExpress.XtraGrid.Columns.GridColumn enEn;
+        private DevExpress.XtraGrid.Columns.GridColumn ruRu;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar Tools;
         private DevExpress.XtraBars.BarButtonItem addItem;
