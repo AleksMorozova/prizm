@@ -48,10 +48,11 @@ namespace PrizmMain.Forms
             // items
             // 
             this.items.Cursor = System.Windows.Forms.Cursors.Default;
-            this.items.Location = new System.Drawing.Point(0, 26);
+            this.items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.items.Location = new System.Drawing.Point(0, 29);
             this.items.MainView = this.gridView1;
             this.items.Name = "items";
-            this.items.Size = new System.Drawing.Size(361, 200);
+            this.items.Size = new System.Drawing.Size(391, 232);
             this.items.TabIndex = 0;
             this.items.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -59,15 +60,15 @@ namespace PrizmMain.Forms
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.English,
-            this.Russian});
+            this.Russian,
+            this.English});
             this.gridView1.GridControl = this.items;
             this.gridView1.Name = "gridView1";
             // 
             // English
             // 
             this.English.Caption = "English";
-            this.English.FieldName = "English";
+            this.English.FieldName = "enEn";
             this.English.Name = "English";
             this.English.Visible = true;
             this.English.VisibleIndex = 0;
@@ -75,7 +76,7 @@ namespace PrizmMain.Forms
             // Russian
             // 
             this.Russian.Caption = "Russian";
-            this.Russian.FieldName = "Russian";
+            this.Russian.FieldName = "ruRu";
             this.Russian.Name = "Russian";
             this.Russian.Visible = true;
             this.Russian.VisibleIndex = 1;
@@ -110,13 +111,13 @@ namespace PrizmMain.Forms
             // 
             // addItem
             // 
-            this.addItem.Caption = "Add";
+            this.addItem.Caption = "Добавить";
             this.addItem.Id = 0;
             this.addItem.Name = "addItem";
             // 
             // removeItem
             // 
-            this.removeItem.Caption = "Remove";
+            this.removeItem.Caption = "Удалить";
             this.removeItem.Id = 1;
             this.removeItem.Name = "removeItem";
             // 
@@ -159,7 +160,7 @@ namespace PrizmMain.Forms
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "SettingsEditDictionaryXtraForm";
-            this.Text = "Settings - Edit dictionary";
+            this.Text = "Настройки - Редактирование словаря";
             ((System.ComponentModel.ISupportInitialize)(this.items)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

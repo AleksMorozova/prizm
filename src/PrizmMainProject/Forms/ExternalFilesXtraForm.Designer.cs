@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.files = new DevExpress.XtraGrid.GridControl();
-            this.fileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fileBindingSource = new System.Windows.Forms.BindingSource();
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,10 +57,6 @@
             this.files.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.filesView});
             // 
-            // fileBindingSource
-            // 
-            this.fileBindingSource.DataSource = typeof(Domain.Entity.File);
-            // 
             // filesView
             // 
             this.filesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -80,7 +75,7 @@
             // 
             // colDescription
             // 
-            this.colDescription.FieldName = "Описпание";
+            this.colDescription.FieldName = "Описание";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;

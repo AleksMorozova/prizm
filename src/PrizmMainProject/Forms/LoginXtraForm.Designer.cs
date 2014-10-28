@@ -28,11 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.login = new DevExpress.XtraEditors.TextEdit();
+            this.loginLabel = new DevExpress.XtraEditors.LabelControl();
+            this.password = new DevExpress.XtraEditors.TextEdit();
+            this.passwordLabel = new DevExpress.XtraEditors.LabelControl();
+            this.enter = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // login
+            // 
+            this.login.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.login.Location = new System.Drawing.Point(55, 28);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(150, 20);
+            this.login.TabIndex = 0;
+            // 
+            // loginLabel
+            // 
+            this.loginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginLabel.Location = new System.Drawing.Point(12, 31);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(30, 13);
+            this.loginLabel.TabIndex = 1;
+            this.loginLabel.Text = "Логин";
+            // 
+            // password
+            // 
+            this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.password.Location = new System.Drawing.Point(55, 55);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(150, 20);
+            this.password.TabIndex = 2;
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passwordLabel.Location = new System.Drawing.Point(12, 58);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(37, 13);
+            this.passwordLabel.TabIndex = 3;
+            this.passwordLabel.Text = "Пароль";
+            // 
+            // enter
+            // 
+            this.enter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.enter.Location = new System.Drawing.Point(55, 81);
+            this.enter.Name = "enter";
+            this.enter.Size = new System.Drawing.Size(150, 23);
+            this.enter.TabIndex = 4;
+            this.enter.Text = "Войти";
+            // 
+            // LoginXtraForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "LoginXtraForm";
+            this.ClientSize = new System.Drawing.Size(248, 123);
+            this.Controls.Add(this.enter);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.loginLabel);
+            this.Controls.Add(this.login);
+            this.Name = "LoginXtraForm";
+            this.Text = "Вход в систему";
+            ((System.ComponentModel.ISupportInitialize)(this.login.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.password.Properties)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private DevExpress.XtraEditors.TextEdit login;
+        private DevExpress.XtraEditors.LabelControl loginLabel;
+        private DevExpress.XtraEditors.TextEdit password;
+        private DevExpress.XtraEditors.LabelControl passwordLabel;
+        private DevExpress.XtraEditors.SimpleButton enter;
     }
 }
