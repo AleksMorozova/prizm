@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.priveleges = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.roleEdit = new DevExpress.XtraEditors.TextEdit();
@@ -41,7 +40,6 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.privilegesLabel = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -55,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
@@ -208,10 +205,6 @@
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // roleBindingSource
-            // 
-            this.roleBindingSource.DataSource = typeof(PrizmMain.DummyData.Role);
-            // 
             // privilegesLabel
             // 
             this.privilegesLabel.AllowHotTrack = false;
@@ -250,7 +243,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
@@ -259,7 +251,6 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource roleBindingSource;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.CheckedListBoxControl priveleges;
         private DevExpress.XtraEditors.TextEdit roleEdit;
