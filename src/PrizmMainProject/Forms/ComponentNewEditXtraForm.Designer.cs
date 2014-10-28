@@ -30,41 +30,40 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.name = new DevExpress.XtraEditors.TextEdit();
+            this.namelabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.certificateLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.type = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.typeLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.connectorsCount = new DevExpress.XtraEditors.TextEdit();
+            this.connectorsLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lenght = new DevExpress.XtraEditors.TextEdit();
+            this.lenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.isActive = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.certificate = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.namelabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectorsCount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectorsLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenght.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenghtLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -73,18 +72,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.checkEdit1);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.comboBoxEdit2);
-            this.layoutControl1.Controls.Add(this.comboBoxEdit1);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.simpleButton1);
-            this.layoutControl1.Controls.Add(this.simpleButton2);
+            this.layoutControl1.Controls.Add(this.isActive);
+            this.layoutControl1.Controls.Add(this.lenght);
+            this.layoutControl1.Controls.Add(this.connectorsCount);
+            this.layoutControl1.Controls.Add(this.type);
+            this.layoutControl1.Controls.Add(this.name);
+            this.layoutControl1.Controls.Add(this.saveButton);
+            this.layoutControl1.Controls.Add(this.cancelButton);
+            this.layoutControl1.Controls.Add(this.certificate);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -101,11 +101,11 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.layoutControlItem2,
-            this.layoutControlItem5,
-            this.layoutControlItem4,
+            this.namelabel,
+            this.typeLabel,
+            this.certificateLabel,
+            this.lenghtLabel,
+            this.connectorsLabel,
             this.emptySpaceItem2,
             this.emptySpaceItem3,
             this.layoutControlItem6,
@@ -120,118 +120,108 @@
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // textEdit1
+            // name
             // 
-            this.textEdit1.Location = new System.Drawing.Point(12, 28);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(916, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.name.Location = new System.Drawing.Point(12, 28);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(916, 20);
+            this.name.StyleController = this.layoutControl1;
+            this.name.TabIndex = 4;
             // 
-            // layoutControlItem1
+            // namelabel
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
-            this.layoutControlItem1.CustomizationFormText = "Наименование компонента";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(920, 40);
-            this.layoutControlItem1.Text = "Наименование компонента";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(136, 13);
+            this.namelabel.Control = this.name;
+            this.namelabel.CustomizationFormText = "Наименование компонента";
+            this.namelabel.Location = new System.Drawing.Point(0, 0);
+            this.namelabel.Name = "namelabel";
+            this.namelabel.Size = new System.Drawing.Size(920, 40);
+            this.namelabel.Text = "Наименование компонента";
+            this.namelabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.namelabel.TextSize = new System.Drawing.Size(136, 13);
             // 
-            // comboBoxEdit1
+            // certificateLabel
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(12, 68);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.certificateLabel.Control = this.certificate;
+            this.certificateLabel.CustomizationFormText = "Сертификат";
+            this.certificateLabel.Location = new System.Drawing.Point(0, 40);
+            this.certificateLabel.Name = "certificateLabel";
+            this.certificateLabel.Size = new System.Drawing.Size(920, 40);
+            this.certificateLabel.Text = "Сертификат";
+            this.certificateLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateLabel.TextSize = new System.Drawing.Size(136, 13);
+            // 
+            // type
+            // 
+            this.type.Location = new System.Drawing.Point(12, 108);
+            this.type.Name = "type";
+            this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(916, 20);
-            this.comboBoxEdit1.StyleController = this.layoutControl1;
-            this.comboBoxEdit1.TabIndex = 5;
+            this.type.Size = new System.Drawing.Size(456, 20);
+            this.type.StyleController = this.layoutControl1;
+            this.type.TabIndex = 6;
             // 
-            // layoutControlItem2
+            // typeLabel
             // 
-            this.layoutControlItem2.Control = this.comboBoxEdit1;
-            this.layoutControlItem2.CustomizationFormText = "Сертификат";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(920, 40);
-            this.layoutControlItem2.Text = "Сертификат";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(136, 13);
+            this.typeLabel.Control = this.type;
+            this.typeLabel.CustomizationFormText = "Тип компонента";
+            this.typeLabel.Location = new System.Drawing.Point(0, 80);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(460, 40);
+            this.typeLabel.Text = "Тип компонента";
+            this.typeLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.typeLabel.TextSize = new System.Drawing.Size(136, 13);
             // 
-            // comboBoxEdit2
+            // connectorsCount
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(12, 108);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(456, 20);
-            this.comboBoxEdit2.StyleController = this.layoutControl1;
-            this.comboBoxEdit2.TabIndex = 6;
+            this.connectorsCount.Enabled = false;
+            this.connectorsCount.Location = new System.Drawing.Point(472, 108);
+            this.connectorsCount.Name = "connectorsCount";
+            this.connectorsCount.Size = new System.Drawing.Size(456, 20);
+            this.connectorsCount.StyleController = this.layoutControl1;
+            this.connectorsCount.TabIndex = 7;
             // 
-            // layoutControlItem3
+            // connectorsLabel
             // 
-            this.layoutControlItem3.Control = this.comboBoxEdit2;
-            this.layoutControlItem3.CustomizationFormText = "Тип компонента";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 80);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(460, 40);
-            this.layoutControlItem3.Text = "Тип компонента";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(136, 13);
+            this.connectorsLabel.Control = this.connectorsCount;
+            this.connectorsLabel.CustomizationFormText = "Количество коннекторов";
+            this.connectorsLabel.Location = new System.Drawing.Point(460, 80);
+            this.connectorsLabel.Name = "connectorsLabel";
+            this.connectorsLabel.Size = new System.Drawing.Size(460, 40);
+            this.connectorsLabel.Text = "Количество коннекторов";
+            this.connectorsLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.connectorsLabel.TextSize = new System.Drawing.Size(136, 13);
             // 
-            // textEdit2
+            // lenght
             // 
-            this.textEdit2.Enabled = false;
-            this.textEdit2.Location = new System.Drawing.Point(472, 108);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(456, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 7;
+            this.lenght.Location = new System.Drawing.Point(12, 148);
+            this.lenght.Name = "lenght";
+            this.lenght.Size = new System.Drawing.Size(916, 20);
+            this.lenght.StyleController = this.layoutControl1;
+            this.lenght.TabIndex = 8;
             // 
-            // layoutControlItem4
+            // lenghtLabel
             // 
-            this.layoutControlItem4.Control = this.textEdit2;
-            this.layoutControlItem4.CustomizationFormText = "Количество коннекторов";
-            this.layoutControlItem4.Location = new System.Drawing.Point(460, 80);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(460, 40);
-            this.layoutControlItem4.Text = "Количество коннекторов";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(136, 13);
+            this.lenghtLabel.Control = this.lenght;
+            this.lenghtLabel.CustomizationFormText = "Длинна";
+            this.lenghtLabel.Location = new System.Drawing.Point(0, 120);
+            this.lenghtLabel.Name = "lenghtLabel";
+            this.lenghtLabel.Size = new System.Drawing.Size(920, 40);
+            this.lenghtLabel.Text = "Длинна";
+            this.lenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lenghtLabel.TextSize = new System.Drawing.Size(136, 13);
             // 
-            // textEdit3
+            // isActive
             // 
-            this.textEdit3.Location = new System.Drawing.Point(12, 148);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(916, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 8;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.textEdit3;
-            this.layoutControlItem5.CustomizationFormText = "Длинна";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(920, 40);
-            this.layoutControlItem5.Text = "Длинна";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(136, 13);
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(472, 172);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Удален";
-            this.checkEdit1.Size = new System.Drawing.Size(456, 19);
-            this.checkEdit1.StyleController = this.layoutControl1;
-            this.checkEdit1.TabIndex = 9;
+            this.isActive.Location = new System.Drawing.Point(472, 172);
+            this.isActive.Name = "isActive";
+            this.isActive.Properties.Caption = "Удален";
+            this.isActive.Size = new System.Drawing.Size(456, 19);
+            this.isActive.StyleController = this.layoutControl1;
+            this.isActive.TabIndex = 9;
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.checkEdit1;
+            this.layoutControlItem6.Control = this.isActive;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
             this.layoutControlItem6.Location = new System.Drawing.Point(460, 160);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -271,29 +261,29 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // simpleButton1
+            // saveButton
             // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton1.Location = new System.Drawing.Point(782, 415);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(66, 23);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "Сохранить";
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Location = new System.Drawing.Point(782, 415);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(66, 23);
+            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Сохранить";
             // 
-            // simpleButton2
+            // cancelButton
             // 
-            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton2.Location = new System.Drawing.Point(862, 415);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(66, 23);
-            this.simpleButton2.StyleController = this.layoutControl1;
-            this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Отмена";
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(862, 415);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(66, 23);
+            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.TabIndex = 6;
+            this.cancelButton.Text = "Отмена";
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.Control = this.simpleButton1;
+            this.layoutControlItem7.Control = this.saveButton;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem7.Location = new System.Drawing.Point(770, 403);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(70, 27);
@@ -308,7 +298,7 @@
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.Control = this.simpleButton2;
+            this.layoutControlItem8.Control = this.cancelButton;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem8.Location = new System.Drawing.Point(850, 403);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(70, 27);
@@ -344,6 +334,14 @@
             this.emptySpaceItem5.Text = "emptySpaceItem2";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // certificate
+            // 
+            this.certificate.Location = new System.Drawing.Point(12, 68);
+            this.certificate.Name = "certificate";
+            this.certificate.Size = new System.Drawing.Size(916, 20);
+            this.certificate.StyleController = this.layoutControl1;
+            this.certificate.TabIndex = 5;
+            // 
             // ComponentNewEditXtraForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -358,17 +356,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.namelabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectorsCount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.connectorsLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenght.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenghtLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
@@ -377,6 +374,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,20 +382,19 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.CheckEdit isActive;
+        private DevExpress.XtraEditors.TextEdit lenght;
+        private DevExpress.XtraEditors.TextEdit connectorsCount;
+        private DevExpress.XtraEditors.ComboBoxEdit type;
+        private DevExpress.XtraEditors.TextEdit name;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem namelabel;
+        private DevExpress.XtraLayout.LayoutControlItem typeLabel;
+        private DevExpress.XtraLayout.LayoutControlItem certificateLabel;
+        private DevExpress.XtraLayout.LayoutControlItem lenghtLabel;
+        private DevExpress.XtraLayout.LayoutControlItem connectorsLabel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
@@ -406,6 +403,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraEditors.TextEdit certificate;
 
     }
 }
