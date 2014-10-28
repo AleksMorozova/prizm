@@ -35,7 +35,7 @@ namespace PrizmMain.DummyData
             {
                 new Role 
                 {
-                    Id = 0, Name="Administrator", Description = "syestem administrator",
+                    Id = 0, Name="Administrator", Description = "system administrator",
                     Privileges = new BindingList<Privilege>
                     {
                         priveleges[0],priveleges[3],priveleges[5],priveleges[2],priveleges[8]
@@ -88,6 +88,11 @@ namespace PrizmMain.DummyData
         public string Name { get; set; }
         public string Description { get; set; }
         public IList<Privilege> Privileges { get; set; }
+
+        public override string ToString()
+        {
+            return Name + " - " + Description;
+        }
 
         public bool Equals(Role other)
         {
