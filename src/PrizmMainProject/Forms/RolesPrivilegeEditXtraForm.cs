@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms
 {
@@ -18,18 +19,10 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
-            var repository = new PrizmMain.DummyData.RolesDummy();
-            var allPrivileges = repository.GetAllPrivileges();
-            var role = repository.GetRole(0);
+            var repo = new RolesDummy();
+            var allPrivs = repo.GetAllPrivileges().ToArray();
 
-            CheckedListBoxItem[] items = new CheckedListBoxItem[allPrivileges.Count];
-
-            for (int i = 0; i < allPrivileges.Count; i++)
-            {
-                items[i] = new CheckedListBoxItem(allPrivileges[i].Description, false);
-            }
-            privilegesCheckedList.Items.AddRange(items);
-
+            priveleges.Items.AddRange(allPrivs);
         }
 
         public RolesPrivilegeEditXtraForm(bool isNew)
@@ -52,7 +45,7 @@ namespace PrizmMain.Forms
                 items[i] = new CheckedListBoxItem(allPrivileges[i].Description, (i % 2 == 0)?true:false);
             }
 
-            privilegesCheckedList.Items.AddRange(items);
+            priveleges.Items.AddRange(items);
             roleEdit.Text = role.Name;
 
         }
