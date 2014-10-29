@@ -29,49 +29,49 @@
         private void InitializeComponent()
         {
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
-            this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.type = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.rejectedReason = new DevExpress.XtraEditors.TextEdit();
             this.componentParameters = new DevExpress.XtraGrid.GridControl();
             this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.wallThicknessGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.type = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.rejectedReason = new DevExpress.XtraEditors.TextEdit();
             this.resultRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.inspectionDate = new DevExpress.XtraEditors.DateEdit();
+            this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.inspector = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.componentNewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.componentNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.parametersGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.InspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectorLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.reasonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.InspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.componentNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // componentNumber
@@ -82,13 +82,43 @@
             this.componentNumber.StyleController = this.layoutControl1;
             this.componentNumber.TabIndex = 0;
             // 
-            // certificateNumber
+            // layoutControl1
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(12, 108);
-            this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(304, 20);
-            this.certificateNumber.StyleController = this.layoutControl1;
-            this.certificateNumber.TabIndex = 2;
+            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layoutControl1.Controls.Add(this.type);
+            this.layoutControl1.Controls.Add(this.rejectedReason);
+            this.layoutControl1.Controls.Add(this.componentParameters);
+            this.layoutControl1.Controls.Add(this.resultRadioGroup);
+            this.layoutControl1.Controls.Add(this.inspectionDate);
+            this.layoutControl1.Controls.Add(this.certificateNumber);
+            this.layoutControl1.Controls.Add(this.inspector);
+            this.layoutControl1.Controls.Add(this.componentNumber);
+            this.layoutControl1.Location = new System.Drawing.Point(13, 13);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.componentNewLayoutGroup;
+            this.layoutControl1.Size = new System.Drawing.Size(652, 264);
+            this.layoutControl1.TabIndex = 8;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // type
+            // 
+            this.type.Location = new System.Drawing.Point(12, 68);
+            this.type.Name = "type";
+            this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.type.Size = new System.Drawing.Size(304, 20);
+            this.type.StyleController = this.layoutControl1;
+            this.type.TabIndex = 6;
+            // 
+            // rejectedReason
+            // 
+            this.rejectedReason.Location = new System.Drawing.Point(482, 139);
+            this.rejectedReason.Name = "rejectedReason";
+            this.rejectedReason.Size = new System.Drawing.Size(146, 20);
+            this.rejectedReason.StyleController = this.layoutControl1;
+            this.rejectedReason.TabIndex = 7;
             // 
             // componentParameters
             // 
@@ -112,35 +142,17 @@
             // 
             // diameterGridColumn
             // 
-            this.diameterGridColumn.Caption = "Bore diameter";
+            this.diameterGridColumn.Caption = "Диаметр отверстия";
             this.diameterGridColumn.Name = "diameterGridColumn";
             this.diameterGridColumn.Visible = true;
             this.diameterGridColumn.VisibleIndex = 0;
             // 
             // wallThicknessGridColumn
             // 
-            this.wallThicknessGridColumn.Caption = "Wall thickness";
+            this.wallThicknessGridColumn.Caption = "Толщина стенки";
             this.wallThicknessGridColumn.Name = "wallThicknessGridColumn";
             this.wallThicknessGridColumn.Visible = true;
             this.wallThicknessGridColumn.VisibleIndex = 1;
-            // 
-            // type
-            // 
-            this.type.Location = new System.Drawing.Point(12, 68);
-            this.type.Name = "type";
-            this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.type.Size = new System.Drawing.Size(304, 20);
-            this.type.StyleController = this.layoutControl1;
-            this.type.TabIndex = 6;
-            // 
-            // rejectedReason
-            // 
-            this.rejectedReason.Location = new System.Drawing.Point(434, 139);
-            this.rejectedReason.Name = "rejectedReason";
-            this.rejectedReason.Size = new System.Drawing.Size(194, 20);
-            this.rejectedReason.StyleController = this.layoutControl1;
-            this.rejectedReason.TabIndex = 7;
             // 
             // resultRadioGroup
             // 
@@ -150,10 +162,10 @@
             this.resultRadioGroup.Properties.Appearance.Options.UseBackColor = true;
             this.resultRadioGroup.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.resultRadioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "accepted"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "hold "),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "rejected ")});
-            this.resultRadioGroup.Size = new System.Drawing.Size(98, 101);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "принято"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "задержано"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "отклонено")});
+            this.resultRadioGroup.Size = new System.Drawing.Size(146, 101);
             this.resultRadioGroup.StyleController = this.layoutControl1;
             this.resultRadioGroup.TabIndex = 6;
             // 
@@ -170,6 +182,14 @@
             this.inspectionDate.StyleController = this.layoutControl1;
             this.inspectionDate.TabIndex = 2;
             // 
+            // certificateNumber
+            // 
+            this.certificateNumber.Location = new System.Drawing.Point(12, 108);
+            this.certificateNumber.Name = "certificateNumber";
+            this.certificateNumber.Size = new System.Drawing.Size(304, 20);
+            this.certificateNumber.StyleController = this.layoutControl1;
+            this.certificateNumber.TabIndex = 2;
+            // 
             // inspector
             // 
             this.inspector.Location = new System.Drawing.Point(332, 59);
@@ -177,26 +197,6 @@
             this.inspector.Size = new System.Drawing.Size(296, 20);
             this.inspector.StyleController = this.layoutControl1;
             this.inspector.TabIndex = 1;
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layoutControl1.Controls.Add(this.type);
-            this.layoutControl1.Controls.Add(this.rejectedReason);
-            this.layoutControl1.Controls.Add(this.componentParameters);
-            this.layoutControl1.Controls.Add(this.resultRadioGroup);
-            this.layoutControl1.Controls.Add(this.inspectionDate);
-            this.layoutControl1.Controls.Add(this.certificateNumber);
-            this.layoutControl1.Controls.Add(this.inspector);
-            this.layoutControl1.Controls.Add(this.componentNumber);
-            this.layoutControl1.Location = new System.Drawing.Point(13, 13);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.componentNewLayoutGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(652, 264);
-            this.layoutControl1.TabIndex = 8;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // componentNewLayoutGroup
             // 
@@ -215,39 +215,6 @@
             this.componentNewLayoutGroup.Text = "componentNewLayoutGroup";
             this.componentNewLayoutGroup.TextVisible = false;
             // 
-            // componentNumberLayout
-            // 
-            this.componentNumberLayout.Control = this.componentNumber;
-            this.componentNumberLayout.CustomizationFormText = "Component number";
-            this.componentNumberLayout.Location = new System.Drawing.Point(0, 0);
-            this.componentNumberLayout.Name = "componentNumberLayout";
-            this.componentNumberLayout.Size = new System.Drawing.Size(308, 40);
-            this.componentNumberLayout.Text = "Component number";
-            this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.componentNumberLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // typeLayout
-            // 
-            this.typeLayout.Control = this.type;
-            this.typeLayout.CustomizationFormText = "Type";
-            this.typeLayout.Location = new System.Drawing.Point(0, 40);
-            this.typeLayout.Name = "typeLayout";
-            this.typeLayout.Size = new System.Drawing.Size(308, 40);
-            this.typeLayout.Text = "Type";
-            this.typeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.typeLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // certificateLayout
-            // 
-            this.certificateLayout.Control = this.certificateNumber;
-            this.certificateLayout.CustomizationFormText = "Certificate number";
-            this.certificateLayout.Location = new System.Drawing.Point(0, 80);
-            this.certificateLayout.Name = "certificateLayout";
-            this.certificateLayout.Size = new System.Drawing.Size(308, 40);
-            this.certificateLayout.Text = "Certificate number";
-            this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certificateLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
             // parametersGridLayout
             // 
             this.parametersGridLayout.Control = this.componentParameters;
@@ -261,50 +228,6 @@
             this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
             // 
-            // inspectorLayout
-            // 
-            this.inspectorLayout.Control = this.inspector;
-            this.inspectorLayout.CustomizationFormText = "Inspector";
-            this.inspectorLayout.Location = new System.Drawing.Point(0, 0);
-            this.inspectorLayout.Name = "inspectorLayout";
-            this.inspectorLayout.Size = new System.Drawing.Size(300, 40);
-            this.inspectorLayout.Text = "Inspector";
-            this.inspectorLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectorLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // inspectionDateLayout
-            // 
-            this.inspectionDateLayout.Control = this.inspectionDate;
-            this.inspectionDateLayout.CustomizationFormText = "Inspection date";
-            this.inspectionDateLayout.Location = new System.Drawing.Point(0, 40);
-            this.inspectionDateLayout.Name = "inspectionDateLayout";
-            this.inspectionDateLayout.Size = new System.Drawing.Size(300, 40);
-            this.inspectionDateLayout.Text = "Inspection date";
-            this.inspectionDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectionDateLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // resultLayout
-            // 
-            this.resultLayout.Control = this.resultRadioGroup;
-            this.resultLayout.CustomizationFormText = "Result";
-            this.resultLayout.Location = new System.Drawing.Point(0, 80);
-            this.resultLayout.Name = "resultLayout";
-            this.resultLayout.Size = new System.Drawing.Size(102, 121);
-            this.resultLayout.Text = "Result";
-            this.resultLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.resultLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // reasonLayout
-            // 
-            this.reasonLayout.Control = this.rejectedReason;
-            this.reasonLayout.CustomizationFormText = "Reason";
-            this.reasonLayout.Location = new System.Drawing.Point(102, 80);
-            this.reasonLayout.Name = "reasonLayout";
-            this.reasonLayout.Size = new System.Drawing.Size(198, 121);
-            this.reasonLayout.Text = "Reason";
-            this.reasonLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.reasonLayout.TextSize = new System.Drawing.Size(94, 13);
-            // 
             // InspectionLayoutGroup
             // 
             this.InspectionLayoutGroup.CustomizationFormText = "Inspection";
@@ -316,7 +239,90 @@
             this.InspectionLayoutGroup.Location = new System.Drawing.Point(308, 0);
             this.InspectionLayoutGroup.Name = "InspectionLayoutGroup";
             this.InspectionLayoutGroup.Size = new System.Drawing.Size(324, 244);
-            this.InspectionLayoutGroup.Text = "Inspection";
+            this.InspectionLayoutGroup.Text = "Входной контроль";
+            // 
+            // inspectorLayout
+            // 
+            this.inspectorLayout.Control = this.inspector;
+            this.inspectorLayout.CustomizationFormText = "Inspector";
+            this.inspectorLayout.Location = new System.Drawing.Point(0, 0);
+            this.inspectorLayout.Name = "inspectorLayout";
+            this.inspectorLayout.Size = new System.Drawing.Size(300, 40);
+            this.inspectorLayout.Text = "Инспектор";
+            this.inspectorLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectorLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // inspectionDateLayout
+            // 
+            this.inspectionDateLayout.Control = this.inspectionDate;
+            this.inspectionDateLayout.CustomizationFormText = "Inspection date";
+            this.inspectionDateLayout.Location = new System.Drawing.Point(0, 40);
+            this.inspectionDateLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.inspectionDateLayout.Name = "inspectionDateLayout";
+            this.inspectionDateLayout.Size = new System.Drawing.Size(300, 40);
+            this.inspectionDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.inspectionDateLayout.Text = "Дата проведения инспекции";
+            this.inspectionDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectionDateLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // resultLayout
+            // 
+            this.resultLayout.Control = this.resultRadioGroup;
+            this.resultLayout.CustomizationFormText = "Result";
+            this.resultLayout.Location = new System.Drawing.Point(0, 80);
+            this.resultLayout.MinSize = new System.Drawing.Size(150, 73);
+            this.resultLayout.Name = "resultLayout";
+            this.resultLayout.Size = new System.Drawing.Size(150, 121);
+            this.resultLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.resultLayout.Text = "Результат";
+            this.resultLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.resultLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // reasonLayout
+            // 
+            this.reasonLayout.Control = this.rejectedReason;
+            this.reasonLayout.CustomizationFormText = "Reason";
+            this.reasonLayout.Location = new System.Drawing.Point(150, 80);
+            this.reasonLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.reasonLayout.Name = "reasonLayout";
+            this.reasonLayout.Size = new System.Drawing.Size(150, 121);
+            this.reasonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.reasonLayout.Text = "Причина";
+            this.reasonLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.reasonLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // certificateLayout
+            // 
+            this.certificateLayout.Control = this.certificateNumber;
+            this.certificateLayout.CustomizationFormText = "Certificate number";
+            this.certificateLayout.Location = new System.Drawing.Point(0, 80);
+            this.certificateLayout.Name = "certificateLayout";
+            this.certificateLayout.Size = new System.Drawing.Size(308, 40);
+            this.certificateLayout.Text = "Номер сертификата";
+            this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // typeLayout
+            // 
+            this.typeLayout.Control = this.type;
+            this.typeLayout.CustomizationFormText = "Type";
+            this.typeLayout.Location = new System.Drawing.Point(0, 40);
+            this.typeLayout.Name = "typeLayout";
+            this.typeLayout.Size = new System.Drawing.Size(308, 40);
+            this.typeLayout.Text = "Тип изделия";
+            this.typeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.typeLayout.TextSize = new System.Drawing.Size(168, 13);
+            // 
+            // componentNumberLayout
+            // 
+            this.componentNumberLayout.Control = this.componentNumber;
+            this.componentNumberLayout.CustomizationFormText = "Component number";
+            this.componentNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.componentNumberLayout.Name = "componentNumberLayout";
+            this.componentNumberLayout.Size = new System.Drawing.Size(308, 40);
+            this.componentNumberLayout.Text = "Номер комплектующего изделия";
+            this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.componentNumberLayout.TextSize = new System.Drawing.Size(168, 13);
             // 
             // ComponentNewEditXtraForm
             // 
@@ -330,27 +336,27 @@
             this.Name = "ComponentNewEditXtraForm";
             this.Text = "New or Edit Component";
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspector.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
