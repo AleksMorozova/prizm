@@ -30,8 +30,7 @@ namespace PrizmMain.Forms
         {
             this.items = new DevExpress.XtraGrid.GridControl();
             this.itemsView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ruRu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.enEn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Item = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.Tools = new DevExpress.XtraBars.Bar();
             this.addItem = new DevExpress.XtraBars.BarButtonItem();
@@ -60,26 +59,18 @@ namespace PrizmMain.Forms
             // itemsView
             // 
             this.itemsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.ruRu,
-            this.enEn});
+            this.Item});
             this.itemsView.GridControl = this.items;
             this.itemsView.Name = "itemsView";
+            this.itemsView.OptionsView.ShowGroupPanel = false;
             // 
-            // ruRu
+            // Item
             // 
-            this.ruRu.Caption = "ru-Ru";
-            this.ruRu.FieldName = "ruRu";
-            this.ruRu.Name = "ruRu";
-            this.ruRu.Visible = true;
-            this.ruRu.VisibleIndex = 1;
-            // 
-            // enEn
-            // 
-            this.enEn.Caption = "en-En";
-            this.enEn.FieldName = "enEn";
-            this.enEn.Name = "enEn";
-            this.enEn.Visible = true;
-            this.enEn.VisibleIndex = 0;
+            this.Item.Caption = "Содержание словаря";
+            this.Item.FieldName = "Name";
+            this.Item.Name = "Item";
+            this.Item.Visible = true;
+            this.Item.VisibleIndex = 0;
             // 
             // barManager1
             // 
@@ -172,8 +163,7 @@ namespace PrizmMain.Forms
 
         private DevExpress.XtraGrid.GridControl items;
         private DevExpress.XtraGrid.Views.Grid.GridView itemsView;
-        private DevExpress.XtraGrid.Columns.GridColumn enEn;
-        private DevExpress.XtraGrid.Columns.GridColumn ruRu;
+        private DevExpress.XtraGrid.Columns.GridColumn Item;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar Tools;
         private DevExpress.XtraBars.BarButtonItem addItem;

@@ -13,16 +13,16 @@ namespace PrizmMain.DummyData
         {
             return  new BindingList<Dictionary>()
             {
-                new Dictionary {DictionaryName = "Pipe inspection statuses"} 
+                new Dictionary {DictionaryName = "Статусы стыка"} 
             };
         }
         public static BindingList<Item> GetItems()
         {
             return new BindingList<Item>()
             {
-                new Item {enEn = "Rejected", ruRu = "Забракован"} ,
-                new Item {enEn = "Accepted", ruRu = "Принят"}  ,
-                new Item {enEn = "Hold", ruRu = "Задержан"} 
+                new Item {Name = "Забракован"} ,
+                new Item {Name = "Принят"}  ,
+                new Item {Name = "Задержан"} 
             };
         }
     }
@@ -33,7 +33,6 @@ namespace PrizmMain.DummyData
 
         public class Item
         {
-            public string enEn { get; set; }
-            public string ruRu { get; set; }
+            public string Name { get; set; }
         }
 }
