@@ -49,10 +49,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.files.Cursor = System.Windows.Forms.Cursors.Default;
             this.files.DataSource = this.fileBindingSource;
-            this.files.Location = new System.Drawing.Point(13, 13);
+            this.files.Location = new System.Drawing.Point(20, 20);
             this.files.MainView = this.filesView;
+            this.files.Margin = new System.Windows.Forms.Padding(11);
             this.files.Name = "files";
-            this.files.Size = new System.Drawing.Size(452, 200);
+            this.files.Size = new System.Drawing.Size(475, 251);
             this.files.TabIndex = 0;
             this.files.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.filesView});
@@ -90,7 +91,8 @@
             // addFile
             // 
             this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addFile.Location = new System.Drawing.Point(13, 228);
+            this.addFile.Location = new System.Drawing.Point(20, 293);
+            this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
             this.addFile.Size = new System.Drawing.Size(113, 23);
             this.addFile.TabIndex = 1;
@@ -99,7 +101,8 @@
             // viewFile
             // 
             this.viewFile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.viewFile.Location = new System.Drawing.Point(182, 228);
+            this.viewFile.Location = new System.Drawing.Point(208, 293);
+            this.viewFile.Margin = new System.Windows.Forms.Padding(11);
             this.viewFile.Name = "viewFile";
             this.viewFile.Size = new System.Drawing.Size(113, 23);
             this.viewFile.TabIndex = 2;
@@ -108,7 +111,8 @@
             // downloadFile
             // 
             this.downloadFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadFile.Location = new System.Drawing.Point(351, 228);
+            this.downloadFile.Location = new System.Drawing.Point(382, 293);
+            this.downloadFile.Margin = new System.Windows.Forms.Padding(11);
             this.downloadFile.Name = "downloadFile";
             this.downloadFile.Size = new System.Drawing.Size(113, 23);
             this.downloadFile.TabIndex = 3;
@@ -118,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 263);
+            this.ClientSize = new System.Drawing.Size(515, 336);
             this.Controls.Add(this.downloadFile);
             this.Controls.Add(this.viewFile);
             this.Controls.Add(this.addFile);

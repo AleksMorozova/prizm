@@ -42,9 +42,10 @@
             this.login.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.login.Location = new System.Drawing.Point(55, 28);
+            this.login.Location = new System.Drawing.Point(64, 20);
+            this.login.Margin = new System.Windows.Forms.Padding(11);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(150, 20);
+            this.login.Size = new System.Drawing.Size(164, 20);
             this.login.TabIndex = 0;
             // 
             // loginLabel
@@ -52,7 +53,8 @@
             this.loginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginLabel.Location = new System.Drawing.Point(12, 31);
+            this.loginLabel.Location = new System.Drawing.Point(20, 23);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(30, 13);
             this.loginLabel.TabIndex = 1;
@@ -63,9 +65,10 @@
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.password.Location = new System.Drawing.Point(55, 55);
+            this.password.Location = new System.Drawing.Point(64, 58);
+            this.password.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(150, 20);
+            this.password.Size = new System.Drawing.Size(164, 20);
             this.password.TabIndex = 2;
             // 
             // passwordLabel
@@ -73,7 +76,7 @@
             this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.passwordLabel.Location = new System.Drawing.Point(12, 58);
+            this.passwordLabel.Location = new System.Drawing.Point(20, 61);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(37, 13);
             this.passwordLabel.TabIndex = 3;
@@ -83,9 +86,10 @@
             // 
             this.enter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.enter.Location = new System.Drawing.Point(55, 81);
+            this.enter.Location = new System.Drawing.Point(64, 92);
+            this.enter.Margin = new System.Windows.Forms.Padding(11);
             this.enter.Name = "enter";
-            this.enter.Size = new System.Drawing.Size(150, 23);
+            this.enter.Size = new System.Drawing.Size(164, 23);
             this.enter.TabIndex = 4;
             this.enter.Text = "Войти";
             // 
@@ -93,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 123);
+            this.ClientSize = new System.Drawing.Size(248, 132);
             this.Controls.Add(this.enter);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.password);
