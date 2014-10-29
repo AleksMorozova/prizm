@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    public partial class PrizmApplicationXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class PrizmApplicationXtraForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private HashSet<Form> childForms = new HashSet<Form>();
 
