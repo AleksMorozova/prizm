@@ -349,6 +349,7 @@
     </Compile>
     <None Include="PrizmApplication_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.DummyData.Role1.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
