@@ -35,7 +35,7 @@
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutRootGrup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoolNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutLenghtGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGrup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).BeginInit();
@@ -90,7 +90,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(498, 38, 250, 350);
-            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Root = this.layoutRootGrup;
             this.layoutControl1.Size = new System.Drawing.Size(940, 450);
             this.layoutControl1.TabIndex = 44;
             this.layoutControl1.Text = "layoutControl1";
@@ -139,12 +139,12 @@
             this.pipeNumber.StyleController = this.layoutControl1;
             this.pipeNumber.TabIndex = 38;
             // 
-            // layoutControlGroup1
+            // layoutRootGrup
             // 
-            this.layoutControlGroup1.CustomizationFormText = "Root";
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutRootGrup.CustomizationFormText = "Root";
+            this.layoutRootGrup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutRootGrup.GroupBordersVisible = false;
+            this.layoutRootGrup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeNumberLabel,
             this.spoolNumberLabel,
             this.layoutLenghtGroup,
@@ -155,12 +155,12 @@
             this.emptySpaceItem3,
             this.emptySpaceItem4,
             this.simpleSeparator1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(940, 450);
-            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 15, 15);
-            this.layoutControlGroup1.Text = "Root";
-            this.layoutControlGroup1.TextVisible = false;
+            this.layoutRootGrup.Location = new System.Drawing.Point(0, 0);
+            this.layoutRootGrup.Name = "layoutRootGrup";
+            this.layoutRootGrup.Size = new System.Drawing.Size(940, 450);
+            this.layoutRootGrup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 15, 15);
+            this.layoutRootGrup.Text = "layoutRootGrup";
+            this.layoutRootGrup.TextVisible = false;
             // 
             // pipeNumberLabel
             // 
@@ -305,7 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGrup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).EndInit();
@@ -331,7 +331,7 @@
         private DevExpress.XtraEditors.TextEdit spoolNumber;
         private DevExpress.XtraEditors.SimpleButton cutButton;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutRootGrup;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLabel;
         private DevExpress.XtraLayout.LayoutControlItem spoolNumberLabel;
         private DevExpress.XtraLayout.LayoutControlGroup layoutLenghtGroup;
