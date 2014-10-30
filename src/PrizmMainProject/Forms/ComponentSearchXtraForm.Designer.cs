@@ -132,7 +132,7 @@
             this.layoutControl1.Root = this.serchEditLayout;
             this.layoutControl1.Size = new System.Drawing.Size(912, 425);
             this.layoutControl1.TabIndex = 8;
-            this.layoutControl1.Text = "layoutControl1";
+            this.layoutControl1.Text = "searchComponentLayout";
             // 
             // componentNumber
             // 
