@@ -56,11 +56,6 @@ namespace PrizmMain.Forms
             var editUser = new UserInfoXtraForm(false);
             editUser.ShowDialog();
         }
-        private void userAddButton_Click_1(object sender, EventArgs e)
-        {
-            var editUser = new UserInfoXtraForm();
-            editUser.ShowDialog();
-        }
 
         #endregion
 
