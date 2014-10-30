@@ -44,15 +44,15 @@
             this.InspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectorLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.resultLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.reasonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.underInspecdtorEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.newComponentLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.componentNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.parametersGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.underTypeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.underInspecdtorEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.reasonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.resultLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -69,15 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.underInspecdtorEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newComponentLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underTypeEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underInspecdtorEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // componentNumber
@@ -165,9 +165,9 @@
             this.resultRadioGroup.Properties.Appearance.Options.UseBackColor = true;
             this.resultRadioGroup.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.resultRadioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "принято"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "задержано"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "отклонено")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "годен"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "ремонт"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "брак")});
             this.resultRadioGroup.Size = new System.Drawing.Size(116, 117);
             this.resultRadioGroup.StyleController = this.newEditPipeLayout;
             this.resultRadioGroup.TabIndex = 6;
@@ -256,6 +256,44 @@
             this.inspectionDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
+            // resultLayout
+            // 
+            this.resultLayout.Control = this.resultRadioGroup;
+            this.resultLayout.CustomizationFormText = "Result";
+            this.resultLayout.Location = new System.Drawing.Point(0, 103);
+            this.resultLayout.MinSize = new System.Drawing.Size(150, 73);
+            this.resultLayout.Name = "resultLayout";
+            this.resultLayout.Size = new System.Drawing.Size(150, 151);
+            this.resultLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.resultLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.resultLayout.Text = "Результат";
+            this.resultLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.resultLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // reasonLayout
+            // 
+            this.reasonLayout.Control = this.rejectedReason;
+            this.reasonLayout.CustomizationFormText = "Reason";
+            this.reasonLayout.Location = new System.Drawing.Point(150, 103);
+            this.reasonLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.reasonLayout.Name = "reasonLayout";
+            this.reasonLayout.Size = new System.Drawing.Size(248, 151);
+            this.reasonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.reasonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.reasonLayout.Text = "Причина";
+            this.reasonLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.reasonLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // underInspecdtorEmptySpace
+            // 
+            this.underInspecdtorEmptySpace.AllowHotTrack = false;
+            this.underInspecdtorEmptySpace.CustomizationFormText = "underInspecdtorEmptySpace";
+            this.underInspecdtorEmptySpace.Location = new System.Drawing.Point(150, 54);
+            this.underInspecdtorEmptySpace.Name = "underInspecdtorEmptySpace";
+            this.underInspecdtorEmptySpace.Size = new System.Drawing.Size(248, 49);
+            this.underInspecdtorEmptySpace.Text = "underInspecdtorEmptySpace";
+            this.underInspecdtorEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // newComponentLayoutGroup
             // 
             this.newComponentLayoutGroup.CustomizationFormText = "Комплектующее изделие";
@@ -283,18 +321,6 @@
             this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // typeLayout
-            // 
-            this.typeLayout.Control = this.type;
-            this.typeLayout.CustomizationFormText = "Type";
-            this.typeLayout.Location = new System.Drawing.Point(220, 0);
-            this.typeLayout.Name = "typeLayout";
-            this.typeLayout.Size = new System.Drawing.Size(209, 54);
-            this.typeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.typeLayout.Text = "Тип изделия";
-            this.typeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.typeLayout.TextSize = new System.Drawing.Size(101, 13);
-            // 
             // certificateLayout
             // 
             this.certificateLayout.Control = this.certificateNumber;
@@ -321,6 +347,18 @@
             this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
             // 
+            // typeLayout
+            // 
+            this.typeLayout.Control = this.type;
+            this.typeLayout.CustomizationFormText = "Type";
+            this.typeLayout.Location = new System.Drawing.Point(220, 0);
+            this.typeLayout.Name = "typeLayout";
+            this.typeLayout.Size = new System.Drawing.Size(209, 54);
+            this.typeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.typeLayout.Text = "Тип изделия";
+            this.typeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.typeLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
             // underTypeEmptySpace
             // 
             this.underTypeEmptySpace.AllowHotTrack = false;
@@ -330,44 +368,6 @@
             this.underTypeEmptySpace.Size = new System.Drawing.Size(209, 54);
             this.underTypeEmptySpace.Text = "underTypeEmptySpace";
             this.underTypeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // underInspecdtorEmptySpace
-            // 
-            this.underInspecdtorEmptySpace.AllowHotTrack = false;
-            this.underInspecdtorEmptySpace.CustomizationFormText = "underInspecdtorEmptySpace";
-            this.underInspecdtorEmptySpace.Location = new System.Drawing.Point(150, 54);
-            this.underInspecdtorEmptySpace.Name = "underInspecdtorEmptySpace";
-            this.underInspecdtorEmptySpace.Size = new System.Drawing.Size(248, 49);
-            this.underInspecdtorEmptySpace.Text = "underInspecdtorEmptySpace";
-            this.underInspecdtorEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // reasonLayout
-            // 
-            this.reasonLayout.Control = this.rejectedReason;
-            this.reasonLayout.CustomizationFormText = "Reason";
-            this.reasonLayout.Location = new System.Drawing.Point(150, 103);
-            this.reasonLayout.MinSize = new System.Drawing.Size(150, 40);
-            this.reasonLayout.Name = "reasonLayout";
-            this.reasonLayout.Size = new System.Drawing.Size(248, 151);
-            this.reasonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.reasonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.reasonLayout.Text = "Причина";
-            this.reasonLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.reasonLayout.TextSize = new System.Drawing.Size(101, 13);
-            // 
-            // resultLayout
-            // 
-            this.resultLayout.Control = this.resultRadioGroup;
-            this.resultLayout.CustomizationFormText = "Result";
-            this.resultLayout.Location = new System.Drawing.Point(0, 103);
-            this.resultLayout.MinSize = new System.Drawing.Size(150, 73);
-            this.resultLayout.Name = "resultLayout";
-            this.resultLayout.Size = new System.Drawing.Size(150, 151);
-            this.resultLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.resultLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.resultLayout.Text = "Результат";
-            this.resultLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.resultLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // ComponentNewEditXtraForm
             // 
@@ -396,15 +396,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.underInspecdtorEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newComponentLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underTypeEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underInspecdtorEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reasonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
