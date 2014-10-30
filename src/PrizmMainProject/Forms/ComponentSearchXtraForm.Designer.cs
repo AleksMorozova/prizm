@@ -34,7 +34,7 @@
             this.searchResultsGrid = new DevExpress.XtraGrid.GridControl();
             this.searchResultsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.searchComponentryButton = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.searchComponentLayout = new DevExpress.XtraLayout.LayoutControl();
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
             this.componentType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.certificate = new DevExpress.XtraEditors.TextEdit();
@@ -51,8 +51,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchComponentLayout)).BeginInit();
+            this.searchComponentLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).BeginInit();
@@ -113,33 +113,33 @@
             this.searchComponentryButton.Location = new System.Drawing.Point(810, 69);
             this.searchComponentryButton.Name = "searchComponentryButton";
             this.searchComponentryButton.Size = new System.Drawing.Size(77, 22);
-            this.searchComponentryButton.StyleController = this.layoutControl1;
+            this.searchComponentryButton.StyleController = this.searchComponentLayout;
             this.searchComponentryButton.TabIndex = 3;
             this.searchComponentryButton.Text = "Поиск";
             // 
-            // layoutControl1
+            // searchComponentLayout
             // 
-            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.searchComponentLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.layoutControl1.Controls.Add(this.searchResultsGrid);
-            this.layoutControl1.Controls.Add(this.componentNumber);
-            this.layoutControl1.Controls.Add(this.searchComponentryButton);
-            this.layoutControl1.Controls.Add(this.componentType);
-            this.layoutControl1.Controls.Add(this.certificate);
-            this.layoutControl1.Location = new System.Drawing.Point(13, 13);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.serchEditLayout;
-            this.layoutControl1.Size = new System.Drawing.Size(912, 425);
-            this.layoutControl1.TabIndex = 8;
-            this.layoutControl1.Text = "searchComponentLayout";
+            this.searchComponentLayout.Controls.Add(this.searchResultsGrid);
+            this.searchComponentLayout.Controls.Add(this.componentNumber);
+            this.searchComponentLayout.Controls.Add(this.searchComponentryButton);
+            this.searchComponentLayout.Controls.Add(this.componentType);
+            this.searchComponentLayout.Controls.Add(this.certificate);
+            this.searchComponentLayout.Location = new System.Drawing.Point(13, 13);
+            this.searchComponentLayout.Name = "searchComponentLayout";
+            this.searchComponentLayout.Root = this.serchEditLayout;
+            this.searchComponentLayout.Size = new System.Drawing.Size(912, 425);
+            this.searchComponentLayout.TabIndex = 8;
+            this.searchComponentLayout.Text = "searchComponentLayout";
             // 
             // componentNumber
             // 
             this.componentNumber.Location = new System.Drawing.Point(40, 71);
             this.componentNumber.Name = "componentNumber";
             this.componentNumber.Size = new System.Drawing.Size(207, 20);
-            this.componentNumber.StyleController = this.layoutControl1;
+            this.componentNumber.StyleController = this.searchComponentLayout;
             this.componentNumber.TabIndex = 0;
             // 
             // componentType
@@ -149,7 +149,7 @@
             this.componentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.componentType.Size = new System.Drawing.Size(207, 20);
-            this.componentType.StyleController = this.layoutControl1;
+            this.componentType.StyleController = this.searchComponentLayout;
             this.componentType.TabIndex = 1;
             // 
             // certificate
@@ -157,7 +157,7 @@
             this.certificate.Location = new System.Drawing.Point(522, 71);
             this.certificate.Name = "certificate";
             this.certificate.Size = new System.Drawing.Size(206, 20);
-            this.certificate.StyleController = this.layoutControl1;
+            this.certificate.StyleController = this.searchComponentLayout;
             this.certificate.TabIndex = 2;
             // 
             // serchEditLayout
@@ -292,15 +292,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 450);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.searchComponentLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
             this.Text = "Find components";
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchComponentLayout)).EndInit();
+            this.searchComponentLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificate.Properties)).EndInit();
@@ -329,7 +329,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView diameterThicknessSubGrid;
         private DevExpress.XtraGrid.Columns.GridColumn diameterColumn;
         private DevExpress.XtraGrid.Columns.GridColumn thicknessColumn;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl searchComponentLayout;
         private DevExpress.XtraLayout.LayoutControlGroup serchEditLayout;
         private DevExpress.XtraLayout.LayoutControlGroup searchGridLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem searchGridLayout;
