@@ -29,78 +29,79 @@
         private void InitializeComponent()
         {
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.spoolLength = new DevExpress.XtraEditors.TextEdit();
             this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutRootGrup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoolNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutLenghtGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeLenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoonLenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.searchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lenghtEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.cutLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cutRightEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.cutLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
+            this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGrup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLenghtLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoonLenghtLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenghtEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(809, 27);
+            this.searchButton.Location = new System.Drawing.Point(822, 48);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 7);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(99, 22);
-            this.searchButton.StyleController = this.layoutControl1;
+            this.searchButton.Size = new System.Drawing.Size(71, 22);
+            this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "Поиск";
             // 
-            // layoutControl1
+            // mainLayoutControl
             // 
-            this.layoutControl1.Controls.Add(this.spoolLength);
-            this.layoutControl1.Controls.Add(this.cutButton);
-            this.layoutControl1.Controls.Add(this.pipeLength);
-            this.layoutControl1.Controls.Add(this.spoolNumber);
-            this.layoutControl1.Controls.Add(this.searchButton);
-            this.layoutControl1.Controls.Add(this.pipeNumber);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(498, 38, 250, 350);
-            this.layoutControl1.Root = this.layoutRootGrup;
-            this.layoutControl1.Size = new System.Drawing.Size(940, 450);
-            this.layoutControl1.TabIndex = 44;
-            this.layoutControl1.Text = "layoutControl1";
+            this.mainLayoutControl.Controls.Add(this.spoolLength);
+            this.mainLayoutControl.Controls.Add(this.cutButton);
+            this.mainLayoutControl.Controls.Add(this.pipeLength);
+            this.mainLayoutControl.Controls.Add(this.spoolNumber);
+            this.mainLayoutControl.Controls.Add(this.searchButton);
+            this.mainLayoutControl.Controls.Add(this.pipeNumber);
+            this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.mainLayoutControl.Name = "mainLayoutControl";
+            this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(340, 38, 250, 350);
+            this.mainLayoutControl.Root = this.layoutRootGroup;
+            this.mainLayoutControl.Size = new System.Drawing.Size(940, 450);
+            this.mainLayoutControl.TabIndex = 44;
+            this.mainLayoutControl.Text = "layoutControl1";
             // 
             // spoolLength
             // 
-            this.spoolLength.Location = new System.Drawing.Point(485, 192);
+            this.spoolLength.Location = new System.Drawing.Point(499, 259);
             this.spoolLength.Name = "spoolLength";
-            this.spoolLength.Size = new System.Drawing.Size(411, 20);
-            this.spoolLength.StyleController = this.layoutControl1;
+            this.spoolLength.Size = new System.Drawing.Size(371, 20);
+            this.spoolLength.StyleController = this.mainLayoutControl;
             this.spoolLength.TabIndex = 16;
             // 
             // cutButton
@@ -108,59 +109,59 @@
             this.cutButton.Location = new System.Drawing.Point(130, 401);
             this.cutButton.Name = "cutButton";
             this.cutButton.Size = new System.Drawing.Size(638, 22);
-            this.cutButton.StyleController = this.layoutControl1;
+            this.cutButton.StyleController = this.mainLayoutControl;
             this.cutButton.TabIndex = 43;
             this.cutButton.Text = "Отрезать";
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(44, 192);
+            this.pipeLength.Location = new System.Drawing.Point(70, 259);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Properties.ReadOnly = true;
-            this.pipeLength.Size = new System.Drawing.Size(437, 20);
-            this.pipeLength.StyleController = this.layoutControl1;
+            this.pipeLength.Size = new System.Drawing.Size(395, 20);
+            this.pipeLength.StyleController = this.mainLayoutControl;
             this.pipeLength.TabIndex = 13;
             // 
             // spoolNumber
             // 
-            this.spoolNumber.Location = new System.Drawing.Point(113, 121);
+            this.spoolNumber.Location = new System.Drawing.Point(47, 163);
             this.spoolNumber.Name = "spoolNumber";
-            this.spoolNumber.Size = new System.Drawing.Size(795, 20);
-            this.spoolNumber.StyleController = this.layoutControl1;
+            this.spoolNumber.Size = new System.Drawing.Size(846, 20);
+            this.spoolNumber.StyleController = this.mainLayoutControl;
             this.spoolNumber.TabIndex = 41;
             // 
             // pipeNumber
             // 
-            this.pipeNumber.Location = new System.Drawing.Point(113, 27);
+            this.pipeNumber.Location = new System.Drawing.Point(47, 50);
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeNumber.Size = new System.Drawing.Size(690, 20);
-            this.pipeNumber.StyleController = this.layoutControl1;
+            this.pipeNumber.Size = new System.Drawing.Size(741, 20);
+            this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
             // 
-            // layoutRootGrup
+            // layoutRootGroup
             // 
-            this.layoutRootGrup.CustomizationFormText = "Root";
-            this.layoutRootGrup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutRootGrup.GroupBordersVisible = false;
-            this.layoutRootGrup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutRootGroup.CustomizationFormText = "Root";
+            this.layoutRootGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutRootGroup.GroupBordersVisible = false;
+            this.layoutRootGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeNumberLabel,
             this.spoolNumberLabel,
             this.layoutLenghtGroup,
-            this.layoutControlItem5,
-            this.emptySpaceItem1,
-            this.emptySpaceItem2,
-            this.layoutControlItem6,
-            this.emptySpaceItem3,
-            this.emptySpaceItem4,
-            this.simpleSeparator1});
-            this.layoutRootGrup.Location = new System.Drawing.Point(0, 0);
-            this.layoutRootGrup.Name = "layoutRootGrup";
-            this.layoutRootGrup.Size = new System.Drawing.Size(940, 450);
-            this.layoutRootGrup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 15, 15);
-            this.layoutRootGrup.Text = "layoutRootGrup";
-            this.layoutRootGrup.TextVisible = false;
+            this.searchLayoutControlItem,
+            this.pipeEmptySpace,
+            this.lenghtEmptySpace,
+            this.cutLayoutControlItem,
+            this.cutRightEmptySpace,
+            this.cutLeftEmptySpace,
+            this.emptySpaceItem1});
+            this.layoutRootGroup.Location = new System.Drawing.Point(0, 0);
+            this.layoutRootGroup.Name = "layoutRootGroup";
+            this.layoutRootGroup.Size = new System.Drawing.Size(940, 450);
+            this.layoutRootGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 15, 15);
+            this.layoutRootGroup.Text = "layoutRootGroup";
+            this.layoutRootGroup.TextVisible = false;
             // 
             // pipeNumberLabel
             // 
@@ -168,18 +169,22 @@
             this.pipeNumberLabel.CustomizationFormText = "Номер трубы";
             this.pipeNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLabel.Name = "pipeNumberLabel";
-            this.pipeNumberLabel.Size = new System.Drawing.Size(775, 26);
+            this.pipeNumberLabel.Size = new System.Drawing.Size(775, 54);
+            this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeNumberLabel.Text = "Номер трубы";
+            this.pipeNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
             // spoolNumberLabel
             // 
             this.spoolNumberLabel.Control = this.spoolNumber;
             this.spoolNumberLabel.CustomizationFormText = "Номер катушки";
-            this.spoolNumberLabel.Location = new System.Drawing.Point(0, 94);
+            this.spoolNumberLabel.Location = new System.Drawing.Point(0, 113);
             this.spoolNumberLabel.Name = "spoolNumberLabel";
-            this.spoolNumberLabel.Size = new System.Drawing.Size(880, 24);
+            this.spoolNumberLabel.Size = new System.Drawing.Size(880, 54);
+            this.spoolNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.spoolNumberLabel.Text = "Номер катушки";
+            this.spoolNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoolNumberLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
             // layoutLenghtGroup
@@ -188,9 +193,11 @@
             this.layoutLenghtGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeLenghtLabel,
             this.spoonLenghtLabel});
-            this.layoutLenghtGroup.Location = new System.Drawing.Point(0, 118);
+            this.layoutLenghtGroup.Location = new System.Drawing.Point(0, 167);
             this.layoutLenghtGroup.Name = "layoutLenghtGroup";
-            this.layoutLenghtGroup.Size = new System.Drawing.Size(880, 84);
+            this.layoutLenghtGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutLenghtGroup.Size = new System.Drawing.Size(880, 119);
+            this.layoutLenghtGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
             this.layoutLenghtGroup.Text = "Длинна";
             // 
             // pipeLenghtLabel
@@ -199,7 +206,8 @@
             this.pipeLenghtLabel.CustomizationFormText = "Труба";
             this.pipeLenghtLabel.Location = new System.Drawing.Point(0, 0);
             this.pipeLenghtLabel.Name = "pipeLenghtLabel";
-            this.pipeLenghtLabel.Size = new System.Drawing.Size(441, 41);
+            this.pipeLenghtLabel.Size = new System.Drawing.Size(429, 54);
+            this.pipeLenghtLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeLenghtLabel.Text = "Труба";
             this.pipeLenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeLenghtLabel.TextSize = new System.Drawing.Size(78, 13);
@@ -208,116 +216,119 @@
             // 
             this.spoonLenghtLabel.Control = this.spoolLength;
             this.spoonLenghtLabel.CustomizationFormText = "Катушка";
-            this.spoonLenghtLabel.Location = new System.Drawing.Point(441, 0);
+            this.spoonLenghtLabel.Location = new System.Drawing.Point(429, 0);
             this.spoonLenghtLabel.MinSize = new System.Drawing.Size(82, 41);
             this.spoonLenghtLabel.Name = "spoonLenghtLabel";
-            this.spoonLenghtLabel.Size = new System.Drawing.Size(415, 41);
+            this.spoonLenghtLabel.Size = new System.Drawing.Size(405, 54);
             this.spoonLenghtLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.spoonLenghtLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.spoonLenghtLabel.Text = "Катушка";
             this.spoonLenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoonLenghtLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // layoutControlItem5
+            // searchLayoutControlItem
             // 
-            this.layoutControlItem5.Control = this.searchButton;
-            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(777, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(103, 26);
-            this.layoutControlItem5.Text = "layoutControlItem5";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
-            this.layoutControlItem5.TextVisible = false;
+            this.searchLayoutControlItem.Control = this.searchButton;
+            this.searchLayoutControlItem.CustomizationFormText = "searchLayoutControlItem";
+            this.searchLayoutControlItem.Location = new System.Drawing.Point(775, 14);
+            this.searchLayoutControlItem.Name = "searchLayoutControlItem";
+            this.searchLayoutControlItem.Size = new System.Drawing.Size(105, 40);
+            this.searchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.searchLayoutControlItem.Text = "searchLayoutControlItem";
+            this.searchLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.searchLayoutControlItem.TextToControlDistance = 0;
+            this.searchLayoutControlItem.TextVisible = false;
+            // 
+            // pipeEmptySpace
+            // 
+            this.pipeEmptySpace.AllowHotTrack = false;
+            this.pipeEmptySpace.CustomizationFormText = "pipeEmptySpace";
+            this.pipeEmptySpace.Location = new System.Drawing.Point(0, 54);
+            this.pipeEmptySpace.Name = "pipeEmptySpace";
+            this.pipeEmptySpace.Size = new System.Drawing.Size(880, 59);
+            this.pipeEmptySpace.Text = "pipeEmptySpace";
+            this.pipeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lenghtEmptySpace
+            // 
+            this.lenghtEmptySpace.AllowHotTrack = false;
+            this.lenghtEmptySpace.CustomizationFormText = "lenghtEmptySpace";
+            this.lenghtEmptySpace.Location = new System.Drawing.Point(0, 286);
+            this.lenghtEmptySpace.Name = "lenghtEmptySpace";
+            this.lenghtEmptySpace.Size = new System.Drawing.Size(880, 88);
+            this.lenghtEmptySpace.Text = "lenghtEmptySpace";
+            this.lenghtEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // cutLayoutControlItem
+            // 
+            this.cutLayoutControlItem.Control = this.cutButton;
+            this.cutLayoutControlItem.CustomizationFormText = "cutLayoutControlItem";
+            this.cutLayoutControlItem.Location = new System.Drawing.Point(98, 374);
+            this.cutLayoutControlItem.Name = "cutLayoutControlItem";
+            this.cutLayoutControlItem.Size = new System.Drawing.Size(642, 26);
+            this.cutLayoutControlItem.Text = "cutLayoutControlItem";
+            this.cutLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.cutLayoutControlItem.TextToControlDistance = 0;
+            this.cutLayoutControlItem.TextVisible = false;
+            // 
+            // cutRightEmptySpace
+            // 
+            this.cutRightEmptySpace.AllowHotTrack = false;
+            this.cutRightEmptySpace.CustomizationFormText = "cutRightEmptySpace";
+            this.cutRightEmptySpace.Location = new System.Drawing.Point(740, 374);
+            this.cutRightEmptySpace.Name = "cutRightEmptySpace";
+            this.cutRightEmptySpace.Size = new System.Drawing.Size(140, 26);
+            this.cutRightEmptySpace.Text = "cutRightEmptySpace";
+            this.cutRightEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // cutLeftEmptySpace
+            // 
+            this.cutLeftEmptySpace.AllowHotTrack = false;
+            this.cutLeftEmptySpace.CustomizationFormText = "cutLeftEmptySpace";
+            this.cutLeftEmptySpace.Location = new System.Drawing.Point(0, 374);
+            this.cutLeftEmptySpace.Name = "cutLeftEmptySpace";
+            this.cutLeftEmptySpace.Size = new System.Drawing.Size(98, 26);
+            this.cutLeftEmptySpace.Text = "cutLeftEmptySpace";
+            this.cutLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 26);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(775, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(880, 68);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(105, 14);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 202);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(880, 172);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.cutButton;
-            this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(98, 374);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(642, 26);
-            this.layoutControlItem6.Text = "layoutControlItem6";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(740, 374);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(140, 26);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 374);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(98, 26);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleSeparator1
-            // 
-            this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.CustomizationFormText = "simpleSeparator1";
-            this.simpleSeparator1.Location = new System.Drawing.Point(775, 0);
-            this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(2, 26);
-            this.simpleSeparator1.Text = "simpleSeparator1";
             // 
             // SpoolsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 450);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.mainLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
             this.Text = "Spools";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
+            this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGrup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLenghtLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoonLenghtLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lenghtEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,19 +341,19 @@
         private DevExpress.XtraEditors.TextEdit pipeLength;
         private DevExpress.XtraEditors.TextEdit spoolNumber;
         private DevExpress.XtraEditors.SimpleButton cutButton;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutRootGrup;
+        private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutRootGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLabel;
         private DevExpress.XtraLayout.LayoutControlItem spoolNumberLabel;
         private DevExpress.XtraLayout.LayoutControlGroup layoutLenghtGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeLenghtLabel;
         private DevExpress.XtraLayout.LayoutControlItem spoonLenghtLabel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem searchLayoutControlItem;
+        private DevExpress.XtraLayout.EmptySpaceItem pipeEmptySpace;
+        private DevExpress.XtraLayout.EmptySpaceItem lenghtEmptySpace;
+        private DevExpress.XtraLayout.LayoutControlItem cutLayoutControlItem;
+        private DevExpress.XtraLayout.EmptySpaceItem cutRightEmptySpace;
+        private DevExpress.XtraLayout.EmptySpaceItem cutLeftEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
     }
 }
