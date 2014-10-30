@@ -209,7 +209,7 @@ namespace PrizmMain.Forms
             this.settings.Location = new System.Drawing.Point(2, 2);
             this.settings.Name = "settings";
             this.settings.SelectedTabPage = this.pipePage;
-            this.settings.Size = new System.Drawing.Size(936, 409);
+            this.settings.Size = new System.Drawing.Size(936, 422);
             this.settings.TabIndex = 0;
             this.settings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.projectPage,
@@ -228,7 +228,7 @@ namespace PrizmMain.Forms
             this.pipePage.Controls.Add(this.pipeSetup);
             this.pipePage.Controls.Add(this.pipeSetupLabel);
             this.pipePage.Name = "pipePage";
-            this.pipePage.Size = new System.Drawing.Size(930, 381);
+            this.pipePage.Size = new System.Drawing.Size(930, 394);
             this.pipePage.Text = "Pip&e";
             // 
             // sizeGradeLabel
@@ -273,7 +273,7 @@ namespace PrizmMain.Forms
             this.pipeSetup.Location = new System.Drawing.Point(11, 57);
             this.pipeSetup.Name = "pipeSetup";
             this.pipeSetup.SelectedTabPage = this.generalPipeSetupPage;
-            this.pipeSetup.Size = new System.Drawing.Size(911, 321);
+            this.pipeSetup.Size = new System.Drawing.Size(911, 334);
             this.pipeSetup.TabIndex = 0;
             this.pipeSetup.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalPipeSetupPage,
@@ -287,7 +287,7 @@ namespace PrizmMain.Forms
             this.generalPipeSetupPage.Controls.Add(this.longitudinal);
             this.generalPipeSetupPage.Controls.Add(this.weldTypeLabel);
             this.generalPipeSetupPage.Name = "generalPipeSetupPage";
-            this.generalPipeSetupPage.Size = new System.Drawing.Size(905, 293);
+            this.generalPipeSetupPage.Size = new System.Drawing.Size(905, 306);
             this.generalPipeSetupPage.Text = "&General set up";
             // 
             // internalCoating
@@ -454,7 +454,7 @@ namespace PrizmMain.Forms
             // 
             this.inspectionPage.Controls.Add(this.inspectionGrid);
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(909, 334);
+            this.inspectionPage.Size = new System.Drawing.Size(905, 306);
             this.inspectionPage.Text = "&Inspection";
             // 
             // inspectionGrid
@@ -547,7 +547,7 @@ namespace PrizmMain.Forms
             this.projectPage.Controls.Add(this.design);
             this.projectPage.Controls.Add(this.client);
             this.projectPage.Name = "projectPage";
-            this.projectPage.Size = new System.Drawing.Size(934, 422);
+            this.projectPage.Size = new System.Drawing.Size(930, 394);
             this.projectPage.Text = "Project";
             // 
             // panelControl1
@@ -720,14 +720,14 @@ namespace PrizmMain.Forms
             // pipelinePage
             // 
             this.pipelinePage.Name = "pipelinePage";
-            this.pipelinePage.Size = new System.Drawing.Size(934, 422);
+            this.pipelinePage.Size = new System.Drawing.Size(930, 394);
             this.pipelinePage.Text = "Pipe&line";
             // 
             // usersPage
             // 
             this.usersPage.Controls.Add(this.layoutControl1);
             this.usersPage.Name = "usersPage";
-            this.usersPage.Size = new System.Drawing.Size(934, 422);
+            this.usersPage.Size = new System.Drawing.Size(930, 394);
             this.usersPage.Text = "&Users";
             // 
             // layoutControl1
@@ -740,7 +740,7 @@ namespace PrizmMain.Forms
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
             this.layoutControl1.Root = this.usersRootGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(934, 422);
+            this.layoutControl1.Size = new System.Drawing.Size(930, 394);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -778,7 +778,7 @@ namespace PrizmMain.Forms
             this.users.Location = new System.Drawing.Point(32, 89);
             this.users.MainView = this.gridView1;
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(870, 301);
+            this.users.Size = new System.Drawing.Size(866, 273);
             this.users.TabIndex = 7;
             this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -874,7 +874,7 @@ namespace PrizmMain.Forms
             this.divideButtonUsersEmptySpace});
             this.usersRootGroup.Location = new System.Drawing.Point(0, 0);
             this.usersRootGroup.Name = "usersRootGroup";
-            this.usersRootGroup.Size = new System.Drawing.Size(934, 422);
+            this.usersRootGroup.Size = new System.Drawing.Size(930, 394);
             this.usersRootGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
             this.usersRootGroup.Text = "usersRootGroup";
             this.usersRootGroup.TextVisible = false;
@@ -915,7 +915,7 @@ namespace PrizmMain.Forms
             this.usersLabel.CustomizationFormText = "Пользователи";
             this.usersLabel.Location = new System.Drawing.Point(0, 26);
             this.usersLabel.Name = "usersLabel";
-            this.usersLabel.Size = new System.Drawing.Size(874, 336);
+            this.usersLabel.Size = new System.Drawing.Size(870, 308);
             this.usersLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
             this.usersLabel.Text = "Пользователи";
             this.usersLabel.TextLocation = DevExpress.Utils.Locations.Top;
@@ -928,7 +928,7 @@ namespace PrizmMain.Forms
             this.rightUsersButtonEmptySpace.Location = new System.Drawing.Point(318, 0);
             this.rightUsersButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.rightUsersButtonEmptySpace.Name = "rightUsersButtonEmptySpace";
-            this.rightUsersButtonEmptySpace.Size = new System.Drawing.Size(556, 26);
+            this.rightUsersButtonEmptySpace.Size = new System.Drawing.Size(552, 26);
             this.rightUsersButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.rightUsersButtonEmptySpace.Text = "rightUsersButtonEmptySpace";
             this.rightUsersButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -947,7 +947,7 @@ namespace PrizmMain.Forms
             // 
             this.rolesPage.Controls.Add(this.layoutControl2);
             this.rolesPage.Name = "rolesPage";
-            this.rolesPage.Size = new System.Drawing.Size(934, 422);
+            this.rolesPage.Size = new System.Drawing.Size(930, 394);
             this.rolesPage.Text = "Roles";
             // 
             // layoutControl2
@@ -960,7 +960,7 @@ namespace PrizmMain.Forms
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
             this.layoutControl2.Root = this.rolesRootGroup;
-            this.layoutControl2.Size = new System.Drawing.Size(934, 422);
+            this.layoutControl2.Size = new System.Drawing.Size(930, 394);
             this.layoutControl2.TabIndex = 6;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -974,7 +974,7 @@ namespace PrizmMain.Forms
             this.roles.Location = new System.Drawing.Point(32, 91);
             this.roles.MainView = this.gridView2;
             this.roles.Name = "roles";
-            this.roles.Size = new System.Drawing.Size(870, 299);
+            this.roles.Size = new System.Drawing.Size(866, 271);
             this.roles.TabIndex = 5;
             this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1057,7 +1057,7 @@ namespace PrizmMain.Forms
             this.roleButtonDivideEmptySpace});
             this.rolesRootGroup.Location = new System.Drawing.Point(0, 0);
             this.rolesRootGroup.Name = "rolesRootGroup";
-            this.rolesRootGroup.Size = new System.Drawing.Size(934, 422);
+            this.rolesRootGroup.Size = new System.Drawing.Size(930, 394);
             this.rolesRootGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
             this.rolesRootGroup.Text = "rolesRootGroup";
             this.rolesRootGroup.TextVisible = false;
@@ -1069,7 +1069,7 @@ namespace PrizmMain.Forms
             this.roleLayoutControl.Location = new System.Drawing.Point(0, 28);
             this.roleLayoutControl.MinSize = new System.Drawing.Size(104, 40);
             this.roleLayoutControl.Name = "roleLayoutControl";
-            this.roleLayoutControl.Size = new System.Drawing.Size(874, 334);
+            this.roleLayoutControl.Size = new System.Drawing.Size(870, 306);
             this.roleLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.roleLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
             this.roleLayoutControl.Text = "Роли";
@@ -1083,7 +1083,7 @@ namespace PrizmMain.Forms
             this.roleButtonRightEmptySpace.Location = new System.Drawing.Point(318, 0);
             this.roleButtonRightEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.roleButtonRightEmptySpace.Name = "roleButtonRightEmptySpace";
-            this.roleButtonRightEmptySpace.Size = new System.Drawing.Size(556, 28);
+            this.roleButtonRightEmptySpace.Size = new System.Drawing.Size(552, 28);
             this.roleButtonRightEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.roleButtonRightEmptySpace.Text = "roleButtonRightEmptySpace";
             this.roleButtonRightEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -1132,7 +1132,7 @@ namespace PrizmMain.Forms
             // 
             this.dictionariesPage.Controls.Add(this.dictionaries);
             this.dictionariesPage.Name = "dictionariesPage";
-            this.dictionariesPage.Size = new System.Drawing.Size(934, 422);
+            this.dictionariesPage.Size = new System.Drawing.Size(930, 394);
             this.dictionariesPage.Text = "&Dictionaries";
             // 
             // dictionaries
@@ -1144,7 +1144,7 @@ namespace PrizmMain.Forms
             this.dictionaries.Name = "dictionaries";
             this.dictionaries.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.editItem});
-            this.dictionaries.Size = new System.Drawing.Size(934, 422);
+            this.dictionaries.Size = new System.Drawing.Size(930, 394);
             this.dictionaries.TabIndex = 0;
             this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dictionaryView});
@@ -1192,10 +1192,11 @@ namespace PrizmMain.Forms
             this.settingsTabPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsTabPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.settingsTabPanel.Controls.Add(this.settings);
-            this.settingsTabPanel.Location = new System.Drawing.Point(0, 37);
+            this.settingsTabPanel.Location = new System.Drawing.Point(0, 24);
             this.settingsTabPanel.Name = "settingsTabPanel";
-            this.settingsTabPanel.Size = new System.Drawing.Size(940, 413);
+            this.settingsTabPanel.Size = new System.Drawing.Size(940, 426);
             this.settingsTabPanel.TabIndex = 1;
             // 
             // SettingsXtraForm
