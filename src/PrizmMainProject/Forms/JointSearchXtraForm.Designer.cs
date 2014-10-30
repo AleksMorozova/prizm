@@ -28,26 +28,25 @@ namespace PrizmMain.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.controlState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.searchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
+            this.weldingDateTo = new DevExpress.XtraEditors.DateEdit();
             this.pegNumber = new DevExpress.XtraEditors.TextEdit();
-            this.seaLevel = new DevExpress.XtraEditors.TextEdit();
-            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
-            this.GPSLong = new DevExpress.XtraEditors.TextEdit();
+            this.weldingDateFrom = new DevExpress.XtraEditors.DateEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
-            this.GPSLat = new DevExpress.XtraEditors.TextEdit();
             this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.weldingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.GPSLatLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.GPSLonglayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.elevationLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.KMlayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldingDateFromLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.KMlayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldingDateToLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.eldingDateLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             this.gridControlSerchResult = new DevExpress.XtraGrid.GridControl();
             this.resultView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,105 +55,105 @@ namespace PrizmMain.Forms
             this.jointWeldingDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
             this.searchLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateTo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlStateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLonglayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elevationLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KMlayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFromLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMlayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateToLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eldingDateLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // controlState
             // 
-            this.controlState.Location = new System.Drawing.Point(236, 18);
+            this.controlState.Location = new System.Drawing.Point(136, 25);
             this.controlState.Name = "controlState";
             this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.controlState.Size = new System.Drawing.Size(457, 20);
+            this.controlState.Size = new System.Drawing.Size(150, 20);
             this.controlState.StyleController = this.searchLayoutControl;
-            this.controlState.TabIndex = 38;
+            this.controlState.TabIndex = 2;
             // 
             // searchLayoutControl
             // 
-            this.searchLayoutControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchLayoutControl.Controls.Add(this.weldingDateLabel);
+            this.searchLayoutControl.Controls.Add(this.weldingDateTo);
             this.searchLayoutControl.Controls.Add(this.pegNumber);
-            this.searchLayoutControl.Controls.Add(this.seaLevel);
-            this.searchLayoutControl.Controls.Add(this.weldingDate);
-            this.searchLayoutControl.Controls.Add(this.GPSLong);
+            this.searchLayoutControl.Controls.Add(this.weldingDateFrom);
             this.searchLayoutControl.Controls.Add(this.searchButton);
             this.searchLayoutControl.Controls.Add(this.jointNumber);
-            this.searchLayoutControl.Controls.Add(this.GPSLat);
             this.searchLayoutControl.Controls.Add(this.controlState);
             this.searchLayoutControl.Location = new System.Drawing.Point(20, 20);
             this.searchLayoutControl.Margin = new System.Windows.Forms.Padding(11);
             this.searchLayoutControl.Name = "searchLayoutControl";
-            this.searchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(86, 161, 250, 350);
+            this.searchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(381, 245, 250, 350);
             this.searchLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.searchLayoutControl.Root = this.searchLayoutGroup;
-            this.searchLayoutControl.Size = new System.Drawing.Size(888, 98);
+            this.searchLayoutControl.Size = new System.Drawing.Size(899, 57);
             this.searchLayoutControl.TabIndex = 59;
             this.searchLayoutControl.Text = "layoutControl1";
             // 
+            // weldingDateLabel
+            // 
+            this.weldingDateLabel.Location = new System.Drawing.Point(320, 27);
+            this.weldingDateLabel.Name = "weldingDateLabel";
+            this.weldingDateLabel.Size = new System.Drawing.Size(64, 13);
+            this.weldingDateLabel.StyleController = this.searchLayoutControl;
+            this.weldingDateLabel.TabIndex = 65;
+            this.weldingDateLabel.Text = "Дата сварки";
+            // 
+            // weldingDateTo
+            // 
+            this.weldingDateTo.EditValue = null;
+            this.weldingDateTo.Location = new System.Drawing.Point(529, 25);
+            this.weldingDateTo.Name = "weldingDateTo";
+            this.weldingDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDateTo.Size = new System.Drawing.Size(100, 20);
+            this.weldingDateTo.StyleController = this.searchLayoutControl;
+            this.weldingDateTo.TabIndex = 4;
+            // 
             // pegNumber
             // 
-            this.pegNumber.Location = new System.Drawing.Point(725, 18);
+            this.pegNumber.Location = new System.Drawing.Point(663, 25);
             this.pegNumber.Name = "pegNumber";
-            this.pegNumber.Size = new System.Drawing.Size(161, 20);
+            this.pegNumber.Size = new System.Drawing.Size(100, 20);
             this.pegNumber.StyleController = this.searchLayoutControl;
-            this.pegNumber.TabIndex = 52;
+            this.pegNumber.TabIndex = 5;
             // 
-            // seaLevel
+            // weldingDateFrom
             // 
-            this.seaLevel.Location = new System.Drawing.Point(562, 71);
-            this.seaLevel.Name = "seaLevel";
-            this.seaLevel.Size = new System.Drawing.Size(131, 20);
-            this.seaLevel.StyleController = this.searchLayoutControl;
-            this.seaLevel.TabIndex = 55;
-            // 
-            // weldingDate
-            // 
-            this.weldingDate.EditValue = null;
-            this.weldingDate.Location = new System.Drawing.Point(0, 71);
-            this.weldingDate.Name = "weldingDate";
-            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDateFrom.EditValue = null;
+            this.weldingDateFrom.Location = new System.Drawing.Point(395, 25);
+            this.weldingDateFrom.Name = "weldingDateFrom";
+            this.weldingDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.weldingDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDate.Size = new System.Drawing.Size(206, 20);
-            this.weldingDate.StyleController = this.searchLayoutControl;
-            this.weldingDate.TabIndex = 63;
-            // 
-            // GPSLong
-            // 
-            this.GPSLong.Location = new System.Drawing.Point(399, 71);
-            this.GPSLong.Name = "GPSLong";
-            this.GPSLong.Size = new System.Drawing.Size(131, 20);
-            this.GPSLong.StyleController = this.searchLayoutControl;
-            this.GPSLong.TabIndex = 54;
+            this.weldingDateFrom.Size = new System.Drawing.Size(100, 20);
+            this.weldingDateFrom.StyleController = this.searchLayoutControl;
+            this.weldingDateFrom.TabIndex = 3;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(725, 68);
+            this.searchButton.Location = new System.Drawing.Point(797, 21);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(161, 22);
+            this.searchButton.Size = new System.Drawing.Size(100, 23);
             this.searchButton.StyleController = this.searchLayoutControl;
             this.searchButton.TabIndex = 60;
             this.searchButton.Text = "Search";
@@ -162,20 +161,12 @@ namespace PrizmMain.Forms
             // jointNumber
             // 
             this.jointNumber.EditValue = "";
-            this.jointNumber.Location = new System.Drawing.Point(2, 18);
+            this.jointNumber.Location = new System.Drawing.Point(2, 25);
             this.jointNumber.Margin = new System.Windows.Forms.Padding(15);
             this.jointNumber.Name = "jointNumber";
-            this.jointNumber.Size = new System.Drawing.Size(202, 20);
+            this.jointNumber.Size = new System.Drawing.Size(100, 20);
             this.jointNumber.StyleController = this.searchLayoutControl;
-            this.jointNumber.TabIndex = 61;
-            // 
-            // GPSLat
-            // 
-            this.GPSLat.Location = new System.Drawing.Point(236, 71);
-            this.GPSLat.Name = "GPSLat";
-            this.GPSLat.Size = new System.Drawing.Size(131, 20);
-            this.GPSLat.StyleController = this.searchLayoutControl;
-            this.GPSLat.TabIndex = 53;
+            this.jointNumber.TabIndex = 1;
             // 
             // searchLayoutGroup
             // 
@@ -184,17 +175,16 @@ namespace PrizmMain.Forms
             this.searchLayoutGroup.GroupBordersVisible = false;
             this.searchLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.jointNumberLayout,
-            this.weldingDateLayout,
             this.controlStateLayout,
-            this.GPSLatLayout,
-            this.GPSLonglayout,
-            this.elevationLayout,
+            this.weldingDateFromLayout,
+            this.searchButtonLayout,
             this.KMlayout,
-            this.searchButtonLayout});
+            this.weldingDateToLayout,
+            this.eldingDateLabelLayout});
             this.searchLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchLayoutGroup.Name = "searchLayoutGroup";
             this.searchLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.searchLayoutGroup.Size = new System.Drawing.Size(888, 98);
+            this.searchLayoutGroup.Size = new System.Drawing.Size(899, 57);
             this.searchLayoutGroup.Text = "searchLayoutGroup";
             this.searchLayoutGroup.TextVisible = false;
             // 
@@ -203,96 +193,99 @@ namespace PrizmMain.Forms
             this.jointNumberLayout.Control = this.jointNumber;
             this.jointNumberLayout.CustomizationFormText = "Номер";
             this.jointNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.jointNumberLayout.MinSize = new System.Drawing.Size(119, 54);
             this.jointNumberLayout.Name = "jointNumberLayout";
-            this.jointNumberLayout.Size = new System.Drawing.Size(206, 40);
+            this.jointNumberLayout.Size = new System.Drawing.Size(119, 57);
+            this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.jointNumberLayout.Text = "Номер";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.jointNumberLayout.TextSize = new System.Drawing.Size(131, 13);
-            // 
-            // weldingDateLayout
-            // 
-            this.weldingDateLayout.Control = this.weldingDate;
-            this.weldingDateLayout.CustomizationFormText = "Дата сварки";
-            this.weldingDateLayout.Location = new System.Drawing.Point(0, 40);
-            this.weldingDateLayout.Name = "weldingDateLayout";
-            this.weldingDateLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
-            this.weldingDateLayout.Size = new System.Drawing.Size(206, 58);
-            this.weldingDateLayout.Text = "Дата сварки";
-            this.weldingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.weldingDateLayout.TextSize = new System.Drawing.Size(131, 13);
+            this.jointNumberLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
             // controlStateLayout
             // 
             this.controlStateLayout.Control = this.controlState;
             this.controlStateLayout.CustomizationFormText = "Статус";
-            this.controlStateLayout.Location = new System.Drawing.Point(206, 0);
+            this.controlStateLayout.Location = new System.Drawing.Point(119, 0);
+            this.controlStateLayout.MinSize = new System.Drawing.Size(184, 54);
             this.controlStateLayout.Name = "controlStateLayout";
-            this.controlStateLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 2, 2);
-            this.controlStateLayout.Size = new System.Drawing.Size(489, 40);
+            this.controlStateLayout.Size = new System.Drawing.Size(184, 57);
+            this.controlStateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.controlStateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.controlStateLayout.Text = "Статус";
             this.controlStateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.controlStateLayout.TextSize = new System.Drawing.Size(131, 13);
+            this.controlStateLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
-            // GPSLatLayout
+            // weldingDateFromLayout
             // 
-            this.GPSLatLayout.Control = this.GPSLat;
-            this.GPSLatLayout.CustomizationFormText = "Широта";
-            this.GPSLatLayout.Location = new System.Drawing.Point(206, 40);
-            this.GPSLatLayout.Name = "GPSLatLayout";
-            this.GPSLatLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 15, 2);
-            this.GPSLatLayout.Size = new System.Drawing.Size(163, 58);
-            this.GPSLatLayout.Text = "Широта";
-            this.GPSLatLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLatLayout.TextSize = new System.Drawing.Size(131, 13);
-            // 
-            // GPSLonglayout
-            // 
-            this.GPSLonglayout.Control = this.GPSLong;
-            this.GPSLonglayout.CustomizationFormText = "Долгота";
-            this.GPSLonglayout.Location = new System.Drawing.Point(369, 40);
-            this.GPSLonglayout.Name = "GPSLonglayout";
-            this.GPSLonglayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 15, 2);
-            this.GPSLonglayout.Size = new System.Drawing.Size(163, 58);
-            this.GPSLonglayout.Text = "Долгота";
-            this.GPSLonglayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLonglayout.TextSize = new System.Drawing.Size(131, 13);
-            // 
-            // elevationLayout
-            // 
-            this.elevationLayout.Control = this.seaLevel;
-            this.elevationLayout.CustomizationFormText = "Высота над уровнем моря";
-            this.elevationLayout.Location = new System.Drawing.Point(532, 40);
-            this.elevationLayout.Name = "elevationLayout";
-            this.elevationLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 15, 2);
-            this.elevationLayout.Size = new System.Drawing.Size(163, 58);
-            this.elevationLayout.Text = "Высота над уровнем моря";
-            this.elevationLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.elevationLayout.TextSize = new System.Drawing.Size(131, 13);
-            // 
-            // KMlayout
-            // 
-            this.KMlayout.Control = this.pegNumber;
-            this.KMlayout.CustomizationFormText = "Номер пикета";
-            this.KMlayout.Location = new System.Drawing.Point(695, 0);
-            this.KMlayout.Name = "KMlayout";
-            this.KMlayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 2, 2);
-            this.KMlayout.Size = new System.Drawing.Size(193, 40);
-            this.KMlayout.Text = "Номер пикета";
-            this.KMlayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.KMlayout.TextSize = new System.Drawing.Size(131, 13);
+            this.weldingDateFromLayout.Control = this.weldingDateFrom;
+            this.weldingDateFromLayout.CustomizationFormText = "Дата сварки";
+            this.weldingDateFromLayout.Location = new System.Drawing.Point(393, 0);
+            this.weldingDateFromLayout.MinSize = new System.Drawing.Size(119, 54);
+            this.weldingDateFromLayout.Name = "weldingDateFromLayout";
+            this.weldingDateFromLayout.Size = new System.Drawing.Size(119, 57);
+            this.weldingDateFromLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.weldingDateFromLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.weldingDateFromLayout.Text = "От";
+            this.weldingDateFromLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldingDateFromLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
             // searchButtonLayout
             // 
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(695, 40);
+            this.searchButtonLayout.Location = new System.Drawing.Point(780, 0);
+            this.searchButtonLayout.MaxSize = new System.Drawing.Size(119, 0);
+            this.searchButtonLayout.MinSize = new System.Drawing.Size(119, 55);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 2, 28, 2);
-            this.searchButtonLayout.Size = new System.Drawing.Size(193, 58);
+            this.searchButtonLayout.Size = new System.Drawing.Size(119, 57);
+            this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 19, 11);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextToControlDistance = 0;
             this.searchButtonLayout.TextVisible = false;
+            // 
+            // KMlayout
+            // 
+            this.KMlayout.Control = this.pegNumber;
+            this.KMlayout.CustomizationFormText = "Номер пикета";
+            this.KMlayout.Location = new System.Drawing.Point(646, 0);
+            this.KMlayout.MinSize = new System.Drawing.Size(119, 54);
+            this.KMlayout.Name = "KMlayout";
+            this.KMlayout.Size = new System.Drawing.Size(134, 57);
+            this.KMlayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.KMlayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.KMlayout.Text = "Номер пикета";
+            this.KMlayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.KMlayout.TextSize = new System.Drawing.Size(70, 13);
+            // 
+            // weldingDateToLayout
+            // 
+            this.weldingDateToLayout.Control = this.weldingDateTo;
+            this.weldingDateToLayout.CustomizationFormText = "До";
+            this.weldingDateToLayout.Location = new System.Drawing.Point(512, 0);
+            this.weldingDateToLayout.MinSize = new System.Drawing.Size(134, 54);
+            this.weldingDateToLayout.Name = "weldingDateToLayout";
+            this.weldingDateToLayout.Size = new System.Drawing.Size(134, 57);
+            this.weldingDateToLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.weldingDateToLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.weldingDateToLayout.Text = "До";
+            this.weldingDateToLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldingDateToLayout.TextSize = new System.Drawing.Size(70, 13);
+            // 
+            // eldingDateLabelLayout
+            // 
+            this.eldingDateLabelLayout.Control = this.weldingDateLabel;
+            this.eldingDateLabelLayout.CustomizationFormText = "eldingDateLabelLayout";
+            this.eldingDateLabelLayout.Location = new System.Drawing.Point(303, 0);
+            this.eldingDateLabelLayout.Name = "eldingDateLabelLayout";
+            this.eldingDateLabelLayout.Size = new System.Drawing.Size(90, 57);
+            this.eldingDateLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 7, 25, 7);
+            this.eldingDateLabelLayout.Text = "eldingDateLabelLayout";
+            this.eldingDateLabelLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.eldingDateLabelLayout.TextToControlDistance = 0;
+            this.eldingDateLabelLayout.TextVisible = false;
             // 
             // statusLabel
             // 
@@ -304,16 +297,15 @@ namespace PrizmMain.Forms
             // 
             // gridControlSerchResult
             // 
-            this.gridControlSerchResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControlSerchResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlSerchResult.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControlSerchResult.Location = new System.Drawing.Point(20, 140);
+            this.gridControlSerchResult.Location = new System.Drawing.Point(21, 88);
             this.gridControlSerchResult.MainView = this.resultView;
-            this.gridControlSerchResult.Margin = new System.Windows.Forms.Padding(11);
+            this.gridControlSerchResult.Margin = new System.Windows.Forms.Padding(11, 20, 11, 11);
             this.gridControlSerchResult.Name = "gridControlSerchResult";
-            this.gridControlSerchResult.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.extraJointButton});
-            this.gridControlSerchResult.Size = new System.Drawing.Size(888, 290);
+            this.gridControlSerchResult.Size = new System.Drawing.Size(896, 338);
             this.gridControlSerchResult.TabIndex = 33;
             this.gridControlSerchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.resultView});
@@ -328,7 +320,9 @@ namespace PrizmMain.Forms
             this.extraGridColumn});
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
+            this.resultView.OptionsBehavior.Editable = false;
             this.resultView.OptionsView.ShowGroupPanel = false;
+            this.resultView.OptionsView.ShowIndicator = false;
             // 
             // jointNumberGridColumn
             // 
@@ -337,7 +331,7 @@ namespace PrizmMain.Forms
             this.jointNumberGridColumn.Name = "jointNumberGridColumn";
             this.jointNumberGridColumn.Visible = true;
             this.jointNumberGridColumn.VisibleIndex = 0;
-            this.jointNumberGridColumn.Width = 125;
+            this.jointNumberGridColumn.Width = 118;
             // 
             // joinStatusGridColumn
             // 
@@ -346,7 +340,7 @@ namespace PrizmMain.Forms
             this.joinStatusGridColumn.Name = "joinStatusGridColumn";
             this.joinStatusGridColumn.Visible = true;
             this.joinStatusGridColumn.VisibleIndex = 1;
-            this.joinStatusGridColumn.Width = 125;
+            this.joinStatusGridColumn.Width = 185;
             // 
             // jointWeldingDateColumn
             // 
@@ -355,6 +349,7 @@ namespace PrizmMain.Forms
             this.jointWeldingDateColumn.Name = "jointWeldingDateColumn";
             this.jointWeldingDateColumn.Visible = true;
             this.jointWeldingDateColumn.VisibleIndex = 2;
+            this.jointWeldingDateColumn.Width = 86;
             // 
             // repairGridColumn
             // 
@@ -363,24 +358,21 @@ namespace PrizmMain.Forms
             this.repairGridColumn.Name = "repairGridColumn";
             this.repairGridColumn.Visible = true;
             this.repairGridColumn.VisibleIndex = 3;
-            this.repairGridColumn.Width = 125;
+            this.repairGridColumn.Width = 457;
             // 
             // extraGridColumn
             // 
-            this.extraGridColumn.ColumnEdit = this.extraJointButton;
-            this.extraGridColumn.FieldName = "extraGridColumn";
+            repositoryItemButtonEdit1.AutoHeight = false;
+            repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            repositoryItemButtonEdit1.LookAndFeel.SkinName = "Office 2013";
+            repositoryItemButtonEdit1.Name = "extraJointButton";
+            repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.extraGridColumn.ColumnEdit = repositoryItemButtonEdit1;
             this.extraGridColumn.Name = "extraGridColumn";
             this.extraGridColumn.Visible = true;
             this.extraGridColumn.VisibleIndex = 4;
-            this.extraGridColumn.Width = 60;
-            // 
-            // extraJointButton
-            // 
-            this.extraJointButton.AutoHeight = false;
-            this.extraJointButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraJointButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.extraJointButton.Name = "extraJointButton";
-            this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.extraGridColumn.Width = 50;
             // 
             // JointSearchXtraForm
             // 
@@ -391,29 +383,28 @@ namespace PrizmMain.Forms
             this.Controls.Add(this.gridControlSerchResult);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JointSearchXtraForm";
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "Поиск стыка";
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).EndInit();
             this.searchLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateTo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlStateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GPSLonglayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elevationLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KMlayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateFromLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KMlayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateToLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eldingDateLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,25 +419,22 @@ namespace PrizmMain.Forms
         private DevExpress.XtraGrid.Columns.GridColumn joinStatusGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn repairGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraJointButton;
         private DevExpress.XtraEditors.TextEdit pegNumber;
-        private DevExpress.XtraEditors.TextEdit GPSLat;
-        private DevExpress.XtraEditors.TextEdit GPSLong;
-        private DevExpress.XtraEditors.TextEdit seaLevel;
         private DevExpress.XtraLayout.LayoutControl searchLayoutControl;
         private DevExpress.XtraEditors.TextEdit jointNumber;
         private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem jointNumberLayout;
-        private DevExpress.XtraEditors.DateEdit weldingDate;
-        private DevExpress.XtraLayout.LayoutControlItem weldingDateLayout;
+        private DevExpress.XtraEditors.DateEdit weldingDateFrom;
+        private DevExpress.XtraLayout.LayoutControlItem weldingDateFromLayout;
         private DevExpress.XtraLayout.LayoutControlItem controlStateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem GPSLatLayout;
-        private DevExpress.XtraLayout.LayoutControlItem GPSLonglayout;
-        private DevExpress.XtraLayout.LayoutControlItem elevationLayout;
         private DevExpress.XtraLayout.LayoutControlItem KMlayout;
         private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
         private DevExpress.XtraGrid.Columns.GridColumn jointWeldingDateColumn;
+        private DevExpress.XtraEditors.LabelControl weldingDateLabel;
+        private DevExpress.XtraEditors.DateEdit weldingDateTo;
+        private DevExpress.XtraLayout.LayoutControlItem weldingDateToLayout;
+        private DevExpress.XtraLayout.LayoutControlItem eldingDateLabelLayout;
 
     }
 }
