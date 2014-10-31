@@ -31,249 +31,397 @@
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.externalCoatingTeam = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.internalCoatingTeam = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.internalCoating = new DevExpress.XtraEditors.DateEdit();
+            this.addCoatingButton = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.coatingDate = new DevExpress.XtraEditors.DateEdit();
+            this.destination = new DevExpress.XtraEditors.TextEdit();
+            this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
+            this.coatingHistory = new DevExpress.XtraGrid.GridControl();
+            this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.addWeldingButton = new DevExpress.XtraEditors.SimpleButton();
+            this.welders = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
+            this.weldingHistory = new DevExpress.XtraGrid.GridControl();
+            this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
             this.pipeChemicalComposition = new DevExpress.XtraGrid.GridControl();
             this.pipeChemicalCompositionGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.elementNamePipeCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.elementQuantityPipeCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.millThickness = new DevExpress.XtraEditors.TextEdit();
-            this.millDiameter = new DevExpress.XtraEditors.TextEdit();
-            this.millWeight = new DevExpress.XtraEditors.TextEdit();
-            this.millLength = new DevExpress.XtraEditors.TextEdit();
-            this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
-            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
-            this.weldingTeam = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.pipeParametersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.operationLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.externalCoatingTeamLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.externalCoatingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.internalCoatingLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.internalCoatingTeamLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.weldingTeamLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.weldingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.generalPipeParametersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.pipeChemicalCompositionLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.millThicknessLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.weightLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.diameter = new DevExpress.XtraEditors.TextEdit();
+            this.length = new DevExpress.XtraEditors.TextEdit();
+            this.weight = new DevExpress.XtraEditors.TextEdit();
+            this.thickness = new DevExpress.XtraEditors.TextEdit();
+            this.shipmentDate = new DevExpress.XtraEditors.DateEdit();
+            this.generalParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.geometricParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.diameterLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.stealGradeLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.plateManufacturerLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.thicknessLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.diameterLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weightLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeChemicalCompositionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.pipeChemicalCompositionLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldingParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.weldingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.addWeldingButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldersLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.shipmentParametersLayout = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.destinationLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.shipmentDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.coatingParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.coatingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.coatingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.coatingTypeaLyout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.addCoatingButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.heatPlateParametersPage = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.tensileTests = new DevExpress.XtraGrid.GridControl();
+            this.tensileTestsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.plateSteelGrade = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.plateChemicalComposition = new DevExpress.XtraGrid.GridControl();
+            this.plateChemicalCompositionView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.elementNamePlateCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.elementQuantityPlateCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.plateManufacturer = new DevExpress.XtraEditors.TextEdit();
+            this.plateThickness = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.generalPlateParametersLaoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.plateParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.plateThicknessLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.plateSteelGradeLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.plateChemicalCompositionLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.plateTensileTestLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.plateManufacturerLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.ladelMechanicalProperties = new DevExpress.XtraGrid.GridControl();
+            this.ladelMechanicalPropertiesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ladleChemicalComposition = new DevExpress.XtraGrid.GridControl();
+            this.ladleChemicalCompositionView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.elementNameLadleCompositionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.elementQuantityLadleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.heatParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ladelChemicalCompositionLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ladelMechanicalPropertiesLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.purchaseOrder = new DevExpress.XtraEditors.ComboBoxEdit();
             this.heatNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeCreationDate = new DevExpress.XtraEditors.DateEdit();
             this.millStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
-            this.GeneralLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.PipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.generalLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSizeLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.creationDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.purhaseOrderLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.closeButton = new DevExpress.XtraEditors.SimpleButton();
+            this.deactivate = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pipe)).BeginInit();
             this.pipe.SuspendLayout();
             this.generalParametersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingTeam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welders.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingTeam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeamLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingTeamLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingTeamLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalPipeParametersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThicknessLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weightLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.geometricParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diameterLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
-            this.layoutControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stealGradeLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thicknessLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diameterLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weightLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addWeldingButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentParametersLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingTypeaLyout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addCoatingButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            this.heatPlateParametersPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
+            this.layoutControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tensileTests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateSteelGrade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalComposition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalPlateParametersLaoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateThicknessLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateSteelGradeLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateTensileTestLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalPropertiesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladleChemicalComposition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladleChemicalCompositionView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelChemicalCompositionLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalPropertiesLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
+            this.generalPipeLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GeneralLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeNumberLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pipe
             // 
-            this.pipe.Location = new System.Drawing.Point(12, 58);
+            this.pipe.Location = new System.Drawing.Point(14, 65);
             this.pipe.Name = "pipe";
             this.pipe.SelectedTabPage = this.generalParametersPage;
-            this.pipe.Size = new System.Drawing.Size(1176, 470);
+            this.pipe.Size = new System.Drawing.Size(1234, 434);
             this.pipe.TabIndex = 0;
             this.pipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParametersPage,
+            this.heatPlateParametersPage,
             this.inspectionPage});
             // 
             // generalParametersPage
             // 
             this.generalParametersPage.Controls.Add(this.layoutControl2);
-            this.generalParametersPage.Controls.Add(this.layoutControl5);
             this.generalParametersPage.Name = "generalParametersPage";
-            this.generalParametersPage.Size = new System.Drawing.Size(1170, 442);
+            this.generalParametersPage.Size = new System.Drawing.Size(1228, 406);
             this.generalParametersPage.Text = "&General parameters";
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.externalCoatingTeam);
-            this.layoutControl2.Controls.Add(this.internalCoatingTeam);
-            this.layoutControl2.Controls.Add(this.internalCoating);
-            this.layoutControl2.Controls.Add(this.pipeChemicalComposition);
-            this.layoutControl2.Controls.Add(this.millThickness);
-            this.layoutControl2.Controls.Add(this.millDiameter);
-            this.layoutControl2.Controls.Add(this.millWeight);
-            this.layoutControl2.Controls.Add(this.millLength);
-            this.layoutControl2.Controls.Add(this.externalCoatingDate);
+            this.layoutControl2.Controls.Add(this.addCoatingButton);
+            this.layoutControl2.Controls.Add(this.comboBoxEdit2);
+            this.layoutControl2.Controls.Add(this.coatingDate);
+            this.layoutControl2.Controls.Add(this.destination);
+            this.layoutControl2.Controls.Add(this.certificateNumber);
+            this.layoutControl2.Controls.Add(this.coatingHistory);
+            this.layoutControl2.Controls.Add(this.addWeldingButton);
+            this.layoutControl2.Controls.Add(this.welders);
+            this.layoutControl2.Controls.Add(this.railcarNumber);
+            this.layoutControl2.Controls.Add(this.weldingHistory);
             this.layoutControl2.Controls.Add(this.weldingDate);
-            this.layoutControl2.Controls.Add(this.weldingTeam);
-            this.layoutControl2.Location = new System.Drawing.Point(13, -5);
+            this.layoutControl2.Controls.Add(this.pipeChemicalComposition);
+            this.layoutControl2.Controls.Add(this.diameter);
+            this.layoutControl2.Controls.Add(this.length);
+            this.layoutControl2.Controls.Add(this.weight);
+            this.layoutControl2.Controls.Add(this.thickness);
+            this.layoutControl2.Controls.Add(this.shipmentDate);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(428, 237, 250, 350);
-            this.layoutControl2.Root = this.pipeParametersLayoutControlGroup;
-            this.layoutControl2.Size = new System.Drawing.Size(477, 420);
-            this.layoutControl2.TabIndex = 41;
+            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(0, 167, 619, 715);
+            this.layoutControl2.Root = this.generalParametersLayoutGroup;
+            this.layoutControl2.Size = new System.Drawing.Size(1228, 406);
+            this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // externalCoatingTeam
+            // addCoatingButton
             // 
-            this.externalCoatingTeam.Location = new System.Drawing.Point(249, 335);
-            this.externalCoatingTeam.Name = "externalCoatingTeam";
-            this.externalCoatingTeam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.addCoatingButton.Location = new System.Drawing.Point(907, 279);
+            this.addCoatingButton.Name = "addCoatingButton";
+            this.addCoatingButton.Size = new System.Drawing.Size(111, 22);
+            this.addCoatingButton.StyleController = this.layoutControl2;
+            this.addCoatingButton.TabIndex = 51;
+            this.addCoatingButton.Text = "Добавить";
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(770, 281);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.externalCoatingTeam.Size = new System.Drawing.Size(204, 20);
-            this.externalCoatingTeam.StyleController = this.layoutControl2;
-            this.externalCoatingTeam.TabIndex = 40;
+            this.comboBoxEdit2.Size = new System.Drawing.Size(118, 20);
+            this.comboBoxEdit2.StyleController = this.layoutControl2;
+            this.comboBoxEdit2.TabIndex = 50;
             // 
-            // internalCoatingTeam
+            // coatingDate
             // 
-            this.internalCoatingTeam.Location = new System.Drawing.Point(249, 375);
-            this.internalCoatingTeam.Name = "internalCoatingTeam";
-            this.internalCoatingTeam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.coatingDate.EditValue = null;
+            this.coatingDate.Location = new System.Drawing.Point(647, 281);
+            this.coatingDate.Name = "coatingDate";
+            this.coatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.internalCoatingTeam.Size = new System.Drawing.Size(204, 20);
-            this.internalCoatingTeam.StyleController = this.layoutControl2;
-            this.internalCoatingTeam.TabIndex = 38;
-            // 
-            // internalCoating
-            // 
-            this.internalCoating.EditValue = null;
-            this.internalCoating.Location = new System.Drawing.Point(24, 375);
-            this.internalCoating.Name = "internalCoating";
-            this.internalCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.coatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.internalCoating.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.coatingDate.Size = new System.Drawing.Size(104, 20);
+            this.coatingDate.StyleController = this.layoutControl2;
+            this.coatingDate.TabIndex = 49;
+            // 
+            // destination
+            // 
+            this.destination.Location = new System.Drawing.Point(802, 162);
+            this.destination.Name = "destination";
+            this.destination.Size = new System.Drawing.Size(372, 20);
+            this.destination.StyleController = this.layoutControl2;
+            this.destination.TabIndex = 48;
+            // 
+            // certificateNumber
+            // 
+            this.certificateNumber.Location = new System.Drawing.Point(802, 112);
+            this.certificateNumber.Name = "certificateNumber";
+            this.certificateNumber.Size = new System.Drawing.Size(240, 20);
+            this.certificateNumber.StyleController = this.layoutControl2;
+            this.certificateNumber.TabIndex = 46;
+            // 
+            // coatingHistory
+            // 
+            this.coatingHistory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.coatingHistory.Location = new System.Drawing.Point(647, 317);
+            this.coatingHistory.MainView = this.coatingHistoryGridView;
+            this.coatingHistory.Name = "coatingHistory";
+            this.coatingHistory.Size = new System.Drawing.Size(527, 53);
+            this.coatingHistory.TabIndex = 45;
+            this.coatingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.coatingHistoryGridView});
+            // 
+            // coatingHistoryGridView
+            // 
+            this.coatingHistoryGridView.GridControl = this.coatingHistory;
+            this.coatingHistoryGridView.Name = "coatingHistoryGridView";
+            this.coatingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // addWeldingButton
+            // 
+            this.addWeldingButton.Location = new System.Drawing.Point(364, 279);
+            this.addWeldingButton.Name = "addWeldingButton";
+            this.addWeldingButton.Size = new System.Drawing.Size(109, 22);
+            this.addWeldingButton.StyleController = this.layoutControl2;
+            this.addWeldingButton.TabIndex = 44;
+            this.addWeldingButton.Text = "Добавить";
+            // 
+            // welders
+            // 
+            this.welders.Location = new System.Drawing.Point(168, 281);
+            this.welders.Name = "welders";
+            this.welders.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.internalCoating.Size = new System.Drawing.Size(221, 20);
-            this.internalCoating.StyleController = this.layoutControl2;
-            this.internalCoating.TabIndex = 39;
+            this.welders.Size = new System.Drawing.Size(177, 20);
+            this.welders.StyleController = this.layoutControl2;
+            this.welders.TabIndex = 43;
+            // 
+            // railcarNumber
+            // 
+            this.railcarNumber.Location = new System.Drawing.Point(802, 62);
+            this.railcarNumber.Name = "railcarNumber";
+            this.railcarNumber.Size = new System.Drawing.Size(102, 20);
+            this.railcarNumber.StyleController = this.layoutControl2;
+            this.railcarNumber.TabIndex = 42;
+            // 
+            // weldingHistory
+            // 
+            this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.weldingHistory.Location = new System.Drawing.Point(44, 317);
+            this.weldingHistory.MainView = this.weldingHistoryGridView;
+            this.weldingHistory.Name = "weldingHistory";
+            this.weldingHistory.Size = new System.Drawing.Size(539, 53);
+            this.weldingHistory.TabIndex = 40;
+            this.weldingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.weldingHistoryGridView});
+            // 
+            // weldingHistoryGridView
+            // 
+            this.weldingHistoryGridView.GridControl = this.weldingHistory;
+            this.weldingHistoryGridView.Name = "weldingHistoryGridView";
+            this.weldingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // weldingDate
+            // 
+            this.weldingDate.EditValue = null;
+            this.weldingDate.Location = new System.Drawing.Point(44, 281);
+            this.weldingDate.Name = "weldingDate";
+            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDate.Size = new System.Drawing.Size(105, 20);
+            this.weldingDate.StyleController = this.layoutControl2;
+            this.weldingDate.TabIndex = 38;
             // 
             // pipeChemicalComposition
             // 
             this.pipeChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipeChemicalComposition.Location = new System.Drawing.Point(24, 59);
+            this.pipeChemicalComposition.Location = new System.Drawing.Point(262, 41);
             this.pipeChemicalComposition.MainView = this.pipeChemicalCompositionGridView;
             this.pipeChemicalComposition.Name = "pipeChemicalComposition";
-            this.pipeChemicalComposition.Size = new System.Drawing.Size(198, 173);
-            this.pipeChemicalComposition.TabIndex = 36;
+            this.pipeChemicalComposition.Size = new System.Drawing.Size(486, 146);
+            this.pipeChemicalComposition.TabIndex = 37;
             this.pipeChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipeChemicalCompositionGridView});
             // 
@@ -284,198 +432,164 @@
             this.elementQuantityPipeCompositionGridColumn});
             this.pipeChemicalCompositionGridView.GridControl = this.pipeChemicalComposition;
             this.pipeChemicalCompositionGridView.Name = "pipeChemicalCompositionGridView";
+            this.pipeChemicalCompositionGridView.OptionsView.ShowGroupPanel = false;
             // 
             // elementNamePipeCompositionGridColumn
             // 
-            this.elementNamePipeCompositionGridColumn.Caption = "Name";
+            this.elementNamePipeCompositionGridColumn.Caption = "Название";
             this.elementNamePipeCompositionGridColumn.Name = "elementNamePipeCompositionGridColumn";
             this.elementNamePipeCompositionGridColumn.Visible = true;
             this.elementNamePipeCompositionGridColumn.VisibleIndex = 0;
             // 
             // elementQuantityPipeCompositionGridColumn
             // 
-            this.elementQuantityPipeCompositionGridColumn.Caption = "Quantity";
+            this.elementQuantityPipeCompositionGridColumn.Caption = "Количество";
             this.elementQuantityPipeCompositionGridColumn.Name = "elementQuantityPipeCompositionGridColumn";
             this.elementQuantityPipeCompositionGridColumn.Visible = true;
             this.elementQuantityPipeCompositionGridColumn.VisibleIndex = 1;
             // 
-            // millThickness
+            // diameter
             // 
-            this.millThickness.Location = new System.Drawing.Point(229, 164);
-            this.millThickness.Name = "millThickness";
-            this.millThickness.Size = new System.Drawing.Size(221, 20);
-            this.millThickness.StyleController = this.layoutControl2;
-            this.millThickness.TabIndex = 42;
+            this.diameter.Location = new System.Drawing.Point(119, 80);
+            this.diameter.Name = "diameter";
+            this.diameter.Size = new System.Drawing.Size(84, 20);
+            this.diameter.StyleController = this.layoutControl2;
+            this.diameter.TabIndex = 28;
             // 
-            // millDiameter
+            // length
             // 
-            this.millDiameter.Location = new System.Drawing.Point(229, 62);
-            this.millDiameter.Name = "millDiameter";
-            this.millDiameter.Size = new System.Drawing.Size(221, 20);
-            this.millDiameter.StyleController = this.layoutControl2;
-            this.millDiameter.TabIndex = 49;
+            this.length.Location = new System.Drawing.Point(119, 46);
+            this.length.Name = "length";
+            this.length.Size = new System.Drawing.Size(84, 20);
+            this.length.StyleController = this.layoutControl2;
+            this.length.TabIndex = 25;
             // 
-            // millWeight
+            // weight
             // 
-            this.millWeight.Location = new System.Drawing.Point(226, 212);
-            this.millWeight.Name = "millWeight";
-            this.millWeight.Size = new System.Drawing.Size(227, 20);
-            this.millWeight.StyleController = this.layoutControl2;
-            this.millWeight.TabIndex = 43;
+            this.weight.Location = new System.Drawing.Point(119, 148);
+            this.weight.Name = "weight";
+            this.weight.Size = new System.Drawing.Size(84, 20);
+            this.weight.StyleController = this.layoutControl2;
+            this.weight.TabIndex = 27;
             // 
-            // millLength
+            // thickness
             // 
-            this.millLength.Location = new System.Drawing.Point(229, 113);
-            this.millLength.Name = "millLength";
-            this.millLength.Size = new System.Drawing.Size(221, 20);
-            this.millLength.StyleController = this.layoutControl2;
-            this.millLength.TabIndex = 41;
+            this.thickness.Location = new System.Drawing.Point(119, 114);
+            this.thickness.Name = "thickness";
+            this.thickness.Size = new System.Drawing.Size(84, 20);
+            this.thickness.StyleController = this.layoutControl2;
+            this.thickness.TabIndex = 26;
             // 
-            // externalCoatingDate
+            // shipmentDate
             // 
-            this.externalCoatingDate.EditValue = null;
-            this.externalCoatingDate.Location = new System.Drawing.Point(24, 335);
-            this.externalCoatingDate.Name = "externalCoatingDate";
-            this.externalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.shipmentDate.EditValue = null;
+            this.shipmentDate.Location = new System.Drawing.Point(933, 62);
+            this.shipmentDate.Name = "shipmentDate";
+            this.shipmentDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.externalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.shipmentDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.externalCoatingDate.Size = new System.Drawing.Size(221, 20);
-            this.externalCoatingDate.StyleController = this.layoutControl2;
-            this.externalCoatingDate.TabIndex = 37;
+            this.shipmentDate.Properties.Mask.EditMask = "";
+            this.shipmentDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.shipmentDate.Size = new System.Drawing.Size(109, 20);
+            this.shipmentDate.StyleController = this.layoutControl2;
+            this.shipmentDate.TabIndex = 47;
             // 
-            // weldingDate
+            // generalParametersLayoutGroup
             // 
-            this.weldingDate.EditValue = null;
-            this.weldingDate.Location = new System.Drawing.Point(24, 295);
-            this.weldingDate.Name = "weldingDate";
-            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDate.Size = new System.Drawing.Size(221, 20);
-            this.weldingDate.StyleController = this.layoutControl2;
-            this.weldingDate.TabIndex = 35;
+            this.generalParametersLayoutGroup.CustomizationFormText = "generalParametersLayoutGroup";
+            this.generalParametersLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.generalParametersLayoutGroup.GroupBordersVisible = false;
+            this.generalParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.geometricParametersLayoutGroup,
+            this.pipeChemicalCompositionLayoutGroup,
+            this.weldingParametersLayoutGroup,
+            this.shipmentParametersLayout,
+            this.coatingParametersLayoutGroup});
+            this.generalParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.generalParametersLayoutGroup.Name = "generalParametersLayoutGroup";
+            this.generalParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.generalParametersLayoutGroup.Size = new System.Drawing.Size(1228, 406);
+            this.generalParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
+            this.generalParametersLayoutGroup.Text = "generalParametersLayoutGroup";
+            this.generalParametersLayoutGroup.TextVisible = false;
             // 
-            // weldingTeam
+            // geometricParametersLayoutGroup
             // 
-            this.weldingTeam.Location = new System.Drawing.Point(249, 295);
-            this.weldingTeam.Name = "weldingTeam";
-            this.weldingTeam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingTeam.Size = new System.Drawing.Size(204, 20);
-            this.weldingTeam.StyleController = this.layoutControl2;
-            this.weldingTeam.TabIndex = 36;
-            // 
-            // pipeParametersLayoutControlGroup
-            // 
-            this.pipeParametersLayoutControlGroup.CustomizationFormText = "Параметры";
-            this.pipeParametersLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.pipeParametersLayoutControlGroup.GroupBordersVisible = false;
-            this.pipeParametersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.operationLayoutControlGroup,
-            this.generalPipeParametersLayoutControlGroup});
-            this.pipeParametersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.pipeParametersLayoutControlGroup.Name = "pipeParametersLayoutControlGroup";
-            this.pipeParametersLayoutControlGroup.Size = new System.Drawing.Size(477, 420);
-            this.pipeParametersLayoutControlGroup.Text = "Параметры";
-            // 
-            // operationLayoutControlGroup
-            // 
-            this.operationLayoutControlGroup.CustomizationFormText = "Операции";
-            this.operationLayoutControlGroup.ExpandButtonVisible = true;
-            this.operationLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.externalCoatingTeamLayout,
-            this.internalCoatingLayout,
-            this.weldingTeamLayout,
-            this.weldingDateLayout,
-            this.externalCoatingDateLayout,
-            this.internalCoatingTeamLayout});
-            this.operationLayoutControlGroup.Location = new System.Drawing.Point(0, 236);
-            this.operationLayoutControlGroup.Name = "operationLayoutControlGroup";
-            this.operationLayoutControlGroup.Size = new System.Drawing.Size(457, 164);
-            this.operationLayoutControlGroup.Text = "Операции";
-            // 
-            // externalCoatingTeamLayout
-            // 
-            this.externalCoatingTeamLayout.Control = this.externalCoatingTeam;
-            this.externalCoatingTeamLayout.CustomizationFormText = "Наружное покрытие. Бригада";
-            this.externalCoatingTeamLayout.Location = new System.Drawing.Point(225, 40);
-            this.externalCoatingTeamLayout.Name = "externalCoatingTeamLayout";
-            this.externalCoatingTeamLayout.Size = new System.Drawing.Size(208, 40);
-            this.externalCoatingTeamLayout.Text = "Исполнитель наружного покрытия";
-            this.externalCoatingTeamLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.externalCoatingTeamLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // externalCoatingDateLayout
-            // 
-            this.externalCoatingDateLayout.Control = this.externalCoatingDate;
-            this.externalCoatingDateLayout.CustomizationFormText = "Дата наружного покрытия";
-            this.externalCoatingDateLayout.Location = new System.Drawing.Point(0, 40);
-            this.externalCoatingDateLayout.Name = "externalCoatingDateLayout";
-            this.externalCoatingDateLayout.Size = new System.Drawing.Size(225, 40);
-            this.externalCoatingDateLayout.Text = "Дата наружного покрытия";
-            this.externalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.externalCoatingDateLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // internalCoatingLayout
-            // 
-            this.internalCoatingLayout.Control = this.internalCoating;
-            this.internalCoatingLayout.CustomizationFormText = "Дата внутреннего покрытия";
-            this.internalCoatingLayout.Location = new System.Drawing.Point(0, 80);
-            this.internalCoatingLayout.Name = "internalCoatingLayout";
-            this.internalCoatingLayout.Size = new System.Drawing.Size(225, 41);
-            this.internalCoatingLayout.Text = "Дата внутреннего покрытия";
-            this.internalCoatingLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.internalCoatingLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // internalCoatingTeamLayout
-            // 
-            this.internalCoatingTeamLayout.Control = this.internalCoatingTeam;
-            this.internalCoatingTeamLayout.CustomizationFormText = "Исполнитель внутреннего покрытия";
-            this.internalCoatingTeamLayout.Location = new System.Drawing.Point(225, 80);
-            this.internalCoatingTeamLayout.Name = "internalCoatingTeamLayout";
-            this.internalCoatingTeamLayout.Size = new System.Drawing.Size(208, 41);
-            this.internalCoatingTeamLayout.Text = "Исполнитель внутреннего покрытия";
-            this.internalCoatingTeamLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.internalCoatingTeamLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // weldingTeamLayout
-            // 
-            this.weldingTeamLayout.Control = this.weldingTeam;
-            this.weldingTeamLayout.CustomizationFormText = "Сварщик";
-            this.weldingTeamLayout.Location = new System.Drawing.Point(225, 0);
-            this.weldingTeamLayout.Name = "weldingTeamLayout";
-            this.weldingTeamLayout.Size = new System.Drawing.Size(208, 40);
-            this.weldingTeamLayout.Text = "Исполнитель сварки";
-            this.weldingTeamLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.weldingTeamLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // weldingDateLayout
-            // 
-            this.weldingDateLayout.Control = this.weldingDate;
-            this.weldingDateLayout.CustomizationFormText = "Дата сварки";
-            this.weldingDateLayout.Location = new System.Drawing.Point(0, 0);
-            this.weldingDateLayout.Name = "weldingDateLayout";
-            this.weldingDateLayout.Size = new System.Drawing.Size(225, 40);
-            this.weldingDateLayout.Text = "Дата сварки";
-            this.weldingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.weldingDateLayout.TextSize = new System.Drawing.Size(187, 13);
-            // 
-            // generalPipeParametersLayoutControlGroup
-            // 
-            this.generalPipeParametersLayoutControlGroup.CustomizationFormText = "Общие параметры";
-            this.generalPipeParametersLayoutControlGroup.ExpandButtonVisible = true;
-            this.generalPipeParametersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.pipeChemicalCompositionLayout,
-            this.millThicknessLayout,
-            this.weightLayout,
+            this.geometricParametersLayoutGroup.CustomizationFormText = "Геометрические параметры";
+            this.geometricParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lengthLayout,
-            this.diameterLayout});
-            this.generalPipeParametersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.generalPipeParametersLayoutControlGroup.Name = "generalPipeParametersLayoutControlGroup";
-            this.generalPipeParametersLayoutControlGroup.Size = new System.Drawing.Size(457, 236);
-            this.generalPipeParametersLayoutControlGroup.Text = "Общие параметры";
+            this.thicknessLayout,
+            this.diameterLayout,
+            this.weightLayout});
+            this.geometricParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.geometricParametersLayoutGroup.Name = "geometricParametersLayoutGroup";
+            this.geometricParametersLayoutGroup.Size = new System.Drawing.Size(223, 212);
+            this.geometricParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 8, 15);
+            this.geometricParametersLayoutGroup.Text = "Размеры";
+            // 
+            // lengthLayout
+            // 
+            this.lengthLayout.Control = this.length;
+            this.lengthLayout.CustomizationFormText = "Длина, мм";
+            this.lengthLayout.Location = new System.Drawing.Point(0, 0);
+            this.lengthLayout.Name = "lengthLayout";
+            this.lengthLayout.Size = new System.Drawing.Size(178, 34);
+            this.lengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.lengthLayout.Text = "Длина, мм";
+            this.lengthLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.lengthLayout.TextSize = new System.Drawing.Size(70, 13);
+            this.lengthLayout.TextToControlDistance = 5;
+            // 
+            // thicknessLayout
+            // 
+            this.thicknessLayout.Control = this.thickness;
+            this.thicknessLayout.CustomizationFormText = "Толщина, мм";
+            this.thicknessLayout.Location = new System.Drawing.Point(0, 68);
+            this.thicknessLayout.Name = "thicknessLayout";
+            this.thicknessLayout.Size = new System.Drawing.Size(178, 34);
+            this.thicknessLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.thicknessLayout.Text = "Толщина, мм";
+            this.thicknessLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.thicknessLayout.TextSize = new System.Drawing.Size(70, 13);
+            this.thicknessLayout.TextToControlDistance = 5;
+            // 
+            // diameterLayout
+            // 
+            this.diameterLayout.Control = this.diameter;
+            this.diameterLayout.CustomizationFormText = "Диаметр, мм";
+            this.diameterLayout.Location = new System.Drawing.Point(0, 34);
+            this.diameterLayout.Name = "diameterLayout";
+            this.diameterLayout.Size = new System.Drawing.Size(178, 34);
+            this.diameterLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.diameterLayout.Text = "Диаметр, мм";
+            this.diameterLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.diameterLayout.TextSize = new System.Drawing.Size(70, 13);
+            this.diameterLayout.TextToControlDistance = 5;
+            // 
+            // weightLayout
+            // 
+            this.weightLayout.Control = this.weight;
+            this.weightLayout.CustomizationFormText = "Вес, кг";
+            this.weightLayout.Location = new System.Drawing.Point(0, 102);
+            this.weightLayout.Name = "weightLayout";
+            this.weightLayout.Size = new System.Drawing.Size(178, 48);
+            this.weightLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.weightLayout.Text = "Вес, кг";
+            this.weightLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.weightLayout.TextSize = new System.Drawing.Size(70, 13);
+            this.weightLayout.TextToControlDistance = 5;
+            // 
+            // pipeChemicalCompositionLayoutGroup
+            // 
+            this.pipeChemicalCompositionLayoutGroup.CustomizationFormText = "Химический состав";
+            this.pipeChemicalCompositionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.pipeChemicalCompositionLayout});
+            this.pipeChemicalCompositionLayoutGroup.Location = new System.Drawing.Point(223, 0);
+            this.pipeChemicalCompositionLayoutGroup.Name = "pipeChemicalCompositionLayoutGroup";
+            this.pipeChemicalCompositionLayoutGroup.Size = new System.Drawing.Size(535, 212);
+            this.pipeChemicalCompositionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 8, 15);
+            this.pipeChemicalCompositionLayoutGroup.Text = "Химический состав";
             // 
             // pipeChemicalCompositionLayout
             // 
@@ -483,558 +597,765 @@
             this.pipeChemicalCompositionLayout.CustomizationFormText = "Химический состав";
             this.pipeChemicalCompositionLayout.Location = new System.Drawing.Point(0, 0);
             this.pipeChemicalCompositionLayout.Name = "pipeChemicalCompositionLayout";
-            this.pipeChemicalCompositionLayout.Size = new System.Drawing.Size(202, 193);
+            this.pipeChemicalCompositionLayout.Size = new System.Drawing.Size(490, 150);
             this.pipeChemicalCompositionLayout.Text = "Химический состав";
-            this.pipeChemicalCompositionLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pipeChemicalCompositionLayout.TextSize = new System.Drawing.Size(187, 13);
+            this.pipeChemicalCompositionLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.pipeChemicalCompositionLayout.TextToControlDistance = 0;
+            this.pipeChemicalCompositionLayout.TextVisible = false;
             // 
-            // millThicknessLayout
+            // weldingParametersLayoutGroup
             // 
-            this.millThicknessLayout.Control = this.millThickness;
-            this.millThicknessLayout.CustomizationFormText = "Толщина";
-            this.millThicknessLayout.Location = new System.Drawing.Point(202, 102);
-            this.millThicknessLayout.Name = "millThicknessLayout";
-            this.millThicknessLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 10);
-            this.millThicknessLayout.Size = new System.Drawing.Size(231, 51);
-            this.millThicknessLayout.Text = "Толщина";
-            this.millThicknessLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.millThicknessLayout.TextSize = new System.Drawing.Size(187, 13);
+            this.weldingParametersLayoutGroup.CustomizationFormText = "Параметры сварки";
+            this.weldingParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.weldingHistoryLayout,
+            this.weldingDateLayout,
+            this.addWeldingButtonLayout,
+            this.weldersLayout,
+            this.emptySpaceItem1,
+            this.emptySpaceItem7});
+            this.weldingParametersLayoutGroup.Location = new System.Drawing.Point(0, 212);
+            this.weldingParametersLayoutGroup.Name = "weldingParametersLayoutGroup";
+            this.weldingParametersLayoutGroup.Size = new System.Drawing.Size(603, 190);
+            this.weldingParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 15, 15);
+            this.weldingParametersLayoutGroup.Text = "Параметры сварки";
             // 
-            // weightLayout
+            // weldingHistoryLayout
             // 
-            this.weightLayout.Control = this.millWeight;
-            this.weightLayout.CustomizationFormText = "Вес";
-            this.weightLayout.Location = new System.Drawing.Point(202, 153);
-            this.weightLayout.Name = "weightLayout";
-            this.weightLayout.Size = new System.Drawing.Size(231, 40);
-            this.weightLayout.Text = "Вес";
-            this.weightLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.weightLayout.TextSize = new System.Drawing.Size(187, 13);
+            this.weldingHistoryLayout.Control = this.weldingHistory;
+            this.weldingHistoryLayout.CustomizationFormText = "Сварщики";
+            this.weldingHistoryLayout.Location = new System.Drawing.Point(0, 50);
+            this.weldingHistoryLayout.Name = "weldingHistoryLayout";
+            this.weldingHistoryLayout.Size = new System.Drawing.Size(558, 71);
+            this.weldingHistoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 7, 7);
+            this.weldingHistoryLayout.Text = "Сварщики";
+            this.weldingHistoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.weldingHistoryLayout.TextToControlDistance = 0;
+            this.weldingHistoryLayout.TextVisible = false;
             // 
-            // lengthLayout
+            // weldingDateLayout
             // 
-            this.lengthLayout.Control = this.millLength;
-            this.lengthLayout.CustomizationFormText = "Длина";
-            this.lengthLayout.Location = new System.Drawing.Point(202, 51);
-            this.lengthLayout.Name = "lengthLayout";
-            this.lengthLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 10);
-            this.lengthLayout.Size = new System.Drawing.Size(231, 51);
-            this.lengthLayout.Text = "Длина";
-            this.lengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lengthLayout.TextSize = new System.Drawing.Size(187, 13);
+            this.weldingDateLayout.Control = this.weldingDate;
+            this.weldingDateLayout.CustomizationFormText = "Дата сварки";
+            this.weldingDateLayout.Location = new System.Drawing.Point(0, 0);
+            this.weldingDateLayout.Name = "weldingDateLayout";
+            this.weldingDateLayout.Size = new System.Drawing.Size(124, 50);
+            this.weldingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.weldingDateLayout.Text = "Дата сварки";
+            this.weldingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldingDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // diameterLayout
+            // addWeldingButtonLayout
             // 
-            this.diameterLayout.Control = this.millDiameter;
-            this.diameterLayout.CustomizationFormText = "Диаметр";
-            this.diameterLayout.Location = new System.Drawing.Point(202, 0);
-            this.diameterLayout.Name = "diameterLayout";
-            this.diameterLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 10);
-            this.diameterLayout.Size = new System.Drawing.Size(231, 51);
-            this.diameterLayout.Text = "Диаметр";
-            this.diameterLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.diameterLayout.TextSize = new System.Drawing.Size(187, 13);
+            this.addWeldingButtonLayout.Control = this.addWeldingButton;
+            this.addWeldingButtonLayout.CustomizationFormText = "addWeldingButtonLayout";
+            this.addWeldingButtonLayout.Location = new System.Drawing.Point(320, 14);
+            this.addWeldingButtonLayout.Name = "addWeldingButtonLayout";
+            this.addWeldingButtonLayout.Size = new System.Drawing.Size(128, 36);
+            this.addWeldingButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.addWeldingButtonLayout.Text = "addWeldingButtonLayout";
+            this.addWeldingButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.addWeldingButtonLayout.TextToControlDistance = 0;
+            this.addWeldingButtonLayout.TextVisible = false;
             // 
-            // layoutControl5
+            // weldersLayout
             // 
-            this.layoutControl5.Controls.Add(this.textEdit2);
-            this.layoutControl5.Controls.Add(this.comboBoxEdit4);
-            this.layoutControl5.Controls.Add(this.comboBoxEdit3);
-            this.layoutControl5.Controls.Add(this.gridControl5);
-            this.layoutControl5.Controls.Add(this.gridControl4);
-            this.layoutControl5.Controls.Add(this.gridControl2);
-            this.layoutControl5.Controls.Add(this.textEdit1);
-            this.layoutControl5.Controls.Add(this.comboBoxEdit2);
-            this.layoutControl5.Controls.Add(this.comboBoxEdit1);
-            this.layoutControl5.Controls.Add(this.gridControl3);
-            this.layoutControl5.Controls.Add(this.gridControl1);
-            this.layoutControl5.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem17,
-            this.layoutControlItem18,
-            this.layoutControlItem20,
-            this.layoutControlItem16});
-            this.layoutControl5.Location = new System.Drawing.Point(488, -5);
-            this.layoutControl5.Name = "layoutControl5";
-            this.layoutControl5.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(184, 236, 358, 350);
-            this.layoutControl5.Root = this.layoutControlGroup6;
-            this.layoutControl5.Size = new System.Drawing.Size(662, 419);
-            this.layoutControl5.TabIndex = 40;
-            this.layoutControl5.Text = "layoutControl5";
+            this.weldersLayout.Control = this.welders;
+            this.weldersLayout.CustomizationFormText = "Сварщики";
+            this.weldersLayout.Location = new System.Drawing.Point(124, 0);
+            this.weldersLayout.Name = "weldersLayout";
+            this.weldersLayout.Size = new System.Drawing.Size(196, 50);
+            this.weldersLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.weldersLayout.Text = "Сварщики";
+            this.weldersLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldersLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // textEdit2
+            // emptySpaceItem1
             // 
-            this.textEdit2.Location = new System.Drawing.Point(449, 251);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(161, 20);
-            this.textEdit2.StyleController = this.layoutControl5;
-            this.textEdit2.TabIndex = 25;
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(320, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(128, 14);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // comboBoxEdit4
+            // emptySpaceItem7
             // 
-            this.comboBoxEdit4.Location = new System.Drawing.Point(253, 251);
-            this.comboBoxEdit4.Name = "comboBoxEdit4";
-            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit4.Size = new System.Drawing.Size(161, 20);
-            this.comboBoxEdit4.StyleController = this.layoutControl5;
-            this.comboBoxEdit4.TabIndex = 41;
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem7";
+            this.emptySpaceItem7.Location = new System.Drawing.Point(448, 0);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.Size = new System.Drawing.Size(110, 50);
+            this.emptySpaceItem7.Text = "emptySpaceItem7";
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // comboBoxEdit3
+            // shipmentParametersLayout
             // 
-            this.comboBoxEdit3.Location = new System.Drawing.Point(27, 251);
-            this.comboBoxEdit3.Name = "comboBoxEdit3";
-            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit3.Size = new System.Drawing.Size(191, 20);
-            this.comboBoxEdit3.StyleController = this.layoutControl5;
-            this.comboBoxEdit3.TabIndex = 25;
+            this.shipmentParametersLayout.CustomizationFormText = "Параметры отгрузки";
+            this.shipmentParametersLayout.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certificateNumberLayout,
+            this.destinationLayout,
+            this.shipmentDateLayout,
+            this.railcarNumberLayout,
+            this.emptySpaceItem2,
+            this.emptySpaceItem3});
+            this.shipmentParametersLayout.Location = new System.Drawing.Point(758, 0);
+            this.shipmentParametersLayout.Name = "shipmentParametersLayout";
+            this.shipmentParametersLayout.Size = new System.Drawing.Size(436, 212);
+            this.shipmentParametersLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 8, 15);
+            this.shipmentParametersLayout.Text = "Параметры отгрузки";
             // 
-            // gridControl5
+            // certificateNumberLayout
             // 
-            this.gridControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.certificateNumberLayout.Control = this.certificateNumber;
+            this.certificateNumberLayout.CustomizationFormText = "Номер сертификата";
+            this.certificateNumberLayout.Location = new System.Drawing.Point(0, 50);
+            this.certificateNumberLayout.Name = "certificateNumberLayout";
+            this.certificateNumberLayout.Size = new System.Drawing.Size(259, 50);
+            this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.certificateNumberLayout.Text = "Номер сертификата";
+            this.certificateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateNumberLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // destinationLayout
+            // 
+            this.destinationLayout.Control = this.destination;
+            this.destinationLayout.CustomizationFormText = "Получатель";
+            this.destinationLayout.Location = new System.Drawing.Point(0, 100);
+            this.destinationLayout.Name = "destinationLayout";
+            this.destinationLayout.Size = new System.Drawing.Size(391, 50);
+            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.destinationLayout.Text = "Получатель";
+            this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.destinationLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // shipmentDateLayout
+            // 
+            this.shipmentDateLayout.Control = this.shipmentDate;
+            this.shipmentDateLayout.CustomizationFormText = "Дата отгрузки";
+            this.shipmentDateLayout.Location = new System.Drawing.Point(121, 0);
+            this.shipmentDateLayout.Name = "shipmentDateLayout";
+            this.shipmentDateLayout.Size = new System.Drawing.Size(138, 50);
+            this.shipmentDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 10, 5, 5);
+            this.shipmentDateLayout.Text = "Дата отгрузки";
+            this.shipmentDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.shipmentDateLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // railcarNumberLayout
+            // 
+            this.railcarNumberLayout.Control = this.railcarNumber;
+            this.railcarNumberLayout.CustomizationFormText = "Номер вагона";
+            this.railcarNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.railcarNumberLayout.Name = "railcarNumberLayout";
+            this.railcarNumberLayout.Size = new System.Drawing.Size(121, 50);
+            this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.railcarNumberLayout.Text = "Номер вагона";
+            this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(259, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(132, 50);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
+            this.emptySpaceItem3.Location = new System.Drawing.Point(259, 50);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(132, 50);
+            this.emptySpaceItem3.Text = "emptySpaceItem3";
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // coatingParametersLayoutGroup
+            // 
+            this.coatingParametersLayoutGroup.CustomizationFormText = "Параметры покрытия";
+            this.coatingParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.coatingHistoryLayout,
+            this.coatingDateLayout,
+            this.coatingTypeaLyout,
+            this.emptySpaceItem5,
+            this.addCoatingButtonLayout,
+            this.emptySpaceItem6});
+            this.coatingParametersLayoutGroup.Location = new System.Drawing.Point(603, 212);
+            this.coatingParametersLayoutGroup.Name = "coatingParametersLayoutGroup";
+            this.coatingParametersLayoutGroup.Size = new System.Drawing.Size(591, 190);
+            this.coatingParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 15, 15);
+            this.coatingParametersLayoutGroup.Text = "Параметры покрытия";
+            // 
+            // coatingHistoryLayout
+            // 
+            this.coatingHistoryLayout.Control = this.coatingHistory;
+            this.coatingHistoryLayout.CustomizationFormText = "coatingHistoryLayout";
+            this.coatingHistoryLayout.Location = new System.Drawing.Point(0, 50);
+            this.coatingHistoryLayout.Name = "coatingHistoryLayout";
+            this.coatingHistoryLayout.Size = new System.Drawing.Size(546, 71);
+            this.coatingHistoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 7, 7);
+            this.coatingHistoryLayout.Text = "coatingHistoryLayout";
+            this.coatingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.coatingHistoryLayout.TextToControlDistance = 0;
+            this.coatingHistoryLayout.TextVisible = false;
+            // 
+            // coatingDateLayout
+            // 
+            this.coatingDateLayout.Control = this.coatingDate;
+            this.coatingDateLayout.CustomizationFormText = "Дата покрытия";
+            this.coatingDateLayout.Location = new System.Drawing.Point(0, 0);
+            this.coatingDateLayout.Name = "coatingDateLayout";
+            this.coatingDateLayout.Size = new System.Drawing.Size(123, 50);
+            this.coatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.coatingDateLayout.Text = "Дата покрытия";
+            this.coatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.coatingDateLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // coatingTypeaLyout
+            // 
+            this.coatingTypeaLyout.Control = this.comboBoxEdit2;
+            this.coatingTypeaLyout.CustomizationFormText = "Тип покрытия";
+            this.coatingTypeaLyout.Location = new System.Drawing.Point(123, 0);
+            this.coatingTypeaLyout.Name = "coatingTypeaLyout";
+            this.coatingTypeaLyout.Size = new System.Drawing.Size(137, 50);
+            this.coatingTypeaLyout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.coatingTypeaLyout.Text = "Тип покрытия";
+            this.coatingTypeaLyout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.coatingTypeaLyout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
+            this.emptySpaceItem5.Location = new System.Drawing.Point(390, 0);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(156, 50);
+            this.emptySpaceItem5.Text = "emptySpaceItem5";
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // addCoatingButtonLayout
+            // 
+            this.addCoatingButtonLayout.Control = this.addCoatingButton;
+            this.addCoatingButtonLayout.CustomizationFormText = "addCoatingButtonLayout";
+            this.addCoatingButtonLayout.Location = new System.Drawing.Point(260, 14);
+            this.addCoatingButtonLayout.Name = "addCoatingButtonLayout";
+            this.addCoatingButtonLayout.Size = new System.Drawing.Size(130, 36);
+            this.addCoatingButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.addCoatingButtonLayout.Text = "addCoatingButtonLayout";
+            this.addCoatingButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.addCoatingButtonLayout.TextToControlDistance = 0;
+            this.addCoatingButtonLayout.TextVisible = false;
+            // 
+            // emptySpaceItem6
+            // 
+            this.emptySpaceItem6.AllowHotTrack = false;
+            this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem6";
+            this.emptySpaceItem6.Location = new System.Drawing.Point(260, 0);
+            this.emptySpaceItem6.Name = "emptySpaceItem6";
+            this.emptySpaceItem6.Size = new System.Drawing.Size(130, 14);
+            this.emptySpaceItem6.Text = "emptySpaceItem6";
+            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // heatPlateParametersPage
+            // 
+            this.heatPlateParametersPage.Controls.Add(this.layoutControl4);
+            this.heatPlateParametersPage.Controls.Add(this.layoutControl3);
+            this.heatPlateParametersPage.Name = "heatPlateParametersPage";
+            this.heatPlateParametersPage.Size = new System.Drawing.Size(1228, 406);
+            this.heatPlateParametersPage.Text = "Heat-Plate parameters";
+            // 
+            // layoutControl4
+            // 
+            this.layoutControl4.Controls.Add(this.tensileTests);
+            this.layoutControl4.Controls.Add(this.plateSteelGrade);
+            this.layoutControl4.Controls.Add(this.plateChemicalComposition);
+            this.layoutControl4.Controls.Add(this.plateManufacturer);
+            this.layoutControl4.Controls.Add(this.plateThickness);
+            this.layoutControl4.Location = new System.Drawing.Point(564, 3);
+            this.layoutControl4.Name = "layoutControl4";
+            this.layoutControl4.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(604, 257, 250, 350);
+            this.layoutControl4.Root = this.generalPlateParametersLaoutGroup;
+            this.layoutControl4.Size = new System.Drawing.Size(593, 389);
+            this.layoutControl4.TabIndex = 1;
+            this.layoutControl4.Text = "layoutControl4";
+            // 
+            // tensileTests
+            // 
+            this.tensileTests.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl5.Location = new System.Drawing.Point(343, 299);
-            this.gridControl5.MainView = this.gridView5;
-            this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(295, 96);
-            this.gridControl5.TabIndex = 25;
-            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
-            // 
-            // gridView5
-            // 
-            this.gridView5.GridControl = this.gridControl5;
-            this.gridView5.Name = "gridView5";
-            // 
-            // gridControl4
-            // 
-            this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl4.Location = new System.Drawing.Point(680, 107);
-            this.gridControl4.MainView = this.gridView4;
-            this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(386, 111);
-            this.gridControl4.TabIndex = 40;
-            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
-            // 
-            // gridView4
-            // 
-            this.gridView4.GridControl = this.gridControl4;
-            this.gridView4.Name = "gridView4";
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl2.Location = new System.Drawing.Point(436, 59);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(202, 126);
-            this.gridControl2.TabIndex = 1;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tensileTests.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tensileTests.Location = new System.Drawing.Point(306, 120);
+            this.tensileTests.MainView = this.tensileTestsGridView;
+            this.tensileTests.Name = "tensileTests";
+            this.tensileTests.Size = new System.Drawing.Size(240, 227);
+            this.tensileTests.TabIndex = 28;
+            this.tensileTests.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tensileTestsGridView,
             this.gridView2});
+            // 
+            // tensileTestsGridView
+            // 
+            this.tensileTestsGridView.GridControl = this.tensileTests;
+            this.tensileTestsGridView.Name = "tensileTestsGridView";
+            this.tensileTestsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // gridView2
             // 
-            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.GridControl = this.tensileTests;
             this.gridView2.Name = "gridView2";
             // 
-            // textEdit1
+            // plateSteelGrade
             // 
-            this.textEdit1.Location = new System.Drawing.Point(692, 138);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(362, 20);
-            this.textEdit1.StyleController = this.layoutControl5;
-            this.textEdit1.TabIndex = 27;
-            // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(692, 138);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.plateSteelGrade.Location = new System.Drawing.Point(357, 70);
+            this.plateSteelGrade.Name = "plateSteelGrade";
+            this.plateSteelGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(362, 20);
-            this.comboBoxEdit2.StyleController = this.layoutControl5;
-            this.comboBoxEdit2.TabIndex = 25;
+            this.plateSteelGrade.Size = new System.Drawing.Size(144, 20);
+            this.plateSteelGrade.StyleController = this.layoutControl4;
+            this.plateSteelGrade.TabIndex = 28;
             // 
-            // comboBoxEdit1
+            // plateChemicalComposition
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(680, 107);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(386, 20);
-            this.comboBoxEdit1.StyleController = this.layoutControl5;
-            this.comboBoxEdit1.TabIndex = 26;
-            // 
-            // gridControl3
-            // 
-            this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.plateChemicalComposition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl3.Location = new System.Drawing.Point(24, 299);
-            this.gridControl3.MainView = this.gridView3;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(315, 96);
-            this.gridControl3.TabIndex = 40;
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
-            // 
-            // gridView3
-            // 
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3,
-            this.gridColumn4});
-            this.gridView3.GridControl = this.gridControl3;
-            this.gridView3.Name = "gridView3";
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Name";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Quantity";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.Location = new System.Drawing.Point(24, 59);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(408, 126);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.plateChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.plateChemicalComposition.Location = new System.Drawing.Point(37, 120);
+            this.plateChemicalComposition.MainView = this.plateChemicalCompositionView;
+            this.plateChemicalComposition.Name = "plateChemicalComposition";
+            this.plateChemicalComposition.Size = new System.Drawing.Size(250, 227);
+            this.plateChemicalComposition.TabIndex = 28;
+            this.plateChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.plateChemicalCompositionView,
             this.gridView1});
+            // 
+            // plateChemicalCompositionView
+            // 
+            this.plateChemicalCompositionView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.elementNamePlateCompositionGridColumn,
+            this.elementQuantityPlateCompositionGridColumn});
+            this.plateChemicalCompositionView.GridControl = this.plateChemicalComposition;
+            this.plateChemicalCompositionView.Name = "plateChemicalCompositionView";
+            this.plateChemicalCompositionView.OptionsView.ShowGroupPanel = false;
+            // 
+            // elementNamePlateCompositionGridColumn
+            // 
+            this.elementNamePlateCompositionGridColumn.Caption = "Name";
+            this.elementNamePlateCompositionGridColumn.Name = "elementNamePlateCompositionGridColumn";
+            // 
+            // elementQuantityPlateCompositionGridColumn
+            // 
+            this.elementQuantityPlateCompositionGridColumn.Caption = "Quantity";
+            this.elementQuantityPlateCompositionGridColumn.Name = "elementQuantityPlateCompositionGridColumn";
             // 
             // gridView1
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.plateChemicalComposition;
             this.gridView1.Name = "gridView1";
             // 
-            // gridColumn1
+            // plateManufacturer
             // 
-            this.gridColumn1.Caption = "Name";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.plateManufacturer.Location = new System.Drawing.Point(37, 70);
+            this.plateManufacturer.Name = "plateManufacturer";
+            this.plateManufacturer.Size = new System.Drawing.Size(139, 20);
+            this.plateManufacturer.StyleController = this.layoutControl4;
+            this.plateManufacturer.TabIndex = 28;
             // 
-            // gridColumn2
+            // plateThickness
             // 
-            this.gridColumn2.Caption = "Quantity";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.plateThickness.Location = new System.Drawing.Point(195, 70);
+            this.plateThickness.Name = "plateThickness";
+            this.plateThickness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.plateThickness.Size = new System.Drawing.Size(143, 20);
+            this.plateThickness.StyleController = this.layoutControl4;
+            this.plateThickness.TabIndex = 28;
             // 
-            // layoutControlItem17
+            // generalPlateParametersLaoutGroup
             // 
-            this.layoutControlItem17.Control = this.comboBoxEdit2;
-            this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(530, 24);
-            this.layoutControlItem17.Text = "layoutControlItem17";
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(161, 13);
-            this.layoutControlItem17.TextToControlDistance = 5;
+            this.generalPlateParametersLaoutGroup.CustomizationFormText = "generalPlateParametersLaoutGroup";
+            this.generalPlateParametersLaoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.generalPlateParametersLaoutGroup.GroupBordersVisible = false;
+            this.generalPlateParametersLaoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.plateParametersLayoutGroup});
+            this.generalPlateParametersLaoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.generalPlateParametersLaoutGroup.Name = "generalPlateParametersLaoutGroup";
+            this.generalPlateParametersLaoutGroup.Size = new System.Drawing.Size(593, 389);
+            this.generalPlateParametersLaoutGroup.Text = "generalPlateParametersLaoutGroup";
+            this.generalPlateParametersLaoutGroup.TextVisible = false;
             // 
-            // layoutControlItem18
+            // plateParametersLayoutGroup
             // 
-            this.layoutControlItem18.Control = this.textEdit1;
-            this.layoutControlItem18.CustomizationFormText = "layoutControlItem18";
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(530, 24);
-            this.layoutControlItem18.Text = "layoutControlItem18";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(161, 13);
-            this.layoutControlItem18.TextToControlDistance = 5;
-            // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.gridControl4;
-            this.layoutControlItem20.CustomizationFormText = "layoutControlItem20";
-            this.layoutControlItem20.Location = new System.Drawing.Point(504, 95);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(554, 115);
-            this.layoutControlItem20.Text = "layoutControlItem20";
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(161, 13);
-            this.layoutControlItem20.TextToControlDistance = 5;
-            // 
-            // layoutControlItem16
-            // 
-            this.layoutControlItem16.Control = this.comboBoxEdit1;
-            this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(504, 95);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(554, 24);
-            this.layoutControlItem16.Text = "layoutControlItem16";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(161, 13);
-            this.layoutControlItem16.TextToControlDistance = 5;
-            // 
-            // layoutControlGroup6
-            // 
-            this.layoutControlGroup6.CustomizationFormText = "layoutControlGroup6";
-            this.layoutControlGroup6.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup6.GroupBordersVisible = false;
-            this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup8,
-            this.layoutControlGroup9});
-            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(662, 419);
-            this.layoutControlGroup6.Text = "layoutControlGroup6";
-            this.layoutControlGroup6.TextVisible = false;
-            // 
-            // layoutControlGroup8
-            // 
-            this.layoutControlGroup8.CustomizationFormText = "Параметры плавки";
-            this.layoutControlGroup8.ExpandButtonVisible = true;
-            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem14,
-            this.layoutControlItem15});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(642, 189);
-            this.layoutControlGroup8.Text = "Параметры плавки";
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.gridControl1;
-            this.layoutControlItem14.CustomizationFormText = "Параметры плавки";
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(412, 146);
-            this.layoutControlItem14.Text = "Параметры плавки";
-            this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(161, 13);
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.Control = this.gridControl2;
-            this.layoutControlItem15.CustomizationFormText = "Механические свойства плавки";
-            this.layoutControlItem15.Location = new System.Drawing.Point(412, 0);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(206, 146);
-            this.layoutControlItem15.Text = "Механические свойства плавки";
-            this.layoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(161, 13);
-            // 
-            // layoutControlGroup9
-            // 
-            this.layoutControlGroup9.CustomizationFormText = "Параметры листа";
-            this.layoutControlGroup9.ExpandButtonVisible = true;
-            this.layoutControlGroup9.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.stealGradeLayout,
-            this.layoutControlItem19,
-            this.layoutControlItem10,
-            this.thicknessLayout,
+            this.plateParametersLayoutGroup.CustomizationFormText = "Параметры листа";
+            this.plateParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.plateThicknessLayout,
+            this.plateSteelGradeLayout,
+            this.plateChemicalCompositionLayout,
+            this.plateTensileTestLayout,
+            this.emptySpaceItem4,
             this.plateManufacturerLayout});
-            this.layoutControlGroup9.Location = new System.Drawing.Point(0, 189);
-            this.layoutControlGroup9.Name = "layoutControlGroup9";
-            this.layoutControlGroup9.Size = new System.Drawing.Size(642, 210);
-            this.layoutControlGroup9.Text = "Параметры листа";
+            this.plateParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.plateParametersLayoutGroup.Name = "plateParametersLayoutGroup";
+            this.plateParametersLayoutGroup.Size = new System.Drawing.Size(573, 369);
+            this.plateParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 8, 15);
+            this.plateParametersLayoutGroup.Text = "Параметры листа";
             // 
-            // stealGradeLayout
+            // plateThicknessLayout
             // 
-            this.stealGradeLayout.Control = this.comboBoxEdit4;
-            this.stealGradeLayout.CustomizationFormText = "Марка стали";
-            this.stealGradeLayout.Location = new System.Drawing.Point(226, 0);
-            this.stealGradeLayout.Name = "stealGradeLayout";
-            this.stealGradeLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 10);
-            this.stealGradeLayout.Size = new System.Drawing.Size(196, 51);
-            this.stealGradeLayout.Text = "Марка стали";
-            this.stealGradeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.stealGradeLayout.TextSize = new System.Drawing.Size(161, 13);
+            this.plateThicknessLayout.Control = this.plateThickness;
+            this.plateThicknessLayout.CustomizationFormText = "Толщина";
+            this.plateThicknessLayout.Location = new System.Drawing.Point(158, 0);
+            this.plateThicknessLayout.Name = "plateThicknessLayout";
+            this.plateThicknessLayout.Size = new System.Drawing.Size(162, 50);
+            this.plateThicknessLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.plateThicknessLayout.Text = "Толщина";
+            this.plateThicknessLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.plateThicknessLayout.TextSize = new System.Drawing.Size(128, 13);
+            // 
+            // plateSteelGradeLayout
+            // 
+            this.plateSteelGradeLayout.Control = this.plateSteelGrade;
+            this.plateSteelGradeLayout.CustomizationFormText = "Марка стали";
+            this.plateSteelGradeLayout.Location = new System.Drawing.Point(320, 0);
+            this.plateSteelGradeLayout.Name = "plateSteelGradeLayout";
+            this.plateSteelGradeLayout.Size = new System.Drawing.Size(163, 50);
+            this.plateSteelGradeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.plateSteelGradeLayout.Text = "Марка стали";
+            this.plateSteelGradeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.plateSteelGradeLayout.TextSize = new System.Drawing.Size(128, 13);
+            // 
+            // plateChemicalCompositionLayout
+            // 
+            this.plateChemicalCompositionLayout.Control = this.plateChemicalComposition;
+            this.plateChemicalCompositionLayout.CustomizationFormText = "Химический состав листа";
+            this.plateChemicalCompositionLayout.Location = new System.Drawing.Point(0, 50);
+            this.plateChemicalCompositionLayout.Name = "plateChemicalCompositionLayout";
+            this.plateChemicalCompositionLayout.Size = new System.Drawing.Size(269, 257);
+            this.plateChemicalCompositionLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.plateChemicalCompositionLayout.Text = "Химический состав листа";
+            this.plateChemicalCompositionLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.plateChemicalCompositionLayout.TextSize = new System.Drawing.Size(128, 13);
+            // 
+            // plateTensileTestLayout
+            // 
+            this.plateTensileTestLayout.Control = this.tensileTests;
+            this.plateTensileTestLayout.CustomizationFormText = "Тесты растяжения";
+            this.plateTensileTestLayout.Location = new System.Drawing.Point(269, 50);
+            this.plateTensileTestLayout.Name = "plateTensileTestLayout";
+            this.plateTensileTestLayout.Size = new System.Drawing.Size(259, 257);
+            this.plateTensileTestLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.plateTensileTestLayout.Text = "Тесты растяжения";
+            this.plateTensileTestLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.plateTensileTestLayout.TextSize = new System.Drawing.Size(128, 13);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(483, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(45, 50);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // plateManufacturerLayout
             // 
-            this.plateManufacturerLayout.Control = this.comboBoxEdit3;
+            this.plateManufacturerLayout.Control = this.plateManufacturer;
             this.plateManufacturerLayout.CustomizationFormText = "Производитель листа";
             this.plateManufacturerLayout.Location = new System.Drawing.Point(0, 0);
             this.plateManufacturerLayout.Name = "plateManufacturerLayout";
-            this.plateManufacturerLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 10);
-            this.plateManufacturerLayout.Size = new System.Drawing.Size(226, 51);
+            this.plateManufacturerLayout.Size = new System.Drawing.Size(158, 50);
+            this.plateManufacturerLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
             this.plateManufacturerLayout.Text = "Производитель листа";
             this.plateManufacturerLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.plateManufacturerLayout.TextSize = new System.Drawing.Size(161, 13);
+            this.plateManufacturerLayout.TextSize = new System.Drawing.Size(128, 13);
             // 
-            // layoutControlItem19
+            // layoutControl3
             // 
-            this.layoutControlItem19.Control = this.gridControl3;
-            this.layoutControlItem19.CustomizationFormText = "Параметры листа";
-            this.layoutControlItem19.Location = new System.Drawing.Point(0, 51);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(319, 116);
-            this.layoutControlItem19.Text = "Химический состав листа";
-            this.layoutControlItem19.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(161, 13);
+            this.layoutControl3.Controls.Add(this.ladelMechanicalProperties);
+            this.layoutControl3.Controls.Add(this.ladleChemicalComposition);
+            this.layoutControl3.Location = new System.Drawing.Point(3, 3);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(90, 233, 250, 350);
+            this.layoutControl3.Root = this.layoutControlGroup4;
+            this.layoutControl3.Size = new System.Drawing.Size(567, 390);
+            this.layoutControl3.TabIndex = 0;
+            this.layoutControl3.Text = "layoutControl3";
             // 
-            // layoutControlItem10
+            // ladelMechanicalProperties
             // 
-            this.layoutControlItem10.Control = this.gridControl5;
-            this.layoutControlItem10.CustomizationFormText = "Тесты растяжения";
-            this.layoutControlItem10.Location = new System.Drawing.Point(319, 51);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(299, 116);
-            this.layoutControlItem10.Text = "Тесты растяжения";
-            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(161, 13);
+            this.ladelMechanicalProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ladelMechanicalProperties.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ladelMechanicalProperties.Location = new System.Drawing.Point(279, 70);
+            this.ladelMechanicalProperties.MainView = this.ladelMechanicalPropertiesGridView;
+            this.ladelMechanicalProperties.Name = "ladelMechanicalProperties";
+            this.ladelMechanicalProperties.Size = new System.Drawing.Size(241, 278);
+            this.ladelMechanicalProperties.TabIndex = 28;
+            this.ladelMechanicalProperties.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.ladelMechanicalPropertiesGridView});
             // 
-            // thicknessLayout
+            // ladelMechanicalPropertiesGridView
             // 
-            this.thicknessLayout.Control = this.textEdit2;
-            this.thicknessLayout.CustomizationFormText = "Толщина";
-            this.thicknessLayout.Location = new System.Drawing.Point(422, 0);
-            this.thicknessLayout.Name = "thicknessLayout";
-            this.thicknessLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 10);
-            this.thicknessLayout.Size = new System.Drawing.Size(196, 51);
-            this.thicknessLayout.Text = "Толщина";
-            this.thicknessLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.thicknessLayout.TextSize = new System.Drawing.Size(161, 13);
+            this.ladelMechanicalPropertiesGridView.GridControl = this.ladelMechanicalProperties;
+            this.ladelMechanicalPropertiesGridView.Name = "ladelMechanicalPropertiesGridView";
+            this.ladelMechanicalPropertiesGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // ladleChemicalComposition
+            // 
+            this.ladleChemicalComposition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ladleChemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ladleChemicalComposition.Location = new System.Drawing.Point(37, 70);
+            this.ladleChemicalComposition.MainView = this.ladleChemicalCompositionView;
+            this.ladleChemicalComposition.Name = "ladleChemicalComposition";
+            this.ladleChemicalComposition.Size = new System.Drawing.Size(218, 278);
+            this.ladleChemicalComposition.TabIndex = 28;
+            this.ladleChemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.ladleChemicalCompositionView});
+            // 
+            // ladleChemicalCompositionView
+            // 
+            this.ladleChemicalCompositionView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.elementNameLadleCompositionGridColumn,
+            this.elementQuantityLadleGridColumn});
+            this.ladleChemicalCompositionView.GridControl = this.ladleChemicalComposition;
+            this.ladleChemicalCompositionView.Name = "ladleChemicalCompositionView";
+            this.ladleChemicalCompositionView.OptionsView.ShowGroupPanel = false;
+            // 
+            // elementNameLadleCompositionGridColumn
+            // 
+            this.elementNameLadleCompositionGridColumn.Caption = "Name";
+            this.elementNameLadleCompositionGridColumn.Name = "elementNameLadleCompositionGridColumn";
+            this.elementNameLadleCompositionGridColumn.Visible = true;
+            this.elementNameLadleCompositionGridColumn.VisibleIndex = 0;
+            // 
+            // elementQuantityLadleGridColumn
+            // 
+            this.elementQuantityLadleGridColumn.Caption = "Quantity";
+            this.elementQuantityLadleGridColumn.Name = "elementQuantityLadleGridColumn";
+            this.elementQuantityLadleGridColumn.Visible = true;
+            this.elementQuantityLadleGridColumn.VisibleIndex = 1;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.CustomizationFormText = "Root";
+            this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup4.GroupBordersVisible = false;
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.heatParametersLayoutGroup});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "Root";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(567, 390);
+            this.layoutControlGroup4.Text = "Root";
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // heatParametersLayoutGroup
+            // 
+            this.heatParametersLayoutGroup.CustomizationFormText = "Параметры плавки";
+            this.heatParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ladelChemicalCompositionLayout,
+            this.ladelMechanicalPropertiesLayout,
+            this.splitterItem2});
+            this.heatParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.heatParametersLayoutGroup.Name = "heatParametersLayoutGroup";
+            this.heatParametersLayoutGroup.Size = new System.Drawing.Size(547, 370);
+            this.heatParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 8, 15);
+            this.heatParametersLayoutGroup.Text = "Параметры плавки";
+            // 
+            // ladelChemicalCompositionLayout
+            // 
+            this.ladelChemicalCompositionLayout.Control = this.ladleChemicalComposition;
+            this.ladelChemicalCompositionLayout.CustomizationFormText = "Ковшовой химический состав";
+            this.ladelChemicalCompositionLayout.Location = new System.Drawing.Point(0, 0);
+            this.ladelChemicalCompositionLayout.Name = "ladelChemicalCompositionLayout";
+            this.ladelChemicalCompositionLayout.Size = new System.Drawing.Size(237, 308);
+            this.ladelChemicalCompositionLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.ladelChemicalCompositionLayout.Text = "Ковшовой химический состав";
+            this.ladelChemicalCompositionLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.ladelChemicalCompositionLayout.TextSize = new System.Drawing.Size(161, 13);
+            // 
+            // ladelMechanicalPropertiesLayout
+            // 
+            this.ladelMechanicalPropertiesLayout.Control = this.ladelMechanicalProperties;
+            this.ladelMechanicalPropertiesLayout.CustomizationFormText = "Механические свойства плавки";
+            this.ladelMechanicalPropertiesLayout.Location = new System.Drawing.Point(242, 0);
+            this.ladelMechanicalPropertiesLayout.Name = "ladelMechanicalPropertiesLayout";
+            this.ladelMechanicalPropertiesLayout.Size = new System.Drawing.Size(260, 308);
+            this.ladelMechanicalPropertiesLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
+            this.ladelMechanicalPropertiesLayout.Text = "Механические свойства плавки";
+            this.ladelMechanicalPropertiesLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.ladelMechanicalPropertiesLayout.TextSize = new System.Drawing.Size(161, 13);
+            // 
+            // splitterItem2
+            // 
+            this.splitterItem2.AllowHotTrack = true;
+            this.splitterItem2.CustomizationFormText = "splitterItem2";
+            this.splitterItem2.Location = new System.Drawing.Point(237, 0);
+            this.splitterItem2.Name = "splitterItem2";
+            this.splitterItem2.Size = new System.Drawing.Size(5, 308);
             // 
             // inspectionPage
             // 
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(852, 432);
+            this.inspectionPage.Size = new System.Drawing.Size(1228, 406);
             this.inspectionPage.Text = "&Inspection operations";
             // 
             // pipeSize
             // 
-            this.pipeSize.Location = new System.Drawing.Point(350, 31);
+            this.pipeSize.Location = new System.Drawing.Point(231, 27);
             this.pipeSize.Name = "pipeSize";
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeSize.Size = new System.Drawing.Size(106, 20);
-            this.pipeSize.StyleController = this.layoutControl1;
+            this.pipeSize.Size = new System.Drawing.Size(118, 20);
+            this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
             // 
-            // layoutControl1
+            // generalPipeLayout
             // 
-            this.layoutControl1.Controls.Add(this.pipe);
-            this.layoutControl1.Controls.Add(this.heatNumber);
-            this.layoutControl1.Controls.Add(this.pipeCreationDate);
-            this.layoutControl1.Controls.Add(this.millStatus);
-            this.layoutControl1.Controls.Add(this.pipeNumber);
-            this.layoutControl1.Controls.Add(this.pipeSize);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(80, 311, 250, 350);
-            this.layoutControl1.Root = this.GeneralLayoutGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(1200, 540);
-            this.layoutControl1.TabIndex = 24;
-            this.layoutControl1.Text = "layoutControl1";
+            this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalPipeLayout.Controls.Add(this.purchaseOrder);
+            this.generalPipeLayout.Controls.Add(this.pipe);
+            this.generalPipeLayout.Controls.Add(this.heatNumber);
+            this.generalPipeLayout.Controls.Add(this.pipeCreationDate);
+            this.generalPipeLayout.Controls.Add(this.millStatus);
+            this.generalPipeLayout.Controls.Add(this.pipeNumber);
+            this.generalPipeLayout.Controls.Add(this.pipeSize);
+            this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
+            this.generalPipeLayout.Name = "generalPipeLayout";
+            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(30, 311, 250, 350);
+            this.generalPipeLayout.Root = this.generalLayoutGroup;
+            this.generalPipeLayout.Size = new System.Drawing.Size(1275, 510);
+            this.generalPipeLayout.TabIndex = 24;
+            this.generalPipeLayout.Text = "layoutControl1";
+            // 
+            // purchaseOrder
+            // 
+            this.purchaseOrder.Location = new System.Drawing.Point(586, 27);
+            this.purchaseOrder.Name = "purchaseOrder";
+            this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.purchaseOrder.Size = new System.Drawing.Size(168, 20);
+            this.purchaseOrder.StyleController = this.generalPipeLayout;
+            this.purchaseOrder.TabIndex = 5;
             // 
             // heatNumber
             // 
-            this.heatNumber.Location = new System.Drawing.Point(828, 31);
+            this.heatNumber.Location = new System.Drawing.Point(383, 27);
             this.heatNumber.Name = "heatNumber";
             this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.heatNumber.Size = new System.Drawing.Size(332, 20);
-            this.heatNumber.StyleController = this.layoutControl1;
+            this.heatNumber.Size = new System.Drawing.Size(169, 20);
+            this.heatNumber.StyleController = this.generalPipeLayout;
             this.heatNumber.TabIndex = 2;
             // 
             // pipeCreationDate
             // 
             this.pipeCreationDate.EditValue = null;
-            this.pipeCreationDate.Location = new System.Drawing.Point(491, 31);
+            this.pipeCreationDate.Location = new System.Drawing.Point(788, 27);
             this.pipeCreationDate.Name = "pipeCreationDate";
             this.pipeCreationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeCreationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeCreationDate.Size = new System.Drawing.Size(99, 20);
-            this.pipeCreationDate.StyleController = this.layoutControl1;
+            this.pipeCreationDate.Size = new System.Drawing.Size(118, 20);
+            this.pipeCreationDate.StyleController = this.generalPipeLayout;
             this.pipeCreationDate.TabIndex = 3;
             // 
             // millStatus
             // 
-            this.millStatus.Location = new System.Drawing.Point(625, 31);
+            this.millStatus.Location = new System.Drawing.Point(940, 27);
             this.millStatus.Name = "millStatus";
             this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.millStatus.Size = new System.Drawing.Size(168, 20);
-            this.millStatus.StyleController = this.layoutControl1;
+            this.millStatus.Size = new System.Drawing.Size(169, 20);
+            this.millStatus.StyleController = this.generalPipeLayout;
             this.millStatus.TabIndex = 4;
             // 
             // pipeNumber
             // 
-            this.pipeNumber.Location = new System.Drawing.Point(15, 31);
+            this.pipeNumber.Location = new System.Drawing.Point(14, 27);
             this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Size = new System.Drawing.Size(300, 20);
-            this.pipeNumber.StyleController = this.layoutControl1;
+            this.pipeNumber.Size = new System.Drawing.Size(183, 20);
+            this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
             // 
-            // GeneralLayoutGroup
+            // generalLayoutGroup
             // 
-            this.GeneralLayoutGroup.CustomizationFormText = "GeneralLayoutGroup";
-            this.GeneralLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.GeneralLayoutGroup.GroupBordersVisible = false;
-            this.GeneralLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.PipeNumberLayout,
+            this.generalLayoutGroup.CustomizationFormText = "pipeGeneralLayoutGroup";
+            this.generalLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.generalLayoutGroup.GroupBordersVisible = false;
+            this.generalLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.pipeNumberLayout,
             this.pipeSizeLayout,
-            this.heatNumberLayout,
             this.pipeLayout,
+            this.heatNumberLayout,
+            this.statusLayout,
             this.creationDateLayout,
-            this.statusLayout});
-            this.GeneralLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.GeneralLayoutGroup.Name = "GeneralLayoutGroup";
-            this.GeneralLayoutGroup.Size = new System.Drawing.Size(1200, 540);
-            this.GeneralLayoutGroup.Text = "GeneralLayoutGroup";
-            this.GeneralLayoutGroup.TextVisible = false;
+            this.purhaseOrderLayout,
+            this.emptySpaceItem8});
+            this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.generalLayoutGroup.Name = "generalLayoutGroup";
+            this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.generalLayoutGroup.Size = new System.Drawing.Size(1275, 510);
+            this.generalLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 8, 0, 0);
+            this.generalLayoutGroup.Text = "generalLayoutGroup";
+            this.generalLayoutGroup.TextVisible = false;
             // 
-            // PipeNumberLayout
+            // pipeNumberLayout
             // 
-            this.PipeNumberLayout.Control = this.pipeNumber;
-            this.PipeNumberLayout.CustomizationFormText = "Pipe number";
-            this.PipeNumberLayout.Location = new System.Drawing.Point(0, 0);
-            this.PipeNumberLayout.Name = "PipeNumberLayout";
-            this.PipeNumberLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.PipeNumberLayout.Size = new System.Drawing.Size(335, 46);
-            this.PipeNumberLayout.Text = "Номер трубы";
-            this.PipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.PipeNumberLayout.TextSize = new System.Drawing.Size(99, 13);
+            this.pipeNumberLayout.Control = this.pipeNumber;
+            this.pipeNumberLayout.CustomizationFormText = "Pipe number";
+            this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.pipeNumberLayout.Name = "pipeNumberLayout";
+            this.pipeNumberLayout.Size = new System.Drawing.Size(202, 54);
+            this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.pipeNumberLayout.Text = "Номер трубы";
+            this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeNumberLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
             // pipeSizeLayout
             // 
             this.pipeSizeLayout.Control = this.pipeSize;
             this.pipeSizeLayout.CustomizationFormText = "Pipe size";
-            this.pipeSizeLayout.Location = new System.Drawing.Point(335, 0);
+            this.pipeSizeLayout.Location = new System.Drawing.Point(202, 0);
             this.pipeSizeLayout.Name = "pipeSizeLayout";
-            this.pipeSizeLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.pipeSizeLayout.Size = new System.Drawing.Size(141, 46);
-            this.pipeSizeLayout.Text = "Размер трубы";
+            this.pipeSizeLayout.Size = new System.Drawing.Size(152, 54);
+            this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.pipeSizeLayout.Text = "Типоразмер трубы";
             this.pipeSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeSizeLayout.TextSize = new System.Drawing.Size(99, 13);
+            // 
+            // pipeLayout
+            // 
+            this.pipeLayout.Control = this.pipe;
+            this.pipeLayout.CustomizationFormText = "pipeLayout";
+            this.pipeLayout.Location = new System.Drawing.Point(0, 54);
+            this.pipeLayout.Name = "pipeLayout";
+            this.pipeLayout.Size = new System.Drawing.Size(1253, 452);
+            this.pipeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.pipeLayout.Text = "pipeLayout";
+            this.pipeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.pipeLayout.TextToControlDistance = 0;
+            this.pipeLayout.TextVisible = false;
             // 
             // heatNumberLayout
             // 
             this.heatNumberLayout.Control = this.heatNumber;
             this.heatNumberLayout.CustomizationFormText = "Heat number";
-            this.heatNumberLayout.Location = new System.Drawing.Point(813, 0);
+            this.heatNumberLayout.Location = new System.Drawing.Point(354, 0);
             this.heatNumberLayout.Name = "heatNumberLayout";
-            this.heatNumberLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.heatNumberLayout.Size = new System.Drawing.Size(367, 46);
+            this.heatNumberLayout.Size = new System.Drawing.Size(203, 54);
+            this.heatNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.heatNumberLayout.Text = "Номер плавки";
             this.heatNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.heatNumberLayout.TextSize = new System.Drawing.Size(99, 13);
@@ -1043,11 +1364,11 @@
             // 
             this.statusLayout.Control = this.millStatus;
             this.statusLayout.CustomizationFormText = "Status";
-            this.statusLayout.Location = new System.Drawing.Point(610, 0);
+            this.statusLayout.Location = new System.Drawing.Point(911, 0);
             this.statusLayout.Name = "statusLayout";
-            this.statusLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.statusLayout.Size = new System.Drawing.Size(203, 46);
-            this.statusLayout.Text = "Статус";
+            this.statusLayout.Size = new System.Drawing.Size(203, 54);
+            this.statusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.statusLayout.Text = "Статус на заводе";
             this.statusLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.statusLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
@@ -1055,46 +1376,93 @@
             // 
             this.creationDateLayout.Control = this.pipeCreationDate;
             this.creationDateLayout.CustomizationFormText = "Creation date";
-            this.creationDateLayout.Location = new System.Drawing.Point(476, 0);
+            this.creationDateLayout.Location = new System.Drawing.Point(759, 0);
             this.creationDateLayout.Name = "creationDateLayout";
-            this.creationDateLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.creationDateLayout.Size = new System.Drawing.Size(134, 46);
+            this.creationDateLayout.Size = new System.Drawing.Size(152, 54);
+            this.creationDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.creationDateLayout.Text = "Дата изготовления";
             this.creationDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.creationDateLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
-            // layoutControlItem6
+            // purhaseOrderLayout
             // 
-            this.layoutControlItem6.Control = this.pipe;
-            this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(862, 480);
-            this.layoutControlItem6.Text = "layoutControlItem6";
-            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(99, 13);
-            this.layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.purhaseOrderLayout.Control = this.purchaseOrder;
+            this.purhaseOrderLayout.CustomizationFormText = "Наряд заказ";
+            this.purhaseOrderLayout.Location = new System.Drawing.Point(557, 0);
+            this.purhaseOrderLayout.Name = "purhaseOrderLayout";
+            this.purhaseOrderLayout.Size = new System.Drawing.Size(202, 54);
+            this.purhaseOrderLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.purhaseOrderLayout.Text = "Наряд-заказ";
+            this.purhaseOrderLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.purhaseOrderLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
-            // pipeLayout
+            // emptySpaceItem8
             // 
-            this.pipeLayout.Control = this.pipe;
-            this.pipeLayout.CustomizationFormText = "pipeLayout";
-            this.pipeLayout.Location = new System.Drawing.Point(0, 46);
-            this.pipeLayout.Name = "pipeLayout";
-            this.pipeLayout.Size = new System.Drawing.Size(1180, 474);
-            this.pipeLayout.Text = "pipeLayout";
-            this.pipeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pipeLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.pipeLayout.TextToControlDistance = 0;
-            this.pipeLayout.TextVisible = false;
+            this.emptySpaceItem8.AllowHotTrack = false;
+            this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem8";
+            this.emptySpaceItem8.Location = new System.Drawing.Point(1114, 0);
+            this.emptySpaceItem8.Name = "emptySpaceItem8";
+            this.emptySpaceItem8.Size = new System.Drawing.Size(139, 54);
+            this.emptySpaceItem8.Text = "emptySpaceItem8";
+            this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // pipeParametersLayout
+            // 
+            this.pipeParametersLayout.Control = this.pipe;
+            this.pipeParametersLayout.CustomizationFormText = "layoutControlItem6";
+            this.pipeParametersLayout.Location = new System.Drawing.Point(0, 40);
+            this.pipeParametersLayout.Name = "layoutControlItem6";
+            this.pipeParametersLayout.Size = new System.Drawing.Size(862, 480);
+            this.pipeParametersLayout.Text = "layoutControlItem6";
+            this.pipeParametersLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeParametersLayout.TextSize = new System.Drawing.Size(99, 13);
+            this.pipeParametersLayout.TextToControlDistance = 5;
+            // 
+            // attachmentsButton
+            // 
+            this.attachmentsButton.Location = new System.Drawing.Point(19, 515);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.attachmentsButton.Size = new System.Drawing.Size(75, 23);
+            this.attachmentsButton.TabIndex = 25;
+            this.attachmentsButton.Text = "Вложения";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(1054, 515);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 26;
+            this.saveButton.Text = "Сохранить";
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(1156, 515);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 27;
+            this.closeButton.Text = "Закрыть";
+            // 
+            // deactivate
+            // 
+            this.deactivate.Location = new System.Drawing.Point(135, 517);
+            this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.deactivate.Name = "deactivate";
+            this.deactivate.Properties.Caption = "Труба деактивирована";
+            this.deactivate.Size = new System.Drawing.Size(146, 19);
+            this.deactivate.TabIndex = 28;
             // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1200, 540);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(1275, 550);
+            this.Controls.Add(this.deactivate);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.attachmentsButton);
+            this.Controls.Add(this.generalPipeLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeNewEditXtraForm";
             this.Text = "Mill - New or Edit pipe";
@@ -1103,83 +1471,107 @@
             this.generalParametersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingTeam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThickness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welders.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingTeam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingTeamLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingTeamLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingTeamLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalPipeParametersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millThicknessLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weightLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalComposition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.geometricParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diameterLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
-            this.layoutControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stealGradeLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thicknessLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diameterLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weightLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeChemicalCompositionLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addWeldingButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentParametersLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coatingTypeaLyout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addCoatingButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            this.heatPlateParametersPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
+            this.layoutControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tensileTests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateSteelGrade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalComposition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalPlateParametersLaoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateThicknessLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateSteelGradeLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateTensileTestLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalPropertiesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladleChemicalComposition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladleChemicalCompositionView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelChemicalCompositionLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ladelMechanicalPropertiesLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
+            this.generalPipeLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GeneralLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeNumberLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1188,84 +1580,112 @@
 
         private DevExpress.XtraTab.XtraTabControl pipe;
         private DevExpress.XtraTab.XtraTabPage generalParametersPage;
-        private DevExpress.XtraTab.XtraTabPage inspectionPage;
         private DevExpress.XtraEditors.ComboBoxEdit pipeSize;
         private DevExpress.XtraEditors.ComboBoxEdit millStatus;
         private DevExpress.XtraEditors.TextEdit pipeNumber;
         private DevExpress.XtraEditors.DateEdit pipeCreationDate;
-        private DevExpress.XtraGrid.GridControl pipeChemicalComposition;
-        private DevExpress.XtraGrid.Views.Grid.GridView pipeChemicalCompositionGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn elementNamePipeCompositionGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn elementQuantityPipeCompositionGridColumn;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl generalPipeLayout;
         private DevExpress.XtraEditors.ComboBoxEdit heatNumber;
-        private DevExpress.XtraLayout.LayoutControlGroup GeneralLayoutGroup;
-        private DevExpress.XtraLayout.LayoutControlItem PipeNumberLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup generalLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeSizeLayout;
         private DevExpress.XtraLayout.LayoutControlItem heatNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem statusLayout;
         private DevExpress.XtraLayout.LayoutControlItem creationDateLayout;
-        private DevExpress.XtraGrid.GridControl gridControl3;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.GridControl gridControl4;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private DevExpress.XtraLayout.LayoutControl layoutControl5;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.ComboBoxEdit externalCoatingTeam;
-        private DevExpress.XtraEditors.ComboBoxEdit internalCoatingTeam;
-        private DevExpress.XtraEditors.DateEdit internalCoating;
-        private DevExpress.XtraEditors.TextEdit millThickness;
-        private DevExpress.XtraEditors.TextEdit millDiameter;
-        private DevExpress.XtraEditors.TextEdit millWeight;
-        private DevExpress.XtraEditors.TextEdit millLength;
-        private DevExpress.XtraEditors.DateEdit externalCoatingDate;
-        private DevExpress.XtraEditors.DateEdit weldingDate;
-        private DevExpress.XtraEditors.ComboBoxEdit weldingTeam;
-        private DevExpress.XtraLayout.LayoutControlGroup pipeParametersLayoutControlGroup;
-        private DevExpress.XtraLayout.LayoutControlGroup operationLayoutControlGroup;
-        private DevExpress.XtraLayout.LayoutControlItem externalCoatingTeamLayout;
-        private DevExpress.XtraLayout.LayoutControlItem externalCoatingDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem internalCoatingLayout;
-        private DevExpress.XtraLayout.LayoutControlItem internalCoatingTeamLayout;
-        private DevExpress.XtraLayout.LayoutControlItem weldingTeamLayout;
-        private DevExpress.XtraLayout.LayoutControlItem weldingDateLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup generalPipeParametersLayoutControlGroup;
-        private DevExpress.XtraLayout.LayoutControlItem pipeChemicalCompositionLayout;
-        private DevExpress.XtraLayout.LayoutControlItem millThicknessLayout;
-        private DevExpress.XtraLayout.LayoutControlItem weightLayout;
-        private DevExpress.XtraLayout.LayoutControlItem lengthLayout;
-        private DevExpress.XtraLayout.LayoutControlItem diameterLayout;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
-        private DevExpress.XtraGrid.GridControl gridControl5;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
-        private DevExpress.XtraLayout.LayoutControlItem stealGradeLayout;
-        private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayout;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraLayout.LayoutControlItem thicknessLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeLayout;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem pipeParametersLayout;
+        private DevExpress.XtraTab.XtraTabPage heatPlateParametersPage;
+        private DevExpress.XtraEditors.ComboBoxEdit purchaseOrder;
+        private DevExpress.XtraLayout.LayoutControlItem purhaseOrderLayout;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraGrid.GridControl pipeChemicalComposition;
+        private DevExpress.XtraGrid.Views.Grid.GridView pipeChemicalCompositionGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn elementNamePipeCompositionGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn elementQuantityPipeCompositionGridColumn;
+        private DevExpress.XtraEditors.TextEdit length;
+        private DevExpress.XtraLayout.LayoutControlGroup generalParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlGroup geometricParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem lengthLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup pipeChemicalCompositionLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem pipeChemicalCompositionLayout;
+        private DevExpress.XtraEditors.DateEdit weldingDate;
+        private DevExpress.XtraLayout.LayoutControlGroup weldingParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem weldingDateLayout;
+        private DevExpress.XtraGrid.GridControl weldingHistory;
+        private DevExpress.XtraGrid.Views.Grid.GridView weldingHistoryGridView;
+        private DevExpress.XtraLayout.LayoutControlItem weldingHistoryLayout;
+        private DevExpress.XtraEditors.TextEdit railcarNumber;
+        private DevExpress.XtraEditors.TextEdit diameter;
+        private DevExpress.XtraEditors.TextEdit weight;
+        private DevExpress.XtraEditors.TextEdit thickness;
+        private DevExpress.XtraLayout.LayoutControlItem thicknessLayout;
+        private DevExpress.XtraLayout.LayoutControlItem diameterLayout;
+        private DevExpress.XtraLayout.LayoutControlItem weightLayout;
+        private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup shipmentParametersLayout;
+        private DevExpress.XtraEditors.SimpleButton addWeldingButton;
+        private DevExpress.XtraEditors.ComboBoxEdit welders;
+        private DevExpress.XtraLayout.LayoutControlItem addWeldingButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem weldersLayout;
+        private DevExpress.XtraGrid.GridControl coatingHistory;
+        private DevExpress.XtraGrid.Views.Grid.GridView coatingHistoryGridView;
+        private DevExpress.XtraLayout.LayoutControlGroup coatingParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem coatingHistoryLayout;
+        private DevExpress.XtraEditors.SimpleButton attachmentsButton;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton closeButton;
+        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private DevExpress.XtraGrid.GridControl ladelMechanicalProperties;
+        private DevExpress.XtraGrid.Views.Grid.GridView ladelMechanicalPropertiesGridView;
+        private DevExpress.XtraGrid.GridControl ladleChemicalComposition;
+        private DevExpress.XtraGrid.Views.Grid.GridView ladleChemicalCompositionView;
+        private DevExpress.XtraGrid.Columns.GridColumn elementNameLadleCompositionGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn elementQuantityLadleGridColumn;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraLayout.LayoutControlGroup heatParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem ladelChemicalCompositionLayout;
+        private DevExpress.XtraLayout.LayoutControlItem ladelMechanicalPropertiesLayout;
+        private DevExpress.XtraLayout.SplitterItem splitterItem2;
+        private DevExpress.XtraEditors.TextEdit certificateNumber;
+        private DevExpress.XtraLayout.LayoutControlItem certificateNumberLayout;
+        private DevExpress.XtraLayout.LayoutControlItem shipmentDateLayout;
+        private DevExpress.XtraEditors.TextEdit destination;
+        private DevExpress.XtraLayout.LayoutControlItem destinationLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraEditors.SimpleButton addCoatingButton;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.DateEdit coatingDate;
+        private DevExpress.XtraEditors.DateEdit shipmentDate;
+        private DevExpress.XtraLayout.LayoutControlItem coatingDateLayout;
+        private DevExpress.XtraLayout.LayoutControlItem coatingTypeaLyout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraLayout.LayoutControlItem addCoatingButtonLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
+        private DevExpress.XtraEditors.CheckEdit deactivate;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private DevExpress.XtraLayout.LayoutControl layoutControl4;
+        private DevExpress.XtraGrid.GridControl tensileTests;
+        private DevExpress.XtraGrid.Views.Grid.GridView tensileTestsGridView;
+        private DevExpress.XtraEditors.ComboBoxEdit plateSteelGrade;
+        private DevExpress.XtraGrid.GridControl plateChemicalComposition;
+        private DevExpress.XtraGrid.Views.Grid.GridView plateChemicalCompositionView;
+        private DevExpress.XtraGrid.Columns.GridColumn elementNamePlateCompositionGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn elementQuantityPlateCompositionGridColumn;
+        private DevExpress.XtraEditors.TextEdit plateManufacturer;
+        private DevExpress.XtraEditors.ComboBoxEdit plateThickness;
+        private DevExpress.XtraLayout.LayoutControlGroup generalPlateParametersLaoutGroup;
+        private DevExpress.XtraLayout.LayoutControlGroup plateParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem plateThicknessLayout;
+        private DevExpress.XtraLayout.LayoutControlItem plateSteelGradeLayout;
+        private DevExpress.XtraLayout.LayoutControlItem plateChemicalCompositionLayout;
+        private DevExpress.XtraLayout.LayoutControlItem plateTensileTestLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayout;
+        private DevExpress.XtraTab.XtraTabPage inspectionPage;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
     }
 }

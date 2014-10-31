@@ -19,7 +19,7 @@ namespace PrizmMain.Forms
             InitializeComponent();
             railcarNumber.Text = "15";
             certificateNumber.Text = "7635356";
-            pipeSize.Text = "1200x20";
+
 
             shippedDate.Text = "16.10.2014";
 
