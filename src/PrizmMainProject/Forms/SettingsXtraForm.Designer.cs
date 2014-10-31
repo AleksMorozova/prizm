@@ -30,7 +30,7 @@ namespace PrizmMain.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.settings = new DevExpress.XtraTab.XtraTabControl();
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.sizeGradeLabel = new DevExpress.XtraEditors.LabelControl();
@@ -70,9 +70,9 @@ namespace PrizmMain.Forms
             this.inspectionColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeSetupLabel = new DevExpress.XtraEditors.LabelControl();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.externalDocumentPanelControl = new DevExpress.XtraEditors.PanelControl();
+            this.externalDocumentSize = new DevExpress.XtraEditors.TextEdit();
+            this.externalDocumentLabel = new DevExpress.XtraEditors.LabelControl();
             this.splitContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.plateManufacturersList = new DevExpress.XtraGrid.GridControl();
             this.plateManufacturersListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -90,12 +90,12 @@ namespace PrizmMain.Forms
             this.client = new DevExpress.XtraEditors.TextEdit();
             this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.usersLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,11 +110,11 @@ namespace PrizmMain.Forms
             this.rightUsersButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.divideButtonUsersEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roles = new DevExpress.XtraGrid.GridControl();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rolesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.rolesColId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleEditButton = new DevExpress.XtraEditors.SimpleButton();
@@ -159,9 +159,9 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.inspectionGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             this.projectPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalDocumentPanelControl)).BeginInit();
+            this.externalDocumentPanelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).BeginInit();
@@ -172,11 +172,11 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.design.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             this.usersPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).BeginInit();
+            this.usersLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersAddButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUserLayoutControl)).BeginInit();
@@ -184,11 +184,11 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.rightUsersButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonUsersEmptySpace)).BeginInit();
             this.rolesPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersButtonLayoutControl)).BeginInit();
+            this.usersButtonLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonRightEmptySpace)).BeginInit();
@@ -454,7 +454,7 @@ namespace PrizmMain.Forms
             // 
             this.inspectionPage.Controls.Add(this.inspectionGrid);
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(905, 306);
+            this.inspectionPage.Size = new System.Drawing.Size(909, 310);
             this.inspectionPage.Text = "&Inspection";
             // 
             // inspectionGrid
@@ -540,43 +540,43 @@ namespace PrizmMain.Forms
             // 
             // projectPage
             // 
-            this.projectPage.Controls.Add(this.panelControl1);
+            this.projectPage.Controls.Add(this.externalDocumentPanelControl);
             this.projectPage.Controls.Add(this.splitContainer);
             this.projectPage.Controls.Add(this.designLabel);
             this.projectPage.Controls.Add(this.clientLabel);
             this.projectPage.Controls.Add(this.design);
             this.projectPage.Controls.Add(this.client);
             this.projectPage.Name = "projectPage";
-            this.projectPage.Size = new System.Drawing.Size(930, 394);
+            this.projectPage.Size = new System.Drawing.Size(934, 398);
             this.projectPage.Text = "Project";
             // 
-            // panelControl1
+            // externalDocumentPanelControl
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.textEdit1);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Location = new System.Drawing.Point(25, 345);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(365, 43);
-            this.panelControl1.TabIndex = 20;
+            this.externalDocumentPanelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.externalDocumentPanelControl.Appearance.Options.UseBackColor = true;
+            this.externalDocumentPanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.externalDocumentPanelControl.Controls.Add(this.externalDocumentSize);
+            this.externalDocumentPanelControl.Controls.Add(this.externalDocumentLabel);
+            this.externalDocumentPanelControl.Location = new System.Drawing.Point(25, 345);
+            this.externalDocumentPanelControl.Name = "externalDocumentPanelControl";
+            this.externalDocumentPanelControl.Size = new System.Drawing.Size(365, 43);
+            this.externalDocumentPanelControl.TabIndex = 20;
             // 
-            // textEdit1
+            // externalDocumentSize
             // 
-            this.textEdit1.EditValue = "1024";
-            this.textEdit1.Location = new System.Drawing.Point(199, 10);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 3;
+            this.externalDocumentSize.EditValue = "1024";
+            this.externalDocumentSize.Location = new System.Drawing.Point(199, 10);
+            this.externalDocumentSize.Name = "externalDocumentSize";
+            this.externalDocumentSize.Size = new System.Drawing.Size(100, 20);
+            this.externalDocumentSize.TabIndex = 3;
             // 
-            // labelControl1
+            // externalDocumentLabel
             // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 14);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(172, 13);
-            this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "External document size limit, Kbytes";
+            this.externalDocumentLabel.Location = new System.Drawing.Point(3, 14);
+            this.externalDocumentLabel.Name = "externalDocumentLabel";
+            this.externalDocumentLabel.Size = new System.Drawing.Size(172, 13);
+            this.externalDocumentLabel.TabIndex = 2;
+            this.externalDocumentLabel.Text = "External document size limit, Kbytes";
             // 
             // splitContainer
             // 
@@ -720,29 +720,29 @@ namespace PrizmMain.Forms
             // pipelinePage
             // 
             this.pipelinePage.Name = "pipelinePage";
-            this.pipelinePage.Size = new System.Drawing.Size(930, 394);
+            this.pipelinePage.Size = new System.Drawing.Size(934, 398);
             this.pipelinePage.Text = "Pipe&line";
             // 
             // usersPage
             // 
-            this.usersPage.Controls.Add(this.layoutControl1);
+            this.usersPage.Controls.Add(this.usersLayoutControl);
             this.usersPage.Name = "usersPage";
             this.usersPage.Size = new System.Drawing.Size(934, 398);
             this.usersPage.Text = "&Users";
             // 
-            // layoutControl1
+            // usersLayoutControl
             // 
-            this.layoutControl1.Controls.Add(this.userEditButton);
-            this.layoutControl1.Controls.Add(this.userAddButton);
-            this.layoutControl1.Controls.Add(this.users);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
-            this.layoutControl1.Root = this.usersRootGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(934, 398);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.usersLayoutControl.Controls.Add(this.userEditButton);
+            this.usersLayoutControl.Controls.Add(this.userAddButton);
+            this.usersLayoutControl.Controls.Add(this.users);
+            this.usersLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usersLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.usersLayoutControl.Name = "usersLayoutControl";
+            this.usersLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
+            this.usersLayoutControl.Root = this.usersRootGroup;
+            this.usersLayoutControl.Size = new System.Drawing.Size(934, 398);
+            this.usersLayoutControl.TabIndex = 0;
+            this.usersLayoutControl.Text = "UsersLayoutControl";
             // 
             // userEditButton
             // 
@@ -751,7 +751,7 @@ namespace PrizmMain.Forms
             this.userEditButton.Location = new System.Drawing.Point(196, 32);
             this.userEditButton.Name = "userEditButton";
             this.userEditButton.Size = new System.Drawing.Size(150, 22);
-            this.userEditButton.StyleController = this.layoutControl1;
+            this.userEditButton.StyleController = this.usersLayoutControl;
             this.userEditButton.TabIndex = 5;
             this.userEditButton.Text = "Редактировать";
             this.userEditButton.Click += new System.EventHandler(this.userEditButton_Click);
@@ -764,7 +764,7 @@ namespace PrizmMain.Forms
             this.userAddButton.Location = new System.Drawing.Point(32, 32);
             this.userAddButton.Name = "userAddButton";
             this.userAddButton.Size = new System.Drawing.Size(150, 22);
-            this.userAddButton.StyleController = this.layoutControl1;
+            this.userAddButton.StyleController = this.usersLayoutControl;
             this.userAddButton.TabIndex = 6;
             this.userAddButton.Text = "Добавить";
             // 
@@ -776,20 +776,20 @@ namespace PrizmMain.Forms
             this.users.Cursor = System.Windows.Forms.Cursors.Default;
             this.users.DataSource = this.userBindingSource;
             this.users.Location = new System.Drawing.Point(32, 89);
-            this.users.MainView = this.gridView1;
+            this.users.MainView = this.usersGridView;
             this.users.Name = "users";
             this.users.Size = new System.Drawing.Size(870, 277);
             this.users.TabIndex = 7;
             this.users.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.usersGridView});
             // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
             // 
-            // gridView1
+            // usersGridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.usersGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colLastName,
             this.colFirstName,
@@ -797,11 +797,11 @@ namespace PrizmMain.Forms
             this.colLogin,
             this.colPassword,
             this.colRole});
-            this.gridView1.GridControl = this.users;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsCustomization.AllowGroup = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.usersGridView.GridControl = this.users;
+            this.usersGridView.Name = "usersGridView";
+            this.usersGridView.OptionsBehavior.Editable = false;
+            this.usersGridView.OptionsCustomization.AllowGroup = false;
+            this.usersGridView.OptionsView.ShowGroupPanel = false;
             // 
             // colId
             // 
@@ -945,24 +945,24 @@ namespace PrizmMain.Forms
             // 
             // rolesPage
             // 
-            this.rolesPage.Controls.Add(this.layoutControl2);
+            this.rolesPage.Controls.Add(this.usersButtonLayoutControl);
             this.rolesPage.Name = "rolesPage";
             this.rolesPage.Size = new System.Drawing.Size(934, 398);
             this.rolesPage.Text = "Roles";
             // 
-            // layoutControl2
+            // usersButtonLayoutControl
             // 
-            this.layoutControl2.Controls.Add(this.roles);
-            this.layoutControl2.Controls.Add(this.roleEditButton);
-            this.layoutControl2.Controls.Add(this.roleAddButton);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
-            this.layoutControl2.Root = this.rolesRootGroup;
-            this.layoutControl2.Size = new System.Drawing.Size(934, 398);
-            this.layoutControl2.TabIndex = 6;
-            this.layoutControl2.Text = "layoutControl2";
+            this.usersButtonLayoutControl.Controls.Add(this.roles);
+            this.usersButtonLayoutControl.Controls.Add(this.roleEditButton);
+            this.usersButtonLayoutControl.Controls.Add(this.roleAddButton);
+            this.usersButtonLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usersButtonLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.usersButtonLayoutControl.Name = "usersButtonLayoutControl";
+            this.usersButtonLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(346, 216, 250, 350);
+            this.usersButtonLayoutControl.Root = this.rolesRootGroup;
+            this.usersButtonLayoutControl.Size = new System.Drawing.Size(934, 398);
+            this.usersButtonLayoutControl.TabIndex = 6;
+            this.usersButtonLayoutControl.Text = "layoutControl2";
             // 
             // roles
             // 
@@ -972,37 +972,37 @@ namespace PrizmMain.Forms
             this.roles.Cursor = System.Windows.Forms.Cursors.Default;
             this.roles.DataSource = this.roleBindingSource;
             this.roles.Location = new System.Drawing.Point(32, 91);
-            this.roles.MainView = this.gridView2;
+            this.roles.MainView = this.rolesGridView;
             this.roles.Name = "roles";
             this.roles.Size = new System.Drawing.Size(870, 275);
             this.roles.TabIndex = 5;
             this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.rolesGridView});
             // 
             // roleBindingSource
             // 
             this.roleBindingSource.DataSource = typeof(PrizmMain.DummyData.Role);
             // 
-            // gridView2
+            // rolesGridView
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId1,
+            this.rolesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.rolesColId,
             this.colName,
             this.colDescription});
-            this.gridView2.GridControl = this.roles;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.rolesGridView.GridControl = this.roles;
+            this.rolesGridView.Name = "rolesGridView";
+            this.rolesGridView.OptionsBehavior.Editable = false;
+            this.rolesGridView.OptionsView.ShowGroupPanel = false;
             // 
-            // colId1
+            // rolesColId
             // 
-            this.colId1.Caption = "№";
-            this.colId1.FieldName = "Id";
-            this.colId1.MaxWidth = 50;
-            this.colId1.Name = "colId1";
-            this.colId1.Visible = true;
-            this.colId1.VisibleIndex = 0;
-            this.colId1.Width = 50;
+            this.rolesColId.Caption = "№";
+            this.rolesColId.FieldName = "Id";
+            this.rolesColId.MaxWidth = 50;
+            this.rolesColId.Name = "rolesColId";
+            this.rolesColId.Visible = true;
+            this.rolesColId.VisibleIndex = 0;
+            this.rolesColId.Width = 50;
             // 
             // colName
             // 
@@ -1027,7 +1027,7 @@ namespace PrizmMain.Forms
             this.roleEditButton.Location = new System.Drawing.Point(196, 32);
             this.roleEditButton.Name = "roleEditButton";
             this.roleEditButton.Size = new System.Drawing.Size(150, 24);
-            this.roleEditButton.StyleController = this.layoutControl2;
+            this.roleEditButton.StyleController = this.usersButtonLayoutControl;
             this.roleEditButton.TabIndex = 3;
             this.roleEditButton.Text = "Редактировать";
             this.roleEditButton.Click += new System.EventHandler(this.editRoleButton_Click);
@@ -1039,7 +1039,7 @@ namespace PrizmMain.Forms
             this.roleAddButton.Location = new System.Drawing.Point(32, 32);
             this.roleAddButton.Name = "roleAddButton";
             this.roleAddButton.Size = new System.Drawing.Size(150, 24);
-            this.roleAddButton.StyleController = this.layoutControl2;
+            this.roleAddButton.StyleController = this.usersButtonLayoutControl;
             this.roleAddButton.TabIndex = 4;
             this.roleAddButton.Text = "Добавить";
             this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
@@ -1132,7 +1132,7 @@ namespace PrizmMain.Forms
             // 
             this.dictionariesPage.Controls.Add(this.dictionaries);
             this.dictionariesPage.Name = "dictionariesPage";
-            this.dictionariesPage.Size = new System.Drawing.Size(930, 394);
+            this.dictionariesPage.Size = new System.Drawing.Size(934, 398);
             this.dictionariesPage.Text = "&Dictionaries";
             // 
             // dictionaries
@@ -1144,7 +1144,7 @@ namespace PrizmMain.Forms
             this.dictionaries.Name = "dictionaries";
             this.dictionaries.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.editItem});
-            this.dictionaries.Size = new System.Drawing.Size(930, 394);
+            this.dictionaries.Size = new System.Drawing.Size(934, 398);
             this.dictionaries.TabIndex = 0;
             this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dictionaryView});
@@ -1178,7 +1178,7 @@ namespace PrizmMain.Forms
             // 
             this.editItem.AutoHeight = false;
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.editItem.Name = "editItem";
             this.editItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.editItem.Click += new System.EventHandler(this.editItem_Click);
@@ -1239,10 +1239,10 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             this.projectPage.ResumeLayout(false);
             this.projectPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalDocumentPanelControl)).EndInit();
+            this.externalDocumentPanelControl.ResumeLayout(false);
+            this.externalDocumentPanelControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturersList)).EndInit();
@@ -1253,11 +1253,11 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.design.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).EndInit();
             this.usersPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).EndInit();
+            this.usersLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.users)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersAddButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUserLayoutControl)).EndInit();
@@ -1265,11 +1265,11 @@ namespace PrizmMain.Forms
             ((System.ComponentModel.ISupportInitialize)(this.rightUsersButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonUsersEmptySpace)).EndInit();
             this.rolesPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.usersButtonLayoutControl)).EndInit();
+            this.usersButtonLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonRightEmptySpace)).EndInit();
@@ -1341,9 +1341,9 @@ namespace PrizmMain.Forms
         private DevExpress.XtraEditors.LabelControl clientLabel;
         private DevExpress.XtraEditors.TextEdit design;
         private DevExpress.XtraEditors.TextEdit client;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.TextEdit externalDocumentSize;
+        private DevExpress.XtraEditors.LabelControl externalDocumentLabel;
+        private DevExpress.XtraEditors.PanelControl externalDocumentPanelControl;
         private DevExpress.XtraTab.XtraTabPage rolesPage;
         private DevExpress.XtraEditors.SimpleButton roleEditButton;
         private DevExpress.XtraEditors.SimpleButton roleAddButton;
@@ -1361,15 +1361,15 @@ namespace PrizmMain.Forms
         private System.Windows.Forms.BindingSource userBindingSource;
         private DevExpress.XtraGrid.GridControl roles;
         private System.Windows.Forms.BindingSource roleBindingSource;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colId1;
+        private DevExpress.XtraGrid.Views.Grid.GridView rolesGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn rolesColId;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl usersLayoutControl;
         private DevExpress.XtraEditors.SimpleButton userEditButton;
         private DevExpress.XtraEditors.SimpleButton userAddButton;
         private DevExpress.XtraGrid.GridControl users;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView usersGridView;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
@@ -1383,7 +1383,7 @@ namespace PrizmMain.Forms
         private DevExpress.XtraLayout.LayoutControlItem usersLabel;
         private DevExpress.XtraLayout.EmptySpaceItem rightUsersButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem divideButtonUsersEmptySpace;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraLayout.LayoutControl usersButtonLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup rolesRootGroup;
         private DevExpress.XtraLayout.LayoutControlItem roleEditLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem roleLayoutControl;
