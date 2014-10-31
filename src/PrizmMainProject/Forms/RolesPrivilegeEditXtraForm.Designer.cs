@@ -32,12 +32,12 @@
             this.rootLayout = new DevExpress.XtraLayout.LayoutControl();
             this.priveleges = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.roleEdit = new DevExpress.XtraEditors.TextEdit();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.privilege = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.privilegesLabel = new DevExpress.XtraLayout.SimpleLabelItem();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.ItemForSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -87,6 +87,28 @@
             this.roleEdit.Size = new System.Drawing.Size(475, 20);
             this.roleEdit.StyleController = this.rootLayout;
             this.roleEdit.TabIndex = 4;
+            // 
+            // saveButton
+            // 
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(293, 461);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(100, 23);
+            this.saveButton.StyleController = this.rootLayout;
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Сохранить";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.Location = new System.Drawing.Point(407, 461);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(100, 23);
+            this.cancelButton.StyleController = this.rootLayout;
+            this.cancelButton.TabIndex = 6;
+            this.cancelButton.Text = "Отменить";
             // 
             // rootLayoutControlGroup
             // 
@@ -144,39 +166,17 @@
             this.privilegesLabel.Text = "Список привилегий пользователя";
             this.privilegesLabel.TextSize = new System.Drawing.Size(172, 13);
             // 
-            // saveButton
-            // 
-            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(293, 461);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(100, 23);
-            this.saveButton.StyleController = this.rootLayout;
-            this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "Сохранить";
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(407, 461);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 23);
-            this.cancelButton.StyleController = this.rootLayout;
-            this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отменить";
-            // 
             // ItemForSaveButton
             // 
             this.ItemForSaveButton.Control = this.saveButton;
-            this.ItemForSaveButton.CustomizationFormText = "layoutControlItem2";
+            this.ItemForSaveButton.CustomizationFormText = "ItemForSaveButton";
             this.ItemForSaveButton.Location = new System.Drawing.Point(261, 429);
             this.ItemForSaveButton.MaxSize = new System.Drawing.Size(104, 27);
             this.ItemForSaveButton.MinSize = new System.Drawing.Size(104, 27);
             this.ItemForSaveButton.Name = "ItemForSaveButton";
             this.ItemForSaveButton.Size = new System.Drawing.Size(104, 27);
             this.ItemForSaveButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.ItemForSaveButton.Text = "layoutControlItem2";
+            this.ItemForSaveButton.Text = "ItemForSaveButton";
             this.ItemForSaveButton.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForSaveButton.TextToControlDistance = 0;
             this.ItemForSaveButton.TextVisible = false;
@@ -184,14 +184,14 @@
             // ItemForCancelButton
             // 
             this.ItemForCancelButton.Control = this.cancelButton;
-            this.ItemForCancelButton.CustomizationFormText = "layoutControlItem3";
+            this.ItemForCancelButton.CustomizationFormText = "ItemForCancelButton";
             this.ItemForCancelButton.Location = new System.Drawing.Point(375, 429);
             this.ItemForCancelButton.MaxSize = new System.Drawing.Size(104, 27);
             this.ItemForCancelButton.MinSize = new System.Drawing.Size(104, 27);
             this.ItemForCancelButton.Name = "ItemForCancelButton";
             this.ItemForCancelButton.Size = new System.Drawing.Size(104, 27);
             this.ItemForCancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.ItemForCancelButton.Text = "layoutControlItem3";
+            this.ItemForCancelButton.Text = "ItemForCancelButton";
             this.ItemForCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCancelButton.TextToControlDistance = 0;
             this.ItemForCancelButton.TextVisible = false;
@@ -199,24 +199,24 @@
             // divideButtonEmptySpace
             // 
             this.divideButtonEmptySpace.AllowHotTrack = false;
-            this.divideButtonEmptySpace.CustomizationFormText = "emptySpaceItem1";
+            this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.Location = new System.Drawing.Point(365, 429);
             this.divideButtonEmptySpace.MaxSize = new System.Drawing.Size(10, 27);
             this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(10, 27);
             this.divideButtonEmptySpace.Name = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.Size = new System.Drawing.Size(10, 27);
             this.divideButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.divideButtonEmptySpace.Text = "emptySpaceItem1";
+            this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // buttonLeftEmptySpace
             // 
             this.buttonLeftEmptySpace.AllowHotTrack = false;
-            this.buttonLeftEmptySpace.CustomizationFormText = "emptySpaceItem2";
+            this.buttonLeftEmptySpace.CustomizationFormText = "buttonLeftEmptySpace";
             this.buttonLeftEmptySpace.Location = new System.Drawing.Point(0, 429);
             this.buttonLeftEmptySpace.Name = "buttonLeftEmptySpace";
             this.buttonLeftEmptySpace.Size = new System.Drawing.Size(261, 27);
-            this.buttonLeftEmptySpace.Text = "emptySpaceItem2";
+            this.buttonLeftEmptySpace.Text = "buttonLeftEmptySpace";
             this.buttonLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RolesPrivilegeEditXtraForm

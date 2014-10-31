@@ -47,7 +47,7 @@
             this.cutLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cutRightEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cutLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.upperSearchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
@@ -66,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -155,7 +155,7 @@
             this.cutLayoutControlItem,
             this.cutRightEmptySpace,
             this.cutLeftEmptySpace,
-            this.emptySpaceItem1});
+            this.upperSearchEmptySpace});
             this.layoutRootGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutRootGroup.Name = "layoutRootGroup";
             this.layoutRootGroup.Size = new System.Drawing.Size(940, 450);
@@ -291,15 +291,15 @@
             this.cutLeftEmptySpace.Text = "cutLeftEmptySpace";
             this.cutLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // emptySpaceItem1
+            // upperSearchEmptySpace
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(775, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(105, 14);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.upperSearchEmptySpace.AllowHotTrack = false;
+            this.upperSearchEmptySpace.CustomizationFormText = "upperSearchEmptySpace";
+            this.upperSearchEmptySpace.Location = new System.Drawing.Point(775, 0);
+            this.upperSearchEmptySpace.Name = "upperSearchEmptySpace";
+            this.upperSearchEmptySpace.Size = new System.Drawing.Size(105, 14);
+            this.upperSearchEmptySpace.Text = "upperSearchEmptySpace";
+            this.upperSearchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // SpoolsXtraForm
             // 
@@ -328,7 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,6 +354,6 @@
         private DevExpress.XtraLayout.LayoutControlItem cutLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem cutRightEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem cutLeftEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem upperSearchEmptySpace;
     }
 }
