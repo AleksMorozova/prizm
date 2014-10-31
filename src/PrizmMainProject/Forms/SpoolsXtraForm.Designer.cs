@@ -38,12 +38,12 @@
             this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoolNumberLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutLenghtGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.pipeLenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.spoonLenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutlengthGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.pipelengthLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.spoonlengthLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lenghtEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lengthEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cutLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cutRightEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cutLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -57,12 +57,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLenghtLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoonLenghtLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutlengthGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelengthLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoonlengthLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenghtEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).BeginInit();
@@ -148,10 +148,10 @@
             this.layoutRootGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeNumberLabel,
             this.spoolNumberLabel,
-            this.layoutLenghtGroup,
+            this.layoutlengthGroup,
             this.searchLayoutControlItem,
             this.pipeEmptySpace,
-            this.lenghtEmptySpace,
+            this.lengthEmptySpace,
             this.cutLayoutControlItem,
             this.cutRightEmptySpace,
             this.cutLeftEmptySpace,
@@ -187,44 +187,44 @@
             this.spoolNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoolNumberLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // layoutLenghtGroup
+            // layoutlengthGroup
             // 
-            this.layoutLenghtGroup.CustomizationFormText = "Длинна";
-            this.layoutLenghtGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.pipeLenghtLabel,
-            this.spoonLenghtLabel});
-            this.layoutLenghtGroup.Location = new System.Drawing.Point(0, 167);
-            this.layoutLenghtGroup.Name = "layoutLenghtGroup";
-            this.layoutLenghtGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutLenghtGroup.Size = new System.Drawing.Size(880, 119);
-            this.layoutLenghtGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
-            this.layoutLenghtGroup.Text = "Длинна";
+            this.layoutlengthGroup.CustomizationFormText = "Длинна";
+            this.layoutlengthGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.pipelengthLabel,
+            this.spoonlengthLabel});
+            this.layoutlengthGroup.Location = new System.Drawing.Point(0, 167);
+            this.layoutlengthGroup.Name = "layoutlengthGroup";
+            this.layoutlengthGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutlengthGroup.Size = new System.Drawing.Size(880, 119);
+            this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
+            this.layoutlengthGroup.Text = "Длинна";
             // 
-            // pipeLenghtLabel
+            // pipelengthLabel
             // 
-            this.pipeLenghtLabel.Control = this.pipeLength;
-            this.pipeLenghtLabel.CustomizationFormText = "Труба";
-            this.pipeLenghtLabel.Location = new System.Drawing.Point(0, 0);
-            this.pipeLenghtLabel.Name = "pipeLenghtLabel";
-            this.pipeLenghtLabel.Size = new System.Drawing.Size(429, 54);
-            this.pipeLenghtLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.pipeLenghtLabel.Text = "Труба";
-            this.pipeLenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pipeLenghtLabel.TextSize = new System.Drawing.Size(78, 13);
+            this.pipelengthLabel.Control = this.pipeLength;
+            this.pipelengthLabel.CustomizationFormText = "Труба";
+            this.pipelengthLabel.Location = new System.Drawing.Point(0, 0);
+            this.pipelengthLabel.Name = "pipelengthLabel";
+            this.pipelengthLabel.Size = new System.Drawing.Size(429, 54);
+            this.pipelengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.pipelengthLabel.Text = "Труба";
+            this.pipelengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipelengthLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // spoonLenghtLabel
+            // spoonlengthLabel
             // 
-            this.spoonLenghtLabel.Control = this.spoolLength;
-            this.spoonLenghtLabel.CustomizationFormText = "Катушка";
-            this.spoonLenghtLabel.Location = new System.Drawing.Point(429, 0);
-            this.spoonLenghtLabel.MinSize = new System.Drawing.Size(82, 41);
-            this.spoonLenghtLabel.Name = "spoonLenghtLabel";
-            this.spoonLenghtLabel.Size = new System.Drawing.Size(405, 54);
-            this.spoonLenghtLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.spoonLenghtLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.spoonLenghtLabel.Text = "Катушка";
-            this.spoonLenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
-            this.spoonLenghtLabel.TextSize = new System.Drawing.Size(78, 13);
+            this.spoonlengthLabel.Control = this.spoolLength;
+            this.spoonlengthLabel.CustomizationFormText = "Катушка";
+            this.spoonlengthLabel.Location = new System.Drawing.Point(429, 0);
+            this.spoonlengthLabel.MinSize = new System.Drawing.Size(82, 41);
+            this.spoonlengthLabel.Name = "spoonlengthLabel";
+            this.spoonlengthLabel.Size = new System.Drawing.Size(405, 54);
+            this.spoonlengthLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.spoonlengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.spoonlengthLabel.Text = "Катушка";
+            this.spoonlengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.spoonlengthLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
             // searchLayoutControlItem
             // 
@@ -249,15 +249,15 @@
             this.pipeEmptySpace.Text = "pipeEmptySpace";
             this.pipeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // lenghtEmptySpace
+            // lengthEmptySpace
             // 
-            this.lenghtEmptySpace.AllowHotTrack = false;
-            this.lenghtEmptySpace.CustomizationFormText = "lenghtEmptySpace";
-            this.lenghtEmptySpace.Location = new System.Drawing.Point(0, 286);
-            this.lenghtEmptySpace.Name = "lenghtEmptySpace";
-            this.lenghtEmptySpace.Size = new System.Drawing.Size(880, 88);
-            this.lenghtEmptySpace.Text = "lenghtEmptySpace";
-            this.lenghtEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            this.lengthEmptySpace.AllowHotTrack = false;
+            this.lengthEmptySpace.CustomizationFormText = "lengthEmptySpace";
+            this.lengthEmptySpace.Location = new System.Drawing.Point(0, 286);
+            this.lengthEmptySpace.Name = "lengthEmptySpace";
+            this.lengthEmptySpace.Size = new System.Drawing.Size(880, 88);
+            this.lengthEmptySpace.Text = "lengthEmptySpace";
+            this.lengthEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // cutLayoutControlItem
             // 
@@ -319,12 +319,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutLenghtGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLenghtLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoonLenghtLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutlengthGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelengthLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoonlengthLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenghtEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutRightEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutLeftEmptySpace)).EndInit();
@@ -345,12 +345,12 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutRootGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLabel;
         private DevExpress.XtraLayout.LayoutControlItem spoolNumberLabel;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutLenghtGroup;
-        private DevExpress.XtraLayout.LayoutControlItem pipeLenghtLabel;
-        private DevExpress.XtraLayout.LayoutControlItem spoonLenghtLabel;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutlengthGroup;
+        private DevExpress.XtraLayout.LayoutControlItem pipelengthLabel;
+        private DevExpress.XtraLayout.LayoutControlItem spoonlengthLabel;
         private DevExpress.XtraLayout.LayoutControlItem searchLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem pipeEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem lenghtEmptySpace;
+        private DevExpress.XtraLayout.EmptySpaceItem lengthEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem cutLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem cutRightEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem cutLeftEmptySpace;

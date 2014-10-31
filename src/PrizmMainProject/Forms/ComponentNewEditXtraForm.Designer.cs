@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.isActive = new DevExpress.XtraEditors.CheckEdit();
-            this.lenght = new DevExpress.XtraEditors.TextEdit();
+            this.length = new DevExpress.XtraEditors.TextEdit();
             this.connectorsCount = new DevExpress.XtraEditors.TextEdit();
             this.type = new DevExpress.XtraEditors.ComboBoxEdit();
             this.name = new DevExpress.XtraEditors.TextEdit();
@@ -42,7 +42,7 @@
             this.nameLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.typeLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lenghtLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lengthLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.connectorsLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.leftDeleteEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.leftButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.isActive.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenght.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectorsCount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
@@ -63,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenghtLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectorsLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftDeleteEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).BeginInit();
@@ -77,7 +77,7 @@
             // mainLayoutControl
             // 
             this.mainLayoutControl.Controls.Add(this.isActive);
-            this.mainLayoutControl.Controls.Add(this.lenght);
+            this.mainLayoutControl.Controls.Add(this.length);
             this.mainLayoutControl.Controls.Add(this.connectorsCount);
             this.mainLayoutControl.Controls.Add(this.type);
             this.mainLayoutControl.Controls.Add(this.name);
@@ -87,7 +87,7 @@
             this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControl.Name = "mainLayoutControl";
-            this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(232, 499, 250, 350);
+            this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(245, 295, 250, 350);
             this.mainLayoutControl.Root = this.rootLayoutControlGroup;
             this.mainLayoutControl.ShowTemplates = true;
             this.mainLayoutControl.Size = new System.Drawing.Size(940, 450);
@@ -103,13 +103,13 @@
             this.isActive.StyleController = this.mainLayoutControl;
             this.isActive.TabIndex = 9;
             // 
-            // lenght
+            // length
             // 
-            this.lenght.Location = new System.Drawing.Point(32, 217);
-            this.lenght.Name = "lenght";
-            this.lenght.Size = new System.Drawing.Size(876, 20);
-            this.lenght.StyleController = this.mainLayoutControl;
-            this.lenght.TabIndex = 8;
+            this.length.Location = new System.Drawing.Point(32, 217);
+            this.length.Name = "length";
+            this.length.Size = new System.Drawing.Size(876, 20);
+            this.length.StyleController = this.mainLayoutControl;
+            this.length.TabIndex = 8;
             // 
             // connectorsCount
             // 
@@ -177,7 +177,7 @@
             this.nameLabel,
             this.typeLabel,
             this.certificateLabel,
-            this.lenghtLabel,
+            this.lengthLabel,
             this.connectorsLabel,
             this.leftDeleteEmptySpace,
             this.leftButtonEmptySpace,
@@ -229,17 +229,17 @@
             this.certificateLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLabel.TextSize = new System.Drawing.Size(136, 13);
             // 
-            // lenghtLabel
+            // lengthLabel
             // 
-            this.lenghtLabel.Control = this.lenght;
-            this.lenghtLabel.CustomizationFormText = "Длинна";
-            this.lenghtLabel.Location = new System.Drawing.Point(0, 162);
-            this.lenghtLabel.Name = "lenghtLabel";
-            this.lenghtLabel.Size = new System.Drawing.Size(880, 54);
-            this.lenghtLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 7, 7);
-            this.lenghtLabel.Text = "Длинна";
-            this.lenghtLabel.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lenghtLabel.TextSize = new System.Drawing.Size(136, 13);
+            this.lengthLabel.Control = this.length;
+            this.lengthLabel.CustomizationFormText = "Длинна";
+            this.lengthLabel.Location = new System.Drawing.Point(0, 162);
+            this.lengthLabel.Name = "lengthLabel";
+            this.lengthLabel.Size = new System.Drawing.Size(880, 54);
+            this.lengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 7, 7);
+            this.lengthLabel.Text = "Длинна";
+            this.lengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lengthLabel.TextSize = new System.Drawing.Size(136, 13);
             // 
             // connectorsLabel
             // 
@@ -353,7 +353,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.isActive.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenght.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectorsCount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).EndInit();
@@ -362,7 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lenghtLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectorsLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftDeleteEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).EndInit();
@@ -379,7 +379,7 @@
 
         private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
         private DevExpress.XtraEditors.CheckEdit isActive;
-        private DevExpress.XtraEditors.TextEdit lenght;
+        private DevExpress.XtraEditors.TextEdit length;
         private DevExpress.XtraEditors.TextEdit connectorsCount;
         private DevExpress.XtraEditors.ComboBoxEdit type;
         private DevExpress.XtraEditors.TextEdit name;
@@ -389,7 +389,7 @@
         private DevExpress.XtraLayout.LayoutControlItem nameLabel;
         private DevExpress.XtraLayout.LayoutControlItem typeLabel;
         private DevExpress.XtraLayout.LayoutControlItem certificateLabel;
-        private DevExpress.XtraLayout.LayoutControlItem lenghtLabel;
+        private DevExpress.XtraLayout.LayoutControlItem lengthLabel;
         private DevExpress.XtraLayout.LayoutControlItem connectorsLabel;
         private DevExpress.XtraLayout.EmptySpaceItem leftDeleteEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem leftButtonEmptySpace;
