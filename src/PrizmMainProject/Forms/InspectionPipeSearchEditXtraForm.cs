@@ -19,7 +19,7 @@ namespace PrizmMain.Forms
             InitializeComponent();
             pipeNumber.Text = "2434637";
             certificateNumber.Text = "73426376";
-            unloadedDate.Text="11.09.2014";
+            unloadedDate.Text = "11.09.2014";
             millLength.Text = "10";
             millThickness.Text = "3";
             millDiameter.Text = "20";
@@ -31,14 +31,6 @@ namespace PrizmMain.Forms
             inspectionWeight.Text = "3";
             inspectionHeatNumber.Text = "142526";
 
-
-            // Create five items.
-            object[] itemValues = new object[] { 0, 1, 2};
-            string[] itemDescriptions = new string[] { "Aceepted", "Hold", "Rejected"};
-            for (int i = 0; i < itemValues.Length; i++)
-            {
-                inspectionResult.Properties.Items.Add(new RadioGroupItem(itemValues[i], itemDescriptions[i]));
-            }
         }
     }
 }

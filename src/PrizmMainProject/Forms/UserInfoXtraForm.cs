@@ -18,45 +18,30 @@ namespace PrizmMain.Forms
         public UserInfoXtraForm()
         {
             InitializeComponent();
+            var repo = new RolesDummy();
+            BindingList<Role> roles =  repo.GetRoles();
+            role.Properties.Items.AddRange(roles);
+        
 
-            var reposirory = new RolesDummy();
-            var roles = reposirory.GetRoles();
-
-            foreach (var item in roles)
-            {
-                userRoleComboBox.Properties.Items.Add(item.Name);
-            }
-            userRoleComboBox.SelectedIndex = 1;
         }
 
         public UserInfoXtraForm(bool isNew)
         {
             InitializeComponent();
 
-            if (isNew)
-            {
-                return;
-            }
-
-            var repository = new UsersDummy();
-            var user = repository.GetUser(2);
-
-            lastName.Text = user.LastName;
-            firstName.Text = user.FirstName;
-            middleName.Text = user.MiddleName;
-
-            login.Text = user.Login;
-            password.Text = user.Password;
-            confirmPassword.Text = user.Password;
-            userRoleComboBox.Properties.Items.Add(user.Role.Name);
-            userRoleComboBox.SelectedIndex = 0;
-            
+            var repo = new UsersDummy();
+            var user = repo.GetUser(1);
+            userBindingSource.DataSource = user;
+            role.Properties.ReadOnly = true;
+      
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+      
 
     }
 }
