@@ -9,7 +9,7 @@
 </XPD:HEADER>
 <XPD:BODY>
 <XPD:OBJ name="DocumentElement" type="UMLProject" guid="zYZ255CfQ0C2hj0H7lghdQAA">
-<XPD:ATTR name="Title" type="string">Designe</XPD:ATTR>
+<XPD:ATTR name="Title" type="string">Design</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">7</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="Nvq60b45mUC4e6DVupUITQAA">
 <XPD:ATTR name="Name" type="string">Use Case Model</XPD:ATTR>
