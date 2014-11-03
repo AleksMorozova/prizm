@@ -129,7 +129,7 @@
             this.statusLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.creationDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.purhaseOrderLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.generalPipeParametersEmpty = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -236,7 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalPipeParametersEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
             this.SuspendLayout();
@@ -1285,7 +1285,7 @@
             this.statusLayout,
             this.creationDateLayout,
             this.purhaseOrderLayout,
-            this.emptySpaceItem8});
+            this.generalPipeParametersEmpty});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -1380,15 +1380,15 @@
             this.purhaseOrderLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.purhaseOrderLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
-            // emptySpaceItem8
+            // generalPipeParametersEmpty
             // 
-            this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.CustomizationFormText = "emptySpaceItem8";
-            this.emptySpaceItem8.Location = new System.Drawing.Point(1114, 0);
-            this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(139, 54);
-            this.emptySpaceItem8.Text = "emptySpaceItem8";
-            this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.generalPipeParametersEmpty.AllowHotTrack = false;
+            this.generalPipeParametersEmpty.CustomizationFormText = "generalPipeParametersEmpty";
+            this.generalPipeParametersEmpty.Location = new System.Drawing.Point(1114, 0);
+            this.generalPipeParametersEmpty.Name = "generalPipeParametersEmpty";
+            this.generalPipeParametersEmpty.Size = new System.Drawing.Size(139, 54);
+            this.generalPipeParametersEmpty.Text = "generalPipeParametersEmpty";
+            this.generalPipeParametersEmpty.TextSize = new System.Drawing.Size(0, 0);
             // 
             // pipeParametersLayout
             // 
@@ -1551,7 +1551,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalPipeParametersEmpty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -1630,7 +1630,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem coatingAddButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem weldingParametersEmpty;
         private DevExpress.XtraEditors.CheckEdit deactivate;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private DevExpress.XtraLayout.EmptySpaceItem generalPipeParametersEmpty;
         private DevExpress.XtraLayout.LayoutControl generalPlateParametersLayout;
         private DevExpress.XtraEditors.ComboBoxEdit plateSteelGrade;
         private DevExpress.XtraEditors.TextEdit plateManufacturer;
