@@ -28,118 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RolesPrivilegeEditXtraForm));
+            this.rootLayout = new DevExpress.XtraLayout.LayoutControl();
             this.priveleges = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.roleEdit = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.privilege = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.privilegesLabel = new DevExpress.XtraLayout.SimpleLabelItem();
-            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            this.ItemForSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
+            this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.buttonLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).BeginInit();
+            this.rootLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.priveleges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.privilege)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForSaveButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCancelButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLeftEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // rootLayout
             // 
-            this.layoutControl1.Controls.Add(this.priveleges);
-            this.layoutControl1.Controls.Add(this.roleEdit);
-            this.layoutControl1.Controls.Add(this.saveButton);
-            this.layoutControl1.Controls.Add(this.cancelButton);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(396, 131, 499, 350);
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.ShowTemplates = true;
-            this.layoutControl1.Size = new System.Drawing.Size(342, 329);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.rootLayout.Controls.Add(this.priveleges);
+            this.rootLayout.Controls.Add(this.roleEdit);
+            this.rootLayout.Controls.Add(this.saveButton);
+            this.rootLayout.Controls.Add(this.cancelButton);
+            this.rootLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rootLayout.Location = new System.Drawing.Point(0, 0);
+            this.rootLayout.Name = "rootLayout";
+            this.rootLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(396, 131, 499, 350);
+            this.rootLayout.Root = this.rootLayoutControlGroup;
+            this.rootLayout.ShowTemplates = true;
+            this.rootLayout.Size = new System.Drawing.Size(539, 516);
+            this.rootLayout.TabIndex = 0;
+            this.rootLayout.Text = "layoutControl1";
             // 
             // priveleges
             // 
-            this.priveleges.Location = new System.Drawing.Point(12, 71);
+            this.priveleges.Location = new System.Drawing.Point(32, 103);
             this.priveleges.Name = "priveleges";
-            this.priveleges.Size = new System.Drawing.Size(318, 219);
-            this.priveleges.StyleController = this.layoutControl1;
+            this.priveleges.Size = new System.Drawing.Size(475, 347);
+            this.priveleges.StyleController = this.rootLayout;
             this.priveleges.TabIndex = 5;
             // 
             // roleEdit
             // 
-            this.roleEdit.Location = new System.Drawing.Point(12, 28);
+            this.roleEdit.Location = new System.Drawing.Point(32, 48);
             this.roleEdit.Name = "roleEdit";
-            this.roleEdit.Size = new System.Drawing.Size(318, 20);
-            this.roleEdit.StyleController = this.layoutControl1;
+            this.roleEdit.Size = new System.Drawing.Size(475, 20);
+            this.roleEdit.StyleController = this.rootLayout;
             this.roleEdit.TabIndex = 4;
             // 
             // saveButton
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveButton.Location = new System.Drawing.Point(184, 294);
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(293, 461);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(66, 23);
-            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.Size = new System.Drawing.Size(100, 23);
+            this.saveButton.StyleController = this.rootLayout;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Сохранить";
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(264, 294);
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.Location = new System.Drawing.Point(407, 461);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(66, 23);
-            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.Size = new System.Drawing.Size(100, 23);
+            this.cancelButton.StyleController = this.rootLayout;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Отменить";
             // 
-            // layoutControlGroup1
+            // rootLayoutControlGroup
             // 
-            this.layoutControlGroup1.CustomizationFormText = "Root";
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
+            this.rootLayoutControlGroup.CustomizationFormText = "Root";
+            this.rootLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.rootLayoutControlGroup.GroupBordersVisible = false;
+            this.rootLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.privilege,
             this.roleLabel,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.emptySpaceItem1,
-            this.emptySpaceItem2,
             this.privilegesLabel,
-            this.simpleSeparator1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(342, 329);
-            this.layoutControlGroup1.Text = "Root";
-            this.layoutControlGroup1.TextVisible = false;
+            this.ItemForSaveButton,
+            this.ItemForCancelButton,
+            this.divideButtonEmptySpace,
+            this.buttonLeftEmptySpace});
+            this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.Size = new System.Drawing.Size(539, 516);
+            this.rootLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
+            this.rootLayoutControlGroup.Text = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.TextVisible = false;
             // 
-            // layoutControlItem2
+            // privilege
             // 
-            this.layoutControlItem2.Control = this.priveleges;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 59);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(322, 223);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
-            this.layoutControlItem2.TextVisible = false;
+            this.privilege.Control = this.priveleges;
+            this.privilege.CustomizationFormText = "privilege";
+            this.privilege.Location = new System.Drawing.Point(0, 71);
+            this.privilege.Name = "privilege";
+            this.privilege.Size = new System.Drawing.Size(479, 358);
+            this.privilege.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 7);
+            this.privilege.Text = "privilege";
+            this.privilege.TextSize = new System.Drawing.Size(0, 0);
+            this.privilege.TextToControlDistance = 0;
+            this.privilege.TextVisible = false;
             // 
             // roleLabel
             // 
@@ -147,124 +149,115 @@
             this.roleLabel.CustomizationFormText = "Role";
             this.roleLabel.Location = new System.Drawing.Point(0, 0);
             this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(322, 40);
+            this.roleLabel.Size = new System.Drawing.Size(479, 47);
+            this.roleLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 7);
             this.roleLabel.Text = "Роль пользователя";
             this.roleLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.roleLabel.TextSize = new System.Drawing.Size(172, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.saveButton;
-            this.layoutControlItem6.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem6.Location = new System.Drawing.Point(172, 282);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(70, 27);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(70, 27);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(70, 27);
-            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.Text = "layoutControlItem2";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.cancelButton;
-            this.layoutControlItem7.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem7.Location = new System.Drawing.Point(252, 282);
-            this.layoutControlItem7.MaxSize = new System.Drawing.Size(70, 27);
-            this.layoutControlItem7.MinSize = new System.Drawing.Size(70, 27);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(70, 27);
-            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "layoutControlItem3";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(242, 282);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 282);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(172, 27);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // privilegesLabel
             // 
             this.privilegesLabel.AllowHotTrack = false;
             this.privilegesLabel.CustomizationFormText = "Список привилегий пользователя";
-            this.privilegesLabel.Location = new System.Drawing.Point(0, 42);
+            this.privilegesLabel.Location = new System.Drawing.Point(0, 47);
             this.privilegesLabel.Name = "privilegesLabel";
-            this.privilegesLabel.Size = new System.Drawing.Size(322, 17);
+            this.privilegesLabel.Size = new System.Drawing.Size(479, 24);
+            this.privilegesLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 7, 0);
             this.privilegesLabel.Text = "Список привилегий пользователя";
             this.privilegesLabel.TextSize = new System.Drawing.Size(172, 13);
             // 
-            // simpleSeparator1
+            // ItemForSaveButton
             // 
-            this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.CustomizationFormText = "simpleSeparator1";
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 40);
-            this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(322, 2);
-            this.simpleSeparator1.Text = "simpleSeparator1";
+            this.ItemForSaveButton.Control = this.saveButton;
+            this.ItemForSaveButton.CustomizationFormText = "ItemForSaveButton";
+            this.ItemForSaveButton.Location = new System.Drawing.Point(261, 429);
+            this.ItemForSaveButton.MaxSize = new System.Drawing.Size(104, 27);
+            this.ItemForSaveButton.MinSize = new System.Drawing.Size(104, 27);
+            this.ItemForSaveButton.Name = "ItemForSaveButton";
+            this.ItemForSaveButton.Size = new System.Drawing.Size(104, 27);
+            this.ItemForSaveButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.ItemForSaveButton.Text = "ItemForSaveButton";
+            this.ItemForSaveButton.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForSaveButton.TextToControlDistance = 0;
+            this.ItemForSaveButton.TextVisible = false;
+            // 
+            // ItemForCancelButton
+            // 
+            this.ItemForCancelButton.Control = this.cancelButton;
+            this.ItemForCancelButton.CustomizationFormText = "ItemForCancelButton";
+            this.ItemForCancelButton.Location = new System.Drawing.Point(375, 429);
+            this.ItemForCancelButton.MaxSize = new System.Drawing.Size(104, 27);
+            this.ItemForCancelButton.MinSize = new System.Drawing.Size(104, 27);
+            this.ItemForCancelButton.Name = "ItemForCancelButton";
+            this.ItemForCancelButton.Size = new System.Drawing.Size(104, 27);
+            this.ItemForCancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.ItemForCancelButton.Text = "ItemForCancelButton";
+            this.ItemForCancelButton.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForCancelButton.TextToControlDistance = 0;
+            this.ItemForCancelButton.TextVisible = false;
+            // 
+            // divideButtonEmptySpace
+            // 
+            this.divideButtonEmptySpace.AllowHotTrack = false;
+            this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.Location = new System.Drawing.Point(365, 429);
+            this.divideButtonEmptySpace.MaxSize = new System.Drawing.Size(10, 27);
+            this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(10, 27);
+            this.divideButtonEmptySpace.Name = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.Size = new System.Drawing.Size(10, 27);
+            this.divideButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // buttonLeftEmptySpace
+            // 
+            this.buttonLeftEmptySpace.AllowHotTrack = false;
+            this.buttonLeftEmptySpace.CustomizationFormText = "buttonLeftEmptySpace";
+            this.buttonLeftEmptySpace.Location = new System.Drawing.Point(0, 429);
+            this.buttonLeftEmptySpace.Name = "buttonLeftEmptySpace";
+            this.buttonLeftEmptySpace.Size = new System.Drawing.Size(261, 27);
+            this.buttonLeftEmptySpace.Text = "buttonLeftEmptySpace";
+            this.buttonLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RolesPrivilegeEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 329);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(539, 516);
+            this.Controls.Add(this.rootLayout);
             this.Name = "RolesPrivilegeEditXtraForm";
             this.Text = "Edit roles";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayout)).EndInit();
+            this.rootLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.priveleges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.privilege)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.privilegesLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForSaveButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCancelButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLeftEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl rootLayout;
         private DevExpress.XtraEditors.CheckedListBoxControl priveleges;
         private DevExpress.XtraEditors.TextEdit roleEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup rootLayoutControlGroup;
+        private DevExpress.XtraLayout.LayoutControlItem privilege;
+        private DevExpress.XtraLayout.LayoutControlItem roleLabel;
+        private DevExpress.XtraLayout.SimpleLabelItem privilegesLabel;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem roleLabel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.SimpleLabelItem privilegesLabel;
-        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForSaveButton;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForCancelButton;
+        private DevExpress.XtraLayout.EmptySpaceItem divideButtonEmptySpace;
+        private DevExpress.XtraLayout.EmptySpaceItem buttonLeftEmptySpace;
 
     }
 }

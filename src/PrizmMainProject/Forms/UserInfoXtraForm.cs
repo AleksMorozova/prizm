@@ -20,7 +20,7 @@ namespace PrizmMain.Forms
             InitializeComponent();
             var repo = new RolesDummy();
             BindingList<Role> roles =  repo.GetRoles();
-            RoleComboBoxEdit.Properties.Items.AddRange(roles);
+            role.Properties.Items.AddRange(roles);
         
 
         }
@@ -32,11 +32,11 @@ namespace PrizmMain.Forms
             var repo = new UsersDummy();
             var user = repo.GetUser(1);
             userBindingSource.DataSource = user;
-            RoleComboBoxEdit.Properties.ReadOnly = true;
+            role.Properties.ReadOnly = true;
       
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
