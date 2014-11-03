@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentSearchXtraForm));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +50,14 @@
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.underButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.leftButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.numberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.typeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificateNumberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.editButtonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
@@ -66,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryButtonEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // diameterThicknessSubGrid
@@ -96,6 +107,8 @@
             this.searchResultsGrid.Location = new System.Drawing.Point(25, 155);
             this.searchResultsGrid.MainView = this.searchResultsView;
             this.searchResultsGrid.Name = "searchResultsGrid";
+            this.searchResultsGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryButtonEdit});
             this.searchResultsGrid.Size = new System.Drawing.Size(862, 241);
             this.searchResultsGrid.TabIndex = 7;
             this.searchResultsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -104,6 +117,14 @@
             // 
             // searchResultsView
             // 
+            this.searchResultsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.numberColumn,
+            this.typeColumn,
+            this.certificateNumberColumn,
+            this.inspectorColumn,
+            this.inspectionResultColumn,
+            this.inspectionDateColumn,
+            this.editButtonColumn});
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
             this.searchResultsView.OptionsView.ShowGroupPanel = false;
@@ -287,6 +308,70 @@
             this.leftButtonEmptySpace.Text = "leftButtonEmptySpace";
             this.leftButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // numberColumn
+            // 
+            this.numberColumn.Caption = "№";
+            this.numberColumn.FieldName = "Number";
+            this.numberColumn.Name = "numberColumn";
+            this.numberColumn.Visible = true;
+            this.numberColumn.VisibleIndex = 0;
+            // 
+            // typeColumn
+            // 
+            this.typeColumn.Caption = "Тип";
+            this.typeColumn.FieldName = "Type";
+            this.typeColumn.Name = "typeColumn";
+            this.typeColumn.Visible = true;
+            this.typeColumn.VisibleIndex = 1;
+            // 
+            // certificateNumberColumn
+            // 
+            this.certificateNumberColumn.Caption = "Номер сертификата";
+            this.certificateNumberColumn.FieldName = "CertificateNumber";
+            this.certificateNumberColumn.Name = "certificateNumberColumn";
+            this.certificateNumberColumn.Visible = true;
+            this.certificateNumberColumn.VisibleIndex = 2;
+            // 
+            // inspectorColumn
+            // 
+            this.inspectorColumn.Caption = "Инспектор";
+            this.inspectorColumn.FieldName = "Inspector";
+            this.inspectorColumn.Name = "inspectorColumn";
+            this.inspectorColumn.Visible = true;
+            this.inspectorColumn.VisibleIndex = 3;
+            // 
+            // inspectionResultColumn
+            // 
+            this.inspectionResultColumn.Caption = "Результат";
+            this.inspectionResultColumn.FieldName = "InspectionResult";
+            this.inspectionResultColumn.Name = "inspectionResultColumn";
+            this.inspectionResultColumn.Visible = true;
+            this.inspectionResultColumn.VisibleIndex = 4;
+            // 
+            // inspectionDateColumn
+            // 
+            this.inspectionDateColumn.Caption = "Дата инспекции";
+            this.inspectionDateColumn.FieldName = "InspectionDate";
+            this.inspectionDateColumn.Name = "inspectionDateColumn";
+            this.inspectionDateColumn.Visible = true;
+            this.inspectionDateColumn.VisibleIndex = 5;
+            // 
+            // editButtonColumn
+            // 
+            this.editButtonColumn.Caption = "Редактировать";
+            this.editButtonColumn.ColumnEdit = this.repositoryButtonEdit;
+            this.editButtonColumn.Name = "editButtonColumn";
+            this.editButtonColumn.Visible = true;
+            this.editButtonColumn.VisibleIndex = 6;
+            // 
+            // repositoryButtonEdit
+            // 
+            this.repositoryButtonEdit.AutoHeight = false;
+            this.repositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.repositoryButtonEdit.Name = "repositoryButtonEdit";
+            this.repositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // ComponentSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,6 +399,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryButtonEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,5 +426,13 @@
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem underButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem leftButtonEmptySpace;
+        private DevExpress.XtraGrid.Columns.GridColumn numberColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn typeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn certificateNumberColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionResultColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionDateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn editButtonColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryButtonEdit;
     }
 }
