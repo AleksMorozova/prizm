@@ -19,11 +19,8 @@ namespace PrizmMain.Forms
             InitializeComponent();
             railcarNumber.Text = "15";
             certificateNumber.Text = "7635356";
-            pipeSize.Text = "1200x20";
-            designer.Text = "Mill 1";
-            client.Text = "Mill 2";
-            purchaseOrder.Text = "456373";
-            deliveryDate.Text = "10.09.2014";
+
+
             shippedDate.Text = "16.10.2014";
 
             BindingList<PipesDummy> pipeList = new BindingList<PipesDummy>();
