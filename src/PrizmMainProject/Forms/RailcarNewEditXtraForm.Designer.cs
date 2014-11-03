@@ -46,7 +46,7 @@
             this.destinationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
@@ -63,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -201,7 +201,7 @@
             this.destinationLayout,
             this.certificateNumberLayout,
             this.pipeListLayout,
-            this.emptySpaceItem1});
+            this.generalEmptySpace});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "railcarLayoutGroup";
             this.railcarLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -273,15 +273,15 @@
             this.pipeListLayout.TextToControlDistance = 0;
             this.pipeListLayout.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // generalEmptySpace
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(785, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(462, 54);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.generalEmptySpace.AllowHotTrack = false;
+            this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
+            this.generalEmptySpace.Location = new System.Drawing.Point(785, 0);
+            this.generalEmptySpace.Name = "generalEmptySpace";
+            this.generalEmptySpace.Size = new System.Drawing.Size(462, 54);
+            this.generalEmptySpace.Text = "generalEmptySpace";
+            this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // shipButton
             // 
@@ -319,7 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,6 +345,6 @@
         private DevExpress.XtraLayout.LayoutControlItem shippedDateLayout;
         private DevExpress.XtraEditors.SimpleButton shipButton;
         private DevExpress.XtraLayout.LayoutControlItem pipeListLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem generalEmptySpace;
     }
 }
