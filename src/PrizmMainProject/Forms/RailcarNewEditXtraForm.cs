@@ -33,9 +33,9 @@ namespace PrizmMain.Forms
 
             pipesList.DataSource = pipeList;
 
-            pipesNumbers.Properties.Items.Add("154262");
-            pipesNumbers.Properties.Items.Add("262843");
-            pipesNumbers.Properties.Items.Add("159545");
+            pipesNumbers.Items.Add("154262");
+            pipesNumbers.Items.Add("262843");
+            pipesNumbers.Items.Add("159545");
  
             pipesListView.AddNewRow();
         }

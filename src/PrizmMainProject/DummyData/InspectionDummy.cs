@@ -13,14 +13,10 @@ namespace PrizmMain.DummyData
         {
             var inspections = new BindingList<Inspection> 
             {
-                new Inspection{Code="", Name="Приемка листа по сертификатам ", TestSubject="Идентификация листаПроверка на соответствие  НД", ControlType="Визуальный контроль", ResultType="bool",  BollExpected=true, IsRequired=true },
-                new Inspection{Code="", Name="Приемка сварочного флюса по сертификатам", TestSubject="Проверка на соответствие  НД", ControlType="Визуальный контроль", ResultType="",  BollExpected=true, IsRequired=true },
-                new Inspection{Code="", Name="Приварка планок", TestSubject="Приварка планок, ремонт технологического шва", ControlType="Визуальный контроль", ResultType="", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=false },
-                //new Inspection{Code="", Name="", TestSubject="", ControlType="", ResultType="", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=true },
-                //new Inspection{Code="", Name="", TestSubject="", ControlType="", ResultType="", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=true },
-                //new Inspection{Code="", Name="", TestSubject="", ControlType="", ResultType="", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=true },
-                //new Inspection{Code="", Name="", TestSubject="", ControlType="", ResultType="", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=true },
-                new Inspection{Code="", Name="Гидростатическое испытание ", TestSubject="Время выдержки под давлением", ControlType="Проверка по документам", ResultType="Диапазон", MinExpected=100, MaxExpected=200, BollExpected=true, IsRequired=true }
+                new Inspection{Code="1", Name="Приемка листа по сертификатам ", TestSubject="Идентификация листаПроверка на соответствие  НД", ControlType="Визуальный контроль", ResultType="да/нет",  BollExpected=true, IsRequired=true,  InspectionResults="пройдено", Inspectors="Иванов", Measurements="true", ControlDate= "04.11.2014",ExpectedResult="true" },
+                new Inspection{Code="2", Name="Приемка сварочного флюса по сертификатам", TestSubject="Проверка на соответствие  НД", ControlType="Визуальный контроль", ResultType="да/нет",  BollExpected=true, IsRequired=true, InspectionResults="пройдено", Inspectors="Иванов", Measurements="true", ControlDate= "04.11.2014" ,ExpectedResult="true"},
+                new Inspection{Code="3", Name="Приварка планок", TestSubject="Приварка планок, ремонт технологического шва", ControlType="Визуальный контроль", ResultType="Диапазон", MinExpected=100, MaxExpected=200,  IsRequired=false, InspectionResults="пройдено", Inspectors="Иванов", Measurements="150", ControlDate= "04.11.2014",ExpectedResult="100-200" },
+                new Inspection{Code="4", Name="Гидростатическое испытание ", TestSubject="Время выдержки под давлением", ControlType="Проверка по документам", ResultType="Диапазон", MinExpected=100, MaxExpected=200,  IsRequired=true, InspectionResults="ремонт", Inspectors="Иванов", Measurements="85", ControlDate= "04.11.2014", ExpectedResult="100-200"}
             };
             return inspections;
         }
@@ -39,5 +35,11 @@ namespace PrizmMain.DummyData
         public int MaxExpected { get; set; }
         public bool BollExpected { get; set; }
         public bool IsRequired { get; set; }
+
+        public string Measurements { get; set; }
+        public string InspectionResults { get; set; }
+        public string Inspectors { get; set; }
+        public string ControlDate { get; set; }
+        public string ExpectedResult{ get; set; }
     }
 }

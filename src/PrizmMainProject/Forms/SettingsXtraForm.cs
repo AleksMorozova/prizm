@@ -69,11 +69,6 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
         
     }
 }

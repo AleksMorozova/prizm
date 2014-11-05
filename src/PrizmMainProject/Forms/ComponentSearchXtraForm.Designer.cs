@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,7 +58,6 @@
             this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.underButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.leftButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
@@ -77,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // diameterThicknessSubGrid
@@ -109,16 +107,16 @@
             // searchResultsGrid
             // 
             this.searchResultsGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode1.LevelTemplate = this.diameterThicknessSubGrid;
-            gridLevelNode1.RelationName = "Tails";
+            gridLevelNode2.LevelTemplate = this.diameterThicknessSubGrid;
+            gridLevelNode2.RelationName = "Tails";
             this.searchResultsGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.searchResultsGrid.Location = new System.Drawing.Point(25, 155);
+            gridLevelNode2});
+            this.searchResultsGrid.Location = new System.Drawing.Point(30, 151);
             this.searchResultsGrid.MainView = this.searchResultsView;
             this.searchResultsGrid.Name = "searchResultsGrid";
             this.searchResultsGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryButtonEdit});
-            this.searchResultsGrid.Size = new System.Drawing.Size(862, 241);
+            this.searchResultsGrid.Size = new System.Drawing.Size(880, 268);
             this.searchResultsGrid.TabIndex = 7;
             this.searchResultsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.searchResultsView,
@@ -198,59 +196,57 @@
             // 
             this.repositoryButtonEdit.AutoHeight = false;
             this.repositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.repositoryButtonEdit.Name = "repositoryButtonEdit";
             this.repositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // searchComponentryButton
             // 
-            this.searchComponentryButton.Location = new System.Drawing.Point(810, 69);
+            this.searchComponentryButton.Location = new System.Drawing.Point(582, 63);
             this.searchComponentryButton.Name = "searchComponentryButton";
-            this.searchComponentryButton.Size = new System.Drawing.Size(77, 22);
+            this.searchComponentryButton.Size = new System.Drawing.Size(89, 21);
             this.searchComponentryButton.StyleController = this.searchComponentLayout;
             this.searchComponentryButton.TabIndex = 3;
             this.searchComponentryButton.Text = "Поиск";
             // 
             // searchComponentLayout
             // 
-            this.searchComponentLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchComponentLayout.Controls.Add(this.searchResultsGrid);
             this.searchComponentLayout.Controls.Add(this.componentNumber);
             this.searchComponentLayout.Controls.Add(this.searchComponentryButton);
             this.searchComponentLayout.Controls.Add(this.componentType);
             this.searchComponentLayout.Controls.Add(this.certificate);
-            this.searchComponentLayout.Location = new System.Drawing.Point(13, 13);
+            this.searchComponentLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchComponentLayout.Location = new System.Drawing.Point(0, 0);
             this.searchComponentLayout.Name = "searchComponentLayout";
             this.searchComponentLayout.Root = this.serchEditLayout;
-            this.searchComponentLayout.Size = new System.Drawing.Size(912, 425);
+            this.searchComponentLayout.Size = new System.Drawing.Size(940, 450);
             this.searchComponentLayout.TabIndex = 8;
             this.searchComponentLayout.Text = "searchComponentLayout";
             // 
             // componentNumber
             // 
-            this.componentNumber.Location = new System.Drawing.Point(40, 71);
+            this.componentNumber.Location = new System.Drawing.Point(30, 64);
             this.componentNumber.Name = "componentNumber";
-            this.componentNumber.Size = new System.Drawing.Size(207, 20);
+            this.componentNumber.Size = new System.Drawing.Size(186, 20);
             this.componentNumber.StyleController = this.searchComponentLayout;
             this.componentNumber.TabIndex = 0;
             // 
             // componentType
             // 
-            this.componentType.Location = new System.Drawing.Point(281, 71);
+            this.componentType.Location = new System.Drawing.Point(230, 64);
             this.componentType.Name = "componentType";
             this.componentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.componentType.Size = new System.Drawing.Size(207, 20);
+            this.componentType.Size = new System.Drawing.Size(136, 20);
             this.componentType.StyleController = this.searchComponentLayout;
             this.componentType.TabIndex = 1;
             // 
             // certificate
             // 
-            this.certificate.Location = new System.Drawing.Point(522, 71);
+            this.certificate.Location = new System.Drawing.Point(380, 64);
             this.certificate.Name = "certificate";
-            this.certificate.Size = new System.Drawing.Size(206, 20);
+            this.certificate.Size = new System.Drawing.Size(186, 20);
             this.certificate.StyleController = this.searchComponentLayout;
             this.certificate.TabIndex = 2;
             // 
@@ -264,7 +260,8 @@
             this.serchParametersLayoutGroup});
             this.serchEditLayout.Location = new System.Drawing.Point(0, 0);
             this.serchEditLayout.Name = "serchEditLayout";
-            this.serchEditLayout.Size = new System.Drawing.Size(912, 425);
+            this.serchEditLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 7);
+            this.serchEditLayout.Size = new System.Drawing.Size(940, 450);
             this.serchEditLayout.Text = "serchEditLayout";
             this.serchEditLayout.TextVisible = false;
             // 
@@ -273,9 +270,9 @@
             this.searchGridLayoutGroup.CustomizationFormText = "Результаты поиска";
             this.searchGridLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.searchGridLayout});
-            this.searchGridLayoutGroup.Location = new System.Drawing.Point(0, 107);
+            this.searchGridLayoutGroup.Location = new System.Drawing.Point(0, 98);
             this.searchGridLayoutGroup.Name = "searchGridLayoutGroup";
-            this.searchGridLayoutGroup.Size = new System.Drawing.Size(892, 298);
+            this.searchGridLayoutGroup.Size = new System.Drawing.Size(920, 335);
             this.searchGridLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
             this.searchGridLayoutGroup.Text = "Результаты поиска";
             // 
@@ -285,7 +282,8 @@
             this.searchGridLayout.CustomizationFormText = "searchGridLayout";
             this.searchGridLayout.Location = new System.Drawing.Point(0, 0);
             this.searchGridLayout.Name = "searchGridLayout";
-            this.searchGridLayout.Size = new System.Drawing.Size(866, 245);
+            this.searchGridLayout.Size = new System.Drawing.Size(894, 282);
+            this.searchGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.searchGridLayout.Text = "searchGridLayout";
             this.searchGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.searchGridLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -299,12 +297,11 @@
             this.componentNumberLayout,
             this.componentTypeLayout,
             this.certificateLayout,
-            this.searchButtonLayout,
             this.underButtonEmptySpace,
-            this.leftButtonEmptySpace});
+            this.searchButtonLayout});
             this.serchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.serchParametersLayoutGroup.Name = "serchParametersLayoutGroup";
-            this.serchParametersLayoutGroup.Size = new System.Drawing.Size(892, 107);
+            this.serchParametersLayoutGroup.Size = new System.Drawing.Size(920, 98);
             this.serchParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
             this.serchParametersLayoutGroup.Text = "Параметры поиска";
             // 
@@ -314,8 +311,8 @@
             this.componentNumberLayout.CustomizationFormText = "Номер комплектующего";
             this.componentNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.componentNumberLayout.Name = "componentNumberLayout";
-            this.componentNumberLayout.Size = new System.Drawing.Size(241, 54);
-            this.componentNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.componentNumberLayout.Size = new System.Drawing.Size(200, 45);
+            this.componentNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.componentNumberLayout.Text = "Номер комплектующего";
             this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentNumberLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -324,10 +321,10 @@
             // 
             this.componentTypeLayout.Control = this.componentType;
             this.componentTypeLayout.CustomizationFormText = "Тип";
-            this.componentTypeLayout.Location = new System.Drawing.Point(241, 0);
+            this.componentTypeLayout.Location = new System.Drawing.Point(200, 0);
             this.componentTypeLayout.Name = "componentTypeLayout";
-            this.componentTypeLayout.Size = new System.Drawing.Size(241, 54);
-            this.componentTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.componentTypeLayout.Size = new System.Drawing.Size(150, 45);
+            this.componentTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.componentTypeLayout.Text = "Тип";
             this.componentTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentTypeLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -336,10 +333,10 @@
             // 
             this.certificateLayout.Control = this.certificate;
             this.certificateLayout.CustomizationFormText = "Сертификат";
-            this.certificateLayout.Location = new System.Drawing.Point(482, 0);
+            this.certificateLayout.Location = new System.Drawing.Point(350, 0);
             this.certificateLayout.Name = "certificateLayout";
-            this.certificateLayout.Size = new System.Drawing.Size(240, 54);
-            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.certificateLayout.Size = new System.Drawing.Size(200, 45);
+            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.certificateLayout.Text = "Сертификат";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -348,13 +345,13 @@
             // 
             this.searchButtonLayout.Control = this.searchComponentryButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(755, 14);
+            this.searchButtonLayout.Location = new System.Drawing.Point(550, 0);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(111, 40);
-            this.searchButtonLayout.MinSize = new System.Drawing.Size(111, 40);
+            this.searchButtonLayout.MinSize = new System.Drawing.Size(100, 40);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(111, 40);
+            this.searchButtonLayout.Size = new System.Drawing.Size(100, 45);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 7, 7);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 15, 0);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextToControlDistance = 0;
@@ -365,21 +362,11 @@
             // 
             this.underButtonEmptySpace.AllowHotTrack = false;
             this.underButtonEmptySpace.CustomizationFormText = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Location = new System.Drawing.Point(755, 0);
+            this.underButtonEmptySpace.Location = new System.Drawing.Point(650, 0);
             this.underButtonEmptySpace.Name = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Size = new System.Drawing.Size(111, 14);
+            this.underButtonEmptySpace.Size = new System.Drawing.Size(244, 45);
             this.underButtonEmptySpace.Text = "underButtonEmptySpace";
             this.underButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // leftButtonEmptySpace
-            // 
-            this.leftButtonEmptySpace.AllowHotTrack = false;
-            this.leftButtonEmptySpace.CustomizationFormText = "leftButtonEmptySpace";
-            this.leftButtonEmptySpace.Location = new System.Drawing.Point(722, 0);
-            this.leftButtonEmptySpace.Name = "leftButtonEmptySpace";
-            this.leftButtonEmptySpace.Size = new System.Drawing.Size(33, 54);
-            this.leftButtonEmptySpace.Text = "leftButtonEmptySpace";
-            this.leftButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ComponentSearchXtraForm
             // 
@@ -408,7 +395,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftButtonEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,8 +419,6 @@
         private DevExpress.XtraLayout.LayoutControlItem componentTypeLayout;
         private DevExpress.XtraLayout.LayoutControlItem certificateLayout;
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem underButtonEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem leftButtonEmptySpace;
         private DevExpress.XtraGrid.Columns.GridColumn numberColumn;
         private DevExpress.XtraGrid.Columns.GridColumn typeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn certificateNumberColumn;
@@ -443,5 +427,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectionDateColumn;
         private DevExpress.XtraGrid.Columns.GridColumn editButtonColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryButtonEdit;
+        private DevExpress.XtraLayout.EmptySpaceItem underButtonEmptySpace;
     }
 }

@@ -29,7 +29,9 @@ namespace PrizmMain.Forms
             thickness.Text = "63";
 
 
-
+            var inspectionDs = new PrizmMain.DummyData.InspectionDummy();
+            var inspectionData = inspectionDs.GetDummyInspection();
+            inspectionOperation.DataSource = inspectionData;
 
         }
     }
