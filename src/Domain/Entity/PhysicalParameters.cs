@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Mill
+namespace Domain.Entity
 {
     public class PhysicalParameters
     {
-        public virtual int Id { get; set; }
-        public virtual string Number { get; set; }
     }
 }

@@ -16,6 +16,9 @@ namespace PrizmMain.Forms
         public ExternalFilesXtraForm()
         {
             InitializeComponent();
+            BindingList<Domain.Entity.File> list = new BindingList<Domain.Entity.File>();
+            list.Add( new Domain.Entity.File() { Description = "Aaa", FileName = "ERER", UploadDate = DateTime.Now });
+            files.DataSource = list;
         }
     }
 }
