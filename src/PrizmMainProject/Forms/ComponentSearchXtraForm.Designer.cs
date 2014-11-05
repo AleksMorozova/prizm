@@ -82,7 +82,7 @@
             // 
             // diameterThicknessSubGrid
             // 
-            this.diameterThicknessSubGrid.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.diameterThicknessSubGrid.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.MenuBar;
             this.diameterThicknessSubGrid.Appearance.EvenRow.Options.UseBackColor = true;
             this.diameterThicknessSubGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.diameterColumn,
@@ -129,7 +129,7 @@
             // 
             // searchResultsView
             // 
-            this.searchResultsView.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.searchResultsView.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.MenuBar;
             this.searchResultsView.Appearance.EvenRow.Options.UseBackColor = true;
             this.searchResultsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.numberColumn,
