@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    class PipeTest
+    public class PipeTest
     {
         public virtual Guid Id { get; set; }
         public virtual string Code { get; set; }
