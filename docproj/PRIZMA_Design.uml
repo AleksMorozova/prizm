@@ -20872,8 +20872,8 @@ Command&lt;-&gt;View&lt;-&gt;Model
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="uvEko0Sho0+q+xQM49ZNzgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">232</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">564</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">212</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">572</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">72</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Entity logic
@@ -20882,7 +20882,7 @@ Command&lt;-&gt;View&lt;-&gt;Model
 <XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="0ZEZJ1wUiUCqNmNc5EIqxwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">312,562;303,565</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">312,562;283,573</XPD:ATTR>
 <XPD:REF name="Head">uvEko0Sho0+q+xQM49ZNzgAA</XPD:REF>
 <XPD:REF name="Tail">2l2YQFG3eUCJ+rq5Lyf4zwAA</XPD:REF>
 </XPD:OBJ>
