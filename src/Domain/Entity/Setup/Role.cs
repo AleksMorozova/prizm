@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity
+namespace Domain.Entity.Setup
 {
     public class Role
     {
