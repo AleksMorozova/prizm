@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject edit = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject ship = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject unship = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.openRailcarButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -46,9 +46,7 @@
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.shippedDate = new DevExpress.XtraEditors.DateEdit();
-            this.railcarNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
-            this.destination = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.destinationLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,6 +58,8 @@
             this.searchLayoutGroupEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
+            this.destination = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unshipButton)).BeginInit();
@@ -69,9 +69,7 @@
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).BeginInit();
@@ -83,13 +81,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // openRailcarButton
             // 
             this.openRailcarButton.AutoHeight = false;
             this.openRailcarButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "view railcar", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("openRailcarButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), edit, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "view railcar", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("openRailcarButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.openRailcarButton.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.openRailcarButton.Name = "openRailcarButton";
             this.openRailcarButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -98,7 +98,7 @@
             // 
             this.shipButton.AutoHeight = false;
             this.shipButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("shipButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), ship, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("shipButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.shipButton.Name = "shipButton";
             this.shipButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -106,7 +106,7 @@
             // 
             this.unshipButton.AutoHeight = false;
             this.unshipButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("unshipButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), unship, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("unshipButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -204,8 +204,8 @@
             this.generalLayout.Controls.Add(this.railcarList);
             this.generalLayout.Controls.Add(this.searchButton);
             this.generalLayout.Controls.Add(this.shippedDate);
-            this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Controls.Add(this.certificateNumber);
+            this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Controls.Add(this.destination);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(5, 5);
@@ -230,17 +230,6 @@
             this.shippedDate.StyleController = this.generalLayout;
             this.shippedDate.TabIndex = 12;
             // 
-            // railcarNumber
-            // 
-            this.railcarNumber.Location = new System.Drawing.Point(28, 51);
-            this.railcarNumber.Margin = new System.Windows.Forms.Padding(10);
-            this.railcarNumber.Name = "railcarNumber";
-            this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.railcarNumber.Size = new System.Drawing.Size(124, 20);
-            this.railcarNumber.StyleController = this.generalLayout;
-            this.railcarNumber.TabIndex = 7;
-            // 
             // certificateNumber
             // 
             this.certificateNumber.Location = new System.Drawing.Point(436, 51);
@@ -248,16 +237,6 @@
             this.certificateNumber.Size = new System.Drawing.Size(166, 20);
             this.certificateNumber.StyleController = this.generalLayout;
             this.certificateNumber.TabIndex = 14;
-            // 
-            // destination
-            // 
-            this.destination.Location = new System.Drawing.Point(186, 51);
-            this.destination.Name = "destination";
-            this.destination.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.destination.Size = new System.Drawing.Size(216, 20);
-            this.destination.StyleController = this.generalLayout;
-            this.destination.TabIndex = 3;
             // 
             // generalLayoutGroup
             // 
@@ -398,6 +377,23 @@
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
+            // railcarNumber
+            // 
+            this.railcarNumber.Location = new System.Drawing.Point(28, 51);
+            this.railcarNumber.Margin = new System.Windows.Forms.Padding(10);
+            this.railcarNumber.Name = "railcarNumber";
+            this.railcarNumber.Size = new System.Drawing.Size(124, 20);
+            this.railcarNumber.StyleController = this.generalLayout;
+            this.railcarNumber.TabIndex = 7;
+            // 
+            // destination
+            // 
+            this.destination.Location = new System.Drawing.Point(186, 51);
+            this.destination.Name = "destination";
+            this.destination.Size = new System.Drawing.Size(216, 20);
+            this.destination.StyleController = this.generalLayout;
+            this.destination.TabIndex = 3;
+            // 
             // RailcarSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,9 +413,7 @@
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).EndInit();
@@ -431,6 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,9 +444,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn unshipGridColumn;
         private DevExpress.XtraLayout.LayoutControl generalLayout;
         private DevExpress.XtraEditors.DateEdit shippedDate;
-        private DevExpress.XtraEditors.ComboBoxEdit railcarNumber;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
-        private DevExpress.XtraEditors.ComboBoxEdit destination;
         private DevExpress.XtraLayout.LayoutControlGroup generalLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem certificateNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
@@ -465,5 +459,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem searchLayoutGroupEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonEmptySpace;
         private DevExpress.XtraLayout.LayoutControlGroup resultParametersLayoutGroup;
+        private DevExpress.XtraEditors.TextEdit railcarNumber;
+        private DevExpress.XtraEditors.TextEdit destination;
     }
 }
