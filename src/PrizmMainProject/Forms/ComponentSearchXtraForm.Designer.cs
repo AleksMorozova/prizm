@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode tailsGridLevelNode = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject componentrySearchSerializableAppearance = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,11 +82,14 @@
             // 
             // diameterThicknessSubGrid
             // 
+            this.diameterThicknessSubGrid.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.diameterThicknessSubGrid.Appearance.EvenRow.Options.UseBackColor = true;
             this.diameterThicknessSubGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.diameterColumn,
             this.thicknessColumn});
             this.diameterThicknessSubGrid.GridControl = this.searchResultsGrid;
             this.diameterThicknessSubGrid.Name = "diameterThicknessSubGrid";
+            this.diameterThicknessSubGrid.OptionsView.EnableAppearanceEvenRow = true;
             this.diameterThicknessSubGrid.OptionsView.ShowGroupPanel = false;
             this.diameterThicknessSubGrid.ViewCaption = "Конекторы";
             // 
@@ -109,10 +112,10 @@
             // searchResultsGrid
             // 
             this.searchResultsGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            tailsGridLevelNode.LevelTemplate = this.diameterThicknessSubGrid;
-            tailsGridLevelNode.RelationName = "Tails";
+            gridLevelNode1.LevelTemplate = this.diameterThicknessSubGrid;
+            gridLevelNode1.RelationName = "Tails";
             this.searchResultsGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            tailsGridLevelNode});
+            gridLevelNode1});
             this.searchResultsGrid.Location = new System.Drawing.Point(25, 155);
             this.searchResultsGrid.MainView = this.searchResultsView;
             this.searchResultsGrid.Name = "searchResultsGrid";
@@ -126,6 +129,8 @@
             // 
             // searchResultsView
             // 
+            this.searchResultsView.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.searchResultsView.Appearance.EvenRow.Options.UseBackColor = true;
             this.searchResultsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.numberColumn,
             this.typeColumn,
@@ -136,6 +141,7 @@
             this.editButtonColumn});
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
+            this.searchResultsView.OptionsView.EnableAppearanceEvenRow = true;
             this.searchResultsView.OptionsView.ShowGroupPanel = false;
             // 
             // numberColumn
@@ -198,7 +204,7 @@
             // 
             this.repositoryButtonEdit.AutoHeight = false;
             this.repositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), componentrySearchSerializableAppearance, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryButtonEdit.Name = "repositoryButtonEdit";
             this.repositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
