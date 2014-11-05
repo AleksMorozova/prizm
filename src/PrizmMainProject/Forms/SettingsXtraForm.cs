@@ -66,7 +66,10 @@ namespace PrizmMain.Forms
             editDictionary.ShowDialog();
         }
 
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
 
+        }
         
     }
 }
