@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class File : Entity
+    public class File : Item
     {
         public virtual string FileName { get; set; }
         public virtual string Description { get; set; }

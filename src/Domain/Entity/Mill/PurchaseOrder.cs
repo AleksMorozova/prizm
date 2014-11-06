@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PurchaseOrder : Entity
+    public class PurchaseOrder : Item
     {
         public virtual string Number { get; set; }
         public virtual DateTime Date { get; set; }

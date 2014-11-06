@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Entity
 {
     // TODO: PipelinePiece 
-    public class PipelinePiece : Entity
+    public class PipelinePiece : Item
     {
         public float Length { get; set; }
     }

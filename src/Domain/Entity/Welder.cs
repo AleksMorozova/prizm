@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class Welder : Entity
+    public class Welder : Item
     {
         public virtual string Certificate { get; set; }
         public virtual DateTime CertificateExpitation { get; set; }

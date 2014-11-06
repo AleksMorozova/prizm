@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PhysicalParameters : Entity
+    public class PhysicalParameters : Item
     {
         protected PhysicalParameters()
         {

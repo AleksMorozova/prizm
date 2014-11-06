@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PipeTestResult : Entity
+    public class PipeTestResult : Item
     {
         public virtual PipeTest Operation { get; set; }
         public virtual DateTime Date { get; set; }

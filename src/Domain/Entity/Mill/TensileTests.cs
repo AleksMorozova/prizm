@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class TensileTests : Entity
+    public class TensileTests : Item
     {
         
     }

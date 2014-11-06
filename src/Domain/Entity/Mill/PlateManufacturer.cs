@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PlateManufacturer : Entity
+    public class PlateManufacturer : Item
     {
         public virtual string Name { get; set; }
         public virtual ICollection<Heat> Heats { get; set; }

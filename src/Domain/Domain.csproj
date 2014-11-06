@@ -39,10 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\IRoleRepository.cs" />
-    <Compile Include="DAL\IUserRepository.cs" />
-    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="DAL\IDAO.cs" />
+    <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
@@ -67,7 +65,6 @@
     <Compile Include="Entity\Component.cs" />
     <Compile Include="Entity\ComponentInspection.cs" />
     <Compile Include="Entity\Connector.cs" />
-    <Compile Include="Entity\CoatingSettings.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Project.cs" />
@@ -76,6 +73,10 @@
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\Mill\" />
+    <Folder Include="DAL\Setup\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class Inspector : Entity
+    public class Inspector : Item
     {
         public virtual PersonName Name { get; set; }
         public virtual string Certificate { get; set; }

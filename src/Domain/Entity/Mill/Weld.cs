@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class Weld : Entity
+    public class Weld : Item
     {
         public virtual DateTime Date { get; set; }
         public virtual ICollection<Welder> Welders { get; set; }

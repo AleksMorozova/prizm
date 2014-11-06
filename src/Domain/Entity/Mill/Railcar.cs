@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class Railcar : Entity
+    public class Railcar : Item
     {
         public virtual string Number { get; set; }
         public virtual string Certificate { get; set; }

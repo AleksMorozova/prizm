@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Entity.Joint
 {
     // TODO: remove?
-    public class KilometerPost : Entity
+    public class KilometerPost : Item
     {
     }
 }
