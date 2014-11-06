@@ -33,6 +33,9 @@
     <Reference Include="Moq">
       <HintPath>..\..\external\Moq.4.0.10827.Final\NET40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\FileStreamInvestigation\external\NHibernate-3.3.3.SP1-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\external\NUnit-2.6.3\bin\nunit.framework.dll</HintPath>
@@ -49,6 +52,12 @@
     <Compile Include="AuditTrailTests.cs" />
     <Compile Include="SetupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{495328aa-7441-4e86-8003-3d881e8e0fdf}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
