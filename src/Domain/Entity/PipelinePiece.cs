@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity
+namespace Domain.Entity.Joint
 {
-    // TODO: PipelinePiece 
-    public class PipelinePiece : Item
+    public class PipelinePiece
     {
         public float Length { get; set; }
     }

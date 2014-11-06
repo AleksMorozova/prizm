@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PhysicalParameters : Item
+    public class PhysicalParameters
     {
-        protected PhysicalParameters()
-        {
-
-        }
+        public virtual int Id { get; set; }
+        public virtual string Number { get; set; }
     }
 }

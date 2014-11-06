@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class TensileTests : Item
+    public class TensileTests
     {
-        
+        public virtual int Id { get; set; }
+        public virtual string Number { get; set; }
     }
 }
