@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class ChemicalComposition : Item
+    public class ChemicalComposition
     {
-        protected ChemicalComposition()
-        {
-
-        }
+        public virtual int Id { get; set; }
+        public virtual string Number { get; set; }
     }
 }

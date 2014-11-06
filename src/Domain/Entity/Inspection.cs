@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Joint
+namespace Domain.Entity
 {
-    public class KilometerPost
+    public class Inspection
     {
-        public Guid ID { get; set; }
     }
 }

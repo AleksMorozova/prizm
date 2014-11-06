@@ -7,23 +7,25 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    // FIX: remove??
-    public class Project : Item
+    //TODO : uncomment Pipes and KilometerPosts
+    public class Project
     {
-        public virtual string Title { get; set; }
-        public virtual PersonName Client { get; set; }
-        public virtual PersonName Designer { get; set; }
-
-        public Project(string title, PersonName client,PersonName designer)
+        public Project()
         {
-            this.Title = title;
-            this.Client = client;
-            this.Designer = designer;
+            this.Heats = new List<Heat>();
+            //this.Pipes = new List<Pipe>();
+            this.Railcars = new List<Railcar>();
+            //this.KilometerPosts = new List<KilometerPost>();
         }
 
-        protected Project()
-        {
+        public string Title { get; set; }
+        public string Client { get; set; }
+        public string Designer { get; set; }
+        public PipeSettings PipeSetting { get; set; }
 
-        }
+        public virtual ICollection<Heat> Heats { get; set; }
+        //public virtual ICollection<Pipe> Pipes { get; set; }
+        public virtual ICollection<Railcar> Railcars { get; set; }
+        //public virtual ICollection<KilometerPost> KilometerPosts { get; set; }
     }
 }

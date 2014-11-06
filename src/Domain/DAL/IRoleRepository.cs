@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Joint
+namespace Domain.DAL
 {
-    public class KilometerPost
+    public interface IRoleRepository : IRepository
     {
-        public Guid ID { get; set; }
+        //role specific operation
     }
 }
