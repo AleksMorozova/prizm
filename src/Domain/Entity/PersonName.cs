@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
+    // TODO: Name convert Funtion (property)
     public class PersonName : Entity
     {
         public virtual string FirstName { get; set; }

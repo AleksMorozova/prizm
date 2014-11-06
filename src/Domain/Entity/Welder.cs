@@ -17,7 +17,7 @@ namespace Domain.Entity
         public virtual PersonName Name { get; set; }
         public ICollection<Weld> Welds { get; set; }
 
-        public Welder()
+        protected Welder()
         {
             this.Welds = new List<Weld>();
         }

@@ -15,7 +15,7 @@ namespace Domain.Entity
 
         public virtual ICollection<PipeTestResult> Results { get; set; }
 
-        public Inspector()
+        protected Inspector()
         {
             this.Results = new List<PipeTestResult>();  
         }

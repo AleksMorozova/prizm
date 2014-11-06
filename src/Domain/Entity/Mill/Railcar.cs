@@ -15,5 +15,10 @@ namespace Domain.Entity.Mill
         public virtual DateTime DeliveryDate { get; set; }
 
         public virtual ICollection<Pipe> Pipes { get; set; }
+
+        protected Railcar()
+        {
+            this.Pipes = new List<Pipe>();
+        }
     }
 }

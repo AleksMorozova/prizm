@@ -12,7 +12,7 @@ namespace Domain.Entity.Mill
         public virtual ChemicalComposition ChemicalComposition { get; set; }
         public virtual ICollection<Plate> Plates { get; set; }
 
-        public Heat()
+        protected Heat()
         {
             this.Plates = new List<Plate>();
         }

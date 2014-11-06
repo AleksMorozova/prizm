@@ -13,7 +13,7 @@ namespace Domain.Entity.Mill
         
         public virtual ICollection<Pipe> Pipes { get; set; }
 
-        public PurchaseOrder()
+        protected PurchaseOrder()
         {
             this.Pipes = new List<Pipe>();
         }

@@ -21,7 +21,7 @@ namespace Domain.Entity.Mill
         public virtual ICollection<Weld> Welds { get; set; }
         public virtual ICollection<PipeTestResult> PipeTestResult { get; set; }
 
-        public Pipe()
+        protected Pipe()
         {
             this.Welds = new List<Weld>();
             this.PipeTestResult = new List<PipeTestResult>();
