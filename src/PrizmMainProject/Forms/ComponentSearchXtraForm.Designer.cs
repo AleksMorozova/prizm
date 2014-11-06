@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.diameterThicknessSubGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.thicknessColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,8 +56,8 @@
             this.componentNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.componentTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.underButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).BeginInit();
@@ -74,17 +74,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // diameterThicknessSubGrid
             // 
+            this.diameterThicknessSubGrid.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.diameterThicknessSubGrid.Appearance.EvenRow.Options.UseBackColor = true;
             this.diameterThicknessSubGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.diameterColumn,
             this.thicknessColumn});
             this.diameterThicknessSubGrid.GridControl = this.searchResultsGrid;
             this.diameterThicknessSubGrid.Name = "diameterThicknessSubGrid";
+            this.diameterThicknessSubGrid.OptionsView.EnableAppearanceEvenRow = true;
             this.diameterThicknessSubGrid.OptionsView.ShowGroupPanel = false;
             this.diameterThicknessSubGrid.ViewCaption = "Конекторы";
             // 
@@ -107,10 +110,10 @@
             // searchResultsGrid
             // 
             this.searchResultsGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode2.LevelTemplate = this.diameterThicknessSubGrid;
-            gridLevelNode2.RelationName = "Tails";
+            gridLevelNode1.LevelTemplate = this.diameterThicknessSubGrid;
+            gridLevelNode1.RelationName = "Tails";
             this.searchResultsGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.searchResultsGrid.Location = new System.Drawing.Point(30, 151);
             this.searchResultsGrid.MainView = this.searchResultsView;
             this.searchResultsGrid.Name = "searchResultsGrid";
@@ -124,6 +127,8 @@
             // 
             // searchResultsView
             // 
+            this.searchResultsView.Appearance.EvenRow.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.searchResultsView.Appearance.EvenRow.Options.UseBackColor = true;
             this.searchResultsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.numberColumn,
             this.typeColumn,
@@ -134,6 +139,7 @@
             this.editButtonColumn});
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
+            this.searchResultsView.OptionsView.EnableAppearanceEvenRow = true;
             this.searchResultsView.OptionsView.ShowGroupPanel = false;
             // 
             // numberColumn
@@ -196,7 +202,7 @@
             // 
             this.repositoryButtonEdit.AutoHeight = false;
             this.repositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryButtonEdit.Name = "repositoryButtonEdit";
             this.repositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -341,6 +347,16 @@
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLayout.TextSize = new System.Drawing.Size(123, 13);
             // 
+            // underButtonEmptySpace
+            // 
+            this.underButtonEmptySpace.AllowHotTrack = false;
+            this.underButtonEmptySpace.CustomizationFormText = "underButtonEmptySpace";
+            this.underButtonEmptySpace.Location = new System.Drawing.Point(650, 0);
+            this.underButtonEmptySpace.Name = "underButtonEmptySpace";
+            this.underButtonEmptySpace.Size = new System.Drawing.Size(244, 45);
+            this.underButtonEmptySpace.Text = "underButtonEmptySpace";
+            this.underButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // searchButtonLayout
             // 
             this.searchButtonLayout.Control = this.searchComponentryButton;
@@ -357,16 +373,6 @@
             this.searchButtonLayout.TextToControlDistance = 0;
             this.searchButtonLayout.TextVisible = false;
             this.searchButtonLayout.TrimClientAreaToControl = false;
-            // 
-            // underButtonEmptySpace
-            // 
-            this.underButtonEmptySpace.AllowHotTrack = false;
-            this.underButtonEmptySpace.CustomizationFormText = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Location = new System.Drawing.Point(650, 0);
-            this.underButtonEmptySpace.Name = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Size = new System.Drawing.Size(244, 45);
-            this.underButtonEmptySpace.Text = "underButtonEmptySpace";
-            this.underButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ComponentSearchXtraForm
             // 
@@ -393,8 +399,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
