@@ -13,6 +13,12 @@ namespace Domain.Entity.Mill
         
         public virtual ICollection<Pipe> Pipes { get; set; }
 
+        public PurchaseOrder(string number, DateTime date) : this()
+        {
+            this.Number = number;
+            this.Date = date;
+        }
+
         protected PurchaseOrder()
         {
             this.Pipes = new List<Pipe>();

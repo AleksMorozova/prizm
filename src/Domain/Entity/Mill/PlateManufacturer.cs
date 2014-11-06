@@ -11,6 +11,11 @@ namespace Domain.Entity.Mill
         public virtual string Name { get; set; }
         public virtual ICollection<Heat> Heats { get; set; }
 
+        public PlateManufacturer(string name):this()
+        {
+            this.Name = name;
+        }
+
         protected PlateManufacturer() 
         {
             this.Heats = new List<Heat>();

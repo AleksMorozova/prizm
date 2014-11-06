@@ -16,6 +16,13 @@ namespace Domain.Entity.Mill
 
         public virtual ICollection<Pipe> Pipes { get; set; }
 
+        public Railcar(string number, string certificate, string destination):this()
+        {
+            this.Number = number;
+            this.Certificate = certificate;
+            this.Destination = destination;
+        }
+
         protected Railcar()
         {
             this.Pipes = new List<Pipe>();

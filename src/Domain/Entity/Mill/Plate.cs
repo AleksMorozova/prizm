@@ -14,5 +14,19 @@ namespace Domain.Entity.Mill
         public virtual ChemicalComposition ChemicalComposition { get; set; }
         public virtual TensileTests TensileTests { get; set; }
         public virtual Pipe Pipe { get; set; }
+
+        public Plate(string number, int thickness, Heat heat, Pipe pipe)
+        {
+            this.Number = number;
+            this.Thicknes = thickness;
+            this.Heat = heat;
+            this.Pipe = pipe;
+        }
+
+        protected Plate()
+        {
+
+        }
+
     }
 }

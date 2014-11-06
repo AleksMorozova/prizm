@@ -8,6 +8,6 @@ namespace Domain.Entity.Mill
 {
     public class TensileTests : Entity
     {
-        public virtual string Number { get; set; }
+        
     }
 }

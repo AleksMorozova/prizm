@@ -15,6 +15,13 @@ namespace Domain.Entity
 
         public virtual ICollection<PipeTestResult> Results { get; set; }
 
+        public Inspector(PersonName name, string certificate, DateTime certificateExp):this()
+        {
+            this.Name = name;
+            this.Certificate = certificate;
+            this.CertificateExpiration = certificateExp;
+        }
+
         protected Inspector()
         {
             this.Results = new List<PipeTestResult>();  

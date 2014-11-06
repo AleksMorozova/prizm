@@ -15,7 +15,16 @@ namespace Domain.Entity
         public virtual int Grade { get; set; }
 
         public virtual PersonName Name { get; set; }
-        public ICollection<Weld> Welds { get; set; }
+        public virtual ICollection<Weld> Welds { get; set; }
+
+        public Welder(PersonName name, string certificate, DateTime certifExp, string stamp, int grade) : this()
+        {
+            this.Name = name;
+            this.Certificate = certificate;
+            this.CertificateExpitation = certifExp;
+            this.Stamp = stamp;
+            this.Grade = grade;
+        }
 
         protected Welder()
         {

@@ -21,11 +21,25 @@ namespace Domain.Entity.Mill
         public virtual ICollection<Weld> Welds { get; set; }
         public virtual ICollection<PipeTestResult> PipeTestResult { get; set; }
 
+        public Pipe(
+            int diameter, int wallThikness, int weigh, string type
+            )
+        {
+            this.Diameter = diameter;
+            this.WallThickness = wallThikness;
+            this.Weight = weigh;
+            this.Type = type;
+            this.Welds = new List<Weld>();
+            this.PipeTestResult = new List<PipeTestResult>();
+        }
+
         protected Pipe()
         {
             this.Welds = new List<Weld>();
             this.PipeTestResult = new List<PipeTestResult>();
         }
+
+
 
 
 

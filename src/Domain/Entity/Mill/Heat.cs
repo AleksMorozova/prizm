@@ -18,6 +18,7 @@ namespace Domain.Entity.Mill
             this.Number = number;
             this.PhysicalParameters = phisical;
             this.ChemicalComposition = chemical;
+            this.Plates = new List<Plate>();
         }
 
         protected Heat()
