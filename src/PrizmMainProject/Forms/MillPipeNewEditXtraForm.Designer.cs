@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode weldersGridLevelNode = new DevExpress.XtraGrid.GridLevelNode();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -289,10 +289,10 @@
             // weldingHistory
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode2.LevelTemplate = this.weldersListGridView;
-            gridLevelNode2.RelationName = "welders";
+            weldersGridLevelNode.LevelTemplate = this.weldersListGridView;
+            weldersGridLevelNode.RelationName = "welders";
             this.weldingHistory.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            weldersGridLevelNode});
             this.weldingHistory.Location = new System.Drawing.Point(193, 95);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
