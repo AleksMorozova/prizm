@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity
+namespace Domain.Entity.Mill
 {
-    public class Inspection
+    class PipeMillSizeType
     {
     }
 }
