@@ -8,6 +8,9 @@ namespace Domain.Entity.Mill
 {
     public class ChemicalComposition : Entity
     {
-        public virtual string Number { get; set; }
+        protected ChemicalComposition()
+        {
+
+        }
     }
 }
