@@ -50,8 +50,6 @@
     <Compile Include="DAL\Mill\IPurchaseOrderDAO.cs" />
     <Compile Include="DAL\Mill\IRailCarDAO.cs" />
     <Compile Include="DAL\Mill\IWelderDAO.cs" />
-    <Compile Include="DummyReposytory\RoleRepository.cs" />
-    <Compile Include="DummyReposytory\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
