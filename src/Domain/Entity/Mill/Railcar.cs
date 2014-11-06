@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class Railcar : Item
+    public class RailCar : Item
     {
         public virtual string Number { get; set; }
         public virtual string Certificate { get; set; }
@@ -16,14 +16,14 @@ namespace Domain.Entity.Mill
 
         public virtual ICollection<Pipe> Pipes { get; set; }
 
-        public Railcar(string number, string certificate, string destination):this()
+        public RailCar(string number, string certificate, string destination):this()
         {
             this.Number = number;
             this.Certificate = certificate;
             this.Destination = destination;
         }
 
-        protected Railcar()
+        protected RailCar()
         {
             this.Pipes = new List<Pipe>();
         }
