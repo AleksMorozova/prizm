@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Joint
 {
-    public class KilometerPost
+    // TODO: remove?
+    public class KilometerPost : Item
     {
-        public Guid ID { get; set; }
     }
 }
