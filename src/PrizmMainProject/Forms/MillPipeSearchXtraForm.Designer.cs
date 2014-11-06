@@ -29,10 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject editPipeSerializableAppearanceObject = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
+            this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
+            this.weldingDate = new DevExpress.XtraEditors.DateEdit();
+            this.internalCoatingDate = new DevExpress.XtraEditors.DateEdit();
+            this.pipeSize = new DevExpress.XtraEditors.TextEdit();
+            this.pipeMillStatus = new DevExpress.XtraEditors.TextEdit();
+            this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipesSearchResult = new DevExpress.XtraGrid.GridControl();
             this.pipesSearchResultview = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,60 +50,52 @@
             this.internalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pegNumber = new DevExpress.XtraEditors.TextEdit();
-            this.sizeGrade = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.internalCoatingDate = new DevExpress.XtraEditors.DateEdit();
-            this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
-            this.welding = new DevExpress.XtraEditors.DateEdit();
-            this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
-            this.pipeLocation = new DevExpress.XtraEditors.TextEdit();
-            this.pipeStatus = new DevExpress.XtraEditors.TextEdit();
             this.PipeSearchLayout = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.statusLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.locationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSizeLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.internalCoatingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeMillStatusLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.searchGroupTopEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.weldingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.externalCoatingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.weldDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.underSizeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.pegNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.underPegEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.overButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.internalCoatingDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.searchGroupButtomEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.searchButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.searchGroupEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLocation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatusLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupTopEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underSizeEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pegNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underPegEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.overButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupButtomEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // extraButton
@@ -105,40 +103,102 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), editPipeSerializableAppearanceObject, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(1086, 88);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 22);
-            this.searchButton.StyleController = this.PipeSearchLayoutControl;
-            this.searchButton.TabIndex = 48;
-            this.searchButton.Text = "Поиск";
             // 
             // PipeSearchLayoutControl
             // 
             this.PipeSearchLayoutControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PipeSearchLayoutControl.Controls.Add(this.pipesSearchResult);
             this.PipeSearchLayoutControl.Controls.Add(this.searchButton);
-            this.PipeSearchLayoutControl.Controls.Add(this.pegNumber);
-            this.PipeSearchLayoutControl.Controls.Add(this.sizeGrade);
-            this.PipeSearchLayoutControl.Controls.Add(this.internalCoatingDate);
-            this.PipeSearchLayoutControl.Controls.Add(this.pipeNumber);
-            this.PipeSearchLayoutControl.Controls.Add(this.welding);
             this.PipeSearchLayoutControl.Controls.Add(this.externalCoatingDate);
-            this.PipeSearchLayoutControl.Controls.Add(this.pipeLocation);
-            this.PipeSearchLayoutControl.Controls.Add(this.pipeStatus);
-            this.PipeSearchLayoutControl.Location = new System.Drawing.Point(13, 13);
+            this.PipeSearchLayoutControl.Controls.Add(this.weldingDate);
+            this.PipeSearchLayoutControl.Controls.Add(this.internalCoatingDate);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeSize);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeMillStatus);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeNumber);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipesSearchResult);
+            this.PipeSearchLayoutControl.Location = new System.Drawing.Point(1, 4);
             this.PipeSearchLayoutControl.Name = "PipeSearchLayoutControl";
+            this.PipeSearchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(92, 342, 250, 350);
             this.PipeSearchLayoutControl.Root = this.PipeSearchLayout;
-            this.PipeSearchLayoutControl.Size = new System.Drawing.Size(1188, 445);
+            this.PipeSearchLayoutControl.Size = new System.Drawing.Size(1210, 461);
             this.PipeSearchLayoutControl.TabIndex = 51;
             this.PipeSearchLayoutControl.Text = "layoutControl";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(620, 61);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(86, 22);
+            this.searchButton.StyleController = this.PipeSearchLayoutControl;
+            this.searchButton.TabIndex = 40;
+            this.searchButton.Text = "Поиск";
+            // 
+            // externalCoatingDate
+            // 
+            this.externalCoatingDate.EditValue = null;
+            this.externalCoatingDate.Location = new System.Drawing.Point(241, 107);
+            this.externalCoatingDate.Name = "externalCoatingDate";
+            this.externalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.externalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.externalCoatingDate.Size = new System.Drawing.Size(160, 20);
+            this.externalCoatingDate.StyleController = this.PipeSearchLayoutControl;
+            this.externalCoatingDate.TabIndex = 39;
+            // 
+            // weldingDate
+            // 
+            this.weldingDate.EditValue = null;
+            this.weldingDate.Location = new System.Drawing.Point(30, 107);
+            this.weldingDate.Name = "weldingDate";
+            this.weldingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldingDate.Size = new System.Drawing.Size(183, 20);
+            this.weldingDate.StyleController = this.PipeSearchLayoutControl;
+            this.weldingDate.TabIndex = 38;
+            // 
+            // internalCoatingDate
+            // 
+            this.internalCoatingDate.EditValue = null;
+            this.internalCoatingDate.Location = new System.Drawing.Point(429, 107);
+            this.internalCoatingDate.Name = "internalCoatingDate";
+            this.internalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.internalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.internalCoatingDate.Size = new System.Drawing.Size(160, 20);
+            this.internalCoatingDate.StyleController = this.PipeSearchLayoutControl;
+            this.internalCoatingDate.TabIndex = 37;
+            // 
+            // pipeSize
+            // 
+            this.pipeSize.Location = new System.Drawing.Point(241, 62);
+            this.pipeSize.Name = "pipeSize";
+            this.pipeSize.Size = new System.Drawing.Size(160, 20);
+            this.pipeSize.StyleController = this.PipeSearchLayoutControl;
+            this.pipeSize.TabIndex = 36;
+            // 
+            // pipeMillStatus
+            // 
+            this.pipeMillStatus.Location = new System.Drawing.Point(429, 62);
+            this.pipeMillStatus.Name = "pipeMillStatus";
+            this.pipeMillStatus.Size = new System.Drawing.Size(162, 20);
+            this.pipeMillStatus.StyleController = this.PipeSearchLayoutControl;
+            this.pipeMillStatus.TabIndex = 35;
+            // 
+            // pipeNumber
+            // 
+            this.pipeNumber.Location = new System.Drawing.Point(30, 62);
+            this.pipeNumber.Name = "pipeNumber";
+            this.pipeNumber.Size = new System.Drawing.Size(183, 20);
+            this.pipeNumber.StyleController = this.PipeSearchLayoutControl;
+            this.pipeNumber.TabIndex = 34;
             // 
             // pipesSearchResult
             // 
@@ -146,10 +206,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pipesSearchResult.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pipesSearchResult.Location = new System.Drawing.Point(27, 128);
+            this.pipesSearchResult.Location = new System.Drawing.Point(30, 194);
             this.pipesSearchResult.MainView = this.pipesSearchResultview;
             this.pipesSearchResult.Name = "pipesSearchResult";
-            this.pipesSearchResult.Size = new System.Drawing.Size(1134, 298);
+            this.pipesSearchResult.Size = new System.Drawing.Size(1150, 243);
             this.pipesSearchResult.TabIndex = 33;
             this.pipesSearchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSearchResultview});
@@ -242,279 +302,181 @@
             this.extraGridColumn.VisibleIndex = 8;
             this.extraGridColumn.Width = 91;
             // 
-            // pegNumber
-            // 
-            this.pegNumber.Location = new System.Drawing.Point(969, 35);
-            this.pegNumber.Name = "pegNumber";
-            this.pegNumber.Size = new System.Drawing.Size(192, 20);
-            this.pegNumber.StyleController = this.PipeSearchLayoutControl;
-            this.pegNumber.TabIndex = 50;
-            // 
-            // sizeGrade
-            // 
-            this.sizeGrade.Location = new System.Drawing.Point(735, 35);
-            this.sizeGrade.Name = "sizeGrade";
-            this.sizeGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sizeGrade.Size = new System.Drawing.Size(200, 20);
-            this.sizeGrade.StyleController = this.PipeSearchLayoutControl;
-            this.sizeGrade.TabIndex = 46;
-            // 
-            // internalCoatingDate
-            // 
-            this.internalCoatingDate.EditValue = null;
-            this.internalCoatingDate.Location = new System.Drawing.Point(499, 89);
-            this.internalCoatingDate.Name = "internalCoatingDate";
-            this.internalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.internalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.internalCoatingDate.Size = new System.Drawing.Size(202, 20);
-            this.internalCoatingDate.StyleController = this.PipeSearchLayoutControl;
-            this.internalCoatingDate.TabIndex = 47;
-            // 
-            // pipeNumber
-            // 
-            this.pipeNumber.Location = new System.Drawing.Point(27, 35);
-            this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Size = new System.Drawing.Size(202, 20);
-            this.pipeNumber.StyleController = this.PipeSearchLayoutControl;
-            this.pipeNumber.TabIndex = 35;
-            // 
-            // welding
-            // 
-            this.welding.EditValue = null;
-            this.welding.Location = new System.Drawing.Point(27, 89);
-            this.welding.Name = "welding";
-            this.welding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.welding.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.welding.Size = new System.Drawing.Size(202, 20);
-            this.welding.StyleController = this.PipeSearchLayoutControl;
-            this.welding.TabIndex = 45;
-            // 
-            // externalCoatingDate
-            // 
-            this.externalCoatingDate.EditValue = null;
-            this.externalCoatingDate.Location = new System.Drawing.Point(263, 89);
-            this.externalCoatingDate.Name = "externalCoatingDate";
-            this.externalCoatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.externalCoatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.externalCoatingDate.Size = new System.Drawing.Size(202, 20);
-            this.externalCoatingDate.StyleController = this.PipeSearchLayoutControl;
-            this.externalCoatingDate.TabIndex = 42;
-            // 
-            // pipeLocation
-            // 
-            this.pipeLocation.Location = new System.Drawing.Point(499, 35);
-            this.pipeLocation.Name = "pipeLocation";
-            this.pipeLocation.Size = new System.Drawing.Size(202, 20);
-            this.pipeLocation.StyleController = this.PipeSearchLayoutControl;
-            this.pipeLocation.TabIndex = 39;
-            // 
-            // pipeStatus
-            // 
-            this.pipeStatus.Location = new System.Drawing.Point(263, 35);
-            this.pipeStatus.Name = "pipeStatus";
-            this.pipeStatus.Size = new System.Drawing.Size(202, 20);
-            this.pipeStatus.StyleController = this.PipeSearchLayoutControl;
-            this.pipeStatus.TabIndex = 37;
-            // 
             // PipeSearchLayout
             // 
             this.PipeSearchLayout.CustomizationFormText = "PipeSearchLayout";
             this.PipeSearchLayout.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.PipeSearchLayout.GroupBordersVisible = false;
             this.PipeSearchLayout.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.PipeSearchGridLayout,
-            this.searchButtonLayout,
-            this.pipeNumberLayout,
-            this.statusLayout,
-            this.locationLayout,
-            this.pipeSizeLayout,
-            this.internalCoatingDateLayout,
-            this.externalCoatingDateLayout,
-            this.weldDateLayout,
-            this.underSizeEmptySpace,
-            this.pegNumberLayout,
-            this.underPegEmptySpace,
-            this.overButtonEmptySpace});
+            this.searchLayoutGroup,
+            this.searchResultLayoutGroup});
             this.PipeSearchLayout.Location = new System.Drawing.Point(0, 0);
             this.PipeSearchLayout.Name = "PipeSearchLayout";
-            this.PipeSearchLayout.Size = new System.Drawing.Size(1188, 445);
+            this.PipeSearchLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 8, 0);
+            this.PipeSearchLayout.Size = new System.Drawing.Size(1210, 461);
             this.PipeSearchLayout.Text = "PipeSearchLayout";
             this.PipeSearchLayout.TextVisible = false;
             // 
-            // PipeSearchGridLayout
+            // searchLayoutGroup
             // 
-            this.PipeSearchGridLayout.Control = this.pipesSearchResult;
-            this.PipeSearchGridLayout.CustomizationFormText = "PipeSearchGridLayout";
-            this.PipeSearchGridLayout.Location = new System.Drawing.Point(0, 109);
-            this.PipeSearchGridLayout.Name = "PipeSearchGridLayout";
-            this.PipeSearchGridLayout.Size = new System.Drawing.Size(1168, 316);
-            this.PipeSearchGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.PipeSearchGridLayout.Text = "PipeSearchGridLayout";
-            this.PipeSearchGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.PipeSearchGridLayout.TextToControlDistance = 0;
-            this.PipeSearchGridLayout.TextVisible = false;
-            // 
-            // searchButtonLayout
-            // 
-            this.searchButtonLayout.Control = this.searchButton;
-            this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(1059, 69);
-            this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(109, 40);
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.searchButtonLayout.Text = "searchButtonLayout";
-            this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.searchButtonLayout.TextToControlDistance = 0;
-            this.searchButtonLayout.TextVisible = false;
+            this.searchLayoutGroup.CustomizationFormText = "Параметры поиска";
+            this.searchLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.pipeNumberLayout,
+            this.pipeSizeLayout,
+            this.pipeMillStatusLayout,
+            this.searchGroupTopEmptySpace,
+            this.weldingDateLayout,
+            this.externalCoatingDateLayout,
+            this.internalCoatingDateLayout,
+            this.searchGroupButtomEmptySpace,
+            this.searchGroupEmptySpace,
+            this.searchButtonLayout,
+            this.searchButtonEmptySpace});
+            this.searchLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.searchLayoutGroup.Name = "searchLayoutGroup";
+            this.searchLayoutGroup.Size = new System.Drawing.Size(1190, 143);
+            this.searchLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
+            this.searchLayoutGroup.Text = "Параметры поиска";
             // 
             // pipeNumberLayout
             // 
             this.pipeNumberLayout.Control = this.pipeNumber;
             this.pipeNumberLayout.CustomizationFormText = "Номер трубы";
             this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
-            this.pipeNumberLayout.MinSize = new System.Drawing.Size(157, 24);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(236, 54);
-            this.pipeNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(204, 45);
+            this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
             this.pipeNumberLayout.Text = "Номер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
-            // statusLayout
-            // 
-            this.statusLayout.Control = this.pipeStatus;
-            this.statusLayout.CustomizationFormText = "Статус";
-            this.statusLayout.Location = new System.Drawing.Point(236, 0);
-            this.statusLayout.MinSize = new System.Drawing.Size(157, 24);
-            this.statusLayout.Name = "statusLayout";
-            this.statusLayout.Size = new System.Drawing.Size(236, 54);
-            this.statusLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.statusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.statusLayout.Text = "Статус";
-            this.statusLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.statusLayout.TextSize = new System.Drawing.Size(147, 13);
-            // 
-            // locationLayout
-            // 
-            this.locationLayout.Control = this.pipeLocation;
-            this.locationLayout.CustomizationFormText = "Расположение";
-            this.locationLayout.Location = new System.Drawing.Point(472, 0);
-            this.locationLayout.MinSize = new System.Drawing.Size(157, 24);
-            this.locationLayout.Name = "locationLayout";
-            this.locationLayout.Size = new System.Drawing.Size(236, 54);
-            this.locationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.locationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.locationLayout.Text = "Расположение";
-            this.locationLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.locationLayout.TextSize = new System.Drawing.Size(147, 13);
-            // 
             // pipeSizeLayout
             // 
-            this.pipeSizeLayout.Control = this.sizeGrade;
+            this.pipeSizeLayout.Control = this.pipeSize;
             this.pipeSizeLayout.CustomizationFormText = "Размер трубы";
-            this.pipeSizeLayout.Location = new System.Drawing.Point(708, 0);
-            this.pipeSizeLayout.MinSize = new System.Drawing.Size(157, 24);
+            this.pipeSizeLayout.Location = new System.Drawing.Point(204, 0);
             this.pipeSizeLayout.Name = "pipeSizeLayout";
-            this.pipeSizeLayout.Size = new System.Drawing.Size(234, 54);
-            this.pipeSizeLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.pipeSizeLayout.Size = new System.Drawing.Size(188, 45);
+            this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.pipeSizeLayout.Text = "Размер трубы";
             this.pipeSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeSizeLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
-            // internalCoatingDateLayout
+            // pipeMillStatusLayout
             // 
-            this.internalCoatingDateLayout.Control = this.internalCoatingDate;
-            this.internalCoatingDateLayout.CustomizationFormText = "Дата внутреннего покрытия";
-            this.internalCoatingDateLayout.Location = new System.Drawing.Point(472, 54);
-            this.internalCoatingDateLayout.MinSize = new System.Drawing.Size(157, 24);
-            this.internalCoatingDateLayout.Name = "internalCoatingDateLayout";
-            this.internalCoatingDateLayout.Size = new System.Drawing.Size(236, 55);
-            this.internalCoatingDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.internalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.internalCoatingDateLayout.Text = "Дата внутреннего покрытия";
-            this.internalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.internalCoatingDateLayout.TextSize = new System.Drawing.Size(147, 13);
+            this.pipeMillStatusLayout.Control = this.pipeMillStatus;
+            this.pipeMillStatusLayout.CustomizationFormText = "Статус на заводе";
+            this.pipeMillStatusLayout.Location = new System.Drawing.Point(392, 0);
+            this.pipeMillStatusLayout.Name = "pipeMillStatusLayout";
+            this.pipeMillStatusLayout.Size = new System.Drawing.Size(188, 45);
+            this.pipeMillStatusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 10, 0, 5);
+            this.pipeMillStatusLayout.Text = "Статус на заводе";
+            this.pipeMillStatusLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeMillStatusLayout.TextSize = new System.Drawing.Size(147, 13);
+            // 
+            // searchGroupTopEmptySpace
+            // 
+            this.searchGroupTopEmptySpace.AllowHotTrack = false;
+            this.searchGroupTopEmptySpace.CustomizationFormText = "searchGroupTopEmptySpace";
+            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(690, 0);
+            this.searchGroupTopEmptySpace.Name = "searchGroupTopEmptySpace";
+            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(474, 46);
+            this.searchGroupTopEmptySpace.Text = "searchGroupTopEmptySpace";
+            this.searchGroupTopEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // weldingDateLayout
+            // 
+            this.weldingDateLayout.Control = this.weldingDate;
+            this.weldingDateLayout.CustomizationFormText = "Дата сварки";
+            this.weldingDateLayout.Location = new System.Drawing.Point(0, 45);
+            this.weldingDateLayout.Name = "weldingDateLayout";
+            this.weldingDateLayout.Size = new System.Drawing.Size(204, 45);
+            this.weldingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
+            this.weldingDateLayout.Text = "Дата сварки";
+            this.weldingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
             // externalCoatingDateLayout
             // 
             this.externalCoatingDateLayout.Control = this.externalCoatingDate;
             this.externalCoatingDateLayout.CustomizationFormText = "Дата внешнего покрытия";
-            this.externalCoatingDateLayout.Location = new System.Drawing.Point(236, 54);
-            this.externalCoatingDateLayout.MinSize = new System.Drawing.Size(157, 24);
+            this.externalCoatingDateLayout.Location = new System.Drawing.Point(204, 45);
             this.externalCoatingDateLayout.Name = "externalCoatingDateLayout";
-            this.externalCoatingDateLayout.Size = new System.Drawing.Size(236, 55);
-            this.externalCoatingDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.externalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.externalCoatingDateLayout.Size = new System.Drawing.Size(188, 45);
+            this.externalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.externalCoatingDateLayout.Text = "Дата внешнего покрытия";
             this.externalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.externalCoatingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
-            // weldDateLayout
+            // internalCoatingDateLayout
             // 
-            this.weldDateLayout.Control = this.welding;
-            this.weldDateLayout.CustomizationFormText = "Дата сварки";
-            this.weldDateLayout.Location = new System.Drawing.Point(0, 54);
-            this.weldDateLayout.MinSize = new System.Drawing.Size(157, 24);
-            this.weldDateLayout.Name = "weldDateLayout";
-            this.weldDateLayout.Size = new System.Drawing.Size(236, 55);
-            this.weldDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.weldDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.weldDateLayout.Text = "Дата сварки";
-            this.weldDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.weldDateLayout.TextSize = new System.Drawing.Size(147, 13);
+            this.internalCoatingDateLayout.Control = this.internalCoatingDate;
+            this.internalCoatingDateLayout.CustomizationFormText = "Дата внутреннего покрытия";
+            this.internalCoatingDateLayout.Location = new System.Drawing.Point(392, 45);
+            this.internalCoatingDateLayout.Name = "internalCoatingDateLayout";
+            this.internalCoatingDateLayout.Size = new System.Drawing.Size(188, 45);
+            this.internalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
+            this.internalCoatingDateLayout.Text = "Дата внутреннего покрытия";
+            this.internalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.internalCoatingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
-            // underSizeEmptySpace
+            // searchGroupButtomEmptySpace
             // 
-            this.underSizeEmptySpace.AllowHotTrack = false;
-            this.underSizeEmptySpace.CustomizationFormText = "emptySpace";
-            this.underSizeEmptySpace.Location = new System.Drawing.Point(708, 54);
-            this.underSizeEmptySpace.Name = "underSizeEmptySpace";
-            this.underSizeEmptySpace.Size = new System.Drawing.Size(234, 55);
-            this.underSizeEmptySpace.Text = "underSizeEmptySpace";
-            this.underSizeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            this.searchGroupButtomEmptySpace.AllowHotTrack = false;
+            this.searchGroupButtomEmptySpace.CustomizationFormText = "searchGroupButtomEmptySpace";
+            this.searchGroupButtomEmptySpace.Location = new System.Drawing.Point(590, 46);
+            this.searchGroupButtomEmptySpace.Name = "searchGroupButtomEmptySpace";
+            this.searchGroupButtomEmptySpace.Size = new System.Drawing.Size(574, 44);
+            this.searchGroupButtomEmptySpace.Text = "searchGroupButtomEmptySpace";
+            this.searchGroupButtomEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // pegNumberLayout
+            // searchButtonLayout
             // 
-            this.pegNumberLayout.Control = this.pegNumber;
-            this.pegNumberLayout.CustomizationFormText = "Номер пикета";
-            this.pegNumberLayout.Location = new System.Drawing.Point(942, 0);
-            this.pegNumberLayout.MinSize = new System.Drawing.Size(157, 24);
-            this.pegNumberLayout.Name = "pegNumberLayout";
-            this.pegNumberLayout.Size = new System.Drawing.Size(226, 54);
-            this.pegNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.pegNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.pegNumberLayout.Text = "Номер пикета";
-            this.pegNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pegNumberLayout.TextSize = new System.Drawing.Size(147, 13);
+            this.searchButtonLayout.Control = this.searchButton;
+            this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
+            this.searchButtonLayout.Location = new System.Drawing.Point(590, 15);
+            this.searchButtonLayout.Name = "searchButtonLayout";
+            this.searchButtonLayout.Size = new System.Drawing.Size(100, 31);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.searchButtonLayout.Text = "searchButtonLayout";
+            this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.searchButtonLayout.TextToControlDistance = 0;
+            this.searchButtonLayout.TextVisible = false;
             // 
-            // underPegEmptySpace
+            // searchButtonEmptySpace
             // 
-            this.underPegEmptySpace.AllowHotTrack = false;
-            this.underPegEmptySpace.CustomizationFormText = "underPegEmptySpace";
-            this.underPegEmptySpace.Location = new System.Drawing.Point(942, 54);
-            this.underPegEmptySpace.Name = "underPegEmptySpace";
-            this.underPegEmptySpace.Size = new System.Drawing.Size(117, 55);
-            this.underPegEmptySpace.Text = "underPegEmptySpace";
-            this.underPegEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            this.searchButtonEmptySpace.AllowHotTrack = false;
+            this.searchButtonEmptySpace.CustomizationFormText = "searchButtonEmptySpace";
+            this.searchButtonEmptySpace.Location = new System.Drawing.Point(590, 0);
+            this.searchButtonEmptySpace.Name = "searchButtonEmptySpace";
+            this.searchButtonEmptySpace.Size = new System.Drawing.Size(100, 15);
+            this.searchButtonEmptySpace.Text = "searchButtonEmptySpace";
+            this.searchButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // overButtonEmptySpace
+            // searchResultLayoutGroup
             // 
-            this.overButtonEmptySpace.AllowHotTrack = false;
-            this.overButtonEmptySpace.CustomizationFormText = "overButtonEmptySpace";
-            this.overButtonEmptySpace.Location = new System.Drawing.Point(1059, 54);
-            this.overButtonEmptySpace.Name = "overButtonEmptySpace";
-            this.overButtonEmptySpace.Size = new System.Drawing.Size(109, 15);
-            this.overButtonEmptySpace.Text = "overButtonEmptySpace";
-            this.overButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            this.searchResultLayoutGroup.CustomizationFormText = "Результаты поиска";
+            this.searchResultLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.PipeSearchGridLayout});
+            this.searchResultLayoutGroup.Location = new System.Drawing.Point(0, 143);
+            this.searchResultLayoutGroup.Name = "searchResultLayoutGroup";
+            this.searchResultLayoutGroup.Size = new System.Drawing.Size(1190, 310);
+            this.searchResultLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
+            this.searchResultLayoutGroup.Text = "Результаты поиска";
+            // 
+            // PipeSearchGridLayout
+            // 
+            this.PipeSearchGridLayout.Control = this.pipesSearchResult;
+            this.PipeSearchGridLayout.CustomizationFormText = "Результаты поиска";
+            this.PipeSearchGridLayout.Location = new System.Drawing.Point(0, 0);
+            this.PipeSearchGridLayout.Name = "PipeSearchGridLayout";
+            this.PipeSearchGridLayout.Size = new System.Drawing.Size(1164, 257);
+            this.PipeSearchGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.PipeSearchGridLayout.Text = "Результаты поиска";
+            this.PipeSearchGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.PipeSearchGridLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.PipeSearchGridLayout.TextToControlDistance = 0;
+            this.PipeSearchGridLayout.TextVisible = false;
             // 
             // emptySpaceUnderButton
             // 
@@ -525,6 +487,16 @@
             this.emptySpaceUnderButton.Size = new System.Drawing.Size(73, 167);
             this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // searchGroupEmptySpace
+            // 
+            this.searchGroupEmptySpace.AllowHotTrack = false;
+            this.searchGroupEmptySpace.CustomizationFormText = "searchGroupEmptySpace";
+            this.searchGroupEmptySpace.Location = new System.Drawing.Point(580, 0);
+            this.searchGroupEmptySpace.Name = "searchGroupEmptySpace";
+            this.searchGroupEmptySpace.Size = new System.Drawing.Size(10, 90);
+            this.searchGroupEmptySpace.Text = "searchGroupEmptySpace";
+            this.searchGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MillPipeSearchXtraForm
             // 
@@ -538,48 +510,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();
             this.PipeSearchLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pegNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizeGrade.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welding.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeLocation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatusLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupTopEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underSizeEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pegNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underPegEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.overButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupButtomEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGroupEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton searchButton;
-        private DevExpress.XtraEditors.DateEdit internalCoatingDate;
-        private DevExpress.XtraEditors.ComboBoxEdit sizeGrade;
-        private DevExpress.XtraEditors.DateEdit welding;
-        private DevExpress.XtraEditors.DateEdit externalCoatingDate;
-        private DevExpress.XtraEditors.TextEdit pipeLocation;
-        private DevExpress.XtraEditors.TextEdit pipeStatus;
-        private DevExpress.XtraEditors.TextEdit pipeNumber;
         private DevExpress.XtraGrid.GridControl pipesSearchResult;
         private DevExpress.XtraGrid.Views.Grid.GridView pipesSearchResultview;
         private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
@@ -591,24 +554,31 @@
         private DevExpress.XtraGrid.Columns.GridColumn internalCoatingDateGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn externalCoatingDateGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
-        private DevExpress.XtraEditors.TextEdit pegNumber;
         private DevExpress.XtraLayout.LayoutControl PipeSearchLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup PipeSearchLayout;
-        private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
-        private DevExpress.XtraLayout.LayoutControlItem weldDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem statusLayout;
-        private DevExpress.XtraLayout.LayoutControlItem externalCoatingDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem locationLayout;
-        private DevExpress.XtraLayout.LayoutControlItem internalCoatingDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem pipeSizeLayout;
-        private DevExpress.XtraLayout.LayoutControlItem pegNumberLayout;
-        private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButton;
         private DevExpress.XtraLayout.LayoutControlItem PipeSearchGridLayout;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraButton;
-        private DevExpress.XtraLayout.EmptySpaceItem underSizeEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem underPegEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem overButtonEmptySpace;
+        private DevExpress.XtraEditors.TextEdit pipeSize;
+        private DevExpress.XtraEditors.TextEdit pipeMillStatus;
+        private DevExpress.XtraEditors.TextEdit pipeNumber;
+        private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem pipeMillStatusLayout;
+        private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
+        private DevExpress.XtraLayout.LayoutControlItem pipeSizeLayout;
+        private DevExpress.XtraEditors.DateEdit externalCoatingDate;
+        private DevExpress.XtraEditors.DateEdit weldingDate;
+        private DevExpress.XtraEditors.DateEdit internalCoatingDate;
+        private DevExpress.XtraLayout.LayoutControlItem internalCoatingDateLayout;
+        private DevExpress.XtraLayout.LayoutControlItem weldingDateLayout;
+        private DevExpress.XtraLayout.LayoutControlItem externalCoatingDateLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem searchGroupTopEmptySpace;
+        private DevExpress.XtraLayout.LayoutControlGroup searchResultLayoutGroup;
+        private DevExpress.XtraLayout.EmptySpaceItem searchGroupButtomEmptySpace;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
+        private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem searchButtonEmptySpace;
+        private DevExpress.XtraLayout.EmptySpaceItem searchGroupEmptySpace;
 
 
     }

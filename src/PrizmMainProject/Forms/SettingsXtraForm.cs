@@ -17,6 +17,10 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
 
+            var inspectionDs = new PrizmMain.DummyData.InspectionDummy();
+            var inspectionData = inspectionDs.GetDummyInspection();
+            inspectionOperation.DataSource = inspectionData;
+
             #region User & Role Setting
             var userDs = new PrizmMain.DummyData.UsersDummy();
             var userData = userDs.GetDummyUsers();
@@ -65,8 +69,6 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
-
-
         
     }
 }
