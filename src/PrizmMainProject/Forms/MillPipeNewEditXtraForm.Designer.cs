@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -117,7 +117,20 @@
             this.plateChemicalCompositionLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.tensileTestsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
+            this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.measurementsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.commentsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -144,23 +157,9 @@
             this.deactivateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.closeButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.inspections = new DevExpress.XtraGrid.GridControl();
-            this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).BeginInit();
@@ -244,7 +243,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayout)).BeginInit();
             this.inspectionPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).BeginInit();
+            this.generalInspectionsLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
@@ -271,16 +276,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -291,10 +289,10 @@
             // weldingHistory
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode1.LevelTemplate = this.weldersListGridView;
-            gridLevelNode1.RelationName = "welders";
+            gridLevelNode2.LevelTemplate = this.weldersListGridView;
+            gridLevelNode2.RelationName = "welders";
             this.weldingHistory.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.weldingHistory.Location = new System.Drawing.Point(193, 95);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
@@ -1243,14 +1241,142 @@
             // 
             // inspectionPage
             // 
-            this.inspectionPage.Controls.Add(this.layoutControl1);
+            this.inspectionPage.Controls.Add(this.generalInspectionsLayout);
             this.inspectionPage.Name = "inspectionPage";
             this.inspectionPage.Size = new System.Drawing.Size(1236, 412);
             this.inspectionPage.Text = "&Контрольные операции";
             // 
+            // generalInspectionsLayout
+            // 
+            this.generalInspectionsLayout.Controls.Add(this.inspections);
+            this.generalInspectionsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.generalInspectionsLayout.Location = new System.Drawing.Point(0, 0);
+            this.generalInspectionsLayout.Name = "generalInspectionsLayout";
+            this.generalInspectionsLayout.Root = this.inspectionsLayoutGroup;
+            this.generalInspectionsLayout.Size = new System.Drawing.Size(1236, 412);
+            this.generalInspectionsLayout.TabIndex = 0;
+            this.generalInspectionsLayout.Text = "layoutControl1";
+            // 
+            // inspections
+            // 
+            this.inspections.AccessibleDescription = "l";
+            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspections.DataSource = this.inspectionOperation;
+            this.inspections.Location = new System.Drawing.Point(14, 17);
+            this.inspections.MainView = this.inspectionsGridView;
+            this.inspections.Name = "inspections";
+            this.inspections.Size = new System.Drawing.Size(1200, 381);
+            this.inspections.TabIndex = 25;
+            this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.inspectionsGridView});
+            // 
             // inspectionOperation
             // 
             this.inspectionOperation.DataSource = typeof(PrizmMain.DummyData.InspectionDummy);
+            // 
+            // inspectionsGridView
+            // 
+            this.inspectionsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.inspectionNameGridColumn,
+            this.expectedResultGridColumn,
+            this.measurementsGridColumn,
+            this.inspectionResultGridColumn,
+            this.inspectorsGridColumn,
+            this.controlDateGridColumn,
+            this.commentsGridColumn,
+            this.inspectionCodeGridColumn});
+            this.inspectionsGridView.GridControl = this.inspections;
+            this.inspectionsGridView.Name = "inspectionsGridView";
+            this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // inspectionNameGridColumn
+            // 
+            this.inspectionNameGridColumn.Caption = "Название операции";
+            this.inspectionNameGridColumn.FieldName = "Name";
+            this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
+            this.inspectionNameGridColumn.Visible = true;
+            this.inspectionNameGridColumn.VisibleIndex = 1;
+            // 
+            // expectedResultGridColumn
+            // 
+            this.expectedResultGridColumn.Caption = "Ожидаемый результат";
+            this.expectedResultGridColumn.FieldName = "ExpectedResult";
+            this.expectedResultGridColumn.Name = "expectedResultGridColumn";
+            this.expectedResultGridColumn.Visible = true;
+            this.expectedResultGridColumn.VisibleIndex = 2;
+            // 
+            // measurementsGridColumn
+            // 
+            this.measurementsGridColumn.Caption = "Результат измерения";
+            this.measurementsGridColumn.FieldName = "Measurements";
+            this.measurementsGridColumn.Name = "measurementsGridColumn";
+            this.measurementsGridColumn.Visible = true;
+            this.measurementsGridColumn.VisibleIndex = 3;
+            // 
+            // inspectionResultGridColumn
+            // 
+            this.inspectionResultGridColumn.Caption = "Результат контроля";
+            this.inspectionResultGridColumn.FieldName = "InspectionResults";
+            this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
+            this.inspectionResultGridColumn.Visible = true;
+            this.inspectionResultGridColumn.VisibleIndex = 4;
+            // 
+            // inspectorsGridColumn
+            // 
+            this.inspectorsGridColumn.Caption = "Инспектора";
+            this.inspectorsGridColumn.FieldName = "Inspectors";
+            this.inspectorsGridColumn.Name = "inspectorsGridColumn";
+            this.inspectorsGridColumn.Visible = true;
+            this.inspectorsGridColumn.VisibleIndex = 5;
+            // 
+            // controlDateGridColumn
+            // 
+            this.controlDateGridColumn.Caption = "Дата контроля";
+            this.controlDateGridColumn.FieldName = "ControlDate";
+            this.controlDateGridColumn.Name = "controlDateGridColumn";
+            this.controlDateGridColumn.Visible = true;
+            this.controlDateGridColumn.VisibleIndex = 6;
+            // 
+            // commentsGridColumn
+            // 
+            this.commentsGridColumn.Caption = "Комментарии ";
+            this.commentsGridColumn.Name = "commentsGridColumn";
+            this.commentsGridColumn.Visible = true;
+            this.commentsGridColumn.VisibleIndex = 7;
+            // 
+            // inspectionCodeGridColumn
+            // 
+            this.inspectionCodeGridColumn.Caption = "Код операции";
+            this.inspectionCodeGridColumn.FieldName = "Code";
+            this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
+            this.inspectionCodeGridColumn.Visible = true;
+            this.inspectionCodeGridColumn.VisibleIndex = 0;
+            // 
+            // inspectionsLayoutGroup
+            // 
+            this.inspectionsLayoutGroup.CustomizationFormText = "inspectionsLayoutGroup";
+            this.inspectionsLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionsLayoutGroup.GroupBordersVisible = false;
+            this.inspectionsLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.inspectionsLayout});
+            this.inspectionsLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectionsLayoutGroup.Name = "inspectionsLayoutGroup";
+            this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 412);
+            this.inspectionsLayoutGroup.Text = "inspectionsLayoutGroup";
+            this.inspectionsLayoutGroup.TextVisible = false;
+            // 
+            // inspectionsLayout
+            // 
+            this.inspectionsLayout.Control = this.inspections;
+            this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
+            this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
+            this.inspectionsLayout.Name = "inspectionsLayout";
+            this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
+            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
+            this.inspectionsLayout.Text = "inspectionsLayout";
+            this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.inspectionsLayout.TextToControlDistance = 0;
+            this.inspectionsLayout.TextVisible = false;
             // 
             // pipeSize
             // 
@@ -1408,7 +1534,7 @@
             this.deactivateLayout,
             this.saveButtonLayout,
             this.closeButtonLayout,
-            this.emptySpaceItem2});
+            this.closeButtonEmptySpace});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -1576,15 +1702,15 @@
             this.closeButtonLayout.TextToControlDistance = 0;
             this.closeButtonLayout.TextVisible = false;
             // 
-            // emptySpaceItem2
+            // closeButtonEmptySpace
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(1241, 510);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(20, 26);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.closeButtonEmptySpace.AllowHotTrack = false;
+            this.closeButtonEmptySpace.CustomizationFormText = "closeButtonEmptySpace";
+            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1241, 510);
+            this.closeButtonEmptySpace.Name = "closeButtonEmptySpace";
+            this.closeButtonEmptySpace.Size = new System.Drawing.Size(20, 26);
+            this.closeButtonEmptySpace.Text = "closeButtonEmptySpace";
+            this.closeButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // pipeParametersLayout
             // 
@@ -1607,144 +1733,6 @@
             this.certificateEmptySpace.Size = new System.Drawing.Size(33, 50);
             this.certificateEmptySpace.Text = "certificateEmptySpace";
             this.certificateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 92);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1261, 414);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.inspections);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.inspectionsLayoutGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(1236, 412);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // inspectionsLayoutGroup
-            // 
-            this.inspectionsLayoutGroup.CustomizationFormText = "inspectionsLayoutGroup";
-            this.inspectionsLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.inspectionsLayoutGroup.GroupBordersVisible = false;
-            this.inspectionsLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.inspectionsLayout});
-            this.inspectionsLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectionsLayoutGroup.Name = "inspectionsLayoutGroup";
-            this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 412);
-            this.inspectionsLayoutGroup.Text = "inspectionsLayoutGroup";
-            this.inspectionsLayoutGroup.TextVisible = false;
-            // 
-            // inspections
-            // 
-            this.inspections.AccessibleDescription = "l";
-            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspections.DataSource = this.inspectionOperation;
-            this.inspections.Location = new System.Drawing.Point(14, 17);
-            this.inspections.MainView = this.inspectionsGridView;
-            this.inspections.Name = "inspections";
-            this.inspections.Size = new System.Drawing.Size(1200, 381);
-            this.inspections.TabIndex = 25;
-            this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.inspectionsGridView});
-            // 
-            // inspectionsGridView
-            // 
-            this.inspectionsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn11,
-            this.gridColumn12,
-            this.gridColumn13,
-            this.gridColumn14,
-            this.gridColumn15,
-            this.gridColumn16});
-            this.inspectionsGridView.GridControl = this.inspections;
-            this.inspectionsGridView.Name = "inspectionsGridView";
-            this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "Название операции";
-            this.gridColumn9.FieldName = "Name";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 1;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Ожидаемый результат";
-            this.gridColumn10.FieldName = "ExpectedResult";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "Результат измерения";
-            this.gridColumn11.FieldName = "Measurements";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 3;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "Результат контроля";
-            this.gridColumn12.FieldName = "InspectionResults";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 4;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "Инспектора";
-            this.gridColumn13.FieldName = "Inspectors";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 5;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "Дата контроля";
-            this.gridColumn14.FieldName = "ControlDate";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 6;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "Комментарии ";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 7;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "Код операции";
-            this.gridColumn16.FieldName = "Code";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 0;
-            // 
-            // inspectionsLayout
-            // 
-            this.inspectionsLayout.Control = this.inspections;
-            this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
-            this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
-            this.inspectionsLayout.Name = "inspectionsLayout";
-            this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
-            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
-            this.inspectionsLayout.Text = "inspectionsLayout";
-            this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionsLayout.TextToControlDistance = 0;
-            this.inspectionsLayout.TextVisible = false;
             // 
             // MillPipeNewEditXtraForm
             // 
@@ -1839,7 +1827,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateChemicalCompositionLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayout)).EndInit();
             this.inspectionPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).EndInit();
+            this.generalInspectionsLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
@@ -1866,16 +1860,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1996,21 +1983,21 @@
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem closeButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Views.Grid.GridView weldersListGridView;
         private System.Windows.Forms.BindingSource inspectionOperation;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl generalInspectionsLayout;
         private DevExpress.XtraGrid.GridControl inspections;
         private DevExpress.XtraGrid.Views.Grid.GridView inspectionsGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn expectedResultGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn measurementsGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionResultGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorsGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn controlDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn commentsGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectionCodeGridColumn;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionsLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem inspectionsLayout;
     }

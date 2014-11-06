@@ -36,7 +36,7 @@
             this.pipeStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.shippedDate = new DevExpress.XtraEditors.DateEdit();
@@ -50,11 +50,11 @@
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.shipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.unshipButtonayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesNumbers)).BeginInit();
@@ -72,11 +72,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipButtonayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -148,7 +148,7 @@
             // 
             // generalLayout
             // 
-            this.generalLayout.Controls.Add(this.simpleButton1);
+            this.generalLayout.Controls.Add(this.attachmentsButton);
             this.generalLayout.Controls.Add(this.shipButton);
             this.generalLayout.Controls.Add(this.saveButton);
             this.generalLayout.Controls.Add(this.unshipButton);
@@ -167,14 +167,14 @@
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";
             // 
-            // simpleButton1
+            // attachmentsButton
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(16, 479);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(91, 22);
-            this.simpleButton1.StyleController = this.generalLayout;
-            this.simpleButton1.TabIndex = 22;
-            this.simpleButton1.Text = "Вложения";
+            this.attachmentsButton.Location = new System.Drawing.Point(16, 479);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Size = new System.Drawing.Size(91, 22);
+            this.attachmentsButton.StyleController = this.generalLayout;
+            this.attachmentsButton.TabIndex = 22;
+            this.attachmentsButton.Text = "Вложения";
             // 
             // shipButton
             // 
@@ -247,11 +247,11 @@
             this.certificateNumberLayout,
             this.pipeListLayout,
             this.generalEmptySpace,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.emptySpaceItem6});
+            this.shipButtonLayout,
+            this.unshipButtonayout,
+            this.saveButtonLayout,
+            this.attachmentsButtonLayout,
+            this.buttonEmptySpace});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "railcarLayoutGroup";
             this.railcarLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -330,68 +330,68 @@
             this.generalEmptySpace.Text = "generalEmptySpace";
             this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
+            // shipButtonLayout
             // 
-            this.layoutControlItem1.Control = this.shipButton;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(928, 468);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(108, 33);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 0);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
-            this.layoutControlItem1.TextVisible = false;
+            this.shipButtonLayout.Control = this.shipButton;
+            this.shipButtonLayout.CustomizationFormText = "shipButtonLayout";
+            this.shipButtonLayout.Location = new System.Drawing.Point(928, 468);
+            this.shipButtonLayout.Name = "shipButtonLayout";
+            this.shipButtonLayout.Size = new System.Drawing.Size(108, 33);
+            this.shipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 0);
+            this.shipButtonLayout.Text = "shipButtonLayout";
+            this.shipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.shipButtonLayout.TextToControlDistance = 0;
+            this.shipButtonLayout.TextVisible = false;
             // 
-            // layoutControlItem2
+            // unshipButtonayout
             // 
-            this.layoutControlItem2.Control = this.unshipButton;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(1036, 468);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(108, 33);
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(8, 5, 7, 0);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
-            this.layoutControlItem2.TextVisible = false;
+            this.unshipButtonayout.Control = this.unshipButton;
+            this.unshipButtonayout.CustomizationFormText = "unshipButtonayout";
+            this.unshipButtonayout.Location = new System.Drawing.Point(1036, 468);
+            this.unshipButtonayout.Name = "unshipButtonayout";
+            this.unshipButtonayout.Size = new System.Drawing.Size(108, 33);
+            this.unshipButtonayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(8, 5, 7, 0);
+            this.unshipButtonayout.Text = "unshipButtonayout";
+            this.unshipButtonayout.TextSize = new System.Drawing.Size(0, 0);
+            this.unshipButtonayout.TextToControlDistance = 0;
+            this.unshipButtonayout.TextVisible = false;
             // 
-            // layoutControlItem3
+            // saveButtonLayout
             // 
-            this.layoutControlItem3.Control = this.saveButton;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(1144, 468);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(107, 33);
-            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 7, 0);
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
-            this.layoutControlItem3.TextVisible = false;
+            this.saveButtonLayout.Control = this.saveButton;
+            this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
+            this.saveButtonLayout.Location = new System.Drawing.Point(1144, 468);
+            this.saveButtonLayout.Name = "saveButtonLayout";
+            this.saveButtonLayout.Size = new System.Drawing.Size(107, 33);
+            this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 7, 0);
+            this.saveButtonLayout.Text = "saveButtonLayout";
+            this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveButtonLayout.TextToControlDistance = 0;
+            this.saveButtonLayout.TextVisible = false;
             // 
-            // layoutControlItem4
+            // attachmentsButtonLayout
             // 
-            this.layoutControlItem4.Control = this.simpleButton1;
-            this.layoutControlItem4.CustomizationFormText = "Вложения";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 468);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
-            this.layoutControlItem4.Size = new System.Drawing.Size(110, 33);
-            this.layoutControlItem4.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 0);
-            this.layoutControlItem4.Text = "Вложения";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
-            this.layoutControlItem4.TextVisible = false;
+            this.attachmentsButtonLayout.Control = this.attachmentsButton;
+            this.attachmentsButtonLayout.CustomizationFormText = "Вложения";
+            this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 468);
+            this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
+            this.attachmentsButtonLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(110, 33);
+            this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 0);
+            this.attachmentsButtonLayout.Text = "Вложения";
+            this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.attachmentsButtonLayout.TextToControlDistance = 0;
+            this.attachmentsButtonLayout.TextVisible = false;
             // 
-            // emptySpaceItem6
+            // buttonEmptySpace
             // 
-            this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem6";
-            this.emptySpaceItem6.Location = new System.Drawing.Point(110, 468);
-            this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(818, 33);
-            this.emptySpaceItem6.Text = "emptySpaceItem6";
-            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonEmptySpace.AllowHotTrack = false;
+            this.buttonEmptySpace.CustomizationFormText = "buttonEmptySpace";
+            this.buttonEmptySpace.Location = new System.Drawing.Point(110, 468);
+            this.buttonEmptySpace.Name = "buttonEmptySpace";
+            this.buttonEmptySpace.Size = new System.Drawing.Size(818, 33);
+            this.buttonEmptySpace.Text = "buttonEmptySpace";
+            this.buttonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RailcarNewEditXtraForm
             // 
@@ -419,11 +419,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipButtonayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,12 +449,12 @@
         private DevExpress.XtraEditors.SimpleButton shipButton;
         private DevExpress.XtraLayout.LayoutControlItem pipeListLayout;
         private DevExpress.XtraLayout.EmptySpaceItem generalEmptySpace;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraEditors.SimpleButton attachmentsButton;
+        private DevExpress.XtraLayout.LayoutControlItem shipButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem unshipButtonayout;
+        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem buttonEmptySpace;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox pipesNumbers;
         private DevExpress.XtraEditors.TextEdit destination;
     }
