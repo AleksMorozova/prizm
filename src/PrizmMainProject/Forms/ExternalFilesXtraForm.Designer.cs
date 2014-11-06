@@ -28,18 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExternalFilesXtraForm));
+            DevExpress.Utils.SerializableAppearanceObject viewSerializableAppearanceObject = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject downloadSerializableAppearanceObject = new DevExpress.Utils.SerializableAppearanceObject();
             this.files = new DevExpress.XtraGrid.GridControl();
             this.fileBindingSource = new System.Windows.Forms.BindingSource();
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUploadDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colView = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.viewButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colDownload = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.downloadButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.addFile = new DevExpress.XtraEditors.SimpleButton();
-            this.viewFile = new DevExpress.XtraEditors.SimpleButton();
-            this.downloadFile = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.files)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).BeginInit();
             this.SuspendLayout();
             // 
             // files
@@ -53,6 +60,9 @@
             this.files.MainView = this.filesView;
             this.files.Margin = new System.Windows.Forms.Padding(11);
             this.files.Name = "files";
+            this.files.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.viewButton,
+            this.downloadButton});
             this.files.Size = new System.Drawing.Size(475, 251);
             this.files.TabIndex = 0;
             this.files.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -63,34 +73,82 @@
             this.filesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFileName,
             this.colDescription,
-            this.colUploadDate});
+            this.colUploadDate,
+            this.colView,
+            this.colDownload});
             this.filesView.GridControl = this.files;
             this.filesView.Name = "filesView";
+            this.filesView.OptionsBehavior.Editable = false;
+            this.filesView.OptionsView.ShowGroupPanel = false;
+            this.filesView.OptionsView.ShowIndicator = false;
             // 
             // colFileName
             // 
-            this.colFileName.FieldName = "Имя файла";
+            this.colFileName.Caption = "Имя файла";
+            this.colFileName.FieldName = "FileName";
             this.colFileName.Name = "colFileName";
             this.colFileName.Visible = true;
             this.colFileName.VisibleIndex = 0;
+            this.colFileName.Width = 104;
             // 
             // colDescription
             // 
-            this.colDescription.FieldName = "Описание";
+            this.colDescription.Caption = "Описание";
+            this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
+            this.colDescription.Width = 104;
             // 
             // colUploadDate
             // 
-            this.colUploadDate.FieldName = "Дата добавления";
+            this.colUploadDate.Caption = "Дата добавления";
+            this.colUploadDate.FieldName = "UploadDate";
             this.colUploadDate.Name = "colUploadDate";
             this.colUploadDate.Visible = true;
             this.colUploadDate.VisibleIndex = 2;
+            this.colUploadDate.Width = 104;
+            // 
+            // colView
+            // 
+            this.colView.ColumnEdit = this.viewButton;
+            this.colView.Name = "colView";
+            this.colView.ToolTip = "Просмотреть файл";
+            this.colView.Visible = true;
+            this.colView.VisibleIndex = 3;
+            this.colView.Width = 30;
+            // 
+            // viewButton
+            // 
+            this.viewButton.AutoHeight = false;
+            this.viewButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), viewSerializableAppearanceObject, "", null, null, true)});
+            this.viewButton.Name = "viewButton";
+            this.viewButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // colDownload
+            // 
+            this.colDownload.ColumnEdit = this.downloadButton;
+            this.colDownload.Name = "colDownload";
+            this.colDownload.ToolTip = "Извлечь файл";
+            this.colDownload.Visible = true;
+            this.colDownload.VisibleIndex = 4;
+            this.colDownload.Width = 30;
+            // 
+            // downloadButton
+            // 
+            this.downloadButton.AutoHeight = false;
+            this.downloadButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), downloadSerializableAppearanceObject, "", null, null, true)});
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // addFile
             // 
-            this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addFile.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addFile.Image = ((System.Drawing.Image)(resources.GetObject("addFile.Image")));
+            this.addFile.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.addFile.Location = new System.Drawing.Point(20, 293);
             this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
@@ -98,40 +156,20 @@
             this.addFile.TabIndex = 1;
             this.addFile.Text = "Добавить файл";
             // 
-            // viewFile
-            // 
-            this.viewFile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.viewFile.Location = new System.Drawing.Point(208, 293);
-            this.viewFile.Margin = new System.Windows.Forms.Padding(11);
-            this.viewFile.Name = "viewFile";
-            this.viewFile.Size = new System.Drawing.Size(113, 23);
-            this.viewFile.TabIndex = 2;
-            this.viewFile.Text = "Просмотреть файл";
-            // 
-            // downloadFile
-            // 
-            this.downloadFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadFile.Location = new System.Drawing.Point(382, 293);
-            this.downloadFile.Margin = new System.Windows.Forms.Padding(11);
-            this.downloadFile.Name = "downloadFile";
-            this.downloadFile.Size = new System.Drawing.Size(113, 23);
-            this.downloadFile.TabIndex = 3;
-            this.downloadFile.Text = "Извлечь файл";
-            // 
             // ExternalFilesXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 336);
-            this.Controls.Add(this.downloadFile);
-            this.Controls.Add(this.viewFile);
             this.Controls.Add(this.addFile);
             this.Controls.Add(this.files);
             this.Name = "ExternalFilesXtraForm";
-            this.Text = "ExternalFilesXtraForm";
+            this.Text = "Внешние файлы";
             ((System.ComponentModel.ISupportInitialize)(this.files)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -145,7 +183,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colUploadDate;
         private DevExpress.XtraEditors.SimpleButton addFile;
-        private DevExpress.XtraEditors.SimpleButton viewFile;
-        private DevExpress.XtraEditors.SimpleButton downloadFile;
+        private DevExpress.XtraGrid.Columns.GridColumn colView;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit viewButton;
+        private DevExpress.XtraGrid.Columns.GridColumn colDownload;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit downloadButton;
     }
 }
