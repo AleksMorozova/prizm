@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\IDAO.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Inspector.cs" />
@@ -74,10 +73,7 @@
     <Compile Include="Entity\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\Mill\" />
-    <Folder Include="DAL\Setup\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
