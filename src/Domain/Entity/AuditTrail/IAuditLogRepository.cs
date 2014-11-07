@@ -8,6 +8,6 @@ namespace Domain.Entity.AuditTrail
 {
    public interface IAuditLogRepository
     {
-        void Insert();
+        void Insert(AuditLog record);
     }
 }

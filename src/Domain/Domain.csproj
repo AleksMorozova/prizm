@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NHibernate">
-      <HintPath>..\..\..\FileStreamInvestigation\external\NHibernate-3.3.3.SP1-bin\Required_Bins\NHibernate.dll</HintPath>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,8 +53,11 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IRoleRepository.cs" />
     <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="Entity\AuditTrail\AuditableChemicalComposition.cs" />
+    <Compile Include="Entity\AuditTrail\AuditableChemicalCompositionMap.cs" />
     <Compile Include="Entity\AuditTrail\AuditInterceptor.cs" />
     <Compile Include="Entity\AuditTrail\AuditLog.cs" />
+    <Compile Include="Entity\AuditTrail\AuditLogMapping.cs" />
     <Compile Include="Entity\AuditTrail\AuditLogRepository.cs" />
     <Compile Include="Entity\AuditTrail\IAuditable.cs" />
     <Compile Include="Entity\AuditTrail\IAuditLogRepository.cs" />
@@ -85,6 +96,9 @@
     <Compile Include="Entity\Welder.cs" />
     <Compile Include="Entity\Welding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

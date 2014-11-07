@@ -11,39 +11,27 @@ namespace Domain.Entity.AuditTrail
     public class AuditLogRepository : IAuditLogRepository 
     {
         // TODO : get somehow sessionFactory
-        private ISessionFactory sessionFactory;
+        public ISessionFactory sessionFactory;
         private ISession session;
-        private AuditLog record;
-        public AuditLogRepository(AuditLog record)
+
+        public AuditLogRepository(ISessionFactory sessionFactory)
         {
-            this.record = record;
+            this.sessionFactory = sessionFactory;
         }
-        public void Insert()
+        public void Insert(AuditLog record)
         {
             try
             {
-                if (CurrentSessionContext.HasBind(sessionFactory))
-                {
-                    session = sessionFactory.GetCurrentSession();
-                }
-                else
-                {
-                    session = sessionFactory.OpenSession();
-                    CurrentSessionContext.Bind(session);
-                }
+                session = sessionFactory.OpenSession();
                 session.Save(record);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally 
+            finally
             {
-                if (sessionFactory != null && CurrentSessionContext.HasBind(sessionFactory))
-                {
-                    var session = CurrentSessionContext.Unbind(sessionFactory);
-                    session.Close();
-                }
+                session.Close();
             }
         }
     }

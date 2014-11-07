@@ -10,6 +10,11 @@ namespace Domain.Entity.AuditTrail
     [Serializable]
     public class AuditInterceptor : EmptyInterceptor
     {
+        private IAuditLogRepository repo;
+        public AuditInterceptor(IAuditLogRepository repo)
+        {
+            this.repo = repo;
+        }
         enum Actions { Insert, Delete };
         public override bool OnSave(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
         {
@@ -37,8 +42,7 @@ namespace Domain.Entity.AuditTrail
                             NewValue = currentState[i].ToString(),
                             OldValue = previousState[i].ToString()
                         };
-                        AuditLogRepository auditRepository = new AuditLogRepository(record);
-                        auditRepository.Insert();
+                        repo.Insert(record);
                     }
                 }
             }
@@ -51,7 +55,7 @@ namespace Domain.Entity.AuditTrail
             base.OnDelete(entity, id, state, propertyNames, types);
         }
 
-        private static void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
+        private  void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
         {
             string newValue = ""; 
             var curentity = entity as IAuditable;
@@ -76,8 +80,7 @@ namespace Domain.Entity.AuditTrail
                      NewValue = newValue,
                      OldValue = ""
                  };
-                 AuditLogRepository auditRepository = new AuditLogRepository(record);
-                 auditRepository.Insert();
+                 repo.Insert(record);
              }
         }
     }
