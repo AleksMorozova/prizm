@@ -35,6 +35,7 @@
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
@@ -75,11 +76,16 @@
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
+            this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
+            this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
+            this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
+            this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -144,9 +150,15 @@
             this.barButtonItemExport,
             this.barButtonItemRoles,
             this.barButtonItemSave,
-            this.barButtonItemImport});
+            this.barButtonItemImport,
+            this.languageBarSubItem,
+            this.languageComboBoxEdit,
+            this.barSubItemLanguage,
+            this.languageBarListItem});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 50;
+            this.barManager1.MaxItemId = 54;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barMenu
@@ -193,6 +205,12 @@
             this.barButtonItemExport.Caption = "&Экспорт";
             this.barButtonItemExport.Id = 46;
             this.barButtonItemExport.Name = "barButtonItemExport";
+            // 
+            // barButtonItemImport
+            // 
+            this.barButtonItemImport.Caption = "&Импорт";
+            this.barButtonItemImport.Id = 49;
+            this.barButtonItemImport.Name = "barButtonItemImport";
             // 
             // barButtonItemExit
             // 
@@ -355,7 +373,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsDictionaries)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsDictionaries),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
             // barButtonItemSetingsProject
@@ -505,6 +524,29 @@
             this.barButtonItemChangeCurrentProject.Id = 30;
             this.barButtonItemChangeCurrentProject.Name = "barButtonItemChangeCurrentProject";
             // 
+            // languageBarSubItem
+            // 
+            this.languageBarSubItem.Caption = "Локализация";
+            this.languageBarSubItem.Id = 50;
+            this.languageBarSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.languageComboBoxEdit)});
+            this.languageBarSubItem.Name = "languageBarSubItem";
+            // 
+            // languageComboBoxEdit
+            // 
+            this.languageComboBoxEdit.AutoFillWidth = true;
+            this.languageComboBoxEdit.Caption = "Язык";
+            this.languageComboBoxEdit.Edit = this.languageRepositoryComboBox;
+            this.languageComboBoxEdit.Id = 51;
+            this.languageComboBoxEdit.Name = "languageComboBoxEdit";
+            // 
+            // languageRepositoryComboBox
+            // 
+            this.languageRepositoryComboBox.AutoHeight = false;
+            this.languageRepositoryComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
+            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
@@ -526,11 +568,19 @@
             this.tabbedView1.DocumentProperties.AllowPin = true;
             this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
             // 
-            // barButtonItemImport
+            // barSubItemLanguage
             // 
-            this.barButtonItemImport.Caption = "&Импорт";
-            this.barButtonItemImport.Id = 49;
-            this.barButtonItemImport.Name = "barButtonItemImport";
+            this.barSubItemLanguage.Caption = "Язык";
+            this.barSubItemLanguage.Id = 52;
+            this.barSubItemLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarListItem)});
+            this.barSubItemLanguage.Name = "barSubItemLanguage";
+            // 
+            // languageBarListItem
+            // 
+            this.languageBarListItem.Caption = "languages";
+            this.languageBarListItem.Id = 53;
+            this.languageBarListItem.Name = "languageBarListItem";
             // 
             // PrizmApplicationXtraForm
             // 
@@ -545,6 +595,7 @@
             this.Name = "PrizmApplicationXtraForm";
             this.Text = "PRIZMA";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -604,6 +655,11 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItemImport;
+        private DevExpress.XtraBars.BarSubItem languageBarSubItem;
+        private DevExpress.XtraBars.BarEditItem languageComboBoxEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox languageRepositoryComboBox;
+        private DevExpress.XtraBars.BarSubItem barSubItemLanguage;
+        private DevExpress.XtraBars.BarListItem languageBarListItem;
 
 
 

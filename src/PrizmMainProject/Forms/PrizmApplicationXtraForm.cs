@@ -20,6 +20,17 @@ namespace PrizmMain.Forms
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
+
+            //TODO
+            // should be deleted after demo test
+            //==========================================================
+            languageBarListItem.ShowChecks = true;
+            languageBarListItem.Strings.Add("English (customizable)");
+            languageBarListItem.Strings.Add("English (US)");
+            languageBarListItem.Strings.Add("Русский");
+            languageBarListItem.Strings.Add("Chinese (中國)");
+            languageBarListItem.DataIndex = 2;
+            //==========================================================
         }
 
 
