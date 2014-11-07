@@ -40,7 +40,6 @@
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.shippedDate = new DevExpress.XtraEditors.DateEdit();
-            this.railcarNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.destination = new DevExpress.XtraEditors.TextEdit();
             this.railcarLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -55,6 +54,7 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesNumbers)).BeginInit();
@@ -62,7 +62,6 @@
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutGroup)).BeginInit();
@@ -77,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -154,9 +154,9 @@
             this.generalLayout.Controls.Add(this.unshipButton);
             this.generalLayout.Controls.Add(this.pipesList);
             this.generalLayout.Controls.Add(this.shippedDate);
-            this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Controls.Add(this.certificateNumber);
             this.generalLayout.Controls.Add(this.destination);
+            this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
             this.generalLayout.Name = "generalLayout";
@@ -208,16 +208,6 @@
             this.shippedDate.Size = new System.Drawing.Size(133, 20);
             this.shippedDate.StyleController = this.generalLayout;
             this.shippedDate.TabIndex = 12;
-            // 
-            // railcarNumber
-            // 
-            this.railcarNumber.Location = new System.Drawing.Point(16, 27);
-            this.railcarNumber.Name = "railcarNumber";
-            this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.railcarNumber.Size = new System.Drawing.Size(139, 20);
-            this.railcarNumber.StyleController = this.generalLayout;
-            this.railcarNumber.TabIndex = 7;
             // 
             // certificateNumber
             // 
@@ -393,6 +383,14 @@
             this.buttonEmptySpace.Text = "buttonEmptySpace";
             this.buttonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // railcarNumber
+            // 
+            this.railcarNumber.Location = new System.Drawing.Point(16, 27);
+            this.railcarNumber.Name = "railcarNumber";
+            this.railcarNumber.Size = new System.Drawing.Size(139, 20);
+            this.railcarNumber.StyleController = this.generalLayout;
+            this.railcarNumber.TabIndex = 7;
+            // 
             // RailcarNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,7 +407,6 @@
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutGroup)).EndInit();
@@ -424,6 +421,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -439,7 +437,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn pipeStatusGridColumn;
         private DevExpress.XtraLayout.LayoutControl generalLayout;
         private DevExpress.XtraEditors.DateEdit shippedDate;
-        private DevExpress.XtraEditors.ComboBoxEdit railcarNumber;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
         private DevExpress.XtraLayout.LayoutControlGroup railcarLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem certificateNumberLayout;
@@ -457,5 +454,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem buttonEmptySpace;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox pipesNumbers;
         private DevExpress.XtraEditors.TextEdit destination;
+        private DevExpress.XtraEditors.TextEdit railcarNumber;
     }
 }

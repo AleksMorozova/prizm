@@ -122,6 +122,7 @@
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
+    <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\AddEditInspectionXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +367,7 @@
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Role1.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.DummyData.WeldersDummy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
