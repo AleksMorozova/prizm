@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Domain.Entity.Setup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Joint
+namespace Domain.DAL
 {
-    // TODO: remove?
-    public class KilometerPost : Item
+    public interface IRoleRepository : IRepository<int, Role>
     {
+        //role specific operation
     }
 }

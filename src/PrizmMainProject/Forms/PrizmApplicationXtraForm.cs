@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PrizmMain.Forms.Railcar.Edit;
 
 namespace PrizmMain.Forms
 {
