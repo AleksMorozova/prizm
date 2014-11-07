@@ -39,11 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\IRoleRepository.cs" />
-    <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Inspection.cs" />
+    <Compile Include="Entity\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\Mill\PipeTest.cs" />
@@ -61,23 +59,21 @@
     <Compile Include="Entity\Joint\JointInspection.cs" />
     <Compile Include="Entity\KilometerPost.cs" />
     <Compile Include="Entity\Mill\Weld.cs" />
+    <Compile Include="Entity\PersonName.cs" />
     <Compile Include="Entity\PipelinePiece.cs" />
     <Compile Include="Entity\Component.cs" />
     <Compile Include="Entity\ComponentInspection.cs" />
     <Compile Include="Entity\Connector.cs" />
-    <Compile Include="Entity\CoatingSettings.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
-    <Compile Include="Entity\PipeInspectionSettings.cs" />
-    <Compile Include="Entity\PipeSettings.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Welder.cs" />
-    <Compile Include="Entity\Welding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
