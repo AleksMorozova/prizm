@@ -39,8 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyReposytory\RoleRepository.cs" />
-    <Compile Include="DummyReposytory\UserRepository.cs" />
+    <Compile Include="DAL\IDAO.cs" />
+    <Compile Include="DAL\INumberDAO.cs" />
+    <Compile Include="DAL\Mill\IHeatDAO.cs" />
+    <Compile Include="DAL\Mill\IInspectorDAO.cs" />
+    <Compile Include="DAL\Mill\IPipeDAO.cs" />
+    <Compile Include="DAL\Mill\IPipeTestDAO.cs" />
+    <Compile Include="DAL\Mill\IPipeTestResultDAO.cs" />
+    <Compile Include="DAL\Mill\IPlateDAO.cs" />
+    <Compile Include="DAL\Mill\IPurchaseOrderDAO.cs" />
+    <Compile Include="DAL\Mill\IRailCarDAO.cs" />
+    <Compile Include="DAL\Mill\IWelderDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +57,9 @@
       <Project>{495328aa-7441-4e86-8003-3d881e8e0fdf}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\Setup\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
