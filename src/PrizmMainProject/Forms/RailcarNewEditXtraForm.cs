@@ -26,16 +26,16 @@ namespace PrizmMain.Forms
             shippedDate.Text = "16.10.2014";
 
             BindingList<PipesDummy> pipeList = new BindingList<PipesDummy>();
-            pipeList.Add(new PipesDummy { PipeNumber = 1342352, Size = "1100x20", Status = "production" });
-            pipeList.Add(new PipesDummy { PipeNumber = 9634626, Size = "1100x20", Status = "production" });
-            pipeList.Add(new PipesDummy { PipeNumber = 2141532, Size = "1100x20", Status = "production" });
-            pipeList.Add(new PipesDummy { PipeNumber = 9634624, Size = "1100x20", Status = "production" });
+            pipeList.Add(new PipesDummy { PipeNumber = 1342352, Size = "1219х17,5; 20,6; 27,0мм", Status = "на складе" });
+            pipeList.Add(new PipesDummy { PipeNumber = 9634626, Size = "1219х17,5; 20,6; 27,0мм", Status = "на складе" });
+            pipeList.Add(new PipesDummy { PipeNumber = 2141532, Size = "1219х17,5; 20,6; 27,0мм", Status = "на складе" });
+            pipeList.Add(new PipesDummy { PipeNumber = 9634624, Size = "1219х17,5; 20,6; 27,0мм", Status = "на складе" });
 
             pipesList.DataSource = pipeList;
 
-            pipesNumbers.Items.Add("154262");
-            pipesNumbers.Items.Add("262843");
-            pipesNumbers.Items.Add("159545");
+            pipesNumbers.Items.Add("1542622");
+            pipesNumbers.Items.Add("2628431");
+            pipesNumbers.Items.Add("1595454");
  
             pipesListView.AddNewRow();
         }

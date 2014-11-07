@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode weldersGridLevelNode = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeGeneralParametersLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -160,6 +164,7 @@
             this.closeButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).BeginInit();
@@ -279,20 +284,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
             // 
+            this.weldersListGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.firstNameGridColumn,
+            this.lastNameGridColumn});
             this.weldersListGridView.GridControl = this.weldingHistory;
             this.weldersListGridView.Name = "weldersListGridView";
+            // 
+            // firstNameGridColumn
+            // 
+            this.firstNameGridColumn.Caption = "Имя";
+            this.firstNameGridColumn.FieldName = "Name";
+            this.firstNameGridColumn.Name = "firstNameGridColumn";
+            this.firstNameGridColumn.Visible = true;
+            this.firstNameGridColumn.VisibleIndex = 0;
+            // 
+            // lastNameGridColumn
+            // 
+            this.lastNameGridColumn.Caption = "Фамилия";
+            this.lastNameGridColumn.FieldName = "LastName";
+            this.lastNameGridColumn.Name = "lastNameGridColumn";
+            this.lastNameGridColumn.Visible = true;
+            this.lastNameGridColumn.VisibleIndex = 1;
             // 
             // weldingHistory
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            weldersGridLevelNode.LevelTemplate = this.weldersListGridView;
-            weldersGridLevelNode.RelationName = "welders";
+            gridLevelNode1.LevelTemplate = this.weldersListGridView;
+            gridLevelNode1.RelationName = "welders";
             this.weldingHistory.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            weldersGridLevelNode});
+            gridLevelNode1});
             this.weldingHistory.Location = new System.Drawing.Point(193, 95);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
@@ -304,9 +329,28 @@
             // 
             // weldingHistoryGridView
             // 
+            this.weldingHistoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.weldingDateGridColumn,
+            this.weldersGridColumn});
             this.weldingHistoryGridView.GridControl = this.weldingHistory;
             this.weldingHistoryGridView.Name = "weldingHistoryGridView";
             this.weldingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // weldingDateGridColumn
+            // 
+            this.weldingDateGridColumn.Caption = "Дата сварки";
+            this.weldingDateGridColumn.FieldName = "Date";
+            this.weldingDateGridColumn.Name = "weldingDateGridColumn";
+            this.weldingDateGridColumn.Visible = true;
+            this.weldingDateGridColumn.VisibleIndex = 0;
+            // 
+            // weldersGridColumn
+            // 
+            this.weldersGridColumn.Caption = "Сварщики";
+            this.weldersGridColumn.FieldName = "Name";
+            this.weldersGridColumn.Name = "weldersGridColumn";
+            this.weldersGridColumn.Visible = true;
+            this.weldersGridColumn.VisibleIndex = 1;
             // 
             // pipe
             // 
@@ -1734,6 +1778,10 @@
             this.certificateEmptySpace.Text = "certificateEmptySpace";
             this.certificateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // weldingDs
+            // 
+            this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
+            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1863,6 +1911,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2000,5 +2049,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectionCodeGridColumn;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionsLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem inspectionsLayout;
+        private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn weldingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn weldersGridColumn;
+        private System.Windows.Forms.BindingSource weldingDs;
     }
 }

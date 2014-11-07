@@ -12,6 +12,10 @@ namespace PrizmMain.DummyData
         private string status;
         private string manufacturer;
         private string size;
+        private string heatNumber;
+        private string weldingDate;
+        private string internalCoatingDate;
+        private string externalCoatingDate;
 
         public int PipeNumber
         {
@@ -34,6 +38,29 @@ namespace PrizmMain.DummyData
         {
             get { return this.size; }
             set { this.size = value; }
+        }
+
+        public string HeatNumber
+        {
+            get { return this.heatNumber; }
+            set { this.heatNumber = value; }
+        }
+
+        public string WeldingDate
+        {
+            get { return this.weldingDate; }
+            set { this.weldingDate = value; }
+        }
+
+        public string InternalCoatingDate
+        {
+            get { return this.internalCoatingDate; }
+            set { this.internalCoatingDate = value; }
+        }
+        public string ExternalCoatingDate
+        {
+            get { return this.externalCoatingDate; }
+            set { this.externalCoatingDate = value; }
         }
     }
 }
