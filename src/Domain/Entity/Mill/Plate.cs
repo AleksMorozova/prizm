@@ -12,7 +12,7 @@ namespace Domain.Entity.Mill
         public virtual int Thicknes { get; set; }
         public virtual Heat Heat { get; set; }
         public virtual ChemicalComposition ChemicalComposition { get; set; }
-        public virtual TensileTests TensileTests { get; set; }
+        //public virtual TensileTests TensileTests { get; set; }
         public virtual Pipe Pipe { get; set; }
 
         public Plate(string number, int thickness, Heat heat, Pipe pipe)

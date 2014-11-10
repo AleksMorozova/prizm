@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.4.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,17 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
+    <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\IDAO.cs" />
     <Compile Include="DAL\INumberDAO.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mill\IHeatDAO.cs" />
-    <Compile Include="DAL\Mill\IInspectorDAO.cs" />
     <Compile Include="DAL\Mill\IPipeDAO.cs" />
     <Compile Include="DAL\Mill\IPipeTestDAO.cs" />
     <Compile Include="DAL\Mill\IPipeTestResultDAO.cs" />
     <Compile Include="DAL\Mill\IPlateDAO.cs" />
     <Compile Include="DAL\Mill\IPurchaseOrderDAO.cs" />
-    <Compile Include="DAL\Mill\IRailCarDAO.cs" />
-    <Compile Include="DAL\Mill\IWelderDAO.cs" />
+    <Compile Include="DAL\Mill\IRailcarRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

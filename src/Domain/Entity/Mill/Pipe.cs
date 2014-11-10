@@ -15,7 +15,7 @@ namespace Domain.Entity.Mill
         public virtual int WallThickness { get; set; }
         public virtual int Weight { get; set; }
         public virtual string Type { get; set; } // from global dictionary type: PipeMillSizeType
-        public virtual RailCar RailCar { get; set; }
+        public virtual Railcar RailCar { get; set; }
         public virtual PipeMillStatus Status { get; set; } //enum
         public virtual PurchaseOrder PurchaseOrder { get; set; }
         public virtual ICollection<Weld> Welds { get; set; }
