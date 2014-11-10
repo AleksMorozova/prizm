@@ -51,18 +51,15 @@
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
     <Compile Include="Entity\Mill\PurchaseOrder.cs" />
-    <Compile Include="Entity\Mill\TensileTests.cs" />
     <Compile Include="Entity\Mill\Pipe.cs" />
     <Compile Include="Entity\Joint\ConstructionWelding.cs" />
     <Compile Include="Entity\Joint\GPS.cs" />
     <Compile Include="Entity\Joint\Joint.cs" />
     <Compile Include="Entity\Joint\JointInspection.cs" />
-    <Compile Include="Entity\KilometerPost.cs" />
     <Compile Include="Entity\Mill\Weld.cs" />
     <Compile Include="Entity\PersonName.cs" />
     <Compile Include="Entity\PipelinePiece.cs" />
     <Compile Include="Entity\Component.cs" />
-    <Compile Include="Entity\ComponentInspection.cs" />
     <Compile Include="Entity\Connector.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
@@ -75,11 +72,4 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
