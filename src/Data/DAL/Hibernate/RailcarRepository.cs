@@ -1,20 +1,16 @@
-﻿using Domain.Entity.Mill;
+﻿using System;
+using Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.DAL.Hibernate
+namespace Data.DAL.Hibernate
 {
-   public class RailcarRepository : AbstractHibernateRepository<Guid, Railcar>, IRailcarRepository
-   {
-      [Inject]
-      public RailcarRepository(ISession session)
-         : base(session)
-      {
-      }
-   }
+    public class RailcarRepository : AbstractHibernateRepository<Guid, Railcar>, IRailcarRepository
+    {
+        [Inject]
+        public RailcarRepository(ISession session)
+            : base(session)
+        {
+        }
+    }
 }

@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
     //TODO: Remove?
-    public partial class CopyPipeSettingsXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class CopyPipeSettingsXtraForm : XtraForm
     {
         public CopyPipeSettingsXtraForm()
         {

@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms
 {
-    public partial class JointSearchXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class JointSearchXtraForm : XtraForm
     {
         public JointSearchXtraForm()
         {
             InitializeComponent();
-            gridControlSerchResult.DataSource = PrizmMain.DummyData.JointsDummy.GetAllJoints();
+            gridControlSerchResult.DataSource = JointsDummy.GetAllJoints();
         }
-
     }
 }

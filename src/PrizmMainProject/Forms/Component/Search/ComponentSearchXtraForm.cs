@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-
+using DevExpress.XtraEditors.Controls;
 using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms
 {
-    public partial class ComponentSearchXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class ComponentSearchXtraForm : XtraForm
     {
         private List<ComponentDataDemo> MyComponent;
 
@@ -22,22 +15,24 @@ namespace PrizmMain.Forms
             InitializeComponent();
 
             //please remove data at this region in real project
+
             #region demoData
+
             //==============================================================
             //==============================================================
 
             MyComponent = ComponentryDummy.GetCmpDummy();
 
             //Initialize bindingSource
-            BindingSource bs = new BindingSource();
+            var bs = new BindingSource();
             bs.DataSource = MyComponent;
 
             //Set GridControl's dataSource
             searchResultsGrid.DataSource = bs;
 
-            DevExpress.XtraEditors.Controls.ComboBoxItemCollection coll = componentType.Properties.Items;
+            ComboBoxItemCollection coll = componentType.Properties.Items;
 
-            PrizmMain.DummyData.ComponentryDummy.FillComboComponentType(coll);
+            ComponentryDummy.FillComboComponentType(coll);
 
             componentType.SelectedIndex = 2;
 
@@ -45,8 +40,8 @@ namespace PrizmMain.Forms
 
             //==============================================================
             //==============================================================
-            #endregion
 
+            #endregion
         }
-     }
+    }
 }

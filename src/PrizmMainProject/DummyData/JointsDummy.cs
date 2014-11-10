@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrizmMain.DummyData
 {
@@ -13,9 +9,33 @@ namespace PrizmMain.DummyData
         {
             return new BindingList<Joint>
             {
-                new Joint{Id=234,Status="Control",ControlState="Accepted",WeldingDate = DateTime.Today,ControlDate= DateTime.Today,Repair = "Test" },
-                new Joint{Id=231,Status="Repair",ControlState="Accepted", WeldingDate = DateTime.Today,ControlDate= DateTime.Today,Repair = "Test" },
-                new Joint{Id=245,Status="Repair",ControlState="Accepted", WeldingDate = DateTime.Today,ControlDate= DateTime.Today,Repair = "Test" }   
+                new Joint
+                {
+                    Id = 234,
+                    Status = "Control",
+                    ControlState = "Accepted",
+                    WeldingDate = DateTime.Today,
+                    ControlDate = DateTime.Today,
+                    Repair = "Test"
+                },
+                new Joint
+                {
+                    Id = 231,
+                    Status = "Repair",
+                    ControlState = "Accepted",
+                    WeldingDate = DateTime.Today,
+                    ControlDate = DateTime.Today,
+                    Repair = "Test"
+                },
+                new Joint
+                {
+                    Id = 245,
+                    Status = "Repair",
+                    ControlState = "Accepted",
+                    WeldingDate = DateTime.Today,
+                    ControlDate = DateTime.Today,
+                    Repair = "Test"
+                }
             };
         }
 
@@ -44,5 +64,4 @@ namespace PrizmMain.DummyData
     {
         public string Type { get; set; }
     }
-
 }

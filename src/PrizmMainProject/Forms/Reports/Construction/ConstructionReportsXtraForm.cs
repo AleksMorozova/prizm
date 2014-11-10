@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
 namespace PrizmMain.Forms
 {
-    public partial class ConstructionReportsXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class ConstructionReportsXtraForm : XtraForm
     {
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-            RadioGroupItem item1 = new RadioGroupItem(0, "Joint");
-            RadioGroupItem item2 = new RadioGroupItem(1, "Kilometer post");
+            var item1 = new RadioGroupItem(0, "Joint");
+            var item2 = new RadioGroupItem(1, "Kilometer post");
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;

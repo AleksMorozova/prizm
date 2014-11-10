@@ -1,43 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms
 {
-    public partial class SettingsXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsXtraForm : XtraForm
     {
         public SettingsXtraForm()
         {
             InitializeComponent();
 
-            var inspectionDs = new PrizmMain.DummyData.InspectionDummy();
-            var inspectionData = inspectionDs.GetDummyInspection();
+            var inspectionDs = new InspectionDummy();
+            BindingList<Inspection> inspectionData = inspectionDs.GetDummyInspection();
             inspectionOperation.DataSource = inspectionData;
 
             #region User & Role Setting
-            var userDs = new PrizmMain.DummyData.UsersDummy();
-            var userData = userDs.GetDummyUsers();
+
+            var userDs = new UsersDummy();
+            BindingList<User> userData = userDs.GetDummyUsers();
             users.DataSource = userData;
 
-            var roleDs = new PrizmMain.DummyData.RolesDummy();
-            var roleData = roleDs.GetRoles();
+            var roleDs = new RolesDummy();
+            BindingList<Role> roleData = roleDs.GetRoles();
             roles.DataSource = roleData;
+
             #endregion
 
             #region Dictionary Grid
-            this.dictionaries.DataSource = PrizmMain.DummyData.DictionaryDummy.GetDictionaries();
-            #endregion
 
+            dictionaries.DataSource = DictionaryDummy.GetDictionaries();
+
+            #endregion
         }
 
         #region Role Setting
+
         private void editRoleButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
@@ -51,9 +49,11 @@ namespace PrizmMain.Forms
             var editForm = new RolesPrivilegeEditXtraForm();
             editForm.ShowDialog();
         }
+
         #endregion
 
         #region User setting
+
         private void userEditButton_Click(object sender, EventArgs e)
         {
             //TODO: change for normal logic
@@ -69,6 +69,5 @@ namespace PrizmMain.Forms
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
         }
-        
     }
 }

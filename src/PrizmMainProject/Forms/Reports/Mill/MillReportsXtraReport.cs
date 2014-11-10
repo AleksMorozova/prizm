@@ -1,17 +1,12 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.UI;
 
 namespace PrizmMain.Forms
 {
-    public partial class MillReportsXtraReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class MillReportsXtraReport : XtraReport
     {
         public MillReportsXtraReport()
         {
             InitializeComponent();
         }
-
     }
 }

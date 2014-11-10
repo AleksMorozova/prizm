@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using Domain.Entity;
 
 namespace PrizmMain.Forms
 {
-    public partial class ExternalFilesXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class ExternalFilesXtraForm : XtraForm
     {
         public ExternalFilesXtraForm()
         {
             InitializeComponent();
-            BindingList<Domain.Entity.File> list = new BindingList<Domain.Entity.File>();
-            list.Add( new Domain.Entity.File() { Description = "Aaa", FileName = "ERER", UploadDate = DateTime.Now });
+            var list = new BindingList<File>();
+            list.Add(new File {Description = "Aaa", FileName = "ERER", UploadDate = DateTime.Now});
             files.DataSource = list;
         }
     }
