@@ -116,13 +116,13 @@ namespace PrizmMain.Forms.Railcar.Edit
       {
          if (Railcar == null)
          {
-            Railcar = new Railcar();
+             Railcar = new Railcar() { IsActive=true};
          }
-         Railcar.Id = Guid.NewGuid();
          Number = string.Empty;
          Destination = string.Empty;
          ShippingDate = DateTime.Now;
          Certificate = string.Empty;
+          
       }
 
       public void Dispose()

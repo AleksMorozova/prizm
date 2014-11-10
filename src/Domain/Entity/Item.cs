@@ -8,8 +8,8 @@ namespace Domain.Entity
 {
     public class Item
     {
-        public Guid Id { get; protected set; }
+        public virtual Guid Id { get; protected set; }
 
-        public bool IsActive { get; set; }
+        public virtual bool IsActive { get; set; }
     }
 }

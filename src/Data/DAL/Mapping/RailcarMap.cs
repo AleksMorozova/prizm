@@ -12,11 +12,12 @@ namespace Domain.DAL.Mapping
    {
       public RailcarMap()
       {
-         Id(_ => _.Id, "id");
+          Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
          Map(_ => _.Number, "number");
          Map(_ => _.ShippingDate, "shipingDate");
          Map(_ => _.Destination, "destination");
          Map(_ => _.Certificate, "certificate");
+         Map(_ => _.IsActive, "is_active");
       }
    }
 }
