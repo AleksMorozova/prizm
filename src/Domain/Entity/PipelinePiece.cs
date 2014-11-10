@@ -9,6 +9,6 @@ namespace Domain.Entity
     // TODO: PipelinePiece 
     public class PipelinePiece : Item
     {
-        public float Length { get; set; }
+        public virtual float Length { get; set; }
     }
 }

@@ -12,25 +12,30 @@ namespace Data.DAL.Mapping
     {
         public PipeMap()
         {
-            Table("pipe");
-            Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
-            Map(_ => _.Number, "number");
-            Map(_ => _.Mill, "Mill");
-            Map(_ => _.Diameter, "Diameter");
-            Map(_ => _.WallThickness, "WallThickness");
-            Map(_ => _.Weight, "Weight");
-            Map(_ => _.Type, "Type");
-            References(_ => _.Railcar, "Id");
-            References(_ => _.PurchaseOrder, "Id");
-            HasManyToMany(_ => _.Welds)
-                .Table("weld_welder")
-                .ParentKeyColumn("pipeId")
-                .ChildKeyColumn("weldId")
-                .Cascade
-                .SaveUpdate();
-            HasMany(_ => _.PipeTestResult)
-                .KeyColumn("pipeId");
+                Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
+                Map(_ => _.Number, "number");
+                Map(_ => _.Mill, "mill");
+                Map(_ => _.Diameter, "diameter");
+                Map(_ => _.WallThickness, "wallThickness");
+                Map(_ => _.Weight, "weight");
+                Map(_ => _.Type, "type");
+
+                References(_ => _.Railcar, "id");
+                References(_ => _.PurchaseOrder, "Id");
+
+                  //TODO: Implement welds, pipe test result
+                  //HasManyToMany(_ => _.Welds)
+                  //    .Table("weld_welder")
+                  //    .ParentKeyColumn("pipeId")
+                  //    .ChildKeyColumn("weldId")
+                  //    .Cascade
+                  //    .SaveUpdate();
+                  //HasMany(_ => _.PipeTestResult)
+                  //    .KeyColumn("pipeId");
                 
+
+                Map(_ => _.IsActive, "is_active");
+           
         }
     }
 }

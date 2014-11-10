@@ -21,7 +21,16 @@ namespace PrizmMain
         {
             // Database
             ConnectionStringSettings settings = System.Configuration.ConfigurationManager.ConnectionStrings["PrizmDatabase"];
-            HibernateUtil.Initialize(settings.ConnectionString);
+
+            try
+            {
+                HibernateUtil.Initialize(settings.ConnectionString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
 
             // Ninject
             Kernel = new StandardKernel(new PrizmModule());
