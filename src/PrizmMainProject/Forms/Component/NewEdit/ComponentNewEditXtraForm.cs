@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Component.NewEdit
 {
     public partial class ComponentNewEditXtraForm : XtraForm
     {

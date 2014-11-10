@@ -3,7 +3,7 @@ using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : XtraForm
     {
@@ -45,9 +45,11 @@ namespace PrizmMain.Forms
             BindingList<Inspection> inspectionData = inspectionDs.GetDummyInspection();
             inspectionOperation.DataSource = inspectionData;
 
-            var coatingList = new BindingList<Coating>();
-            coatingList.Add(new Coating {Date = "18.10.2014", Type = "наружное"});
-            coatingList.Add(new Coating {Date = "20.10.2014", Type = "внутреннее"});
+            var coatingList = new BindingList<Coating>
+            {
+                new Coating {Date = "18.10.2014", Type = "наружное"},
+                new Coating {Date = "20.10.2014", Type = "внутреннее"}
+            };
 
             coatingHistory.DataSource = coatingList;
 

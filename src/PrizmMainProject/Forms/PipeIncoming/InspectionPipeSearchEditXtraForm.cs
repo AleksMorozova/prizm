@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.PipeIncoming
 {
     public partial class InspectionPipeSearchEditXtraForm : XtraForm
     {

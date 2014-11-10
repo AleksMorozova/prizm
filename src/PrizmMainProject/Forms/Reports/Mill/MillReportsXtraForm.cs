@@ -5,7 +5,7 @@ using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Reports.Mill
 {
     public partial class MillReportsXtraForm : XtraForm
     {
@@ -18,32 +18,40 @@ namespace PrizmMain.Forms
         {
             var pipeList = new List<PipesDummy>();
 
-            var pipe1 = new PipesDummy();
-            pipe1.PipeNumber = 1342352;
-            pipe1.Status = "production";
-            pipe1.Size = "1100x20";
-            pipe1.Manufacturer = "Mill 1";
+            var pipe1 = new PipesDummy
+            {
+                PipeNumber = 1342352,
+                Status = "production",
+                Size = "1100x20",
+                Manufacturer = "Mill 1"
+            };
             pipeList.Add(pipe1);
 
-            var pipe2 = new PipesDummy();
-            pipe2.PipeNumber = 1342352;
-            pipe2.Status = "production";
-            pipe2.Size = "1100x20";
-            pipe2.Manufacturer = "Mill 1";
+            var pipe2 = new PipesDummy
+            {
+                PipeNumber = 1342352,
+                Status = "production",
+                Size = "1100x20",
+                Manufacturer = "Mill 1"
+            };
             pipeList.Add(pipe2);
 
-            var pipe3 = new PipesDummy();
-            pipe3.PipeNumber = 1342352;
-            pipe3.Status = "production";
-            pipe3.Size = "1100x20";
-            pipe3.Manufacturer = "Mill 1";
+            var pipe3 = new PipesDummy
+            {
+                PipeNumber = 1342352,
+                Status = "production",
+                Size = "1100x20",
+                Manufacturer = "Mill 1"
+            };
             pipeList.Add(pipe3);
 
-            var pipe4 = new PipesDummy();
-            pipe4.PipeNumber = 1342352;
-            pipe4.Status = "production";
-            pipe4.Size = "1100x20";
-            pipe4.Manufacturer = "Mill 1";
+            var pipe4 = new PipesDummy
+            {
+                PipeNumber = 1342352,
+                Status = "production",
+                Size = "1100x20",
+                Manufacturer = "Mill 1"
+            };
             pipeList.Add(pipe4);
 
             return pipeList;
@@ -51,8 +59,7 @@ namespace PrizmMain.Forms
 
         private void previewButton_Click(object sender, EventArgs e)
         {
-            var report = new MillReportsXtraReport();
-            report.DataSource = CreateData();
+            var report = new MillReportsXtraReport {DataSource = CreateData()};
             report.CreateDocument();
             DocumentViewer doc = previewReportDocument;
             doc.DocumentSource = report;
@@ -60,8 +67,7 @@ namespace PrizmMain.Forms
 
         private void createReportButton_Click(object sender, EventArgs e)
         {
-            var report = new MillReportsXtraReport();
-            report.DataSource = CreateData();
+            var report = new MillReportsXtraReport {DataSource = CreateData()};
             report.CreateDocument();
             var tool = new ReportPrintTool(report);
             tool.ShowPreview();

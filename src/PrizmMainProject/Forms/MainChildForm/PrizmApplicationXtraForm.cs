@@ -2,9 +2,22 @@
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using PrizmMain.Forms.Railcar.Edit;
+using PrizmMain.Forms.Component.NewEdit;
+using PrizmMain.Forms.Component.Search;
+using PrizmMain.Forms.Joint.NewEdit;
+using PrizmMain.Forms.Joint.Search;
+using PrizmMain.Forms.PipeIncoming;
+using PrizmMain.Forms.PipeMill.NewEdit;
+using PrizmMain.Forms.PipeMill.Search;
+using PrizmMain.Forms.Railcar.NewEdit;
+using PrizmMain.Forms.Railcar.Search;
+using PrizmMain.Forms.Reports.Construction;
+using PrizmMain.Forms.Reports.Incoming;
+using PrizmMain.Forms.Reports.Mill;
+using PrizmMain.Forms.Settings;
+using PrizmMain.Forms.Spool;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.MainChildForm
 {
     public partial class PrizmApplicationXtraForm : XtraForm
     {

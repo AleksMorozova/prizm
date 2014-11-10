@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Joint.Search
 {
     public partial class JointSearchXtraForm : XtraForm
     {

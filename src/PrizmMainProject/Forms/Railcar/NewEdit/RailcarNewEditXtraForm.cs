@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms.Railcar.Edit
+namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public partial class RailcarNewEditXtraForm : XtraForm
     {

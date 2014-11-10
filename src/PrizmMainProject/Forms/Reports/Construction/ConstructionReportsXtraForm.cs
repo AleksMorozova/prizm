@@ -2,7 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Reports.Construction
 {
     public partial class ConstructionReportsXtraForm : XtraForm
     {

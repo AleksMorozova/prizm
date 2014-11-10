@@ -1,4 +1,5 @@
 ﻿using System;
+using Data.DAL.Mill;
 using Domain.Entity.Mill;
 using NHibernate;
 using Ninject;

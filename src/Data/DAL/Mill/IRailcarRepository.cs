@@ -1,7 +1,7 @@
 ﻿using System;
 using Domain.Entity.Mill;
 
-namespace Data.DAL
+namespace Data.DAL.Mill
 {
     public interface IRailcarRepository : IRepository<Guid, Railcar>
     {

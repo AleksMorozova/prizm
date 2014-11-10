@@ -3,7 +3,7 @@ using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Settings.UserRole.User
 {
     public partial class UserInfoXtraForm : XtraForm
     {
@@ -11,7 +11,7 @@ namespace PrizmMain.Forms
         {
             InitializeComponent();
             var repo = new RolesDummy();
-            BindingList<Role> roles = repo.GetRoles();
+            BindingList<DummyData.Role> roles = repo.GetRoles();
             role.Properties.Items.AddRange(roles);
         }
 
@@ -20,7 +20,7 @@ namespace PrizmMain.Forms
             InitializeComponent();
 
             var repo = new UsersDummy();
-            User user = repo.GetUser(1);
+            DummyData.User user = repo.GetUser(1);
             userBindingSource.DataSource = user;
             role.Properties.ReadOnly = true;
         }

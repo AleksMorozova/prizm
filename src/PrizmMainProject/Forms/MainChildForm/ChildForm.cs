@@ -4,7 +4,7 @@ using DevExpress.XtraEditors;
 using PrizmMain.Documents;
 using PrizmMain.Properties;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.MainChildForm
 {
     public class ChildForm : XtraForm
     {

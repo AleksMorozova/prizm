@@ -5,7 +5,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Settings.UserRole.Role
 {
     public partial class RolesPrivilegeEditXtraForm : XtraForm
     {
@@ -30,7 +30,7 @@ namespace PrizmMain.Forms
             roleEdit.Properties.ReadOnly = true;
             var repository = new RolesDummy();
             BindingList<Privilege> allPrivileges = repository.GetAllPrivileges();
-            Role role = repository.GetRole(0);
+            DummyData.Role role = repository.GetRole(0);
 
             var items = new CheckedListBoxItem[allPrivileges.Count];
 

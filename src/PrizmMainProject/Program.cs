@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Windows.Forms;
 using Data.DAL.Hibernate;
 using Ninject;
-using PrizmMain.Forms;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain
 {

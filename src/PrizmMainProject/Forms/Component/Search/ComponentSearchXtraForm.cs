@@ -4,7 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Component.Search
 {
     public partial class ComponentSearchXtraForm : XtraForm
     {

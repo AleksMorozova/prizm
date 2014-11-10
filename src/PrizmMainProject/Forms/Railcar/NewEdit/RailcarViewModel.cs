@@ -1,11 +1,11 @@
 ﻿using System;
-using Data.DAL;
-using Ninject;
-using PrizmMain.Commands;
+using Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Ninject;
+using PrizmMain.Commands;
 
-namespace PrizmMain.Forms.Railcar.Edit
+namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
@@ -16,7 +16,7 @@ namespace PrizmMain.Forms.Railcar.Edit
         public RailcarViewModel(IRailcarRepository repo)
         {
             this.repo = repo;
-            saveCommand = ViewModelSource.Create<SaveRailcarCommand>(() => new SaveRailcarCommand(this, repo));
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
             NewRailcar();
         }
 

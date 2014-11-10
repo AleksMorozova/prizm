@@ -2,7 +2,7 @@
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Joint.NewEdit
 {
     public partial class JointNewEditXtraForm : XtraForm
     {

@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Spool
 {
     public partial class SpoolsXtraForm : XtraForm
     {

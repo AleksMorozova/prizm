@@ -119,7 +119,7 @@ namespace PrizmMain.DummyData
 
         public User GetUser(int id)
         {
-            var users = GetDummyUsers();
+            BindingList<User> users = GetDummyUsers();
             return users[id];
         }
     }

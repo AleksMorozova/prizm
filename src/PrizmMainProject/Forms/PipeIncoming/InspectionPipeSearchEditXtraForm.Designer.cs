@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+﻿namespace PrizmMain.Forms.PipeIncoming
 {
     partial class InspectionPipeSearchEditXtraForm
     {

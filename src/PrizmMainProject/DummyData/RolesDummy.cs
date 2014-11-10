@@ -25,7 +25,7 @@ namespace PrizmMain.DummyData
 
         public BindingList<Role> GetRoles()
         {
-            var priveleges = GetAllPrivileges();
+            BindingList<Privilege> priveleges = GetAllPrivileges();
 
             var roles = new BindingList<Role>
             {
@@ -92,7 +92,7 @@ namespace PrizmMain.DummyData
 
         public Role GetRole(int id)
         {
-            var roles = GetRoles();
+            BindingList<Role> roles = GetRoles();
             return roles[0];
         }
     }
@@ -111,7 +111,7 @@ namespace PrizmMain.DummyData
 
         public bool Equals(Role other)
         {
-            if (this.Id == other.Id)
+            if (Id == other.Id)
             {
                 return true;
             }

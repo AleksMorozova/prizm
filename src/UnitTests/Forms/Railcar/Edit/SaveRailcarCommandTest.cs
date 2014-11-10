@@ -1,7 +1,7 @@
-﻿using Data.DAL;
+﻿using Data.DAL.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Forms.Railcar.Edit;
+using PrizmMain.Forms.Railcar.NewEdit;
 
 namespace UnitTests.Forms.Railcar.Edit
 {

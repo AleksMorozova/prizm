@@ -3,7 +3,7 @@ using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Railcar.Search
 {
     public partial class RailcarSearchXtraForm : XtraForm
     {
@@ -16,35 +16,37 @@ namespace PrizmMain.Forms
             shippedDate.Text = "16.10.2014";
             DateTime date = DateTime.Now;
 
-            var railcarsList = new BindingList<RailcarsDummy>();
-            railcarsList.Add(new RailcarsDummy
+            var railcarsList = new BindingList<RailcarsDummy>
             {
-                RailcarNumber = 151415,
-                Status = "ready",
-                DeliveryDate = date,
-                ShippedDate = date
-            });
-            railcarsList.Add(new RailcarsDummy
-            {
-                RailcarNumber = 161241,
-                Status = "ready",
-                DeliveryDate = date,
-                ShippedDate = date
-            });
-            railcarsList.Add(new RailcarsDummy
-            {
-                RailcarNumber = 925747,
-                Status = "cancel",
-                DeliveryDate = date,
-                ShippedDate = date
-            });
-            railcarsList.Add(new RailcarsDummy
-            {
-                RailcarNumber = 247481,
-                Status = "ready",
-                DeliveryDate = date,
-                ShippedDate = date
-            });
+                new RailcarsDummy
+                {
+                    RailcarNumber = 151415,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 161241,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 925747,
+                    Status = "cancel",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 247481,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                }
+            };
             railcarList.DataSource = railcarsList;
         }
     }

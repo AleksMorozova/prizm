@@ -1,8 +1,8 @@
-﻿using Data.DAL;
+﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using PrizmMain.Commands;
 
-namespace PrizmMain.Forms.Railcar.Edit
+namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {

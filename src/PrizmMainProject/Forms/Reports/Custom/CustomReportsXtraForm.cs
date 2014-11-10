@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Reports.Custom
 {
     public partial class CustomReportsXtraForm : XtraForm
     {

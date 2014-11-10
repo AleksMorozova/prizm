@@ -7,9 +7,11 @@ namespace PrizmMain.DummyData
     {
         public BindingList<weldHistory> GetCmpDummy()
         {
-            var welders = new List<Welders>();
-            welders.Add(new Welders {Name = "Ivan", LastName = "Ivanov"});
-            welders.Add(new Welders {Name = "Peter", LastName = "Petrov"});
+            var welders = new List<Welders>
+            {
+                new Welders {Name = "Ivan", LastName = "Ivanov"},
+                new Welders {Name = "Peter", LastName = "Petrov"}
+            };
             var weldHistory = new BindingList<weldHistory>
             {
                 new weldHistory {Date = "04.11.2014", Welders = welders}

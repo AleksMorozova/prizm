@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraReports.UI;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Reports.Mill
 {
     public partial class MillReportsXtraReport : XtraReport
     {

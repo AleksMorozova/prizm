@@ -2,8 +2,11 @@
 using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
+using PrizmMain.Forms.Settings.Dictionary;
+using PrizmMain.Forms.Settings.UserRole.Role;
+using PrizmMain.Forms.Settings.UserRole.User;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Settings
 {
     public partial class SettingsXtraForm : XtraForm
     {

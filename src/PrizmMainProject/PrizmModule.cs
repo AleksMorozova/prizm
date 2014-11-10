@@ -1,8 +1,8 @@
-﻿using Data.DAL;
-using Data.DAL.Hibernate;
+﻿using Data.DAL.Hibernate;
+using Data.DAL.Mill;
 using NHibernate;
 using Ninject.Modules;
-using PrizmMain.Forms.Railcar.Edit;
+using PrizmMain.Forms.Railcar.NewEdit;
 
 namespace PrizmMain
 {
