@@ -53,16 +53,15 @@
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\IDAO.cs" />
     <Compile Include="DAL\INumberDAO.cs" />
+    <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mill\IHeatDAO.cs" />
-    <Compile Include="DAL\Mill\IInspectorDAO.cs" />
     <Compile Include="DAL\Mill\IPipeDAO.cs" />
     <Compile Include="DAL\Mill\IPipeTestDAO.cs" />
     <Compile Include="DAL\Mill\IPipeTestResultDAO.cs" />
     <Compile Include="DAL\Mill\IPlateDAO.cs" />
     <Compile Include="DAL\Mill\IPurchaseOrderDAO.cs" />
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
-    <Compile Include="DAL\Mill\IWelderDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
