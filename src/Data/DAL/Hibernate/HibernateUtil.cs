@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Domain.DAL.Hibernate
 {
@@ -20,6 +21,7 @@ namespace Domain.DAL.Hibernate
          sessionFactory = Fluently.Configure()
             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
             .Mappings(_ => _.FluentMappings.AddFromAssemblyOf<HibernateUtil>())
+            .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false,true) ) // populate db tables from maping
             .BuildSessionFactory();
       }
 
