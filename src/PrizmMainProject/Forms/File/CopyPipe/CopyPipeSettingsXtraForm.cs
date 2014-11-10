@@ -11,10 +11,10 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    // TODO: Remove?
-    public partial class AddEditInspectionXtraForm : DevExpress.XtraEditors.XtraForm
+    //TODO: Remove?
+    public partial class CopyPipeSettingsXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public AddEditInspectionXtraForm()
+        public CopyPipeSettingsXtraForm()
         {
             InitializeComponent();
         }

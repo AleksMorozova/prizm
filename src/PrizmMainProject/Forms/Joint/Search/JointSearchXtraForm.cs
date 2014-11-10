@@ -11,12 +11,13 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    // TODO: Remove?
-    public partial class AddEditInspectionXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class JointSearchXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public AddEditInspectionXtraForm()
+        public JointSearchXtraForm()
         {
             InitializeComponent();
+            gridControlSerchResult.DataSource = PrizmMain.DummyData.JointsDummy.GetAllJoints();
         }
+
     }
 }

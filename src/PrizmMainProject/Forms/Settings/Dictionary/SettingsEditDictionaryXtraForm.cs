@@ -11,12 +11,12 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms
 {
-    // TODO: Remove?
-    public partial class AddEditInspectionXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsEditDictionaryXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public AddEditInspectionXtraForm()
+        public SettingsEditDictionaryXtraForm()
         {
             InitializeComponent();
+            items.DataSource = PrizmMain.DummyData.DictionaryDummy.GetItems();
         }
     }
 }
