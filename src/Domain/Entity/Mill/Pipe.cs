@@ -9,7 +9,7 @@ namespace Domain.Entity.Mill
 {
     public class Pipe : PipelinePiece
     {
-     
+        public virtual string Number { get; set; }
         public virtual string Mill { get; set; }
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
