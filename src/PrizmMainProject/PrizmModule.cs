@@ -2,7 +2,10 @@
 using Data.DAL.Mill;
 using NHibernate;
 using Ninject.Modules;
+using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
+
+using Data.DAL.Hibernate;
 
 namespace PrizmMain
 {
@@ -12,6 +15,10 @@ namespace PrizmMain
         {
             Bind<RailcarViewModel>().ToSelf();
             Bind<IRailcarRepository>().To<RailcarRepository>();
+
+            Bind<MillPipeSearchViewModel>().ToSelf();
+            Bind<IPipeRepository>().To<PipeRepository>();
+
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
         }
     }
