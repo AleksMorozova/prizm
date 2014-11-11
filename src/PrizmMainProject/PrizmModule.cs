@@ -5,8 +5,6 @@ using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
 
-using Data.DAL.Hibernate;
-
 namespace PrizmMain
 {
     public class PrizmModule : NinjectModule

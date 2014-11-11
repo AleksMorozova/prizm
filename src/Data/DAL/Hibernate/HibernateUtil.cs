@@ -14,7 +14,7 @@ namespace Data.DAL.Hibernate
             sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
                 .Mappings(_ => _.FluentMappings.AddFromAssemblyOf<HibernateUtil>())
-                .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+                //.ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                 // populate db tables from maping
                 .BuildSessionFactory();
         }

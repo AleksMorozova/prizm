@@ -1,5 +1,6 @@
 ﻿using Domain.Entity.Mill;
 using FluentNHibernate.Mapping;
+using NHibernate.Mapping.ByCode.Conformist;
 
 namespace Data.DAL.Mapping
 {
@@ -8,16 +9,17 @@ namespace Data.DAL.Mapping
         public PipeMap()
         {
 
-            //DiscriminatorValue(valueRepresentingThisSubclass); //?
+            KeyColumn("pipelinePieceId");
 
-            Map(_ => _.Number, "number");
+
+            
             Map(_ => _.Mill, "mill");
             Map(_ => _.WallThickness, "wallThickness");
             Map(_ => _.Weight, "weight");  
             Map(_ => _.Diameter, "diameter");
 
             References(_ => _.Railcar, "id");
-
+            
             //Map(_ => _.Type, "type"); 
             //Map(_ => _.Status, "PipeMillStatus");       
 
