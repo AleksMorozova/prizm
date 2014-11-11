@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using Ninject;
+using Ninject.Parameters;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -15,7 +17,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            viewModel = (RailcarViewModel) Program.Kernel.GetService(typeof (RailcarViewModel));
+            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("number",""));
             BindCommands();
             BindToViewModel();
         }

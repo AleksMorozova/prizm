@@ -5,6 +5,9 @@ using PrizmMain.DummyData;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Windows.Forms;
+using PrizmMain.Forms.Railcar.NewEdit;
+using Ninject;
+using Ninject.Parameters;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
@@ -50,9 +53,8 @@ namespace PrizmMain.Forms.Railcar.Search
             {
                 
                 string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
-                var parent = this.MdiParent as PrizmMain.Forms.MainChildForm.PrizmApplicationXtraForm;
-              //  parent.CreateFormChild(new PrizmMain.Forms.Railcar.NewEdit.RailcarNewEditXtraForm(number));
-                MessageBox.Show(number);
+                var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("number", number));
+                edit.Show();
 
             }
         }
