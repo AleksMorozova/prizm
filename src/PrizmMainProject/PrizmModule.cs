@@ -3,6 +3,7 @@ using Data.DAL.Mill;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.Railcar.NewEdit;
+using PrizmMain.Forms.Railcar.Search;
 
 namespace PrizmMain
 {
@@ -13,6 +14,8 @@ namespace PrizmMain
             Bind<RailcarViewModel>().ToSelf();
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+
+            Bind<RailcarSearchViewModel>().ToSelf();
         }
     }
 }
