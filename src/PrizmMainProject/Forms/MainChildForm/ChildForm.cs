@@ -1,46 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
-using System.Resources;
+using DevExpress.XtraEditors;
+using PrizmMain.Documents;
+using PrizmMain.Properties;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.MainChildForm
 {
-    public class ChildForm : DevExpress.XtraEditors.XtraForm
+    public class ChildForm : XtraForm
     {
         // TOREMOVE:
-        private class Document : Documents.IDocument {
-            private bool needToSave = false;
-            public bool NeedToSave { get { return needToSave; } }
-            public void Save() { } 
-        };
-        private Documents.IDocument doc = new Document();
+
+        private readonly IDocument doc = new Document();
 
         private void InitializeComponent()
         {
-
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
             // TODO: if doc doesn't exist it should be handled
 
             if (doc.NeedToSave)
             {
-                System.Windows.Forms.DialogResult result =
-                    DevExpress.XtraEditors.XtraMessageBox.Show(
-                        PrizmMain.Properties.Resources.IDS_QUESTION_SAVE, 
-                        PrizmMain.Properties.Resources.IDS_QUESTION_SAVE,
+                DialogResult result =
+                    XtraMessageBox.Show(
+                        Resources.IDS_QUESTION_SAVE,
+                        Resources.IDS_QUESTION_SAVE,
                         MessageBoxButtons.YesNoCancel,
                         MessageBoxIcon.Warning);
 
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     doc.Save();
                 }
-                else if (result == System.Windows.Forms.DialogResult.No)
+                else if (result == DialogResult.No)
                 {
                     // TODO: should this be audited?
                 }
@@ -51,5 +44,19 @@ namespace PrizmMain.Forms
             }
             base.OnClosing(e);
         }
+
+        private class Document : IDocument
+        {
+            private bool needToSave = false;
+
+            public bool NeedToSave
+            {
+                get { return needToSave; }
+            }
+
+            public void Save()
+            {
+            }
+        };
     }
 }

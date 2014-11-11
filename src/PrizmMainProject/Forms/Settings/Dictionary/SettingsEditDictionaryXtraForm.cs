@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Settings.Dictionary
 {
-    public partial class SettingsEditDictionaryXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsEditDictionaryXtraForm : XtraForm
     {
         public SettingsEditDictionaryXtraForm()
         {
             InitializeComponent();
-            items.DataSource = PrizmMain.DummyData.DictionaryDummy.GetItems();
+            items.DataSource = DictionaryDummy.GetItems();
         }
     }
 }

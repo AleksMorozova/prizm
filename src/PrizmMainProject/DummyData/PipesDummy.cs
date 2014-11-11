@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PrizmMain.DummyData
+﻿namespace PrizmMain.DummyData
 {
     public class PipesDummy
     {
-        private int pipeNumber;
-        private string status;
-        private string manufacturer;
-        private string size;
-        private string heatNumber;
-        private string weldingDate;
-        private string internalCoatingDate;
         private string externalCoatingDate;
+        private string heatNumber;
+        private string internalCoatingDate;
+        private string manufacturer;
+        private int pipeNumber;
+        private string size;
+        private string status;
+        private string weldingDate;
 
         public int PipeNumber
         {
@@ -34,6 +28,7 @@ namespace PrizmMain.DummyData
             get { return this.manufacturer; }
             set { this.manufacturer = value; }
         }
+
         public string Size
         {
             get { return this.size; }
@@ -57,6 +52,7 @@ namespace PrizmMain.DummyData
             get { return this.internalCoatingDate; }
             set { this.internalCoatingDate = value; }
         }
+
         public string ExternalCoatingDate
         {
             get { return this.externalCoatingDate; }
