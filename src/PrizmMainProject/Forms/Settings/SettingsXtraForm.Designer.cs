@@ -37,6 +37,7 @@
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
             this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -257,7 +258,8 @@
             // pipesSizeListGridView
             // 
             this.pipesSizeListGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.pipeSizeGridColumn});
+            this.pipeSizeGridColumn,
+            this.isActiveGridColumn});
             this.pipesSizeListGridView.GridControl = this.pipesSizeList;
             this.pipesSizeListGridView.Name = "pipesSizeListGridView";
             this.pipesSizeListGridView.OptionsView.ShowGroupPanel = false;
@@ -268,6 +270,13 @@
             this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
             this.pipeSizeGridColumn.Visible = true;
             this.pipeSizeGridColumn.VisibleIndex = 0;
+            // 
+            // isActiveGridColumn
+            // 
+            this.isActiveGridColumn.Caption = "Активен";
+            this.isActiveGridColumn.Name = "isActiveGridColumn";
+            this.isActiveGridColumn.Visible = true;
+            this.isActiveGridColumn.VisibleIndex = 1;
             // 
             // inspectionOperation
             // 
@@ -1462,5 +1471,6 @@
         private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonEmptySpaceItem;
+        private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
     }
 }
