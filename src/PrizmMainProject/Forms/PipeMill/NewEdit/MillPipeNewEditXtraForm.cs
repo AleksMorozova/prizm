@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-
-    public partial class MillPipeNewEditXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class MillPipeNewEditXtraForm : XtraForm
     {
         public MillPipeNewEditXtraForm()
         {
@@ -48,20 +41,21 @@ namespace PrizmMain.Forms
             purchaseOrder.Properties.Items.Add("2576214");
             purchaseOrder.Properties.Items.Add("3682554");
 
-            var inspectionDs = new PrizmMain.DummyData.InspectionDummy();
-            var inspectionData = inspectionDs.GetDummyInspection();
+            var inspectionDs = new InspectionDummy();
+            BindingList<Inspection> inspectionData = inspectionDs.GetDummyInspection();
             inspectionOperation.DataSource = inspectionData;
 
-            BindingList<Coating> coatingList = new BindingList<Coating>();
-            coatingList.Add(new Coating { Date = "18.10.2014", Type = "наружное" });
-            coatingList.Add(new Coating { Date = "20.10.2014", Type = "внутреннее" });
+            var coatingList = new BindingList<Coating>
+            {
+                new Coating {Date = "18.10.2014", Type = "наружное"},
+                new Coating {Date = "20.10.2014", Type = "внутреннее"}
+            };
 
             coatingHistory.DataSource = coatingList;
 
-            var weldingDs = new PrizmMain.DummyData.WeldersDummy();
-            var weldingData = weldingDs.GetCmpDummy();
+            var weldingDs = new WeldersDummy();
+            BindingList<weldHistory> weldingData = weldingDs.GetCmpDummy();
             weldingHistory.DataSource = weldingData;
-
         }
     }
 
@@ -73,13 +67,14 @@ namespace PrizmMain.Forms
 
         public String Date
         {
-            get { return this.date; }
-            set { this.date = value; }
+            get { return date; }
+            set { date = value; }
         }
+
         public String Type
         {
-            get { return this.type; }
-            set { this.type = value; }
+            get { return type; }
+            set { type = value; }
         }
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity.Joint
 {
@@ -21,6 +18,5 @@ namespace Domain.Entity.Joint
 
         public ICollection<ConstructionWelding> Weldings { get; set; }
         public ICollection<JointInspection> Inspections { get; set; }
-        
     }
 }

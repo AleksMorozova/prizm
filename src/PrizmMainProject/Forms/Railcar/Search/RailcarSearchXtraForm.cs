@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Railcar.Search
 {
-    public partial class RailcarSearchXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class RailcarSearchXtraForm : XtraForm
     {
         public RailcarSearchXtraForm()
         {
@@ -23,11 +16,37 @@ namespace PrizmMain.Forms
             shippedDate.Text = "16.10.2014";
             DateTime date = DateTime.Now;
 
-            BindingList<RailcarsDummy> railcarsList = new BindingList<RailcarsDummy>();
-            railcarsList.Add(new RailcarsDummy { RailcarNumber = 151415, Status = "ready", DeliveryDate = date, ShippedDate = date });
-            railcarsList.Add(new RailcarsDummy { RailcarNumber = 161241, Status = "ready", DeliveryDate = date, ShippedDate = date }); 
-            railcarsList.Add(new RailcarsDummy { RailcarNumber = 925747, Status = "cancel", DeliveryDate = date, ShippedDate = date });
-            railcarsList.Add(new RailcarsDummy { RailcarNumber = 247481, Status = "ready", DeliveryDate = date, ShippedDate = date });
+            var railcarsList = new BindingList<RailcarsDummy>
+            {
+                new RailcarsDummy
+                {
+                    RailcarNumber = 151415,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 161241,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 925747,
+                    Status = "cancel",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                },
+                new RailcarsDummy
+                {
+                    RailcarNumber = 247481,
+                    Status = "ready",
+                    DeliveryDate = date,
+                    ShippedDate = date
+                }
+            };
             railcarList.DataSource = railcarsList;
         }
     }

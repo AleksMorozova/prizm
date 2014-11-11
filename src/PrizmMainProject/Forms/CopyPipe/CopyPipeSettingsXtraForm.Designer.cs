@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+﻿namespace PrizmMain.Forms.CopyPipe
 {
     partial class CopyPipeSettingsXtraForm
     {
