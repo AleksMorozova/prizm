@@ -53,10 +53,10 @@ DECLARE @SQL_SCRIPT VARCHAR(MAX),
 		@PRIZMA_DB_NAME VARCHAR(255) = 'Prizm'
 SET @SQL_SCRIPT = 
 'USE [{DBNAME}]
-/****** Object:  Table [dbo].[chemicalComposition]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[ChemicalComposition]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[chemicalComposition](
+CREATE TABLE [dbo].[ChemicalComposition](
 	[id] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_chemicalComposition] PRIMARY KEY CLUSTERED 
 (
@@ -64,11 +64,11 @@ CREATE TABLE [dbo].[chemicalComposition](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Table [dbo].[heat]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Heat]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[heat](
+CREATE TABLE [dbo].[Heat](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[steelGrade] [varchar](20) NULL,
@@ -81,85 +81,85 @@ CREATE TABLE [dbo].[heat](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[inspector]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Inspector]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[inspector](
+CREATE TABLE [dbo].[Inspector](
 	[id] [uniqueidentifier] NOT NULL,
 	[firstName] [varchar](20) NOT NULL,
 	[lastName] [varchar](20) NOT NULL,
 	[middleName] [varchar](20) NULL,
 	[certificate] [varchar](20) NOT NULL,
 	[certificateExpiration] [date] NULL,
- CONSTRAINT [PK_inspector] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Inspector] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[pipe]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Pipe]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[pipe](
+CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
 	[wallThickness] [int] NOT NULL,
 	[diameter] [int] NOT NULL,
 	[weight] [int] NOT NULL,
 	[mill] [varchar](250) NOT NULL,
-	[pipeMillStatus] [varchar](20) NULL,
+	[PipeMillStatus] [varchar](20) NULL,
 	[typeId] [uniqueidentifier] NOT NULL,
 	[plateId] [uniqueidentifier] NOT NULL,
 	[purchaseOrderId] [uniqueidentifier] NOT NULL,
 	[railcarId] [uniqueidentifier] NULL,
-	[pipeLinePieceId] [uniqueidentifier] NOT NULL,
+	[pipelinePieceId] [uniqueidentifier] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NULL,
- CONSTRAINT [PK_pipe] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[pipeLinePiece]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PipelinePiece]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[pipeLinePiece](
+CREATE TABLE [dbo].[PipelinePiece](
 	[id] [uniqueidentifier] NOT NULL,
 	[length] [int] NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[isActive] [bit] NOT NULL,
 	[inspectionStatus] [varchar](15) NULL,
 	[constructionStatus] [varchar](15) NULL,
- CONSTRAINT [PK_pipeLinePiece] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PipelinePiece] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[pipeMillSizeType]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PipeMillSizeType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[pipeMillSizeType](
+CREATE TABLE [dbo].[PipeMillSizeType](
 	[id] [uniqueidentifier] NOT NULL,
 	[type] [varchar](50) NOT NULL,
- CONSTRAINT [PK_pipeMillSizeType] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[pipeTest]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PipeTest]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[pipeTest](
+CREATE TABLE [dbo].[PipeTest](
 	[id] [uniqueidentifier] NOT NULL,
 	[code] [varchar](20) NOT NULL,
 	[name] [varchar](20) NOT NULL,
@@ -171,108 +171,108 @@ CREATE TABLE [dbo].[pipeTest](
 	[boolExpected] [bit] NULL,
 	[isRequired] [bit] NULL,
 	[pipeMillSizeTypeId] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_pipeTest] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PipeTest] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[pipeTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PipeTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[pipeTestResult](
+CREATE TABLE [dbo].[PipeTestResult](
 	[id] [uniqueidentifier] NOT NULL,
 	[testResultId] [uniqueidentifier] NOT NULL,
 	[pipeId] [uniqueidentifier] NOT NULL,
 	[pipeTestId] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_pipeTestResult] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PipeTestResult] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Table [dbo].[plate]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Plate]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[plate](
+CREATE TABLE [dbo].[Plate](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[thickness] [int] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NULL,
 	[heatId] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_plate] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Plate] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[purchaseOrder]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PurchaseOrder]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[purchaseOrder](
+CREATE TABLE [dbo].[PurchaseOrder](
 	[id] [uniqueidentifier]NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[date] [date] NULL,
- CONSTRAINT [PK_purchaseOrder] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PurchaseOrder] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[railcar]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Railcar]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[railcar](
+CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[certificate] [varchar](20) NOT NULL,
 	[destination] [varchar](50) NULL,
 	[shipingDate] [date] NULL,
- CONSTRAINT [PK_railcar] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[testResult]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[TestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[testResult](
+CREATE TABLE [dbo].[TestResult](
 	[id] [uniqueidentifier] NOT NULL,
 	[date] [date] NOT NULL,
 	[value] [varchar](25) NOT NULL,
 	[status] [varchar](25) NULL,
- CONSTRAINT [PK_testResult] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_TestResult] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[testResult_inspector]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[TestResult_Inspector]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[testResult_inspector](
+CREATE TABLE [dbo].[TestResult_Inspector](
 	[id] [uniqueidentifier] NOT NULL,
 	[inspectorId] [uniqueidentifier] NOT NULL,
 	[resultId] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_testResult_inspector] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_TestResult_Inspector] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Table [dbo].[weld]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Weld]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[weld](
+CREATE TABLE [dbo].[Weld](
 	[id] [uniqueidentifier] NOT NULL,
 	[date] [date] NOT NULL,
 CONSTRAINT [PK_weld] PRIMARY KEY CLUSTERED 
@@ -281,25 +281,25 @@ CONSTRAINT [PK_weld] PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Table [dbo].[weld_welder]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Weld_Welder]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[weld_welder](
+CREATE TABLE [dbo].[Weld_Welder](
 	[id] [uniqueidentifier] NOT NULL,
 	[weldId] [uniqueidentifier] NOT NULL,
 	[welderId] [uniqueidentifier] NOT NULL,
 	[pipeId] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_weld_welder] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Weld_Welder] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Table [dbo].[welder]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[Welder]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[welder](
+CREATE TABLE [dbo].[Welder](
 	[id] [uniqueidentifier] NOT NULL,
 	[firstName] [varchar](20) NOT NULL,
 	[lastName] [varchar](20) NOT NULL,
@@ -314,57 +314,57 @@ CREATE TABLE [dbo].[welder](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
-ALTER TABLE [dbo].[heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[chemicalComposition] ([id])
-ALTER TABLE [dbo].[heat] CHECK CONSTRAINT [FK_heat_chemicalComposition]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[chemicalComposition] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_chemicalComposition]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_pipeLinePiece] FOREIGN KEY([pipeLinePieceId])
-REFERENCES [dbo].[pipeLinePiece] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_pipeLinePiece]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_pipeMillSizeType] FOREIGN KEY([typeId])
-REFERENCES [dbo].[pipeMillSizeType] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_pipeMillSizeType]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_plate] FOREIGN KEY([plateId])
-REFERENCES [dbo].[plate] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_plate]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_purchaseOrder] FOREIGN KEY([purchaseOrderId])
-REFERENCES [dbo].[purchaseOrder] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_purchaseOrder]
-ALTER TABLE [dbo].[pipe]  WITH CHECK ADD  CONSTRAINT [FK_pipe_railcar] FOREIGN KEY([railcarId])
-REFERENCES [dbo].[railcar] ([id])
-ALTER TABLE [dbo].[pipe] CHECK CONSTRAINT [FK_pipe_railcar]
-ALTER TABLE [dbo].[pipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_pipeTestResult_pipe] FOREIGN KEY([pipeId])
-REFERENCES [dbo].[pipe] ([id])
-ALTER TABLE [dbo].[pipeTestResult] CHECK CONSTRAINT [FK_pipeTestResult_pipe]
-ALTER TABLE [dbo].[pipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_pipeTestResult_pipeTest] FOREIGN KEY([pipeTestId])
-REFERENCES [dbo].[pipeTest] ([id])
-ALTER TABLE [dbo].[pipeTestResult] CHECK CONSTRAINT [FK_pipeTestResult_pipeTest]
-ALTER TABLE [dbo].[pipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_pipeTestResult_testResult] FOREIGN KEY([testResultId])
-REFERENCES [dbo].[testResult] ([id])
-ALTER TABLE [dbo].[pipeTestResult] CHECK CONSTRAINT [FK_pipeTestResult_testResult]
-ALTER TABLE [dbo].[plate]  WITH CHECK ADD  CONSTRAINT [FK_plate_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[chemicalComposition] ([id])
-ALTER TABLE [dbo].[plate] CHECK CONSTRAINT [FK_plate_chemicalComposition]
-ALTER TABLE [dbo].[plate]  WITH CHECK ADD  CONSTRAINT [FK_plate_heat] FOREIGN KEY([heatId])
-REFERENCES [dbo].[heat] ([id])
-ALTER TABLE [dbo].[plate] CHECK CONSTRAINT [FK_plate_heat]
-ALTER TABLE [dbo].[testResult_inspector]  WITH CHECK ADD  CONSTRAINT [FK_testResult_inspector_inspector] FOREIGN KEY([inspectorId])
-REFERENCES [dbo].[inspector] ([id])
-ALTER TABLE [dbo].[testResult_inspector] CHECK CONSTRAINT [FK_testResult_inspector_inspector]
-ALTER TABLE [dbo].[testResult_inspector]  WITH CHECK ADD  CONSTRAINT [FK_testResult_inspector_testResult] FOREIGN KEY([resultId])
-REFERENCES [dbo].[testResult] ([id])
-ALTER TABLE [dbo].[testResult_inspector] CHECK CONSTRAINT [FK_testResult_inspector_testResult]
-ALTER TABLE [dbo].[weld_welder]  WITH CHECK ADD  CONSTRAINT [FK_weld_welder_pipe] FOREIGN KEY([pipeId])
-REFERENCES [dbo].[pipe] ([id])
-ALTER TABLE [dbo].[weld_welder] CHECK CONSTRAINT [FK_weld_welder_pipe]
-ALTER TABLE [dbo].[weld_welder]  WITH CHECK ADD  CONSTRAINT [FK_weld_welder_weld] FOREIGN KEY([weldId])
-REFERENCES [dbo].[weld] ([id])
-ALTER TABLE [dbo].[weld_welder] CHECK CONSTRAINT [FK_weld_welder_weld]
-ALTER TABLE [dbo].[weld_welder]  WITH CHECK ADD  CONSTRAINT [FK_weld_welder_welder] FOREIGN KEY([welderId])
-REFERENCES [dbo].[welder] ([id])
-ALTER TABLE [dbo].[weld_welder] CHECK CONSTRAINT [FK_weld_welder_welder]
+ALTER TABLE [dbo].[Heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
+REFERENCES [dbo].[ChemicalComposition] ([id])
+ALTER TABLE [dbo].[Heat] CHECK CONSTRAINT [FK_heat_chemicalComposition]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
+REFERENCES [dbo].[ChemicalComposition] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_chemicalComposition]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipelinePiece] FOREIGN KEY([pipelinePieceId])
+REFERENCES [dbo].[PipelinePiece] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipelinePiece]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipeMillSizeType] FOREIGN KEY([typeId])
+REFERENCES [dbo].[PipeMillSizeType] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipeMillSizeType]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Plate] FOREIGN KEY([plateId])
+REFERENCES [dbo].[Plate] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Plate]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PurchaseOrder] FOREIGN KEY([purchaseOrderId])
+REFERENCES [dbo].[PurchaseOrder] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PurchaseOrder]
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Railcar] FOREIGN KEY([railcarId])
+REFERENCES [dbo].[Railcar] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Railcar]
+ALTER TABLE [dbo].[PipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_PipeTestResult_Pipe] FOREIGN KEY([pipeId])
+REFERENCES [dbo].[Pipe] ([id])
+ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_Pipe]
+ALTER TABLE [dbo].[PipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_PipeTestResult_PipeTest] FOREIGN KEY([pipeTestId])
+REFERENCES [dbo].[PipeTest] ([id])
+ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_PipeTest]
+ALTER TABLE [dbo].[PipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_PipeTestResult_TestResult] FOREIGN KEY([testResultId])
+REFERENCES [dbo].[TestResult] ([id])
+ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_TestResult]
+ALTER TABLE [dbo].[Plate]  WITH CHECK ADD  CONSTRAINT [FK_Plate_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
+REFERENCES [dbo].[ChemicalComposition] ([id])
+ALTER TABLE [dbo].[Plate] CHECK CONSTRAINT [FK_Plate_chemicalComposition]
+ALTER TABLE [dbo].[Plate]  WITH CHECK ADD  CONSTRAINT [FK_Plate_heat] FOREIGN KEY([heatId])
+REFERENCES [dbo].[Heat] ([id])
+ALTER TABLE [dbo].[Plate] CHECK CONSTRAINT [FK_Plate_heat]
+ALTER TABLE [dbo].[TestResult_Inspector]  WITH CHECK ADD  CONSTRAINT [FK_TestResult_Inspector_Inspector] FOREIGN KEY([inspectorId])
+REFERENCES [dbo].[Inspector] ([id])
+ALTER TABLE [dbo].[TestResult_Inspector] CHECK CONSTRAINT [FK_TestResult_Inspector_Inspector]
+ALTER TABLE [dbo].[TestResult_Inspector]  WITH CHECK ADD  CONSTRAINT [FK_TestResult_Inspector_TestResult] FOREIGN KEY([resultId])
+REFERENCES [dbo].[TestResult] ([id])
+ALTER TABLE [dbo].[TestResult_Inspector] CHECK CONSTRAINT [FK_TestResult_Inspector_TestResult]
+ALTER TABLE [dbo].[Weld_Welder]  WITH CHECK ADD  CONSTRAINT [FK_Weld_Welder_Pipe] FOREIGN KEY([pipeId])
+REFERENCES [dbo].[Pipe] ([id])
+ALTER TABLE [dbo].[Weld_Welder] CHECK CONSTRAINT [FK_Weld_Welder_Pipe]
+ALTER TABLE [dbo].[Weld_Welder]  WITH CHECK ADD  CONSTRAINT [FK_Weld_Welder_weld] FOREIGN KEY([weldId])
+REFERENCES [dbo].[Weld] ([id])
+ALTER TABLE [dbo].[Weld_Welder] CHECK CONSTRAINT [FK_Weld_Welder_weld]
+ALTER TABLE [dbo].[Weld_Welder]  WITH CHECK ADD  CONSTRAINT [FK_Weld_Welder_welder] FOREIGN KEY([welderId])
+REFERENCES [dbo].[Welder] ([id])
+ALTER TABLE [dbo].[Weld_Welder] CHECK CONSTRAINT [FK_Weld_Welder_welder]
 USE [master]
 ALTER DATABASE [{DBNAME}] SET  READ_WRITE '
 SET @SQL_SCRIPT = REPLACE(@SQL_SCRIPT, '{DBNAME}', @PRIZMA_DB_NAME)

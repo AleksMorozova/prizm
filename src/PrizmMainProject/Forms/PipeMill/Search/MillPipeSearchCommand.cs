@@ -26,7 +26,6 @@ namespace PrizmMain.Forms.PipeMill.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            repo.BeginTransaction();
             viewModel.Pipes = repo.GetAll();
         }
 
