@@ -2,6 +2,9 @@
 using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
@@ -35,6 +38,22 @@ namespace PrizmMain.Forms.Railcar.Search
         private void BindCommands()
         {
             //searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+        }
+
+
+        private void railcarListView_DoubleClick(object sender, EventArgs e)
+        {
+            GridView view = (GridView)sender;
+            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
+
+            if (info.InRow || info.InRowCell)
+            {
+                
+                string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
+                var parent = this.MdiParent as PrizmMain.Forms.MainChildForm.PrizmApplicationXtraForm;
+                parent.CreateFormChild(new PrizmMain.Forms.Railcar.NewEdit.RailcarNewEditXtraForm(number));
+
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace PrizmMain.Forms.MainChildForm
         }
 
 
-        private void CreateFormChild(XtraForm frmChild)
+        public void CreateFormChild(XtraForm frmChild)
         {
             if (FramesCanOpen > 0)
             {

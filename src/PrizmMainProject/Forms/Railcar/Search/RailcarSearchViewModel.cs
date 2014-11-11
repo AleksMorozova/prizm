@@ -47,11 +47,6 @@ namespace PrizmMain.Forms.Railcar.Search
             //FillGrid();
         }
 
-        private void FillGrid()
-        {
-            throw new NotImplementedException();
-        }
-
         //public ICommand SearchCommand
         //{
         //    get { return searchCommand; }
