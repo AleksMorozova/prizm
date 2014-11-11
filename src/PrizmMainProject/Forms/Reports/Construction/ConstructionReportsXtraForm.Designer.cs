@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+﻿namespace PrizmMain.Forms.Reports.Construction
 {
     partial class ConstructionReportsXtraForm
     {

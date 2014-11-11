@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms
+﻿namespace PrizmMain.Forms.Reports.Incoming
 {
     partial class InspectionReportsXtraForm
     {

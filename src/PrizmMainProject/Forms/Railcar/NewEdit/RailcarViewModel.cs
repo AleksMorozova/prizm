@@ -1,133 +1,112 @@
-﻿using System.ComponentModel;
+﻿using System;
+using Data.DAL.Mill;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
+using Ninject;
+using PrizmMain.Commands;
 
-namespace PrizmMain.Forms.Railcar.Edit
+namespace PrizmMain.Forms.Railcar.NewEdit
 {
-   using DevExpress.Mvvm;
-   using DevExpress.Mvvm.DataAnnotations;
-   using DevExpress.Mvvm.POCO;
-   using Domain.DAL;
-   using Domain.DAL.Hibernate;
-   using Ninject;
-   using PrizmMain.Commands;
-   using System;
-   using System.Windows.Forms;
-   using Railcar = Domain.Entity.Mill.Railcar;
+    public class RailcarViewModel : ViewModelBase, IDisposable
+    {
+        private readonly IRailcarRepository repo;
+        private readonly SaveRailcarCommand saveCommand;
 
-   public class RailcarViewModel : ViewModelBase, IDisposable
-   {
-      public Railcar Railcar { get; set; }
-      readonly SaveRailcarCommand saveCommand;
-      readonly IRailcarRepository repo;
+        [Inject]
+        public RailcarViewModel(IRailcarRepository repo)
+        {
+            this.repo = repo;
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
+            NewRailcar();
+        }
 
-      [Inject]
-      public RailcarViewModel(IRailcarRepository repo)
-      {
-         this.repo = repo;
-         saveCommand = ViewModelSource.Create<SaveRailcarCommand>(() => new SaveRailcarCommand(this, repo));
-         NewRailcar();
-      }
+        public Domain.Entity.Mill.Railcar Railcar { get; set; }
 
-      public string Number 
-      { 
-         get
-         {
-            return Railcar.Number;
-         }
-         set
-         {
-            if (value != Railcar.Number)
+        public string Number
+        {
+            get { return Railcar.Number; }
+            set
             {
-               Railcar.Number = value;
-               RaisePropertyChanged("Number");
+                if (value != Railcar.Number)
+                {
+                    Railcar.Number = value;
+                    RaisePropertyChanged("Number");
+                }
             }
-         }
-      }
+        }
 
-      public string Certificate
-      {
-         get
-         {
-            return Railcar.Certificate;
-         }
-         set
-         {
-            if (value != Railcar.Certificate)
+        public string Certificate
+        {
+            get { return Railcar.Certificate; }
+            set
             {
-               Railcar.Certificate = value;
-               RaisePropertyChanged("Certificate");
+                if (value != Railcar.Certificate)
+                {
+                    Railcar.Certificate = value;
+                    RaisePropertyChanged("Certificate");
+                }
             }
-         }
-      }
+        }
 
-      public string Destination
-      {
-         get
-         {
-            return Railcar.Destination;
-         }
-         set
-         {
-            if (value != Railcar.Destination)
+        public string Destination
+        {
+            get { return Railcar.Destination; }
+            set
             {
-               Railcar.Destination = value;
-               RaisePropertyChanged("Destination");
+                if (value != Railcar.Destination)
+                {
+                    Railcar.Destination = value;
+                    RaisePropertyChanged("Destination");
+                }
             }
-         }
-      }
+        }
 
-      public DateTime ShippingDate
-      {
-         get
-         {
-            return Railcar.ShippingDate;
-         }
-         set
-         {
-            if (value != Railcar.ShippingDate)
+        public DateTime ShippingDate
+        {
+            get { return Railcar.ShippingDate; }
+            set
             {
-               Railcar.ShippingDate = value;
-               RaisePropertyChanged("ShippingDate");
+                if (value != Railcar.ShippingDate)
+                {
+                    Railcar.ShippingDate = value;
+                    RaisePropertyChanged("ShippingDate");
+                }
             }
-         }
-      }
+        }
 
-      public DateTime DeliveryDate 
-      {
-         get
-         {
-            return Railcar.DeliveryDate;
-         }
-         set
-         {
-            if (value != Railcar.DeliveryDate)
+        public DateTime DeliveryDate
+        {
+            get { return Railcar.DeliveryDate; }
+            set
             {
-               Railcar.DeliveryDate = value;
-               RaisePropertyChanged("DeliveryDate");
+                if (value != Railcar.DeliveryDate)
+                {
+                    Railcar.DeliveryDate = value;
+                    RaisePropertyChanged("DeliveryDate");
+                }
             }
-         }         
-      }
+        }
 
-      public ICommand SaveCommand
-      {
-         get { return saveCommand; }
-      }
+        public ICommand SaveCommand
+        {
+            get { return saveCommand; }
+        }
 
-      public void NewRailcar()
-      {
-         if (Railcar == null)
-         {
-             Railcar = new Railcar() { IsActive=true};
-         }
-         Number = string.Empty;
-         Destination = string.Empty;
-         ShippingDate = DateTime.Now;
-         Certificate = string.Empty;
-          
-      }
+        public void Dispose()
+        {
+            repo.Dispose();
+        }
 
-      public void Dispose()
-      {
-         repo.Dispose();
-      }
-   }
+        public void NewRailcar()
+        {
+            if (Railcar == null)
+            {
+                Railcar = new Domain.Entity.Mill.Railcar {IsActive = true};
+            }
+            Number = string.Empty;
+            Destination = string.Empty;
+            ShippingDate = DateTime.Now;
+            Certificate = string.Empty;
+        }
+    }
 }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PrizmMain.Documents
+﻿namespace PrizmMain.Documents
 {
-    interface IDocument
+    internal interface IDocument
     {
         bool NeedToSave { get; }
         void Save();

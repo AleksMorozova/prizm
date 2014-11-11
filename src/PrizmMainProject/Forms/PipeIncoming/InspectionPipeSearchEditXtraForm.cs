@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
 
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.PipeIncoming
 {
-    public partial class InspectionPipeSearchEditXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class InspectionPipeSearchEditXtraForm : XtraForm
     {
         public InspectionPipeSearchEditXtraForm()
         {
@@ -30,7 +20,6 @@ namespace PrizmMain.Forms
             inspectionDiameter.Text = "20";
             inspectionWeight.Text = "3";
             inspectionHeatNumber.Text = "142526";
-
         }
     }
 }

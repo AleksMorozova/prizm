@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
     // TODO: Name convert Funtion (property)
     public class PersonName : Item
     {
-        public virtual string FirstName { get; set; }
-        public virtual string LastName { get; set; }
-        public virtual string MiddleName { get; set; }
-
-        public PersonName(string first, string last, string middle): this(first,last)
+        public PersonName(string first, string last, string middle) : this(first, last)
         {
             this.MiddleName = middle;
         }
@@ -26,10 +18,13 @@ namespace Domain.Entity
 
         protected PersonName()
         {
-
         }
 
-        public string GetFullName() 
+        public virtual string FirstName { get; set; }
+        public virtual string LastName { get; set; }
+        public virtual string MiddleName { get; set; }
+
+        public string GetFullName()
         {
             throw new NotImplementedException();
         }

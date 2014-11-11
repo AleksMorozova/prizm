@@ -1,4 +1,4 @@
-namespace PrizmMain.Forms
+namespace PrizmMain.Forms.Joint.NewEdit
 {
     partial class JointNewEditXtraForm
     {

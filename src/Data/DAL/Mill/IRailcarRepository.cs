@@ -1,14 +1,9 @@
-﻿using Data.DAL;
+﻿using System;
 using Domain.Entity.Mill;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.DAL
+namespace Data.DAL.Mill
 {
-   public interface IRailcarRepository : IRepository<Guid, Railcar>
-   {
-   }
+    public interface IRailcarRepository : IRepository<Guid, Railcar>
+    {
+    }
 }

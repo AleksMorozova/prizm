@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity
 {
     public class Component // TODO: :PipelinePiece
     {
+        public enum Status
+        {
+            accepted,
+            hold,
+            rejected
+        };
+
         public Component()
         {
-            this.Connectors= new List<Connector>();
+            this.Connectors = new List<Connector>();
         }
 
         public int ComponentID { get; set; }
@@ -18,7 +21,5 @@ namespace Domain.Entity
         public int Number { get; set; }
         public string Sertificate { get; set; }
         public virtual ICollection<Connector> Connectors { get; set; }
-
-        public enum Status { accepted,hold,rejected };
     }
 }
