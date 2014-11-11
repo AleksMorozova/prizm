@@ -51,7 +51,8 @@ namespace PrizmMain.Forms.Railcar.Search
                 
                 string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
                 var parent = this.MdiParent as PrizmMain.Forms.MainChildForm.PrizmApplicationXtraForm;
-                parent.CreateFormChild(new PrizmMain.Forms.Railcar.NewEdit.RailcarNewEditXtraForm(number));
+              //  parent.CreateFormChild(new PrizmMain.Forms.Railcar.NewEdit.RailcarNewEditXtraForm(number));
+                MessageBox.Show(number);
 
             }
         }
