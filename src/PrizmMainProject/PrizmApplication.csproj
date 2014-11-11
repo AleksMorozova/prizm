@@ -169,6 +169,7 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
+    <Compile Include="Forms\IForm.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
