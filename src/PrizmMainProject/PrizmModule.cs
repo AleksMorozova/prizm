@@ -23,13 +23,18 @@ namespace PrizmMain
     {
         public override void Load()
         {
-            
-            Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
 
-            #region Forms Binding
+            #region Repository
+            Bind<IRailcarRepository>().To<RailcarRepository>(); 
+            #endregion
+
+            #region ViewModel
             Bind<RailcarViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
+            #endregion
+
+            #region Forms Binding
             Bind<MillPipeNewEditXtraForm>().ToSelf();
             Bind<RailcarNewEditXtraForm>().ToSelf();
             Bind<MillPipeSearchXtraForm>().ToSelf();
