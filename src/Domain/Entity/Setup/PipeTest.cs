@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Domain.Entity.Mill;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Mill
+namespace Domain.Entity.Setup
 {
-    public class PipeTest : Item
+    public class PipeTest: Item
     {
         public virtual string Code { get; set; }
+        public virtual string Name { get; set; }
         public virtual string TestSubject { get; set; }
         public virtual int MinExpected { get; set; }
         public virtual int MaxExpected { get; set; }
@@ -18,7 +20,7 @@ namespace Domain.Entity.Mill
 
         //enums
         public virtual PipeTestControlType ControlType { get; set; }
-        public virtual PipeTestResultType Resulttype { get; set; }
+        public virtual PipeTestResultType ResultType { get; set; }
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
 
@@ -38,8 +40,8 @@ namespace Domain.Entity.Mill
         }
 
         //bool test
-        public PipeTest(string code, string subject, bool isRequired, bool expected) 
-            : this(code,subject,isRequired)
+        public PipeTest(string code, string subject, bool isRequired, bool expected)
+            : this(code, subject, isRequired)
         {
             this.BoolExpected = expected;
         }
