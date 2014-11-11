@@ -2,7 +2,7 @@
 
 namespace Data.DAL.Hibernate
 {
-    public abstract class AbstractHibernateRepository<TKey, TEntity> : IRepository<TKey, TEntity>
+    public abstract class AbstractHibernateRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
     {
         protected readonly ISession session;
 
@@ -14,6 +14,11 @@ namespace Data.DAL.Hibernate
         public TEntity Get(TKey key)
         {
             return session.Get<TEntity>(key);
+        }
+
+        public System.Collections.Generic.ICollection<TEntity> GetAll()
+        {
+            return session.CreateCriteria<TEntity>().List<TEntity>();
         }
 
         public void Save(TEntity entity)
@@ -73,5 +78,8 @@ namespace Data.DAL.Hibernate
         {
             session.Dispose();
         }
+
+
+
     }
 }
