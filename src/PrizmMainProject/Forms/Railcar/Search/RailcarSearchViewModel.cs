@@ -109,7 +109,7 @@ namespace PrizmMain.Forms.Railcar.Search
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            repo.Dispose();
         }
     }
 }
