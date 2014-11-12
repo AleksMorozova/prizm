@@ -32,16 +32,16 @@ namespace PrizmMain.Forms.Railcar.Search
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-            //railcarNumber.DataBindings.Add("Editvalue", bindingSource, "Number");
-            //certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
-            //destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            //shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
+            railcarNumber.DataBindings.Add("Editvalue", bindingSource, "RailcarNumber");
+            certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
+            destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
+            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             railcarList.DataSource = viewModel.Railcars;
         }
 
         private void BindCommands()
         {
-            //searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
         }
 
 
