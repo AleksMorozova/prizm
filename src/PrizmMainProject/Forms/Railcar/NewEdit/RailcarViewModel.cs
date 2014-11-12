@@ -18,7 +18,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             this.repo = repo;
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
 
-            if (railcarNumber.Length < 1)
+            if (string.IsNullOrWhiteSpace(railcarNumber))
             {
                 NewRailcar();
             }

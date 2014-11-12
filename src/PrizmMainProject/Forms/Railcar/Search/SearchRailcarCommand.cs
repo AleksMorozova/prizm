@@ -31,17 +31,17 @@ namespace PrizmMain.Forms.Railcar.Search
 
             var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
 
-            if (viewModel.RailcarNumber.Length > 0)
+            if (string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
             {
                 criteria.Add(Restrictions.Like("Number", viewModel.RailcarNumber, MatchMode.Anywhere));
             }
 
-            if (viewModel.Certificate.Length > 0)
+            if (string.IsNullOrWhiteSpace(viewModel.Certificate))
             {
                 criteria.Add(Restrictions.Like("Certificate", viewModel.Certificate, MatchMode.Anywhere));
             }
 
-            if (viewModel.Receiver.Length > 0)
+            if (string.IsNullOrWhiteSpace(viewModel.Receiver))
             {
                 criteria.Add(Restrictions.Like("Destination", viewModel.Receiver, MatchMode.Anywhere));
             }  
