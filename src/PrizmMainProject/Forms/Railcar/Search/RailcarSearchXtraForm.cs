@@ -55,7 +55,7 @@ namespace PrizmMain.Forms.Railcar.Search
             {
                 
                 string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
-                var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("numb", number));
+                var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("railcarNumber", number));
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
                 parent.CreateFormChild(edit);
             }

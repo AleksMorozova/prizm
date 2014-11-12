@@ -41,8 +41,8 @@
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dest = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shippingDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shipGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unshipGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -160,21 +160,21 @@
             this.number.Visible = true;
             this.number.VisibleIndex = 1;
             // 
+            // dest
+            // 
+            this.dest.Caption = "Получатель";
+            this.dest.FieldName = "Destination";
+            this.dest.Name = "dest";
+            this.dest.Visible = true;
+            this.dest.VisibleIndex = 2;
+            // 
             // certificate
             // 
             this.certificate.Caption = "Сертификат";
             this.certificate.FieldName = "Certificate";
             this.certificate.Name = "certificate";
             this.certificate.Visible = true;
-            this.certificate.VisibleIndex = 2;
-            // 
-            // dest
-            // 
-            this.dest.Caption = "Назначение";
-            this.dest.FieldName = "Destination";
-            this.dest.Name = "dest";
-            this.dest.Visible = true;
-            this.dest.VisibleIndex = 3;
+            this.certificate.VisibleIndex = 3;
             // 
             // shippingDate
             // 
