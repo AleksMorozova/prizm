@@ -19,12 +19,12 @@ namespace UnitTests.Forms.Railcar.Search
             var viewModel = new RailcarSearchViewModel(repo.Object);
 
             var command = new SearchRailcarCommand(viewModel, repo.Object);
-
+            var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
           
 
             command.Execute();
             //need to install nHibernate package for create Criteria
-            //repo.Verify(_ => _.GetByCriteria(), Times.Once); 
+            repo.Verify(_ => _.GetByCriteria(criteria), Times.Once); 
         }
     }
 }
