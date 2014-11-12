@@ -29,8 +29,23 @@ namespace PrizmMain.Forms.Railcar.Search
 
             List<Domain.Entity.Mill.Railcar> railcars = new List<Domain.Entity.Mill.Railcar>();
 
-            var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>()
-                .Add(Restrictions.Like("Number", viewModel.RailcarNumber));
+            var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
+
+            if (viewModel.RailcarNumber.Length > 0)
+            {
+                criteria.Add(Restrictions.Like("Number", viewModel.RailcarNumber, MatchMode.Anywhere));
+            }
+
+            if (viewModel.Certificate.Length > 0)
+            {
+                criteria.Add(Restrictions.Like("Certificate", viewModel.Certificate, MatchMode.Anywhere));
+            }
+
+            if (viewModel.Receiver.Length > 0)
+            {
+                criteria.Add(Restrictions.Like("Destination", viewModel.Receiver, MatchMode.Anywhere));
+            }  
+
             var res = repo.GetByCriteria(criteria).ToList();
 
             viewModel.Railcars = res;
