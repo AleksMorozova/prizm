@@ -14,13 +14,6 @@ namespace Data.DAL.Mapping
             Map(_ => _.Weight, "weight"); 
             Map(_ => _.Diameter).Column("diameter");
 
-            
-            //Map(_ => _.Type, "type"); 
-            //Map(_ => _.Status, "PipeMillStatus");       
-
-            //References(_ => _.Railcar, "id");
-            //References(_ => _.PurchaseOrder, "Id");
-
             //TODO: Implement welds, pipe test result
             //HasManyToMany(_ => _.Welds)
             //    .Table("weld_welder")

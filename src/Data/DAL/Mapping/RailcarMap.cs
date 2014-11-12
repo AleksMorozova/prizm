@@ -8,7 +8,7 @@ namespace Data.DAL.Mapping
         public RailcarMap()
         {
             Map(x => x.Number).Column("number");
-            Map(_ => _.ShippingDate, "shipingDate");
+            Map(_ => _.ShippingDate, "shippingDate");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
         }

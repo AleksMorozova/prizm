@@ -115,7 +115,7 @@ CREATE TABLE [dbo].[Pipe](
 	[diameter] [int] NOT NULL,
 	[weight] [int] NOT NULL,
 	[mill] [varchar](250) NOT NULL,
-	[PipeMillStatus] [varchar](20) NULL,
+	[pipeMillStatus] [varchar](20) NULL,
 	[typeId] [uniqueidentifier] NOT NULL,
 	[plateId] [uniqueidentifier] NOT NULL,
 	[purchaseOrderId] [uniqueidentifier] NOT NULL,
@@ -237,7 +237,7 @@ CREATE TABLE [dbo].[Railcar](
 	[number] [varchar](20) NOT NULL,
 	[certificate] [varchar](20) NOT NULL,
 	[destination] [varchar](50) NULL,
-	[shipingDate] [date] NULL,
+	[shippingDate] [date] NULL,
 
 	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 

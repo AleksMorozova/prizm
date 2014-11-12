@@ -22,8 +22,6 @@ namespace Data.DAL.Hibernate
                 .ShowSql())
                 
                 .Mappings(_ => _.FluentMappings.AddFromAssemblyOf<HibernateUtil>())
-                //.ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                // populate db tables from maping
                 .BuildSessionFactory();
         }
 
