@@ -13,5 +13,10 @@ namespace Data.DAL.Hibernate
             : base(session)
         {
         }
+
+        public Railcar GetByNumber(string number)
+        {
+            return session.QueryOver<Railcar>().Where(n => n.Number == number).SingleOrDefault();
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.Type, "type");
 
             References(_ => _.Railcar, "id");
-            References(_ => _.PurchaseOrder, "Id");
+            References(_ => _.PurchaseOrder, "id");
 
             //TODO: Implement welds, pipe test result
             //HasManyToMany(_ => _.Welds)
