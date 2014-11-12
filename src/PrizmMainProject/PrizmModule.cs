@@ -24,12 +24,6 @@ namespace PrizmMain
     {
         public override void Load()
         {
-            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
-
-            #region Repository
-            Bind<IRailcarRepository>().To<RailcarRepository>(); 
-            #endregion
-
             #region ViewModel
             Bind<RailcarViewModel>().ToSelf();
             Bind<IRailcarRepository>().To<RailcarRepository>();
