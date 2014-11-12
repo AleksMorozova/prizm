@@ -16,10 +16,31 @@ namespace PrizmMain.Forms.Railcar.Search
     {
         private readonly IRailcarRepository repo;
         private readonly SearchRailcarCommand searchCommand;
+
         private List<Domain.Entity.Mill.Railcar> railcars;
 
-        #region Search Fields
+        [Inject]
+        public RailcarSearchViewModel(IRailcarRepository repo)
+        {
+            railcars = new List<Domain.Entity.Mill.Railcar>();
+            this.repo = repo;
+            searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo));
+            GetAllRailcars();
+        }
 
+        public List<Domain.Entity.Mill.Railcar> Railcars {
+            get { return railcars;}
+            set
+            {
+                if (value != railcars)
+                {
+                    railcars = value;
+                    RaisePropertyChanged("Railcars");
+                }
+            }
+            }
+
+        #region Search Fields
         private string railcarNumber = "";
         public string RailcarNumber
         {
@@ -76,29 +97,6 @@ namespace PrizmMain.Forms.Railcar.Search
             }
         }
         #endregion
-
-        [Inject]
-        public RailcarSearchViewModel(IRailcarRepository repo)
-        {
-            railcars = new List<Domain.Entity.Mill.Railcar>();
-            this.repo = repo;
-            searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo));
-            GetAllRailcars();
-        }
-
-        public List<Domain.Entity.Mill.Railcar> Railcars {
-            get { return railcars;}
-            set
-            {
-                if (value != railcars)
-                {
-                    railcars = value;
-                    RaisePropertyChanged("Railcars");
-                }
-            }
-            }
-
-
         private void GetAllRailcars()
         {
             railcars = repo.GetAll().ToList();

@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using NHibernate.Criterion;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,15 @@ namespace PrizmMain.Forms.Railcar.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            MessageBox.Show(string.Format("Num:{0}; Cert:{1}; Rec{2}; Ship:{3}",viewModel.RailcarNumber,viewModel.Certificate
-                ,viewModel.Receiver,viewModel.ShippingDate));
+
+
+            List<Domain.Entity.Mill.Railcar> railcars = new List<Domain.Entity.Mill.Railcar>();
+
+            var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>()
+                .Add(Restrictions.Like("Number", viewModel.RailcarNumber));
+            var res = repo.GetByCriteria(criteria).ToList();
+
+            viewModel.Railcars = res;
         }
 
         public bool CanExecute()
