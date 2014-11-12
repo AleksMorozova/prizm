@@ -7,6 +7,7 @@ namespace Data.DAL
     {
         TEntity Get(TKey key);
         IList<TEntity> GetAll();
+        IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria);
         void Save(TEntity entity);
         void SaveOrUpdate(TEntity entity);
         void Delete(TEntity entity);

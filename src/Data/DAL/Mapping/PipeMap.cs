@@ -9,25 +9,17 @@ namespace Data.DAL.Mapping
         public PipeMap()
         {
 
-            KeyColumn("pipelinePieceId");
-
-
-            
-            Map(_ => _.Mill, "mill");
+            Map(_ => _.Mill).Column("mill");
             Map(_ => _.WallThickness, "wallThickness");
-            Map(_ => _.Weight, "weight");  
-            Map(_ => _.Diameter, "diameter");
+            Map(_ => _.Weight, "weight"); 
+            Map(_ => _.Diameter).Column("diameter");
 
-            References(_ => _.Railcar, "id");
             
             //Map(_ => _.Type, "type"); 
             //Map(_ => _.Status, "PipeMillStatus");       
 
             //References(_ => _.Railcar, "id");
             //References(_ => _.PurchaseOrder, "Id");
-
-
-
 
             //TODO: Implement welds, pipe test result
             //HasManyToMany(_ => _.Welds)
@@ -39,8 +31,6 @@ namespace Data.DAL.Mapping
             //HasMany(_ => _.PipeTestResult)
             //    .KeyColumn("pipeId");
 
-
-            //Map(_ => _.IsActive, "is_active");
         }
     }
 }

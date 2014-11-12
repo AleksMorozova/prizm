@@ -76,6 +76,11 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             MillPipeSearchBindingSource.DataSource = viewModel;
             pipesSearchResult.DataBindings.Add("DataSource", MillPipeSearchBindingSource, "Pipes");
+
+            pipeNumber.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
+
+            pipeSize.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeSize");
+
         }
 
         private void BindCommands()

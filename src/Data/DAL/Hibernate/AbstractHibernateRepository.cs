@@ -30,6 +30,13 @@ namespace Data.DAL.Hibernate
         }
 
 
+
+        public IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
+        {
+            return criteria.GetExecutableCriteria(session).List<TEntity>();
+        }
+
+
         public void SaveOrUpdate(TEntity entity)
         {
             session.SaveOrUpdate(entity);

@@ -24,6 +24,8 @@ namespace PrizmMain.Forms.PipeMill.Search
         readonly ICommand searchCommand;
         readonly IPipeRepository repo;
         private IList<Pipe> pipes;
+        private string pipeNumber;
+        private int pipeSize;
 
         [Inject]
         public MillPipeSearchViewModel(IPipeRepository repo)
@@ -49,14 +51,42 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
         }
 
+        public string PipeNumber
+        {
+            get
+            {
+                return pipeNumber;
+            }
+            set
+            {
+                if (value != pipeNumber)
+                {
+                    pipeNumber = value;
+                    RaisePropertyChanged("PipeNumber");
+                }
+            }
+        }
 
-
+        public int PipeSize
+        {
+            get
+            {
+                return pipeSize;
+            }
+            set
+            {
+                if (value != pipeSize)
+                {
+                    pipeSize = value;
+                    RaisePropertyChanged("PipeSize");
+                }
+            }
+        }
 
         public ICommand SearchCommand
         {
             get { return searchCommand; }
         }
-
 
         public void Dispose()
         {

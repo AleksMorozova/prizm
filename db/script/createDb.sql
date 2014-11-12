@@ -114,8 +114,14 @@ CREATE TABLE [dbo].[Pipe](
 	[plateId] [uniqueidentifier] NOT NULL,
 	[purchaseOrderId] [uniqueidentifier] NOT NULL,
 	[railcarId] [uniqueidentifier] NULL,
-	[pipelinePieceId] [uniqueidentifier] NOT NULL,
+
 	[chemicalCompositionId] [uniqueidentifier] NULL,
+
+	[length] [int] NOT NULL,
+	[number] [varchar](20) NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[inspectionStatus] [varchar](15) NULL,
+	[constructionStatus] [varchar](15) NULL,
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -123,24 +129,7 @@ CREATE TABLE [dbo].[Pipe](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[PipelinePiece]    Script Date: 11/4/2014 4:35:49 PM ******/
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-CREATE TABLE [dbo].[PipelinePiece](
-	[id] [uniqueidentifier] NOT NULL,
-	[length] [int] NOT NULL,
-	[number] [varchar](20) NOT NULL,
-	[isActive] [bit] NOT NULL,
-	[inspectionStatus] [varchar](15) NULL,
-	[constructionStatus] [varchar](15) NULL,
- CONSTRAINT [PK_PipelinePiece] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
 
-SET ANSI_PADDING OFF
 /****** Object:  Table [dbo].[PipeMillSizeType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -314,15 +303,18 @@ CREATE TABLE [dbo].[Welder](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
+
 ALTER TABLE [dbo].[Heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
 REFERENCES [dbo].[ChemicalComposition] ([id])
+
 ALTER TABLE [dbo].[Heat] CHECK CONSTRAINT [FK_heat_chemicalComposition]
+
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
 REFERENCES [dbo].[ChemicalComposition] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_chemicalComposition]
-ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipelinePiece] FOREIGN KEY([pipelinePieceId])
-REFERENCES [dbo].[PipelinePiece] ([id])
-ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipelinePiece]
+
+
+
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipeMillSizeType] FOREIGN KEY([typeId])
 REFERENCES [dbo].[PipeMillSizeType] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipeMillSizeType]
