@@ -14,6 +14,8 @@ namespace Data.DAL.Mapping
             Map(_ => _.Weight, "weight"); 
             Map(_ => _.Diameter).Column("diameter");
 
+            References(x => x.Plate).Column("plateId").Cascade.None();
+
             //TODO: Implement welds, pipe test result
             //HasManyToMany(_ => _.Welds)
             //    .Table("weld_welder")
@@ -21,6 +23,7 @@ namespace Data.DAL.Mapping
             //    .ChildKeyColumn("weldId")
             //    .Cascade
             //    .SaveUpdate();
+
             //HasMany(_ => _.PipeTestResult)
             //    .KeyColumn("pipeId");
 

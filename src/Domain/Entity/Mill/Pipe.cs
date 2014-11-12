@@ -20,7 +20,8 @@ namespace Domain.Entity.Mill
             this.PipeTestResult = new List<PipeTestResult>();
         }
 
-        
+        public virtual Plate Plate { get; set; }
+
         public virtual string Mill { get; set; }
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }

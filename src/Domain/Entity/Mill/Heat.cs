@@ -18,8 +18,10 @@ namespace Domain.Entity.Mill
         }
 
         public virtual string Number { get; set; }
+
         public virtual PhysicalParameters PhysicalParameters { get; set; }
         public virtual ChemicalComposition ChemicalComposition { get; set; }
-        public virtual ICollection<Plate> Plates { get; set; }
+
+        public virtual IList<Plate> Plates { get; set; }
     }
 }

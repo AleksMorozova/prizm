@@ -72,8 +72,8 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Heat](
 	[id] [uniqueidentifier] NOT NULL,
-	[number] [varchar](20) NOT NULL,
-	[steelGrade] [varchar](20) NULL,
+	[number] [nvarchar](20) NOT NULL,
+	[steelGrade] [nvarchar](20) NULL,
 	[manufacturerId] [uniqueidentifier] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NOT NULL,
 
@@ -91,10 +91,10 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Inspector](
 	[id] [uniqueidentifier] NOT NULL,
-	[firstName] [varchar](20) NOT NULL,
-	[lastName] [varchar](20) NOT NULL,
-	[middleName] [varchar](20) NULL,
-	[certificate] [varchar](20) NOT NULL,
+	[firstName] [nvarchar](20) NOT NULL,
+	[lastName] [nvarchar](20) NOT NULL,
+	[middleName] [nvarchar](20) NULL,
+	[certificate] [nvarchar](20) NOT NULL,
 	[certificateExpiration] [date] NULL,
 
 	[isActive] [bit] NOT NULL,
@@ -114,8 +114,8 @@ CREATE TABLE [dbo].[Pipe](
 	[wallThickness] [int] NOT NULL,
 	[diameter] [int] NOT NULL,
 	[weight] [int] NOT NULL,
-	[mill] [varchar](250) NOT NULL,
-	[pipeMillStatus] [varchar](20) NULL,
+	[mill] [nvarchar](250) NOT NULL,
+	[pipeMillStatus] [nvarchar](20) NULL,
 	[typeId] [uniqueidentifier] NOT NULL,
 	[plateId] [uniqueidentifier] NOT NULL,
 	[purchaseOrderId] [uniqueidentifier] NOT NULL,
@@ -124,10 +124,10 @@ CREATE TABLE [dbo].[Pipe](
 	[chemicalCompositionId] [uniqueidentifier] NULL,
 
 	[length] [int] NOT NULL,
-	[number] [varchar](20) NOT NULL,
+	[number] [nvarchar](20) NOT NULL,
 	[isActive] [bit] NOT NULL,
-	[inspectionStatus] [varchar](15) NULL,
-	[constructionStatus] [varchar](15) NULL,
+	[inspectionStatus] [nvarchar](15) NULL,
+	[constructionStatus] [nvarchar](15) NULL,
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -142,7 +142,7 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[PipeMillSizeType](
 	[id] [uniqueidentifier] NOT NULL,
-	[type] [varchar](50) NOT NULL,
+	[type] [nvarchar](50) NOT NULL,
 
 	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 
@@ -158,11 +158,11 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[PipeTest](
 	[id] [uniqueidentifier] NOT NULL,
-	[code] [varchar](20) NOT NULL,
-	[name] [varchar](20) NOT NULL,
-	[testSubject] [varchar](50) NULL,
+	[code] [nvarchar](20) NOT NULL,
+	[name] [nvarchar](20) NOT NULL,
+	[testSubject] [nvarchar](50) NULL,
 	[controlType] [nchar](15) NULL,
-	[resultType] [varchar](10) NULL,
+	[resultType] [nvarchar](10) NULL,
 	[minExpected] [decimal](5, 2) NULL,
 	[maxExpected] [decimal](5, 2) NULL,
 	[boolExpected] [bit] NULL,
@@ -199,7 +199,7 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Plate](
 	[id] [uniqueidentifier] NOT NULL,
-	[number] [varchar](20) NOT NULL,
+	[number] [nvarchar](20) NOT NULL,
 	[thickness] [int] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NULL,
 	[heatId] [uniqueidentifier] NOT NULL,
@@ -218,7 +218,7 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[PurchaseOrder](
 	[id] [uniqueidentifier]NOT NULL,
-	[number] [varchar](20) NOT NULL,
+	[number] [nvarchar](20) NOT NULL,
 	[date] [date] NULL,
 
 	[isActive] [bit] NOT NULL,
@@ -234,9 +234,9 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
-	[number] [varchar](20) NOT NULL,
-	[certificate] [varchar](20) NOT NULL,
-	[destination] [varchar](50) NULL,
+	[number] [nvarchar](20) NOT NULL,
+	[certificate] [nvarchar](20) NOT NULL,
+	[destination] [nvarchar](50) NULL,
 	[shippingDate] [date] NULL,
 
 	[isActive] [bit] NOT NULL,
@@ -254,8 +254,8 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[TestResult](
 	[id] [uniqueidentifier] NOT NULL,
 	[date] [date] NOT NULL,
-	[value] [varchar](25) NOT NULL,
-	[status] [varchar](25) NULL,
+	[value] [nvarchar](25) NOT NULL,
+	[status] [nvarchar](25) NULL,
 
 	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_TestResult] PRIMARY KEY CLUSTERED 
@@ -312,12 +312,12 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Welder](
 	[id] [uniqueidentifier] NOT NULL,
-	[firstName] [varchar](20) NOT NULL,
-	[lastName] [varchar](20) NOT NULL,
-	[middleName] [varchar](20) NULL,
-	[certificate] [varchar](20) NOT NULL,
+	[firstName] [nvarchar](20) NOT NULL,
+	[lastName] [nvarchar](20) NOT NULL,
+	[middleName] [nvarchar](20) NULL,
+	[certificate] [nvarchar](20) NOT NULL,
 	[certificateExpiration] [date] NULL,
-	[stamp] [varchar](10) NULL,
+	[stamp] [nvarchar](10) NULL,
 	[grade] [int] NULL,
 
 	[isActive] [bit] NOT NULL,
