@@ -10,14 +10,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     {
         private RailcarViewModel viewModel;
 
-        public RailcarNewEditXtraForm()
+        public RailcarNewEditXtraForm(string numb)
         {
             InitializeComponent();
+            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("numb", numb));
+        }
+
+        public RailcarNewEditXtraForm():this("")
+        {
+
         }
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("number",""));
             BindCommands();
             BindToViewModel();
         }

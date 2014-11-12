@@ -13,18 +13,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private readonly SaveRailcarCommand saveCommand;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo, string number)
+        public RailcarViewModel(IRailcarRepository repo, string numb)
         {
             this.repo = repo;
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
 
-            if (number.Length < 1)
+            if (numb.Length < 1)
             {
                 NewRailcar();
             }
             else
             {
-                Railcar = repo.GetByNumber(number);
+                Railcar = repo.GetByNumber(numb);
             }
             
         }
