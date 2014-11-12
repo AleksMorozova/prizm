@@ -21,6 +21,11 @@ namespace Data.DAL.Hibernate
             return session.CreateCriteria<TEntity>().List<TEntity>();
         }
 
+        public System.Collections.Generic.ICollection<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
+        {
+            return criteria.GetExecutableCriteria(session).List<TEntity>();
+        }
+
         public void Save(TEntity entity)
         {
             session.Save(entity);
@@ -78,8 +83,5 @@ namespace Data.DAL.Hibernate
         {
             session.Dispose();
         }
-
-
-
     }
 }
