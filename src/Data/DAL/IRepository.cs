@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Data.DAL
 {
-    public interface IRepository<TKey, TEntity> : IDisposable
+    public interface IRepository<TKey, TEntity> : IDisposable where TEntity : class
     {
         TEntity Get(TKey key);
         IList<TEntity> GetAll();

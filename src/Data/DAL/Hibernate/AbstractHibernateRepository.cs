@@ -23,7 +23,6 @@ namespace Data.DAL.Hibernate
             session.Save(entity);
         }
 
-
         public IList<TEntity> GetAll()
         {
             return session.CreateCriteria<TEntity>().List<TEntity>();
@@ -51,7 +50,6 @@ namespace Data.DAL.Hibernate
         {
             session.Evict(entity);
         }
-
 
         public void Flush()
         {
