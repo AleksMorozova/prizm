@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using System.Collections.Generic;
 
 namespace Data.DAL.Hibernate
 {
@@ -16,12 +17,12 @@ namespace Data.DAL.Hibernate
             return session.Get<TEntity>(key);
         }
 
-        public System.Collections.Generic.ICollection<TEntity> GetAll()
+        public IList<TEntity> GetAll()
         {
             return session.CreateCriteria<TEntity>().List<TEntity>();
         }
 
-        public System.Collections.Generic.ICollection<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
+        public IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
         {
             return criteria.GetExecutableCriteria(session).List<TEntity>();
         }
@@ -30,7 +31,6 @@ namespace Data.DAL.Hibernate
         {
             session.Save(entity);
         }
-
 
         public void SaveOrUpdate(TEntity entity)
         {
@@ -46,7 +46,6 @@ namespace Data.DAL.Hibernate
         {
             session.Evict(entity);
         }
-
 
         public void Flush()
         {
