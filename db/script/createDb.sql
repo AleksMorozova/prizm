@@ -58,6 +58,8 @@ SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[ChemicalComposition](
 	[id] [uniqueidentifier] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_chemicalComposition] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -74,6 +76,8 @@ CREATE TABLE [dbo].[Heat](
 	[steelGrade] [varchar](20) NULL,
 	[manufacturerId] [uniqueidentifier] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_heat] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -92,6 +96,8 @@ CREATE TABLE [dbo].[Inspector](
 	[middleName] [varchar](20) NULL,
 	[certificate] [varchar](20) NOT NULL,
 	[certificateExpiration] [date] NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_Inspector] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -137,6 +143,8 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[PipeMillSizeType](
 	[id] [uniqueidentifier] NOT NULL,
 	[type] [varchar](50) NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -160,6 +168,8 @@ CREATE TABLE [dbo].[PipeTest](
 	[boolExpected] [bit] NULL,
 	[isRequired] [bit] NULL,
 	[pipeMillSizeTypeId] [uniqueidentifier] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_PipeTest] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -175,6 +185,8 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[testResultId] [uniqueidentifier] NOT NULL,
 	[pipeId] [uniqueidentifier] NOT NULL,
 	[pipeTestId] [uniqueidentifier] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_PipeTestResult] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -191,6 +203,8 @@ CREATE TABLE [dbo].[Plate](
 	[thickness] [int] NOT NULL,
 	[chemicalCompositionId] [uniqueidentifier] NULL,
 	[heatId] [uniqueidentifier] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_Plate] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -206,6 +220,8 @@ CREATE TABLE [dbo].[PurchaseOrder](
 	[id] [uniqueidentifier]NOT NULL,
 	[number] [varchar](20) NOT NULL,
 	[date] [date] NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_PurchaseOrder] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -222,6 +238,8 @@ CREATE TABLE [dbo].[Railcar](
 	[certificate] [varchar](20) NOT NULL,
 	[destination] [varchar](50) NULL,
 	[shipingDate] [date] NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -238,6 +256,8 @@ CREATE TABLE [dbo].[TestResult](
 	[date] [date] NOT NULL,
 	[value] [varchar](25) NOT NULL,
 	[status] [varchar](25) NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_TestResult] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -264,6 +284,8 @@ SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[Weld](
 	[id] [uniqueidentifier] NOT NULL,
 	[date] [date] NOT NULL,
+
+	[isActive] [bit] NOT NULL,
 CONSTRAINT [PK_weld] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -297,6 +319,8 @@ CREATE TABLE [dbo].[Welder](
 	[certificateExpiration] [date] NULL,
 	[stamp] [varchar](10) NULL,
 	[grade] [int] NULL,
+
+	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_welder] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -306,15 +330,10 @@ SET ANSI_PADDING OFF
 
 ALTER TABLE [dbo].[Heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
 REFERENCES [dbo].[ChemicalComposition] ([id])
-
 ALTER TABLE [dbo].[Heat] CHECK CONSTRAINT [FK_heat_chemicalComposition]
-
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
 REFERENCES [dbo].[ChemicalComposition] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_chemicalComposition]
-
-
-
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipeMillSizeType] FOREIGN KEY([typeId])
 REFERENCES [dbo].[PipeMillSizeType] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipeMillSizeType]
