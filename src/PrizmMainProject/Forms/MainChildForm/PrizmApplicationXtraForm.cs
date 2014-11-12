@@ -41,7 +41,7 @@ namespace PrizmMain.Forms.MainChildForm
         }
 
 
-        private void CreateFormChild(XtraForm frmChild)
+        public void CreateFormChild(XtraForm frmChild)
         {
             if (FramesCanOpen > 0)
             {
@@ -79,107 +79,109 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new MillPipeNewEditXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillPipeNewEditXtraForm)));
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new RailcarNewEditXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(RailcarNewEditXtraForm)));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new MillPipeSearchXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillPipeSearchXtraForm)));
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new MillReportsXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillReportsXtraForm)));
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new ComponentNewEditXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentNewEditXtraForm)));
         }
 
         private void barButtonItemInspectionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new InspectionReportsXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionReportsXtraForm)));
         }
 
         private void barButtonItemInspectionFindComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new ComponentSearchXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentSearchXtraForm)));
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new JointNewEditXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(JointNewEditXtraForm)));
         }
 
         private void barButtonItemFindEditJoints_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new JointSearchXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(JointSearchXtraForm)));
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild(new ConstructionReportsXtraForm());
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ConstructionReportsXtraForm)));
         }
 
         private void barButtonItemSetingsProject_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new SettingsXtraForm(), 0);
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 0);
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new SettingsXtraForm(), 2);
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 2);
         }
 
         private void barButtonItemSettingsPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new SettingsXtraForm(), 1);
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 1);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new SettingsXtraForm(), 3);
-        }
-
-        private void barButtonItemSettingsDictionaries_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateSettingsFormChild(new SettingsXtraForm(), 5);
-        }
-
-        private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateFormChild(new RailcarSearchXtraForm());
-        }
-
-        private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateFormChild(new InspectionPipeSearchEditXtraForm());
-        }
-
-        private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateFormChild(new SpoolsXtraForm());
-        }
-
-        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateFormChild(new InspectionPipeSearchEditXtraForm());
-        }
-
-        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateFormChild(new ComponentSearchXtraForm());
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 3);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild(new SettingsXtraForm(), 4);
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 4);
         }
+
+        private void barButtonItemSettingsDictionaries_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 5);
+        }
+
+        private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(RailcarSearchXtraForm)));
+        }
+
+        private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionPipeSearchEditXtraForm)));
+        }
+
+        private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(SpoolsXtraForm)));
+        }
+
+        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentSearchXtraForm)));
+        }
+
+        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionPipeSearchEditXtraForm)));
+        }
+
+
     }
 }
