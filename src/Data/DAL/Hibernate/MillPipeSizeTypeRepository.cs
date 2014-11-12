@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Hibernate
 {
-    public class SettingsRepository : AbstractHibernateRepository<Guid, PipeMillSizeType>, IMillPipeSizeTypeRepository
+    public class MillPipeSizeTypeRepository : AbstractHibernateRepository<Guid, PipeMillSizeType>, IMillPipeSizeTypeRepository
     {
         [Inject]
-        public SettingsRepository(ISession session)
+        public MillPipeSizeTypeRepository(ISession session)
          : base(session)
       {
 

@@ -50,12 +50,18 @@
   <ItemGroup>
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
+    <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
+    <Compile Include="DAL\Mapping\PipeTestMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
+    <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

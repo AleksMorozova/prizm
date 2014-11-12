@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
             Map(_ => _.Name, "name");
-            HasMany(_ => _.PipeTests);
+            HasMany(_ => _.PipeTests).Inverse().Cascade.All();
         }
     }
 }

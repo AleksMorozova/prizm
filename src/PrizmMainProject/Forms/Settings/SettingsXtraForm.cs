@@ -72,9 +72,8 @@ namespace PrizmMain.Forms.Settings
 
         private void BindToViewModel()
         {
-            
-            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "pipeMillSizeType");
-            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "pipeMillSizeType.PipeTests");
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType.PipeTests");
         }
 
         private void BindCommands()
@@ -88,10 +87,9 @@ namespace PrizmMain.Forms.Settings
             viewModel = null;
         }
 
-        private void pipesSizeListGridView_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
+        private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
 
-            inspectionOperation.RefreshDataSource();
         }
     }
 }

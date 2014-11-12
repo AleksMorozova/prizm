@@ -17,7 +17,7 @@ namespace PrizmMain.Forms.Settings
     {
         public ICollection<PipeMillSizeType> PipeMillSizeType { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
-        
+
         readonly SaveSettingsCommand saveCommand;
         readonly IMillPipeSizeTypeRepository repo;
         
@@ -26,12 +26,9 @@ namespace PrizmMain.Forms.Settings
         {
             this.repo = repo;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
-            NewPipeMillSizeType();
-            var allSizeType = repo.GetAll().ToList();
-            PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
-
-            var allTests = repo.GetAll().ToList();
-            //Tests = new BindingList<PipeTest>(allTests);
+                        
+            GetAllPipeMillSizeType();
+            //NewPipeMillSizeType();
         }
 
         public string Name
@@ -49,6 +46,7 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
+
         public IList<PipeTest> Tests
         {
             get
@@ -64,23 +62,6 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
-
-        //private BindingList<PipeTest> tests = new BindingList<PipeTest>();
-        //public BindingList<PipeTest> Tests
-        //{
-        //    get
-        //    {
-        //        return tests;
-        //    }
-        //    set
-        //    {
-        //        if (value != tests)
-        //        {
-        //            tests = value;
-        //            RaisePropertyChanged("Tests");
-        //        }
-        //    }
-        //}
 
         private BindingList<PipeMillSizeType> pipeMilSizeType = new BindingList<PipeMillSizeType>();
         public BindingList<PipeMillSizeType> PipeMilSizeType
@@ -103,6 +84,13 @@ namespace PrizmMain.Forms.Settings
         {
             get { return saveCommand; }
         }
+
+        private void GetAllPipeMillSizeType()
+        {
+            var allSizeType = repo.GetAll().ToList();
+            PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
+        }
+
 
         public void NewPipeMillSizeType()
         {
