@@ -13,18 +13,26 @@ namespace UnitTests.Forms.Railcar.Search
     [TestFixture]
     public class SearchRailcarCommandTest
     {
+
+        [Test]
         public void TestSearchRailcar() 
         {
+            var railcars = new List<Domain.Entity.Mill.Railcar>()
+            {
+                new Domain.Entity.Mill.Railcar {Number="test number",Certificate="test certificate", 
+                Destination="test destination"}
+            };
             var repo = new Mock<IRailcarRepository>();
-            var viewModel = new RailcarSearchViewModel(repo.Object);
+            repo.Setup(_ => _.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>()))
+                .Returns(railcars).Verifiable();
 
+            var viewModel = new RailcarSearchViewModel(repo.Object);
             var command = new SearchRailcarCommand(viewModel, repo.Object);
             var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
-          
 
             command.Execute();
-            //need to install nHibernate package for create Criteria
-            repo.Verify(_ => _.GetByCriteria(criteria), Times.Once); 
+
+            repo.VerifyAll();
         }
     }
 }

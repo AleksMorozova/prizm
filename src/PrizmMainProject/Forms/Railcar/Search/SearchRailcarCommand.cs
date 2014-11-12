@@ -47,9 +47,9 @@ namespace PrizmMain.Forms.Railcar.Search
             }  
             //TODO: Add date criteria
 
-            var res = repo.GetByCriteria(criteria).ToList();
+            //var res = 
 
-            viewModel.Railcars = res;
+            viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
         }
 
         public bool CanExecute()
