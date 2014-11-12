@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Setup
 {
-    public interface ISettingsRepository : IRepository<Guid, PipeMillSizeType>
+    public interface IMillPipeSizeTypeRepository : IRepository<Guid, PipeMillSizeType>
     {
     }
 }

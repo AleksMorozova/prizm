@@ -11,10 +11,10 @@ namespace PrizmMain.Forms.Settings
 {
     public class SaveSettingsCommand: ICommand 
     {
-        readonly ISettingsRepository repo;
+        readonly IMillPipeSizeTypeRepository repo;
         readonly SettingsViewModel viewModel;
 
-        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepository repo) 
+        public SaveSettingsCommand(SettingsViewModel viewModel, IMillPipeSizeTypeRepository repo) 
         {
             this.viewModel = viewModel; 
             this.repo = repo;
@@ -24,9 +24,9 @@ namespace PrizmMain.Forms.Settings
         public void Execute()
         {
          repo.BeginTransaction();
-         repo.Save(viewModel.PipeMillSizeType);
+         repo.Save(viewModel.CurrentPipeMillSizeType);
          repo.Commit();
-         repo.Evict(viewModel.PipeMillSizeType);
+         repo.Evict(viewModel.CurrentPipeMillSizeType);
          viewModel.NewPipeMillSizeType();
         }
 

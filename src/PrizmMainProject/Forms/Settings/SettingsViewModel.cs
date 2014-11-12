@@ -6,6 +6,7 @@ using Ninject;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,46 +15,86 @@ namespace PrizmMain.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
-        public PipeMillSizeType PipeMillSizeType { get; set; }
+        public ICollection<PipeMillSizeType> PipeMillSizeType { get; set; }
+        public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
+        
         readonly SaveSettingsCommand saveCommand;
-        readonly ISettingsRepository repo;
+        readonly IMillPipeSizeTypeRepository repo;
         
         [Inject]
-        public SettingsViewModel(ISettingsRepository repo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository repo)
         {
             this.repo = repo;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
             NewPipeMillSizeType();
+            var allSizeType = repo.GetAll().ToList();
+            PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
+
+            var allTests = repo.GetAll().ToList();
+            //Tests = new BindingList<PipeTest>(allTests);
         }
 
         public string Name
         {
             get
             {
-                return PipeMillSizeType.Name;
+                return CurrentPipeMillSizeType.Name;
             }
             set
             {
-                if (value != PipeMillSizeType.Name)
+                if (value != CurrentPipeMillSizeType.Name)
                 {
-                    PipeMillSizeType.Name = value;
+                    CurrentPipeMillSizeType.Name = value;
                     RaisePropertyChanged("Name");
                 }
             }
         }
-
-        public ICollection<PipeTest> Tests
+        public IList<PipeTest> Tests
         {
             get
             {
-                return PipeMillSizeType.PipeTests;
+                return CurrentPipeMillSizeType.PipeTests;
             }
             set
             {
-                if (value != PipeMillSizeType.PipeTests)
+                if (value != CurrentPipeMillSizeType.PipeTests)
                 {
-                    PipeMillSizeType.PipeTests = value;
+                    CurrentPipeMillSizeType.PipeTests = value;
                     RaisePropertyChanged("Tests");
+                }
+            }
+        }
+
+        //private BindingList<PipeTest> tests = new BindingList<PipeTest>();
+        //public BindingList<PipeTest> Tests
+        //{
+        //    get
+        //    {
+        //        return tests;
+        //    }
+        //    set
+        //    {
+        //        if (value != tests)
+        //        {
+        //            tests = value;
+        //            RaisePropertyChanged("Tests");
+        //        }
+        //    }
+        //}
+
+        private BindingList<PipeMillSizeType> pipeMilSizeType = new BindingList<PipeMillSizeType>();
+        public BindingList<PipeMillSizeType> PipeMilSizeType
+        {
+            get
+            {
+                return pipeMilSizeType;
+            }
+            set
+            {
+                if (value != pipeMilSizeType)
+                {
+                    pipeMilSizeType = value;
+                    RaisePropertyChanged("pipeMilSizeType");
                 }
             }
         }
@@ -66,12 +107,12 @@ namespace PrizmMain.Forms.Settings
         public void NewPipeMillSizeType()
         {
             if (PipeMillSizeType == null)
-            { 
-                PipeMillSizeType = new PipeMillSizeType() { IsActive = true };
+            {
+                CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
+                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>(); 
             }
-
             Name = string.Empty;
-            Tests = null;
+            Tests = new BindingList<PipeTest>(); 
 
         }
 

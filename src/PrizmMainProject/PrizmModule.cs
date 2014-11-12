@@ -1,8 +1,10 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
+using Data.DAL.Setup;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.Railcar.NewEdit;
+using PrizmMain.Forms.Settings;
 
 namespace PrizmMain
 {
@@ -12,6 +14,10 @@ namespace PrizmMain
         {
             Bind<RailcarViewModel>().ToSelf();
             Bind<IRailcarRepository>().To<RailcarRepository>();
+
+            Bind<SettingsViewModel>().ToSelf();
+            Bind<IMillPipeSizeTypeRepository>().To<SettingsRepository>();
+
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
         }
     }

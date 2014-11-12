@@ -1,5 +1,4 @@
 ﻿using Data.DAL.Setup;
-using Domain.DAL.Hibernate;
 using Domain.Entity.Setup;
 using NHibernate;
 using Ninject;
@@ -11,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Hibernate
 {
-    public class SettingsRepository : AbstractHibernateRepository<Guid, PipeMillSizeType>, ISettingsRepository
+    public class SettingsRepository : AbstractHibernateRepository<Guid, PipeMillSizeType>, IMillPipeSizeTypeRepository
     {
         [Inject]
         public SettingsRepository(ISession session)
          : base(session)
       {
+
       }
     }
 }
