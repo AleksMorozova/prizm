@@ -65,15 +65,17 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
-            pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            
             BindToViewModel();
             BindCommands();
         }
 
         private void BindToViewModel()
         {
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
-            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType.PipeTests");
+            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTests");//PipeMillSizeType.PipeTests");
+            textEdit1.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Name");
         }
 
         private void BindCommands()

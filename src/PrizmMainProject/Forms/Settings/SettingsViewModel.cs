@@ -27,8 +27,9 @@ namespace PrizmMain.Forms.Settings
             this.repo = repo;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
                         
+            NewPipeMillSizeType();
             GetAllPipeMillSizeType();
-            //NewPipeMillSizeType();
+            
         }
 
         public string Name
@@ -62,6 +63,24 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
+
+        private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
+        public BindingList<PipeTest> PipeTests 
+        {
+            get
+            {
+                return pipeTests;
+            }
+            set
+            {
+                if (value != pipeTests)
+                {
+                    pipeTests = value;
+                    RaisePropertyChanged("pipeTests");
+                }
+            }
+        }
+
 
         private BindingList<PipeMillSizeType> pipeMilSizeType = new BindingList<PipeMillSizeType>();
         public BindingList<PipeMillSizeType> PipeMilSizeType

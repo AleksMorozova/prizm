@@ -9,5 +9,6 @@ namespace Data.DAL.Setup
 {
     interface IPipeTestRepository: IRepository<Guid, PipeTest>
     {
+        IList<PipeTest> GetByPipeID(PipeMillSizeType id);
     }
 }

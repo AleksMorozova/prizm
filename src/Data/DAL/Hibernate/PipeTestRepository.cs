@@ -18,7 +18,7 @@ namespace Data.DAL.Hibernate
         {
         }
 
-        public IList<PipeTest> GetByPipeID(string id)
+        public IList<PipeTest> GetByPipeID(PipeMillSizeType id)
         {
             return session.QueryOver<PipeTest>().Where(n => n.PipeSizeID==id).List<PipeTest>();
         }
