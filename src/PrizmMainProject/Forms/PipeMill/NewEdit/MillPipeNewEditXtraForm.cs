@@ -103,7 +103,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+            //saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
         }
 
 
