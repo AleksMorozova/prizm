@@ -58,11 +58,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             weldingHistory.DataSource = weldingData;
         }
 
-        public MillPipeNewEditXtraForm(string pipeNumber)
-            :this()
-        {
-
-        }
     }
 
 
