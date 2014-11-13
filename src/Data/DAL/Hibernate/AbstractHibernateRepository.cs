@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 namespace Data.DAL.Hibernate
 {
-    public abstract class AbstractHibernateRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
+    public abstract class AbstractHibernateRepository<TKey, TEntity> : IRepository<TKey, TEntity>
+        where TEntity : class
     {
         protected readonly ISession session;
 
@@ -17,20 +18,23 @@ namespace Data.DAL.Hibernate
             return session.Get<TEntity>(key);
         }
 
+        public void Save(TEntity entity)
+        {
+            session.Save(entity);
+        }
+
         public IList<TEntity> GetAll()
         {
             return session.CreateCriteria<TEntity>().List<TEntity>();
         }
+
+
 
         public IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
         {
             return criteria.GetExecutableCriteria(session).List<TEntity>();
         }
 
-        public void Save(TEntity entity)
-        {
-            session.Save(entity);
-        }
 
         public void SaveOrUpdate(TEntity entity)
         {
