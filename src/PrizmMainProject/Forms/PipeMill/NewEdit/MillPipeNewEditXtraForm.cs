@@ -82,6 +82,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 BindCommands();
                 BindToViewModel();
             }
+
         }
 
 

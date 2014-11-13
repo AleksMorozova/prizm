@@ -5,16 +5,19 @@ namespace Domain.Entity.Mill
     public class Pipe : PipelinePiece
     {
         public Pipe(
-            int diameter, int wallThikness, int weigh, string type
+            int diameter, int wallThikness, int weigh, string number, bool isActive, string mill, int length
             ): this()
         {
             this.Diameter = diameter;
             this.WallThickness = wallThikness;
             this.Weight = weigh;
-            this.Type = type;
+            this.Number = number;
+            this.IsActive = isActive;
+            this.Mill = mill;
+            this.Length = length;
         }
 
-        protected Pipe()
+        public Pipe()
         {
             this.Welds = new List<Weld>();
             this.PipeTestResult = new List<PipeTestResult>();

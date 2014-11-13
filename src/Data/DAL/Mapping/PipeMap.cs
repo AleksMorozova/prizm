@@ -14,9 +14,11 @@ namespace Data.DAL.Mapping
             Map(_ => _.Weight, "weight"); 
             Map(_ => _.Diameter).Column("diameter");
 
-            References<Railcar>(x => x.Railcar).Column("railcarId");
-            References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
-            References<Plate>(x => x.Plate).Column("plateId");
+
+            //TODO: full pipe mapping
+            //References<Railcar>(x => x.Railcar).Column("railcarId");
+            //References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
+            //References<Plate>(x => x.Plate).Column("plateId");
 
             //TODO: Implement welds, pipe test result
             //HasManyToMany(_ => _.Welds)

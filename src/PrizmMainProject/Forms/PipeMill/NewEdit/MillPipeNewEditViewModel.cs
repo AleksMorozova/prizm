@@ -27,9 +27,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repo = repo;
             newEditCommand = ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repo));
 
-            this.Pipe = repo.GetByNumber(pipeNumber);
-            
+            if (string.IsNullOrWhiteSpace(pipeNumber))
+            {
+                NewPipe();
+            }
+            else
+            {
+                Pipe = repo.GetByNumber(pipeNumber);
+            }
         }
+
 
         public Pipe Pipe { get; set; }
 
@@ -121,18 +128,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             repo.Dispose();
         }
-        /*
-        public void NewRailcar()
+
+
+
+        public void NewPipe()
         {
             if (Pipe == null)
             {
-                Pipe = new Pipe(Diameter, WallThickness, Weight, Number);
+                Pipe = new Pipe(0, 0, 0, "0", true, "0", 0);
             }
+
             Number = string.Empty;
-            Destination = string.Empty;
-            ShippingDate = DateTime.Now;
-            Certificate = string.Empty;
+            Mill = string.Empty;
+            WallThickness = 0;
+            Weight = 0;
+            Length = 0;
+            Diameter = 0;
+
         }
-        */
     }
 }
