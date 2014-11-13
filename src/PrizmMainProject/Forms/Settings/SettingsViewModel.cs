@@ -16,19 +16,23 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public ICollection<PipeMillSizeType> PipeMillSizeType { get; set; }
+        public IList<PipeTest> PipeTest { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly IMillPipeSizeTypeRepository repo;
-        
+        readonly IPipeTestRepository testRepo;
+
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo, PipeMillSizeType CurrentPipeMillSizeType )
         {
             this.repo = repo;
+            this.testRepo = testRepo;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
                         
             NewPipeMillSizeType();
             GetAllPipeMillSizeType();
+            GetAllPipeTest(CurrentPipeMillSizeType.Id);
             
         }
 
@@ -81,7 +85,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-
         private BindingList<PipeMillSizeType> pipeMilSizeType = new BindingList<PipeMillSizeType>();
         public BindingList<PipeMillSizeType> PipeMilSizeType
         {
@@ -110,6 +113,11 @@ namespace PrizmMain.Forms.Settings
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
         }
 
+        private void GetAllPipeTest(Guid CurrentPipeMillSizeType)
+        {
+            var allTests = testRepo.GetAll().ToList();//.GetByPipeSizeID(CurrentPipeMillSizeType).ToList();
+            PipeTest = new BindingList<PipeTest>(allTests);
+        }
 
         public void NewPipeMillSizeType()
         {

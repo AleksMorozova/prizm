@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Setup
 {
-    interface IPipeTestRepository: IRepository<Guid, PipeTest>
+    public interface IPipeTestRepository: IRepository<Guid, PipeTest>
     {
-        IList<PipeTest> GetByPipeID(PipeMillSizeType id);
+        IList<PipeTest> GetByPipeSizeID(Guid id);
     }
 }

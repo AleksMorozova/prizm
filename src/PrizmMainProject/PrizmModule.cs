@@ -28,7 +28,8 @@ namespace PrizmMain
 
             #region Repository
             Bind<IRailcarRepository>().To<RailcarRepository>();
-            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>(); 
+            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+            Bind<IPipeTestRepository>().To<PipeTestRepository>(); 
             #endregion
 
             #region ViewModel

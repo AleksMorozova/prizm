@@ -6,25 +6,29 @@ using PrizmMain.Forms.Settings.Dictionary;
 using PrizmMain.Forms.Settings.UserRole.Role;
 using PrizmMain.Forms.Settings.UserRole.User;
 using DevExpress.XtraGrid.Views.Grid;
+using Domain.Entity.Setup;
+using Ninject;
+using Ninject.Parameters;
 
 namespace PrizmMain.Forms.Settings
 {
     public partial class SettingsXtraForm : XtraForm
     {
         private SettingsViewModel viewModel;
-
-        public SettingsXtraForm()
+ 
+        public SettingsXtraForm()//: this(Guid.NewGuid())
         {
             InitializeComponent();
-            //pipesSizeListGridView.AddNewRow();
-            //pipesSizeListGridView.OptionsBehavior.Editable = true;
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
-
-            //inspectionView.AddNewRow();
-            //inspectionView.OptionsBehavior.Editable = true;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
 
         }
+
+        //public SettingsXtraForm(Guid CurrentPipeMillSizeTypeId) 
+        //{
+        //    InitializeComponent();
+        //    viewModel = (SettingsViewModel)Program.Kernel.Get<SettingsViewModel>(new ConstructorArgument("CurrentPipeMillSizeType", CurrentPipeMillSizeTypeId)); 
+        //}
 
         #region Role Setting
 
@@ -65,7 +69,6 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
-            
             BindToViewModel();
             BindCommands();
         }
@@ -73,9 +76,11 @@ namespace PrizmMain.Forms.Settings
         private void BindToViewModel()
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            //GridView gridView = pipesSizeList.FocusedView as GridView;
+            //viewModel.CurrentPipeMillSizeType = (PipeMillSizeType)gridView.GetRow(gridView.FocusedRowHandle);
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
-            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTests");//PipeMillSizeType.PipeTests");
-            textEdit1.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Name");
+            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTest");
+            
         }
 
         private void BindCommands()
@@ -91,7 +96,8 @@ namespace PrizmMain.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            inspectionOperation.RefreshDataSource();
+            
         }
     }
 }
