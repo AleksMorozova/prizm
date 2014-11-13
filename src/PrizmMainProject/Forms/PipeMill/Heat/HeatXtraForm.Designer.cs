@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.steel = new DevExpress.XtraEditors.TextEdit();
             this.phisicalGrid = new DevExpress.XtraGrid.GridControl();
             this.phisicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.chemicalGrid = new DevExpress.XtraGrid.GridControl();
@@ -40,17 +41,17 @@
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.phisicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonsLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.steel = new DevExpress.XtraEditors.TextEdit();
+            this.phisicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.steel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).BeginInit();
@@ -58,15 +59,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLeftEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
@@ -86,6 +86,14 @@
             this.masterLayoutControl.Size = new System.Drawing.Size(815, 563);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
+            // 
+            // steel
+            // 
+            this.steel.Location = new System.Drawing.Point(409, 38);
+            this.steel.Name = "steel";
+            this.steel.Size = new System.Drawing.Size(384, 20);
+            this.steel.StyleController = this.masterLayoutControl;
+            this.steel.TabIndex = 8;
             // 
             // phisicalGrid
             // 
@@ -181,30 +189,6 @@
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
-            // chemicalLayoutControl
-            // 
-            this.chemicalLayoutControl.Control = this.chemicalGrid;
-            this.chemicalLayoutControl.CustomizationFormText = "Ковшовой химический состав";
-            this.chemicalLayoutControl.Location = new System.Drawing.Point(0, 40);
-            this.chemicalLayoutControl.Name = "chemicalLayoutControl";
-            this.chemicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
-            this.chemicalLayoutControl.Size = new System.Drawing.Size(387, 456);
-            this.chemicalLayoutControl.Text = "Ковшовой химический состав";
-            this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
-            // 
-            // phisicalLayoutControl
-            // 
-            this.phisicalLayoutControl.Control = this.phisicalGrid;
-            this.phisicalLayoutControl.CustomizationFormText = "Механические свойства";
-            this.phisicalLayoutControl.Location = new System.Drawing.Point(387, 40);
-            this.phisicalLayoutControl.Name = "phisicalLayoutControl";
-            this.phisicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
-            this.phisicalLayoutControl.Size = new System.Drawing.Size(388, 456);
-            this.phisicalLayoutControl.Text = "Механические свойства";
-            this.phisicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
-            // 
             // saveLayoutControl
             // 
             this.saveLayoutControl.Control = this.saveButton;
@@ -258,13 +242,29 @@
             this.buttonsLeftEmptySpace.Text = "emptySpaceItem2";
             this.buttonsLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // steel
+            // phisicalLayoutControl
             // 
-            this.steel.Location = new System.Drawing.Point(409, 38);
-            this.steel.Name = "steel";
-            this.steel.Size = new System.Drawing.Size(384, 20);
-            this.steel.StyleController = this.masterLayoutControl;
-            this.steel.TabIndex = 8;
+            this.phisicalLayoutControl.Control = this.phisicalGrid;
+            this.phisicalLayoutControl.CustomizationFormText = "Механические свойства";
+            this.phisicalLayoutControl.Location = new System.Drawing.Point(387, 40);
+            this.phisicalLayoutControl.Name = "phisicalLayoutControl";
+            this.phisicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
+            this.phisicalLayoutControl.Size = new System.Drawing.Size(388, 456);
+            this.phisicalLayoutControl.Text = "Механические свойства";
+            this.phisicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
+            // chemicalLayoutControl
+            // 
+            this.chemicalLayoutControl.Control = this.chemicalGrid;
+            this.chemicalLayoutControl.CustomizationFormText = "Ковшовой химический состав";
+            this.chemicalLayoutControl.Location = new System.Drawing.Point(0, 40);
+            this.chemicalLayoutControl.Name = "chemicalLayoutControl";
+            this.chemicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
+            this.chemicalLayoutControl.Size = new System.Drawing.Size(387, 456);
+            this.chemicalLayoutControl.Text = "Ковшовой химический состав";
+            this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // steelLayoutControl
             // 
@@ -279,8 +279,10 @@
             // 
             // HeatXtraForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(815, 563);
             this.Controls.Add(this.masterLayoutControl);
             this.Name = "HeatXtraForm";
@@ -289,6 +291,7 @@
             this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();
             this.masterLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.steel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).EndInit();
@@ -296,15 +299,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLeftEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

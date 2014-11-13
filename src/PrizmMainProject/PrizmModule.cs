@@ -30,7 +30,8 @@ namespace PrizmMain
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
             Bind<IRailcarRepository>().To<RailcarRepository>();
-            Bind<IPipeRepository>().To<PipeRepository>(); 
+            Bind<IPipeRepository>().To<PipeRepository>();
+            Bind<IHeatRepository>().To<HeatRepository>();
             #endregion
 
             #region ViewModel
@@ -55,6 +56,7 @@ namespace PrizmMain
             Bind<RailcarSearchXtraForm>().ToSelf();
             Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
+            Bind<HeatXtraForm>().ToSelf();
             #endregion
 
             

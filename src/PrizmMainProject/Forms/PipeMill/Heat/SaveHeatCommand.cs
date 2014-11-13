@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    class SaveHeatCommand : ICommand
+    public class SaveHeatCommand : ICommand
     {
-        HeatViewModel viewModel;
-        IHeatRepository repo;
+        private readonly HeatViewModel viewModel;
+        private readonly IHeatRepository repo;
 
         public SaveHeatCommand(HeatViewModel viewModel, IHeatRepository repo)
         {

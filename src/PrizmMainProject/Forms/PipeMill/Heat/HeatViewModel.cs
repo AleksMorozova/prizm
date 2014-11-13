@@ -5,23 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
+
 using Domain.Entity.Mill;
 using PrizmMain.Commands;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
     public class HeatViewModel : ViewModelBase, IDisposable
     {
         private readonly IHeatRepository heatRepo;
-
         private readonly SaveHeatCommand saveCommand;
         
         [Inject]
         public HeatViewModel(IHeatRepository heatRepository, string heatNumber)
         {
             this.heatRepo = heatRepository;
+            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, heatRepo));
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
@@ -29,16 +30,15 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
             else
             {
-                Heat = heatRepo.GetByNumber(heatNumber);
-            }
-        }
-
-        public void NewHeat()
-        {
-            if (Heat == null)
-            {
-                Heat = new Domain.Entity.Mill.Heat(string.Empty, new Domain.Entity.Mill.PhysicalParameters(),
-                    new Domain.Entity.Mill.ChemicalComposition()) { IsActive = true };
+                var answer = heatRepo.GetByNumber(heatNumber);
+                if (answer == null)
+                {
+                    NewHeat();
+                }
+                else
+                {
+                    Heat = answer;
+                }
             }
         }
 
@@ -105,6 +105,15 @@ namespace PrizmMain.Forms.PipeMill.Heat
         public void Dispose()
         {
             heatRepo.Dispose();
+        }
+
+        public void NewHeat()
+        {
+            if (Heat == null)
+            {
+                Heat = new Domain.Entity.Mill.Heat(string.Empty, new Domain.Entity.Mill.PhysicalParameters(),
+                    new Domain.Entity.Mill.ChemicalComposition()) { IsActive = true };
+            }
         }
     }
 }

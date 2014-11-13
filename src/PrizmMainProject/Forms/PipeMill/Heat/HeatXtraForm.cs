@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using System;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
 
@@ -14,7 +16,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
         }
 
-        private void HeatXtraForm_Load(object sender, System.EventArgs e)
+        private void HeatXtraForm_Load(object sender, EventArgs e)
         {
             BindCommands();
             BindToViewModel();
@@ -33,7 +35,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
         }
 
-        private void HeatXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        private void HeatXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             viewModel.Dispose();
             viewModel = null;

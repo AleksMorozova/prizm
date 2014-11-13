@@ -2,6 +2,10 @@
 using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
+using PrizmMain.Forms.PipeMill.Heat;
+using Ninject;
+using Ninject.Parameters;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -60,7 +64,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void editHeatButton_Click(object sender, EventArgs e)
         {
-
+            using ( var heatForm = (Form)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
+            {
+                if (heatForm.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+            }
+           
         }
     }
 
