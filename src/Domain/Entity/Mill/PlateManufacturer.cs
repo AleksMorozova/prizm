@@ -4,13 +4,7 @@ namespace Domain.Entity.Mill
 {
     public class PlateManufacturer : Item
     {
-        public PlateManufacturer(string number)
-            : this()
-        {
-            this.Number = number;
-        }
-
-        protected PlateManufacturer()
+        public PlateManufacturer()
         {
             this.Heats = new List<Heat>();
         }
