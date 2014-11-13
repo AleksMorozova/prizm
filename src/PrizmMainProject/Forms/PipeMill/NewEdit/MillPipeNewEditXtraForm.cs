@@ -57,6 +57,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindingList<weldHistory> weldingData = weldingDs.GetCmpDummy();
             weldingHistory.DataSource = weldingData;
         }
+
+        private void editHeatButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

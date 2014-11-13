@@ -53,16 +53,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
+    <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
+    <Compile Include="DAL\Hibernate\PlateManufacturerRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Mapping\HeatMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\PipelinePieceMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
+    <Compile Include="DAL\Mapping\PlateManufacturerMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
+    <Compile Include="DAL\Mill\IHeatRepository.cs" />
     <Compile Include="DAL\Mill\IPipeRepository.cs" />
+    <Compile Include="DAL\Mill\IPlateManufacturerRepository.cs" />
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

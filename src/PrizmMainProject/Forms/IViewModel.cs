@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms
 {
-    public interface IForm
+    public interface IViewModel
     {
+        // interface for ninject maping
     }
 }

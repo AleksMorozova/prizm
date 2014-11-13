@@ -30,35 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.number = new DevExpress.XtraEditors.TextEdit();
-            this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.manufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.manufacrurerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chemicalGrid = new DevExpress.XtraGrid.GridControl();
-            this.chemicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.phisicalGrid = new DevExpress.XtraGrid.GridControl();
             this.phisicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.phisicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chemicalGrid = new DevExpress.XtraGrid.GridControl();
+            this.chemicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.manufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.number = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.manufacrurerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.phisicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonsLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacrurerLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacrurerLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).BeginInit();
@@ -84,66 +84,21 @@
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
             // 
-            // rootLayoutGroup
+            // phisicalGrid
             // 
-            this.rootLayoutGroup.CustomizationFormText = "rootLayoutGroup";
-            this.rootLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.rootLayoutGroup.GroupBordersVisible = false;
-            this.rootLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.numberLayoutControl,
-            this.manufacrurerLayoutControl,
-            this.chemicalLayoutControl,
-            this.phisicalLayoutControl,
-            this.saveLayoutControl,
-            this.cancelLayoutControl,
-            this.divideButtonEmptySpace,
-            this.buttonsLeftEmptySpace});
-            this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.rootLayoutGroup.Name = "rootLayoutGroup";
-            this.rootLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
-            this.rootLayoutGroup.Size = new System.Drawing.Size(815, 563);
-            this.rootLayoutGroup.Text = "rootLayoutGroup";
-            this.rootLayoutGroup.TextVisible = false;
+            this.phisicalGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.phisicalGrid.Location = new System.Drawing.Point(409, 83);
+            this.phisicalGrid.MainView = this.phisicalGridView;
+            this.phisicalGrid.Name = "phisicalGrid";
+            this.phisicalGrid.Size = new System.Drawing.Size(384, 426);
+            this.phisicalGrid.TabIndex = 7;
+            this.phisicalGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.phisicalGridView});
             // 
-            // number
+            // phisicalGridView
             // 
-            this.number.Location = new System.Drawing.Point(22, 38);
-            this.number.Name = "number";
-            this.number.Size = new System.Drawing.Size(383, 20);
-            this.number.StyleController = this.masterLayoutControl;
-            this.number.TabIndex = 4;
-            // 
-            // numberLayoutControl
-            // 
-            this.numberLayoutControl.Control = this.number;
-            this.numberLayoutControl.CustomizationFormText = "numberLayoutControl";
-            this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
-            this.numberLayoutControl.Name = "numberLayoutControl";
-            this.numberLayoutControl.Size = new System.Drawing.Size(387, 40);
-            this.numberLayoutControl.Text = "numberLayoutControl";
-            this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayoutControl.TextSize = new System.Drawing.Size(133, 13);
-            // 
-            // manufacturer
-            // 
-            this.manufacturer.Location = new System.Drawing.Point(409, 38);
-            this.manufacturer.Name = "manufacturer";
-            this.manufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.manufacturer.Size = new System.Drawing.Size(384, 20);
-            this.manufacturer.StyleController = this.masterLayoutControl;
-            this.manufacturer.TabIndex = 5;
-            // 
-            // manufacrurerLayoutControl
-            // 
-            this.manufacrurerLayoutControl.Control = this.manufacturer;
-            this.manufacrurerLayoutControl.CustomizationFormText = "manufacrurerLayoutControl";
-            this.manufacrurerLayoutControl.Location = new System.Drawing.Point(387, 0);
-            this.manufacrurerLayoutControl.Name = "manufacrurerLayoutControl";
-            this.manufacrurerLayoutControl.Size = new System.Drawing.Size(388, 40);
-            this.manufacrurerLayoutControl.Text = "manufacrurerLayoutControl";
-            this.manufacrurerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.manufacrurerLayoutControl.TextSize = new System.Drawing.Size(133, 13);
+            this.phisicalGridView.GridControl = this.phisicalGrid;
+            this.phisicalGridView.Name = "phisicalGridView";
             // 
             // chemicalGrid
             // 
@@ -161,45 +116,23 @@
             this.chemicalGridView.GridControl = this.chemicalGrid;
             this.chemicalGridView.Name = "chemicalGridView";
             // 
-            // chemicalLayoutControl
+            // manufacturer
             // 
-            this.chemicalLayoutControl.Control = this.chemicalGrid;
-            this.chemicalLayoutControl.CustomizationFormText = "chemicalLayoutControl";
-            this.chemicalLayoutControl.Location = new System.Drawing.Point(0, 40);
-            this.chemicalLayoutControl.Name = "chemicalLayoutControl";
-            this.chemicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
-            this.chemicalLayoutControl.Size = new System.Drawing.Size(387, 456);
-            this.chemicalLayoutControl.Text = "chemicalLayoutControl";
-            this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(133, 13);
+            this.manufacturer.Location = new System.Drawing.Point(409, 38);
+            this.manufacturer.Name = "manufacturer";
+            this.manufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.manufacturer.Size = new System.Drawing.Size(384, 20);
+            this.manufacturer.StyleController = this.masterLayoutControl;
+            this.manufacturer.TabIndex = 5;
             // 
-            // phisicalGrid
+            // number
             // 
-            this.phisicalGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            this.phisicalGrid.Location = new System.Drawing.Point(409, 83);
-            this.phisicalGrid.MainView = this.phisicalGridView;
-            this.phisicalGrid.Name = "phisicalGrid";
-            this.phisicalGrid.Size = new System.Drawing.Size(384, 426);
-            this.phisicalGrid.TabIndex = 7;
-            this.phisicalGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.phisicalGridView});
-            // 
-            // phisicalGridView
-            // 
-            this.phisicalGridView.GridControl = this.phisicalGrid;
-            this.phisicalGridView.Name = "phisicalGridView";
-            // 
-            // phisicalLayoutControl
-            // 
-            this.phisicalLayoutControl.Control = this.phisicalGrid;
-            this.phisicalLayoutControl.CustomizationFormText = "phisicalLayoutControl";
-            this.phisicalLayoutControl.Location = new System.Drawing.Point(387, 40);
-            this.phisicalLayoutControl.Name = "phisicalLayoutControl";
-            this.phisicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
-            this.phisicalLayoutControl.Size = new System.Drawing.Size(388, 456);
-            this.phisicalLayoutControl.Text = "phisicalLayoutControl";
-            this.phisicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(133, 13);
+            this.number.Location = new System.Drawing.Point(22, 38);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(383, 20);
+            this.number.StyleController = this.masterLayoutControl;
+            this.number.TabIndex = 4;
             // 
             // saveButton
             // 
@@ -223,10 +156,77 @@
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Cancel";
             // 
+            // rootLayoutGroup
+            // 
+            this.rootLayoutGroup.CustomizationFormText = "rootLayoutGroup";
+            this.rootLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.rootLayoutGroup.GroupBordersVisible = false;
+            this.rootLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.numberLayoutControl,
+            this.manufacrurerLayoutControl,
+            this.chemicalLayoutControl,
+            this.phisicalLayoutControl,
+            this.saveLayoutControl,
+            this.cancelLayoutControl,
+            this.divideButtonEmptySpace,
+            this.buttonsLeftEmptySpace});
+            this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.rootLayoutGroup.Name = "rootLayoutGroup";
+            this.rootLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
+            this.rootLayoutGroup.Size = new System.Drawing.Size(815, 563);
+            this.rootLayoutGroup.Text = "rootLayoutGroup";
+            this.rootLayoutGroup.TextVisible = false;
+            // 
+            // numberLayoutControl
+            // 
+            this.numberLayoutControl.Control = this.number;
+            this.numberLayoutControl.CustomizationFormText = "Номер плавки";
+            this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.numberLayoutControl.Name = "numberLayoutControl";
+            this.numberLayoutControl.Size = new System.Drawing.Size(387, 40);
+            this.numberLayoutControl.Text = "Номер плавки";
+            this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.numberLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
+            // manufacrurerLayoutControl
+            // 
+            this.manufacrurerLayoutControl.Control = this.manufacturer;
+            this.manufacrurerLayoutControl.CustomizationFormText = "Завод производитель";
+            this.manufacrurerLayoutControl.Location = new System.Drawing.Point(387, 0);
+            this.manufacrurerLayoutControl.Name = "manufacrurerLayoutControl";
+            this.manufacrurerLayoutControl.Size = new System.Drawing.Size(388, 40);
+            this.manufacrurerLayoutControl.Text = "Завод производитель";
+            this.manufacrurerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.manufacrurerLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
+            // chemicalLayoutControl
+            // 
+            this.chemicalLayoutControl.Control = this.chemicalGrid;
+            this.chemicalLayoutControl.CustomizationFormText = "Ковшовой химический состав";
+            this.chemicalLayoutControl.Location = new System.Drawing.Point(0, 40);
+            this.chemicalLayoutControl.Name = "chemicalLayoutControl";
+            this.chemicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
+            this.chemicalLayoutControl.Size = new System.Drawing.Size(387, 456);
+            this.chemicalLayoutControl.Text = "Ковшовой химический состав";
+            this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
+            // phisicalLayoutControl
+            // 
+            this.phisicalLayoutControl.Control = this.phisicalGrid;
+            this.phisicalLayoutControl.CustomizationFormText = "Механические свойства";
+            this.phisicalLayoutControl.Location = new System.Drawing.Point(387, 40);
+            this.phisicalLayoutControl.Name = "phisicalLayoutControl";
+            this.phisicalLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 7);
+            this.phisicalLayoutControl.Size = new System.Drawing.Size(388, 456);
+            this.phisicalLayoutControl.Text = "Механические свойства";
+            this.phisicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
             // saveLayoutControl
             // 
             this.saveLayoutControl.Control = this.saveButton;
-            this.saveLayoutControl.CustomizationFormText = "saveLayoutControl";
+            this.saveLayoutControl.CustomizationFormText = "layoutControlItem2";
             this.saveLayoutControl.Location = new System.Drawing.Point(557, 496);
             this.saveLayoutControl.MaxSize = new System.Drawing.Size(104, 27);
             this.saveLayoutControl.MinSize = new System.Drawing.Size(104, 27);
@@ -241,7 +241,7 @@
             // cancelLayoutControl
             // 
             this.cancelLayoutControl.Control = this.cancelButton;
-            this.cancelLayoutControl.CustomizationFormText = "cancelLayoutControl";
+            this.cancelLayoutControl.CustomizationFormText = "layoutControlItem3";
             this.cancelLayoutControl.Location = new System.Drawing.Point(671, 496);
             this.cancelLayoutControl.MaxSize = new System.Drawing.Size(104, 27);
             this.cancelLayoutControl.MinSize = new System.Drawing.Size(104, 27);
@@ -256,7 +256,7 @@
             // divideButtonEmptySpace
             // 
             this.divideButtonEmptySpace.AllowHotTrack = false;
-            this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.CustomizationFormText = "emptySpaceItem1";
             this.divideButtonEmptySpace.Location = new System.Drawing.Point(661, 496);
             this.divideButtonEmptySpace.MaxSize = new System.Drawing.Size(10, 27);
             this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(10, 27);
@@ -269,7 +269,7 @@
             // buttonsLeftEmptySpace
             // 
             this.buttonsLeftEmptySpace.AllowHotTrack = false;
-            this.buttonsLeftEmptySpace.CustomizationFormText = "buttonsLeftEmptySpace";
+            this.buttonsLeftEmptySpace.CustomizationFormText = "emptySpaceItem2";
             this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(0, 496);
             this.buttonsLeftEmptySpace.Name = "buttonsLeftEmptySpace";
             this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(557, 27);
@@ -284,18 +284,20 @@
             this.Controls.Add(this.masterLayoutControl);
             this.Name = "HeatXtraForm";
             this.Text = "HeatXtraForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HeatXtraForm_FormClosed);
+            this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();
             this.masterLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacrurerLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacrurerLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).EndInit();

@@ -4,9 +4,10 @@ namespace Domain.Entity.Mill
 {
     public class PlateManufacturer : Item
     {
-        public PlateManufacturer(string name) : this()
+        public PlateManufacturer(string number)
+            : this()
         {
-            this.Name = name;
+            this.Number = number;
         }
 
         protected PlateManufacturer()
@@ -14,7 +15,7 @@ namespace Domain.Entity.Mill
             this.Heats = new List<Heat>();
         }
 
-        public virtual string Name { get; set; }
+        public virtual string Number { get; set; }
         public virtual ICollection<Heat> Heats { get; set; }
     }
 }
