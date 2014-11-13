@@ -6,7 +6,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
 {
     public partial class HeatXtraForm : XtraForm
     {
-        HeatViewModel viewModel;
+        private HeatViewModel viewModel;
 
         public HeatXtraForm(string heatNumber)
         {
@@ -22,12 +22,15 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void BindToViewModel()
         {
-            throw new System.NotImplementedException();
+            bindingSource.DataSource = viewModel;
+
+            number.DataBindings.Add("EditValue", bindingSource, "Number");
+            steel.DataBindings.Add("EditValue", bindingSource, "SteelGrade");
         }
 
         private void BindCommands()
         {
-            throw new System.NotImplementedException();
+            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
         }
 
         private void HeatXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)

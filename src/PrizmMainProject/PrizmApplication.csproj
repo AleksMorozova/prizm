@@ -189,6 +189,7 @@
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />

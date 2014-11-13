@@ -9,5 +9,6 @@ namespace Data.DAL.Mill
 {
     public interface IHeatRepository : IRepository<Guid,Heat>
     {
+        Heat GetByNumber(string number);
     }
 }

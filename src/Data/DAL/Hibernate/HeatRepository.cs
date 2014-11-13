@@ -18,5 +18,10 @@ namespace Data.DAL.Hibernate
         {
 
         }
+
+        public Heat GetByNumber(string number)
+        {
+            return session.QueryOver<Heat>().Where(n => n.Number == number).SingleOrDefault();
+        }
     }
 }
