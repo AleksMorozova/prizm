@@ -22,8 +22,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.MinExpected, "minExpected");
             Map(_ => _.ResultType, "resultType");
             Map(_ => _.TestSubject, "testSubject");
-            Map(_ => _.PipeSizeId, "pipeSizeId");
-            References(_ => _.PipeSizeType);//PipeSizeId
+            References(_ => _.PipeSizeType).Column("Id");
         }
     }
 }

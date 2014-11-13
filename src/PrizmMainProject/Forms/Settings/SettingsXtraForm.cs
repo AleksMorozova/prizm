@@ -69,18 +69,21 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
             BindToViewModel();
             BindCommands();
         }
 
         private void BindToViewModel()
         {
-            pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+        }
+
+        private void BindTestToViewModel()
+        {
             //GridView gridView = pipesSizeList.FocusedView as GridView;
             //viewModel.CurrentPipeMillSizeType = (PipeMillSizeType)gridView.GetRow(gridView.FocusedRowHandle);
-            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTest");
-            
         }
 
         private void BindCommands()
@@ -96,8 +99,8 @@ namespace PrizmMain.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            inspectionOperation.RefreshDataSource();
-            
+            inspectionOperation.DataBindings.Clear();
+            BindTestToViewModel();
         }
     }
 }

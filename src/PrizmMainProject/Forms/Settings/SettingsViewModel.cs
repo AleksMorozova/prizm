@@ -15,7 +15,7 @@ namespace PrizmMain.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
-        public ICollection<PipeMillSizeType> PipeMillSizeType { get; set; }
+        public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public IList<PipeTest> PipeTest { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
