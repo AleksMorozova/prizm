@@ -3,6 +3,11 @@ using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 using System;
 
+using Ninject.Parameters;
+using Ninject;
+using PrizmMain.Forms.PipeMill.NewEdit;
+using PrizmMain.Forms.MainChildForm;
+
 namespace PrizmMain.Forms.PipeMill.Search
 {
     public partial class MillPipeSearchXtraForm : XtraForm
@@ -46,14 +51,16 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             //viewModel.Pipes[selectedPipe]
 
-            XtraMessageBox.Show(viewModel.Pipes[selectedPipe].Mill);
+            var edit = (XtraForm)Program
+                .Kernel
+                .Get<MillPipeNewEditXtraForm>(
+                new ConstructorArgument(
+                    "pipeNumber", 
+                    viewModel.Pipes[selectedPipe].Number));
 
-
-            /*
-            var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("railcarNumber", number));
             var parent = this.MdiParent as PrizmApplicationXtraForm;
             parent.CreateFormChild(edit);
-            */
+
         }
 
 

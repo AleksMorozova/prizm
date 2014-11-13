@@ -257,7 +257,7 @@
             // 
             // pipeMillGridColumn
             // 
-            this.pipeMillGridColumn.Caption = "Тип";
+            this.pipeMillGridColumn.Caption = "Завод";
             this.pipeMillGridColumn.FieldName = "Mill";
             this.pipeMillGridColumn.Name = "pipeMillGridColumn";
             this.pipeMillGridColumn.Visible = true;
@@ -382,7 +382,7 @@
             this.pipeSizeLayout.Name = "pipeSizeLayout";
             this.pipeSizeLayout.Size = new System.Drawing.Size(188, 45);
             this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.pipeSizeLayout.Text = "Размер трубы";
+            this.pipeSizeLayout.Text = "Типоразмер трубы";
             this.pipeSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeSizeLayout.TextSize = new System.Drawing.Size(147, 13);
             // 

@@ -3,25 +3,38 @@ using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
+using Ninject.Parameters;
+using Ninject;
+
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : XtraForm
     {
+
+        private MillPipeNewEditViewModel viewModel;
+
+        public MillPipeNewEditXtraForm(string pipeNumber)
+            : this()
+        {
+            viewModel = (MillPipeNewEditViewModel)Program
+                .Kernel
+                .Get<MillPipeNewEditViewModel>(
+                new ConstructorArgument("pipeNumber", pipeNumber));
+        }
+
         public MillPipeNewEditXtraForm()
         {
             InitializeComponent();
-            pipeNumber.Text = "125276";
+            
+            #region
+            
             pipeSize.Text = "1219х17,5; 20,6; 27,0мм";
             heatNumber.Text = "4573278";
             purchaseOrder.Text = "3647787";
             purchaseOrderDate.Text = "10.10.2014";
             pipeCreationDate.Text = "04.11.2014";
             millStatus.Text = "на складе";
-            length.Text = "4215";
-            weight.Text = "2414";
-            diameter.Text = "525";
-            thickness.Text = "63";
-            plateManufacturer.Text = "Завод 1";
+
             plateThickness.Text = "124";
             steelGrade.Text = "10Г2А";
 
@@ -56,7 +69,44 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var weldingDs = new WeldersDummy();
             BindingList<weldHistory> weldingData = weldingDs.GetCmpDummy();
             weldingHistory.DataSource = weldingData;
+            #endregion
+
+
+       
         }
+
+        private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
+        {
+            if (viewModel != null)
+            {
+                BindCommands();
+                BindToViewModel();
+            }
+        }
+
+
+        private void BindToViewModel()
+        {
+            pipeNewEditBindingSource.DataSource = viewModel;
+
+            pipeNumber.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Number");
+
+            length.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Length");
+            weight.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Weight");
+            diameter.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Diameter");
+            thickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+
+            plateManufacturer.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Mill");
+
+        }
+
+        private void BindCommands()
+        {
+            saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+        }
+
+
+
 
     }
 
