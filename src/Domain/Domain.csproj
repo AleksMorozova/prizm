@@ -44,7 +44,10 @@
     <Compile Include="Entity\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
+    <Compile Include="Entity\Mill\PipeTest.cs" />
+    <Compile Include="Entity\Mill\PipeTestControlType.cs" />
     <Compile Include="Entity\Mill\PipeTestResult.cs" />
+    <Compile Include="Entity\Mill\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
     <Compile Include="Entity\Mill\PurchaseOrder.cs" />
@@ -63,10 +66,6 @@
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
-    <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
-    <Compile Include="Entity\Setup\PipeTest.cs" />
-    <Compile Include="Entity\Setup\PipeTestControlType.cs" />
-    <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Welder.cs" />

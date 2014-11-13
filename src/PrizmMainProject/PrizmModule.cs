@@ -1,6 +1,5 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
-using Data.DAL.Setup;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
@@ -25,11 +24,6 @@ namespace PrizmMain
     {
         public override void Load()
         {
-            #region Repository
-            Bind<IRailcarRepository>().To<RailcarRepository>();
-            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
-            Bind<IPipeTestRepository>().To<PipeTestRepository>(); 
-            #endregion
             #region ViewModel
             Bind<RailcarViewModel>().ToSelf();
             Bind<IRailcarRepository>().To<RailcarRepository>();
@@ -39,7 +33,6 @@ namespace PrizmMain
 
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
             Bind<RailcarSearchViewModel>().ToSelf();
-            Bind<SettingsViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
