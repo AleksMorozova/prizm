@@ -13,6 +13,7 @@ namespace Data.DAL.Mapping
         public PlateMap()
         {
             Map(x => x.Number).Column("number");
+            Map(x => x.Thickness).Column("thickness");
 
             References(x => x.Heat).Column("heatId").Cascade.None();
 

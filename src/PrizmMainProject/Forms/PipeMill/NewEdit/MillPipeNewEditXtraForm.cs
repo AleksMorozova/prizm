@@ -57,6 +57,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindingList<weldHistory> weldingData = weldingDs.GetCmpDummy();
             weldingHistory.DataSource = weldingData;
         }
+
+        public MillPipeNewEditXtraForm(string pipeNumber)
+            :this()
+        {
+
+        }
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
+using System;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -37,6 +38,23 @@ namespace PrizmMain.Forms.PipeMill.Search
             BindToViewModel();
         }
 
+        private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
+        {
+
+            int selectedPipe = pipesSearchResultView
+                .GetFocusedDataSourceRowIndex();
+
+            //viewModel.Pipes[selectedPipe]
+
+            XtraMessageBox.Show(viewModel.Pipes[selectedPipe].Mill);
+
+
+            /*
+            var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("railcarNumber", number));
+            var parent = this.MdiParent as PrizmApplicationXtraForm;
+            parent.CreateFormChild(edit);
+            */
+        }
 
 
 
