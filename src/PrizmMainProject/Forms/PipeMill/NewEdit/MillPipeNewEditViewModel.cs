@@ -119,6 +119,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+        public string HeatNumber
+        {
+            get { return Pipe.Plate.Heat.Number; }
+            set
+            {
+                if (value != Pipe.Plate.Heat.Number)
+                {
+                    Pipe.Plate.Heat.Number = value;
+                    RaisePropertyChanged("HeatNumber");
+                }
+            }
+        }
+
         public ICommand NewEditCommand
         {
             get { return newEditCommand; }

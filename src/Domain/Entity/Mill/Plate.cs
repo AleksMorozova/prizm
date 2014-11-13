@@ -10,9 +10,7 @@
             this.Pipe = pipe;
         }
 
-        protected Plate()
-        {
-        }
+        protected Plate() { }
 
         public virtual string Number { get; set; }
         public virtual int Thickness { get; set; }

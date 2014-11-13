@@ -15,10 +15,10 @@ namespace Data.DAL.Mapping
             Map(x => x.Number).Column("number");
             Map(x => x.Thickness).Column("thickness");
 
+
             References(x => x.Heat).Column("heatId").Cascade.None();
 
-            //TODO: for pipe mapping
-            //HasOne(x => x.Pipe).Cascade.All().PropertyRef("Plate");
+            HasOne(x => x.Pipe).Cascade.All().PropertyRef("Plate");
 
 
         }

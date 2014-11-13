@@ -26,7 +26,6 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             pipeNumber.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
 
-            pipeSize.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeSize");
 
         }
 
@@ -48,8 +47,6 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             int selectedPipe = pipesSearchResultView
                 .GetFocusedDataSourceRowIndex();
-
-            //viewModel.Pipes[selectedPipe]
 
             var edit = (XtraForm)Program
                 .Kernel
