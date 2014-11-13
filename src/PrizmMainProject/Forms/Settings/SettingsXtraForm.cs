@@ -16,19 +16,13 @@ namespace PrizmMain.Forms.Settings
     {
         private SettingsViewModel viewModel;
  
-        public SettingsXtraForm()//: this(Guid.NewGuid())
+        public SettingsXtraForm()
         {
             InitializeComponent();
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
 
         }
-
-        //public SettingsXtraForm(Guid CurrentPipeMillSizeTypeId) 
-        //{
-        //    InitializeComponent();
-        //    viewModel = (SettingsViewModel)Program.Kernel.Get<SettingsViewModel>(new ConstructorArgument("CurrentPipeMillSizeType", CurrentPipeMillSizeTypeId)); 
-        //}
 
         #region Role Setting
 

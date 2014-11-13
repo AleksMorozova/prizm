@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             DevExpress.Utils.SerializableAppearanceObject editSerializableAppearanceObject = new DevExpress.Utils.SerializableAppearanceObject();
             this.allInspectionGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
