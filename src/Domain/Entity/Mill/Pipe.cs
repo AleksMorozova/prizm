@@ -6,14 +6,12 @@ namespace Domain.Entity.Mill
     {
         public Pipe(
             int diameter, int wallThikness, int weigh, string type
-            )
+            ): this()
         {
             this.Diameter = diameter;
             this.WallThickness = wallThikness;
             this.Weight = weigh;
             this.Type = type;
-            this.Welds = new List<Weld>();
-            this.PipeTestResult = new List<PipeTestResult>();
         }
 
         protected Pipe()
@@ -22,7 +20,7 @@ namespace Domain.Entity.Mill
             this.PipeTestResult = new List<PipeTestResult>();
         }
 
-        public virtual string Number { get; set; }
+        
         public virtual string Mill { get; set; }
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }

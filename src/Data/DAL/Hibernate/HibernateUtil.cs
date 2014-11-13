@@ -3,6 +3,9 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 
+using System.ComponentModel;
+
+
 namespace Data.DAL.Hibernate
 {
     public class HibernateUtil
@@ -11,11 +14,14 @@ namespace Data.DAL.Hibernate
 
         public static void Initialize(string connectionString)
         {
+            
+
             sessionFactory = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
+                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString)
+                
+                .ShowSql())
+                
                 .Mappings(_ => _.FluentMappings.AddFromAssemblyOf<HibernateUtil>())
-                .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                // populate db tables from maping
                 .BuildSessionFactory();
         }
 
