@@ -224,6 +224,8 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
+    <Compile Include="Forms\Settings\SettingsViewModel.cs" />
     <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +420,7 @@
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.WeldersDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.Forms.Railcar.Edit.RailcarViewModel.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.Forms.Settings.SettingsViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

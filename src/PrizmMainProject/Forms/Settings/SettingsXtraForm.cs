@@ -5,36 +5,23 @@ using PrizmMain.DummyData;
 using PrizmMain.Forms.Settings.Dictionary;
 using PrizmMain.Forms.Settings.UserRole.Role;
 using PrizmMain.Forms.Settings.UserRole.User;
+using DevExpress.XtraGrid.Views.Grid;
+using Domain.Entity.Setup;
+using Ninject;
+using Ninject.Parameters;
 
 namespace PrizmMain.Forms.Settings
 {
     public partial class SettingsXtraForm : XtraForm
     {
+        private SettingsViewModel viewModel;
+ 
         public SettingsXtraForm()
         {
             InitializeComponent();
+            pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
+            inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
 
-            var inspectionDs = new InspectionDummy();
-            BindingList<Inspection> inspectionData = inspectionDs.GetDummyInspection();
-            inspectionOperation.DataSource = inspectionData;
-
-            #region User & Role Setting
-
-            var userDs = new UsersDummy();
-            BindingList<User> userData = userDs.GetDummyUsers();
-            users.DataSource = userData;
-
-            var roleDs = new RolesDummy();
-            BindingList<Role> roleData = roleDs.GetRoles();
-            roles.DataSource = roleData;
-
-            #endregion
-
-            #region Dictionary Grid
-
-            dictionaries.DataSource = DictionaryDummy.GetDictionaries();
-
-            #endregion
         }
 
         #region Role Setting
@@ -71,6 +58,43 @@ namespace PrizmMain.Forms.Settings
             //TODO: change for normal logic
             var editDictionary = new SettingsEditDictionaryXtraForm();
             editDictionary.ShowDialog();
+        }
+
+        private void SettingsXtraForm_Load(object sender, EventArgs e)
+        {
+            viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            BindToViewModel();
+            BindCommands();
+        }
+
+        private void BindToViewModel()
+        {
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+        }
+
+        private void BindTestToViewModel()
+        {
+            //GridView gridView = pipesSizeList.FocusedView as GridView;
+            //viewModel.CurrentPipeMillSizeType = (PipeMillSizeType)gridView.GetRow(gridView.FocusedRowHandle);
+            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTest");
+        }
+
+        private void BindCommands()
+        {
+            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+        }
+
+        private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+            viewModel = null;
+        }
+
+        private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            inspectionOperation.DataBindings.Clear();
+            BindTestToViewModel();
         }
     }
 }
