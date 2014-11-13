@@ -64,11 +64,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void editHeatButton_Click(object sender, EventArgs e)
         {
-            using ( var heatForm = (Form)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
+            using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
             {
                 if (heatForm.ShowDialog() == DialogResult.OK)
                 {
-                    
+                    //TODO: refresh Heat data
                 }
             }
            

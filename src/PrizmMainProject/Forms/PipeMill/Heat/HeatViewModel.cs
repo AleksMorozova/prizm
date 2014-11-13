@@ -26,14 +26,14 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
-                NewHeat();
+                NewHeat(heatNumber);
             }
             else
             {
                 var answer = heatRepo.GetByNumber(heatNumber);
                 if (answer == null)
                 {
-                    NewHeat();
+                    NewHeat(heatNumber);
                 }
                 else
                 {
@@ -107,12 +107,15 @@ namespace PrizmMain.Forms.PipeMill.Heat
             heatRepo.Dispose();
         }
 
-        public void NewHeat()
+        public void NewHeat(string number)
         {
             if (Heat == null)
             {
-                Heat = new Domain.Entity.Mill.Heat(string.Empty, new Domain.Entity.Mill.PhysicalParameters(),
-                    new Domain.Entity.Mill.ChemicalComposition()) { IsActive = true };
+                Heat = new Domain.Entity.Mill.Heat();
+                Heat.Number = number;
+                Heat.SteelGrade = string.Empty;
+                Heat.PhysicalParameters = new PhysicalParameters();
+                Heat.ChemicalComposition = new ChemicalComposition();
             }
         }
     }

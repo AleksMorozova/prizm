@@ -27,7 +27,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             repo.Save(viewModel.Heat);
             repo.Commit();
             repo.Evict(viewModel.Heat);
-            viewModel.NewHeat();
+            viewModel.NewHeat(string.Empty);
         }
 
         public bool CanExecute()
