@@ -172,7 +172,7 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
-    <Compile Include="Forms\IForm.cs" />
+    <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +188,10 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
@@ -224,8 +228,6 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
-    <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
-    <Compile Include="Forms\Settings\SettingsViewModel.cs" />
     <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +339,9 @@
     <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
+      <DependentUpon>HeatXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,7 +425,6 @@
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.WeldersDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.Forms.Railcar.Edit.RailcarViewModel.datasource" />
-    <None Include="Properties\DataSources\PrizmMain.Forms.Settings.SettingsViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

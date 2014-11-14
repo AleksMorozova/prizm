@@ -1,18 +1,11 @@
-﻿using Domain.Entity.Setup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {
     public class PipeTestResult : Item
     {
-        public PipeTestResult(PipeTest operation, DateTime date) : this()
-        {
-            this.Operation = operation;
-            this.Date = date;
-        }
-
-        protected PipeTestResult()
+        public PipeTestResult()
         {
             this.Pipes = new List<Pipe>();
             this.Inspectors = new List<Inspector>();
