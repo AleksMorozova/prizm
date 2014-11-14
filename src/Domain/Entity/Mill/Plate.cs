@@ -2,7 +2,6 @@
 {
     public class Plate : Item
     {
-    public Plate()
         public virtual string Number { get; set; }
 
         public virtual int Thickness { get; set; }
@@ -12,6 +11,6 @@
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
         public virtual TensileTest TensileTest { get; set; }
-        
+
     }
 }

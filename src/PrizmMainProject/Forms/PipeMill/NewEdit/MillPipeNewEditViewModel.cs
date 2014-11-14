@@ -148,7 +148,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             if (Pipe == null)
             {
-                Pipe = new Pipe(0, 0, 0, "0", true, "0", 0);
+                Pipe = new Pipe();
             }
 
             Number = string.Empty;

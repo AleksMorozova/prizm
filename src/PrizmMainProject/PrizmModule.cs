@@ -38,11 +38,7 @@ namespace PrizmMain
             Bind<HeatViewModel>().ToSelf();
             Bind<RailcarViewModel>().ToSelf();
             Bind<MillPipeSearchViewModel>().ToSelf();
-
             Bind<MillPipeNewEditViewModel>().ToSelf();
-            Bind<IPipeRepository>().To<PipeRepository>();
-
-            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
             Bind<RailcarSearchViewModel>().ToSelf();
             #endregion
 

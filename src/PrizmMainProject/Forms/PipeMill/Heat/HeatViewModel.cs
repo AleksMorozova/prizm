@@ -57,18 +57,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        public string SteelGrade
-        {
-            get { return Heat.SteelGrade; }
-            set
-            {
-                if (value != Heat.SteelGrade)
-                {
-                    Heat.SteelGrade = value;
-                    RaisePropertyChanged("SteelGrade");
-                }
-            }
-        }
+
 
         public ChemicalComposition Chemical
         {
@@ -113,7 +102,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             {
                 Heat = new Domain.Entity.Mill.Heat();
                 Heat.Number = number;
-                Heat.SteelGrade = string.Empty;
+
                 Heat.PhysicalParameters = new PhysicalParameters();
                 Heat.ChemicalComposition = new ChemicalComposition();
             }

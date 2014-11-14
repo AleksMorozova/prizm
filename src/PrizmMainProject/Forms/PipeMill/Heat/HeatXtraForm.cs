@@ -27,7 +27,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             bindingSource.DataSource = viewModel;
 
             number.DataBindings.Add("EditValue", bindingSource, "Number");
-            steel.DataBindings.Add("EditValue", bindingSource, "SteelGrade");
+
         }
 
         private void BindCommands()

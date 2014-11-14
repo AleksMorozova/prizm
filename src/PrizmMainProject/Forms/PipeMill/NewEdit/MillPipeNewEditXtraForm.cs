@@ -63,7 +63,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
            
         }
-    }
+    
 
 
         private void BindCommands()

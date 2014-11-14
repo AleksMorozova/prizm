@@ -10,6 +10,6 @@ namespace Domain.Entity.Mill
         }
 
         public virtual string Number { get; set; }
-        public virtual ICollection<Heat> Heats { get; set; }
+        public virtual IList<Heat> Heats { get; set; }
     }
 }
