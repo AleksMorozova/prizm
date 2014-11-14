@@ -43,6 +43,7 @@
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
+    <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\Mill\PipeTest.cs" />
     <Compile Include="Entity\Mill\PipeTestControlType.cs" />
