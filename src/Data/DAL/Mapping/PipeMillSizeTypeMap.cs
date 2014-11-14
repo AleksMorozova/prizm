@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Mapping
 {
-    public class PipeMillSizeTypeMap : ClassMap<PipeMillSizeType>
+    public class PipeMillSizeTypeMap : SubclassMap<PipeMillSizeType>
     {
         public PipeMillSizeTypeMap() 
         {
-            Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
-            Map(_ => _.Name, "name");
-            HasMany(_ => _.PipeTests);
+            //Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
+            Map(_ => _.Type, "type");
+            //Map(_ => _.IsActive, "isActive");
+            HasMany(_ => _.PipeTests).Inverse().Cascade.All().Not.LazyLoad().KeyColumn("pipeMillSizeTypeId");
         }
     }
 }

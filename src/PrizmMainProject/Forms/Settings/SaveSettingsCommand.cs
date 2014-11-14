@@ -25,7 +25,7 @@ namespace PrizmMain.Forms.Settings
         {
          repo.BeginTransaction();
   
-         repo.Save(viewModel.CurrentPipeMillSizeType);
+         repo.SaveOrUpdate(viewModel.CurrentPipeMillSizeType);
          repo.Commit();
          repo.Evict(viewModel.CurrentPipeMillSizeType);
          //viewModel.NewPipeMillSizeType();

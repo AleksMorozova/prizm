@@ -8,7 +8,7 @@ namespace Domain.Entity.Setup
 {
     public class PipeMillSizeType: Item
     {
-        public virtual string Name { get; set; }
+        public virtual string Type { get; set; }
         public virtual IList<PipeTest> PipeTests { get; set; }
 
     }

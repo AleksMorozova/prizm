@@ -34,21 +34,40 @@ namespace PrizmMain.Forms.Settings
         }
 
         // for Current Mill Pipe SizeType
-        public string Name
+        public string Type
         {
             get
             {
-                return CurrentPipeMillSizeType.Name;
+                return CurrentPipeMillSizeType.Type;
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.Name)
+                if (value != CurrentPipeMillSizeType.Type)
                 {
-                    CurrentPipeMillSizeType.Name = value;
-                    RaisePropertyChanged("Name");
+                    CurrentPipeMillSizeType.Type = value;
+                    RaisePropertyChanged("Type");
                 }
             }
         }
+
+        // for Current Mill Pipe SizeType
+        public Guid Id
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Id;
+            }
+            set
+            {
+                //if (value != CurrentPipeMillSizeType.Id)
+                //{
+                //    CurrentPipeMillSizeType.Id = value;
+                //    RaisePropertyChanged("Id");
+                //}
+            }
+        }
+
+
 
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
@@ -110,7 +129,7 @@ namespace PrizmMain.Forms.Settings
                 CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
                 CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
             }
-            Name = string.Empty;
+            Type = string.Empty;
             Tests = new BindingList<PipeTest>();; 
         }
 

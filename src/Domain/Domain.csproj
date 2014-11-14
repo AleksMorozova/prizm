@@ -47,8 +47,8 @@
     <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
-    <Compile Include="Entity\Setup\PipeTestResult.cs" />
-    <Compile Include="Entity\Mill\PipeTestResultType.cs" />
+    <Compile Include="Entity\Mill\PipeTestResult.cs" />
+    <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
     <Compile Include="Entity\Mill\PurchaseOrder.cs" />

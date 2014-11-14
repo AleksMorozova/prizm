@@ -48,6 +48,7 @@ namespace Domain.Entity.Setup
         public virtual bool BoolExpected { get; set; }
         public virtual bool IsRequired { get; set; }
 
+        public virtual PipeMillSizeType pipeType { get; set; }
         //enums
         public virtual PipeTestControlType ControlType { get; set; }
         public virtual PipeTestResultType ResultType { get; set; }
