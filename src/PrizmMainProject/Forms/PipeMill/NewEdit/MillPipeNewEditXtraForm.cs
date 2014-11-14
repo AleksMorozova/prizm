@@ -45,6 +45,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             diameter.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "WallThickness");
 
+            deactivate.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
+            plateThickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
+
+            heatNumber.DataBindings.Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+
+            viewModel.ExtractHeatsCommand.Execute();
+
+            foreach (var h in viewModel.Heats)
+            {
+                heatNumber.Properties.Items.Add(h);
+            }
+
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)

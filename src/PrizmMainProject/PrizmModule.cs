@@ -31,6 +31,8 @@ namespace PrizmMain
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
+            Bind<IWeldRepository>().To<WeldRepository>();
+            Bind<IPlateRepository>().To <PlateRepository>();
             #endregion
 
             #region ViewModel

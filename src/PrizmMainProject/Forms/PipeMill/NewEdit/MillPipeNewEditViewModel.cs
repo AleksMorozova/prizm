@@ -17,16 +17,38 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     public class MillPipeNewEditViewModel: ViewModelBase, IDisposable
     {
 
-        private readonly IPipeRepository repo;
+        private readonly IPipeRepository repoPipe;
+        private readonly IPlateRepository repoPlate;
+        private readonly IHeatRepository repoHeat;
+        private readonly IWeldRepository repoWeld;
+
+        private IList<Plate> plates;
+        private IList<Domain.Entity.Mill.Heat> heats;
+
+
         private readonly MillPipeNewEditCommand newEditCommand;
+        private readonly ExtractHeatsCommand extractHeatsCommand;
 
         public Pipe Pipe { get; set; }
 
         [Inject]
-        public MillPipeNewEditViewModel(IPipeRepository repo, string pipeNumber)
+        public MillPipeNewEditViewModel(
+            IPipeRepository repoPipe,
+            IPlateRepository repoPlate,
+            IHeatRepository repoHeat,
+            IWeldRepository repoWeld,
+            string pipeNumber)
         {
-            this.repo = repo;
-            newEditCommand = ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repo));
+            this.repoPipe = repoPipe;
+            this.repoPlate = repoPlate;
+            this.repoHeat = repoHeat;
+            this.repoWeld = repoWeld;
+
+            newEditCommand = 
+                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoPipe));
+
+            extractHeatsCommand =
+                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoHeat));
 
             if (string.IsNullOrWhiteSpace(pipeNumber))
             {
@@ -34,13 +56,74 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             else
             {
-                Pipe = repo.GetByNumber(pipeNumber);
+                Pipe = repoPipe.GetByNumber(pipeNumber);
             }
         }
 
+        public IList<Domain.Entity.Mill.Heat> Heats
+        {
+            get { return heats; }
+            set
+            {
+                if (value != heats)
+                {
+                    heats = value;
+                    RaisePropertyChanged("Heats");
+                }
+            }
+        }
 
-        
+        public int PlateThickness
+        {
+            get { return Plate.Thickness; }
+            set
+            {
+                if (value != Plate.Thickness)
+                {
+                    Plate.Thickness = value;
+                    RaisePropertyChanged("PlateThickness");
+                }
+            }
+        }
 
+        public bool PipeIsActive
+        {
+            get { return Pipe.IsActive; }
+            set
+            {
+                if (value != Pipe.IsActive)
+                {
+                    Pipe.IsActive = value;
+                    RaisePropertyChanged("PipeIsActive");
+                }
+            }
+        }
+
+        public string HeatNumber
+        {
+            get { return Heat.Number; }
+            set
+            {
+                if (value != Heat.Number)
+                {
+                    Heat.Number = value;
+                    RaisePropertyChanged("HeatNumber");
+                }
+            }
+        }
+
+        public string PlateNumber
+        {
+            get { return Plate.Number; }
+            set
+            {
+                if (value != Plate.Number)
+                {
+                    Plate.Number = value;
+                    RaisePropertyChanged("PlateNumber");
+                }
+            }
+        }
 
         public string Number
         {
@@ -132,6 +215,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+
         public Domain.Entity.Mill.Heat Heat
         {
             get { return Pipe.Plate.Heat; }
@@ -150,11 +234,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return newEditCommand; }
         }
 
+        public ICommand ExtractHeatsCommand
+        {
+            get { return extractHeatsCommand; }
+        }
+        
+
         public void Dispose()
         {
-            repo.Dispose();
+            repoPipe.Dispose();
         }
-
 
         public void NewPipe()
         {

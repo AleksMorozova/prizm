@@ -16,6 +16,11 @@ namespace Domain.Entity.Mill
 
         public virtual PhysicalParameters PhysicalParameters { get; set; }
         public virtual ChemicalComposition ChemicalComposition { get; set; }
+
+        public override string ToString()
+        {
+            return Number;
+        }
         
     }
 }
