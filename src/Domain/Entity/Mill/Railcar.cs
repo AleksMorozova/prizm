@@ -18,6 +18,6 @@ namespace Domain.Entity.Mill
 
         public virtual IList<Pipe> Pipes { get; set; }
 
-        //TODO: back reference to pipes
+      
     }
 }

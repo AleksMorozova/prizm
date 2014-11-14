@@ -35,6 +35,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
             shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
+            pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
         }
 
         private void BindCommands()

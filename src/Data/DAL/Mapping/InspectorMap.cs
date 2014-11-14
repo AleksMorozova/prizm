@@ -13,10 +13,10 @@ namespace Data.DAL.Mapping
         public InspectorMap()
         {
             Table("Inspector");
-            References(_ => _.Name, "id");
+            //References(_ => _.Name, "id");
             Map(_ => _.Certificate).Column("certificate");
             Map(_ => _.CertificateExpiration).Column("certificateExpiration");
-            HasMany(_ => _.Results).KeyColumn("id").Inverse();
+           // HasMany(_ => _.Results).KeyColumn("id").Inverse();
 
         }
     }

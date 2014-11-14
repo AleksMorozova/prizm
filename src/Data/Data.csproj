@@ -68,6 +68,7 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />

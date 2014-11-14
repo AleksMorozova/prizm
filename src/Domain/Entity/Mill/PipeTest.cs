@@ -30,12 +30,12 @@ namespace Domain.Entity.Mill
             this.Code = code;
             this.TestSubject = subject;
             this.IsRequired = isRequired;
-            this.PipeTestResults = new List<PipeTestResult>();
+           // this.PipeTestResults = new List<PipeTestResult>();
         }
 
         protected PipeTest()
         {
-            this.PipeTestResults = new List<PipeTestResult>();
+           // this.PipeTestResults = new List<PipeTestResult>();
         }
 
         public virtual string Code { get; set; }
@@ -48,7 +48,7 @@ namespace Domain.Entity.Mill
 
         //enums
         public virtual PipeTestControlType ControlType { get; set; }
-        public virtual PipeTestResultType Resulttype { get; set; }
+       // public virtual PipeTestResultType Resulttype { get; set; }
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
 

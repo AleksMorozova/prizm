@@ -18,7 +18,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.Stamp).Column("stamp");
             Map(_ => _.Grade).Column("grade");
 
-            References(_ => _.Name, "id");
+            //References(_ => _.Name, "id");
             HasManyToMany(_ => _.Welds)
                 .Table("[Weld_welder]")
                 .ParentKeyColumn("weldId")
