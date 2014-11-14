@@ -16,7 +16,6 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
-        public IList<PipeTest> PipeTest { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
@@ -26,16 +25,15 @@ namespace PrizmMain.Forms.Settings
         [Inject]
         public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo, PipeMillSizeType CurrentPipeMillSizeType )
         {
+            NewPipeMillSizeType();
             this.repo = repo;
             this.testRepo = testRepo;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
-                        
-            NewPipeMillSizeType();
             GetAllPipeMillSizeType();
-            GetAllPipeTest(CurrentPipeMillSizeType.Id);
-            
+            GetAllPipeTest();
         }
 
+        // for Current Mill Pipe SizeType
         public string Name
         {
             get
@@ -48,22 +46,6 @@ namespace PrizmMain.Forms.Settings
                 {
                     CurrentPipeMillSizeType.Name = value;
                     RaisePropertyChanged("Name");
-                }
-            }
-        }
-
-        public IList<PipeTest> Tests
-        {
-            get
-            {
-                return CurrentPipeMillSizeType.PipeTests;
-            }
-            set
-            {
-                if (value != CurrentPipeMillSizeType.PipeTests)
-                {
-                    CurrentPipeMillSizeType.PipeTests = value;
-                    RaisePropertyChanged("Tests");
                 }
             }
         }
@@ -85,22 +67,24 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        private BindingList<PipeMillSizeType> pipeMilSizeType = new BindingList<PipeMillSizeType>();
-        public BindingList<PipeMillSizeType> PipeMilSizeType
+
+        // for Current Mill Pipe SizeType
+        public BindingList<PipeTest> Tests
         {
             get
             {
-                return pipeMilSizeType;
+                return pipeTests;
             }
             set
             {
-                if (value != pipeMilSizeType)
+                if (value != pipeTests)
                 {
-                    pipeMilSizeType = value;
-                    RaisePropertyChanged("pipeMilSizeType");
+                    pipeTests = value;
+                    RaisePropertyChanged("Tests");
                 }
             }
         }
+
 
         public ICommand SaveCommand
         {
@@ -113,27 +97,38 @@ namespace PrizmMain.Forms.Settings
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
         }
 
-        private void GetAllPipeTest(Guid CurrentPipeMillSizeType)
+        private void GetAllPipeTest()
         {
-            var allTests = testRepo.GetAll().ToList();//.GetByPipeSizeID(CurrentPipeMillSizeType).ToList();
-            PipeTest = new BindingList<PipeTest>(allTests);
+            var allTests = testRepo.GetAll().ToList();
+            PipeTests = new BindingList<PipeTest>(allTests);
         }
 
         public void NewPipeMillSizeType()
         {
-            if (PipeMillSizeType == null)
+            if (CurrentPipeMillSizeType == null)
             {
                 CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
-                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>(); 
+                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
             }
             Name = string.Empty;
-            Tests = new BindingList<PipeTest>(); 
-
+            Tests = new BindingList<PipeTest>();; 
         }
 
         public void Dispose()
         {
             repo.Dispose();
+        }
+
+        internal void UpdatePipeTests(object sizeType)
+        {
+            PipeMillSizeType type = sizeType as PipeMillSizeType;
+            PipeTests.Clear();
+            if (type.PipeTests == null)
+                return;
+            foreach (PipeTest t in type.PipeTests)
+            {
+                PipeTests.Add(t);
+            }
         }
     }
 }

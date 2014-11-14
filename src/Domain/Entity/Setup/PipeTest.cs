@@ -55,7 +55,7 @@ namespace Domain.Entity.Setup
             this.PipeTestResults = new List<PipeTestResult>();
         }
 
-        protected PipeTest()
+        public PipeTest()
         {
             this.PipeTestResults = new List<PipeTestResult>();
         }

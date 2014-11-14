@@ -19,9 +19,12 @@ namespace PrizmMain.Forms.Settings
         public SettingsXtraForm()
         {
             InitializeComponent();
+            
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
-
+            //var inspectionDs = new InspectionDummy();
+            //BindingList<Inspection> inspectionData = inspectionDs.GetDummyInspection();
+            //inspectionOperation.DataSource = inspectionData;
         }
 
         #region Role Setting
@@ -63,22 +66,17 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
-            pipeMillSizeTypeBindingSource.DataSource = viewModel;
             BindToViewModel();
             BindCommands();
         }
 
         private void BindToViewModel()
         {
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+            inspectionOperation.DataSource = viewModel.PipeTests;
         }
 
-        private void BindTestToViewModel()
-        {
-            //GridView gridView = pipesSizeList.FocusedView as GridView;
-            //viewModel.CurrentPipeMillSizeType = (PipeMillSizeType)gridView.GetRow(gridView.FocusedRowHandle);
-            inspectionOperation.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeTest");
-        }
 
         private void BindCommands()
         {
@@ -93,8 +91,31 @@ namespace PrizmMain.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            inspectionOperation.DataBindings.Clear();
-            BindTestToViewModel();
+            GridView v = sender as GridView;
+            object sizeType = v.GetRow(e.FocusedRowHandle);
+            if (sizeType != null)
+            {
+                viewModel.UpdatePipeTests(sizeType);
+            }
+            
+            viewModel.CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+        }
+
+
+        private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            PipeTest pipeTest = new PipeTest();
+            viewModel.PipeTests.Add(pipeTest);
+            inspectionOperation.RefreshDataSource();
+        }
+
+        private void inspectionView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+
+            GridView v = sender as GridView;
+            PipeTest pipeTest = (PipeTest)v.GetRow(e.FocusedRowHandle);
+            viewModel.CurrentPipeMillSizeType.PipeTests.Add(pipeTest);
+            
         }
     }
 }

@@ -17,10 +17,5 @@ namespace Data.DAL.Hibernate
             : base(session)
         {
         }
-
-        public IList<PipeTest> GetByPipeSizeID(Guid id)
-        {
-            return session.QueryOver<PipeTest>().Where(n => n.PipeSizeType.Id == id).List<PipeTest>();
-        }
     }
 }
