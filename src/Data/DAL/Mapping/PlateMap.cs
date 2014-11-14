@@ -16,7 +16,7 @@ namespace Data.DAL.Mapping
             Map(x => x.Thickness).Column("thickness");
 
 
-            References(x => x.Heat).Column("heatId").Cascade.None();
+            References(x => x.Heat).Column("heatId");
 
             HasOne(x => x.Pipe).Cascade.All().PropertyRef("Plate");
 

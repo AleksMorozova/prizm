@@ -20,7 +20,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly IPipeRepository repo;
         private readonly MillPipeNewEditCommand newEditCommand;
 
-
+        public Pipe Pipe { get; set; }
 
         [Inject]
         public MillPipeNewEditViewModel(IPipeRepository repo, string pipeNumber)
@@ -39,7 +39,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-        public Pipe Pipe { get; set; }
+        
 
 
         public string Number
@@ -120,6 +120,31 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+        public Plate Plate
+        {
+            get { return Pipe.Plate; }
+            set
+            {
+                if (value != Pipe.Plate)
+                {
+                    Pipe.Plate = value;
+                    RaisePropertyChanged("Plate");
+                }
+            }
+        }
+        public Domain.Entity.Mill.Heat Heat
+        {
+            get { return Pipe.Plate.Heat; }
+            set
+            {
+                if (value != Pipe.Plate.Heat)
+                {
+                    Pipe.Plate.Heat = value;
+                    RaisePropertyChanged("Heat");
+                }
+            }
+        }
+
         public ICommand NewEditCommand
         {
             get { return newEditCommand; }
@@ -138,12 +163,33 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 Pipe = new Pipe();
             }
 
+            NewPlate();
+
             Number = string.Empty;
             Mill = string.Empty;
             WallThickness = 0;
             Weight = 0;
             Length = 0;
             Diameter = 0;
+        }
+
+        public void NewPlate()
+        {
+            if (Plate == null)
+            {
+                Plate = new Plate();
+            }
+
+            NewHeat();
+
+        }
+
+        public void NewHeat()
+        {
+            if (Heat == null)
+            {
+                Heat = new Domain.Entity.Mill.Heat();
+            }
         }
     }
 }

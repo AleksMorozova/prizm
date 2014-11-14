@@ -23,5 +23,12 @@ namespace Data.DAL.Hibernate
         {
             return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
         }
+
+        public void Save(Pipe pipe)
+        {
+            session.Save(pipe.Plate.Heat);
+            session.Save(pipe.Plate);
+            session.Save(pipe);
+        }
     }
 }
