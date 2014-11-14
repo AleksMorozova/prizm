@@ -97,6 +97,7 @@
             // 
             this.phisicalGridView.GridControl = this.phisicalGrid;
             this.phisicalGridView.Name = "phisicalGridView";
+            this.phisicalGridView.OptionsView.ShowGroupPanel = false;
             // 
             // chemicalGrid
             // 
@@ -113,6 +114,7 @@
             // 
             this.chemicalGridView.GridControl = this.chemicalGrid;
             this.chemicalGridView.Name = "chemicalGridView";
+            this.chemicalGridView.OptionsView.ShowGroupPanel = false;
             // 
             // number
             // 
