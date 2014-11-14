@@ -9,7 +9,6 @@ using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
 using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.Railcar.Search;
 using PrizmMain.Forms.Reports.Construction;
@@ -17,6 +16,8 @@ using PrizmMain.Forms.Reports.Incoming;
 using PrizmMain.Forms.Reports.Mill;
 using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
+using PrizmMain.Forms;
+using PrizmMain.Forms.PipeMill.Heat;
 
 namespace PrizmMain
 {
@@ -24,14 +25,19 @@ namespace PrizmMain
     {
         public override void Load()
         {
-            #region ViewModel
-            Bind<RailcarViewModel>().ToSelf();
-            Bind<IRailcarRepository>().To<RailcarRepository>();
 
-            Bind<MillPipeSearchViewModel>().ToSelf();
-            Bind<IPipeRepository>().To<PipeRepository>();
-
+            #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+            Bind<IRailcarRepository>().To<RailcarRepository>();
+            Bind<IPipeRepository>().To<PipeRepository>();
+            Bind<IHeatRepository>().To<HeatRepository>();
+            #endregion
+
+            #region ViewModel
+            Bind<HeatViewModel>().ToSelf();
+            Bind<RailcarViewModel>().ToSelf();
+            Bind<MillPipeSearchViewModel>().ToSelf();
+            Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
             #endregion
 
@@ -50,7 +56,10 @@ namespace PrizmMain
             Bind<RailcarSearchXtraForm>().ToSelf();
             Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
+            Bind<HeatXtraForm>().ToSelf();
             #endregion
+
+            
         }
     }
 }
