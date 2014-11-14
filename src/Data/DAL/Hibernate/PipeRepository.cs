@@ -24,10 +24,16 @@ namespace Data.DAL.Hibernate
             return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
         }
 
-        public void Save(Pipe pipe)
+        public new void Save(Pipe pipe)
         {
-            session.Save(pipe.Plate.Heat);
-            session.Save(pipe.Plate);
+            if (pipe.Plate.Heat == null)
+            {
+                session.Save(pipe.Plate.Heat);
+            }
+            if (pipe.Plate == null)
+            {
+                session.Save(pipe.Plate);
+            }
             session.Save(pipe);
         }
     }
