@@ -19,7 +19,11 @@ namespace Data.DAL.Mapping
             Map(_ => _.Grade).Column("grade");
 
             References(_ => _.Name, "id");
-            HasMany(_ => _.Welds).KeyColumn("weldId").Inverse();
+            HasManyToMany(_ => _.Welds)
+                .Table("[Weld_welder]")
+                .ParentKeyColumn("weldId")
+                .ChildKeyColumn("welderId")
+                .Cascade.SaveUpdate();
         }
     }
 }
