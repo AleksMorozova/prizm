@@ -7,9 +7,6 @@ using Ninject;
 using Ninject.Parameters;
 using System.Windows.Forms;
 
-using Ninject.Parameters;
-using Ninject;
-
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : XtraForm
@@ -47,8 +44,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             weight.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Weight");
             diameter.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "WallThickness");
-
-            plateManufacturer.DataBindings.Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
 
         }
 

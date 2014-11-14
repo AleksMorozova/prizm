@@ -11,8 +11,6 @@ namespace Domain.Entity.Joint
             this.Inspections = new List<JointInspection>();
         }
 
-        public Guid JointID { get; set; }
-        public string Number { get; set; }
         public DateTime LoweringDate { get; set; }
         //public KilometerPost DistansFromKilomiterPost { get; set; }
 

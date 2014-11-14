@@ -9,7 +9,6 @@ using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
 using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.Railcar.Search;
 using PrizmMain.Forms.Reports.Construction;
