@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Mill;
+using Domain.Entity;
 using Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
@@ -19,22 +20,29 @@ namespace Data.DAL.Hibernate
 
         }
 
-        public Pipe GetByNumber(string number)
+         public Pipe GetByNumber(string number)
         {
             return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
         }
 
-        public new void Save(Pipe pipe)
-        {
-            if (pipe.Plate.Heat == null)
-            {
-                session.Save(pipe.Plate.Heat);
-            }
-            if (pipe.Plate == null)
-            {
-                session.Save(pipe.Plate);
-            }
-            session.Save(pipe);
-        }
+
+         public new void Save(Pipe pipe)
+         {
+             try
+             {
+                 if (session.Get<Heat>(pipe.Plate.Heat.Id) == null)
+                 {
+                     session.Save(pipe.Plate.Heat);
+                 }
+                 if (session.Get<Plate>(pipe.Plate.Id) == null)
+                 {
+                     session.Save(pipe.Plate);
+                 }
+             }
+             finally
+             {
+                 session.Save(pipe);
+             }
+         }
     }
 }
