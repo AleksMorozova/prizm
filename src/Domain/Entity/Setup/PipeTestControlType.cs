@@ -1,4 +1,4 @@
-﻿namespace Domain.Entity.Mill
+﻿namespace Domain.Entity.Setup
 {
     public enum PipeTestControlType
     {

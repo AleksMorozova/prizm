@@ -55,7 +55,9 @@
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
+    <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateManufacturerRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
@@ -65,6 +67,8 @@
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
     <Compile Include="DAL\Mapping\PipelinePieceMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
+    <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
+    <Compile Include="DAL\Mapping\PipeTestMap.cs" />
     <Compile Include="DAL\Mapping\PlateManufacturerMap.cs" />
     <Compile Include="DAL\Mapping\PlateMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
@@ -73,6 +77,8 @@
     <Compile Include="DAL\Mill\IPipeRepository.cs" />
     <Compile Include="DAL\Mill\IPlateManufacturerRepository.cs" />
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
+    <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

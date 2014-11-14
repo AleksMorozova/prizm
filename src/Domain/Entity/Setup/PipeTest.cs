@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Entity.Mill;
+using System.Collections.Generic;
 
-namespace Domain.Entity.Mill
+namespace Domain.Entity.Setup
 {
     public class PipeTest : Item
     {
@@ -39,6 +40,7 @@ namespace Domain.Entity.Mill
         }
 
         public virtual string Code { get; set; }
+        public virtual string Name { get; set; }
         public virtual string TestSubject { get; set; }
         public virtual int MinExpected { get; set; }
         public virtual int MaxExpected { get; set; }
@@ -48,7 +50,7 @@ namespace Domain.Entity.Mill
 
         //enums
         public virtual PipeTestControlType ControlType { get; set; }
-        public virtual PipeTestResultType Resulttype { get; set; }
+        public virtual PipeTestResultType ResultType { get; set; }
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
 
