@@ -1004,6 +1004,7 @@
             this.editHeatButton.StyleController = this.tabPagesLayout;
             this.editHeatButton.TabIndex = 29;
             this.editHeatButton.Text = "Редактировать";
+            this.editHeatButton.Click += new System.EventHandler(this.editHeatButton_Click);
             // 
             // plateChemicalComposition
             // 

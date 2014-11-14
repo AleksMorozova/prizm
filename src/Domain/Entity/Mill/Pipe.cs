@@ -4,24 +4,12 @@ namespace Domain.Entity.Mill
 {
     public class Pipe : PipelinePiece
     {
-        public Pipe(
-            int diameter, int wallThikness, int weigh, string number, bool isActive, string mill, int length
-            ): this()
-        {
-            this.Diameter = diameter;
-            this.WallThickness = wallThikness;
-            this.Weight = weigh;
-            this.Number = number;
-            this.IsActive = isActive;
-            this.Mill = mill;
-            this.Length = length;
-        }
-
-        public Pipe()
+public Pipe()
         {
             this.Welds = new List<Weld>();
             this.PipeTestResult = new List<PipeTestResult>();
         }
+
 
         public virtual Plate Plate { get; set; }
 
@@ -35,6 +23,7 @@ namespace Domain.Entity.Mill
         public virtual Railcar Railcar { get; set; }
         public virtual PipeMillStatus Status { get; set; } //enum
         public virtual PurchaseOrder PurchaseOrder { get; set; }
+
         public virtual ChemicalComposition ChemicalComposition { get; set; }
 
         
