@@ -93,25 +93,17 @@ namespace PrizmMain.Forms.Settings
         {
             GridView v = sender as GridView;
             object sizeType = v.GetRow(e.FocusedRowHandle);
+            
             if (sizeType != null)
             {
                 viewModel.UpdatePipeTests(sizeType);
             }
-            
             viewModel.CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
-        }
-
-
-        private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
-        {
-            //PipeTest pipeTest = new PipeTest();
-            //viewModel.PipeTests.Add(pipeTest);
-           // inspectionOperation.RefreshDataSource();
+            viewModel.CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
         }
 
         private void inspectionView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
             GridView v = sender as GridView;
             PipeTest pipeTest = (PipeTest)v.GetRow(e.FocusedRowHandle);
             viewModel.CurrentPipeMillSizeType.PipeTests.Add(pipeTest); 

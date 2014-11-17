@@ -216,7 +216,7 @@
             this.pipesSizeList.Location = new System.Drawing.Point(14, 27);
             this.pipesSizeList.MainView = this.pipesSizeListGridView;
             this.pipesSizeList.Name = "pipesSizeList";
-            this.pipesSizeList.Size = new System.Drawing.Size(335, 90);
+            this.pipesSizeList.Size = new System.Drawing.Size(335, 84);
             this.pipesSizeList.TabIndex = 11;
             this.pipesSizeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSizeListGridView});
@@ -287,12 +287,12 @@
             // 
             this.inspectionOperation.Cursor = System.Windows.Forms.Cursors.Default;
             this.inspectionOperation.DataSource = this.inspectionBindingSource;
-            this.inspectionOperation.Location = new System.Drawing.Point(14, 147);
+            this.inspectionOperation.Location = new System.Drawing.Point(14, 141);
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.isRequired});
-            this.inspectionOperation.Size = new System.Drawing.Size(878, 202);
+            this.inspectionOperation.Size = new System.Drawing.Size(878, 208);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
@@ -317,7 +317,6 @@
             this.inspectionView.Name = "inspectionView";
             this.inspectionView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
-            this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
             this.inspectionView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.inspectionView_FocusedRowChanged);
             // 
             // inspectionCodeGridColumn
@@ -428,9 +427,9 @@
             // 
             this.inspectionOperationLayout.Control = this.inspectionOperation;
             this.inspectionOperationLayout.CustomizationFormText = "Список контрольных операций:";
-            this.inspectionOperationLayout.Location = new System.Drawing.Point(0, 120);
+            this.inspectionOperationLayout.Location = new System.Drawing.Point(0, 114);
             this.inspectionOperationLayout.Name = "inspectionOperationLayout";
-            this.inspectionOperationLayout.Size = new System.Drawing.Size(892, 232);
+            this.inspectionOperationLayout.Size = new System.Drawing.Size(892, 238);
             this.inspectionOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.inspectionOperationLayout.Text = "Список контрольных операций для выбранного типоразмера:";
             this.inspectionOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -442,7 +441,7 @@
             this.pipesSizeListLayout.CustomizationFormText = "Список типоразмеров";
             this.pipesSizeListLayout.Location = new System.Drawing.Point(0, 0);
             this.pipesSizeListLayout.Name = "pipesSizeListLayout";
-            this.pipesSizeListLayout.Size = new System.Drawing.Size(349, 120);
+            this.pipesSizeListLayout.Size = new System.Drawing.Size(349, 114);
             this.pipesSizeListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipesSizeListLayout.Text = "Список типоразмеров";
             this.pipesSizeListLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -454,7 +453,7 @@
             this.pipesSizeListmptySpace.CustomizationFormText = "pipesSizeListmptySpace";
             this.pipesSizeListmptySpace.Location = new System.Drawing.Point(349, 0);
             this.pipesSizeListmptySpace.Name = "pipesSizeListmptySpace";
-            this.pipesSizeListmptySpace.Size = new System.Drawing.Size(543, 120);
+            this.pipesSizeListmptySpace.Size = new System.Drawing.Size(543, 114);
             this.pipesSizeListmptySpace.Text = "pipesSizeListmptySpace";
             this.pipesSizeListmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 

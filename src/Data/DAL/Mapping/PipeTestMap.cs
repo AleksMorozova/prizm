@@ -12,7 +12,7 @@ namespace Data.DAL.Mapping
     {
         public PipeTestMap() 
         {
-    //        Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
+            //Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
             Map(_ => _.Code, "code");
             Map(_ => _.Name, "name");
             Map(_ => _.TestSubject, "testSubject");
@@ -24,7 +24,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.IsRequired, "isRequired");
            // Map(_ => _.IsActive, "IsActive");
 
-            References(_ => _.pipeType).Column("pipeMillSizeTypeId").Cascade.All().ForeignKey("pipeMillSizeTypeId");
+            References(_ => _.pipeType).Column("pipeMillSizeTypeId").Cascade.All();
         }
     }
 }
