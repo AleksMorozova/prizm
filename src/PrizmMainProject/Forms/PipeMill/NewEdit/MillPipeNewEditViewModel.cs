@@ -368,6 +368,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 {
                     PipePurchaseOrder = PurchaseOrders.First<PurchaseOrder>(x => x.Number == value);
                     //PipePurchaseOrder.Number = value;
+                    PurchaseOrderDate = PipePurchaseOrder.Date;
                     RaisePropertyChanged("PipePurchaseOrderNumber");
                 }
             }
