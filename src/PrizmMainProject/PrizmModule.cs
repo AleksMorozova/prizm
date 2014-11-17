@@ -33,6 +33,7 @@ namespace PrizmMain
             Bind<IHeatRepository>().To<HeatRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IPlateRepository>().To <PlateRepository>();
+            Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             #endregion
 
             #region ViewModel

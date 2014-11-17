@@ -21,7 +21,7 @@ public Pipe()
         public virtual string Type { get; set; } // from global dictionary type: PipeMillSizeType
 
         public virtual Railcar Railcar { get; set; }
-        public virtual PipeMillStatus Status { get; set; } //enum
+        public virtual string Status { get; set; } //enum
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }

@@ -26,7 +26,7 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             pipeNumber.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
 
-
+            pipeMillStatus.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");
         }
 
         private void BindCommands()

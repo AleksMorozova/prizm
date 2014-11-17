@@ -21,13 +21,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly IPlateRepository repoPlate;
         private readonly IHeatRepository repoHeat;
         private readonly IWeldRepository repoWeld;
+        private readonly IPurchaseOrderRepository repoPurchaseOrder;
 
         private IList<Plate> plates;
         private IList<Domain.Entity.Mill.Heat> heats;
+        private IList<PurchaseOrder> purchaseOrders;
 
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
+        private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
 
         public Pipe Pipe { get; set; }
 
@@ -36,6 +39,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             IPipeRepository repoPipe,
             IPlateRepository repoPlate,
             IHeatRepository repoHeat,
+            IPurchaseOrderRepository repoPurchaseOrder,
             IWeldRepository repoWeld,
             string pipeNumber)
         {
@@ -50,13 +54,33 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoHeat));
 
+            extractPurchaseOrderCommand =
+                ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoPurchaseOrder));
+
             if (string.IsNullOrWhiteSpace(pipeNumber))
             {
                 NewPipe();
             }
             else
             {
+                extractPurchaseOrderCommand.Execute();
+                ExtractHeatsCommand.Execute();
+
                 Pipe = repoPipe.GetByNumber(pipeNumber);
+            }
+        }
+
+
+        public IList<PurchaseOrder> PurchaseOrders
+        {
+            get { return purchaseOrders; }
+            set
+            {
+                if (value != purchaseOrders)
+                {
+                    purchaseOrders = value;
+                    RaisePropertyChanged("PurchaseOrders");
+                }
             }
         }
 
@@ -69,6 +93,100 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 {
                     heats = value;
                     RaisePropertyChanged("Heats");
+                }
+            }
+        }
+        
+        #region Railcar
+        public Domain.Entity.Mill.Railcar Railcar
+        {
+            get { return Pipe.Railcar; }
+            set
+            {
+                if (value != Pipe.Railcar)
+                {
+                    Pipe.Railcar = value;
+                    RaisePropertyChanged("Railcar");
+                }
+            }
+        }
+
+        public string RailcarNumber
+        {
+            get { return Railcar.Number; }
+            set
+            {
+                if (value != Railcar.Number)
+                {
+                    Railcar.Number = value;
+                    RaisePropertyChanged("RailcarNumber");
+                }
+            }
+        }
+
+        public string RailcarCertificate
+        {
+            get { return Railcar.Certificate; }
+            set
+            {
+                if (value != Railcar.Certificate)
+                {
+                    Railcar.Certificate = value;
+                    RaisePropertyChanged("RailcarCertificate");
+                }
+            }
+        }
+
+        public string RailcarDestination
+        {
+            get { return Railcar.Destination; }
+            set
+            {
+                if (value != Railcar.Destination)
+                {
+                    Railcar.Destination = value;
+                    RaisePropertyChanged("RailcarDestination");
+                }
+            }
+        }
+
+        public DateTime RailcarShippingDate
+        {
+            get { return Railcar.ShippingDate; }
+            set
+            {
+                if (value != Railcar.ShippingDate)
+                {
+                    Railcar.ShippingDate = value;
+                    RaisePropertyChanged("RailcarShippingDate");
+                }
+            }
+        }
+        #endregion
+
+        #region Plate
+        public Plate Plate
+        {
+            get { return Pipe.Plate; }
+            set
+            {
+                if (value != Pipe.Plate)
+                {
+                    Pipe.Plate = value;
+                    RaisePropertyChanged("Plate");
+                }
+            }
+        }
+
+        public string PlateNumber
+        {
+            get { return Plate.Number; }
+            set
+            {
+                if (value != Plate.Number)
+                {
+                    Plate.Number = value;
+                    RaisePropertyChanged("PlateNumber");
                 }
             }
         }
@@ -86,15 +204,20 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public bool PipeIsActive
+
+
+        #endregion
+
+        #region Heat
+        public Domain.Entity.Mill.Heat Heat
         {
-            get { return Pipe.IsActive; }
+            get { return Plate.Heat; }
             set
             {
-                if (value != Pipe.IsActive)
+                if (value != Plate.Heat)
                 {
-                    Pipe.IsActive = value;
-                    RaisePropertyChanged("PipeIsActive");
+                    Plate.Heat = value;
+                    RaisePropertyChanged("Heat");
                 }
             }
         }
@@ -106,21 +229,38 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (value != Heat.Number)
                 {
-                    Heat.Number = value;
+                    Heat = Heats.First<Domain.Entity.Mill.Heat>(x => x.Number == value);
+                    //Heat.Number = value;
                     RaisePropertyChanged("HeatNumber");
                 }
             }
         }
 
-        public string PlateNumber
+        public string SteelGrade
         {
-            get { return Plate.Number; }
+            get { return Heat.SteelGrade; }
             set
             {
-                if (value != Plate.Number)
+                if (value != Heat.SteelGrade)
                 {
-                    Plate.Number = value;
-                    RaisePropertyChanged("PlateNumber");
+                    Heat.SteelGrade = value;
+                    RaisePropertyChanged("SteelGrade");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Pipe
+        public bool PipeIsActive
+        {
+            get { return Pipe.IsActive; }
+            set
+            {
+                if (value != Pipe.IsActive)
+                {
+                    Pipe.IsActive = value;
+                    RaisePropertyChanged("PipeIsActive");
                 }
             }
         }
@@ -202,32 +342,53 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+        #endregion
 
-        public Plate Plate
+        #region PurchaseOrder
+
+        public PurchaseOrder PipePurchaseOrder
         {
-            get { return Pipe.Plate; }
+            get { return Pipe.PurchaseOrder; }
             set
             {
-                if (value != Pipe.Plate)
+                if (value != Pipe.PurchaseOrder)
                 {
-                    Pipe.Plate = value;
-                    RaisePropertyChanged("Plate");
+                    Pipe.PurchaseOrder = value;
+                    RaisePropertyChanged("PipePurchaseOrder");
                 }
             }
         }
 
-        public Domain.Entity.Mill.Heat Heat
+        public string PipePurchaseOrderNumber
         {
-            get { return Pipe.Plate.Heat; }
+            get { return PipePurchaseOrder.Number; }
             set
             {
-                if (value != Pipe.Plate.Heat)
+                if (value != PipePurchaseOrder.Number)
                 {
-                    Pipe.Plate.Heat = value;
-                    RaisePropertyChanged("Heat");
+                    PipePurchaseOrder = PurchaseOrders.First<PurchaseOrder>(x => x.Number == value);
+                    //PipePurchaseOrder.Number = value;
+                    RaisePropertyChanged("PipePurchaseOrderNumber");
                 }
             }
         }
+
+        public DateTime PurchaseOrderDate
+        {
+            get { return PipePurchaseOrder.Date; }
+            set
+            {
+                if (value != PipePurchaseOrder.Date)
+                {
+                    PipePurchaseOrder.Date = value;
+                    RaisePropertyChanged("PurchaseOrderDate");
+                }
+            }
+        }
+
+        #endregion
+
+
 
         public ICommand NewEditCommand
         {
@@ -238,39 +399,38 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return extractHeatsCommand; }
         }
-        
 
-        public void Dispose()
+        public ICommand ExtractPurchaseOrderCommand
         {
-            repoPipe.Dispose();
+            get { return extractPurchaseOrderCommand; }
         }
+        
 
         public void NewPipe()
         {
-            if (Pipe == null)
-            {
-                Pipe = new Pipe();
-            }
+            extractPurchaseOrderCommand.Execute();
+            ExtractHeatsCommand.Execute();
 
+            Pipe = new Pipe();
             NewPlate();
+            NewRailcar();
 
+            Pipe.Status = string.Empty;
             Number = string.Empty;
             Mill = string.Empty;
             WallThickness = 0;
             Weight = 0;
             Length = 0;
             Diameter = 0;
+
+            PipePurchaseOrder = PurchaseOrders[0];
+            Heat = Heats[0];
         }
 
         public void NewPlate()
         {
-            if (Plate == null)
-            {
-                Plate = new Plate();
-            }
-
+            Plate = new Domain.Entity.Mill.Plate();
             NewHeat();
-
         }
 
         public void NewHeat()
@@ -280,5 +440,27 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 Heat = new Domain.Entity.Mill.Heat();
             }
         }
+
+        public void NewRailcar()
+        {
+            if (Railcar == null)
+            {
+                Railcar = new Domain.Entity.Mill.Railcar();
+
+            }
+            Railcar.ShippingDate = DateTime.Now;
+            Railcar.DeliveryDate = DateTime.Now;
+            Railcar.Destination = "Пункт назначения";
+            Railcar.Certificate = "Сертификат";
+            Railcar.Number = "Номер";
+        }
+
+
+
+        public void Dispose()
+        {
+            repoPipe.Dispose();
+        }
+
     }
 }

@@ -38,24 +38,51 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-            pipeNumber.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Number");
-
-            length.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Length");
-            weight.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Weight");
-            diameter.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Diameter");
-            thickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "WallThickness");
-
-            deactivate.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
-            plateThickness.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
-
-            heatNumber.DataBindings.Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
-
-            viewModel.ExtractHeatsCommand.Execute();
-
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
             }
+            foreach (var h in viewModel.PurchaseOrders)
+            {
+                purchaseOrder.Properties.Items.Add(h);
+            }
+
+            pipeNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Number");
+            length.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Length");
+            weight.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Weight");
+            diameter.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Diameter");
+            thickness.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+            deactivate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
+            plateThickness.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
+            railcarNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
+            shippedDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
+            certificateNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
+            destanation.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
+            purchaseOrder.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrderNumber");
+            steelGrade.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
+
+            purchaseOrderDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+
+            heatNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+
+
+
+
 
         }
 

@@ -31,7 +31,8 @@ namespace PrizmMain.Forms.PipeMill.Search
             
             var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<Domain.Entity.Mill.Pipe>()
-                .Add(Restrictions.Like("Number", viewModel.PipeNumber));
+                .Add(Restrictions.Like("Number", viewModel.PipeNumber, MatchMode.Anywhere))
+                .Add(Restrictions.Like("Status", viewModel.PipeMillStatus, MatchMode.Anywhere));
    
             viewModel.Pipes = repo.GetByCriteria(criteria);
             

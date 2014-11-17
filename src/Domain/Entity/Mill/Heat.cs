@@ -11,6 +11,9 @@ namespace Domain.Entity.Mill
         }
 
         public virtual string Number { get; set; }
+
+        public virtual string SteelGrade { get; set; }
+
         public virtual IList<Plate> Plates { get; set; }
 
 
