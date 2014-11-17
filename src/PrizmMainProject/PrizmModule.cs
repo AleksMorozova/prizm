@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
+using Data.DAL;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
@@ -31,6 +32,7 @@ namespace PrizmMain
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
+            Bind<IAuditLogRepository>().To<AuditLogRepository>();
             #endregion
 
             #region ViewModel
@@ -59,7 +61,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             #endregion
 
-            
+            Bind<AuditInterceptor>().ToSelf();
         }
     }
 }
