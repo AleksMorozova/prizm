@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity.Setup
 {
     public class Role
     {
-        protected Role()
+        public Role()
         {
             this.Users = new List<User>();
         }

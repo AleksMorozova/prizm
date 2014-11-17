@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity.Setup
 {
     public class User
     {
-        protected User()
+        public User()
         {
             this.Roles = new List<Role>();
         }
-      
+
         public virtual int UserID { get; set; }
         public virtual string Login { get; set; }
         public virtual string Password { get; set; }

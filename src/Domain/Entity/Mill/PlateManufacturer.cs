@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {
     public class PlateManufacturer : Item
     {
-        public virtual string Name { get; set; }
-        public virtual ICollection<Heat> Heats { get; set; }
-
-        public PlateManufacturer(string name):this()
-        {
-            this.Name = name;
-        }
-
-        protected PlateManufacturer() 
+        public PlateManufacturer()
         {
             this.Heats = new List<Heat>();
         }
-     
+
+        public virtual string Number { get; set; }
+        public virtual IList<Heat> Heats { get; set; }
     }
 }

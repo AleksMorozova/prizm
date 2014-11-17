@@ -1,28 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {
     public class PipeTest : Item
     {
-        public virtual string Code { get; set; }
-        public virtual string TestSubject { get; set; }
-        public virtual int MinExpected { get; set; }
-        public virtual int MaxExpected { get; set; }
-        public virtual string StringExpected { get; set; }
-        public virtual bool BoolExpected { get; set; }
-        public virtual bool IsRequired { get; set; }
-
-        //enums
-        public virtual PipeTestControlType ControlType { get; set; }
-        public virtual PipeTestResultType Resulttype { get; set; }
-
-        public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
-
-        //string test
         public PipeTest(string code, string subject, bool isRequired, string expected)
             : this(code, subject, isRequired)
         {
@@ -38,8 +19,8 @@ namespace Domain.Entity.Mill
         }
 
         //bool test
-        public PipeTest(string code, string subject, bool isRequired, bool expected) 
-            : this(code,subject,isRequired)
+        public PipeTest(string code, string subject, bool isRequired, bool expected)
+            : this(code, subject, isRequired)
         {
             this.BoolExpected = expected;
         }
@@ -56,5 +37,21 @@ namespace Domain.Entity.Mill
         {
             this.PipeTestResults = new List<PipeTestResult>();
         }
+
+        public virtual string Code { get; set; }
+        public virtual string TestSubject { get; set; }
+        public virtual int MinExpected { get; set; }
+        public virtual int MaxExpected { get; set; }
+        public virtual string StringExpected { get; set; }
+        public virtual bool BoolExpected { get; set; }
+        public virtual bool IsRequired { get; set; }
+
+        //enums
+        public virtual PipeTestControlType ControlType { get; set; }
+        public virtual PipeTestResultType Resulttype { get; set; }
+
+        public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
+
+        //string test
     }
 }

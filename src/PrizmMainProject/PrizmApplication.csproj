@@ -64,43 +64,91 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.4.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -113,6 +161,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
@@ -123,231 +172,237 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
-    <Compile Include="Forms\AddEditInspectionXtraForm.cs">
+    <Compile Include="Forms\IViewModel.cs" />
+    <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddEditInspectionXtraForm.Designer.cs">
-      <DependentUpon>AddEditInspectionXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ChildForm.cs">
+    <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ComponentNewEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ComponentNewEditXtraForm.Designer.cs">
+    <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ComponentSearchXtraForm.cs">
+    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ComponentSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConstructionReportsXtraForm.cs">
+    <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
+    <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
+    <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
+    <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConstructionReportsXtraForm.Designer.cs">
+    <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.Designer.cs">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ExternalFilesXtraForm.cs">
+    <Compile Include="Forms\ExternalFile\ExternalFilesXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ExternalFilesXtraForm.Designer.cs">
+    <Compile Include="Forms\ExternalFile\ExternalFilesXtraForm.Designer.cs">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HeatXtraForm.cs">
+    <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HeatXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.Designer.cs">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginXtraForm.cs">
+    <Compile Include="Forms\Login\LoginXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginXtraForm.Designer.cs">
+    <Compile Include="Forms\Login\LoginXtraForm.Designer.cs">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MillReportsXtraReport.cs">
+    <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\MillReportsXtraReport.Designer.cs">
+    <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.Designer.cs">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SpoolsXtraForm.cs">
+    <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SpoolsXtraForm.Designer.cs">
+    <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CopyPipeSettingsXtraForm.cs">
+    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CopyPipeSettingsXtraForm.Designer.cs">
+    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.Designer.cs">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.cs">
+    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InspectionPipeSearchEditXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.Designer.cs">
       <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InspectionReportsXtraForm.cs">
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InspectionReportsXtraForm.Designer.cs">
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.Designer.cs">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JointNewEditXtraForm.cs">
+    <Compile Include="Forms\Joint\NewEdit\JointNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\JointNewEditXtraForm.Designer.cs">
+    <Compile Include="Forms\Joint\NewEdit\JointNewEditXtraForm.Designer.cs">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JointSearchXtraForm.cs">
+    <Compile Include="Forms\Joint\Search\JointSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\JointSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\Joint\Search\JointSearchXtraForm.Designer.cs">
       <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MillReportsXtraForm.cs">
+    <Compile Include="Forms\Reports\Mill\MillReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MillReportsXtraForm.Designer.cs">
+    <Compile Include="Forms\Reports\Mill\MillReportsXtraForm.Designer.cs">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MillPipeNewEditXtraForm.cs">
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MillPipeNewEditXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.Designer.cs">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MillPipeSearchXtraForm.cs">
+    <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MillPipeSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.Designer.cs">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PrizmApplicationXtraForm.cs">
+    <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PrizmApplicationXtraForm.Designer.cs">
+    <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RailcarNewEditXtraForm.cs">
+    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RailcarNewEditXtraForm.Designer.cs">
+    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.Designer.cs">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RailcarSearchXtraForm.cs">
+    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RailcarSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CustomReportsXtraForm.cs">
+    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CustomReportsXtraForm.Designer.cs">
+    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.Designer.cs">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SettingsEditDictionaryXtraForm.cs">
+    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SettingsEditDictionaryXtraForm.Designer.cs">
+    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.Designer.cs">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SettingsXtraForm.cs">
+    <Compile Include="Forms\Settings\SettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SettingsXtraForm.Designer.cs">
+    <Compile Include="Forms\Settings\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserInfoXtraForm.cs">
+    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserInfoXtraForm.Designer.cs">
+    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.Designer.cs">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RolesPrivilegeEditXtraForm.cs">
+    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RolesPrivilegeEditXtraForm.Designer.cs">
+    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.Designer.cs">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddEditInspectionXtraForm.resx">
-      <DependentUpon>AddEditInspectionXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ComponentNewEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ComponentSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConstructionReportsXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
+      <DependentUpon>HeatXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CopyPipeSettingsXtraForm.resx">
+    <EmbeddedResource Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.resx">
       <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomReportsXtraForm.resx">
+    <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ExternalFilesXtraForm.resx">
+    <EmbeddedResource Include="Forms\ExternalFile\ExternalFilesXtraForm.resx">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InspectionPipeSearchEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.resx">
       <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InspectionReportsXtraForm.resx">
+    <EmbeddedResource Include="Forms\Reports\Incoming\InspectionReportsXtraForm.resx">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\JointNewEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\Joint\NewEdit\JointNewEditXtraForm.resx">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\JointSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\Joint\Search\JointSearchXtraForm.resx">
       <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginXtraForm.resx">
+    <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MillReportsXtraForm.resx">
+    <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraForm.resx">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MillPipeNewEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.resx">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MillPipeSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.resx">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MillReportsXtraReport.resx">
+    <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PrizmApplicationXtraForm.resx">
+    <EmbeddedResource Include="Forms\MainChildForm\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RailcarNewEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsEditDictionaryXtraForm.resx">
+    <EmbeddedResource Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.resx">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RailcarSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsXtraForm.resx">
+    <EmbeddedResource Include="Forms\Settings\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SpoolsXtraForm.resx">
+    <EmbeddedResource Include="Forms\Spool\SpoolsXtraForm.resx">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserInfoXtraForm.resx">
+    <EmbeddedResource Include="Forms\Settings\UserRole\User\UserInfoXtraForm.resx">
       <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RolesPrivilegeEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -361,6 +416,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
@@ -368,6 +424,7 @@
     <None Include="Properties\DataSources\PrizmMain.DummyData.Role1.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.WeldersDummy.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.Forms.Railcar.Edit.RailcarViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -523,6 +580,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{843da113-0ee6-4da3-a182-008b3bd09199}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{495328aa-7441-4e86-8003-3d881e8e0fdf}</Project>
       <Name>Domain</Name>
