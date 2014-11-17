@@ -116,11 +116,13 @@
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
+    <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
+    <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\AddEditInspectionXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +155,12 @@
     </Compile>
     <Compile Include="Forms\ExternalFilesXtraForm.Designer.cs">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HeatXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HeatXtraForm.Designer.cs">
+      <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginXtraForm.cs">
       <SubType>Form</SubType>
@@ -354,9 +362,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Role1.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.User.datasource" />
+    <None Include="Properties\DataSources\PrizmMain.DummyData.WeldersDummy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -368,7 +379,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="DevExpress.Data.v14.1">
