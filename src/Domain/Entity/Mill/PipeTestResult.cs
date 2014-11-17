@@ -1,8 +1,9 @@
 ﻿using Domain.Entity.Mill;
+using Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Setup
+namespace Domain.Entity.Mill
 {
     public class PipeTestResult : Item
     {
