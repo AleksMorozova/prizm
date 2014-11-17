@@ -98,6 +98,11 @@ namespace PrizmMain.Forms.Settings
                 viewModel.UpdatePipeTests(sizeType);
             }
 
+            else 
+            {
+                viewModel.CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+            }
+
             viewModel.CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
         }
 

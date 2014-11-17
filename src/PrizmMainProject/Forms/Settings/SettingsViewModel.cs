@@ -23,7 +23,7 @@ namespace PrizmMain.Forms.Settings
         readonly IPipeTestRepository testRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo, PipeMillSizeType CurrentPipeMillSizeType )
+        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo)
         {
             NewPipeMillSizeType();
             this.repo = repo;
