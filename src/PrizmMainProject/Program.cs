@@ -17,6 +17,7 @@ namespace PrizmMain
         [STAThread]
         private static void Main()
         {
+            
             // Database
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
 
