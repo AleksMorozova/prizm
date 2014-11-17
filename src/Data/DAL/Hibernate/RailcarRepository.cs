@@ -18,5 +18,15 @@ namespace Data.DAL.Hibernate
         {
             return session.QueryOver<Railcar>().Where(n => n.Number == number).SingleOrDefault();
         }
+
+        public void Save(Railcar car)
+        {
+            foreach (var pipe in car.Pipes)
+            {
+                pipe.Railcar = car;
+                session.Save(pipe);
+            }
+            session.Save(car);
+        }
     }
 }

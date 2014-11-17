@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -36,6 +37,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
             shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
         }
 
         private void BindCommands()
@@ -47,6 +49,16 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void addPipeButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
+            {
+                return;
+            }
+            viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
+            pipesList.RefreshDataSource();
         }
     }
 }

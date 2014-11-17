@@ -15,7 +15,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private readonly IRailcarRepository railcarRepo;
         private readonly IPipeRepository pipeRepo;
         private readonly SaveRailcarCommand saveCommand;
-        private readonly BindingList<Pipe> allPipes;
+        private List<Pipe> allPipes;
 
         [Inject]
         public RailcarViewModel(IRailcarRepository repo,IPipeRepository pipeRepo, string railcarNumber)
@@ -23,7 +23,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             this.railcarRepo = repo;
             this.pipeRepo = pipeRepo;
 
-            allPipes = new BindingList<Pipe>(pipeRepo.GetAll());
+            allPipes = new List<Pipe>(pipeRepo.GetAll());
 
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
 
@@ -37,7 +37,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             
         }
-
+        public List<Pipe> AllPipes
+        {
+            get { return allPipes; }
+        }
 
         public Domain.Entity.Mill.Railcar Railcar { get; set; }
 
@@ -127,6 +130,20 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         public void Dispose()
         {
             railcarRepo.Dispose();
+        }
+
+        public void AddPipe(Guid id)
+        {
+            foreach (var pipe in Pipes)
+	        {
+                if (pipe.Id == id)
+	            {
+		        return;
+	            }
+	        }
+
+            Pipes.Add(allPipes.Find(_ => _.Id.Equals(id)));
+            
         }
 
         public void NewRailcar()
