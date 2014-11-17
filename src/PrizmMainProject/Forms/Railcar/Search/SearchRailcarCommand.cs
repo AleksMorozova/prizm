@@ -31,24 +31,21 @@ namespace PrizmMain.Forms.Railcar.Search
 
             var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
 
-            if (string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
+            if (!string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
             {
                 criteria.Add(Restrictions.Like("Number", viewModel.RailcarNumber, MatchMode.Anywhere));
             }
 
-            if (string.IsNullOrWhiteSpace(viewModel.Certificate))
+            if (!string.IsNullOrWhiteSpace(viewModel.Certificate))
             {
                 criteria.Add(Restrictions.Like("Certificate", viewModel.Certificate, MatchMode.Anywhere));
             }
 
-            if (string.IsNullOrWhiteSpace(viewModel.Receiver))
+            if (!string.IsNullOrWhiteSpace(viewModel.Receiver))
             {
                 criteria.Add(Restrictions.Like("Destination", viewModel.Receiver, MatchMode.Anywhere));
             }  
             //TODO: Add date criteria
-
-            //var res = 
-
             viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
         }
 
