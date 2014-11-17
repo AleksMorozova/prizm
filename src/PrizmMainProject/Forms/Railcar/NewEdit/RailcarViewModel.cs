@@ -143,7 +143,20 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 	        }
 
             Pipes.Add(allPipes.Find(_ => _.Id.Equals(id)));
-            
+        }
+
+        public void RemovePipe(string number)
+        {
+            foreach (var pipe in Pipes)
+            {
+                if (pipe.Number == number)
+                {
+                    Pipes.Remove(pipe);
+                    pipe.Railcar = null;
+                    pipeRepo.Merge(pipe);
+                    return;
+                }
+            }
         }
 
         public void NewRailcar()
@@ -158,5 +171,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
         }
+
+        
     }
 }

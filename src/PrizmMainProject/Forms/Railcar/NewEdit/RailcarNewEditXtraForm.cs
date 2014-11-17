@@ -60,5 +60,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             pipesList.RefreshDataSource();
         }
+
+        private void removePipe_Click(object sender, EventArgs e)
+        {
+            string number = pipesListView.GetRowCellValue(pipesListView.FocusedRowHandle, "Number") as string;
+            viewModel.RemovePipe(number);
+            pipesList.RefreshDataSource();
+        }
     }
 }
