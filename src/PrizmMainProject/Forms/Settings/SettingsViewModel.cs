@@ -50,25 +50,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        // for Current Mill Pipe SizeType
-        public Guid Id
-        {
-            get
-            {
-                return CurrentPipeMillSizeType.Id;
-            }
-            set
-            {
-                //if (value != CurrentPipeMillSizeType.Id)
-                //{
-                //    CurrentPipeMillSizeType.Id = value;
-                //    RaisePropertyChanged("Id");
-                //}
-            }
-        }
-
-
-
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
         {
