@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class File
+    public class File : Item
     {
-        public Guid FileID { get; set; }
-        public string FileName { get; set; }
-        public string Description { get; set; }
-        public DateTime UploadDate { get; set; }
+        public virtual string FileName { get; set; }
+        public virtual string Description { get; set; }
+        public virtual DateTime UploadDate { get; set; }
     }
 }

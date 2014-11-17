@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entity.Setup
 {
@@ -12,13 +8,11 @@ namespace Domain.Entity.Setup
         {
             this.Roles = new List<Role>();
         }
-      
-        public int UserID { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
+
+        public virtual int UserID { get; set; }
+        public virtual string Login { get; set; }
+        public virtual string Password { get; set; }
+        public virtual PersonName Name { get; set; }
 
         public virtual ICollection<Role> Roles { get; set; }
     }

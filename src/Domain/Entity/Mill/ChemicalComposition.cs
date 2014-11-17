@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Entity.Mill
+﻿namespace Domain.Entity.Mill
 {
-    public class ChemicalComposition
+    public class ChemicalComposition : Item
     {
-        public virtual int Id { get; set; }
-        public virtual string Number { get; set; }
+        public ChemicalComposition()
+        {
+        }
+
+        public virtual string Value { get; set; }
+        public virtual string Quantity { get; set; }
     }
 }

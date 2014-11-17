@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Entity
+﻿namespace Domain.Entity
 {
     public class Connector
     {
-        public int ConnectorID { get; set; }
         public int Diameter { get; set; }
         public int WallThickness { get; set; }
     }

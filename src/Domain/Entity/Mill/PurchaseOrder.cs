@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity.Mill
 {
-    public class PurchaseOrder
+    public class PurchaseOrder : Item
     {
-        public virtual Guid Id { get; set; }
+        public PurchaseOrder()
+        {
+            this.Pipes = new List<Pipe>();
+        }
+
         public virtual string Number { get; set; }
         public virtual DateTime Date { get; set; }
+
+        public virtual IList<Pipe> Pipes { get; set; }
     }
 }
