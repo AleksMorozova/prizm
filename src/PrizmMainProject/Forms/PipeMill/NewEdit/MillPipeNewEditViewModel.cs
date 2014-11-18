@@ -41,7 +41,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             IHeatRepository repoHeat,
             IPurchaseOrderRepository repoPurchaseOrder,
             IWeldRepository repoWeld,
-            string pipeNumber)
+            Guid pipeId)
         {
             this.repoPipe = repoPipe;
             this.repoPlate = repoPlate;
@@ -57,7 +57,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             extractPurchaseOrderCommand =
                 ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoPurchaseOrder));
 
-            if (string.IsNullOrWhiteSpace(pipeNumber))
+            if (pipeId == Guid.Empty)
             {
                 NewPipe();
             }
@@ -65,12 +65,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 extractPurchaseOrderCommand.Execute();
                 ExtractHeatsCommand.Execute();
-
-                Pipe = repoPipe.GetByNumber(pipeNumber);
+                Pipe = repoPipe.Get(pipeId);
             }
         }
 
-
+        /*
         public IList<PurchaseOrder> PurchaseOrders
         {
             get { return purchaseOrders; }
@@ -83,6 +82,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+        */
 
         public IList<Domain.Entity.Mill.Heat> Heats
         {
@@ -96,7 +96,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-        
+
+        /*
         #region Railcar
         public Domain.Entity.Mill.Railcar Railcar
         {
@@ -163,6 +164,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
         #endregion
+        */
+
 
         #region Plate
         public Plate Plate
@@ -224,7 +227,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public string HeatNumber
         {
-            get { return Heat.Number; }
+            get 
+            {
+                if (Heat == null)
+                {
+                    return string.Empty;
+                }
+                return Heat.Number;
+            }
             set
             {
                 if (value != Heat.Number)
@@ -238,7 +248,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public string SteelGrade
         {
-            get { return Heat.SteelGrade; }
+            get
+            {
+                if (Heat == null)
+                {
+                    return string.Empty;
+                }
+                return Heat.SteelGrade;
+            }
             set
             {
                 if (value != Heat.SteelGrade)
@@ -343,9 +360,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
         #endregion
-
+/*
         #region PurchaseOrder
-
+        
         public PurchaseOrder PipePurchaseOrder
         {
             get { return Pipe.PurchaseOrder; }
@@ -367,8 +384,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != PipePurchaseOrder.Number)
                 {
                     PipePurchaseOrder = PurchaseOrders.First<PurchaseOrder>(x => x.Number == value);
-                    //PipePurchaseOrder.Number = value;
-                    PurchaseOrderDate = PipePurchaseOrder.Date;
+                    PipePurchaseOrder.Number = value;
+                    //PurchaseOrderDate = PipePurchaseOrder.Date;
                     RaisePropertyChanged("PipePurchaseOrderNumber");
                 }
             }
@@ -388,7 +405,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
         #endregion
-
+        */
 
 
         public ICommand NewEditCommand
@@ -414,7 +431,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             Pipe = new Pipe();
             NewPlate();
-            NewRailcar();
+
 
             Pipe.Status = string.Empty;
             Number = string.Empty;
@@ -424,13 +441,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             Length = 0;
             Diameter = 0;
 
-            PipePurchaseOrder = PurchaseOrders[0];
+           // PipePurchaseOrder = PurchaseOrders[0];
             Heat = Heats[0];
         }
 
         public void NewPlate()
         {
             Plate = new Domain.Entity.Mill.Plate();
+
+            Plate.Pipe = Pipe;
+            //new obj
             NewHeat();
         }
 
@@ -440,23 +460,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 Heat = new Domain.Entity.Mill.Heat();
             }
+
+            Heat.Number = string.Empty;
+            Heat.SteelGrade = string.Empty;
         }
-
-        public void NewRailcar()
-        {
-            if (Railcar == null)
-            {
-                Railcar = new Domain.Entity.Mill.Railcar();
-
-            }
-            Railcar.ShippingDate = DateTime.Now;
-            Railcar.DeliveryDate = DateTime.Now;
-            Railcar.Destination = "Пункт назначения";
-            Railcar.Certificate = "Сертификат";
-            Railcar.Number = "Номер";
-        }
-
-
 
         public void Dispose()
         {

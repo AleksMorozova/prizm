@@ -30,18 +30,19 @@ namespace Data.DAL.Hibernate
          {
              try
              {
-                 if (session.Get<Heat>(pipe.Plate.Heat.Id) == null)
-                 {
-                     session.Save(pipe.Plate.Heat);
-                 }
-                 if (session.Get<Plate>(pipe.Plate.Id) == null)
-                 {
-                     session.Save(pipe.Plate);
-                 }
-             }
-             finally
-             {
+                 //if (session.Get<Heat>(pipe.Plate.Heat.Id) == null)
+                 //{
+                 //    session.Save(pipe.Plate.Heat);
+                 //}
+                 //if (session.Get<Plate>(pipe.Plate.Id) == null)
+                 //{
+                 //    session.Save(pipe.Plate);
+                 //}
                  session.Save(pipe);
+             }
+             catch(Exception e)
+             {
+                 Console.WriteLine(e.Message);
              }
          }
     }

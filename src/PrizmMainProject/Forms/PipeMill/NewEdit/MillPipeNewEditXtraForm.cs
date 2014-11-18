@@ -14,17 +14,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         MillPipeNewEditViewModel viewModel;
 
-        public MillPipeNewEditXtraForm(string pipeNumber)
+        public MillPipeNewEditXtraForm(Guid pipeId)
         {
             InitializeComponent();
 
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
-                new ConstructorArgument("pipeNumber", pipeNumber));
+                new ConstructorArgument("pipeId", pipeId));
         }
 
-        public MillPipeNewEditXtraForm(): this("") { }
+        public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
 
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
@@ -42,10 +42,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 heatNumber.Properties.Items.Add(h);
             }
+
+            /*
             foreach (var h in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(h);
             }
+            */
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -61,6 +64,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
+            heatNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+            steelGrade.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
+
+            /*
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
             shippedDate.DataBindings
@@ -71,14 +80,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
             purchaseOrder.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrderNumber");
-            steelGrade.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
-
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+            */
 
-            heatNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+
+
+
 
 
 

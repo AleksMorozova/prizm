@@ -22,11 +22,13 @@ namespace PrizmMain.Forms.PipeMill.Search
         private void BindToViewModel()
         {
             MillPipeSearchBindingSource.DataSource = viewModel;
-            pipesSearchResult.DataBindings.Add("DataSource", MillPipeSearchBindingSource, "Pipes");
 
-            pipeNumber.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
-
-            pipeMillStatus.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");
+            pipesSearchResult.DataBindings
+                .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
+            pipeNumber.DataBindings
+                .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
+            pipeMillStatus.DataBindings
+                .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");
         }
 
         private void BindCommands()
@@ -48,15 +50,8 @@ namespace PrizmMain.Forms.PipeMill.Search
             int selectedPipe = pipesSearchResultView
                 .GetFocusedDataSourceRowIndex();
 
-            var edit = (XtraForm)Program
-                .Kernel
-                .Get<MillPipeNewEditXtraForm>(
-                new ConstructorArgument(
-                    "pipeNumber", 
-                    viewModel.Pipes[selectedPipe].Number));
-
             var parent = this.MdiParent as PrizmApplicationXtraForm;
-            parent.CreateFormChild(edit);
+            parent.CreateFormChild( new MillPipeNewEditXtraForm(viewModel.Pipes[selectedPipe].Id) );
 
         }
 

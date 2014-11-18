@@ -25,7 +25,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.PurchaseOrders = repo.GetAll();
+            //viewModel.PurchaseOrders = repo.GetAll();
         }
 
         public bool CanExecute()

@@ -14,7 +14,6 @@ namespace PrizmMain.Forms.PipeMill.Search
 {
     public class MillPipeSearchCommand : ICommand
     {
-
         readonly IPipeRepository repo;
         readonly MillPipeSearchViewModel viewModel;
 
@@ -24,11 +23,9 @@ namespace PrizmMain.Forms.PipeMill.Search
             this.repo = repo;
         }
 
-
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            
             var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<Domain.Entity.Mill.Pipe>()
                 .Add(Restrictions.Like("Number", viewModel.PipeNumber, MatchMode.Anywhere))
