@@ -11,6 +11,7 @@ namespace Domain.Entity.Mill
         }
 
         public virtual DateTime Date { get; set; }
-        public virtual ICollection<Welder> Welders { get; set; }
+        public virtual Pipe Pipe { get; set; }
+        public virtual IList<Welder> Welders { get; set; }
     }
 }

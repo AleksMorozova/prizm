@@ -20,12 +20,10 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
-        public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         readonly SaveSettingsCommand saveCommand;
         private IList<PlateManufacturer> plateManufacturers;
         readonly IMillPipeSizeTypeRepository sizeRepo;
-        //readonly IPipeTestRepository testRepo;
         readonly IProjectRepository projectRepo;
         readonly IPlateManufacturerRepository manufacturerRepo;
 
@@ -41,24 +39,7 @@ namespace PrizmMain.Forms.Settings
             GetProjectSettings();
             GetAllManufacturers();
         }
-
-        // for Current Mill Pipe SizeType
-        public string Type
-        {
-            get
-            {
-                return CurrentPipeMillSizeType.Type;
-            }
-            set
-            {
-                if (value != CurrentPipeMillSizeType.Type)
-                {
-                    CurrentPipeMillSizeType.Type = value;
-                    RaisePropertyChanged("Type");
-                }
-            }
-        }
-
+       
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
         {
@@ -72,23 +53,6 @@ namespace PrizmMain.Forms.Settings
                 {
                     pipeTests = value;
                     RaisePropertyChanged("pipeTests");
-                }
-            }
-        }
-
-        // for Current Mill Pipe SizeType
-        public BindingList<PipeTest> Tests
-        {
-            get
-            {
-                return pipeTests;
-            }
-            set
-            {
-                if (value != pipeTests)
-                {
-                    pipeTests = value;
-                    RaisePropertyChanged("Tests");
                 }
             }
         }
@@ -174,13 +138,10 @@ namespace PrizmMain.Forms.Settings
 
         public void NewPipeMillSizeType()
         {
-            if (CurrentPipeMillSizeType == null)
+            if (PipeMillSizeType == null)
             {
-                CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
-                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+                PipeMillSizeType = new List<PipeMillSizeType>();
             }
-            Type = string.Empty;
-            Tests = new BindingList<PipeTest>();; 
         }
 
         private void GetProjectSettings()

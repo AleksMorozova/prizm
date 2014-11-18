@@ -97,6 +97,7 @@
             // 
             this.phisicalGridView.GridControl = this.phisicalGrid;
             this.phisicalGridView.Name = "phisicalGridView";
+            this.phisicalGridView.OptionsView.ShowGroupPanel = false;
             // 
             // chemicalGrid
             // 
@@ -113,6 +114,7 @@
             // 
             this.chemicalGridView.GridControl = this.chemicalGrid;
             this.chemicalGridView.Name = "chemicalGridView";
+            this.chemicalGridView.OptionsView.ShowGroupPanel = false;
             // 
             // number
             // 
@@ -131,7 +133,7 @@
             this.saveButton.Size = new System.Drawing.Size(100, 23);
             this.saveButton.StyleController = this.masterLayoutControl;
             this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "OK";
+            this.saveButton.Text = "Сохранить";
             // 
             // cancelButton
             // 
