@@ -205,35 +205,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public string PipePurchaseOrderNumber
-        {
-            get
-            {
-                if (PipePurchaseOrder == null)
-                {
-                    return string.Empty;
-                }
-                return PipePurchaseOrder.Number;
-            }
-            set
-            {
-                if (value != PipePurchaseOrder.Number)
-                {
-                    //TODO: check of NoTEmpty set for PipePurchaseOrders
-                    if (PurchaseOrders.Any<PurchaseOrder>(x => x.Number == value))
-                    {
-                        PipePurchaseOrder = PurchaseOrders.First<PurchaseOrder>(x => x.Number == value);
-                    }
-                    else
-                    {
-                        PipePurchaseOrder = PurchaseOrders[0];
-                    }
-
-                    RaisePropertyChanged("PipePurchaseOrderNumber");
-                }
-            }
-        }
-
         public DateTime PurchaseOrderDate
         {
             get 
@@ -315,35 +286,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public string HeatNumber
-        {
-            get
-            {
-                if (Heat.Number == null)
-                {
-                    return string.Empty;
-                }
-                return Heat.Number;
-            }
-            set
-            {
-                if (value != Heat.Number)
-                {
-                    //TODO: check of NoTEmpty set for Heats
-                    if (Heats.Any<Domain.Entity.Mill.Heat>(x => x.Number == value))
-                    {
-                        Heat = Heats.First<Domain.Entity.Mill.Heat>(x => x.Number == value);
-                    }
-                    else
-                    {
-                        Heat = Heats[0];
-                    }
-                    RaisePropertyChanged("HeatNumber");
-                }
-            }
-        }
-
-        public string SteelGrade
+              public string SteelGrade
         {
             get
             {

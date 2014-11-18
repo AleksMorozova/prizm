@@ -65,16 +65,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
 
+
             heatNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+                .Add("EditValue", pipeNewEditBindingSource, "Heat");
+
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
             purchaseOrder.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrderNumber");
+                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+
             /*
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
@@ -84,7 +87,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
-
             */
 
 
@@ -115,15 +117,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
         }
-
-
-
-
-        private void addHeatButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
 

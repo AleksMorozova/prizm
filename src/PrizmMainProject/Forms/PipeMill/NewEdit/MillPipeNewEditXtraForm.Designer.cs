@@ -557,6 +557,7 @@
             this.diameter.Location = new System.Drawing.Point(29, 109);
             this.diameter.Name = "diameter";
             this.diameter.Properties.Mask.EditMask = "d";
+            this.diameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.diameter.Size = new System.Drawing.Size(109, 20);
             this.diameter.StyleController = this.pipeGeneralParametersLayout;
             this.diameter.TabIndex = 28;
@@ -566,6 +567,7 @@
             this.length.Location = new System.Drawing.Point(29, 60);
             this.length.Name = "length";
             this.length.Properties.Mask.EditMask = "d";
+            this.length.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.length.Size = new System.Drawing.Size(109, 20);
             this.length.StyleController = this.pipeGeneralParametersLayout;
             this.length.TabIndex = 25;
@@ -575,6 +577,7 @@
             this.weight.Location = new System.Drawing.Point(29, 204);
             this.weight.Name = "weight";
             this.weight.Properties.Mask.EditMask = "d";
+            this.weight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.weight.Size = new System.Drawing.Size(109, 20);
             this.weight.StyleController = this.pipeGeneralParametersLayout;
             this.weight.TabIndex = 27;
@@ -584,6 +587,7 @@
             this.thickness.Location = new System.Drawing.Point(29, 155);
             this.thickness.Name = "thickness";
             this.thickness.Properties.Mask.EditMask = "d";
+            this.thickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.thickness.Size = new System.Drawing.Size(109, 20);
             this.thickness.StyleController = this.pipeGeneralParametersLayout;
             this.thickness.TabIndex = 26;
@@ -989,6 +993,7 @@
             this.plateThickness.Location = new System.Drawing.Point(789, 67);
             this.plateThickness.Name = "plateThickness";
             this.plateThickness.Properties.Mask.EditMask = "d";
+            this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.plateThickness.Size = new System.Drawing.Size(161, 20);
             this.plateThickness.StyleController = this.tabPagesLayout;
             this.plateThickness.TabIndex = 31;
