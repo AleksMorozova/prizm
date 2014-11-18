@@ -4,18 +4,27 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Ninject;
 using PrizmMain.Commands;
+using System.ComponentModel;
+using Domain.Entity.Mill;
+using System.Collections.Generic;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository repo;
+        private readonly IRailcarRepository railcarRepo;
+        private readonly IPipeRepository pipeRepo;
         private readonly SaveRailcarCommand saveCommand;
+        private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepository repo,IPipeRepository pipeRepo, string railcarNumber)
         {
-            this.repo = repo;
+            this.railcarRepo = repo;
+            this.pipeRepo = pipeRepo;
+
+            allPipes = new List<Pipe>(pipeRepo.GetAll());
+
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
@@ -27,6 +36,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 Railcar = repo.GetByNumber(railcarNumber);
             }
             
+        }
+        public List<Pipe> AllPipes
+        {
+            get { return allPipes; }
         }
 
         public Domain.Entity.Mill.Railcar Railcar { get; set; }
@@ -96,6 +109,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        public IList<Pipe> Pipes
+        {
+            get { return Railcar.Pipes; }
+            set 
+            {
+                if (value != Railcar.Pipes)
+                {
+                    Railcar.Pipes = value;
+                    RaisePropertyChanged("Pipes");
+                }
+            }
+        }
+
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -103,7 +129,34 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void Dispose()
         {
-            repo.Dispose();
+            railcarRepo.Dispose();
+        }
+
+        public void AddPipe(Guid id)
+        {
+            foreach (var pipe in Pipes)
+	        {
+                if (pipe.Id == id)
+	            {
+		        return;
+	            }
+	        }
+
+            Pipes.Add(allPipes.Find(_ => _.Id.Equals(id)));
+        }
+
+        public void RemovePipe(string number)
+        {
+            foreach (var pipe in Pipes)
+            {
+                if (pipe.Number == number)
+                {
+                    Pipes.Remove(pipe);
+                    pipe.Railcar = null;
+                    pipeRepo.Merge(pipe);
+                    return;
+                }
+            }
         }
 
         public void NewRailcar()
@@ -116,6 +169,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             Destination = string.Empty;
             ShippingDate = DateTime.Now;
             Certificate = string.Empty;
+            Pipes = new List<Pipe>();
         }
+
+        
     }
 }
