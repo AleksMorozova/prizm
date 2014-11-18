@@ -12,9 +12,8 @@ namespace Data.DAL.Mapping
     {
         public PipeMillSizeTypeMap() 
         {
-            //Id(_ => _.Id, "id").Column("id").GeneratedBy.GuidComb();
             Map(_ => _.Type, "type");
-            //Map(_ => _.IsActive, "isActive");
+
             HasMany(_ => _.PipeTests).Inverse().Cascade.All().Not.LazyLoad().KeyColumn("pipeMillSizeTypeId");
         }
     }

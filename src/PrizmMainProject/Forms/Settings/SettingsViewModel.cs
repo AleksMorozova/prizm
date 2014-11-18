@@ -16,40 +16,19 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
-        public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
-        readonly IMillPipeSizeTypeRepository repo;
-        readonly IPipeTestRepository testRepo;
+        readonly IMillPipeSizeTypeRepository sizeRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository sizeRepo)
         {
             NewPipeMillSizeType();
-            this.repo = repo;
-            this.testRepo = testRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
+            this.sizeRepo = sizeRepo;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo));
             GetAllPipeMillSizeType();
-            GetAllPipeTest();
         }
-
-        // for Current Mill Pipe SizeType
-        public string Type
-        {
-            get
-            {
-                return CurrentPipeMillSizeType.Type;
-            }
-            set
-            {
-                if (value != CurrentPipeMillSizeType.Type)
-                {
-                    CurrentPipeMillSizeType.Type = value;
-                    RaisePropertyChanged("Type");
-                }
-            }
-        }
-
+       
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
         {
@@ -67,25 +46,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-
-        // for Current Mill Pipe SizeType
-        public BindingList<PipeTest> Tests
-        {
-            get
-            {
-                return pipeTests;
-            }
-            set
-            {
-                if (value != pipeTests)
-                {
-                    pipeTests = value;
-                    RaisePropertyChanged("Tests");
-                }
-            }
-        }
-
-
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -93,30 +53,21 @@ namespace PrizmMain.Forms.Settings
 
         private void GetAllPipeMillSizeType()
         {
-            var allSizeType = repo.GetAll().ToList();
+            var allSizeType = sizeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
-        }
-
-        private void GetAllPipeTest()
-        {
-            var allTests = testRepo.GetAll().ToList();
-            PipeTests = new BindingList<PipeTest>(allTests);
         }
 
         public void NewPipeMillSizeType()
         {
-            if (CurrentPipeMillSizeType == null)
+            if (PipeMillSizeType == null)
             {
-                CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
-                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+                PipeMillSizeType = new List<PipeMillSizeType>();
             }
-            Type = string.Empty;
-            Tests = new BindingList<PipeTest>();; 
         }
 
         public void Dispose()
         {
-            repo.Dispose();
+            sizeRepo.Dispose();
         }
 
         internal void UpdatePipeTests(object sizeType)
