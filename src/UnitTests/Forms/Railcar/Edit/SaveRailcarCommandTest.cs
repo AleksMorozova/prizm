@@ -1,7 +1,9 @@
 ﻿using Data.DAL.Mill;
+using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
 using PrizmMain.Forms.Railcar.NewEdit;
+using System.Collections.Generic;
 
 namespace UnitTests.Forms.Railcar.Edit
 {
@@ -12,7 +14,10 @@ namespace UnitTests.Forms.Railcar.Edit
         public void TestSaveRailcar()
         {
             var repo = new Mock<IRailcarRepository>();
+            
             var pipeRepo = new Mock<IPipeRepository>();
+            pipeRepo.Setup(r => r.GetAll()).Returns(new List<Pipe>() { new Pipe() { Number = "TestPipeNumber" } });
+
             var viewModel = new RailcarViewModel(repo.Object,pipeRepo.Object,"");
 
             var command = new SaveRailcarCommand(viewModel, repo.Object);
@@ -20,7 +25,7 @@ namespace UnitTests.Forms.Railcar.Edit
             command.Execute();
 
             repo.Verify(_ => _.BeginTransaction(), Times.Once());
-            repo.Verify(_ => _.Save(viewModel.Railcar), Times.Once());
+            repo.Verify(_ => _.SaveOrUpdate(viewModel.Railcar), Times.Once());
             repo.Verify(_ => _.Commit(), Times.Once());
             repo.Verify(_ => _.Evict(viewModel.Railcar), Times.Once());
         }
