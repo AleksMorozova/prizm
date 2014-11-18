@@ -75,8 +75,9 @@ namespace PrizmMain.Forms.Settings
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+            plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
         }
-
+       
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
@@ -115,6 +116,17 @@ namespace PrizmMain.Forms.Settings
             GridView v = sender as GridView;
             PipeMillSizeType pipeSize = v.GetRow(e.RowHandle) as PipeMillSizeType;
             pipeSize.PipeTests=new BindingList<PipeTest>();
+        }
+
+        private void addPlateManufacturerButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(plateManufacturer.Text))
+            {
+                return;
+            }
+            viewModel.AddNewManufacturer(plateManufacturer.Text);
+            plateManufacturer.Text = string.Empty;
+            plateManufacturersList.RefreshDataSource();
         }
     }
 }

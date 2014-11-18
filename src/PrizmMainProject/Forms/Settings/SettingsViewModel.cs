@@ -22,9 +22,8 @@ namespace PrizmMain.Forms.Settings
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
-       // public IList<PlateManufacturer> PlateManufacturers { get; set; }
-
         readonly SaveSettingsCommand saveCommand;
+        private IList<PlateManufacturer> plateManufacturers;
         readonly IMillPipeSizeTypeRepository sizeRepo;
         //readonly IPipeTestRepository testRepo;
         readonly IProjectRepository projectRepo;
@@ -37,9 +36,10 @@ namespace PrizmMain.Forms.Settings
             this.sizeRepo = sizeRepo;       
             this.projectRepo = projectRepo;
             this.manufacturerRepo = manufacturerRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo, projectRepo));
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo, projectRepo, manufacturerRepo));
             GetAllPipeMillSizeType();
             GetProjectSettings();
+            GetAllManufacturers();
         }
 
         // for Current Mill Pipe SizeType
@@ -145,8 +145,7 @@ namespace PrizmMain.Forms.Settings
         #endregion
 
         #region Plate Manufacturers
-        private BindingList<PlateManufacturer> plateManufacturers = new BindingList<PlateManufacturer>();
-        public BindingList<PlateManufacturer> PlateManufacturers
+        public IList<PlateManufacturer> PlateManufacturers
         {
             get 
             {
@@ -157,11 +156,10 @@ namespace PrizmMain.Forms.Settings
                 if (value != plateManufacturers)
                 {
                     plateManufacturers = value;
-                    RaisePropertyChanged("manufacturers");
+                    RaisePropertyChanged("PlateManufacturers");
                 }
             }
         }
- 
         #endregion
         public ICommand SaveCommand
         {
@@ -190,10 +188,26 @@ namespace PrizmMain.Forms.Settings
             CurrentProjectSettings = projectRepo.GetSingle();
         }
 
+        private void GetAllManufacturers()
+        {
+            plateManufacturers = manufacturerRepo.GetAll().ToList();
+        }
+
+        public void AddNewManufacturer(string newManufacturerName)
+        {
+           var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
+            if (!existingItem.Any())
+            {
+                PlateManufacturer newManufacturer = new PlateManufacturer { IsActive = true, Name = newManufacturerName };
+                plateManufacturers.Add(newManufacturer);
+            }
+        }
+
         public void Dispose()
         {
             sizeRepo.Dispose();
             projectRepo.Dispose();
+            manufacturerRepo.Dispose();
         }
 
         internal void UpdatePipeTests(object sizeType)

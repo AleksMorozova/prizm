@@ -1,7 +1,7 @@
-DECLARE @PRIZMA_DB_NAME VARCHAR(255) = 'Prizm',
-		@PRIZMA_DB_PATH VARCHAR (1000) =  CAST (SERVERPROPERTY('instancedefaultdatapath') AS varchar(1000))
+DECLARE @PRIZMA_DB_NAME nvarchar(255) = 'Prizm',
+		@PRIZMA_DB_PATH nvarchar (1000) =  CAST (SERVERPROPERTY('instancedefaultdatapath') AS nvarchar(1000))
 
-DECLARE @CREATE_DB VARCHAR(MAX)
+DECLARE @CREATE_DB nvarchar(MAX)
 
 SET @CREATE_DB = 'CREATE DATABASE {DBNAME} CONTAINMENT = NONE
  ON  PRIMARY 
@@ -43,14 +43,14 @@ ALTER DATABASE [{DBNAME}] SET DB_CHAINING OFF
 ALTER DATABASE [{DBNAME}] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
 ALTER DATABASE [{DBNAME}] SET TARGET_RECOVERY_TIME = 0 SECONDS '
 
-DECLARE @SQL_SCRIPT VARCHAR(MAX)
+DECLARE @SQL_SCRIPT nvarchar(MAX)
 SET @SQL_SCRIPT = REPLACE(@CREATE_DB, '{DBNAME}', @PRIZMA_DB_NAME)
 SET @SQL_SCRIPT = REPLACE(@SQL_SCRIPT, '{DBPATH}', @PRIZMA_DB_PATH)
 EXECUTE (@SQL_SCRIPT)
 GO
 
-DECLARE @SQL_SCRIPT VARCHAR(MAX),
-		@PRIZMA_DB_NAME VARCHAR(255) = 'Prizm'
+DECLARE @SQL_SCRIPT nvarchar(MAX),
+		@PRIZMA_DB_NAME nvarchar(255) = 'Prizm'
 SET @SQL_SCRIPT = 
 'USE [{DBNAME}]
 /****** Object:  Table [dbo].[ChemicalComposition]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -229,13 +229,13 @@ CREATE TABLE [dbo].[PurchaseOrder](
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
 
-/****** Object:  Table [dbo].[ProductManufacturer]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PlateManufacturer]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[ProductManufacturer](
 	[id] [uniqueidentifier]NOT NULL,
-	[name] [varchar](20) NOT NULL,
+	[name] [nvarchar](100) NOT NULL,
 	[isActive] [bit] NOT NULL,
  CONSTRAINT [PK_ProductManufacturer] PRIMARY KEY CLUSTERED 
 (
