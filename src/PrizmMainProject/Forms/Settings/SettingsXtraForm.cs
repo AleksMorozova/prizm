@@ -15,6 +15,7 @@ namespace PrizmMain.Forms.Settings
     public partial class SettingsXtraForm : XtraForm
     {
         private SettingsViewModel viewModel;
+        private PipeMillSizeType CurrentPipeMillSizeType;
 
         public SettingsXtraForm()
         {
@@ -87,7 +88,6 @@ namespace PrizmMain.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            
             GridView v = sender as GridView;
             object sizeType = v.GetRow(e.FocusedRowHandle);
 
@@ -96,22 +96,22 @@ namespace PrizmMain.Forms.Settings
                 viewModel.UpdatePipeTests(sizeType);
             }
 
-            viewModel.CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+            CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
         }
 
         private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
             PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
-            pipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
-            viewModel.CurrentPipeMillSizeType.PipeTests.Add(pipeTest); 
+            pipeTest.pipeType = CurrentPipeMillSizeType;
+            CurrentPipeMillSizeType.PipeTests.Add(pipeTest); 
         }
 
         private void pipesSizeListGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            PipeMillSizeType pipeSize = v.GetRow(e.RowHandle) as PipeMillSizeType;
-            pipeSize.PipeTests=new BindingList<PipeTest>();
+            CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
+            CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
         }
     }
 }

@@ -16,11 +16,9 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
-        public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly IMillPipeSizeTypeRepository sizeRepo;
-        //readonly IPipeTestRepository testRepo;
 
         [Inject]
         public SettingsViewModel(IMillPipeSizeTypeRepository sizeRepo)
@@ -30,24 +28,7 @@ namespace PrizmMain.Forms.Settings
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo));
             GetAllPipeMillSizeType();
         }
-
-        // for Current Mill Pipe SizeType
-        public string Type
-        {
-            get
-            {
-                return CurrentPipeMillSizeType.Type;
-            }
-            set
-            {
-                if (value != CurrentPipeMillSizeType.Type)
-                {
-                    CurrentPipeMillSizeType.Type = value;
-                    RaisePropertyChanged("Type");
-                }
-            }
-        }
-
+       
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
         {
@@ -65,23 +46,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        // for Current Mill Pipe SizeType
-        public BindingList<PipeTest> Tests
-        {
-            get
-            {
-                return pipeTests;
-            }
-            set
-            {
-                if (value != pipeTests)
-                {
-                    pipeTests = value;
-                    RaisePropertyChanged("Tests");
-                }
-            }
-        }
-
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -95,13 +59,10 @@ namespace PrizmMain.Forms.Settings
 
         public void NewPipeMillSizeType()
         {
-            if (CurrentPipeMillSizeType == null)
+            if (PipeMillSizeType == null)
             {
-                CurrentPipeMillSizeType = new PipeMillSizeType() { IsActive = true };
-                CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+                PipeMillSizeType = new List<PipeMillSizeType>();
             }
-            Type = string.Empty;
-            Tests = new BindingList<PipeTest>();; 
         }
 
         public void Dispose()

@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Setup;
+using Domain.Entity.Setup;
 using Moq;
 using NUnit.Framework;
 using PrizmMain.Forms.Settings;
@@ -17,16 +18,18 @@ namespace UnitTests.Forms.Settings
         public void TestSaveSettings()
         {
             var repo = new Mock<IMillPipeSizeTypeRepository>();
+            repo.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { new PipeMillSizeType()});
+
             var viewModel = new SettingsViewModel(repo.Object);
 
             var command = new SaveSettingsCommand(viewModel, repo.Object);
 
-            //command.Execute();
+            command.Execute();
 
-            //repo.Verify(_ => _.BeginTransaction(), Times.Once());
-            //repo.Verify(_ => _.Save(viewModel.CurrentPipeMillSizeType), Times.Once());
-            //repo.Verify(_ => _.Commit(), Times.Once());
-            //repo.Verify(_ => _.Evict(viewModel.CurrentPipeMillSizeType), Times.Once());
+            repo.Verify(_ => _.BeginTransaction(), Times.AtLeastOnce());
+            repo.Verify(_ => _.SaveOrUpdate(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
+            repo.Verify(_ => _.Commit(), Times.AtLeastOnce());
+            repo.Verify(_ => _.Evict(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
         }
     }
 }
