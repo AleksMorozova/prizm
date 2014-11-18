@@ -38,6 +38,11 @@ namespace Data.DAL.Hibernate
             session.SaveOrUpdate(entity);
         }
 
+        public void Merge(TEntity entity)
+        {
+            session.Merge(entity);
+        }
+
         public void Delete(TEntity entity)
         {
             session.Delete(entity);

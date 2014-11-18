@@ -19,7 +19,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         public void Execute()
         {
             repo.BeginTransaction();
-            repo.Save(viewModel.Railcar);
+            repo.SaveOrUpdate(viewModel.Railcar);
             repo.Commit();
             repo.Evict(viewModel.Railcar);
             viewModel.NewRailcar();
