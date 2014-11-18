@@ -54,7 +54,7 @@ namespace PrizmMain.Forms.Settings
             }
             catch (Exception)
             {
-                throw new Exception("Извините, проблемы с сохранением настоек в базу данных");
+                throw new Exception("Извините, проблемы с сохранением настроек в базу данных");
             }
         }
 

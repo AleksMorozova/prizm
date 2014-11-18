@@ -19,10 +19,16 @@ namespace UnitTests.Forms.Settings
         {
             var repo = new Mock<IMillPipeSizeTypeRepository>();
             repo.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { new PipeMillSizeType()});
+            
+            var projectRepo = new Mock<Data.DAL.IProjectRepository>();
+            projectRepo.Setup(_ => _.GetSingle()).Returns(new Domain.Entity.Project());
 
-            var viewModel = new SettingsViewModel(repo.Object);
+            var manufacturerRepo = new Mock<Data.DAL.Mill.IPlateManufacturerRepository>();
+            manufacturerRepo.Setup(_ => _.GetAll()).Returns(new List<Domain.Entity.Mill.PlateManufacturer>() { new Domain.Entity.Mill.PlateManufacturer() });
 
-            var command = new SaveSettingsCommand(viewModel, repo.Object);
+            var viewModel = new SettingsViewModel(repo.Object, projectRepo.Object, manufacturerRepo.Object);
+
+            var command = new SaveSettingsCommand(viewModel, repo.Object, projectRepo.Object, manufacturerRepo.Object);
 
             command.Execute();
 
@@ -30,6 +36,17 @@ namespace UnitTests.Forms.Settings
             repo.Verify(_ => _.SaveOrUpdate(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
             repo.Verify(_ => _.Commit(), Times.AtLeastOnce());
             repo.Verify(_ => _.Evict(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
+
+            manufacturerRepo.Verify(_ => _.BeginTransaction(), Times.AtLeastOnce());
+            manufacturerRepo.Verify(_ => _.SaveOrUpdate(viewModel.PlateManufacturers[0]), Times.AtLeastOnce());
+            manufacturerRepo.Verify(_ => _.Commit(), Times.AtLeastOnce());
+            manufacturerRepo.Verify(_ => _.Evict(viewModel.PlateManufacturers[0]), Times.AtLeastOnce());
+
+            projectRepo.Verify(_ => _.BeginTransaction(), Times.AtLeastOnce());
+            projectRepo.Verify(_ => _.SaveOrUpdate(viewModel.CurrentProjectSettings), Times.AtLeastOnce());
+            projectRepo.Verify(_ => _.Commit(), Times.AtLeastOnce());
+            projectRepo.Verify(_ => _.Evict(viewModel.CurrentProjectSettings), Times.AtLeastOnce());
+
         }
     }
 }
