@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Entity.Setup;
+using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {

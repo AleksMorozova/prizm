@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Forms\Railcar\Edit\SaveRailcarCommandTest.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommandTest.cs" />
+    <Compile Include="Forms\Settings\SaveSettingsCommandTest.cs" />
     <Compile Include="SetupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
