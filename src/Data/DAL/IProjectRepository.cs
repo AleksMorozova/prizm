@@ -9,5 +9,6 @@ namespace Data.DAL
 {
     public interface IProjectRepository : IRepository<Guid, Project>
     {
+        Project GetSingle();
     }
 }

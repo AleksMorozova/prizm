@@ -1,4 +1,8 @@
 ﻿using Data.DAL.Setup;
+using Data.DAL;
+using Data.DAL.Mill;
+using Domain.Entity;
+using Domain.Entity.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Domain.Entity.Setup;
@@ -17,20 +21,27 @@ namespace PrizmMain.Forms.Settings
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
+        public Project CurrentProjectSettings { get; set; }
+       // public IList<PlateManufacturer> PlateManufacturers { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly IMillPipeSizeTypeRepository repo;
         readonly IPipeTestRepository testRepo;
+        readonly IProjectRepository projectRepo;
+        readonly IPlateManufacturerRepository manufacturerRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo, IProjectRepository projectRepo, IPlateManufacturerRepository manufacturerRepo)
         {
             NewPipeMillSizeType();
             this.repo = repo;
             this.testRepo = testRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
+            this.projectRepo = projectRepo;
+            this.manufacturerRepo = manufacturerRepo;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo, projectRepo));
             GetAllPipeMillSizeType();
             GetAllPipeTest();
+            GetProjectSettings();
         }
 
         // for Current Mill Pipe SizeType
@@ -85,6 +96,76 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        #region Current Project Settings
+
+        public string Client
+        {
+            get
+            {
+                return CurrentProjectSettings.Client;
+            }
+            set 
+            {
+                if (value != CurrentProjectSettings.Client)
+                {
+                    CurrentProjectSettings.Client = value;
+                    RaisePropertyChanged("Client");
+                }
+            }
+        }
+
+        public string Designer
+        {
+            get 
+            {
+                return CurrentProjectSettings.Designer;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.Designer)
+                {
+                    CurrentProjectSettings.Designer = value;
+                    RaisePropertyChanged("Designer");
+                }
+            }
+        }
+
+        public int DocumentSizeLimit 
+        {
+            get
+            {
+                return CurrentProjectSettings.DocumentSizeLimit;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.DocumentSizeLimit)
+                {
+                    CurrentProjectSettings.DocumentSizeLimit = value;
+                    RaisePropertyChanged("DocumentSizeLimit");
+                }
+            }
+        }
+        #endregion
+
+        #region Plate Manufacturers
+        private BindingList<PlateManufacturer> plateManufacturers = new BindingList<PlateManufacturer>();
+        public BindingList<PlateManufacturer> PlateManufacturers
+        {
+            get 
+            {
+                return plateManufacturers;
+            }
+            set 
+            {
+                if (value != plateManufacturers)
+                {
+                    plateManufacturers = value;
+                    RaisePropertyChanged("manufacturers");
+                }
+            }
+        }
+ 
+        #endregion
 
         public ICommand SaveCommand
         {
@@ -114,9 +195,15 @@ namespace PrizmMain.Forms.Settings
             Tests = new BindingList<PipeTest>();; 
         }
 
+        private void GetProjectSettings()
+        {
+            CurrentProjectSettings = projectRepo.GetSingle();
+        }
+
         public void Dispose()
         {
             repo.Dispose();
+            projectRepo.Dispose();
         }
 
         internal void UpdatePipeTests(object sizeType)

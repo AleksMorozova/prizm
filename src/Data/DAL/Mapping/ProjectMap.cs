@@ -8,14 +8,13 @@ using Domain.Entity;
 
 namespace Data.DAL.Mapping
 {
-    public class ProjectMap : ClassMap<Project>
+    public class ProjectMap : SubclassMap<Project>
     {
         public ProjectMap()
         {
             Map(x => x.Client).Column("client");
             Map(x => x.Designer).Column("designer");
-            Map(x => x.DocumentSizeLimit).Column("documentSizeLimit");
-            
+            Map(x => x.DocumentSizeLimit).Column("documentSizeLimit");      
         }
     }
 }

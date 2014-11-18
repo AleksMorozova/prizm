@@ -18,9 +18,11 @@ namespace UnitTests.Forms.Settings
         {
             var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
             var repoPipeTests = new Mock<IPipeTestRepository>();
-            var viewModel = new SettingsViewModel(repoPipeSize.Object, repoPipeTests.Object);
+            var repoProjectSettings = new Mock<Data.DAL.IProjectRepository>();
 
-            var command = new SaveSettingsCommand(viewModel, repoPipeSize.Object);
+            var viewModel = new SettingsViewModel(repoPipeSize.Object, repoPipeTests.Object,repoProjectSettings.Object);
+
+            var command = new SaveSettingsCommand(viewModel, repoPipeSize.Object, repoProjectSettings.Object);
 
             command.Execute();
 

@@ -14,7 +14,10 @@ namespace Data.DAL.Hibernate
          [Inject]
         public ProjectRepository(ISession session)
             : base(session)
-        {
-        }
+        {}
+         public Project GetSingle()
+         {
+             return session.QueryOver<Project>().SingleOrDefault(); 
+         }
     }
 }

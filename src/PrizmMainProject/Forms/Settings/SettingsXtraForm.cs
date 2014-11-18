@@ -73,6 +73,9 @@ namespace PrizmMain.Forms.Settings
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
+            client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+            design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
+            externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
         }
 
 
