@@ -59,7 +59,7 @@
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchLayoutGroupEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.shippedDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
@@ -82,7 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).BeginInit();
             this.SuspendLayout();
@@ -297,7 +297,7 @@
             this.searchButtonLayout,
             this.railcarNumberLayout,
             this.searchLayoutGroupEmptySpace,
-            this.layoutControlItem1});
+            this.shippedDateLayoutControl});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
             this.searchParametersLayoutGroup.Size = new System.Drawing.Size(1251, 98);
@@ -365,17 +365,17 @@
             this.searchLayoutGroupEmptySpace.Text = "searchLayoutGroupEmptySpace";
             this.searchLayoutGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
+            // shippedDateLayoutControl
             // 
-            this.layoutControlItem1.Control = this.shippedDate;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(597, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(115, 45);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(101, 13);
+            this.shippedDateLayoutControl.Control = this.shippedDate;
+            this.shippedDateLayoutControl.CustomizationFormText = "layoutControlItem1";
+            this.shippedDateLayoutControl.Location = new System.Drawing.Point(597, 0);
+            this.shippedDateLayoutControl.Name = "shippedDateLayoutControl";
+            this.shippedDateLayoutControl.Size = new System.Drawing.Size(115, 45);
+            this.shippedDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.shippedDateLayoutControl.Text = "Дата отправки";
+            this.shippedDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.shippedDateLayoutControl.TextSize = new System.Drawing.Size(101, 13);
             // 
             // resultParametersLayoutGroup
             // 
@@ -432,7 +432,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).EndInit();
             this.ResumeLayout(false);
@@ -469,6 +469,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn dest;
         private DevExpress.XtraGrid.Columns.GridColumn shippingDate;
         private DevExpress.XtraEditors.DateEdit shippedDate;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem shippedDateLayoutControl;
     }
 }
