@@ -25,22 +25,20 @@ namespace PrizmMain.Forms.Settings
        // public IList<PlateManufacturer> PlateManufacturers { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
-        readonly IMillPipeSizeTypeRepository repo;
-        readonly IPipeTestRepository testRepo;
+        readonly IMillPipeSizeTypeRepository sizeRepo;
+        //readonly IPipeTestRepository testRepo;
         readonly IProjectRepository projectRepo;
         readonly IPlateManufacturerRepository manufacturerRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo, IProjectRepository projectRepo, IPlateManufacturerRepository manufacturerRepo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository sizeRepo, IProjectRepository projectRepo, IPlateManufacturerRepository manufacturerRepo)
         {
-            NewPipeMillSizeType();
-            this.repo = repo;
-            this.testRepo = testRepo;
+            NewPipeMillSizeType();  
+            this.sizeRepo = sizeRepo;       
             this.projectRepo = projectRepo;
             this.manufacturerRepo = manufacturerRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo, projectRepo));
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo, projectRepo));
             GetAllPipeMillSizeType();
-            GetAllPipeTest();
             GetProjectSettings();
         }
 
@@ -77,7 +75,6 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
-
 
         // for Current Mill Pipe SizeType
         public BindingList<PipeTest> Tests
@@ -166,7 +163,6 @@ namespace PrizmMain.Forms.Settings
         }
  
         #endregion
-
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -174,14 +170,8 @@ namespace PrizmMain.Forms.Settings
 
         private void GetAllPipeMillSizeType()
         {
-            var allSizeType = repo.GetAll().ToList();
+            var allSizeType = sizeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
-        }
-
-        private void GetAllPipeTest()
-        {
-            var allTests = testRepo.GetAll().ToList();
-            PipeTests = new BindingList<PipeTest>(allTests);
         }
 
         public void NewPipeMillSizeType()
@@ -202,7 +192,7 @@ namespace PrizmMain.Forms.Settings
 
         public void Dispose()
         {
-            repo.Dispose();
+            sizeRepo.Dispose();
             projectRepo.Dispose();
         }
 

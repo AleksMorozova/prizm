@@ -15,14 +15,13 @@ namespace PrizmMain.Forms.Settings
     public partial class SettingsXtraForm : XtraForm
     {
         private SettingsViewModel viewModel;
-        private PipeTest pipeTest;
 
         public SettingsXtraForm()
         {
             InitializeComponent();
-            
-            pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
-            inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
+
+            pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
         #region Role Setting
@@ -78,7 +77,6 @@ namespace PrizmMain.Forms.Settings
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
         }
 
-
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
@@ -101,20 +99,22 @@ namespace PrizmMain.Forms.Settings
                 viewModel.UpdatePipeTests(sizeType);
             }
 
-            else 
-            {
-                viewModel.CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
-            }
-
             viewModel.CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
         }
 
         private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            pipeTest = (PipeTest)v.GetRow(e.RowHandle);
+            PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
             pipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
             viewModel.CurrentPipeMillSizeType.PipeTests.Add(pipeTest); 
+        }
+
+        private void pipesSizeListGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            PipeMillSizeType pipeSize = v.GetRow(e.RowHandle) as PipeMillSizeType;
+            pipeSize.PipeTests=new BindingList<PipeTest>();
         }
     }
 }

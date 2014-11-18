@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Setup;
 using Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
+using Domain.Entity.Setup;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,13 @@ namespace PrizmMain.Forms.Settings
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-         repo.BeginTransaction();
-  
-         repo.SaveOrUpdate(viewModel.CurrentPipeMillSizeType);
-         repo.Commit();
-         repo.Evict(viewModel.CurrentPipeMillSizeType);
-         //viewModel.NewPipeMillSizeType();
+            foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
+            {
+                repo.BeginTransaction();
+                repo.SaveOrUpdate(t);
+                repo.Commit();
+                repo.Evict(t);
+            }
          try
          {
              projectRepo.BeginTransaction();
