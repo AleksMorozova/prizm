@@ -2043,7 +2043,6 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem closeButtonEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Views.Grid.GridView weldersListGridView;
         private System.Windows.Forms.BindingSource inspectionOperation;
         private DevExpress.XtraLayout.LayoutControl generalInspectionsLayout;
