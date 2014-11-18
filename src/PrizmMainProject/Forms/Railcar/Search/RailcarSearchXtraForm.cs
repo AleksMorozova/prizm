@@ -19,7 +19,8 @@ namespace PrizmMain.Forms.Railcar.Search
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
-
+            shippedDate.Properties.NullDate = DateTime.MinValue;
+            shippedDate.Properties.NullText = string.Empty;
         }
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace PrizmMain.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
+
         }
 
         private void BindToViewModel()
