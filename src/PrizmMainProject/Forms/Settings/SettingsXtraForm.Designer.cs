@@ -133,6 +133,8 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.resultTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.controlTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -209,6 +211,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -293,7 +297,9 @@
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.isRequired});
+            this.isRequired,
+            this.resultTypeItems,
+            this.controlTypeItems});
             this.inspectionOperation.Size = new System.Drawing.Size(878, 208);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -352,6 +358,7 @@
             // controlTypeGridColumn
             // 
             this.controlTypeGridColumn.Caption = "Вид контроля";
+            this.controlTypeGridColumn.ColumnEdit = this.controlTypeItems;
             this.controlTypeGridColumn.FieldName = "ControlType";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
@@ -361,6 +368,7 @@
             // resultTypeGridColumn
             // 
             this.resultTypeGridColumn.Caption = "Тип результата";
+            this.resultTypeGridColumn.ColumnEdit = this.resultTypeItems;
             this.resultTypeGridColumn.FieldName = "ResultType";
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
@@ -1309,6 +1317,20 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
+            // resultTypeItems
+            // 
+            this.resultTypeItems.AutoHeight = false;
+            this.resultTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultTypeItems.Name = "resultTypeItems";
+            // 
+            // controlTypeItems
+            // 
+            this.controlTypeItems.AutoHeight = false;
+            this.controlTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlTypeItems.Name = "controlTypeItems";
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1396,6 +1418,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1504,5 +1528,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
         private System.Windows.Forms.BindingSource pipeMillSizeTypeBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn testIsActiveGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox controlTypeItems;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox resultTypeItems;
     }
 }
