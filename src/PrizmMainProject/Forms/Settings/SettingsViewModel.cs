@@ -19,18 +19,16 @@ namespace PrizmMain.Forms.Settings
         public PipeMillSizeType CurrentPipeMillSizeType { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
-        readonly IMillPipeSizeTypeRepository repo;
-        readonly IPipeTestRepository testRepo;
+        readonly IMillPipeSizeTypeRepository sizeRepo;
+        //readonly IPipeTestRepository testRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository repo, IPipeTestRepository testRepo)
+        public SettingsViewModel(IMillPipeSizeTypeRepository sizeRepo)
         {
             NewPipeMillSizeType();
-            this.repo = repo;
-            this.testRepo = testRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repo));
+            this.sizeRepo = sizeRepo;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo));
             GetAllPipeMillSizeType();
-            GetAllPipeTest();
         }
 
         // for Current Mill Pipe SizeType
@@ -67,7 +65,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-
         // for Current Mill Pipe SizeType
         public BindingList<PipeTest> Tests
         {
@@ -85,7 +82,6 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -93,14 +89,8 @@ namespace PrizmMain.Forms.Settings
 
         private void GetAllPipeMillSizeType()
         {
-            var allSizeType = repo.GetAll().ToList();
+            var allSizeType = sizeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
-        }
-
-        private void GetAllPipeTest()
-        {
-            var allTests = testRepo.GetAll().ToList();
-            PipeTests = new BindingList<PipeTest>(allTests);
         }
 
         public void NewPipeMillSizeType()
@@ -116,7 +106,7 @@ namespace PrizmMain.Forms.Settings
 
         public void Dispose()
         {
-            repo.Dispose();
+            sizeRepo.Dispose();
         }
 
         internal void UpdatePipeTests(object sizeType)

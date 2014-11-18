@@ -51,6 +51,7 @@
             this.boolExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isRequiredGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isRequired = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.testIsActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -229,6 +230,7 @@
             this.pipesSizeListGridView.GridControl = this.pipesSizeList;
             this.pipesSizeListGridView.Name = "pipesSizeListGridView";
             this.pipesSizeListGridView.OptionsView.ShowGroupPanel = false;
+            this.pipesSizeListGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.pipesSizeListGridView_InitNewRow);
             this.pipesSizeListGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.pipesSizeListGridView_FocusedRowChanged);
             // 
             // pipeSizeGridColumn
@@ -312,7 +314,8 @@
             this.minExpectedGridColumn,
             this.maxExpectedGridColumn,
             this.boolExpectedGridColumn,
-            this.isRequiredGridColumn});
+            this.isRequiredGridColumn,
+            this.testIsActiveGridColumn});
             this.inspectionView.GridControl = this.inspectionOperation;
             this.inspectionView.Name = "inspectionView";
             this.inspectionView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
@@ -369,6 +372,7 @@
             this.minExpectedGridColumn.Caption = "min";
             this.minExpectedGridColumn.FieldName = "MinExpected";
             this.minExpectedGridColumn.Name = "minExpectedGridColumn";
+            this.minExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.minExpectedGridColumn.Visible = true;
             this.minExpectedGridColumn.VisibleIndex = 5;
             this.minExpectedGridColumn.Width = 34;
@@ -405,6 +409,14 @@
             // 
             this.isRequired.AutoHeight = false;
             this.isRequired.Name = "isRequired";
+            // 
+            // testIsActiveGridColumn
+            // 
+            this.testIsActiveGridColumn.Caption = "Активный";
+            this.testIsActiveGridColumn.FieldName = "IsActive";
+            this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
+            this.testIsActiveGridColumn.Visible = true;
+            this.testIsActiveGridColumn.VisibleIndex = 9;
             // 
             // pipeParametersLayoutGroup
             // 
@@ -1491,5 +1503,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem buttonEmptySpaceItem;
         private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
         private System.Windows.Forms.BindingSource pipeMillSizeTypeBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn testIsActiveGridColumn;
     }
 }
