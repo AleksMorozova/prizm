@@ -11,7 +11,7 @@ namespace UnitTests.Forms.Railcar.Edit
     public class SaveRailcarCommandTest
     {
         [Test]
-        public void TestSaveRailcar()
+        public void TestSaveNewRailcar()
         {
             var repo = new Mock<IRailcarRepository>();
             
@@ -19,7 +19,7 @@ namespace UnitTests.Forms.Railcar.Edit
             pipeRepo.Setup(r => r.GetAll()).Returns(new List<Pipe>() { new Pipe() { Number = "TestPipeNumber" } });
 
             var viewModel = new RailcarViewModel(repo.Object,pipeRepo.Object,"");
-
+            
             var command = new SaveRailcarCommand(viewModel, repo.Object);
 
             command.Execute();
