@@ -24,7 +24,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             repo.BeginTransaction();
-            repo.Save(viewModel.Pipe);
+            repo.SaveOrUpdate(viewModel.Pipe);
             repo.Commit();
             repo.Evict(viewModel.Pipe);
             viewModel.NewPipe();

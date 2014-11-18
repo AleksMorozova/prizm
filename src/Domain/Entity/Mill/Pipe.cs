@@ -4,10 +4,12 @@ namespace Domain.Entity.Mill
 {
     public class Pipe : PipelinePiece
     {
-public Pipe()
+        public Pipe()
         {
             this.Welds = new List<Weld>();
             this.PipeTestResult = new List<PipeTestResult>();
+
+            this.Plate = new Plate() { Pipe = this };
         }
 
 
@@ -26,7 +28,7 @@ public Pipe()
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
 
-        
+
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
     }

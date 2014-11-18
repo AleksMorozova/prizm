@@ -43,12 +43,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 heatNumber.Properties.Items.Add(h);
             }
 
-            /*
+            
             foreach (var h in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(h);
             }
-            */
+            
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -64,11 +64,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
+
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "HeatNumber");
+
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
+            purchaseOrder.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrderNumber");
+            purchaseOrderDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
             /*
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
@@ -78,10 +84,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
-            purchaseOrder.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrderNumber");
-            purchaseOrderDate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+
             */
 
 
@@ -111,6 +114,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+        }
+
+
+
+
+        private void addHeatButton_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -16,6 +16,7 @@ namespace Data.DAL.Mapping
             Map(x => x.SteelGrade).Column("steelGrade");
 
             HasMany(x => x.Plates).KeyColumn("heatId").Inverse().Cascade.All();
+
         }
     }
 }
