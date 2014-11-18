@@ -12,7 +12,8 @@ namespace UnitTests.Forms.Railcar.Edit
         public void TestSaveRailcar()
         {
             var repo = new Mock<IRailcarRepository>();
-            var viewModel = new RailcarViewModel(repo.Object,"");
+            var pipeRepo = new Mock<IPipeRepository>();
+            var viewModel = new RailcarViewModel(repo.Object,pipeRepo.Object,"");
 
             var command = new SaveRailcarCommand(viewModel, repo.Object);
 

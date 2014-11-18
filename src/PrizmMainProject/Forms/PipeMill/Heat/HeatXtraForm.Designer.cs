@@ -133,7 +133,7 @@
             this.saveButton.Size = new System.Drawing.Size(100, 23);
             this.saveButton.StyleController = this.masterLayoutControl;
             this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "OK";
+            this.saveButton.Text = "Сохранить";
             // 
             // cancelButton
             // 

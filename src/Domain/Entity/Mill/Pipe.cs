@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Entity.Setup;
+using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {
@@ -7,7 +8,7 @@ namespace Domain.Entity.Mill
         public Pipe()
         {
             this.Welds = new List<Weld>();
-            this.PipeTestResult = new List<PipeTestResult>();
+            //this.PipeTestResult = new List<PipeTestResult>();
 
             this.Plate = new Plate() { Pipe = this };
         }
@@ -23,7 +24,8 @@ namespace Domain.Entity.Mill
         public virtual string Type { get; set; } // from global dictionary type: PipeMillSizeType
 
         public virtual Railcar Railcar { get; set; }
-        public virtual string Status { get; set; } //enum
+        public virtual PipeMillStatus Status { get; set; } //enum
+        public virtual string Status { get; set; } //FIX: convert string to enum and map enum to database
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
@@ -31,5 +33,6 @@ namespace Domain.Entity.Mill
 
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
+        //public virtual IList<PipeTestResult> PipeTestResult { get; set; }
     }
 }
