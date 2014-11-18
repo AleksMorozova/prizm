@@ -55,7 +55,6 @@
             this.pipeParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipesSizeListmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalProjectLayout = new DevExpress.XtraLayout.LayoutControl();
             this.addPlateManufacturerButton = new DevExpress.XtraEditors.SimpleButton();
@@ -147,7 +146,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListmptySpace)).BeginInit();
             this.projectPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalProjectLayout)).BeginInit();
             this.generalProjectLayout.SuspendLayout();
@@ -217,7 +215,7 @@
             this.pipesSizeList.Location = new System.Drawing.Point(14, 27);
             this.pipesSizeList.MainView = this.pipesSizeListGridView;
             this.pipesSizeList.Name = "pipesSizeList";
-            this.pipesSizeList.Size = new System.Drawing.Size(335, 84);
+            this.pipesSizeList.Size = new System.Drawing.Size(219, 322);
             this.pipesSizeList.TabIndex = 11;
             this.pipesSizeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSizeListGridView});
@@ -240,6 +238,7 @@
             this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
             this.pipeSizeGridColumn.Visible = true;
             this.pipeSizeGridColumn.VisibleIndex = 0;
+            this.pipeSizeGridColumn.Width = 91;
             // 
             // isActiveGridColumn
             // 
@@ -248,6 +247,7 @@
             this.isActiveGridColumn.Name = "isActiveGridColumn";
             this.isActiveGridColumn.Visible = true;
             this.isActiveGridColumn.VisibleIndex = 1;
+            this.isActiveGridColumn.Width = 50;
             // 
             // settings
             // 
@@ -270,7 +270,7 @@
             this.pipePage.Controls.Add(this.generalPipeLayout);
             this.pipePage.Name = "pipePage";
             this.pipePage.Size = new System.Drawing.Size(906, 363);
-            this.pipePage.Text = "Pip&e";
+            this.pipePage.Text = "Т&руба";
             // 
             // generalPipeLayout
             // 
@@ -289,12 +289,12 @@
             // 
             this.inspectionOperation.Cursor = System.Windows.Forms.Cursors.Default;
             this.inspectionOperation.DataSource = this.inspectionBindingSource;
-            this.inspectionOperation.Location = new System.Drawing.Point(14, 141);
+            this.inspectionOperation.Location = new System.Drawing.Point(247, 27);
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.isRequired});
-            this.inspectionOperation.Size = new System.Drawing.Size(878, 208);
+            this.inspectionOperation.Size = new System.Drawing.Size(645, 322);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
@@ -382,6 +382,7 @@
             this.maxExpectedGridColumn.Caption = "max";
             this.maxExpectedGridColumn.FieldName = "MaxExpected";
             this.maxExpectedGridColumn.Name = "maxExpectedGridColumn";
+            this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
             this.maxExpectedGridColumn.VisibleIndex = 6;
             this.maxExpectedGridColumn.Width = 40;
@@ -391,6 +392,7 @@
             this.boolExpectedGridColumn.Caption = "Контрольное значение";
             this.boolExpectedGridColumn.FieldName = "BoolExpected";
             this.boolExpectedGridColumn.Name = "boolExpectedGridColumn";
+            this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
             this.boolExpectedGridColumn.VisibleIndex = 7;
             this.boolExpectedGridColumn.Width = 82;
@@ -425,8 +427,7 @@
             this.pipeParametersLayoutGroup.GroupBordersVisible = false;
             this.pipeParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectionOperationLayout,
-            this.pipesSizeListLayout,
-            this.pipesSizeListmptySpace});
+            this.pipesSizeListLayout});
             this.pipeParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeParametersLayoutGroup.Name = "pipeParametersLayoutGroup";
             this.pipeParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -439,9 +440,9 @@
             // 
             this.inspectionOperationLayout.Control = this.inspectionOperation;
             this.inspectionOperationLayout.CustomizationFormText = "Список контрольных операций:";
-            this.inspectionOperationLayout.Location = new System.Drawing.Point(0, 114);
+            this.inspectionOperationLayout.Location = new System.Drawing.Point(233, 0);
             this.inspectionOperationLayout.Name = "inspectionOperationLayout";
-            this.inspectionOperationLayout.Size = new System.Drawing.Size(892, 238);
+            this.inspectionOperationLayout.Size = new System.Drawing.Size(659, 352);
             this.inspectionOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.inspectionOperationLayout.Text = "Список контрольных операций для выбранного типоразмера:";
             this.inspectionOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -452,29 +453,21 @@
             this.pipesSizeListLayout.Control = this.pipesSizeList;
             this.pipesSizeListLayout.CustomizationFormText = "Список типоразмеров";
             this.pipesSizeListLayout.Location = new System.Drawing.Point(0, 0);
+            this.pipesSizeListLayout.MinSize = new System.Drawing.Size(214, 50);
             this.pipesSizeListLayout.Name = "pipesSizeListLayout";
-            this.pipesSizeListLayout.Size = new System.Drawing.Size(349, 114);
+            this.pipesSizeListLayout.Size = new System.Drawing.Size(233, 352);
+            this.pipesSizeListLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipesSizeListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipesSizeListLayout.Text = "Список типоразмеров";
             this.pipesSizeListLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipesSizeListLayout.TextSize = new System.Drawing.Size(316, 13);
-            // 
-            // pipesSizeListmptySpace
-            // 
-            this.pipesSizeListmptySpace.AllowHotTrack = false;
-            this.pipesSizeListmptySpace.CustomizationFormText = "pipesSizeListmptySpace";
-            this.pipesSizeListmptySpace.Location = new System.Drawing.Point(349, 0);
-            this.pipesSizeListmptySpace.Name = "pipesSizeListmptySpace";
-            this.pipesSizeListmptySpace.Size = new System.Drawing.Size(543, 114);
-            this.pipesSizeListmptySpace.Text = "pipesSizeListmptySpace";
-            this.pipesSizeListmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // projectPage
             // 
             this.projectPage.Controls.Add(this.generalProjectLayout);
             this.projectPage.Name = "projectPage";
             this.projectPage.Size = new System.Drawing.Size(906, 363);
-            this.projectPage.Text = "Project";
+            this.projectPage.Text = "&Проект";
             // 
             // generalProjectLayout
             // 
@@ -736,14 +729,14 @@
             // 
             this.pipelinePage.Name = "pipelinePage";
             this.pipelinePage.Size = new System.Drawing.Size(906, 363);
-            this.pipelinePage.Text = "Pipe&line";
+            this.pipelinePage.Text = "Т&рубопровод";
             // 
             // usersPage
             // 
             this.usersPage.Controls.Add(this.usersLayoutControl);
             this.usersPage.Name = "usersPage";
             this.usersPage.Size = new System.Drawing.Size(906, 363);
-            this.usersPage.Text = "&Users";
+            this.usersPage.Text = "Пол&ьзователи";
             // 
             // usersLayoutControl
             // 
@@ -964,7 +957,7 @@
             this.rolesPage.Controls.Add(this.usersButtonLayoutControl);
             this.rolesPage.Name = "rolesPage";
             this.rolesPage.Size = new System.Drawing.Size(906, 363);
-            this.rolesPage.Text = "Roles";
+            this.rolesPage.Text = "&Роли";
             // 
             // usersButtonLayoutControl
             // 
@@ -1149,7 +1142,7 @@
             this.dictionariesPage.Controls.Add(this.dictionaries);
             this.dictionariesPage.Name = "dictionariesPage";
             this.dictionariesPage.Size = new System.Drawing.Size(906, 363);
-            this.dictionariesPage.Text = "&Dictionaries";
+            this.dictionariesPage.Text = "&Словари";
             // 
             // dictionaries
             // 
@@ -1334,7 +1327,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListmptySpace)).EndInit();
             this.projectPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalProjectLayout)).EndInit();
             this.generalProjectLayout.ResumeLayout(false);
@@ -1492,7 +1484,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView pipesSizeListGridView;
         private DevExpress.XtraGrid.Columns.GridColumn pipeSizeGridColumn;
         private DevExpress.XtraLayout.LayoutControlItem pipesSizeListLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem pipesSizeListmptySpace;
         private DevExpress.XtraLayout.LayoutControl generalSettingsLayout;
         private DevExpress.XtraEditors.SimpleButton closeButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
