@@ -15,8 +15,10 @@ namespace Data.DAL.Mapping
             Map(_ => _.Status).Column("pipeMillStatus");
 
             References<Railcar>(x => x.Railcar).Column("railcarId");
+
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
-            References<Plate>(x => x.Plate).Column("plateId");
+
+            References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
         }
     }
 }

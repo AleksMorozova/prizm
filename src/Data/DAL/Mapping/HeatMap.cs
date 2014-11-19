@@ -13,7 +13,10 @@ namespace Data.DAL.Mapping
         public HeatMap()
         {
             Map(x => x.Number).Column("number");
+            Map(x => x.SteelGrade).Column("steelGrade");
+
             HasMany(x => x.Plates).KeyColumn("heatId").Inverse().Cascade.All();
+
         }
     }
 }

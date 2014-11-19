@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Setup;
+﻿using Data.DAL.Mill;
 using Domain.Entity.Setup;
 using Moq;
 using NUnit.Framework;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entity;
 
 namespace UnitTests.Forms.Settings
 {
@@ -17,19 +19,32 @@ namespace UnitTests.Forms.Settings
         [Test]
         public void TestSaveSettings()
         {
-            var repo = new Mock<IMillPipeSizeTypeRepository>();
-            repo.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { new PipeMillSizeType()});
+            var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
+            var repoPipeTests = new Mock<IPipeTestRepository>();
+            var repoWelders = new Mock<IWelderRepository>();
+            var testSizeType = new PipeMillSizeType();
+            var testWelder = new Welder();
+            repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
+            repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
 
-            var viewModel = new SettingsViewModel(repo.Object);
+            Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
+            settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
+            settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
+            settingsRepos.SetupGet(_ => _.WelderRepo).Returns(repoWelders.Object);
 
-            var command = new SaveSettingsCommand(viewModel, repo.Object);
+            var viewModel = new SettingsViewModel(settingsRepos.Object);
+            viewModel.LoadData();
+
+            var command = new SaveSettingsCommand(viewModel, settingsRepos.Object);
 
             command.Execute();
 
-            repo.Verify(_ => _.BeginTransaction(), Times.AtLeastOnce());
-            repo.Verify(_ => _.SaveOrUpdate(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
-            repo.Verify(_ => _.Commit(), Times.AtLeastOnce());
-            repo.Verify(_ => _.Evict(viewModel.PipeMillSizeType[0]), Times.AtLeastOnce());
+            settingsRepos.Verify(_ => _.BeginTransaction(), Times.Once());
+            repoPipeSize.Verify(_ => _.SaveOrUpdate(testSizeType), Times.Once());
+            settingsRepos.Verify(_ => _.Commit(), Times.Once());
+            repoPipeSize.Verify(_ => _.Evict(testSizeType), Times.Once());
+            repoWelders.Verify(_ => _.SaveOrUpdate(testWelder), Times.Once());
+            repoWelders.Verify(_ => _.Evict(testWelder), Times.Once());
         }
     }
 }

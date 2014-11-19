@@ -74,7 +74,7 @@ CREATE TABLE [dbo].[Heat](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [nvarchar](20) NULL,
 	[steelGrade] [nvarchar](20) NULL,
-	[manufacturerId] [uniqueidentifier] NULL,
+	[plateManufacturer] [uniqueidentifier] NULL,
 	[chemicalCompositionId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
@@ -229,15 +229,15 @@ CREATE TABLE [dbo].[PurchaseOrder](
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
 
-/****** Object:  Table [dbo].[ProductManufacturer]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[PlateManufacturer]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[ProductManufacturer](
+CREATE TABLE [dbo].[PlateManufacturer](
 	[id] [uniqueidentifier]NOT NULL,
 	[name] [varchar](20) NOT NULL,
 	[isActive] [bit] NOT NULL,
- CONSTRAINT [PK_ProductManufacturer] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PlateManufacturer] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

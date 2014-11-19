@@ -18,7 +18,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo,IPipeRepository pipeRepo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepository repo, IPipeRepository pipeRepo, string railcarNumber)
         {
             this.railcarRepo = repo;
             this.pipeRepo = pipeRepo;
