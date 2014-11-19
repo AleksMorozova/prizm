@@ -35,7 +35,9 @@ namespace PrizmMain
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPlateRepository>().To<PlateRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
+            Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
+
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             #endregion
 
