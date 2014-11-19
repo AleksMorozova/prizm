@@ -253,7 +253,7 @@ SET ANSI_PADDING OFF
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[ProductManufacturer](
+CREATE TABLE [dbo].[PlateManufacturer](
 	[id] [uniqueidentifier]NOT NULL,
 	[name] [nvarchar](100) NOT NULL,
 	[isActive] [bit] NOT NULL,

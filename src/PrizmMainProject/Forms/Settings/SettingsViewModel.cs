@@ -146,7 +146,14 @@ namespace PrizmMain.Forms.Settings
 
         private void GetProjectSettings()
         {
-            CurrentProjectSettings = projectRepo.GetSingle();
+
+            CurrentProjectSettings = (projectRepo.GetSingle() == null) ? new Project()
+                                                                            {
+                                                                                Client = string.Empty,
+                                                                                Designer = string.Empty,
+                                                                                IsActive = true
+                                                                            } 
+                                                                        : projectRepo.GetSingle();
         }
 
         private void GetAllManufacturers()
