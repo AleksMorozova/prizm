@@ -116,7 +116,7 @@
             // pipeSizeGridColumn
             // 
             this.pipeSizeGridColumn.Caption = "Типоразмер трубы";
-            this.pipeSizeGridColumn.FieldName = "Type";
+            this.pipeSizeGridColumn.FieldName = "Type.Type";
             this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
             this.pipeSizeGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeSizeGridColumn.Visible = true;
