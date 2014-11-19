@@ -18,58 +18,78 @@ namespace PrizmMain.Forms.Settings
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
 
-        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos) 
+        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos)
         {
             this.viewModel = viewModel;
-           this.repos = repos;
+            this.repos = repos;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
             repos.BeginTransaction();
-            SaveWelders();  
+            SaveWelders();
             SaveMillSizeTypes();
+            SavePlateManufacturers();
+            repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
+            EvictPlateManufacturers();
+            repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
         }
 
         private void EvictWelders()
         {
-           if (viewModel.Welders != null)
-           {
-              viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.Evict(_.Welder));
-           }
+            if (viewModel.Welders != null)
+            {
+                viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.Evict(_.Welder));
+            }
         }
 
         private void EvictMillSizeTypes()
         {
-           foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
-           {
-              repos.PipeSizeTypeRepo.Evict(t);
-           }
+            foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
+            {
+                repos.PipeSizeTypeRepo.Evict(t);
+            }
+        }
+
+        private void EvictPlateManufacturers()
+        {
+            foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
+            {
+                repos.PlateManufacturerRepo.Evict(manufacturer);
+            }
         }
 
         public bool CanExecute()
         {
-           return true;
+            return true;
         }
 
         void SaveMillSizeTypes()
         {
-           foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
-           {
-              repos.PipeSizeTypeRepo.SaveOrUpdate(t);
-           }
+            foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
+            {
+                repos.PipeSizeTypeRepo.SaveOrUpdate(t);
+            }
         }
 
         void SaveWelders()
         {
-           if (viewModel.Welders != null)
-           {
-              viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
-           }
+            if (viewModel.Welders != null)
+            {
+                viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
+            }
+        }
+
+        void SavePlateManufacturers()
+        {
+            foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
+            {
+                repos.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
+            }
         }
     }
 }

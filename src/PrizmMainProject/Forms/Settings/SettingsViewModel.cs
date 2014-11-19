@@ -25,9 +25,7 @@ namespace PrizmMain.Forms.Settings
         public BindingList<WelderViewType> Welders { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
-        
-        readonly IProjectRepository projectRepo;
-        readonly IPlateManufacturerRepository manufacturerRepo;
+        private IList<PlateManufacturer> plateManufacturers;
 
         [Inject]
         public SettingsViewModel(ISettingsRepositories repos)
@@ -169,18 +167,19 @@ namespace PrizmMain.Forms.Settings
         private void GetProjectSettings()
         {
 
-            CurrentProjectSettings = (projectRepo.GetSingle() == null) ? new Project()
+            CurrentProjectSettings = (repos.ProjectRepo.GetSingle() == null) ? new Project()
                                                                             {
                                                                                 Client = string.Empty,
                                                                                 Designer = string.Empty,
                                                                                 IsActive = true
-                                                                            } 
-                                                                        : projectRepo.GetSingle();
+                                                                            }
+                                                                        : repos.ProjectRepo.GetSingle();
         }
 
         private void GetAllManufacturers()
         {
-            plateManufacturers = manufacturerRepo.GetAll().ToList();
+           var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
+           PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
         }
 
         public void AddNewManufacturer(string newManufacturerName)
