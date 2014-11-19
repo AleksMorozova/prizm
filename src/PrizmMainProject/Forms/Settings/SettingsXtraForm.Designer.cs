@@ -338,7 +338,7 @@
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 125;
+            this.inspectionNameGridColumn.Width = 110;
             // 
             // testSubjectGridColumn
             // 
@@ -347,7 +347,7 @@
             this.testSubjectGridColumn.Name = "testSubjectGridColumn";
             this.testSubjectGridColumn.Visible = true;
             this.testSubjectGridColumn.VisibleIndex = 2;
-            this.testSubjectGridColumn.Width = 126;
+            this.testSubjectGridColumn.Width = 110;
             // 
             // controlTypeGridColumn
             // 
@@ -356,7 +356,6 @@
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 3;
-            this.controlTypeGridColumn.Width = 107;
             // 
             // resultTypeGridColumn
             // 
@@ -365,7 +364,6 @@
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 4;
-            this.resultTypeGridColumn.Width = 77;
             // 
             // minExpectedGridColumn
             // 
@@ -375,7 +373,7 @@
             this.minExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.minExpectedGridColumn.Visible = true;
             this.minExpectedGridColumn.VisibleIndex = 5;
-            this.minExpectedGridColumn.Width = 34;
+            this.minExpectedGridColumn.Width = 30;
             // 
             // maxExpectedGridColumn
             // 
@@ -385,7 +383,7 @@
             this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
             this.maxExpectedGridColumn.VisibleIndex = 6;
-            this.maxExpectedGridColumn.Width = 40;
+            this.maxExpectedGridColumn.Width = 30;
             // 
             // boolExpectedGridColumn
             // 
@@ -395,7 +393,7 @@
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
             this.boolExpectedGridColumn.VisibleIndex = 7;
-            this.boolExpectedGridColumn.Width = 82;
+            this.boolExpectedGridColumn.Width = 55;
             // 
             // isRequiredGridColumn
             // 
@@ -405,7 +403,7 @@
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
             this.isRequiredGridColumn.VisibleIndex = 8;
-            this.isRequiredGridColumn.Width = 83;
+            this.isRequiredGridColumn.Width = 51;
             // 
             // isRequired
             // 
@@ -419,6 +417,7 @@
             this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
             this.testIsActiveGridColumn.Visible = true;
             this.testIsActiveGridColumn.VisibleIndex = 9;
+            this.testIsActiveGridColumn.Width = 51;
             // 
             // pipeParametersLayoutGroup
             // 
