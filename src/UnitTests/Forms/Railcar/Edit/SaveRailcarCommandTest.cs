@@ -11,11 +11,12 @@ namespace UnitTests.Forms.Railcar.Edit
     public class SaveRailcarCommandTest
     {
         [Test]
-        public void TestSaveRailcar()
+        public void TestSaveNewRailcar()
         {
             var repo = new Mock<IRailcarRepository>();
+            
             var pipeRepo = new Mock<IPipeRepository>();
-
+            
             pipeRepo.Setup(x => x.GetAll()).Returns(new List<Pipe>() { new Pipe() });
 
             var viewModel = new RailcarViewModel(repo.Object, pipeRepo.Object,"");
