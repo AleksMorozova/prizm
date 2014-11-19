@@ -36,6 +36,7 @@ namespace PrizmMain
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
+            Bind<IInspectorRepository>().To<InspectorRepository>();
             #endregion
 
             #region ViewModel

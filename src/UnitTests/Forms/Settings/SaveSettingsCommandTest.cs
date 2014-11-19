@@ -22,15 +22,20 @@ namespace UnitTests.Forms.Settings
             var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
             var repoPipeTests = new Mock<IPipeTestRepository>();
             var repoWelders = new Mock<IWelderRepository>();
+            var repoInspectors = new Mock<IInspectorRepository>();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
+            var testInspector = new Inspector();
             repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
             repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
+            repoInspectors.Setup(_ => _.GetAll()).Returns(new List<Inspector>() { testInspector });
 
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
             settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
             settingsRepos.SetupGet(_ => _.WelderRepo).Returns(repoWelders.Object);
+            settingsRepos.SetupGet(_ => _.InspectorRepo).Returns(repoInspectors.Object);
+
 
             var viewModel = new SettingsViewModel(settingsRepos.Object);
             viewModel.LoadData();
@@ -45,6 +50,8 @@ namespace UnitTests.Forms.Settings
             repoPipeSize.Verify(_ => _.Evict(testSizeType), Times.Once());
             repoWelders.Verify(_ => _.SaveOrUpdate(testWelder), Times.Once());
             repoWelders.Verify(_ => _.Evict(testWelder), Times.Once());
+            repoInspectors.Verify(_ => _.SaveOrUpdate(testInspector), Times.Once());
+            repoInspectors.Verify(_ => _.Evict(testInspector), Times.Once());
         }
     }
 }

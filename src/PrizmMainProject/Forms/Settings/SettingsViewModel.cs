@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.Settings
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
+        public BindingList<InspectorViewType> Inspectors { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
         
@@ -36,6 +37,7 @@ namespace PrizmMain.Forms.Settings
         {
            GetAllPipeMillSizeType();
            GetAllWelders();
+           GetAllInspectors();
         }
 
        
@@ -81,6 +83,21 @@ namespace PrizmMain.Forms.Settings
               }
            }
                       
+        }
+
+        void GetAllInspectors()
+        {
+           if (Inspectors == null)
+              Inspectors = new BindingList<InspectorViewType>();
+
+           var foundInspectors = repos.InspectorRepo.GetAll();
+           if (foundInspectors != null)
+           {
+              foreach (Inspector i in foundInspectors)
+              {
+                 Inspectors.Add(new InspectorViewType(i));
+              }
+           }
         }
 
         public void NewPipeMillSizeType()

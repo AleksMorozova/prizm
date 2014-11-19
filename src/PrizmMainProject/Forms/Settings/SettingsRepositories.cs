@@ -16,6 +16,7 @@ namespace PrizmMain.Forms.Settings
       readonly IWelderRepository welderRepo;
       readonly IMillPipeSizeTypeRepository pipeSizeTypeRepo;
       readonly IPipeTestRepository pipeTestRepo;
+      readonly IInspectorRepository inspectorRepo;
       readonly ISession session;
 
       [Inject]
@@ -25,6 +26,7 @@ namespace PrizmMain.Forms.Settings
          this.welderRepo = new WelderRepository(session);
          this.pipeTestRepo = new PipeTestRepository(session);
          this.pipeSizeTypeRepo = new MillPipeSizeTypeRepository(session);
+         this.inspectorRepo = new InspectorRepository(session);
       }
 
       
@@ -48,6 +50,10 @@ namespace PrizmMain.Forms.Settings
          get { return pipeTestRepo; }
       }
 
+      public IInspectorRepository InspectorRepo
+      {
+         get { return inspectorRepo; }
+      }
 
       public void Commit()
       {
@@ -58,5 +64,6 @@ namespace PrizmMain.Forms.Settings
       {
          session.BeginTransaction();
       }
+      
    }
 }

@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Table("Welder");
             Map(_ => _.Certificate).Column("certificate");
-            Map(_ => _.CertificateExpitation).Column("certificateExpiration");
+            Map(_ => _.CertificateExpiration).Column("certificateExpiration");
             Map(_ => _.Stamp).Column("stamp");
             Map(_ => _.Grade).Column("grade");
             Component<PersonName>(x => x.Name, m =>

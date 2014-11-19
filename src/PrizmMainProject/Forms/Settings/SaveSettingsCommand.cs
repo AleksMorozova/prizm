@@ -27,11 +27,13 @@ namespace PrizmMain.Forms.Settings
         public void Execute()
         {
             repos.BeginTransaction();
-            SaveWelders();  
+            SaveWelders();
+            SaveInspectors();
             SaveMillSizeTypes();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
+            EvictInspectors();
         }
 
         private void EvictWelders()
@@ -68,6 +70,22 @@ namespace PrizmMain.Forms.Settings
            if (viewModel.Welders != null)
            {
               viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
+           }
+        }
+
+        void SaveInspectors()
+        {
+           if (viewModel.Inspectors != null)
+           {
+              viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.SaveOrUpdate(_.Inspector));
+           }
+        }
+
+        void EvictInspectors()
+        {
+           if (viewModel.Inspectors != null)
+           {
+              viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.Evict(_.Inspector));
            }
         }
     }

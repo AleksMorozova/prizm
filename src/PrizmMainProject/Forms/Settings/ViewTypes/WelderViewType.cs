@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Settings.ViewTypes
 {
-   public class WelderViewType : INotifyPropertyChanged
+   public class WelderViewType : CertificatedPersonSetupViewType
    {
       readonly Welder welder;
-      public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
+      
       public WelderViewType(Welder welder)
       {
          this.welder = welder;
@@ -25,7 +24,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          CheckName();
       }
 
-      public String FirstName
+      public override String FirstName
       {
          get
          {
@@ -42,7 +41,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public String LastName
+      public override String LastName
       {
          get
          {
@@ -59,7 +58,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public String MiddleName
+      public override String MiddleName
       {
          get
          {
@@ -76,7 +75,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public string Certificate 
+      public override string Certificate 
       { 
          get
          {
@@ -92,18 +91,18 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public DateTime? CertificateExpitation
+      public override DateTime? CertificateExpiration
       {
          get
          {
-            return welder.CertificateExpitation;
+            return welder.CertificateExpiration;
          }
          set
          {
-            if (value != welder.CertificateExpitation)
+            if (value != welder.CertificateExpiration)
             {
-               welder.CertificateExpitation = value;
-               FirePropertyChanged("CertificateExpitation");
+               welder.CertificateExpiration = value;
+               FirePropertyChanged("CertificateExpiration");
             }
          }
       }
@@ -140,7 +139,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public bool Active
+      public override bool Active
       {
          get
          {
@@ -156,15 +155,10 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      void CheckName()
+      protected override void CheckName()
       {
          if (welder.Name == null)
             welder.Name = new PersonName();
-      }
-
-      private void FirePropertyChanged(string prop)
-      {
-         PropertyChanged(this, new PropertyChangedEventArgs(prop));
       }
 
       public Welder Welder
