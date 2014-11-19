@@ -21,9 +21,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly IPlateRepository repoPlate;
         private readonly IHeatRepository repoHeat;
         private readonly IWeldRepository repoWeld;
-        private readonly IPurchaseOrderRepository repoPurchaseOrder;
-
-        private IList<Plate> plates;
+        
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
 
@@ -343,9 +341,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipePurchaseOrder = new PurchaseOrder();
             this.PipePurchaseOrder.Number = string.Empty;
             this.PipePurchaseOrder.Date = DateTime.Now;
-
-            this.PipePurchaseOrder = PurchaseOrders[0];
-            this.Heat = Heats[0];
         }
 
         public void Dispose()

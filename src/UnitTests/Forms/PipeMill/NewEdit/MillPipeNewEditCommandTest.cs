@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Mill;
+using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
 using PrizmMain.Forms.PipeMill.NewEdit;
@@ -36,9 +37,9 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             command.Execute();
 
             repoPipe.Verify(_ => _.BeginTransaction(), Times.Once());
-            repoPipe.Verify(_ => _.Save(viewModel.Pipe), Times.Once());
+            repoPipe.Verify(_ => _.Save(It.IsAny<Pipe>()), Times.Once());
             repoPipe.Verify(_ => _.Commit(), Times.Once());
-            repoPipe.Verify(_ => _.Evict(viewModel.Pipe), Times.Once());
+            repoPipe.Verify(_ => _.Evict(It.IsAny<Pipe>()), Times.Once());
         }
     }
 }
