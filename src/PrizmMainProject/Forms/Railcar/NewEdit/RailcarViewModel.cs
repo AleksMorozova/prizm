@@ -83,6 +83,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        private DateTime? shippingDate = null;
         public DateTime? ShippingDate
         {
             get { return Railcar.ShippingDate; }
@@ -168,7 +169,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             Number = string.Empty;
             Destination = string.Empty;
-            ShippingDate = DateTime.Now;
+            ShippingDate = null;
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
         }

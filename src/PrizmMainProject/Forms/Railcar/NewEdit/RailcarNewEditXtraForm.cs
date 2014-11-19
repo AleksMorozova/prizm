@@ -15,6 +15,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("railcarNumber", railcarNumber));
+
+            shippedDate.Properties.NullDate = DateTime.MinValue;
+            shippedDate.Properties.NullText = string.Empty;
         }
 
         public RailcarNewEditXtraForm():this("")

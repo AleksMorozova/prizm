@@ -12,7 +12,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
             Map(_ => _.ShippingDate, "shippingDate");
-            HasMany(_ => _.Pipes).KeyColumn("railcarId").Inverse();
+            HasMany(_ => _.Pipes).KeyColumn("railcarId");
         }
     }
 }

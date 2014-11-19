@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -37,7 +36,7 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -176,7 +175,7 @@
             // 
             // shippingDate
             // 
-            this.shippingDate.Caption = "Дата формирования";
+            this.shippingDate.Caption = "Дата отгрузки";
             this.shippingDate.FieldName = "ShippingDate";
             this.shippingDate.MaxWidth = 150;
             this.shippingDate.Name = "shippingDate";
