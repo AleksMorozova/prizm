@@ -7,12 +7,12 @@ namespace Data.DAL.Mapping
     {
         public RailcarMap()
         {
+            Table("Railcar");
             Map(x => x.Number).Column("number");
-            Map(_ => _.ShippingDate, "shippingDate");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
-
-            HasMany(_ => _.Pipes).KeyColumn("railcarId").Inverse();
+	    Map(_ => _.ShippingDate, "shippingDate");
+            HasMany(_ => _.Pipes).KeyColumn("railcarId");
         }
     }
 }
