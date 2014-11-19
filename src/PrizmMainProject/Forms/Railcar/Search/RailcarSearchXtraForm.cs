@@ -79,5 +79,15 @@ namespace PrizmMain.Forms.Railcar.Search
                 e.RepositoryItem = unshipGridButton;
             }
         }
+
+        private void shipGridButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ship");
+        }
+
+        private void unshipGridButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Unship");
+        }
     }
 }
