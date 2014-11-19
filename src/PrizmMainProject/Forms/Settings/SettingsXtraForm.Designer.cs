@@ -523,6 +523,7 @@
             this.addPlateManufacturerButton.StyleController = this.generalProjectLayout;
             this.addPlateManufacturerButton.TabIndex = 15;
             this.addPlateManufacturerButton.Text = "Добавить";
+            this.addPlateManufacturerButton.Click += new System.EventHandler(this.addPlateManufacturerButton_Click);
             // 
             // plateManufacturer
             // 
@@ -542,9 +543,14 @@
             // 
             // externalDocumentSize
             // 
-            this.externalDocumentSize.EditValue = "1024";
+            this.externalDocumentSize.EditValue = "";
             this.externalDocumentSize.Location = new System.Drawing.Point(579, 64);
             this.externalDocumentSize.Name = "externalDocumentSize";
+            this.externalDocumentSize.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            this.externalDocumentSize.Properties.Mask.EditMask = "d";
+            this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.externalDocumentSize.Properties.Mask.SaveLiteral = false;
+            this.externalDocumentSize.Properties.Mask.ShowPlaceHolders = false;
             this.externalDocumentSize.Size = new System.Drawing.Size(172, 20);
             this.externalDocumentSize.StyleController = this.generalProjectLayout;
             this.externalDocumentSize.TabIndex = 3;
@@ -581,7 +587,8 @@
             // 
             // plateManufacturerGridColumn
             // 
-            this.plateManufacturerGridColumn.Caption = "Manufacture";
+            this.plateManufacturerGridColumn.Caption = "Название";
+            this.plateManufacturerGridColumn.FieldName = "Name";
             this.plateManufacturerGridColumn.Name = "plateManufacturerGridColumn";
             this.plateManufacturerGridColumn.Visible = true;
             this.plateManufacturerGridColumn.VisibleIndex = 0;

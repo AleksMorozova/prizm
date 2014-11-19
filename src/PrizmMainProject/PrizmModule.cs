@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Data.DAL;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
@@ -40,6 +41,9 @@ namespace PrizmMain
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IInspectorRepository>().To<InspectorRepository>();
+            Bind<IProjectRepository>().To<ProjectRepository>();
+            Bind<IPlateManufacturerRepository>().To<PlateManufacturerRepository>();
+
             #endregion
 
             #region ViewModel

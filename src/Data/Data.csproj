@@ -64,10 +64,12 @@
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateManufacturerRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateRepository.cs" />
+    <Compile Include="DAL\Hibernate\ProjectRepository.cs" />
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
+    <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="DAL\Mapping\PipeTestMap.cs" />
     <Compile Include="DAL\Mapping\PlateManufacturerMap.cs" />
     <Compile Include="DAL\Mapping\PlateMap.cs" />
+    <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />

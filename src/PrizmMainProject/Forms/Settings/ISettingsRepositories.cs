@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Data.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace PrizmMain.Forms.Settings
       IMillPipeSizeTypeRepository PipeSizeTypeRepo { get; }
       IPipeTestRepository PipeTestRepo { get; }
       IInspectorRepository InspectorRepo { get; }
+      IProjectRepository ProjectRepo { get; }
+      IPlateManufacturerRepository PlateManufacturerRepo { get; }
+
       void Commit();
       void BeginTransaction();
    }
