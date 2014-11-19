@@ -1,5 +1,7 @@
 ﻿using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Data.DAL;
+using Domain.Entity.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Domain.Entity;
@@ -19,15 +21,17 @@ namespace PrizmMain.Forms.Settings
     public class SettingsViewModel : ViewModelBase, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
+        public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
+        public BindingList<InspectorViewType> Inspectors { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
-        
+        private IList<PlateManufacturer> plateManufacturers;
 
         [Inject]
         public SettingsViewModel(ISettingsRepositories repos)
         {
-            NewPipeMillSizeType();
+            NewPipeMillSizeType();  
             this.repos = repos;
             saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos));
         }
@@ -36,6 +40,9 @@ namespace PrizmMain.Forms.Settings
         {
            GetAllPipeMillSizeType();
            GetAllWelders();
+           GetAllInspectors();
+           GetProjectSettings();
+           GetAllManufacturers();
         }
 
        
@@ -56,6 +63,74 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        #region Current Project Settings
+
+        public string Client
+        {
+            get
+            {
+                return CurrentProjectSettings.Client;
+            }
+            set 
+            {
+                if (value != CurrentProjectSettings.Client)
+                {
+                    CurrentProjectSettings.Client = value;
+                    RaisePropertyChanged("Client");
+                }
+            }
+        }
+
+        public string Designer
+        {
+            get 
+            {
+                return CurrentProjectSettings.Designer;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.Designer)
+                {
+                    CurrentProjectSettings.Designer = value;
+                    RaisePropertyChanged("Designer");
+                }
+            }
+        }
+
+        public int DocumentSizeLimit 
+        {
+            get
+            {
+                return CurrentProjectSettings.DocumentSizeLimit;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.DocumentSizeLimit)
+                {
+                    CurrentProjectSettings.DocumentSizeLimit = value;
+                    RaisePropertyChanged("DocumentSizeLimit");
+                }
+            }
+        }
+        #endregion
+
+        #region Plate Manufacturers
+        public IList<PlateManufacturer> PlateManufacturers
+        {
+            get 
+            {
+                return plateManufacturers;
+            }
+            set 
+            {
+                if (value != plateManufacturers)
+                {
+                    plateManufacturers = value;
+                    RaisePropertyChanged("PlateManufacturers");
+                }
+            }
+        }
+        #endregion
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -83,11 +158,54 @@ namespace PrizmMain.Forms.Settings
                       
         }
 
+        void GetAllInspectors()
+        {
+           if (Inspectors == null)
+              Inspectors = new BindingList<InspectorViewType>();
+
+           var foundInspectors = repos.InspectorRepo.GetAll();
+           if (foundInspectors != null)
+           {
+              foreach (Inspector i in foundInspectors)
+              {
+                 Inspectors.Add(new InspectorViewType(i));
+              }
+           }
+        }
+
         public void NewPipeMillSizeType()
         {
             if (PipeMillSizeType == null)
             {
                 PipeMillSizeType = new List<PipeMillSizeType>();
+            }
+        }
+
+        private void GetProjectSettings()
+        {
+
+            CurrentProjectSettings = (repos.ProjectRepo.GetSingle() == null) ? new Project()
+                                                                            {
+                                                                                Client = string.Empty,
+                                                                                Designer = string.Empty,
+                                                                                IsActive = true
+                                                                            }
+                                                                        : repos.ProjectRepo.GetSingle();
+        }
+
+        private void GetAllManufacturers()
+        {
+           var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
+           PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
+        }
+
+        public void AddNewManufacturer(string newManufacturerName)
+        {
+           var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
+            if (!existingItem.Any())
+            {
+                PlateManufacturer newManufacturer = new PlateManufacturer { IsActive = true, Name = newManufacturerName };
+                plateManufacturers.Add(newManufacturer);
             }
         }
 

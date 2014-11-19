@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Data.DAL;
 using NHibernate;
 using Ninject;
 using System;
@@ -16,6 +17,9 @@ namespace PrizmMain.Forms.Settings
       readonly IWelderRepository welderRepo;
       readonly IMillPipeSizeTypeRepository pipeSizeTypeRepo;
       readonly IPipeTestRepository pipeTestRepo;
+      readonly IProjectRepository projectRepo;
+      readonly IPlateManufacturerRepository manufacturerRepo;
+      readonly IInspectorRepository inspectorRepo;
       readonly ISession session;
 
       [Inject]
@@ -25,6 +29,10 @@ namespace PrizmMain.Forms.Settings
          this.welderRepo = new WelderRepository(session);
          this.pipeTestRepo = new PipeTestRepository(session);
          this.pipeSizeTypeRepo = new MillPipeSizeTypeRepository(session);
+         this.projectRepo = new ProjectRepository(session);
+         this.manufacturerRepo = new PlateManufacturerRepository(session);
+         this.inspectorRepo = new InspectorRepository(session);
+
       }
 
       
@@ -48,6 +56,20 @@ namespace PrizmMain.Forms.Settings
          get { return pipeTestRepo; }
       }
 
+      public IInspectorRepository InspectorRepo
+      {
+         get { return inspectorRepo; }
+      }
+      
+      public IProjectRepository ProjectRepo
+      {
+          get { return projectRepo; }
+      }
+
+      public IPlateManufacturerRepository PlateManufacturerRepo
+      {
+          get { return manufacturerRepo; }
+      }
 
       public void Commit()
       {
@@ -58,5 +80,6 @@ namespace PrizmMain.Forms.Settings
       {
          session.BeginTransaction();
       }
+      
    }
 }

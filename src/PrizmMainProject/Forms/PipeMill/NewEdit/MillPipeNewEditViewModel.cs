@@ -438,6 +438,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipePurchaseOrder = new PurchaseOrder();
             this.PipePurchaseOrder.Number = string.Empty;
             this.PipePurchaseOrder.Date = DateTime.Now;
+
+            Heat = Heats[0];
+            PipePurchaseOrder = PurchaseOrders[0];
         }
 
         public void Dispose()

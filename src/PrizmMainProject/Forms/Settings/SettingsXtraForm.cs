@@ -9,6 +9,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entity.Setup;
 using Ninject;
 using Ninject.Parameters;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -16,6 +18,7 @@ namespace PrizmMain.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        const string VALUE_REQUIRED = "This value is required."; // TODO: Translate when more languages will be supported.
 
         public SettingsXtraForm()
         {
@@ -69,6 +72,7 @@ namespace PrizmMain.Forms.Settings
             BindCommands();
 
             gridViewWelders.BestFitColumns();
+            gridViewInspectors.BestFitColumns();
         }
 
         private void BindToViewModel()
@@ -77,8 +81,13 @@ namespace PrizmMain.Forms.Settings
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
+            gridControlInspectors.DataSource = viewModel.Inspectors;
+            client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+            design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
+            externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+            plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
         }
-
+       
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
@@ -118,33 +127,52 @@ namespace PrizmMain.Forms.Settings
             CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
         }
 
-        private void gridViewWelders_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void addPlateManufacturerButton_Click(object sender, EventArgs e)
         {
-           string firstName = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderFirstName);
-           string lastName = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderLastName);
+            if (string.IsNullOrWhiteSpace(plateManufacturer.Text))
+            {
+                return;
+            }
+            viewModel.AddNewManufacturer(plateManufacturer.Text);
+            plateManufacturer.Text = string.Empty;
+            plateManufacturersList.RefreshDataSource();
+        }
 
-           const string VALUE_REQUIRED = "This value is required."; // TODO: Translate when more languages will be supported.
+        private void gridViewWelders_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+           ValidatePersonName(gridViewWelders, colWelderFirstName, colWelderLastName, e);
+        }
 
-           gridViewWelders.ClearColumnErrors();
+        private void gridViewInspectors_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+           ValidatePersonName(gridViewInspectors, colInspectorFirstName, colInspectorLastName, e);
+        }
+       
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+           e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
+        {
+           string firstName = (string)view.GetRowCellValue(e.RowHandle, firstNameColumn);
+           string lastName = (string)view.GetRowCellValue(e.RowHandle, lastNameColumn);
+
+           view.ClearColumnErrors();
 
            if (String.IsNullOrEmpty(firstName))
            {
-              gridViewWelders.SetColumnError(colWelderFirstName, VALUE_REQUIRED);
+              view.SetColumnError(firstNameColumn, VALUE_REQUIRED);
               e.Valid = false;
            }
 
            if (String.IsNullOrEmpty(lastName))
            {
-              gridViewWelders.SetColumnError(colWelderLastName, VALUE_REQUIRED);
+              view.SetColumnError(lastNameColumn, VALUE_REQUIRED);
               e.Valid = false;
            }
-           
         }
 
-        private void gridViewWelders_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-           e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
-
+        
     }
 }
