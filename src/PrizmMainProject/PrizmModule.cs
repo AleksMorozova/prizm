@@ -35,8 +35,11 @@ namespace PrizmMain
             Bind<IHeatRepository>().To<HeatRepository>();
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
+            Bind<IWelderRepository>().To<WelderRepository>();
+            Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IProjectRepository>().To<ProjectRepository>();
             Bind<IPlateManufacturerRepository>().To<PlateManufacturerRepository>();
+
             #endregion
 
             #region ViewModel

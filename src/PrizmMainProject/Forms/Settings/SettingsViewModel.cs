@@ -1,13 +1,14 @@
-﻿using Data.DAL.Setup;
+﻿using Data.DAL.Mill;
+using Data.DAL.Setup;
 using Data.DAL;
-using Data.DAL.Mill;
-using Domain.Entity;
 using Domain.Entity.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity;
 using Domain.Entity.Setup;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,24 +22,29 @@ namespace PrizmMain.Forms.Settings
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
+        public BindingList<WelderViewType> Welders { get; set; }
         readonly SaveSettingsCommand saveCommand;
-        private IList<PlateManufacturer> plateManufacturers;
-        readonly IMillPipeSizeTypeRepository sizeRepo;
+        readonly ISettingsRepositories repos;
+        
         readonly IProjectRepository projectRepo;
         readonly IPlateManufacturerRepository manufacturerRepo;
 
         [Inject]
-        public SettingsViewModel(IMillPipeSizeTypeRepository sizeRepo, IProjectRepository projectRepo, IPlateManufacturerRepository manufacturerRepo)
+        public SettingsViewModel(ISettingsRepositories repos)
         {
             NewPipeMillSizeType();  
-            this.sizeRepo = sizeRepo;       
-            this.projectRepo = projectRepo;
-            this.manufacturerRepo = manufacturerRepo;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, sizeRepo, projectRepo, manufacturerRepo));
-            GetAllPipeMillSizeType();
-            GetProjectSettings();
-            GetAllManufacturers();
+            this.repos = repos;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos));
         }
+
+        public void LoadData()
+        {
+           GetAllPipeMillSizeType();
+           GetAllWelders();
+           GetProjectSettings();
+           GetAllManufacturers();
+        }
+
        
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
@@ -132,8 +138,24 @@ namespace PrizmMain.Forms.Settings
 
         private void GetAllPipeMillSizeType()
         {
-            var allSizeType = sizeRepo.GetAll().ToList();
+            var allSizeType = repos.PipeSizeTypeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
+        }
+
+        void GetAllWelders()
+        {
+           if (Welders == null)
+              Welders = new BindingList<WelderViewType>();
+
+           var foundWelders = repos.WelderRepo.GetAll();
+           if (foundWelders != null)
+           {
+              foreach (Welder w in foundWelders)
+              {
+                 Welders.Add(new WelderViewType(w));
+              }
+           }
+                      
         }
 
         public void NewPipeMillSizeType()
@@ -173,9 +195,7 @@ namespace PrizmMain.Forms.Settings
 
         public void Dispose()
         {
-            sizeRepo.Dispose();
-            projectRepo.Dispose();
-            manufacturerRepo.Dispose();
+            repos.Dispose();
         }
 
         internal void UpdatePipeTests(object sizeType)
@@ -189,5 +209,6 @@ namespace PrizmMain.Forms.Settings
                 PipeTests.Add(t);
             }
         }
+
     }
 }

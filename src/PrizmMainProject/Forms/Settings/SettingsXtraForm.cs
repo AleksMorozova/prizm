@@ -64,8 +64,11 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+            viewModel.LoadData();
             BindToViewModel();
             BindCommands();
+
+            gridViewWelders.BestFitColumns();
         }
 
         private void BindToViewModel()
@@ -73,6 +76,7 @@ namespace PrizmMain.Forms.Settings
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
+            gridControlWelders.DataSource = viewModel.Welders;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
@@ -128,5 +132,34 @@ namespace PrizmMain.Forms.Settings
             plateManufacturer.Text = string.Empty;
             plateManufacturersList.RefreshDataSource();
         }
+
+        private void gridViewWelders_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+           string firstName = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderFirstName);
+           string lastName = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderLastName);
+
+           const string VALUE_REQUIRED = "This value is required."; // TODO: Translate when more languages will be supported.
+
+           gridViewWelders.ClearColumnErrors();
+
+           if (String.IsNullOrEmpty(firstName))
+           {
+              gridViewWelders.SetColumnError(colWelderFirstName, VALUE_REQUIRED);
+              e.Valid = false;
+           }
+
+           if (String.IsNullOrEmpty(lastName))
+           {
+              gridViewWelders.SetColumnError(colWelderLastName, VALUE_REQUIRED);
+              e.Valid = false;
+           }
+           
+        }
+
+        private void gridViewWelders_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+           e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
     }
 }

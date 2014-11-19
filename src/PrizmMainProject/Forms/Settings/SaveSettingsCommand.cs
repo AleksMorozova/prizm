@@ -1,9 +1,10 @@
-﻿using Data.DAL.Setup;
+﻿using Data.DAL.Mill;
+using Data.DAL.Setup;
 using Data.DAL;
-using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using Domain.Entity.Setup;
 using PrizmMain.Commands;
+using PrizmMain.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,53 +15,61 @@ namespace PrizmMain.Forms.Settings
 {
     public class SaveSettingsCommand : ICommand
     {
-        readonly IMillPipeSizeTypeRepository repo;
+        readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
-        readonly IProjectRepository projectRepo;
-        readonly IPlateManufacturerRepository manufacturerRepo;
 
-        public SaveSettingsCommand(SettingsViewModel viewModel, IMillPipeSizeTypeRepository repo, IProjectRepository projectRepo, IPlateManufacturerRepository manufacturerRepo)
+        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos) 
         {
             this.viewModel = viewModel;
-            this.repo = repo;
-            this.projectRepo = projectRepo;
-            this.manufacturerRepo = manufacturerRepo;
+           this.repos = repos;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            try
-            {
-                foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
-                {
-                    repo.BeginTransaction();
-                    repo.SaveOrUpdate(t);
-                    repo.Commit();
-                    repo.Evict(t);
-                }
+            repos.BeginTransaction();
+            SaveWelders();  
+            SaveMillSizeTypes();
+            repos.Commit();
+            EvictMillSizeTypes();
+            EvictWelders();
+        }
 
-                foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
-                {
-                    manufacturerRepo.BeginTransaction();
-                    manufacturerRepo.SaveOrUpdate(manufacturer);
-                    manufacturerRepo.Commit();
-                    manufacturerRepo.Evict(manufacturer);
-                }
-                projectRepo.BeginTransaction();
-                projectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
-                projectRepo.Commit();
-                projectRepo.Evict(viewModel.CurrentProjectSettings);
-            }
-            catch (Exception)
-            {
-                throw new Exception("Извините, проблемы с сохранением настроек в базу данных");
-            }
+        private void EvictWelders()
+        {
+           if (viewModel.Welders != null)
+           {
+              viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.Evict(_.Welder));
+           }
+        }
+
+        private void EvictMillSizeTypes()
+        {
+           foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
+           {
+              repos.PipeSizeTypeRepo.Evict(t);
+           }
         }
 
         public bool CanExecute()
         {
-            return true;
+           return true;
+        }
+
+        void SaveMillSizeTypes()
+        {
+           foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
+           {
+              repos.PipeSizeTypeRepo.SaveOrUpdate(t);
+           }
+        }
+
+        void SaveWelders()
+        {
+           if (viewModel.Welders != null)
+           {
+              viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
+           }
         }
     }
 }
