@@ -61,5 +61,23 @@ namespace PrizmMain.Forms.Railcar.Search
                 parent.CreateFormChild(edit);
             }
         }
+
+        private void railcarListView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName != "ShippingButton")
+            {
+                return;
+            }
+            GridView gv = sender as GridView;
+            var tmp = (DateTime?)gv.GetRowCellValue(e.RowHandle, "ShippingDate");
+            if (tmp == null)
+            {
+                e.RepositoryItem = shipGridButton;
+            }
+            else
+            {
+                e.RepositoryItem = unshipGridButton;
+            }
+        }
     }
 }
