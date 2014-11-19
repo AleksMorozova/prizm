@@ -22,7 +22,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             repo.SaveOrUpdate(viewModel.Railcar);
             repo.Commit();
             repo.Evict(viewModel.Railcar);
-            viewModel.NewRailcar();
         }
 
         public bool CanExecute()
