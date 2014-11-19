@@ -13,6 +13,7 @@ namespace PrizmMain.Forms.Settings
       IWelderRepository WelderRepo { get; }
       IMillPipeSizeTypeRepository PipeSizeTypeRepo { get; }
       IPipeTestRepository PipeTestRepo { get; }
+      IInspectorRepository InspectorRepo { get; }
       void Commit();
       void BeginTransaction();
    }

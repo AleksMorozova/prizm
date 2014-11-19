@@ -381,7 +381,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public DateTime RailcarShippingDate
+              public DateTime? RailcarShippingDate
               {
                   get
                   {

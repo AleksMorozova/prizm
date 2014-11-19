@@ -133,6 +133,14 @@
             this.colWelderStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWelderGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWelderActive = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.inspectorsPage = new DevExpress.XtraTab.XtraTabPage();
+         this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
+         this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -143,6 +151,7 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -211,6 +220,9 @@
             this.weldersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).BeginInit();
+         this.inspectorsPage.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).BeginInit();
             this.settingsTabPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).BeginInit();
@@ -278,7 +290,8 @@
             this.usersPage,
             this.rolesPage,
             this.dictionariesPage,
-            this.weldersPage});
+            this.weldersPage,
+            this.inspectorsPage});
             // 
             // pipePage
             // 
@@ -333,6 +346,7 @@
             this.testIsActiveGridColumn});
             this.inspectionView.GridControl = this.inspectionOperation;
             this.inspectionView.Name = "inspectionView";
+         this.inspectionView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
             this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
@@ -1244,7 +1258,7 @@
             this.gridViewWelders.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridViewWelders.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
-            this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewWelders_InvalidRowException);
+         this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewWelders_InvalidRowException);
             this.gridViewWelders.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewWelders_ValidateRow);
             // 
             // colWelderFirstName
@@ -1282,7 +1296,7 @@
             // colWelderCertExp
             // 
             this.colWelderCertExp.Caption = "Certificate Expiration";
-            this.colWelderCertExp.FieldName = "CertificateExpitation";
+         this.colWelderCertExp.FieldName = "CertificateExpitation";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
             this.colWelderCertExp.VisibleIndex = 4;
@@ -1311,6 +1325,81 @@
             this.colWelderActive.Visible = true;
             this.colWelderActive.VisibleIndex = 7;
             // 
+         // inspectorsPage
+         // 
+         this.inspectorsPage.Controls.Add(this.gridControlInspectors);
+         this.inspectorsPage.Name = "inspectorsPage";
+         this.inspectorsPage.Size = new System.Drawing.Size(906, 363);
+         this.inspectorsPage.Text = "Inspectors";
+         // 
+         // gridControlInspectors
+         // 
+         this.gridControlInspectors.Cursor = System.Windows.Forms.Cursors.Default;
+         this.gridControlInspectors.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControlInspectors.Location = new System.Drawing.Point(0, 0);
+         this.gridControlInspectors.MainView = this.gridViewInspectors;
+         this.gridControlInspectors.Name = "gridControlInspectors";
+         this.gridControlInspectors.Size = new System.Drawing.Size(906, 363);
+         this.gridControlInspectors.TabIndex = 0;
+         this.gridControlInspectors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewInspectors});
+         // 
+         // gridViewInspectors
+         // 
+         this.gridViewInspectors.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colInspectorFirstName,
+            this.colInspectorLastName,
+            this.colInspectorMiddleName,
+            this.colInspectorCertificate,
+            this.colInspectorCertExp,
+            this.colInspectorActive});
+         this.gridViewInspectors.GridControl = this.gridControlInspectors;
+         this.gridViewInspectors.Name = "gridViewInspectors";
+         this.gridViewInspectors.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+         this.gridViewInspectors.OptionsView.ShowGroupPanel = false;
+         this.gridViewInspectors.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
+         this.gridViewInspectors.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewInspectors_ValidateRow);
+         // 
+         // colInspectorFirstName
+         // 
+         this.colInspectorFirstName.Caption = "First Name";
+         this.colInspectorFirstName.FieldName = "FirstName";
+         this.colInspectorFirstName.Name = "colInspectorFirstName";
+         this.colInspectorFirstName.Visible = true;
+         this.colInspectorFirstName.VisibleIndex = 0;
+         // 
+         // colInspectorLastName
+         // 
+         this.colInspectorLastName.Caption = "Last Name";
+         this.colInspectorLastName.FieldName = "LastName";
+         this.colInspectorLastName.Name = "colInspectorLastName";
+         this.colInspectorLastName.Visible = true;
+         this.colInspectorLastName.VisibleIndex = 1;
+         // 
+         // colInspectorMiddleName
+         // 
+         this.colInspectorMiddleName.Caption = "Middle Name";
+         this.colInspectorMiddleName.FieldName = "MiddleName";
+         this.colInspectorMiddleName.Name = "colInspectorMiddleName";
+         this.colInspectorMiddleName.Visible = true;
+         this.colInspectorMiddleName.VisibleIndex = 2;
+         // 
+         // colInspectorCertificate
+         // 
+         this.colInspectorCertificate.Caption = "Certificate";
+         this.colInspectorCertificate.FieldName = "Certificate";
+         this.colInspectorCertificate.Name = "colInspectorCertificate";
+         this.colInspectorCertificate.Visible = true;
+         this.colInspectorCertificate.VisibleIndex = 3;
+         // 
+         // colInspectorCertExp
+         // 
+         this.colInspectorCertExp.Caption = "Certificate Expiration";
+         this.colInspectorCertExp.FieldName = "CertificateExpiration";
+         this.colInspectorCertExp.Name = "colInspectorCertExp";
+         this.colInspectorCertExp.Visible = true;
+         this.colInspectorCertExp.VisibleIndex = 4;
+         // 
             // settingsTabPanel
             // 
             this.settingsTabPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1420,6 +1509,14 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
+         // colInspectorActive
+         // 
+         this.colInspectorActive.Caption = "Active";
+         this.colInspectorActive.FieldName = "Active";
+         this.colInspectorActive.Name = "colInspectorActive";
+         this.colInspectorActive.Visible = true;
+         this.colInspectorActive.VisibleIndex = 5;
+         // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1499,6 +1596,9 @@
             this.weldersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).EndInit();
+         this.inspectorsPage.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).EndInit();
             this.settingsTabPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).EndInit();
@@ -1627,5 +1727,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colWelderStamp;
         private DevExpress.XtraGrid.Columns.GridColumn colWelderGrade;
         private DevExpress.XtraGrid.Columns.GridColumn colWelderActive;
+        private DevExpress.XtraTab.XtraTabPage inspectorsPage;
+        private DevExpress.XtraGrid.GridControl gridControlInspectors;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInspectors;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorFirstName;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorLastName;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorMiddleName;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertificate;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertExp;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
     }
 }

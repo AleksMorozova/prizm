@@ -83,7 +83,7 @@ namespace PrizmMain.Forms.Railcar.Search
             }
         }
 
-        private DateTime shippingDate = DateTime.Now;
+        private DateTime shippingDate = DateTime.MinValue;
         public DateTime ShippingDate
         {
             get { return shippingDate; }

@@ -19,7 +19,8 @@ namespace PrizmMain.Forms.Railcar.Search
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
-
+            shippedDate.Properties.NullDate = DateTime.MinValue;
+            shippedDate.Properties.NullText = string.Empty;
         }
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace PrizmMain.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
+
         }
 
         private void BindToViewModel()
@@ -57,6 +59,24 @@ namespace PrizmMain.Forms.Railcar.Search
                 var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("railcarNumber", number));
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
                 parent.CreateFormChild(edit);
+            }
+        }
+
+        private void railcarListView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName != "ShippingButton")
+            {
+                return;
+            }
+            GridView gv = sender as GridView;
+            var tmp = (DateTime?)gv.GetRowCellValue(e.RowHandle, "ShippingDate");
+            if (tmp == null)
+            {
+                e.RepositoryItem = shipGridButton;
+            }
+            else
+            {
+                e.RepositoryItem = unshipGridButton;
             }
         }
     }

@@ -21,12 +21,12 @@ namespace Data.DAL.Hibernate
 
         public new void SaveOrUpdate(Railcar car)
         {
-            foreach (var pipe in car.Pipes)
-            {
-                pipe.Railcar = car;
-                session.Merge(pipe);
-            }
-            session.Merge(car);
+            //foreach (var pipe in car.Pipes)
+            //{
+            //    pipe.Railcar = car;
+            //    session.Merge(pipe);
+            //}
+            session.SaveOrUpdate(car);
         }
 
 

@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Inspector.cs" />
+    <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
