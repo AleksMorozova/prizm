@@ -39,6 +39,7 @@ namespace PrizmMain
             Bind<IWelderRepository>().To<WelderRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
+            Bind<IInspectorRepository>().To<InspectorRepository>();
             #endregion
 
             #region ViewModel

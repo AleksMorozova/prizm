@@ -11,7 +11,7 @@ namespace Domain.Entity
         }
 
         public virtual string Certificate { get; set; }
-        public virtual DateTime? CertificateExpitation { get; set; }
+        public virtual DateTime? CertificateExpiration { get; set; }
         public virtual string Stamp { get; set; }
         public virtual int Grade { get; set; }
         public virtual PersonName Name { get; set; }
