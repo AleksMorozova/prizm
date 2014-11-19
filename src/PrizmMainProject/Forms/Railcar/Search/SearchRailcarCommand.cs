@@ -3,11 +3,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
 using PrizmMain.Commands;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
@@ -27,9 +23,7 @@ namespace PrizmMain.Forms.Railcar.Search
         {
 
 
-            List<Domain.Entity.Mill.Railcar> railcars = new List<Domain.Entity.Mill.Railcar>();
-
-            var criteria = NHibernate.Criterion.DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
+            var criteria = DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
 
             if (!string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
             {
@@ -44,8 +38,11 @@ namespace PrizmMain.Forms.Railcar.Search
             if (!string.IsNullOrWhiteSpace(viewModel.Receiver))
             {
                 criteria.Add(Restrictions.Like("Destination", viewModel.Receiver, MatchMode.Anywhere));
-            }  
-            //TODO: Add date criteria
+            }
+            if (viewModel.ShippingDate > DateTime.MinValue)
+            {
+                criteria.Add(Restrictions.Eq("ShippingDate", viewModel.ShippingDate));
+            }
             viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
         }
 

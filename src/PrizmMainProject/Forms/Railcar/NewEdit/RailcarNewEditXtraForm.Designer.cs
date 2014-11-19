@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,12 +49,12 @@
             this.destinationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.addPipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.removePipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
@@ -72,10 +71,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +116,7 @@
             // pipeSizeGridColumn
             // 
             this.pipeSizeGridColumn.Caption = "Типоразмер трубы";
-            this.pipeSizeGridColumn.FieldName = "Type";
+            this.pipeSizeGridColumn.FieldName = "Type.Type";
             this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
             this.pipeSizeGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeSizeGridColumn.Visible = true;
@@ -211,10 +210,13 @@
             this.shippedDate.EditValue = null;
             this.shippedDate.Location = new System.Drawing.Point(234, 27);
             this.shippedDate.Name = "shippedDate";
+            this.shippedDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.shippedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.shippedDate.Properties.Mask.EditMask = "";
+            this.shippedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.shippedDate.Size = new System.Drawing.Size(101, 20);
             this.shippedDate.StyleController = this.generalLayout;
             this.shippedDate.TabIndex = 12;
@@ -331,16 +333,6 @@
             this.pipeListLayout.TextToControlDistance = 0;
             this.pipeListLayout.TextVisible = false;
             // 
-            // generalEmptySpace
-            // 
-            this.generalEmptySpace.AllowHotTrack = false;
-            this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
-            this.generalEmptySpace.Location = new System.Drawing.Point(783, 0);
-            this.generalEmptySpace.Name = "generalEmptySpace";
-            this.generalEmptySpace.Size = new System.Drawing.Size(10, 54);
-            this.generalEmptySpace.Text = "generalEmptySpace";
-            this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // pipeNumberLayout
             // 
             this.pipeNumberLayout.Control = this.pipeNumberLookUp;
@@ -378,6 +370,16 @@
             this.removePipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.removePipeLayoutControl.TextToControlDistance = 0;
             this.removePipeLayoutControl.TextVisible = false;
+            // 
+            // generalEmptySpace
+            // 
+            this.generalEmptySpace.AllowHotTrack = false;
+            this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
+            this.generalEmptySpace.Location = new System.Drawing.Point(783, 0);
+            this.generalEmptySpace.Name = "generalEmptySpace";
+            this.generalEmptySpace.Size = new System.Drawing.Size(10, 54);
+            this.generalEmptySpace.Text = "generalEmptySpace";
+            this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // shipButton
             // 
@@ -418,10 +420,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 

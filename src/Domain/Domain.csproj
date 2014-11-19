@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Inspector.cs" />
+    <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Entity\Mill\Railcar.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
-    <Compile Include="Entity\Welder.cs" />
+    <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

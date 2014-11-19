@@ -25,7 +25,7 @@ namespace Data.DAL.Hibernate
 
         public IList<TEntity> GetAll()
         {
-            return session.CreateCriteria<TEntity>().List<TEntity>();
+                return session.CreateCriteria<TEntity>().List<TEntity>();
         }
 
         public IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)

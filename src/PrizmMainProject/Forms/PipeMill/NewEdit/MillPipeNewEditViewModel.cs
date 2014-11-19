@@ -17,30 +17,96 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     public class MillPipeNewEditViewModel: ViewModelBase, IDisposable
     {
 
-        private readonly IPipeRepository repo;
+        private readonly IPipeRepository repoPipe;
+        private readonly IPlateRepository repoPlate;
+        private readonly IHeatRepository repoHeat;
+        private readonly IWeldRepository repoWeld;
+        
+        private IList<Domain.Entity.Mill.Heat> heats;
+        private IList<PurchaseOrder> purchaseOrders;
+
         private readonly MillPipeNewEditCommand newEditCommand;
+        private readonly ExtractHeatsCommand extractHeatsCommand;
+        private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
 
-
+        public Pipe Pipe { get; set; }
 
         [Inject]
-        public MillPipeNewEditViewModel(IPipeRepository repo, string pipeNumber)
+        public MillPipeNewEditViewModel(
+            IPipeRepository repoPipe,
+            IPlateRepository repoPlate,
+            IHeatRepository repoHeat,
+            IPurchaseOrderRepository repoPurchaseOrder,
+            IWeldRepository repoWeld,
+            Guid pipeId)
         {
-            this.repo = repo;
-            newEditCommand = ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repo));
+            this.repoPipe = repoPipe;
+            this.repoPlate = repoPlate;
+            this.repoHeat = repoHeat;
+            this.repoWeld = repoWeld;
 
-            if (string.IsNullOrWhiteSpace(pipeNumber))
+            newEditCommand = 
+                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoPipe));
+
+            extractHeatsCommand =
+                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoHeat));
+
+            extractPurchaseOrderCommand =
+                ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoPurchaseOrder));
+
+            if (pipeId == Guid.Empty)
             {
                 NewPipe();
             }
             else
             {
-                Pipe = repo.GetByNumber(pipeNumber);
+                extractPurchaseOrderCommand.Execute();
+                ExtractHeatsCommand.Execute();
+                Pipe = repoPipe.Get(pipeId);
             }
         }
 
+        
+        public IList<PurchaseOrder> PurchaseOrders
+        {
+            get { return purchaseOrders; }
+            set
+            {
+                if (value != purchaseOrders)
+                {
+                    purchaseOrders = value;
+                    RaisePropertyChanged("PurchaseOrders");
+                }
+            }
+        }
+        
+        public IList<Domain.Entity.Mill.Heat> Heats
+        {
+            get { return heats; }
+            set
+            {
+                if (value != heats)
+                {
+                    heats = value;
+                    RaisePropertyChanged("Heats");
+                }
+            }
+        }
 
-        public Pipe Pipe { get; set; }
+        #region Pipe
 
+        public bool PipeIsActive
+        {
+            get { return Pipe.IsActive; }
+            set
+            {
+                if (value != Pipe.IsActive)
+                {
+                    Pipe.IsActive = value;
+                    RaisePropertyChanged("PipeIsActive");
+                }
+            }
+        }
 
         public string Number
         {
@@ -120,30 +186,264 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+        #endregion
+
+        #region PurchaseOrder
+        
+        public PurchaseOrder PipePurchaseOrder
+        {
+            get { return Pipe.PurchaseOrder; }
+            set
+            {
+                if (value != Pipe.PurchaseOrder)
+                {
+                    Pipe.PurchaseOrder = value;
+                    RaisePropertyChanged("PipePurchaseOrder");
+                }
+            }
+        }
+
+        public DateTime PurchaseOrderDate
+        {
+            get 
+            {
+                if (PipePurchaseOrder == null)
+                {
+                    return DateTime.Now;
+                }
+
+                return PipePurchaseOrder.Date; 
+            }
+            set
+            {
+                if (value != PipePurchaseOrder.Date)
+                {
+                    PipePurchaseOrder.Date = value;
+                    RaisePropertyChanged("PurchaseOrderDate");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Plate
+
+        public Plate Plate
+        {
+            get { return Pipe.Plate; }
+            set
+            {
+                if (value != Pipe.Plate)
+                {
+                    Pipe.Plate = value;
+                    RaisePropertyChanged("Plate");
+                }
+            }
+        }
+
+        public string PlateNumber
+        {
+            get { return Plate.Number; }
+            set
+            {
+                if (value != Plate.Number)
+                {
+                    Plate.Number = value;
+                    RaisePropertyChanged("PlateNumber");
+                }
+            }
+        }
+
+        public int PlateThickness
+        {
+            get { return Plate.Thickness; }
+            set
+            {
+                if (value != Plate.Thickness)
+                {
+                    Plate.Thickness = value;
+                    RaisePropertyChanged("PlateThickness");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Heat
+
+        public Domain.Entity.Mill.Heat Heat
+        {
+            get { return Plate.Heat; }
+            set
+            {
+                if (value != Plate.Heat)
+                {
+                    Plate.Heat = value;
+                    RaisePropertyChanged("Heat");
+                }
+            }
+        }
+
+        public string SteelGrade
+        {
+            get
+            {
+                if (Heat == null)
+                {
+                    return string.Empty;
+                }
+                return Heat.SteelGrade;
+            }
+            set
+            {
+                if (value != Heat.SteelGrade)
+                {
+                    Heat.SteelGrade = value;
+                    RaisePropertyChanged("SteelGrade");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Railcar
+              public Domain.Entity.Mill.Railcar Railcar
+              {
+                  get { return Pipe.Railcar; }
+                  set
+                  {
+                      if (value != Pipe.Railcar)
+                      {
+                          Pipe.Railcar = value;
+                          RaisePropertyChanged("Railcar");
+                      }
+                  }
+              }
+
+              public string RailcarNumber
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Number;
+                  }
+
+                  set
+                  {
+                      if (value != Railcar.Number)
+                      {
+                          Railcar.Number = value;
+                          RaisePropertyChanged("RailcarNumber");
+                      }
+                  }
+              }
+
+              public string RailcarCertificate
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Certificate;
+                  }
+                  set
+                  {
+                      if (value != Railcar.Certificate)
+                      {
+                          Railcar.Certificate = value;
+                          RaisePropertyChanged("RailcarCertificate");
+                      }
+                  }
+              }
+
+              public string RailcarDestination
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Destination;
+                  }
+                  set
+                  {
+                      if (value != Railcar.Destination)
+                      {
+                          Railcar.Destination = value;
+                          RaisePropertyChanged("RailcarDestination");
+                      }
+                  }
+              }
+
+              public DateTime? RailcarShippingDate
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return DateTime.Now;
+                      }
+
+                      return Railcar.ShippingDate;
+                  }
+                  set
+                  {
+                      if (value != Railcar.ShippingDate)
+                      {
+                          Railcar.ShippingDate = value;
+                          RaisePropertyChanged("RailcarShippingDate");
+                      }
+                  }
+              }
+              #endregion
+
         public ICommand NewEditCommand
         {
             get { return newEditCommand; }
         }
 
-        public void Dispose()
+        public ICommand ExtractHeatsCommand
         {
-            repo.Dispose();
+            get { return extractHeatsCommand; }
         }
 
+        public ICommand ExtractPurchaseOrderCommand
+        {
+            get { return extractPurchaseOrderCommand; }
+        }
+        
 
         public void NewPipe()
         {
-            if (Pipe == null)
-            {
-                Pipe = new Pipe();
-            }
+            extractPurchaseOrderCommand.Execute();
+            ExtractHeatsCommand.Execute();
 
-            Number = string.Empty;
-            Mill = string.Empty;
-            WallThickness = 0;
-            Weight = 0;
-            Length = 0;
-            Diameter = 0;
+            this.Pipe = new Pipe();
+
+            this.PlateNumber = string.Empty;
+            this.Pipe.Status = string.Empty;
+            this.Number = string.Empty;
+            this.Mill = string.Empty;
+            this.WallThickness = 0;
+            this.Weight = 0;
+            this.Length = 0;
+            this.Diameter = 0;
+
+            this.PipePurchaseOrder = new PurchaseOrder();
+            this.PipePurchaseOrder.Number = string.Empty;
+            this.PipePurchaseOrder.Date = DateTime.Now;
         }
+
+        public void Dispose()
+        {
+            repoPipe.Dispose();
+        }
+
     }
 }

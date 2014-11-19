@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Mill;
+using Domain.Entity;
 using Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
@@ -19,9 +20,10 @@ namespace Data.DAL.Hibernate
 
         }
 
-        public Pipe GetByNumber(string number)
+         public Pipe GetByNumber(string number)
         {
             return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
         }
+
     }
 }

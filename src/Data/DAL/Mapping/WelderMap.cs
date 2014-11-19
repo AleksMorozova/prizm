@@ -14,16 +14,15 @@ namespace Data.DAL.Mapping
         {
             Table("Welder");
             Map(_ => _.Certificate).Column("certificate");
-            Map(_ => _.CertificateExpitation).Column("certificateExpiration");
+            Map(_ => _.CertificateExpiration).Column("certificateExpiration");
             Map(_ => _.Stamp).Column("stamp");
             Map(_ => _.Grade).Column("grade");
-
-            //References(_ => _.Name, "id");
-            HasManyToMany(_ => _.Welds)
-                .Table("[Weld_welder]")
-                .ParentKeyColumn("weldId")
-                .ChildKeyColumn("welderId")
-                .Cascade.SaveUpdate();
+            Component<PersonName>(x => x.Name, m =>
+               {
+                  m.Map(x => x.FirstName).Column("firstName");
+                  m.Map(x => x.MiddleName).Column("middleName");
+                  m.Map(x => x.LastName).Column("lastName");
+               });
         }
     }
 }

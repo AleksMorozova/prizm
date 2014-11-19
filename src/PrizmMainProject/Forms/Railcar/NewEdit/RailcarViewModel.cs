@@ -18,7 +18,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo,IPipeRepository pipeRepo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepository repo, IPipeRepository pipeRepo, string railcarNumber)
         {
             this.railcarRepo = repo;
             this.pipeRepo = pipeRepo;
@@ -83,7 +83,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime ShippingDate
+        private DateTime? shippingDate = null;
+        public DateTime? ShippingDate
         {
             get { return Railcar.ShippingDate; }
             set
@@ -96,18 +97,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime DeliveryDate
-        {
-            get { return Railcar.DeliveryDate; }
-            set
-            {
-                if (value != Railcar.DeliveryDate)
-                {
-                    Railcar.DeliveryDate = value;
-                    RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
+        // removed by client?
+        //public DateTime DeliveryDate
+        //{
+        //    get { return Railcar.DeliveryDate; }
+        //    set
+        //    {
+        //        if (value != Railcar.DeliveryDate)
+        //        {
+        //            Railcar.DeliveryDate = value;
+        //            RaisePropertyChanged("DeliveryDate");
+        //        }
+        //    }
+        //}
 
         public IList<Pipe> Pipes
         {
@@ -167,7 +169,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             Number = string.Empty;
             Destination = string.Empty;
-            ShippingDate = DateTime.Now;
+            ShippingDate = null;
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
         }
