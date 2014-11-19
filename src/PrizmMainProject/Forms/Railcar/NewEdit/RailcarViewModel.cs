@@ -83,7 +83,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime ShippingDate
+        public DateTime? ShippingDate
         {
             get { return Railcar.ShippingDate; }
             set
