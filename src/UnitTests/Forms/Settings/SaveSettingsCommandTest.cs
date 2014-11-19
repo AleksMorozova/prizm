@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Setup;
-﻿using Data.DAL.Mill;
+using Data.DAL.Mill;
+using Data.DAL;
 using Domain.Entity.Setup;
 using Moq;
 using NUnit.Framework;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entity;
+using Domain.Entity.Mill;
 
 namespace UnitTests.Forms.Settings
 {
@@ -23,19 +25,26 @@ namespace UnitTests.Forms.Settings
             var repoPipeTests = new Mock<IPipeTestRepository>();
             var repoWelders = new Mock<IWelderRepository>();
             var repoInspectors = new Mock<IInspectorRepository>();
+            var repoManufacturers = new Mock<IPlateManufacturerRepository>();
+            var repoProjectSetting = new Mock<IProjectRepository>();
+            var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
+            var testManufacturer = new PlateManufacturer();
             var testInspector = new Inspector();
+
             repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
             repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
+            repoManufacturers.Setup(_ => _.GetAll()).Returns(new List<PlateManufacturer>() { testManufacturer });
+            repoProjectSetting.Setup(_ => _.GetSingle()).Returns(testProjectSetting);
             repoInspectors.Setup(_ => _.GetAll()).Returns(new List<Inspector>() { testInspector });
-
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
             settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
             settingsRepos.SetupGet(_ => _.WelderRepo).Returns(repoWelders.Object);
+            settingsRepos.SetupGet(_ => _.PlateManufacturerRepo).Returns(repoManufacturers.Object);
+            settingsRepos.SetupGet(_ => _.ProjectRepo).Returns(repoProjectSetting.Object);
             settingsRepos.SetupGet(_ => _.InspectorRepo).Returns(repoInspectors.Object);
-
 
             var viewModel = new SettingsViewModel(settingsRepos.Object);
             viewModel.LoadData();
@@ -50,6 +59,10 @@ namespace UnitTests.Forms.Settings
             repoPipeSize.Verify(_ => _.Evict(testSizeType), Times.Once());
             repoWelders.Verify(_ => _.SaveOrUpdate(testWelder), Times.Once());
             repoWelders.Verify(_ => _.Evict(testWelder), Times.Once());
+            repoManufacturers.Verify(_ => _.SaveOrUpdate(testManufacturer), Times.Once());
+            repoManufacturers.Verify(_ => _.Evict(testManufacturer), Times.Once());
+            repoProjectSetting.Verify(_ => _.SaveOrUpdate(testProjectSetting), Times.Once());
+            repoProjectSetting.Verify(_ => _.Evict(testProjectSetting), Times.Once());
             repoInspectors.Verify(_ => _.SaveOrUpdate(testInspector), Times.Once());
             repoInspectors.Verify(_ => _.Evict(testInspector), Times.Once());
         }

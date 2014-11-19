@@ -66,8 +66,8 @@
     <Compile Include="Entity\Connector.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
-    <Compile Include="Entity\Project.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
+    <Compile Include="Entity\Setup\Project.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
