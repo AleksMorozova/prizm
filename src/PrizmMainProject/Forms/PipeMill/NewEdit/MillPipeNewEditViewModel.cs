@@ -284,7 +284,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-              public string SteelGrade
+        public string SteelGrade
         {
             get
             {
@@ -305,6 +305,103 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
         #endregion
+
+        #region Railcar
+              public Domain.Entity.Mill.Railcar Railcar
+              {
+                  get { return Pipe.Railcar; }
+                  set
+                  {
+                      if (value != Pipe.Railcar)
+                      {
+                          Pipe.Railcar = value;
+                          RaisePropertyChanged("Railcar");
+                      }
+                  }
+              }
+
+              public string RailcarNumber
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Number;
+                  }
+
+                  set
+                  {
+                      if (value != Railcar.Number)
+                      {
+                          Railcar.Number = value;
+                          RaisePropertyChanged("RailcarNumber");
+                      }
+                  }
+              }
+
+              public string RailcarCertificate
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Certificate;
+                  }
+                  set
+                  {
+                      if (value != Railcar.Certificate)
+                      {
+                          Railcar.Certificate = value;
+                          RaisePropertyChanged("RailcarCertificate");
+                      }
+                  }
+              }
+
+              public string RailcarDestination
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return string.Empty;
+                      }
+                      return Railcar.Destination;
+                  }
+                  set
+                  {
+                      if (value != Railcar.Destination)
+                      {
+                          Railcar.Destination = value;
+                          RaisePropertyChanged("RailcarDestination");
+                      }
+                  }
+              }
+
+              public DateTime RailcarShippingDate
+              {
+                  get
+                  {
+                      if (Railcar == null)
+                      {
+                          return DateTime.Now;
+                      }
+
+                      return Railcar.ShippingDate;
+                  }
+                  set
+                  {
+                      if (value != Railcar.ShippingDate)
+                      {
+                          Railcar.ShippingDate = value;
+                          RaisePropertyChanged("RailcarShippingDate");
+                      }
+                  }
+              }
+              #endregion
 
         public ICommand NewEditCommand
         {
