@@ -11,6 +11,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.ShippingDate, "shippingDate");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
+
             HasMany(_ => _.Pipes).KeyColumn("railcarId").Inverse();
         }
     }

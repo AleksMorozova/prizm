@@ -14,5 +14,10 @@ namespace Domain.Entity.Mill
         public virtual DateTime Date { get; set; }
 
         public virtual IList<Pipe> Pipes { get; set; }
+
+        public override string ToString()
+        {
+            return Number;
+        }
     }
 }

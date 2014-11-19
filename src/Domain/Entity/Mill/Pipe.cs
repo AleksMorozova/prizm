@@ -5,10 +5,12 @@ namespace Domain.Entity.Mill
 {
     public class Pipe : PipelinePiece
     {
-public Pipe()
+        public Pipe()
         {
             this.Welds = new List<Weld>();
-            //this.PipeTestResult = new List<PipeTestResult>();
+            this.PipeTestResult = new List<PipeTestResult>();
+
+            this.Plate = new Plate() { Pipe = this };
         }
 
 
@@ -22,13 +24,14 @@ public Pipe()
         public virtual string Type { get; set; } // from global dictionary type: PipeMillSizeType
 
         public virtual Railcar Railcar { get; set; }
+        //public virtual PipeMillStatus Status { get; set; } //enum
         public virtual string Status { get; set; } //FIX: convert string to enum and map enum to database
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
 
-        
+
         public virtual IList<Weld> Welds { get; set; }
-        //public virtual IList<PipeTestResult> PipeTestResult { get; set; }
+        public virtual IList<PipeTestResult> PipeTestResult { get; set; }
     }
 }
