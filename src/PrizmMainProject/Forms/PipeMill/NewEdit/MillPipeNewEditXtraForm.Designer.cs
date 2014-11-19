@@ -556,6 +556,8 @@
             // 
             this.diameter.Location = new System.Drawing.Point(29, 109);
             this.diameter.Name = "diameter";
+            this.diameter.Properties.Mask.EditMask = "d";
+            this.diameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.diameter.Size = new System.Drawing.Size(109, 20);
             this.diameter.StyleController = this.pipeGeneralParametersLayout;
             this.diameter.TabIndex = 28;
@@ -564,6 +566,8 @@
             // 
             this.length.Location = new System.Drawing.Point(29, 60);
             this.length.Name = "length";
+            this.length.Properties.Mask.EditMask = "d";
+            this.length.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.length.Size = new System.Drawing.Size(109, 20);
             this.length.StyleController = this.pipeGeneralParametersLayout;
             this.length.TabIndex = 25;
@@ -572,6 +576,8 @@
             // 
             this.weight.Location = new System.Drawing.Point(29, 204);
             this.weight.Name = "weight";
+            this.weight.Properties.Mask.EditMask = "d";
+            this.weight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.weight.Size = new System.Drawing.Size(109, 20);
             this.weight.StyleController = this.pipeGeneralParametersLayout;
             this.weight.TabIndex = 27;
@@ -580,6 +586,8 @@
             // 
             this.thickness.Location = new System.Drawing.Point(29, 155);
             this.thickness.Name = "thickness";
+            this.thickness.Properties.Mask.EditMask = "d";
+            this.thickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.thickness.Size = new System.Drawing.Size(109, 20);
             this.thickness.StyleController = this.pipeGeneralParametersLayout;
             this.thickness.TabIndex = 26;
@@ -984,6 +992,8 @@
             // 
             this.plateThickness.Location = new System.Drawing.Point(789, 67);
             this.plateThickness.Name = "plateThickness";
+            this.plateThickness.Properties.Mask.EditMask = "d";
+            this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.plateThickness.Size = new System.Drawing.Size(161, 20);
             this.plateThickness.StyleController = this.tabPagesLayout;
             this.plateThickness.TabIndex = 31;
@@ -1427,11 +1437,11 @@
             // 
             // pipeSize
             // 
-            this.pipeSize.Location = new System.Drawing.Point(232, 27);
+            this.pipeSize.Location = new System.Drawing.Point(233, 27);
             this.pipeSize.Name = "pipeSize";
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeSize.Size = new System.Drawing.Size(167, 20);
+            this.pipeSize.Size = new System.Drawing.Size(169, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
             // 
@@ -1462,28 +1472,28 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(1160, 514);
+            this.closeButton.Location = new System.Drawing.Point(1168, 514);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(91, 22);
+            this.closeButton.Size = new System.Drawing.Size(92, 22);
             this.closeButton.StyleController = this.generalPipeLayout;
             this.closeButton.TabIndex = 27;
             this.closeButton.Text = "Закрыть";
             // 
             // deactivate
             // 
-            this.deactivate.Location = new System.Drawing.Point(142, 514);
+            this.deactivate.Location = new System.Drawing.Point(143, 514);
             this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.deactivate.Name = "deactivate";
             this.deactivate.Properties.Caption = "Труба деактивирована";
-            this.deactivate.Size = new System.Drawing.Size(881, 19);
+            this.deactivate.Size = new System.Drawing.Size(887, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(1057, 514);
+            this.saveButton.Location = new System.Drawing.Point(1064, 514);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(89, 22);
+            this.saveButton.Size = new System.Drawing.Size(90, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
             this.saveButton.Text = "Сохранить";
@@ -1493,7 +1503,7 @@
             this.attachmentsButton.Location = new System.Drawing.Point(14, 514);
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.attachmentsButton.Size = new System.Drawing.Size(99, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
             this.attachmentsButton.StyleController = this.generalPipeLayout;
             this.attachmentsButton.TabIndex = 25;
             this.attachmentsButton.Text = "Вложения";
@@ -1501,56 +1511,56 @@
             // purchaseOrderDate
             // 
             this.purchaseOrderDate.EditValue = null;
-            this.purchaseOrderDate.Location = new System.Drawing.Point(835, 27);
+            this.purchaseOrderDate.Location = new System.Drawing.Point(860, 27);
             this.purchaseOrderDate.Name = "purchaseOrderDate";
             this.purchaseOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.purchaseOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrderDate.Size = new System.Drawing.Size(100, 20);
+            this.purchaseOrderDate.Size = new System.Drawing.Size(99, 20);
             this.purchaseOrderDate.StyleController = this.generalPipeLayout;
             this.purchaseOrderDate.TabIndex = 6;
             // 
             // purchaseOrder
             // 
-            this.purchaseOrder.Location = new System.Drawing.Point(634, 27);
+            this.purchaseOrder.Location = new System.Drawing.Point(646, 27);
             this.purchaseOrder.Name = "purchaseOrder";
             this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrder.Size = new System.Drawing.Size(167, 20);
+            this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
             this.purchaseOrder.StyleController = this.generalPipeLayout;
             this.purchaseOrder.TabIndex = 5;
             // 
             // heatNumber
             // 
-            this.heatNumber.Location = new System.Drawing.Point(433, 27);
+            this.heatNumber.Location = new System.Drawing.Point(436, 27);
             this.heatNumber.Name = "heatNumber";
             this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.heatNumber.Size = new System.Drawing.Size(167, 20);
+            this.heatNumber.Size = new System.Drawing.Size(176, 20);
             this.heatNumber.StyleController = this.generalPipeLayout;
             this.heatNumber.TabIndex = 2;
             // 
             // pipeCreationDate
             // 
             this.pipeCreationDate.EditValue = null;
-            this.pipeCreationDate.Location = new System.Drawing.Point(969, 27);
+            this.pipeCreationDate.Location = new System.Drawing.Point(993, 27);
             this.pipeCreationDate.Name = "pipeCreationDate";
             this.pipeCreationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeCreationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeCreationDate.Size = new System.Drawing.Size(100, 20);
+            this.pipeCreationDate.Size = new System.Drawing.Size(99, 20);
             this.pipeCreationDate.StyleController = this.generalPipeLayout;
             this.pipeCreationDate.TabIndex = 3;
             // 
             // millStatus
             // 
-            this.millStatus.Location = new System.Drawing.Point(1103, 27);
+            this.millStatus.Location = new System.Drawing.Point(1126, 27);
             this.millStatus.Name = "millStatus";
             this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.millStatus.Size = new System.Drawing.Size(148, 20);
+            this.millStatus.Size = new System.Drawing.Size(123, 20);
             this.millStatus.StyleController = this.generalPipeLayout;
             this.millStatus.TabIndex = 4;
             // 
@@ -1558,7 +1568,7 @@
             // 
             this.pipeNumber.Location = new System.Drawing.Point(14, 27);
             this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Size = new System.Drawing.Size(184, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(185, 20);
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
             // 
@@ -1596,7 +1606,7 @@
             this.pipeNumberLayout.CustomizationFormText = "Pipe number";
             this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(203, 54);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(204, 54);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.pipeNumberLayout.Text = "Номер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1606,9 +1616,9 @@
             // 
             this.pipeSizeLayout.Control = this.pipeSize;
             this.pipeSizeLayout.CustomizationFormText = "Pipe size";
-            this.pipeSizeLayout.Location = new System.Drawing.Point(203, 0);
+            this.pipeSizeLayout.Location = new System.Drawing.Point(204, 0);
             this.pipeSizeLayout.Name = "pipeSizeLayout";
-            this.pipeSizeLayout.Size = new System.Drawing.Size(201, 54);
+            this.pipeSizeLayout.Size = new System.Drawing.Size(203, 54);
             this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeSizeLayout.Text = "Типоразмер трубы";
             this.pipeSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1632,9 +1642,9 @@
             // 
             this.heatNumberLayout.Control = this.heatNumber;
             this.heatNumberLayout.CustomizationFormText = "Heat number";
-            this.heatNumberLayout.Location = new System.Drawing.Point(404, 0);
+            this.heatNumberLayout.Location = new System.Drawing.Point(407, 0);
             this.heatNumberLayout.Name = "heatNumberLayout";
-            this.heatNumberLayout.Size = new System.Drawing.Size(201, 54);
+            this.heatNumberLayout.Size = new System.Drawing.Size(210, 54);
             this.heatNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.heatNumberLayout.Text = "Номер плавки";
             this.heatNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1644,9 +1654,9 @@
             // 
             this.statusLayout.Control = this.millStatus;
             this.statusLayout.CustomizationFormText = "Status";
-            this.statusLayout.Location = new System.Drawing.Point(1074, 0);
+            this.statusLayout.Location = new System.Drawing.Point(1097, 0);
             this.statusLayout.Name = "statusLayout";
-            this.statusLayout.Size = new System.Drawing.Size(167, 54);
+            this.statusLayout.Size = new System.Drawing.Size(142, 54);
             this.statusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 7);
             this.statusLayout.Text = "Статус на заводе";
             this.statusLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1656,9 +1666,9 @@
             // 
             this.creationDateLayout.Control = this.pipeCreationDate;
             this.creationDateLayout.CustomizationFormText = "Creation date";
-            this.creationDateLayout.Location = new System.Drawing.Point(940, 0);
+            this.creationDateLayout.Location = new System.Drawing.Point(964, 0);
             this.creationDateLayout.Name = "creationDateLayout";
-            this.creationDateLayout.Size = new System.Drawing.Size(134, 54);
+            this.creationDateLayout.Size = new System.Drawing.Size(133, 54);
             this.creationDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.creationDateLayout.Text = "Дата изготовления";
             this.creationDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1668,9 +1678,9 @@
             // 
             this.purhaseOrderLayout.Control = this.purchaseOrder;
             this.purhaseOrderLayout.CustomizationFormText = "Наряд заказ";
-            this.purhaseOrderLayout.Location = new System.Drawing.Point(605, 0);
+            this.purhaseOrderLayout.Location = new System.Drawing.Point(617, 0);
             this.purhaseOrderLayout.Name = "purhaseOrderLayout";
-            this.purhaseOrderLayout.Size = new System.Drawing.Size(201, 54);
+            this.purhaseOrderLayout.Size = new System.Drawing.Size(214, 54);
             this.purhaseOrderLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.purhaseOrderLayout.Text = "Наряд-заказ";
             this.purhaseOrderLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1680,9 +1690,9 @@
             // 
             this.generalPipeParametersEmpty.AllowHotTrack = false;
             this.generalPipeParametersEmpty.CustomizationFormText = "generalPipeParametersEmpty";
-            this.generalPipeParametersEmpty.Location = new System.Drawing.Point(1241, 0);
+            this.generalPipeParametersEmpty.Location = new System.Drawing.Point(1239, 0);
             this.generalPipeParametersEmpty.Name = "generalPipeParametersEmpty";
-            this.generalPipeParametersEmpty.Size = new System.Drawing.Size(20, 54);
+            this.generalPipeParametersEmpty.Size = new System.Drawing.Size(22, 54);
             this.generalPipeParametersEmpty.Text = "generalPipeParametersEmpty";
             this.generalPipeParametersEmpty.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1690,9 +1700,9 @@
             // 
             this.purhaseOrderDateLayout.Control = this.purchaseOrderDate;
             this.purhaseOrderDateLayout.CustomizationFormText = "Дата наряд-заказа";
-            this.purhaseOrderDateLayout.Location = new System.Drawing.Point(806, 0);
+            this.purhaseOrderDateLayout.Location = new System.Drawing.Point(831, 0);
             this.purhaseOrderDateLayout.Name = "purhaseOrderDateLayout";
-            this.purhaseOrderDateLayout.Size = new System.Drawing.Size(134, 54);
+            this.purhaseOrderDateLayout.Size = new System.Drawing.Size(133, 54);
             this.purhaseOrderDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.purhaseOrderDateLayout.Text = "Дата наряд-заказа";
             this.purhaseOrderDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1704,7 +1714,7 @@
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 510);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(103, 26);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(104, 26);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.attachmentsButtonLayout.TextToControlDistance = 0;
@@ -1714,9 +1724,9 @@
             // 
             this.deactivateLayout.Control = this.deactivate;
             this.deactivateLayout.CustomizationFormText = "deactivateLayout";
-            this.deactivateLayout.Location = new System.Drawing.Point(103, 510);
+            this.deactivateLayout.Location = new System.Drawing.Point(104, 510);
             this.deactivateLayout.Name = "deactivateLayout";
-            this.deactivateLayout.Size = new System.Drawing.Size(925, 26);
+            this.deactivateLayout.Size = new System.Drawing.Size(931, 26);
             this.deactivateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
             this.deactivateLayout.Text = "deactivateLayout";
             this.deactivateLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1727,9 +1737,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1028, 510);
+            this.saveButtonLayout.Location = new System.Drawing.Point(1035, 510);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(113, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(114, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1740,9 +1750,9 @@
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1141, 510);
+            this.closeButtonLayout.Location = new System.Drawing.Point(1149, 510);
             this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(100, 26);
+            this.closeButtonLayout.Size = new System.Drawing.Size(101, 26);
             this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1753,9 +1763,9 @@
             // 
             this.closeButtonEmptySpace.AllowHotTrack = false;
             this.closeButtonEmptySpace.CustomizationFormText = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1241, 510);
+            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1250, 510);
             this.closeButtonEmptySpace.Name = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Size = new System.Drawing.Size(20, 26);
+            this.closeButtonEmptySpace.Size = new System.Drawing.Size(11, 26);
             this.closeButtonEmptySpace.Text = "closeButtonEmptySpace";
             this.closeButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -2038,7 +2048,6 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem closeButtonEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Views.Grid.GridView weldersListGridView;
         private System.Windows.Forms.BindingSource inspectionOperation;
         private DevExpress.XtraLayout.LayoutControl generalInspectionsLayout;

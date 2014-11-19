@@ -11,7 +11,7 @@ namespace Data.DAL.Mapping
             Map(x => x.Number).Column("number");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
-            Map(_ => _.ShippingDate, "shippingDate");
+	    Map(_ => _.ShippingDate, "shippingDate");
             HasMany(_ => _.Pipes).KeyColumn("railcarId");
         }
     }
