@@ -169,7 +169,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             Number = string.Empty;
             Destination = string.Empty;
-            ShippingDate = null;
+            ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
         }
