@@ -56,6 +56,7 @@
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
     <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\MillRepository.cs" />
     <Compile Include="DAL\Hibernate\PhysicalParametersRepository.cs" />

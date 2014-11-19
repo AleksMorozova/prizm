@@ -29,12 +29,14 @@ namespace PrizmMain.Forms.Settings
         {
             repos.BeginTransaction();
             SaveWelders();
+            SaveInspectors();
             SaveMillSizeTypes();
             SavePlateManufacturers();
             repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
+            EvictInspectors();
             EvictPlateManufacturers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
         }
@@ -81,6 +83,22 @@ namespace PrizmMain.Forms.Settings
             if (viewModel.Welders != null)
             {
                 viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
+           }
+        }
+
+        void SaveInspectors()
+        {
+           if (viewModel.Inspectors != null)
+           {
+              viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.SaveOrUpdate(_.Inspector));
+           }
+        }
+
+        void EvictInspectors()
+        {
+           if (viewModel.Inspectors != null)
+           {
+              viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.Evict(_.Inspector));
             }
         }
 

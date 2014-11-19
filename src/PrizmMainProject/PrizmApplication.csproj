@@ -234,6 +234,9 @@
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
     <Compile Include="Forms\Settings\SettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SettingsViewModel.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\CertificatedPersonSetupViewType.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\InspectorViewType.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\PersonSetupViewType.cs" />
     <Compile Include="Forms\Settings\ViewTypes\WelderViewType.cs" />
     <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
       <SubType>Form</SubType>
@@ -412,6 +415,7 @@
     <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

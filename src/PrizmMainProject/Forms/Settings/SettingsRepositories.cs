@@ -19,7 +19,7 @@ namespace PrizmMain.Forms.Settings
       readonly IPipeTestRepository pipeTestRepo;
       readonly IProjectRepository projectRepo;
       readonly IPlateManufacturerRepository manufacturerRepo;
-
+      readonly IInspectorRepository inspectorRepo;
       readonly ISession session;
 
       [Inject]
@@ -31,6 +31,7 @@ namespace PrizmMain.Forms.Settings
          this.pipeSizeTypeRepo = new MillPipeSizeTypeRepository(session);
          this.projectRepo = new ProjectRepository(session);
          this.manufacturerRepo = new PlateManufacturerRepository(session);
+         this.inspectorRepo = new InspectorRepository(session);
 
       }
 
@@ -55,6 +56,11 @@ namespace PrizmMain.Forms.Settings
          get { return pipeTestRepo; }
       }
 
+      public IInspectorRepository InspectorRepo
+      {
+         get { return inspectorRepo; }
+      }
+      
       public IProjectRepository ProjectRepo
       {
           get { return projectRepo; }
@@ -74,5 +80,6 @@ namespace PrizmMain.Forms.Settings
       {
          session.BeginTransaction();
       }
+      
    }
 }
