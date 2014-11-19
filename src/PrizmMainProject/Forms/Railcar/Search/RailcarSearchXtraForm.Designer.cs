@@ -148,8 +148,6 @@
             this.editGridColumn.ColumnEdit = this.openRailcarButton;
             this.editGridColumn.MaxWidth = 30;
             this.editGridColumn.Name = "editGridColumn";
-            this.editGridColumn.Visible = true;
-            this.editGridColumn.VisibleIndex = 0;
             this.editGridColumn.Width = 30;
             // 
             // number
@@ -158,7 +156,7 @@
             this.number.FieldName = "Number";
             this.number.Name = "number";
             this.number.Visible = true;
-            this.number.VisibleIndex = 1;
+            this.number.VisibleIndex = 0;
             // 
             // dest
             // 
@@ -166,7 +164,7 @@
             this.dest.FieldName = "Destination";
             this.dest.Name = "dest";
             this.dest.Visible = true;
-            this.dest.VisibleIndex = 2;
+            this.dest.VisibleIndex = 1;
             // 
             // certificate
             // 
@@ -174,7 +172,7 @@
             this.certificate.FieldName = "Certificate";
             this.certificate.Name = "certificate";
             this.certificate.Visible = true;
-            this.certificate.VisibleIndex = 3;
+            this.certificate.VisibleIndex = 2;
             // 
             // shippingDate
             // 
@@ -183,7 +181,7 @@
             this.shippingDate.MaxWidth = 150;
             this.shippingDate.Name = "shippingDate";
             this.shippingDate.Visible = true;
-            this.shippingDate.VisibleIndex = 4;
+            this.shippingDate.VisibleIndex = 3;
             this.shippingDate.Width = 70;
             // 
             // shipGridColumn
@@ -192,7 +190,7 @@
             this.shipGridColumn.MaxWidth = 30;
             this.shipGridColumn.Name = "shipGridColumn";
             this.shipGridColumn.Visible = true;
-            this.shipGridColumn.VisibleIndex = 5;
+            this.shipGridColumn.VisibleIndex = 4;
             this.shipGridColumn.Width = 30;
             // 
             // unshipGridColumn
@@ -201,7 +199,7 @@
             this.unshipGridColumn.MaxWidth = 30;
             this.unshipGridColumn.Name = "unshipGridColumn";
             this.unshipGridColumn.Visible = true;
-            this.unshipGridColumn.VisibleIndex = 6;
+            this.unshipGridColumn.VisibleIndex = 5;
             this.unshipGridColumn.Width = 30;
             // 
             // searchButton

@@ -96,18 +96,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime DeliveryDate
-        {
-            get { return Railcar.DeliveryDate; }
-            set
-            {
-                if (value != Railcar.DeliveryDate)
-                {
-                    Railcar.DeliveryDate = value;
-                    RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
+        // removed by client?
+        //public DateTime DeliveryDate
+        //{
+        //    get { return Railcar.DeliveryDate; }
+        //    set
+        //    {
+        //        if (value != Railcar.DeliveryDate)
+        //        {
+        //            Railcar.DeliveryDate = value;
+        //            RaisePropertyChanged("DeliveryDate");
+        //        }
+        //    }
+        //}
 
         public IList<Pipe> Pipes
         {
