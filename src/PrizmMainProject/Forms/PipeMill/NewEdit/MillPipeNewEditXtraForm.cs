@@ -38,21 +38,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
+            //TODO: Please change the combo box filling 
+            // after introduction the logic of new heat creating
             foreach (var h in viewModel.Heats)
-            {
                 heatNumber.Properties.Items.Add(h);
-            }
 
-
+            //TODO: Please change the combo box filling 
+            // after introduction the logic of new PurchaseOrders creating
             foreach (var p in viewModel.PurchaseOrders)
-            {
                 purchaseOrder.Properties.Items.Add(p);
-            }
 
+            //TODO: Please change the combo box filling 
+            // after introduction the logic of new pipeSize creating
             foreach (var t in viewModel.PipeTypes)
-            {
                 pipeSize.Properties.Items.Add(t);
-            }
+
             
 
             pipeNumber.DataBindings

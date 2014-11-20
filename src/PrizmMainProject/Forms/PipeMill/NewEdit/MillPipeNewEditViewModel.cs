@@ -94,7 +94,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return pipeTypes; }
             set
             {
-                if (value != heats)
+                if (value != pipeTypes)
                 {
                     pipeTypes = value;
                     RaisePropertyChanged("PipeTypes");
@@ -467,8 +467,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipePurchaseOrder.Number = string.Empty;
             this.PipePurchaseOrder.Date = DateTime.Now;
 
+            //TODO: Please change set the default value 
+            // after introduction the logic of new heat creating 
             Heat = Heats[0];
+
+            //TODO: Please change set the default value 
+            // after introduction the logic of new heat PipePurchaseOrder 
             PipePurchaseOrder = purchaseOrders[0];
+
+            //TODO: Please change set the default value 
+            // after introduction the logic of new PipeTypes creating 
             PipeMillSizeType = PipeTypes[0];
         }
 
