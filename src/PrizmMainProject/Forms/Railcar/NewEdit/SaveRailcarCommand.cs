@@ -23,11 +23,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             {
                 viewModel.Railcar.ShippingDate = null;
             }
-
             repo.BeginTransaction();
             repo.SaveOrUpdate(viewModel.Railcar);
             repo.Commit();
             repo.Evict(viewModel.Railcar);
+            viewModel.NewRailcar();
         }
 
         public bool CanExecute()

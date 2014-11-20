@@ -23,7 +23,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             this.railcarRepo = repo;
             this.pipeRepo = pipeRepo;
 
-            allPipes = new List<Pipe>(pipeRepo.GetAll());
+            allPipes = new List<Pipe>(pipeRepo.GetStored());
 
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
 
