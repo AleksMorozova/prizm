@@ -2,9 +2,11 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
+using PrizmMain.Forms.MainChildForm;
+
 namespace PrizmMain.Forms.Reports.Construction
 {
-    public partial class ConstructionReportsXtraForm : XtraForm
+    public partial class ConstructionReportsXtraForm : ChildForm
     {
         public ConstructionReportsXtraForm()
         {

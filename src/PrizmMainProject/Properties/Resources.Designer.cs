@@ -72,9 +72,29 @@ namespace PrizmMain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Диапазон.
         /// </summary>
+
         internal static string Diapason {
             get {
+
                 return ResourceManager.GetString("Diapason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
+        /// </summary>
+        internal static string IDS_ERROR {
+            get {
+                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
+        /// </summary>
+        internal static string IDS_NO_MORE_DOCUMENTS {
+            get {
+                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
             }
         }
         
@@ -133,7 +153,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to save changes?.
+        ///   Looks up a localized string similar to Сохранить изменения?.
         /// </summary>
         internal static string IDS_QUESTION_SAVE {
             get {

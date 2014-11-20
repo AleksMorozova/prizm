@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel;
+
 using DevExpress.XtraEditors;
+
 using PrizmMain.DummyData;
+
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
-    public partial class JointNewEditXtraForm : XtraForm
+    public partial class JointNewEditXtraForm : ChildForm
     {
         public JointNewEditXtraForm()
         {

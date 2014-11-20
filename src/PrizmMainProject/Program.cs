@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using Data.DAL.Hibernate;
+
 using Ninject;
+
+using Data.DAL.Hibernate;
+
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Properties;
 
 namespace PrizmMain
 {
@@ -17,27 +21,34 @@ namespace PrizmMain
         [STAThread]
         private static void Main()
         {
-            
-            // Database
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
-
+            bool cmdLineMode = false;
             try
             {
+                // Database
+                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+
                 HibernateUtil.Initialize(settings.ConnectionString);
+
+                // Ninject
+                Kernel = new StandardKernel(new PrizmModule());
+
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new PrizmApplicationXtraForm());
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                String error = String.Format(Resources.IDS_ERROR + "{0}", ex.Message);
+                if (cmdLineMode)
+                {
+                    Console.Error.WriteLine(error);
+                }
+                else
+                {
+                    MessageBox.Show(error);
+                }
             }
-
-            // Ninject
-            Kernel = new StandardKernel(new PrizmModule());
-
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PrizmApplicationXtraForm());
         }
     }
 }
