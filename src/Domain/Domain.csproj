@@ -41,11 +41,6 @@
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Setup\ControlTypeResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ControlTypeResource.resx</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
@@ -79,12 +74,6 @@
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Entity\Setup\ControlTypeResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ControlTypeResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
