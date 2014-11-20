@@ -381,7 +381,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public DateTime? RailcarShippingDate
+              public DateTime RailcarShippingDate
               {
                   get
                   {
@@ -390,16 +390,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                           return DateTime.Now;
                       }
 
-                      return Railcar.ShippingDate;
+                      return Railcar.ShippingDate.Value;
                   }
-                  set
-                  {
-                      if (value != Railcar.ShippingDate)
-                      {
-                          Railcar.ShippingDate = value;
-                          RaisePropertyChanged("RailcarShippingDate");
-                      }
-                  }
+                  //set
+                  //{
+                  //    if (value != Railcar.ShippingDate)
+                  //    {
+                  //        Railcar.ShippingDate = value;
+                  //        RaisePropertyChanged("RailcarShippingDate");
+                  //    }
+                  //}
               }
               #endregion
 

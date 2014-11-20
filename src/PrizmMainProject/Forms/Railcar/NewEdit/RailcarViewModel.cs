@@ -34,6 +34,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             else
             {
                 Railcar = repo.GetByNumber(railcarNumber);
+                if (!Railcar.ShippingDate.HasValue)
+                {
+                    Railcar.ShippingDate = DateTime.MinValue;
+                }
             }
             
         }
@@ -83,10 +87,21 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        private DateTime? shippingDate = null;
-        public DateTime? ShippingDate
+ 
+        public DateTime ShippingDate
         {
-            get { return Railcar.ShippingDate; }
+            get 
+            {
+                if (Railcar.ShippingDate.HasValue)
+                {
+                    return Railcar.ShippingDate.Value;
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            
+            }
             set
             {
                 if (value != Railcar.ShippingDate)
@@ -96,20 +111,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 }
             }
         }
-
-        // removed by client?
-        //public DateTime DeliveryDate
-        //{
-        //    get { return Railcar.DeliveryDate; }
-        //    set
-        //    {
-        //        if (value != Railcar.DeliveryDate)
-        //        {
-        //            Railcar.DeliveryDate = value;
-        //            RaisePropertyChanged("DeliveryDate");
-        //        }
-        //    }
-        //}
 
         public IList<Pipe> Pipes
         {
