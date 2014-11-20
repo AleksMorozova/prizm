@@ -21,6 +21,7 @@ using PrizmMain.Forms.Spool;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
+using PrizmMain.Forms.PipeMill;
 
 namespace PrizmMain
 {
@@ -31,19 +32,22 @@ namespace PrizmMain
 
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
-            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+
             Bind<IPlateRepository>().To<PlateRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
 
+            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+
+
+            Bind<IMillRepository>().To<MillRepository>();
+
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
-            Bind<IInspectorRepository>().To<InspectorRepository>();
-            Bind<IProjectRepository>().To<ProjectRepository>();
-            Bind<IPlateManufacturerRepository>().To<PlateManufacturerRepository>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
 
             #endregion

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+	    this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -44,7 +45,9 @@
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testSubjectGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.resultTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.minExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.maxExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.boolExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -161,6 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
@@ -320,7 +325,9 @@
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.isRequired});
+            this.isRequired,
+            this.controlTypeItems,
+            this.resultTypeItems});
             this.inspectionOperation.Size = new System.Drawing.Size(645, 322);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -380,20 +387,48 @@
             // controlTypeGridColumn
             // 
             this.controlTypeGridColumn.Caption = "Вид контроля";
+            this.controlTypeGridColumn.ColumnEdit = this.controlTypeItems;
             this.controlTypeGridColumn.FieldName = "ControlType";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 3;
             this.controlTypeGridColumn.Width = 72;
             // 
+            // controlTypeItems
+            // 
+            this.controlTypeItems.AutoHeight = false;
+            this.controlTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Вид контроля")});
+            this.controlTypeItems.DisplayMember = "Text";
+            this.controlTypeItems.DropDownRows = 4;
+            this.controlTypeItems.Name = "controlTypeItems";
+            this.controlTypeItems.NullText = "";
+            this.controlTypeItems.ValueMember = "Value";
+            // 
             // resultTypeGridColumn
             // 
             this.resultTypeGridColumn.Caption = "Тип результата";
+            this.resultTypeGridColumn.ColumnEdit = this.resultTypeItems;
             this.resultTypeGridColumn.FieldName = "ResultType";
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 4;
             this.resultTypeGridColumn.Width = 72;
+            // 
+            // resultTypeItems
+            // 
+            this.resultTypeItems.AutoHeight = false;
+            this.resultTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Тип результата")});
+            this.resultTypeItems.DisplayMember = "Text";
+            this.resultTypeItems.DropDownRows = 3;
+            this.resultTypeItems.Name = "resultTypeItems";
+            this.resultTypeItems.NullText = "";
+            this.resultTypeItems.ValueMember = "Value";
             // 
             // minExpectedGridColumn
             // 
@@ -420,8 +455,6 @@
             this.boolExpectedGridColumn.FieldName = "BoolExpected";
             this.boolExpectedGridColumn.Name = "boolExpectedGridColumn";
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
-            this.boolExpectedGridColumn.Visible = true;
-            this.boolExpectedGridColumn.VisibleIndex = 7;
             this.boolExpectedGridColumn.Width = 60;
             // 
             // isRequiredGridColumn
@@ -431,7 +464,7 @@
             this.isRequiredGridColumn.FieldName = "IsRequired";
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
-            this.isRequiredGridColumn.VisibleIndex = 8;
+            this.isRequiredGridColumn.VisibleIndex = 7;
             this.isRequiredGridColumn.Width = 65;
             // 
             // isRequired
@@ -445,7 +478,7 @@
             this.testIsActiveGridColumn.FieldName = "IsActive";
             this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
             this.testIsActiveGridColumn.Visible = true;
-            this.testIsActiveGridColumn.VisibleIndex = 9;
+            this.testIsActiveGridColumn.VisibleIndex = 8;
             this.testIsActiveGridColumn.Width = 54;
             // 
             // pipeParametersLayoutGroup
@@ -1544,6 +1577,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
@@ -1742,5 +1777,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertificate;
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertExp;
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit controlTypeItems;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultTypeItems;
     }
 }
