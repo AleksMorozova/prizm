@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.shipButton = new DevExpress.XtraEditors.SimpleButton();
             this.removePipe = new DevExpress.XtraEditors.SimpleButton();
             this.addPipeButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeNumberLookUp = new DevExpress.XtraEditors.LookUpEdit();
@@ -53,8 +55,12 @@
             this.addPipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.removePipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.shipButton = new DevExpress.XtraEditors.SimpleButton();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.unshipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.shipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
@@ -75,7 +81,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -87,7 +98,7 @@
             this.pipesList.Location = new System.Drawing.Point(20, 65);
             this.pipesList.MainView = this.pipesListView;
             this.pipesList.Name = "pipesList";
-            this.pipesList.Size = new System.Drawing.Size(1228, 374);
+            this.pipesList.Size = new System.Drawing.Size(1228, 403);
             this.pipesList.TabIndex = 8;
             this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesListView});
@@ -134,23 +145,18 @@
             // unshipButton
             // 
             this.unshipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.unshipButton.Location = new System.Drawing.Point(1087, 472);
+            this.unshipButton.Location = new System.Drawing.Point(1058, 479);
             this.unshipButton.Name = "unshipButton";
-            this.unshipButton.Size = new System.Drawing.Size(75, 23);
+            this.unshipButton.Size = new System.Drawing.Size(87, 22);
+            this.unshipButton.StyleController = this.generalLayout;
             this.unshipButton.TabIndex = 15;
             this.unshipButton.Text = "Отклонить";
             // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(1188, 472);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 16;
-            this.saveButton.Text = "Сохранить";
-            // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.saveButton);
+            this.generalLayout.Controls.Add(this.shipButton);
+            this.generalLayout.Controls.Add(this.unshipButton);
             this.generalLayout.Controls.Add(this.removePipe);
             this.generalLayout.Controls.Add(this.addPipeButton);
             this.generalLayout.Controls.Add(this.pipeNumberLookUp);
@@ -159,15 +165,35 @@
             this.generalLayout.Controls.Add(this.certificateNumber);
             this.generalLayout.Controls.Add(this.destination);
             this.generalLayout.Controls.Add(this.railcarNumber);
-            this.generalLayout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
             this.generalLayout.Name = "generalLayout";
-            this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 277, 250, 350);
+            this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 278, 250, 350);
             this.generalLayout.Root = this.railcarLayoutGroup;
             this.generalLayout.ShowTemplates = true;
-            this.generalLayout.Size = new System.Drawing.Size(1275, 450);
+            this.generalLayout.Size = new System.Drawing.Size(1275, 510);
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(1159, 479);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(89, 22);
+            this.saveButton.StyleController = this.generalLayout;
+            this.saveButton.TabIndex = 16;
+            this.saveButton.Text = "Сохранить";
+            // 
+            // shipButton
+            // 
+            this.shipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.shipButton.Location = new System.Drawing.Point(955, 479);
+            this.shipButton.Name = "shipButton";
+            this.shipButton.Size = new System.Drawing.Size(89, 22);
+            this.shipButton.StyleController = this.generalLayout;
+            this.shipButton.TabIndex = 21;
+            this.shipButton.Text = "Отгрузить";
             // 
             // removePipe
             // 
@@ -261,11 +287,15 @@
             this.pipeNumberLayout,
             this.addPipeLayoutControl,
             this.removePipeLayoutControl,
-            this.generalEmptySpace});
+            this.generalEmptySpace,
+            this.saveButtonLayout,
+            this.unshipButtonLayout,
+            this.shipButtonLayout,
+            this.buttonsEmptySpace});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "Root";
             this.railcarLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.railcarLayoutGroup.Size = new System.Drawing.Size(1275, 450);
+            this.railcarLayoutGroup.Size = new System.Drawing.Size(1275, 510);
             this.railcarLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(16, 8, 0, 0);
             this.railcarLayoutGroup.Text = "Root";
             this.railcarLayoutGroup.TextVisible = false;
@@ -325,7 +355,7 @@
             this.pipeListLayout.CustomizationFormText = "Список труб";
             this.pipeListLayout.Location = new System.Drawing.Point(0, 54);
             this.pipeListLayout.Name = "pipeListLayout";
-            this.pipeListLayout.Size = new System.Drawing.Size(1247, 392);
+            this.pipeListLayout.Size = new System.Drawing.Size(1247, 421);
             this.pipeListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.pipeListLayout.Text = "Список труб";
             this.pipeListLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -381,14 +411,64 @@
             this.generalEmptySpace.Text = "generalEmptySpace";
             this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // shipButton
+            // saveButtonLayout
             // 
-            this.shipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.shipButton.Location = new System.Drawing.Point(987, 472);
-            this.shipButton.Name = "shipButton";
-            this.shipButton.Size = new System.Drawing.Size(75, 23);
-            this.shipButton.TabIndex = 21;
-            this.shipButton.Text = "Отгрузить";
+            this.saveButtonLayout.Control = this.saveButton;
+            this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
+            this.saveButtonLayout.Location = new System.Drawing.Point(1134, 475);
+            this.saveButtonLayout.Name = "saveButtonLayout";
+            this.saveButtonLayout.Size = new System.Drawing.Size(113, 31);
+            this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
+            this.saveButtonLayout.Text = "saveButtonLayout";
+            this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveButtonLayout.TextToControlDistance = 0;
+            this.saveButtonLayout.TextVisible = false;
+            // 
+            // unshipButtonLayout
+            // 
+            this.unshipButtonLayout.Control = this.unshipButton;
+            this.unshipButtonLayout.CustomizationFormText = "unshipButtonLayout";
+            this.unshipButtonLayout.Location = new System.Drawing.Point(1033, 475);
+            this.unshipButtonLayout.Name = "unshipButtonLayout";
+            this.unshipButtonLayout.Size = new System.Drawing.Size(101, 31);
+            this.unshipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.unshipButtonLayout.Text = "unshipButtonLayout";
+            this.unshipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.unshipButtonLayout.TextToControlDistance = 0;
+            this.unshipButtonLayout.TextVisible = false;
+            // 
+            // shipButtonLayout
+            // 
+            this.shipButtonLayout.Control = this.shipButton;
+            this.shipButtonLayout.CustomizationFormText = "shipButtonLayout";
+            this.shipButtonLayout.Location = new System.Drawing.Point(930, 475);
+            this.shipButtonLayout.Name = "shipButtonLayout";
+            this.shipButtonLayout.Size = new System.Drawing.Size(103, 31);
+            this.shipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.shipButtonLayout.Text = "shipButtonLayout";
+            this.shipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.shipButtonLayout.TextToControlDistance = 0;
+            this.shipButtonLayout.TextVisible = false;
+            // 
+            // buttonsEmptySpace
+            // 
+            this.buttonsEmptySpace.AllowHotTrack = false;
+            this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 475);
+            this.buttonsEmptySpace.Name = "buttonsEmptySpace";
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(930, 31);
+            this.buttonsEmptySpace.Text = "buttonsEmptySpace";
+            this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 445);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1247, 1);
+            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 20);
+            this.layoutControlItem1.TextToControlDistance = 5;
             // 
             // RailcarNewEditXtraForm
             // 
@@ -396,12 +476,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 510);
             this.Controls.Add(this.generalLayout);
-            this.Controls.Add(this.shipButton);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.unshipButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarNewEditXtraForm";
-            this.Text = "New or Edit railcar";
+            this.Text = "Завод - вагон";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
@@ -424,7 +501,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,5 +540,10 @@
         private DevExpress.XtraEditors.SimpleButton removePipe;
         private DevExpress.XtraLayout.LayoutControlItem removePipeLayoutControl;
         private DevExpress.XtraEditors.TextEdit railcarNumber;
+        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem unshipButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem shipButtonLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

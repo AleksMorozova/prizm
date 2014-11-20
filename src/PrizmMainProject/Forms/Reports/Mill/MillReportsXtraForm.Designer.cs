@@ -415,7 +415,7 @@
             this.Controls.Add(this.generalReportLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillReportsXtraForm";
-            this.Text = "Mill reports";
+            this.Text = "Завод - отчет";
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).EndInit();
             this.generalReportLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).EndInit();

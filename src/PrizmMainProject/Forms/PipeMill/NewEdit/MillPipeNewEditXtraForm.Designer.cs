@@ -53,6 +53,8 @@
             this.coatingDate = new DevExpress.XtraEditors.DateEdit();
             this.coatingHistory = new DevExpress.XtraGrid.GridControl();
             this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addWeldingButton = new DevExpress.XtraEditors.SimpleButton();
             this.welders = new DevExpress.XtraEditors.ComboBoxEdit();
             this.weldingDate = new DevExpress.XtraEditors.DateEdit();
@@ -516,9 +518,28 @@
             // 
             // coatingHistoryGridView
             // 
+            this.coatingHistoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.coatingDateGridColumn,
+            this.coatingTypeGridColumn});
             this.coatingHistoryGridView.GridControl = this.coatingHistory;
             this.coatingHistoryGridView.Name = "coatingHistoryGridView";
             this.coatingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // coatingDateGridColumn
+            // 
+            this.coatingDateGridColumn.Caption = "Дата покрытия";
+            this.coatingDateGridColumn.Name = "coatingDateGridColumn";
+            this.coatingDateGridColumn.Visible = true;
+            this.coatingDateGridColumn.VisibleIndex = 0;
+            this.coatingDateGridColumn.Width = 175;
+            // 
+            // coatingTypeGridColumn
+            // 
+            this.coatingTypeGridColumn.Caption = "Тип покрытия";
+            this.coatingTypeGridColumn.Name = "coatingTypeGridColumn";
+            this.coatingTypeGridColumn.Visible = true;
+            this.coatingTypeGridColumn.VisibleIndex = 1;
+            this.coatingTypeGridColumn.Width = 214;
             // 
             // addWeldingButton
             // 
@@ -1353,6 +1374,7 @@
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
+            this.inspectionNameGridColumn.Width = 250;
             // 
             // expectedResultGridColumn
             // 
@@ -1361,6 +1383,7 @@
             this.expectedResultGridColumn.Name = "expectedResultGridColumn";
             this.expectedResultGridColumn.Visible = true;
             this.expectedResultGridColumn.VisibleIndex = 2;
+            this.expectedResultGridColumn.Width = 130;
             // 
             // measurementsGridColumn
             // 
@@ -1369,6 +1392,7 @@
             this.measurementsGridColumn.Name = "measurementsGridColumn";
             this.measurementsGridColumn.Visible = true;
             this.measurementsGridColumn.VisibleIndex = 3;
+            this.measurementsGridColumn.Width = 130;
             // 
             // inspectionResultGridColumn
             // 
@@ -1377,6 +1401,7 @@
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.Visible = true;
             this.inspectionResultGridColumn.VisibleIndex = 4;
+            this.inspectionResultGridColumn.Width = 80;
             // 
             // inspectorsGridColumn
             // 
@@ -1385,6 +1410,7 @@
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 5;
+            this.inspectorsGridColumn.Width = 200;
             // 
             // controlDateGridColumn
             // 
@@ -1393,6 +1419,7 @@
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
             this.controlDateGridColumn.VisibleIndex = 6;
+            this.controlDateGridColumn.Width = 100;
             // 
             // commentsGridColumn
             // 
@@ -1400,14 +1427,16 @@
             this.commentsGridColumn.Name = "commentsGridColumn";
             this.commentsGridColumn.Visible = true;
             this.commentsGridColumn.VisibleIndex = 7;
+            this.commentsGridColumn.Width = 242;
             // 
             // inspectionCodeGridColumn
             // 
-            this.inspectionCodeGridColumn.Caption = "Код операции";
+            this.inspectionCodeGridColumn.Caption = "Код";
             this.inspectionCodeGridColumn.FieldName = "Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
+            this.inspectionCodeGridColumn.Width = 50;
             // 
             // inspectionsLayoutGroup
             // 
@@ -1477,7 +1506,7 @@
             this.closeButton.Size = new System.Drawing.Size(92, 22);
             this.closeButton.StyleController = this.generalPipeLayout;
             this.closeButton.TabIndex = 27;
-            this.closeButton.Text = "Закрыть";
+            this.closeButton.Text = "За&крыть";
             // 
             // deactivate
             // 
@@ -1496,7 +1525,7 @@
             this.saveButton.Size = new System.Drawing.Size(90, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "Со&хранить";
             // 
             // attachmentsButton
             // 
@@ -1506,7 +1535,7 @@
             this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
             this.attachmentsButton.StyleController = this.generalPipeLayout;
             this.attachmentsButton.TabIndex = 25;
-            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Text = "В&ложения";
             // 
             // purchaseOrderDate
             // 
@@ -1804,7 +1833,7 @@
             this.Controls.Add(this.generalPipeLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeNewEditXtraForm";
-            this.Text = "Mill - New or Edit pipe";
+            this.Text = "Завод - труба";
             this.Load += new System.EventHandler(this.MillPipeNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();
@@ -2069,5 +2098,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn weldersGridColumn;
         private System.Windows.Forms.BindingSource weldingDs;
         private System.Windows.Forms.BindingSource pipeNewEditBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn coatingDateGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn coatingTypeGridColumn;
     }
 }
