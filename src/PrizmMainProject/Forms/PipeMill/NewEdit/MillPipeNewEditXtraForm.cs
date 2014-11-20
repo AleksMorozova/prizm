@@ -44,29 +44,22 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-            try
-            {
-                //TODO: Please change the combo box filling 
-                // after introduction the logic of new heat creating
-                foreach (var h in viewModel.Heats)
-                    heatNumber.Properties.Items.Add(h);
 
-                //TODO: Please change the combo box filling 
-                // after introduction the logic of new PurchaseOrders creating
-                foreach (var p in viewModel.PurchaseOrders)
-                    purchaseOrder.Properties.Items.Add(p);
-
-                //TODO: Please change the combo box filling 
-                // after introduction the logic of new pipeSize creating
-                foreach (var t in viewModel.PipeTypes)
-                    pipeSize.Properties.Items.Add(t);
-            }
-            catch (Exception e)
+            foreach (var h in viewModel.Heats)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(e.Message);
+                heatNumber.Properties.Items.Add(h);
             }
 
-            
+            foreach (var p in viewModel.PurchaseOrders)
+            {
+                purchaseOrder.Properties.Items.Add(p);
+            }
+
+            foreach (var t in viewModel.PipeTypes)
+            {
+                pipeSize.Properties.Items.Add(t);
+            }
+
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -84,10 +77,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
 
 
-
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
-
 
 
             heatNumber.DataBindings
@@ -97,7 +88,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrder.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
 
-           // SelectedItem
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
@@ -127,7 +117,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
     
 
-
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
@@ -135,8 +124,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-
-        //Testing
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
@@ -164,9 +151,5 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
         }
-
-
-
     }
-
 }
