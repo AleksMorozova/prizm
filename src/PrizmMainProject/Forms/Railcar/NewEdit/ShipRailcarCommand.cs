@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.XtraEditors;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             var railcar = viewModel.Railcar;
 
-            if (!railcar.ShippingDate.HasValue)
+            if (railcar.Pipes.Count == 0)
+            {
+                //TODO: extract hardcoded text
+                XtraMessageBox.Show("Отправка вагона без труб невозможна!", "Ошибка");
+            }
+
+            if (railcar.ShippingDate == DateTime.MinValue)
             {
                 railcar.ShippingDate = DateTime.Now;
             }
