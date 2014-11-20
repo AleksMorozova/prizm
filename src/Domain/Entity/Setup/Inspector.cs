@@ -9,10 +9,12 @@ namespace Domain.Entity
     {
         public Inspector()
         {
+            this.TestResults = new List<TestResult<Enum>>();
         }
 
         public virtual PersonName Name { get; set; }
         public virtual string Certificate { get; set; }
         public virtual DateTime? CertificateExpiration { get; set; }
+        public virtual IList<TestResult<Enum>> TestResults { get; set; }
     }
 }

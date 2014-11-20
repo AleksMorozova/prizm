@@ -62,6 +62,7 @@
     <Compile Include="DAL\Hibernate\PhysicalParametersRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
+    <Compile Include="DAL\Hibernate\PipeTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateManufacturerRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateRepository.cs" />
     <Compile Include="DAL\Hibernate\ProjectRepository.cs" />
@@ -81,11 +82,13 @@
     <Compile Include="DAL\Mapping\PipeMap.cs" />
     <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
     <Compile Include="DAL\Mapping\PipeTestMap.cs" />
+    <Compile Include="DAL\Mapping\PipeTestResultMap.cs" />
     <Compile Include="DAL\Mapping\PlateManufacturerMap.cs" />
     <Compile Include="DAL\Mapping\PlateMap.cs" />
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
+    <Compile Include="DAL\Mapping\TestResultMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
     <Compile Include="DAL\Mill\IChemicalCompositionRepository.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="DAL\Mill\IMillRepository.cs" />
     <Compile Include="DAL\Mill\IPhysicalParametersRepository.cs" />
     <Compile Include="DAL\Mill\IPipeRepository.cs" />
+    <Compile Include="DAL\Mill\IPipeTestResultRepository.cs" />
     <Compile Include="DAL\Mill\IPlateManufacturerRepository.cs" />
     <Compile Include="DAL\Mill\IPlateRepository.cs" />
     <Compile Include="DAL\Mill\IPurchaseOrderRepository.cs" />
