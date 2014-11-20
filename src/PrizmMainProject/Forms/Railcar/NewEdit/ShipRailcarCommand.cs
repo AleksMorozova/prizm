@@ -45,8 +45,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            //TODO: shipping restriction
-            return true;
+            if (viewModel.Railcar.ShippingDate != DateTime.MinValue)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
