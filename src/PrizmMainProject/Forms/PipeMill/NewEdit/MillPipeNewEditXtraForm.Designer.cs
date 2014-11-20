@@ -1002,6 +1002,7 @@
             // 
             this.steelGrade.Location = new System.Drawing.Point(969, 67);
             this.steelGrade.Name = "steelGrade";
+            this.steelGrade.Properties.ReadOnly = true;
             this.steelGrade.Size = new System.Drawing.Size(161, 20);
             this.steelGrade.StyleController = this.tabPagesLayout;
             this.steelGrade.TabIndex = 30;

@@ -101,11 +101,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
 
-
-
-
-
-
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)
