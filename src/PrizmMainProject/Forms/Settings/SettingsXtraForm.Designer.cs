@@ -402,6 +402,7 @@
             this.controlTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Вид контроля")});
             this.controlTypeItems.DisplayMember = "Text";
+            this.controlTypeItems.DropDownRows = 4;
             this.controlTypeItems.Name = "controlTypeItems";
             this.controlTypeItems.NullText = "";
             this.controlTypeItems.ValueMember = "Value";
@@ -424,6 +425,7 @@
             this.resultTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Тип результата")});
             this.resultTypeItems.DisplayMember = "Text";
+            this.resultTypeItems.DropDownRows = 3;
             this.resultTypeItems.Name = "resultTypeItems";
             this.resultTypeItems.NullText = "";
             this.resultTypeItems.ValueMember = "Value";
