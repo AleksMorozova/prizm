@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// for method RaiseCanExecuteChanged
+using DevExpress.Mvvm.POCO;
+
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditCommand: ICommand
@@ -30,9 +33,25 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewPipe();
         }
 
+
+        public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
+
+
+
+
         public bool CanExecute()
         {
-            return true;
+            bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&
+                viewModel.PipeMillSizeType != null &&
+                viewModel.PipePurchaseOrder != null &&
+                !string.IsNullOrEmpty(viewModel.Number);
+
+            return condition;
         }
     }
 }

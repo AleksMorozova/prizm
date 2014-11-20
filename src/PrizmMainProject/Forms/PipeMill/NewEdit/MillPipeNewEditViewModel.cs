@@ -217,7 +217,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.Now;
+                    return DateTime.MinValue;
                 }
 
                 return PipePurchaseOrder.Date; 
@@ -428,10 +428,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            this.PipePurchaseOrder = new PurchaseOrder();
-            this.PipePurchaseOrder.Number = string.Empty;
-            this.PipePurchaseOrder.Date = DateTime.Now;
-
+            /*
             //TODO: Please change set the default value 
             // after introduction the logic of new heat creating 
             Heat = Heats[0];
@@ -443,6 +440,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             //TODO: Please change set the default value 
             // after introduction the logic of new PipeTypes creating 
             PipeMillSizeType = PipeTypes[0];
+            */
         }
 
         public void Dispose()

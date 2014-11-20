@@ -6,6 +6,8 @@ using PrizmMain.Forms.PipeMill.Heat;
 using Ninject;
 using Ninject.Parameters;
 using System.Windows.Forms;
+using Domain.Entity.Setup;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -22,6 +24,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
+
+            purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
+            purchaseOrderDate.Properties.NullText = string.Empty;
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -38,20 +44,27 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new heat creating
-            foreach (var h in viewModel.Heats)
-                heatNumber.Properties.Items.Add(h);
+            try
+            {
+                //TODO: Please change the combo box filling 
+                // after introduction the logic of new heat creating
+                foreach (var h in viewModel.Heats)
+                    heatNumber.Properties.Items.Add(h);
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new PurchaseOrders creating
-            foreach (var p in viewModel.PurchaseOrders)
-                purchaseOrder.Properties.Items.Add(p);
+                //TODO: Please change the combo box filling 
+                // after introduction the logic of new PurchaseOrders creating
+                foreach (var p in viewModel.PurchaseOrders)
+                    purchaseOrder.Properties.Items.Add(p);
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new pipeSize creating
-            foreach (var t in viewModel.PipeTypes)
-                pipeSize.Properties.Items.Add(t);
+                //TODO: Please change the combo box filling 
+                // after introduction the logic of new pipeSize creating
+                foreach (var t in viewModel.PipeTypes)
+                    pipeSize.Properties.Items.Add(t);
+            }
+            catch (Exception e)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(e.Message);
+            }
 
             
 
@@ -71,19 +84,20 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
 
 
-            pipeSize.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
-
-
-            heatNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "Heat");
-
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
+
+
+            heatNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Heat");
+            pipeSize.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
             purchaseOrder.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
+
+           // SelectedItem
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
@@ -97,9 +111,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
             
-
-
-
 
         }
 
@@ -120,6 +131,38 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+            
+        }
+
+
+
+        //Testing
+        private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void pipeNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.Number = pipeNumber.Text;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
         }
 
 
