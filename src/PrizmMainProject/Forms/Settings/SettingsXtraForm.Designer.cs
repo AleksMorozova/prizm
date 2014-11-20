@@ -1040,7 +1040,7 @@
             // 
             // rolesColId
             // 
-            this.rolesColId.Caption = "¹";
+            this.rolesColId.Caption = "#";
             this.rolesColId.FieldName = "Id";
             this.rolesColId.MaxWidth = 50;
             this.rolesColId.Name = "rolesColId";
@@ -1050,7 +1050,7 @@
             // 
             // colName
             // 
-            this.colName.Caption = "Ðîëü";
+            this.colName.Caption = "Роль";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
@@ -1058,7 +1058,7 @@
             // 
             // colDescription
             // 
-            this.colDescription.Caption = "Îïèñàíèå";
+            this.colDescription.Caption = "Описание";
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
@@ -1073,7 +1073,7 @@
             this.roleEditButton.Size = new System.Drawing.Size(150, 24);
             this.roleEditButton.StyleController = this.usersButtonLayoutControl;
             this.roleEditButton.TabIndex = 3;
-            this.roleEditButton.Text = "Ðåäàêòèðîâàòü";
+            this.roleEditButton.Text = "Привилегии";
             this.roleEditButton.Click += new System.EventHandler(this.editRoleButton_Click);
             // 
             // roleAddButton
@@ -1085,7 +1085,7 @@
             this.roleAddButton.Size = new System.Drawing.Size(150, 24);
             this.roleAddButton.StyleController = this.usersButtonLayoutControl;
             this.roleAddButton.TabIndex = 4;
-            this.roleAddButton.Text = "Äîáàâèòü";
+            this.roleAddButton.Text = "Пользователь";
             this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
             // 
             // rolesRootGroup
@@ -1116,9 +1116,9 @@
             this.roleLayoutControl.Size = new System.Drawing.Size(876, 305);
             this.roleLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.roleLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
-            this.roleLayoutControl.Text = "Ðîëè";
+            this.roleLayoutControl.Text = "Роли";
             this.roleLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.roleLayoutControl.TextSize = new System.Drawing.Size(22, 13);
+            this.roleLayoutControl.TextSize = new System.Drawing.Size(24, 13);
             // 
             // roleButtonRightEmptySpace
             // 
