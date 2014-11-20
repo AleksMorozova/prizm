@@ -7,25 +7,27 @@ using PrizmMain.Commands;
 using System.ComponentModel;
 using Domain.Entity.Mill;
 using System.Collections.Generic;
+using DevExpress.XtraEditors;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository railcarRepo;
-        private readonly IPipeRepository pipeRepo;
+        private readonly IRailcarRepositories repos;
         private readonly SaveRailcarCommand saveCommand;
+        private readonly ShipRailcarCommand shipCommand;
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo, IPipeRepository pipeRepo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber)
         {
-            this.railcarRepo = repo;
-            this.pipeRepo = pipeRepo;
+            this.repos = repos;
 
-            allPipes = new List<Pipe>(pipeRepo.GetAll());
+            GetStoredPipes();
 
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
+            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -33,7 +35,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                Railcar = repo.GetByNumber(railcarNumber);
+                Railcar = repos.RailcarRepo.GetByNumber(railcarNumber);
                 if (!Railcar.ShippingDate.HasValue)
                 {
                     Railcar.ShippingDate = DateTime.MinValue;
@@ -41,6 +43,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             
         }
+
         public List<Pipe> AllPipes
         {
             get { return allPipes; }
@@ -87,7 +90,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
- 
         public DateTime ShippingDate
         {
             get 
@@ -130,9 +132,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             get { return saveCommand; }
         }
 
+        public ICommand ShipCommand
+        {
+            get { return shipCommand; }
+        }
+
         public void Dispose()
         {
-            railcarRepo.Dispose();
+            repos.Dispose();
         }
 
         public void AddPipe(Guid id)
@@ -144,8 +151,21 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 		        return;
 	            }
 	        }
+            GetStoredPipes();
 
-            Pipes.Add(allPipes.Find(_ => _.Id.Equals(id)));
+            var pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
+
+            if (!(pipeToAdd.Railcar == null))
+            {
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
+                    Resources.DLG_ERROR_HEADER);
+            }
+            else
+            {
+                Pipes.Add(pipeToAdd);
+            }
+
+            
         }
 
         public void RemovePipe(string number)
@@ -156,7 +176,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Pipes.Remove(pipe);
                     pipe.Railcar = null;
-                    pipeRepo.Merge(pipe);
+                    repos.PipeRepo.Merge(pipe);
                     return;
                 }
             }
@@ -173,6 +193,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
+        }
+
+        private void GetStoredPipes()
+        {
+            allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
         }
 
         

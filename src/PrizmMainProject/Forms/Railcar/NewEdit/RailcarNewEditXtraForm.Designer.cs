@@ -243,6 +243,7 @@
             // 
             this.railcarNumber.Location = new System.Drawing.Point(18, 25);
             this.railcarNumber.Name = "railcarNumber";
+            this.railcarNumber.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.railcarNumber.Size = new System.Drawing.Size(184, 20);
             this.railcarNumber.StyleController = this.generalLayout;
             this.railcarNumber.TabIndex = 7;

@@ -79,6 +79,51 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        internal static string DLG_ERROR_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_ERROR_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите номер вагона.
+        /// </summary>
+        internal static string DLG_RAILCAR_NUMBER_EMPTY {
+            get {
+                return ResourceManager.GetString("DLG_RAILCAR_NUMBER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная труба находится в вагоне #.
+        /// </summary>
+        internal static string DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR {
+            get {
+                return ResourceManager.GetString("DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все трубы в в вагоне должны быть одного типоразмера.
+        /// </summary>
+        internal static string DLG_RAILCAR_TYPESIZE_ERROR {
+            get {
+                return ResourceManager.GetString("DLG_RAILCAR_TYPESIZE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отправка вагона без труб невозможна.
+        /// </summary>
+        internal static string DLG_SHIP_RAILCAR_VS_PIPES {
+            get {
+                return ResourceManager.GetString("DLG_SHIP_RAILCAR_VS_PIPES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обязательный контроль.
         /// </summary>
         internal static string Hold {
