@@ -250,8 +250,8 @@
             // 
             // pipeDiameterGridColumn
             // 
-            this.pipeDiameterGridColumn.Caption = "Диаметр";
-            this.pipeDiameterGridColumn.FieldName = "Diameter";
+            this.pipeDiameterGridColumn.Caption = "Типоразмер";
+            this.pipeDiameterGridColumn.FieldName = "Type.Type";
             this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
             this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeDiameterGridColumn.Visible = true;

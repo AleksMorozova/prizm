@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -320,10 +320,10 @@
             // weldingHistory
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            gridLevelNode1.LevelTemplate = this.weldersListGridView;
-            gridLevelNode1.RelationName = "welders";
+            gridLevelNode2.LevelTemplate = this.weldersListGridView;
+            gridLevelNode2.RelationName = "welders";
             this.weldingHistory.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.weldingHistory.Location = new System.Drawing.Point(193, 95);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
@@ -1476,6 +1476,7 @@
             this.pipeSize.Size = new System.Drawing.Size(169, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
+            this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
             // 
             // generalPipeLayout
             // 
@@ -1562,6 +1563,7 @@
             this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
             this.purchaseOrder.StyleController = this.generalPipeLayout;
             this.purchaseOrder.TabIndex = 5;
+            this.purchaseOrder.SelectedIndexChanged += new System.EventHandler(this.purchaseOrder_SelectedIndexChanged);
             // 
             // heatNumber
             // 
@@ -1572,6 +1574,7 @@
             this.heatNumber.Size = new System.Drawing.Size(176, 20);
             this.heatNumber.StyleController = this.generalPipeLayout;
             this.heatNumber.TabIndex = 2;
+            this.heatNumber.SelectedIndexChanged += new System.EventHandler(this.heatNumber_SelectedIndexChanged);
             // 
             // pipeCreationDate
             // 
@@ -1603,6 +1606,7 @@
             this.pipeNumber.Size = new System.Drawing.Size(185, 20);
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
+            this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
             // 
             // generalLayoutGroup
             // 
