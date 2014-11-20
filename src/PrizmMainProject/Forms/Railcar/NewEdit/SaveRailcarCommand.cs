@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using PrizmMain.Commands;
+using System;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -18,6 +19,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            {
+                viewModel.Railcar.ShippingDate = null;
+            }
+
             repo.BeginTransaction();
             repo.SaveOrUpdate(viewModel.Railcar);
             repo.Commit();
