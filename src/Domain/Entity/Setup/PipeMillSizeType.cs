@@ -19,6 +19,11 @@ namespace Domain.Entity.Setup
         public virtual IList<PipeTest> PipeTests { get; set; }
         public virtual IList<Pipe> Pipes { get; set; }
 
+        public override string ToString()
+        {
+            return Type;
+        }
+
 
     }
 }
