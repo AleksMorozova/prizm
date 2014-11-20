@@ -389,7 +389,7 @@
             this.Controls.Add(this.searchComponentLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
-            this.Text = "Входной контроль - поиск комлектующих изделий";
+            this.Text = "Поиск комлектующих изделий";
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();

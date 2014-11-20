@@ -818,7 +818,7 @@
             this.Controls.Add(this.searchPipeLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionPipeSearchEditXtraForm";
-            this.Text = "Входной контроль - поиск трубы";
+            this.Text = "Поиск трубы";
             ((System.ComponentModel.ISupportInitialize)(this.unloadedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unloadedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPipeLayoutControl)).EndInit();
