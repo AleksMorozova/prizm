@@ -1,11 +1,13 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -27,8 +29,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (railcar.Pipes.Count == 0)
             {
-                //TODO: extract hardcoded text
-                XtraMessageBox.Show("Отправка вагона без труб невозможна!", "Ошибка");
+                XtraMessageBox.Show(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             if (railcar.ShippingDate == DateTime.MinValue)
@@ -45,14 +48,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            if (viewModel.Railcar.ShippingDate != DateTime.MinValue)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return !(viewModel.Railcar.ShippingDate != DateTime.MinValue);
         }
     }
 }

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using Domain.Entity.Mill;
 using System.Collections.Generic;
 using DevExpress.XtraEditors;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -156,8 +157,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (!(pipeToAdd.Railcar == null))
             {
-                //TODO: remove hardcoded text
-                XtraMessageBox.Show("Данная труба находится в вагоне #" + pipeToAdd.Railcar.Number,"Ошибка");
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
+                    Resources.DLG_ERROR_HEADER);
             }
             else
             {

@@ -3,6 +3,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +26,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
-                XtraMessageBox.Show("Введите номер вагона", "Ошибка");
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
             int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
 
-            if (distinctSizes>1)
+            if (distinctSizes > 1)
             {
-                //TODO: extract hardcoded text
-                XtraMessageBox.Show("Все трубы в в вагоне должны быть одного типоразмера", "Ошибка");
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR,Resources.DLG_ERROR_HEADER);
                 return;
             }
 
