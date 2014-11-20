@@ -48,12 +48,18 @@ namespace PrizmMain.Forms.MainChildForm
             //==========================================================
         }
 
+        /// <summary>
+        /// Checks if given form type is single. Expected type name of the form derived from ChildForm and used as a child window.
+        /// Single means to have only one opened child window if this type at a time.
+        /// </summary>
+        /// <param name="formTypeName"></param>
+        /// <returns></returns>
         private bool IsSingle(string formTypeName)
         {
             bool isSingle = false;
 
             switch (formTypeName)
-            { 
+            {
                 case "SettingsXtraForm":
                     isSingle = true;
                     break;
@@ -63,6 +69,12 @@ namespace PrizmMain.Forms.MainChildForm
             return isSingle;
         }
 
+        /// <summary>
+        /// Creates and returns an instance of child form of given form type. Given 
+        /// </summary>
+        /// <param name="formType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private ChildForm CreateReturnChildForm(System.Type formType, params IParameter[] parameters)
         {
             ChildForm newlyCreatedForm = null;
@@ -93,6 +105,7 @@ namespace PrizmMain.Forms.MainChildForm
                     newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType, parameters);
                     childForms[formType.Name].Add(newlyCreatedForm);
                     newlyCreatedForm.MdiParent = this;
+                    newlyCreatedForm.FormClosed += ChildClosedEventHandler;
                     FramesCanOpen--;
                 }
             }
@@ -103,13 +116,43 @@ namespace PrizmMain.Forms.MainChildForm
             return newlyCreatedForm;
         }
 
-        private void ShowChildForm(XtraForm form)
+        /// <summary>
+        /// Cleans child form if it was closed
+        /// </summary>
+        /// <param name="sender">child form expected</param>
+        /// <param name="arguments"></param>
+        public void ChildClosedEventHandler(object sender, EventArgs arguments)
+        {
+            if (typeof(ChildForm).IsAssignableFrom(sender.GetType()))
+            {
+                foreach (var childType in childForms)
+                {
+                    if (childType.Value.Remove((ChildForm)sender))
+                    {
+                        FramesCanOpen++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Show existing child form.
+        /// </summary>
+        /// <param name="form"></param>
+        private void ShowChildForm(ChildForm form)
         {
             form.Show();
             form.WindowState = FormWindowState.Normal;
             form.WindowState = FormWindowState.Maximized;
         }
 
+        /// <summary>
+        /// Creation of child form. Can be used from outside to pass some parameters to newly created forms (i.e. pipe number).
+        /// After creation, form shows.
+        /// </summary>
+        /// <param name="formType">exact type of form</param>
+        /// <param name="parameters">input parameters passed to the newly created form</param>
         public void CreateChildForm(System.Type formType, params IParameter[] parameters)
         {
             ChildForm form = CreateReturnChildForm(formType, parameters);
@@ -119,13 +162,21 @@ namespace PrizmMain.Forms.MainChildForm
             }
         }
 
+        /// <summary>
+        /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
+        /// </summary>
+        /// <param name="page">number of starting page</param>
+        /// <param name="parameters">form input parameters if any</param>
         public void CreateSettingsChildForm(int page, params IParameter[] parameters)
         {
             SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), parameters);
 
             if (form != null)
             {
-                form.settings.SelectedTabPage = form.settings.TabPages[page];
+                if (form.settings.TabPages.Count > page)
+                {
+                    form.settings.SelectedTabPage = form.settings.TabPages[page];
+                }
                 ShowChildForm(form);
             }
         }
