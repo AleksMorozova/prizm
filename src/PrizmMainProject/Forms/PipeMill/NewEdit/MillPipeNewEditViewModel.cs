@@ -390,16 +390,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public DateTime RailcarShippingDate
+              public string RailcarShippingDate
               {
                   get
                   {
                       if (Railcar == null)
                       {
-                          return DateTime.Now;
+                          return string.Empty;
                       }
 
-                      return Railcar.ShippingDate.Value;
+                      return Railcar.ShippingDate.Value.ToShortDateString();
                   }
                   //set
                   //{
@@ -445,7 +445,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return extractPurchaseOrderCommand; }
         }
         
-
         public void NewPipe()
         {
             extractPurchaseOrderCommand.Execute();
