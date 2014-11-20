@@ -11,6 +11,7 @@ using Ninject;
 using Ninject.Parameters;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -82,6 +83,8 @@ namespace PrizmMain.Forms.Settings
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
             gridControlInspectors.DataSource = viewModel.Inspectors;
+            controlTypeItems.DataSource = viewModel.ControlType;
+            resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");

@@ -41,6 +41,11 @@
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
+    <Compile Include="Entity\Setup\ControlTypeResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlTypeResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
@@ -49,6 +54,7 @@
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
     <Compile Include="Entity\Mill\PipeTestResult.cs" />
+    <Compile Include="Entity\Setup\PipeTestControlTypeWrapper.cs" />
     <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
@@ -67,12 +73,18 @@
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
+    <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs" />
     <Compile Include="Entity\Setup\Project.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Entity\Setup\ControlTypeResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlTypeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
