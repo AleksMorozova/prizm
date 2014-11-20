@@ -1355,6 +1355,7 @@
          this.pipeSize.Size = new System.Drawing.Size(169, 20);
          this.pipeSize.StyleController = this.generalPipeLayout;
          this.pipeSize.TabIndex = 1;
+            this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
          // 
          // generalPipeLayout
          // 
@@ -1441,6 +1442,7 @@
          this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
          this.purchaseOrder.StyleController = this.generalPipeLayout;
          this.purchaseOrder.TabIndex = 5;
+            this.purchaseOrder.SelectedIndexChanged += new System.EventHandler(this.purchaseOrder_SelectedIndexChanged);
          // 
          // heatNumber
          // 
@@ -1451,6 +1453,7 @@
          this.heatNumber.Size = new System.Drawing.Size(176, 20);
          this.heatNumber.StyleController = this.generalPipeLayout;
          this.heatNumber.TabIndex = 2;
+            this.heatNumber.SelectedIndexChanged += new System.EventHandler(this.heatNumber_SelectedIndexChanged);
          // 
          // pipeCreationDate
          // 
@@ -1482,6 +1485,7 @@
          this.pipeNumber.Size = new System.Drawing.Size(185, 20);
          this.pipeNumber.StyleController = this.generalPipeLayout;
          this.pipeNumber.TabIndex = 0;
+            this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
          // 
          // generalLayoutGroup
          // 

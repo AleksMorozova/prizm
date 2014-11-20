@@ -34,7 +34,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public Pipe Pipe { get; set; }
         public IList<Welder> Welders { get; set; }
 
-        [Inject]
+       [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
         {
             this.repoMill = repoMill;
@@ -222,7 +222,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.Now;
+                    return DateTime.MinValue;
                 }
 
                 return PipePurchaseOrder.Date; 
@@ -320,7 +320,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         #endregion
 
         #region Railcar
-              public Domain.Entity.Mill.Railcar Railcar
+        public Domain.Entity.Mill.Railcar Railcar
               {
                   get { return Pipe.Railcar; }
                   set
@@ -333,7 +333,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public string RailcarNumber
+        public string RailcarNumber
               {
                   get
                   {
@@ -343,18 +343,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Number;
                   }
-
-                  set
-                  {
-                      if (value != Railcar.Number)
-                      {
-                          Railcar.Number = value;
-                          RaisePropertyChanged("RailcarNumber");
-                      }
-                  }
               }
 
-              public string RailcarCertificate
+        public string RailcarCertificate
               {
                   get
                   {
@@ -364,17 +355,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Certificate;
                   }
-                  set
-                  {
-                      if (value != Railcar.Certificate)
-                      {
-                          Railcar.Certificate = value;
-                          RaisePropertyChanged("RailcarCertificate");
-                      }
-                  }
               }
 
-              public string RailcarDestination
+        public string RailcarDestination
               {
                   get
                   {
@@ -384,17 +367,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Destination;
                   }
-                  set
-                  {
-                      if (value != Railcar.Destination)
-                      {
-                          Railcar.Destination = value;
-                          RaisePropertyChanged("RailcarDestination");
-                      }
-                  }
               }
 
-              public string RailcarShippingDate
+        public string RailcarShippingDate
               {
                   get
                   {
@@ -405,16 +380,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
                       return Railcar.ShippingDate.Value.ToShortDateString();
                   }
-                  //set
-                  //{
-                  //    if (value != Railcar.ShippingDate)
-                  //    {
-                  //        Railcar.ShippingDate = value;
-                  //        RaisePropertyChanged("RailcarShippingDate");
-                  //    }
-                  //}
               }
-              #endregion
+        #endregion
 
         #region PipeMillSizeType
 
@@ -466,10 +433,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            this.PipePurchaseOrder = new PurchaseOrder();
-            this.PipePurchaseOrder.Number = string.Empty;
-            this.PipePurchaseOrder.Date = DateTime.Now;
-
+            
             //TODO: Please change set the default value 
             // after introduction the logic of new heat creating 
             //Heat = Heats[0];
