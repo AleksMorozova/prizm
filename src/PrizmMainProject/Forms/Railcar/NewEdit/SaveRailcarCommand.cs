@@ -23,6 +23,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
+            {
+                XtraMessageBox.Show("Введите номер вагона", "Ошибка");
+                return;
+            }
             int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
 
             if (distinctSizes>1)
