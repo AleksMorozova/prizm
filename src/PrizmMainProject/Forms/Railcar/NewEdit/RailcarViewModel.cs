@@ -7,6 +7,7 @@ using PrizmMain.Commands;
 using System.ComponentModel;
 using Domain.Entity.Mill;
 using System.Collections.Generic;
+using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -14,6 +15,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     {
         private readonly IRailcarRepositories repos;
         private readonly SaveRailcarCommand saveCommand;
+        private readonly ShipRailcarCommand shipCommand;
         private List<Pipe> allPipes;
 
         [Inject]
@@ -21,9 +23,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             this.repos = repos;
 
-            allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+            GetStoredPipes();
 
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
+            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -39,6 +42,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             
         }
+
         public List<Pipe> AllPipes
         {
             get { return allPipes; }
@@ -85,7 +89,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
- 
         public DateTime ShippingDate
         {
             get 
@@ -128,6 +131,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             get { return saveCommand; }
         }
 
+        public ICommand ShipCommand
+        {
+            get { return shipCommand; }
+        }
+
         public void Dispose()
         {
             repos.Dispose();
@@ -142,8 +150,21 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 		        return;
 	            }
 	        }
+            GetStoredPipes();
 
-            Pipes.Add(allPipes.Find(_ => _.Id.Equals(id)));
+            var pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
+
+            if (!(pipeToAdd.Railcar == null))
+            {
+                //TODO: remove hardcoded text
+                XtraMessageBox.Show("Данная труба находится в вагоне #" + pipeToAdd.Railcar.Number,"Ошибка");
+            }
+            else
+            {
+                Pipes.Add(pipeToAdd);
+            }
+
+            
         }
 
         public void RemovePipe(string number)
@@ -171,6 +192,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
             Pipes = new List<Pipe>();
+        }
+
+        private void GetStoredPipes()
+        {
+            allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
         }
 
         

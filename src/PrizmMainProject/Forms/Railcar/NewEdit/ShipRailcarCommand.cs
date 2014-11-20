@@ -1,4 +1,5 @@
-﻿using PrizmMain.Commands;
+﻿using DevExpress.Mvvm.DataAnnotations;
+using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,36 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class ShipRailcarCommand : ICommand
     {
-        public ShipRailcarCommand()
-        {
+        private readonly IRailcarRepositories repos;
+        private readonly RailcarViewModel viewModel;
 
+        public ShipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
+        {
+            this.viewModel = viewModel;
+            this.repos = repo;
         }
 
+        [Command(UseCommandManager = false)]
         public void Execute()
         {
-            throw new NotImplementedException();
+            var railcar = viewModel.Railcar;
+
+            if (!railcar.ShippingDate.HasValue)
+            {
+                railcar.ShippingDate = DateTime.Now;
+            }
+
+            foreach (var pipe in railcar.Pipes)
+            {
+                pipe.Status = "Отгружена";
+            }
+            viewModel.SaveCommand.Execute();
         }
 
         public bool CanExecute()
         {
-            throw new NotImplementedException();
+            //TODO: shipping restriction
+            return true;
         }
     }
 }

@@ -1,7 +1,11 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.XtraEditors;
+using Domain.Entity.Mill;
 using PrizmMain.Commands;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -19,6 +23,15 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
+
+            if (distinctSizes>1)
+            {
+                //TODO: extract hardcoded text
+                XtraMessageBox.Show("Все трубы в в вагоне должны быть одного типоразмера", "Ошибка");
+                return;
+            }
+
             if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
             {
                 viewModel.Railcar.ShippingDate = null;
