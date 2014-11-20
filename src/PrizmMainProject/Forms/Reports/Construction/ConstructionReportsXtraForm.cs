@@ -9,8 +9,8 @@ namespace PrizmMain.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-            var item1 = new RadioGroupItem(0, "Joint");
-            var item2 = new RadioGroupItem(1, "Kilometer post");
+            var item1 = new RadioGroupItem(0, "Стык");
+            var item2 = new RadioGroupItem(1, "Пикет");
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;
@@ -18,12 +18,12 @@ namespace PrizmMain.Forms.Reports.Construction
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
-            reportType.Properties.Items.Add("Used products");
-            reportType.Properties.Items.Add("Highway");
-            reportType.Properties.Items.Add("Pipeline length");
-            type.Properties.Items.Add("All");
-            type.Properties.Items.Add("Pipes");
-            type.Properties.Items.Add("Components");
+            reportType.Properties.Items.Add("Использованные изделия");
+            reportType.Properties.Items.Add("Трассовка");
+            reportType.Properties.Items.Add("Протяженность трубопровода");
+            type.Properties.Items.Add("Все");
+            type.Properties.Items.Add("Трубы");
+            type.Properties.Items.Add("Комплектующие изделия");
         }
     }
 }
