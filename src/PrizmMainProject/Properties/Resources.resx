@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Boolean" xml:space="preserve">
+    <value>Булевское значение</value>
+  </data>
+  <data name="Diapason" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Обязательный контроль</value>
+  </data>
   <data name="IDS_QUESTION_SAVE" xml:space="preserve">
     <value>Do you want to save changes?</value>
+  </data>
+  <data name="Monitor" xml:space="preserve">
+    <value>Визуальный контроль</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Проверка по доументации</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Строковое значение</value>
+  </data>
+  <data name="Witness" xml:space="preserve">
+    <value>Присутствие при испытаниях</value>
   </data>
 </root>

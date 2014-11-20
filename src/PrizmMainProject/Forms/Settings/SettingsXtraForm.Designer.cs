@@ -45,7 +45,9 @@
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testSubjectGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.controlTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.resultTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.minExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.maxExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.boolExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,14 +135,15 @@
             this.colWelderStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWelderGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWelderActive = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.inspectorsPage = new DevExpress.XtraTab.XtraTabPage();
-         this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
-         this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorsPage = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
+            this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -151,7 +154,6 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -162,6 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
@@ -220,9 +224,9 @@
             this.weldersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).BeginInit();
-         this.inspectorsPage.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
+            this.inspectorsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).BeginInit();
             this.settingsTabPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).BeginInit();
@@ -321,7 +325,9 @@
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.isRequired});
+            this.isRequired,
+            this.controlTypeItems,
+            this.resultTypeItems});
             this.inspectionOperation.Size = new System.Drawing.Size(645, 322);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -346,7 +352,7 @@
             this.testIsActiveGridColumn});
             this.inspectionView.GridControl = this.inspectionOperation;
             this.inspectionView.Name = "inspectionView";
-         this.inspectionView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
             this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
@@ -381,20 +387,48 @@
             // controlTypeGridColumn
             // 
             this.controlTypeGridColumn.Caption = "Вид контроля";
+            this.controlTypeGridColumn.ColumnEdit = this.controlTypeItems;
             this.controlTypeGridColumn.FieldName = "ControlType";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 3;
             this.controlTypeGridColumn.Width = 72;
             // 
+            // controlTypeItems
+            // 
+            this.controlTypeItems.AutoHeight = false;
+            this.controlTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Вид контроля")});
+            this.controlTypeItems.DisplayMember = "Text";
+            this.controlTypeItems.DropDownRows = 4;
+            this.controlTypeItems.Name = "controlTypeItems";
+            this.controlTypeItems.NullText = "";
+            this.controlTypeItems.ValueMember = "Value";
+            // 
             // resultTypeGridColumn
             // 
             this.resultTypeGridColumn.Caption = "Тип результата";
+            this.resultTypeGridColumn.ColumnEdit = this.resultTypeItems;
             this.resultTypeGridColumn.FieldName = "ResultType";
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 4;
             this.resultTypeGridColumn.Width = 72;
+            // 
+            // resultTypeItems
+            // 
+            this.resultTypeItems.AutoHeight = false;
+            this.resultTypeItems.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultTypeItems.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Тип результата")});
+            this.resultTypeItems.DisplayMember = "Text";
+            this.resultTypeItems.DropDownRows = 3;
+            this.resultTypeItems.Name = "resultTypeItems";
+            this.resultTypeItems.NullText = "";
+            this.resultTypeItems.ValueMember = "Value";
             // 
             // minExpectedGridColumn
             // 
@@ -421,8 +455,6 @@
             this.boolExpectedGridColumn.FieldName = "BoolExpected";
             this.boolExpectedGridColumn.Name = "boolExpectedGridColumn";
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
-            this.boolExpectedGridColumn.Visible = true;
-            this.boolExpectedGridColumn.VisibleIndex = 7;
             this.boolExpectedGridColumn.Width = 60;
             // 
             // isRequiredGridColumn
@@ -432,7 +464,7 @@
             this.isRequiredGridColumn.FieldName = "IsRequired";
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
-            this.isRequiredGridColumn.VisibleIndex = 8;
+            this.isRequiredGridColumn.VisibleIndex = 7;
             this.isRequiredGridColumn.Width = 65;
             // 
             // isRequired
@@ -446,7 +478,7 @@
             this.testIsActiveGridColumn.FieldName = "IsActive";
             this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
             this.testIsActiveGridColumn.Visible = true;
-            this.testIsActiveGridColumn.VisibleIndex = 9;
+            this.testIsActiveGridColumn.VisibleIndex = 8;
             this.testIsActiveGridColumn.Width = 54;
             // 
             // pipeParametersLayoutGroup
@@ -1265,7 +1297,7 @@
             this.gridViewWelders.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridViewWelders.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
-         this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
+            this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.gridViewWelders.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewWelders_ValidateRow);
             // 
             // colWelderFirstName
@@ -1303,7 +1335,7 @@
             // colWelderCertExp
             // 
             this.colWelderCertExp.Caption = "Certificate Expiration";
-         this.colWelderCertExp.FieldName = "CertificateExpitation";
+            this.colWelderCertExp.FieldName = "CertificateExpitation";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
             this.colWelderCertExp.VisibleIndex = 4;
@@ -1332,81 +1364,89 @@
             this.colWelderActive.Visible = true;
             this.colWelderActive.VisibleIndex = 7;
             // 
-         // inspectorsPage
-         // 
-         this.inspectorsPage.Controls.Add(this.gridControlInspectors);
-         this.inspectorsPage.Name = "inspectorsPage";
-         this.inspectorsPage.Size = new System.Drawing.Size(906, 363);
-         this.inspectorsPage.Text = "Inspectors";
-         // 
-         // gridControlInspectors
-         // 
-         this.gridControlInspectors.Cursor = System.Windows.Forms.Cursors.Default;
-         this.gridControlInspectors.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControlInspectors.Location = new System.Drawing.Point(0, 0);
-         this.gridControlInspectors.MainView = this.gridViewInspectors;
-         this.gridControlInspectors.Name = "gridControlInspectors";
-         this.gridControlInspectors.Size = new System.Drawing.Size(906, 363);
-         this.gridControlInspectors.TabIndex = 0;
-         this.gridControlInspectors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            // inspectorsPage
+            // 
+            this.inspectorsPage.Controls.Add(this.gridControlInspectors);
+            this.inspectorsPage.Name = "inspectorsPage";
+            this.inspectorsPage.Size = new System.Drawing.Size(906, 363);
+            this.inspectorsPage.Text = "Inspectors";
+            // 
+            // gridControlInspectors
+            // 
+            this.gridControlInspectors.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gridControlInspectors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlInspectors.Location = new System.Drawing.Point(0, 0);
+            this.gridControlInspectors.MainView = this.gridViewInspectors;
+            this.gridControlInspectors.Name = "gridControlInspectors";
+            this.gridControlInspectors.Size = new System.Drawing.Size(906, 363);
+            this.gridControlInspectors.TabIndex = 0;
+            this.gridControlInspectors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectors});
-         // 
-         // gridViewInspectors
-         // 
-         this.gridViewInspectors.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            // 
+            // gridViewInspectors
+            // 
+            this.gridViewInspectors.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colInspectorFirstName,
             this.colInspectorLastName,
             this.colInspectorMiddleName,
             this.colInspectorCertificate,
             this.colInspectorCertExp,
             this.colInspectorActive});
-         this.gridViewInspectors.GridControl = this.gridControlInspectors;
-         this.gridViewInspectors.Name = "gridViewInspectors";
-         this.gridViewInspectors.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-         this.gridViewInspectors.OptionsView.ShowGroupPanel = false;
-         this.gridViewInspectors.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
-         this.gridViewInspectors.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewInspectors_ValidateRow);
-         // 
-         // colInspectorFirstName
-         // 
-         this.colInspectorFirstName.Caption = "First Name";
-         this.colInspectorFirstName.FieldName = "FirstName";
-         this.colInspectorFirstName.Name = "colInspectorFirstName";
-         this.colInspectorFirstName.Visible = true;
-         this.colInspectorFirstName.VisibleIndex = 0;
-         // 
-         // colInspectorLastName
-         // 
-         this.colInspectorLastName.Caption = "Last Name";
-         this.colInspectorLastName.FieldName = "LastName";
-         this.colInspectorLastName.Name = "colInspectorLastName";
-         this.colInspectorLastName.Visible = true;
-         this.colInspectorLastName.VisibleIndex = 1;
-         // 
-         // colInspectorMiddleName
-         // 
-         this.colInspectorMiddleName.Caption = "Middle Name";
-         this.colInspectorMiddleName.FieldName = "MiddleName";
-         this.colInspectorMiddleName.Name = "colInspectorMiddleName";
-         this.colInspectorMiddleName.Visible = true;
-         this.colInspectorMiddleName.VisibleIndex = 2;
-         // 
-         // colInspectorCertificate
-         // 
-         this.colInspectorCertificate.Caption = "Certificate";
-         this.colInspectorCertificate.FieldName = "Certificate";
-         this.colInspectorCertificate.Name = "colInspectorCertificate";
-         this.colInspectorCertificate.Visible = true;
-         this.colInspectorCertificate.VisibleIndex = 3;
-         // 
-         // colInspectorCertExp
-         // 
-         this.colInspectorCertExp.Caption = "Certificate Expiration";
-         this.colInspectorCertExp.FieldName = "CertificateExpiration";
-         this.colInspectorCertExp.Name = "colInspectorCertExp";
-         this.colInspectorCertExp.Visible = true;
-         this.colInspectorCertExp.VisibleIndex = 4;
-         // 
+            this.gridViewInspectors.GridControl = this.gridControlInspectors;
+            this.gridViewInspectors.Name = "gridViewInspectors";
+            this.gridViewInspectors.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridViewInspectors.OptionsView.ShowGroupPanel = false;
+            this.gridViewInspectors.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
+            this.gridViewInspectors.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewInspectors_ValidateRow);
+            // 
+            // colInspectorFirstName
+            // 
+            this.colInspectorFirstName.Caption = "First Name";
+            this.colInspectorFirstName.FieldName = "FirstName";
+            this.colInspectorFirstName.Name = "colInspectorFirstName";
+            this.colInspectorFirstName.Visible = true;
+            this.colInspectorFirstName.VisibleIndex = 0;
+            // 
+            // colInspectorLastName
+            // 
+            this.colInspectorLastName.Caption = "Last Name";
+            this.colInspectorLastName.FieldName = "LastName";
+            this.colInspectorLastName.Name = "colInspectorLastName";
+            this.colInspectorLastName.Visible = true;
+            this.colInspectorLastName.VisibleIndex = 1;
+            // 
+            // colInspectorMiddleName
+            // 
+            this.colInspectorMiddleName.Caption = "Middle Name";
+            this.colInspectorMiddleName.FieldName = "MiddleName";
+            this.colInspectorMiddleName.Name = "colInspectorMiddleName";
+            this.colInspectorMiddleName.Visible = true;
+            this.colInspectorMiddleName.VisibleIndex = 2;
+            // 
+            // colInspectorCertificate
+            // 
+            this.colInspectorCertificate.Caption = "Certificate";
+            this.colInspectorCertificate.FieldName = "Certificate";
+            this.colInspectorCertificate.Name = "colInspectorCertificate";
+            this.colInspectorCertificate.Visible = true;
+            this.colInspectorCertificate.VisibleIndex = 3;
+            // 
+            // colInspectorCertExp
+            // 
+            this.colInspectorCertExp.Caption = "Certificate Expiration";
+            this.colInspectorCertExp.FieldName = "CertificateExpiration";
+            this.colInspectorCertExp.Name = "colInspectorCertExp";
+            this.colInspectorCertExp.Visible = true;
+            this.colInspectorCertExp.VisibleIndex = 4;
+            // 
+            // colInspectorActive
+            // 
+            this.colInspectorActive.Caption = "Active";
+            this.colInspectorActive.FieldName = "Active";
+            this.colInspectorActive.Name = "colInspectorActive";
+            this.colInspectorActive.Visible = true;
+            this.colInspectorActive.VisibleIndex = 5;
+            // 
             // settingsTabPanel
             // 
             this.settingsTabPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1516,14 +1556,6 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
-         // colInspectorActive
-         // 
-         this.colInspectorActive.Caption = "Active";
-         this.colInspectorActive.FieldName = "Active";
-         this.colInspectorActive.Name = "colInspectorActive";
-         this.colInspectorActive.Visible = true;
-         this.colInspectorActive.VisibleIndex = 5;
-         // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1545,6 +1577,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
@@ -1603,9 +1637,9 @@
             this.weldersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).EndInit();
-         this.inspectorsPage.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
+            this.inspectorsPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).EndInit();
             this.settingsTabPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).EndInit();
@@ -1743,5 +1777,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertificate;
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorCertExp;
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit controlTypeItems;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultTypeItems;
     }
 }

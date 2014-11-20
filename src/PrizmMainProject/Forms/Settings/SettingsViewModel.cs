@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -24,6 +25,8 @@ namespace PrizmMain.Forms.Settings
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
         public BindingList<InspectorViewType> Inspectors { get; set; }
+        public BindingList<PipeTestControlTypeWrapper> ControlType { get; set; }
+        public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
         private IList<PlateManufacturer> plateManufacturers;
@@ -43,6 +46,30 @@ namespace PrizmMain.Forms.Settings
            GetAllInspectors();
            GetProjectSettings();
            GetAllManufacturers();
+           ControlType = new BindingList<PipeTestControlTypeWrapper>();
+           ResultType = new BindingList<PipeTestResultTypeWrapper>();
+
+           foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
+           {
+               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undef))
+               ControlType.Add(new PipeTestControlTypeWrapper()
+               {
+                   Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName),
+                   Text = Resources.ResourceManager.GetString(controlTypeName)
+               }
+               );
+           }
+
+           foreach (string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
+           {
+               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undef))
+               ResultType.Add(new PipeTestResultTypeWrapper()
+               {
+                   Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName),
+                   Text = Resources.ResourceManager.GetString(resultTypeName)
+               }
+               );
+           }
         }
 
        
