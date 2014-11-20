@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using Domain.Entity.Mill;
 using Domain.Entity.Setup;
+using System.ComponentModel;
+using Domain.Entity;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -30,7 +32,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
 
         public Pipe Pipe { get; set; }
-
+        public IList<Welder> Welders { get; set; }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
@@ -61,6 +63,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
                 Pipe = repoMill.RepoPipe.Get(pipeId);
             }
+
+            Welders = repoMill.WelderRepo.GetAll();
         }
 
         public IList<PurchaseOrder> PurchaseOrders
@@ -468,15 +472,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             //TODO: Please change set the default value 
             // after introduction the logic of new heat creating 
-            Heat = Heats[0];
+            //Heat = Heats[0];
 
             //TODO: Please change set the default value 
             // after introduction the logic of new heat PipePurchaseOrder 
-            PipePurchaseOrder = purchaseOrders[0];
+            //PipePurchaseOrder = purchaseOrders[0];
 
             //TODO: Please change set the default value 
             // after introduction the logic of new PipeTypes creating 
-            PipeMillSizeType = PipeTypes[0];
+            //PipeMillSizeType = PipeTypes[0];
         }
 
         public void Dispose()
@@ -484,5 +488,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repoMill.Dispose();
         }
 
+
+        internal string FormatWeldersList(IList<Welder> welders)
+        {
+           if (welders == null)
+              return String.Empty;
+
+           return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
+        }
     }
 }

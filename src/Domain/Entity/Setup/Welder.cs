@@ -8,6 +8,7 @@ namespace Domain.Entity
     {
         public Welder()
         {
+           Name = new PersonName();
         }
 
         public virtual string Certificate { get; set; }
