@@ -46,17 +46,17 @@
             // 
             this.previewButton.Location = new System.Drawing.Point(420, 36);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(73, 23);
+            this.previewButton.Size = new System.Drawing.Size(89, 23);
             this.previewButton.TabIndex = 56;
-            this.previewButton.Text = "Preview";
+            this.previewButton.Text = "&Предпросмотр";
             // 
             // createReportButton
             // 
-            this.createReportButton.Location = new System.Drawing.Point(515, 36);
+            this.createReportButton.Location = new System.Drawing.Point(533, 35);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(75, 23);
+            this.createReportButton.Size = new System.Drawing.Size(89, 23);
             this.createReportButton.TabIndex = 55;
-            this.createReportButton.Text = "Create report";
+            this.createReportButton.Text = "Соз&дать отчет";
             // 
             // toDate
             // 
@@ -86,17 +86,17 @@
             // 
             this.toLabel.Location = new System.Drawing.Point(158, 41);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(10, 13);
+            this.toLabel.Size = new System.Drawing.Size(12, 13);
             this.toLabel.TabIndex = 52;
-            this.toLabel.Text = "to";
+            this.toLabel.Text = "по";
             // 
             // fromLabel
             // 
             this.fromLabel.Location = new System.Drawing.Point(12, 41);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(22, 13);
+            this.fromLabel.Size = new System.Drawing.Size(5, 13);
             this.fromLabel.TabIndex = 51;
-            this.fromLabel.Text = "from";
+            this.fromLabel.Text = "с";
             // 
             // previewReportDocument
             // 
@@ -111,9 +111,9 @@
             // 
             this.incomingInspectionDateLabel.Location = new System.Drawing.Point(12, 12);
             this.incomingInspectionDateLabel.Name = "incomingInspectionDateLabel";
-            this.incomingInspectionDateLabel.Size = new System.Drawing.Size(119, 13);
+            this.incomingInspectionDateLabel.Size = new System.Drawing.Size(132, 13);
             this.incomingInspectionDateLabel.TabIndex = 57;
-            this.incomingInspectionDateLabel.Text = "Incoming inspection date";
+            this.incomingInspectionDateLabel.Text = "Дата входного контроля:";
             // 
             // InspectionReportsXtraForm
             // 
