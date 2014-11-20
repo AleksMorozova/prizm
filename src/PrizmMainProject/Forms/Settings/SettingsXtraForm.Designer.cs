@@ -268,7 +268,7 @@
             this.pipeSizeGridColumn.Name = "pipeSizeGridColumn";
             this.pipeSizeGridColumn.Visible = true;
             this.pipeSizeGridColumn.VisibleIndex = 0;
-            this.pipeSizeGridColumn.Width = 91;
+            this.pipeSizeGridColumn.Width = 127;
             // 
             // isActiveGridColumn
             // 
@@ -277,7 +277,7 @@
             this.isActiveGridColumn.Name = "isActiveGridColumn";
             this.isActiveGridColumn.Visible = true;
             this.isActiveGridColumn.VisibleIndex = 1;
-            this.isActiveGridColumn.Width = 50;
+            this.isActiveGridColumn.Width = 55;
             // 
             // settings
             // 
