@@ -12,20 +12,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository railcarRepo;
-        private readonly IPipeRepository pipeRepo;
+        private readonly IRailcarRepositories repos;
         private readonly SaveRailcarCommand saveCommand;
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo, IPipeRepository pipeRepo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber)
         {
-            this.railcarRepo = repo;
-            this.pipeRepo = pipeRepo;
+            this.repos = repos;
 
-            allPipes = new List<Pipe>(pipeRepo.GetStored());
+            allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
 
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -33,7 +31,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                Railcar = repo.GetByNumber(railcarNumber);
+                Railcar = repos.RailcarRepo.GetByNumber(railcarNumber);
                 if (!Railcar.ShippingDate.HasValue)
                 {
                     Railcar.ShippingDate = DateTime.MinValue;
@@ -132,7 +130,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void Dispose()
         {
-            railcarRepo.Dispose();
+            repos.Dispose();
         }
 
         public void AddPipe(Guid id)
@@ -156,7 +154,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Pipes.Remove(pipe);
                     pipe.Railcar = null;
-                    pipeRepo.Merge(pipe);
+                    repos.PipeRepo.Merge(pipe);
                     return;
                 }
             }

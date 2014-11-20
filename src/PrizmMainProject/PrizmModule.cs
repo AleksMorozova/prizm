@@ -20,6 +20,7 @@ using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Railcar;
 
 namespace PrizmMain
 {
@@ -43,6 +44,7 @@ namespace PrizmMain
             Bind<IInspectorRepository>().To<InspectorRepository>();
             Bind<IProjectRepository>().To<ProjectRepository>();
             Bind<IPlateManufacturerRepository>().To<PlateManufacturerRepository>();
+            Bind<IRailcarRepositories>().To<RailcarRepositories>();
 
             #endregion
 

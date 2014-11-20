@@ -7,13 +7,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {
-        private readonly IRailcarRepository repo;
+        private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
 
-        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepository repo)
+        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
         {
             this.viewModel = viewModel;
-            this.repo = repo;
+            this.repos = repo;
         }
 
         [Command(UseCommandManager = false)]
@@ -23,10 +23,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             {
                 viewModel.Railcar.ShippingDate = null;
             }
-            repo.BeginTransaction();
-            repo.SaveOrUpdate(viewModel.Railcar);
-            repo.Commit();
-            repo.Evict(viewModel.Railcar);
+            repos.BeginTransaction();
+            repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+            repos.Commit();
+            repos.RailcarRepo.Evict(viewModel.Railcar);
             viewModel.NewRailcar();
         }
 
