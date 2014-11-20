@@ -123,6 +123,21 @@
   <data name="Diapason" xml:space="preserve">
     <value>Диапазон</value>
   </data>
+  <data name="DLG_ERROR_HEADER" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="DLG_RAILCAR_NUMBER_EMPTY" xml:space="preserve">
+    <value>Введите номер вагона</value>
+  </data>
+  <data name="DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR" xml:space="preserve">
+    <value>Данная труба находится в вагоне #</value>
+  </data>
+  <data name="DLG_RAILCAR_TYPESIZE_ERROR" xml:space="preserve">
+    <value>Все трубы в в вагоне должны быть одного типоразмера</value>
+  </data>
+  <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
+    <value>Отправка вагона без труб невозможна</value>
+  </data>
   <data name="Hold" xml:space="preserve">
     <value>Обязательный контроль</value>
   </data>
