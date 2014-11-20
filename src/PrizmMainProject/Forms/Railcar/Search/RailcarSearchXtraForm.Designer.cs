@@ -160,7 +160,7 @@
             // 
             // number
             // 
-            this.number.Caption = "Номер";
+            this.number.Caption = "Вагон №";
             this.number.FieldName = "Number";
             this.number.Name = "number";
             this.number.OptionsColumn.AllowEdit = false;
@@ -230,12 +230,12 @@
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.searchButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter;
-            this.searchButton.Location = new System.Drawing.Point(741, 60);
+            this.searchButton.Location = new System.Drawing.Point(787, 60);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(204, 22);
+            this.searchButton.Size = new System.Drawing.Size(123, 22);
             this.searchButton.StyleController = this.generalLayout;
             this.searchButton.TabIndex = 4;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&Поиск";
             // 
             // generalLayout
             // 
@@ -258,7 +258,7 @@
             // shippedDate
             // 
             this.shippedDate.EditValue = null;
-            this.shippedDate.Location = new System.Drawing.Point(624, 61);
+            this.shippedDate.Location = new System.Drawing.Point(637, 61);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -266,15 +266,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.shippedDate.Properties.Mask.EditMask = "";
             this.shippedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.shippedDate.Size = new System.Drawing.Size(101, 20);
+            this.shippedDate.Size = new System.Drawing.Size(116, 20);
             this.shippedDate.StyleController = this.generalLayout;
             this.shippedDate.TabIndex = 3;
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(426, 61);
+            this.certificateNumber.Location = new System.Drawing.Point(437, 61);
             this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(184, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(166, 20);
             this.certificateNumber.StyleController = this.generalLayout;
             this.certificateNumber.TabIndex = 2;
             // 
@@ -283,15 +283,15 @@
             this.railcarNumber.Location = new System.Drawing.Point(27, 61);
             this.railcarNumber.Margin = new System.Windows.Forms.Padding(10);
             this.railcarNumber.Name = "railcarNumber";
-            this.railcarNumber.Size = new System.Drawing.Size(136, 20);
+            this.railcarNumber.Size = new System.Drawing.Size(126, 20);
             this.railcarNumber.StyleController = this.generalLayout;
             this.railcarNumber.TabIndex = 0;
             // 
             // destination
             // 
-            this.destination.Location = new System.Drawing.Point(177, 61);
+            this.destination.Location = new System.Drawing.Point(187, 61);
             this.destination.Name = "destination";
-            this.destination.Size = new System.Drawing.Size(235, 20);
+            this.destination.Size = new System.Drawing.Size(216, 20);
             this.destination.StyleController = this.generalLayout;
             this.destination.TabIndex = 1;
             // 
@@ -332,8 +332,8 @@
             this.destinationLayout.CustomizationFormText = "Destination";
             this.destinationLayout.Location = new System.Drawing.Point(150, 0);
             this.destinationLayout.Name = "destinationLayout";
-            this.destinationLayout.Size = new System.Drawing.Size(249, 45);
-            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.destinationLayout.Size = new System.Drawing.Size(250, 45);
+            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
             this.destinationLayout.Text = "&Получатель";
             this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.destinationLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -342,10 +342,10 @@
             // 
             this.certificateNumberLayout.Control = this.certificateNumber;
             this.certificateNumberLayout.CustomizationFormText = "Certificate number";
-            this.certificateNumberLayout.Location = new System.Drawing.Point(399, 0);
+            this.certificateNumberLayout.Location = new System.Drawing.Point(400, 0);
             this.certificateNumberLayout.Name = "certificateNumberLayout";
-            this.certificateNumberLayout.Size = new System.Drawing.Size(198, 45);
-            this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.certificateNumberLayout.Size = new System.Drawing.Size(200, 45);
+            this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
             this.certificateNumberLayout.Text = "Номер &сертификата";
             this.certificateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateNumberLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -355,10 +355,10 @@
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.ControlAlignment = System.Drawing.ContentAlignment.BottomLeft;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(712, 0);
+            this.searchButtonLayout.Location = new System.Drawing.Point(750, 0);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(215, 45);
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 15, 0);
+            this.searchButtonLayout.Size = new System.Drawing.Size(142, 45);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextLocation = DevExpress.Utils.Locations.Bottom;
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -372,7 +372,7 @@
             this.railcarNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.railcarNumberLayout.Name = "railcarNumberLayout";
             this.railcarNumberLayout.Size = new System.Drawing.Size(150, 45);
-            this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.railcarNumberLayout.Text = "&Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -381,9 +381,9 @@
             // 
             this.searchLayoutGroupEmptySpace.AllowHotTrack = false;
             this.searchLayoutGroupEmptySpace.CustomizationFormText = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(927, 0);
+            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(892, 0);
             this.searchLayoutGroupEmptySpace.Name = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(298, 45);
+            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(333, 45);
             this.searchLayoutGroupEmptySpace.Text = "searchLayoutGroupEmptySpace";
             this.searchLayoutGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -391,10 +391,10 @@
             // 
             this.shippedDateLayoutControl.Control = this.shippedDate;
             this.shippedDateLayoutControl.CustomizationFormText = "layoutControlItem1";
-            this.shippedDateLayoutControl.Location = new System.Drawing.Point(597, 0);
+            this.shippedDateLayoutControl.Location = new System.Drawing.Point(600, 0);
             this.shippedDateLayoutControl.Name = "shippedDateLayoutControl";
-            this.shippedDateLayoutControl.Size = new System.Drawing.Size(115, 45);
-            this.shippedDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.shippedDateLayoutControl.Size = new System.Drawing.Size(150, 45);
+            this.shippedDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
             this.shippedDateLayoutControl.Text = "Дата отправки";
             this.shippedDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.shippedDateLayoutControl.TextSize = new System.Drawing.Size(101, 13);
