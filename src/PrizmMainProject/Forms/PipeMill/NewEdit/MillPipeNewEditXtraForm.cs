@@ -43,10 +43,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 heatNumber.Properties.Items.Add(h);
             }
 
-            
-            foreach (var h in viewModel.PurchaseOrders)
+
+            foreach (var p in viewModel.PurchaseOrders)
             {
-                purchaseOrder.Properties.Items.Add(h);
+                purchaseOrder.Properties.Items.Add(p);
+            }
+
+            foreach (var t in viewModel.PipeTypes)
+            {
+                pipeSize.Properties.Items.Add(t);
             }
             
 
@@ -64,6 +69,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
+
+
+            pipeSize.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
 
 
             heatNumber.DataBindings
