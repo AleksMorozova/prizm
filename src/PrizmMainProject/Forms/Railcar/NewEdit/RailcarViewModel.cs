@@ -9,6 +9,7 @@ using Domain.Entity.Mill;
 using System.Collections.Generic;
 using DevExpress.XtraEditors;
 using PrizmMain.Properties;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -158,7 +159,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             if (!(pipeToAdd.Railcar == null))
             {
                 XtraMessageBox.Show(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
-                    Resources.DLG_ERROR_HEADER);
+                    Resources.DLG_ERROR_HEADER, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

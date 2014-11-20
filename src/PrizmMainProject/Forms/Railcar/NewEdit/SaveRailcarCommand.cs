@@ -7,6 +7,7 @@ using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -26,14 +27,16 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
 
             if (distinctSizes > 1)
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR,Resources.DLG_ERROR_HEADER);
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
