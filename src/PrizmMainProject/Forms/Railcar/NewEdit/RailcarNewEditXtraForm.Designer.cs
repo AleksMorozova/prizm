@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,7 +57,7 @@
             this.unshipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.shipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
@@ -218,12 +217,15 @@
             this.pipeNumberLookUp.EditValue = "";
             this.pipeNumberLookUp.Location = new System.Drawing.Point(818, 27);
             this.pipeNumberLookUp.Name = "pipeNumberLookUp";
+            this.pipeNumberLookUp.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeNumberLookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер трубы"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Status", "Статус")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Type", 45, "Типоразмер")});
             this.pipeNumberLookUp.Properties.DisplayMember = "Number";
+            this.pipeNumberLookUp.Properties.NullText = "";
+            this.pipeNumberLookUp.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.FrameResize;
             this.pipeNumberLookUp.Properties.ValueMember = "Id";
             this.pipeNumberLookUp.Size = new System.Drawing.Size(166, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;

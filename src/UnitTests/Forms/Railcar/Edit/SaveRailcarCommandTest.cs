@@ -22,6 +22,8 @@ namespace UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var viewModel = new RailcarViewModel(repos.Object, "");
+            viewModel.Railcar.Number = "Test Railcar";
+            viewModel.Railcar.Pipes.Add(new Pipe());
             var command = new SaveRailcarCommand(viewModel, repos.Object);
 
             command.Execute();
