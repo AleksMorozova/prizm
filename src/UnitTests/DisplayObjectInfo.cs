@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace UnitTests
 {
+    /// <summary>
+    /// Helper for display object info in vs express for debug
+    /// </summary>
     public static class DisplayObjectInfo
     {
         public static string Display(Object o)

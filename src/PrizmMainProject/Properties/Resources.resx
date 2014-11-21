@@ -165,4 +165,7 @@
   <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
     <value>Сначала расформируйте вагон.</value>
   </data>
+  <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
+    <value>Вагон не отгружен</value>
+  </data>
 </root>

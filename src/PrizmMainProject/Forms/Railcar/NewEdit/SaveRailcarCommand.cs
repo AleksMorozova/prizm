@@ -31,24 +31,16 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
-
-            if (distinctSizes > 1)
-            {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
-            {
-                viewModel.Railcar.ShippingDate = null;
-            }
-            repos.BeginTransaction();
-            repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
-            repos.Commit();
-            repos.RailcarRepo.Evict(viewModel.Railcar);
-            viewModel.NewRailcar();
+            
+                if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+                {
+                    viewModel.Railcar.ShippingDate = null;
+                }
+                repos.BeginTransaction();
+                repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+                repos.Commit();
+                repos.RailcarRepo.Evict(viewModel.Railcar);
+                viewModel.NewRailcar();
         }
 
         public bool CanExecute()

@@ -1,10 +1,13 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.XtraEditors;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -22,14 +25,24 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            var railcar = viewModel.Railcar;
-            foreach (var pipe in railcar.Pipes)
+            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
             {
-                pipe.Status = "Склад";
+                XtraMessageBox.Show(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            railcar.ShippingDate = DateTime.MinValue;
-            
-            viewModel.SaveCommand.Execute();
+            else
+            {
+                var railcar = viewModel.Railcar;
+                foreach (var pipe in railcar.Pipes)
+                {
+                    pipe.Status = "Склад";
+                }
+                railcar.ShippingDate = DateTime.MinValue;
+
+                viewModel.SaveCommand.Execute();
+            }
+
+
         }
 
 

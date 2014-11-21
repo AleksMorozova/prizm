@@ -133,6 +133,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вагон не отгружен.
+        /// </summary>
+        internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
+            get {
+                return ResourceManager.GetString("DLG_UNSHIP_UNSHIPPED_RAILCAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обязательный контроль.
         /// </summary>
         internal static string Hold {

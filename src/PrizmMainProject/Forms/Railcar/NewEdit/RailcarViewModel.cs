@@ -194,7 +194,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     Pipes.Remove(pipe);
                     pipe.Railcar = null;
                     repos.PipeRepo.Merge(pipe);
-                    return;
+                    break;
                 }
             }
         }
