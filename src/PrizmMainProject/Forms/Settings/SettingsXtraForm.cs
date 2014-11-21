@@ -124,6 +124,7 @@ namespace PrizmMain.Forms.Settings
         {
             GridView v = sender as GridView;
             PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
+            pipeTest.IsActive = true;
             pipeTest.pipeType = CurrentPipeMillSizeType;
             CurrentPipeMillSizeType.PipeTests.Add(pipeTest); 
         }
@@ -132,6 +133,7 @@ namespace PrizmMain.Forms.Settings
         {
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
+            CurrentPipeMillSizeType.IsActive = true;
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
