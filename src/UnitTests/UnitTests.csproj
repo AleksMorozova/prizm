@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayObjectInfo.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommandTest.cs" />
     <Compile Include="Forms\Railcar\Edit\SaveRailcarCommandTest.cs" />
