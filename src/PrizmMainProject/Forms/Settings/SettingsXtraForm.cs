@@ -132,7 +132,10 @@ namespace PrizmMain.Forms.Settings
         {
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
-            CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+            if (CurrentPipeMillSizeType != null)
+            {
+                viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
+            }
         }
 
         private void addPlateManufacturerButton_Click(object sender, EventArgs e)
