@@ -217,13 +217,15 @@
             this.pipeNumberLookUp.EditValue = "";
             this.pipeNumberLookUp.Location = new System.Drawing.Point(818, 27);
             this.pipeNumberLookUp.Name = "pipeNumberLookUp";
+            this.pipeNumberLookUp.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeNumberLookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер трубы"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Status", "Статус")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Type", 45, "Типоразмер")});
             this.pipeNumberLookUp.Properties.DisplayMember = "Number";
             this.pipeNumberLookUp.Properties.NullText = "";
+            this.pipeNumberLookUp.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.FrameResize;
             this.pipeNumberLookUp.Properties.ValueMember = "Id";
             this.pipeNumberLookUp.Size = new System.Drawing.Size(166, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
