@@ -37,9 +37,6 @@ namespace Prizm.DatabaseMigrator
                 var configuration = ConfigurationManager.OpenMappedExeConfiguration(exeConfigurationFileMap, ConfigurationUserLevel.None);
                 var connectionString = configuration.ConnectionStrings.ConnectionStrings[CONNECTION_NAME].ConnectionString;
                 
-                // check local database
-                Utils.CheckLocalDB(connectionString);
-
                 var consoleAnnouncer = new TextWriterAnnouncer(Console.Out)
                 {
                     ShowElapsedTime = false,
@@ -74,6 +71,7 @@ namespace Prizm.DatabaseMigrator
                     Console.WriteLine(
                         "Press 3 for \"rollback:all\" task. (Migrates the database back to original state prior to applying migrations)");
                     Console.WriteLine("Press 4 for \"rollback:toversion\" task. (Migrates the database to the specific version)");
+                    Console.WriteLine("Press 0 for exit");
                     var key = Console.ReadKey();
                     Console.WriteLine();
 
@@ -108,7 +106,13 @@ namespace Prizm.DatabaseMigrator
                         }
 
                         break;
+                    case "0":
+                        Environment.Exit(retValue);
+                        break;
                 }
+
+                // check local database
+                Utils.CheckLocalDB(connectionString);
 
                 new TaskExecutor(runnerContext).Execute();
             }
