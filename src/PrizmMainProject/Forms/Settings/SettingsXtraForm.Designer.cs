@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-	    this.components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,7 +39,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,9 +87,8 @@
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
-            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,19 +104,19 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roles = new DevExpress.XtraGrid.GridControl();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.rolesColId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.roleAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.rolesRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.roleLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleButtonRightEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.roleAddButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleEditLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleButtonDivideEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.roleEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.roleLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.dictionariesPage = new DevExpress.XtraTab.XtraTabPage();
             this.dictionaryLayout = new DevExpress.XtraLayout.LayoutControl();
             this.dictionaries = new DevExpress.XtraGrid.GridControl();
@@ -156,7 +155,7 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -215,11 +214,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesRootGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonRightEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleAddButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEditLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonDivideEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).BeginInit();
             this.dictionariesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryLayout)).BeginInit();
             this.dictionaryLayout.SuspendLayout();
@@ -831,7 +831,7 @@
             // 
             this.userEditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.userEditButton.Image = ((System.Drawing.Image)(resources.GetObject("userEditButton.Image")));
-            this.userEditButton.Location = new System.Drawing.Point(135, 17);
+            this.userEditButton.Location = new System.Drawing.Point(144, 17);
             this.userEditButton.MinimumSize = new System.Drawing.Size(100, 0);
             this.userEditButton.Name = "userEditButton";
             this.userEditButton.Size = new System.Drawing.Size(100, 22);
@@ -874,7 +874,6 @@
             // usersGridView
             // 
             this.usersGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId,
             this.colLastName,
             this.colFirstName,
             this.colMiddleName,
@@ -887,23 +886,14 @@
             this.usersGridView.OptionsCustomization.AllowGroup = false;
             this.usersGridView.OptionsView.ShowGroupPanel = false;
             // 
-            // colId
-            // 
-            this.colId.Caption = "#";
-            this.colId.FieldName = "Id";
-            this.colId.MaxWidth = 50;
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 0;
-            this.colId.Width = 50;
-            // 
             // colLastName
             // 
             this.colLastName.Caption = "Фамилия";
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 1;
+            this.colLastName.VisibleIndex = 0;
+            this.colLastName.Width = 180;
             // 
             // colFirstName
             // 
@@ -911,7 +901,8 @@
             this.colFirstName.FieldName = "FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 2;
+            this.colFirstName.VisibleIndex = 1;
+            this.colFirstName.Width = 180;
             // 
             // colMiddleName
             // 
@@ -919,7 +910,8 @@
             this.colMiddleName.FieldName = "MiddleName";
             this.colMiddleName.Name = "colMiddleName";
             this.colMiddleName.Visible = true;
-            this.colMiddleName.VisibleIndex = 3;
+            this.colMiddleName.VisibleIndex = 2;
+            this.colMiddleName.Width = 180;
             // 
             // colLogin
             // 
@@ -927,7 +919,8 @@
             this.colLogin.FieldName = "Login";
             this.colLogin.Name = "colLogin";
             this.colLogin.Visible = true;
-            this.colLogin.VisibleIndex = 4;
+            this.colLogin.VisibleIndex = 3;
+            this.colLogin.Width = 150;
             // 
             // colPassword
             // 
@@ -943,7 +936,8 @@
             this.colRole.FieldName = "Role.Name";
             this.colRole.Name = "colRole";
             this.colRole.Visible = true;
-            this.colRole.VisibleIndex = 5;
+            this.colRole.VisibleIndex = 4;
+            this.colRole.Width = 164;
             // 
             // usersRootGroup
             // 
@@ -982,7 +976,7 @@
             // 
             this.editUserLayoutControl.Control = this.userEditButton;
             this.editUserLayoutControl.CustomizationFormText = "editUserLayoutControl";
-            this.editUserLayoutControl.Location = new System.Drawing.Point(118, 0);
+            this.editUserLayoutControl.Location = new System.Drawing.Point(127, 0);
             this.editUserLayoutControl.MaxSize = new System.Drawing.Size(100, 26);
             this.editUserLayoutControl.MinSize = new System.Drawing.Size(100, 26);
             this.editUserLayoutControl.Name = "editUserLayoutControl";
@@ -1009,10 +1003,10 @@
             // 
             this.rightUsersButtonEmptySpace.AllowHotTrack = false;
             this.rightUsersButtonEmptySpace.CustomizationFormText = "rightUsersButtonEmptySpace";
-            this.rightUsersButtonEmptySpace.Location = new System.Drawing.Point(218, 0);
+            this.rightUsersButtonEmptySpace.Location = new System.Drawing.Point(227, 0);
             this.rightUsersButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.rightUsersButtonEmptySpace.Name = "rightUsersButtonEmptySpace";
-            this.rightUsersButtonEmptySpace.Size = new System.Drawing.Size(658, 26);
+            this.rightUsersButtonEmptySpace.Size = new System.Drawing.Size(649, 26);
             this.rightUsersButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.rightUsersButtonEmptySpace.Text = "rightUsersButtonEmptySpace";
             this.rightUsersButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -1023,7 +1017,7 @@
             this.divideButtonUsersEmptySpace.CustomizationFormText = "divideButtonUsersEmptySpace";
             this.divideButtonUsersEmptySpace.Location = new System.Drawing.Point(104, 0);
             this.divideButtonUsersEmptySpace.Name = "divideButtonUsersEmptySpace";
-            this.divideButtonUsersEmptySpace.Size = new System.Drawing.Size(14, 26);
+            this.divideButtonUsersEmptySpace.Size = new System.Drawing.Size(23, 26);
             this.divideButtonUsersEmptySpace.Text = "divideButtonUsersEmptySpace";
             this.divideButtonUsersEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1058,7 +1052,7 @@
             this.roles.Location = new System.Drawing.Point(17, 76);
             this.roles.MainView = this.rolesGridView;
             this.roles.Name = "roles";
-            this.roles.Size = new System.Drawing.Size(872, 270);
+            this.roles.Size = new System.Drawing.Size(503, 270);
             this.roles.TabIndex = 5;
             this.roles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.rolesGridView});
@@ -1070,7 +1064,6 @@
             // rolesGridView
             // 
             this.rolesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.rolesColId,
             this.colName,
             this.colDescription});
             this.rolesGridView.GridControl = this.roles;
@@ -1078,23 +1071,14 @@
             this.rolesGridView.OptionsBehavior.Editable = false;
             this.rolesGridView.OptionsView.ShowGroupPanel = false;
             // 
-            // rolesColId
-            // 
-            this.rolesColId.Caption = "#";
-            this.rolesColId.FieldName = "Id";
-            this.rolesColId.MaxWidth = 50;
-            this.rolesColId.Name = "rolesColId";
-            this.rolesColId.Visible = true;
-            this.rolesColId.VisibleIndex = 0;
-            this.rolesColId.Width = 50;
-            // 
             // colName
             // 
             this.colName.Caption = "Роль";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
+            this.colName.VisibleIndex = 0;
+            this.colName.Width = 150;
             // 
             // colDescription
             // 
@@ -1102,7 +1086,8 @@
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 2;
+            this.colDescription.VisibleIndex = 1;
+            this.colDescription.Width = 356;
             // 
             // roleEditButton
             // 
@@ -1134,31 +1119,18 @@
             this.rolesRootGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.rolesRootGroup.GroupBordersVisible = false;
             this.rolesRootGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.roleLayoutControl,
             this.roleButtonRightEmptySpace,
             this.roleAddButtonLayoutControl,
             this.roleEditLayoutControl,
-            this.roleButtonDivideEmptySpace});
+            this.roleButtonDivideEmptySpace,
+            this.roleEmptySpace,
+            this.roleLayoutControl});
             this.rolesRootGroup.Location = new System.Drawing.Point(0, 0);
             this.rolesRootGroup.Name = "rolesRootGroup";
             this.rolesRootGroup.Size = new System.Drawing.Size(906, 363);
             this.rolesRootGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.rolesRootGroup.Text = "rolesRootGroup";
             this.rolesRootGroup.TextVisible = false;
-            // 
-            // roleLayoutControl
-            // 
-            this.roleLayoutControl.Control = this.roles;
-            this.roleLayoutControl.CustomizationFormText = "Ðîëè";
-            this.roleLayoutControl.Location = new System.Drawing.Point(0, 28);
-            this.roleLayoutControl.MinSize = new System.Drawing.Size(104, 40);
-            this.roleLayoutControl.Name = "roleLayoutControl";
-            this.roleLayoutControl.Size = new System.Drawing.Size(876, 305);
-            this.roleLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.roleLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
-            this.roleLayoutControl.Text = "Роли";
-            this.roleLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.roleLayoutControl.TextSize = new System.Drawing.Size(24, 13);
             // 
             // roleButtonRightEmptySpace
             // 
@@ -1211,6 +1183,30 @@
             this.roleButtonDivideEmptySpace.Size = new System.Drawing.Size(10, 28);
             this.roleButtonDivideEmptySpace.Text = "roleButtonDivideEmptySpace";
             this.roleButtonDivideEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // roleEmptySpace
+            // 
+            this.roleEmptySpace.AllowHotTrack = false;
+            this.roleEmptySpace.CustomizationFormText = "roleEmptySpace";
+            this.roleEmptySpace.Location = new System.Drawing.Point(507, 28);
+            this.roleEmptySpace.Name = "roleEmptySpace";
+            this.roleEmptySpace.Size = new System.Drawing.Size(369, 305);
+            this.roleEmptySpace.Text = "roleEmptySpace";
+            this.roleEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // roleLayoutControl
+            // 
+            this.roleLayoutControl.Control = this.roles;
+            this.roleLayoutControl.CustomizationFormText = "Ðîëè";
+            this.roleLayoutControl.Location = new System.Drawing.Point(0, 28);
+            this.roleLayoutControl.MinSize = new System.Drawing.Size(104, 40);
+            this.roleLayoutControl.Name = "roleLayoutControl";
+            this.roleLayoutControl.Size = new System.Drawing.Size(507, 305);
+            this.roleLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.roleLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
+            this.roleLayoutControl.Text = "Роли";
+            this.roleLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.roleLayoutControl.TextSize = new System.Drawing.Size(24, 13);
             // 
             // dictionariesPage
             // 
@@ -1273,7 +1269,7 @@
             // 
             this.editItem.AutoHeight = false;
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.editItem.Name = "editItem";
             this.editItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.editItem.Click += new System.EventHandler(this.editItem_Click);
@@ -1667,11 +1663,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesRootGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonRightEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleAddButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEditLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonDivideEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).EndInit();
             this.dictionariesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryLayout)).EndInit();
             this.dictionaryLayout.ResumeLayout(false);
@@ -1726,7 +1723,6 @@
         private DevExpress.XtraGrid.GridControl roles;
         private System.Windows.Forms.BindingSource roleBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView rolesGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn rolesColId;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraLayout.LayoutControl usersLayoutControl;
@@ -1734,7 +1730,6 @@
         private DevExpress.XtraEditors.SimpleButton userAddButton;
         private DevExpress.XtraGrid.GridControl users;
         private DevExpress.XtraGrid.Views.Grid.GridView usersGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
@@ -1828,5 +1823,6 @@
         private DevExpress.XtraLayout.LayoutControl dictionaryLayout;
         private DevExpress.XtraLayout.LayoutControlGroup dictonaryLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem dictionaryGridLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem roleEmptySpace;
     }
 }
