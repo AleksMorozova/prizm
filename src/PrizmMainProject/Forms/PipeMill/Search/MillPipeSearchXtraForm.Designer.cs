@@ -141,7 +141,7 @@
             this.searchButton.Size = new System.Drawing.Size(86, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
             this.searchButton.TabIndex = 40;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&Поиск";
             // 
             // externalCoatingDate
             // 
@@ -240,13 +240,13 @@
             // 
             // pipeNumberGridColumn
             // 
-            this.pipeNumberGridColumn.Caption = "№";
+            this.pipeNumberGridColumn.Caption = "Труба №";
             this.pipeNumberGridColumn.FieldName = "Number";
             this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
             this.pipeNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeNumberGridColumn.Visible = true;
             this.pipeNumberGridColumn.VisibleIndex = 0;
-            this.pipeNumberGridColumn.Width = 100;
+            this.pipeNumberGridColumn.Width = 170;
             // 
             // pipeDiameterGridColumn
             // 
@@ -256,6 +256,7 @@
             this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeDiameterGridColumn.Visible = true;
             this.pipeDiameterGridColumn.VisibleIndex = 1;
+            this.pipeDiameterGridColumn.Width = 170;
             // 
             // pipeMillGridColumn
             // 
@@ -265,16 +266,17 @@
             this.pipeMillGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeMillGridColumn.Visible = true;
             this.pipeMillGridColumn.VisibleIndex = 2;
+            this.pipeMillGridColumn.Width = 150;
             // 
             // heatNumberGridColumn
             // 
-            this.heatNumberGridColumn.Caption = "Номер плавки";
+            this.heatNumberGridColumn.Caption = "Плавка №";
             this.heatNumberGridColumn.FieldName = "HeatNumber";
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
             this.heatNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.heatNumberGridColumn.Visible = true;
             this.heatNumberGridColumn.VisibleIndex = 3;
-            this.heatNumberGridColumn.Width = 100;
+            this.heatNumberGridColumn.Width = 170;
             // 
             // statusSearchGridColumn
             // 
@@ -304,7 +306,7 @@
             this.internalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.internalCoatingDateGridColumn.Visible = true;
             this.internalCoatingDateGridColumn.VisibleIndex = 7;
-            this.internalCoatingDateGridColumn.Width = 100;
+            this.internalCoatingDateGridColumn.Width = 87;
             // 
             // externalCoatingDateGridColumn
             // 
@@ -314,7 +316,7 @@
             this.externalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.externalCoatingDateGridColumn.Visible = true;
             this.externalCoatingDateGridColumn.VisibleIndex = 6;
-            this.externalCoatingDateGridColumn.Width = 109;
+            this.externalCoatingDateGridColumn.Width = 100;
             // 
             // extraGridColumn
             // 
@@ -323,7 +325,7 @@
             this.extraGridColumn.Name = "extraGridColumn";
             this.extraGridColumn.Visible = true;
             this.extraGridColumn.VisibleIndex = 8;
-            this.extraGridColumn.Width = 91;
+            this.extraGridColumn.Width = 85;
             // 
             // pipeRepositoryButtonEdit
             // 
@@ -538,7 +540,7 @@
             this.Controls.Add(this.PipeSearchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeSearchXtraForm";
-            this.Text = "Mill - Find pipes";
+            this.Text = "Завод - поиск труб";
             this.Load += new System.EventHandler(this.MillPipeSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();

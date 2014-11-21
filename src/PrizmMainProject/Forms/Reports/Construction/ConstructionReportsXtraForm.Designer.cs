@@ -49,7 +49,7 @@
             // 
             // reportType
             // 
-            this.reportType.EditValue = "Used products";
+            this.reportType.EditValue = "Использованные изделия";
             this.reportType.Location = new System.Drawing.Point(107, 5);
             this.reportType.Name = "reportType";
             this.reportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -61,17 +61,17 @@
             // 
             this.reportTypeLabel.Location = new System.Drawing.Point(23, 8);
             this.reportTypeLabel.Name = "reportTypeLabel";
-            this.reportTypeLabel.Size = new System.Drawing.Size(58, 13);
+            this.reportTypeLabel.Size = new System.Drawing.Size(57, 13);
             this.reportTypeLabel.TabIndex = 67;
-            this.reportTypeLabel.Text = "Report type";
+            this.reportTypeLabel.Text = "Тип отчета";
             // 
             // typeLabel
             // 
             this.typeLabel.Location = new System.Drawing.Point(23, 42);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(24, 13);
+            this.typeLabel.Size = new System.Drawing.Size(18, 13);
             this.typeLabel.TabIndex = 66;
-            this.typeLabel.Text = "Type";
+            this.typeLabel.Text = "Тип";
             // 
             // to
             // 
@@ -95,13 +95,13 @@
             // 
             this.previewButton.Location = new System.Drawing.Point(553, 37);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(73, 23);
+            this.previewButton.Size = new System.Drawing.Size(89, 23);
             this.previewButton.TabIndex = 65;
-            this.previewButton.Text = "Preview";
+            this.previewButton.Text = "&Предпросмотр";
             // 
             // type
             // 
-            this.type.EditValue = "All";
+            this.type.EditValue = "Все";
             this.type.Location = new System.Drawing.Point(70, 39);
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -111,27 +111,27 @@
             // 
             // createReportButton
             // 
-            this.createReportButton.Location = new System.Drawing.Point(648, 37);
+            this.createReportButton.Location = new System.Drawing.Point(663, 37);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(75, 23);
+            this.createReportButton.Size = new System.Drawing.Size(90, 23);
             this.createReportButton.TabIndex = 64;
-            this.createReportButton.Text = "Create report";
+            this.createReportButton.Text = "Соз&дать отчет";
             // 
             // fromLabel
             // 
-            this.fromLabel.Location = new System.Drawing.Point(285, 8);
+            this.fromLabel.Location = new System.Drawing.Point(293, 8);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(24, 13);
+            this.fromLabel.Size = new System.Drawing.Size(5, 13);
             this.fromLabel.TabIndex = 57;
-            this.fromLabel.Text = "From";
+            this.fromLabel.Text = "c";
             // 
             // toLabel
             // 
             this.toLabel.Location = new System.Drawing.Point(429, 8);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(10, 13);
+            this.toLabel.Size = new System.Drawing.Size(12, 13);
             this.toLabel.TabIndex = 58;
-            this.toLabel.Text = "to";
+            this.toLabel.Text = "по";
             // 
             // previewReportDocument
             // 
@@ -171,7 +171,7 @@
             this.Controls.Add(this.previewReportDocument);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
-            this.Text = "Construction reports";
+            this.Text = "Строительство - отчет";
             this.Load += new System.EventHandler(this.ConstructionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.to.Properties)).EndInit();

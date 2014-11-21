@@ -120,6 +120,12 @@
   <data name="Boolean" xml:space="preserve">
     <value>Булевское значение</value>
   </data>
+  <data name="IDS_ERROR" xml:space="preserve">
+    <value>Во время работы программы произошла ошибка. Причина: </value>
+  </data>
+  <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
+    <value>Нельзя одновременно открыть больше документов.</value>
+  </data>
   <data name="Diapason" xml:space="preserve">
     <value>Диапазон</value>
   </data>
@@ -142,7 +148,7 @@
     <value>Обязательный контроль</value>
   </data>
   <data name="IDS_QUESTION_SAVE" xml:space="preserve">
-    <value>Do you want to save changes?</value>
+    <value>Сохранить изменения?</value>
   </data>
   <data name="Monitor" xml:space="preserve">
     <value>Визуальный контроль</value>

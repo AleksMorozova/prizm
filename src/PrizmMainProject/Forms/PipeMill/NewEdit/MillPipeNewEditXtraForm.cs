@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Forms;
+
 using DevExpress.XtraEditors;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.PipeMill.Heat;
+
 using Ninject;
 using Ninject.Parameters;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using Domain.Entity;
@@ -13,11 +13,13 @@ using Domain.Entity.Mill;
 using DevExpress.XtraGrid.Views.Grid;
 using PrizmMain.Controls;
 using Domain.Entity.Setup;
-using Domain.Entity.Mill;
+using PrizmMain.DummyData;
+using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public partial class MillPipeNewEditXtraForm : XtraForm
+    public partial class MillPipeNewEditXtraForm : ChildForm
     {
 
         MillPipeNewEditViewModel viewModel;
