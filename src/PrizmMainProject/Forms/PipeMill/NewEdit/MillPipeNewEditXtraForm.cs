@@ -6,9 +6,13 @@ using DevExpress.XtraEditors;
 
 using Ninject;
 using Ninject.Parameters;
-
-using Domain.Entity.Setup;
+using System.Collections.Generic;
+using System.Linq;
+using Domain.Entity;
 using Domain.Entity.Mill;
+using DevExpress.XtraGrid.Views.Grid;
+using PrizmMain.Controls;
+using Domain.Entity.Setup;
 using PrizmMain.DummyData;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.MainChildForm;
@@ -19,6 +23,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     {
 
         MillPipeNewEditViewModel viewModel;
+        WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -104,8 +109,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
-            
 
+            weldBindingSource.DataSource = viewModel.Pipe;
+            weldBindingSource.DataMember = "Welds";
+            weldersDataSource.DataSource = viewModel.Welders;
+           
+            weldersSelectionControl.DataSource = weldersDataSource;
+            var weldersPopup = new PopupContainerControl();
+            weldersPopup.Controls.Add(weldersSelectionControl);
+            weldersSelectionControl.Dock = DockStyle.Fill;
+            repositoryItemPopupWelders.PopupControl = weldersPopup;
+            repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)
@@ -127,6 +141,52 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             
         }
 
+        private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
+
+              weld.Welders.Clear();
+              foreach (Welder w in selectedWelders)
+              {
+                 weld.Welders.Add(w);
+              }
+           }
+            
+        }
+
+        private void repositoryItemPopupWelders_Popup(object sender, EventArgs e)
+        {
+           weldingHistoryGridView.ClearSelection();
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
+
+              weldersSelectionControl.SelectWelders(weld.Welders);
+           }
+        }
+
+        private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+           if (e.Value == null)
+              e.DisplayText = string.Empty;
+
+           IList<Welder> welders = e.Value as IList<Welder>;
+           e.DisplayText = viewModel.FormatWeldersList(welders); 
+        }
+
+        private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
+        {
+           Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+           if (weld == null)
+              e.Cancel = true;
+        }
 
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
