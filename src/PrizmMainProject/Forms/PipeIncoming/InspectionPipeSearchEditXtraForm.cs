@@ -1,8 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 
+using PrizmMain.Forms.MainChildForm;
+
 namespace PrizmMain.Forms.PipeIncoming
 {
-    public partial class InspectionPipeSearchEditXtraForm : XtraForm
+    public partial class InspectionPipeSearchEditXtraForm : ChildForm
     {
         public InspectionPipeSearchEditXtraForm()
         {
