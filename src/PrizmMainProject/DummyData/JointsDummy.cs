@@ -12,29 +12,26 @@ namespace PrizmMain.DummyData
                 new Joint
                 {
                     Id = 234,
-                    Status = "Control",
-                    ControlState = "Accepted",
+                    Status = "Контроль",
+                    ControlState = "Принято",
                     WeldingDate = DateTime.Today,
-                    ControlDate = DateTime.Today,
-                    Repair = "Test"
+                    ControlDate = DateTime.Today
                 },
                 new Joint
                 {
                     Id = 231,
-                    Status = "Repair",
-                    ControlState = "Accepted",
+                    Status = "Ремонт",
+                    ControlState = "Принято",
                     WeldingDate = DateTime.Today,
-                    ControlDate = DateTime.Today,
-                    Repair = "Test"
+                    ControlDate = DateTime.Today
                 },
                 new Joint
                 {
                     Id = 245,
-                    Status = "Repair",
-                    ControlState = "Accepted",
+                    Status = "Ремонт",
+                    ControlState = "Принято",
                     WeldingDate = DateTime.Today,
-                    ControlDate = DateTime.Today,
-                    Repair = "Test"
+                    ControlDate = DateTime.Today
                 }
             };
         }
@@ -43,9 +40,8 @@ namespace PrizmMain.DummyData
         {
             return new BindingList<ControlType>
             {
-                new ControlType {Type = "Joint cutting"},
-                new ControlType {Type = "Joint welding"},
-                new ControlType {Type = "Radiography"},
+                new ControlType {Type = "Вырезка стыка"},
+                new ControlType {Type = "Сварка стыка"},
             };
         }
     }

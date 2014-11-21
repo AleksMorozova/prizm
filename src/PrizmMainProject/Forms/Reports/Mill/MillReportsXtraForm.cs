@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
+
 using PrizmMain.DummyData;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
-    public partial class MillReportsXtraForm : XtraForm
+    public partial class MillReportsXtraForm : ChildForm
     {
         public MillReportsXtraForm()
         {

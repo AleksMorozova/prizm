@@ -1,7 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+
+using Ninject.Parameters;
+using Ninject;
+
 using PrizmMain.Forms.Component.NewEdit;
 using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
@@ -17,12 +23,14 @@ using PrizmMain.Forms.Reports.Mill;
 using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 
+using PrizmMain.Properties;
+
 namespace PrizmMain.Forms.MainChildForm
 {
     public partial class PrizmApplicationXtraForm : XtraForm
     {
         private static uint FramesCanOpen = 20;
-        private readonly HashSet<Form> childForms = new HashSet<Form>();
+        private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
 
         public PrizmApplicationXtraForm()
         {
@@ -40,148 +48,242 @@ namespace PrizmMain.Forms.MainChildForm
             //==========================================================
         }
 
-
-        public void CreateFormChild(XtraForm frmChild)
+        /// <summary>
+        /// Checks if given form type is single. Expected type name of the form derived from ChildForm and used as a child window.
+        /// Single means to have only one opened child window if this type at a time.
+        /// </summary>
+        /// <param name="formTypeName"></param>
+        /// <returns></returns>
+        private bool IsSingle(string formTypeName)
         {
-            if (FramesCanOpen > 0)
+            bool isSingle = false;
+
+            switch (formTypeName)
             {
-                childForms.Add(frmChild);
-                frmChild.MdiParent = this;
-                frmChild.Show();
-                frmChild.WindowState = FormWindowState.Normal;
-                frmChild.WindowState = FormWindowState.Maximized;
-                FramesCanOpen--;
+                case "SettingsXtraForm":
+                    isSingle = true;
+                    break;
+                default:
+                    break;
+            }
+            return isSingle;
+        }
+
+        /// <summary>
+        /// Creates and returns an instance of child form of given form type. Given 
+        /// </summary>
+        /// <param name="formType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        private ChildForm CreateReturnChildForm(System.Type formType, params IParameter[] parameters)
+        {
+            ChildForm newlyCreatedForm = null;
+
+            if (typeof(ChildForm).IsAssignableFrom(formType))
+            {
+                if (!childForms.ContainsKey(formType.Name))
+                {
+                    childForms.Add(formType.Name, new List<ChildForm>());
+                }
+                List<ChildForm> forms = childForms[formType.Name];
+
+                if (IsSingle(formType.Name) && forms.Count > 0)
+                {
+                    // no more forms could be created. activate existing form
+                    forms[0].Activate();
+                }
+                else if (FramesCanOpen < 1)
+                {
+                    XtraMessageBox.Show(
+                        Resources.IDS_NO_MORE_DOCUMENTS,
+                        Resources.IDS_NO_MORE_DOCUMENTS,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType, parameters);
+                    childForms[formType.Name].Add(newlyCreatedForm);
+                    newlyCreatedForm.MdiParent = this;
+                    newlyCreatedForm.FormClosed += ChildClosedEventHandler;
+                    FramesCanOpen--;
+                }
             }
             else
             {
-                // TODO
-                MessageBox.Show("No more could be opened. Close some documents.");
+                throw new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
+            }
+            return newlyCreatedForm;
+        }
+
+        /// <summary>
+        /// Cleans child form if it was closed
+        /// </summary>
+        /// <param name="sender">child form expected</param>
+        /// <param name="arguments"></param>
+        public void ChildClosedEventHandler(object sender, EventArgs arguments)
+        {
+            if (typeof(ChildForm).IsAssignableFrom(sender.GetType()))
+            {
+                foreach (var childType in childForms)
+                {
+                    if (childType.Value.Remove((ChildForm)sender))
+                    {
+                        FramesCanOpen++;
+                        break;
+                    }
+                }
             }
         }
 
-        private void CreateSettingsFormChild(SettingsXtraForm frmChild, int tabPage)
+        /// <summary>
+        /// Show existing child form.
+        /// </summary>
+        /// <param name="form"></param>
+        private void ShowChildForm(ChildForm form)
         {
-            frmChild.settings.SelectedTabPage = frmChild.settings.TabPages[tabPage];
-            CreateFormChild(frmChild);
+            form.Show();
+            form.WindowState = FormWindowState.Normal;
+            form.WindowState = FormWindowState.Maximized;
         }
 
-        private void barButtonClose_ItemClick(object sender, ItemClickEventArgs e)
+        /// <summary>
+        /// Creation of child form. Can be used from outside to pass some parameters to newly created forms (i.e. pipe number).
+        /// After creation, form shows.
+        /// </summary>
+        /// <param name="formType">exact type of form</param>
+        /// <param name="parameters">input parameters passed to the newly created form</param>
+        public void CreateChildForm(System.Type formType, params IParameter[] parameters)
         {
-            // TODO: documents manager
-            Form child = ActiveMdiChild;
-            if (child != null)
+            ChildForm form = CreateReturnChildForm(formType, parameters);
+            if (form != null)
             {
-                child.Close();
-                childForms.Remove(child);
-                FramesCanOpen++;
+                ShowChildForm(form);
+            }
+        }
+
+        /// <summary>
+        /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
+        /// </summary>
+        /// <param name="page">number of starting page</param>
+        /// <param name="parameters">form input parameters if any</param>
+        public void CreateSettingsChildForm(int page, params IParameter[] parameters)
+        {
+            SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), parameters);
+
+            if (form != null)
+            {
+                if (form.settings.TabPages.Count > page)
+                {
+                    form.settings.SelectedTabPage = form.settings.TabPages[page];
+                }
+                ShowChildForm(form);
             }
         }
 
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillPipeNewEditXtraForm)));
+            CreateChildForm(typeof(MillPipeNewEditXtraForm));
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(RailcarNewEditXtraForm)));
+            CreateChildForm(typeof(RailcarNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillPipeSearchXtraForm)));
+            CreateChildForm(typeof(MillPipeSearchXtraForm));
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(MillReportsXtraForm)));
+            CreateChildForm(typeof(MillReportsXtraForm));
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentNewEditXtraForm)));
+            CreateChildForm(typeof(ComponentNewEditXtraForm));
         }
 
         private void barButtonItemInspectionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionReportsXtraForm)));
+            CreateChildForm(typeof(InspectionReportsXtraForm));
         }
 
         private void barButtonItemInspectionFindComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentSearchXtraForm)));
+            CreateChildForm(typeof(ComponentSearchXtraForm));
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(JointNewEditXtraForm)));
+            CreateChildForm(typeof(JointNewEditXtraForm));
         }
 
         private void barButtonItemFindEditJoints_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(JointSearchXtraForm)));
+            CreateChildForm(typeof(JointSearchXtraForm));
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ConstructionReportsXtraForm)));
+            CreateChildForm(typeof(ConstructionReportsXtraForm));
         }
 
         private void barButtonItemSetingsProject_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 0);
+            CreateSettingsChildForm(page: 0);
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 2);
+            CreateSettingsChildForm(page: 2);
         }
 
         private void barButtonItemSettingsPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 1);
+            CreateSettingsChildForm(page: 1);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 3);
+            CreateSettingsChildForm(page: 3);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 4);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemSettingsDictionaries_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsFormChild((SettingsXtraForm)Program.Kernel.GetService(typeof(SettingsXtraForm)), 5);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(RailcarSearchXtraForm)));
+            CreateChildForm(typeof(RailcarSearchXtraForm));
         }
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionPipeSearchEditXtraForm)));
+            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(SpoolsXtraForm)));
+            CreateChildForm(typeof(SpoolsXtraForm));
         }
 
         private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(ComponentSearchXtraForm)));
+            CreateChildForm(typeof(ComponentSearchXtraForm));
         }
 
         private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateFormChild((XtraForm)Program.Kernel.GetService(typeof(InspectionPipeSearchEditXtraForm)));
+            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
-
-
     }
 }

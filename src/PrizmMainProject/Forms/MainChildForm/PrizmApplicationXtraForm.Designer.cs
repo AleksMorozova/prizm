@@ -62,6 +62,8 @@
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
+            this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
@@ -82,8 +84,6 @@
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
-            this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -184,7 +184,7 @@
             // 
             // barSubItemApplication
             // 
-            this.barSubItemApplication.Caption = "Файл";
+            this.barSubItemApplication.Caption = "&Файл";
             this.barSubItemApplication.Id = 18;
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSave),
@@ -221,7 +221,7 @@
             // 
             // barSubItemMill
             // 
-            this.barSubItemMill.Caption = "Завод";
+            this.barSubItemMill.Caption = "&Завод";
             this.barSubItemMill.Id = 0;
             this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewPipe),
@@ -255,7 +255,7 @@
             // 
             // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemFindEditShipRailcars.Caption = "Редактирование/&отправка вагона";
+            this.barButtonItemFindEditShipRailcars.Caption = "&Редактирование/отправка вагона";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
@@ -269,7 +269,7 @@
             // 
             // barSubItemComponentry
             // 
-            this.barSubItemComponentry.Caption = "Входной контроль";
+            this.barSubItemComponentry.Caption = "&Входной контроль";
             this.barSubItemComponentry.Id = 13;
             this.barSubItemComponentry.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindEditPipes),
@@ -309,7 +309,7 @@
             // 
             // barSubItemConstruction
             // 
-            this.barSubItemConstruction.Caption = "Строительство";
+            this.barSubItemConstruction.Caption = "&Строительство";
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditPipes),
@@ -365,7 +365,7 @@
             // 
             // barSubItemSettings
             // 
-            this.barSubItemSettings.Caption = "Настройки";
+            this.barSubItemSettings.Caption = "&Настройки";
             this.barSubItemSettings.Id = 1;
             this.barSubItemSettings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSetingsProject),
@@ -420,9 +420,23 @@
             this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
             this.barButtonItemSettingsDictionaries.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsDictionaries_ItemClick);
             // 
+            // barSubItemLanguage
+            // 
+            this.barSubItemLanguage.Caption = "Язык";
+            this.barSubItemLanguage.Id = 52;
+            this.barSubItemLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarListItem)});
+            this.barSubItemLanguage.Name = "barSubItemLanguage";
+            // 
+            // languageBarListItem
+            // 
+            this.languageBarListItem.Caption = "languages";
+            this.languageBarListItem.Id = 53;
+            this.languageBarListItem.Name = "languageBarListItem";
+            // 
             // barSubItemReports
             // 
-            this.barSubItemReports.Caption = "Отчеты";
+            this.barSubItemReports.Caption = "&Отчеты";
             this.barSubItemReports.Id = 14;
             this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true),
@@ -443,7 +457,7 @@
             // 
             // barSubItemHelp
             // 
-            this.barSubItemHelp.Caption = "Спра&вка";
+            this.barSubItemHelp.Caption = "Спр&авка";
             this.barSubItemHelp.Id = 43;
             this.barSubItemHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAbout)});
@@ -483,14 +497,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1284, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(1276, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 598);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1284, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 25);
             // 
             // barDockControlLeft
             // 
@@ -503,7 +517,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1284, 22);
+            this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
             // 
             // barButtonItemNewProject
@@ -568,25 +582,11 @@
             this.tabbedView1.DocumentProperties.AllowPin = true;
             this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
             // 
-            // barSubItemLanguage
-            // 
-            this.barSubItemLanguage.Caption = "Язык";
-            this.barSubItemLanguage.Id = 52;
-            this.barSubItemLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarListItem)});
-            this.barSubItemLanguage.Name = "barSubItemLanguage";
-            // 
-            // languageBarListItem
-            // 
-            this.languageBarListItem.Caption = "languages";
-            this.languageBarListItem.Id = 53;
-            this.languageBarListItem.Name = "languageBarListItem";
-            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 623);
+            this.ClientSize = new System.Drawing.Size(1276, 623);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);

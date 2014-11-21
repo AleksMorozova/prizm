@@ -141,7 +141,7 @@
             this.searchButton.Size = new System.Drawing.Size(86, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
             this.searchButton.TabIndex = 40;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&Поиск";
             // 
             // externalCoatingDate
             // 
@@ -240,43 +240,50 @@
             // 
             // pipeNumberGridColumn
             // 
-            this.pipeNumberGridColumn.Caption = "№";
+            this.pipeNumberGridColumn.Caption = "Труба №";
             this.pipeNumberGridColumn.FieldName = "Number";
             this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
+            this.pipeNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeNumberGridColumn.Visible = true;
             this.pipeNumberGridColumn.VisibleIndex = 0;
-            this.pipeNumberGridColumn.Width = 100;
+            this.pipeNumberGridColumn.Width = 170;
             // 
             // pipeDiameterGridColumn
             // 
-            this.pipeDiameterGridColumn.Caption = "Диаметр";
-            this.pipeDiameterGridColumn.FieldName = "Diameter";
+            this.pipeDiameterGridColumn.Caption = "Типоразмер";
+            this.pipeDiameterGridColumn.FieldName = "Type.Type";
             this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
+            this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeDiameterGridColumn.Visible = true;
             this.pipeDiameterGridColumn.VisibleIndex = 1;
+            this.pipeDiameterGridColumn.Width = 170;
             // 
             // pipeMillGridColumn
             // 
             this.pipeMillGridColumn.Caption = "Завод";
             this.pipeMillGridColumn.FieldName = "Mill";
             this.pipeMillGridColumn.Name = "pipeMillGridColumn";
+            this.pipeMillGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeMillGridColumn.Visible = true;
             this.pipeMillGridColumn.VisibleIndex = 2;
+            this.pipeMillGridColumn.Width = 150;
             // 
             // heatNumberGridColumn
             // 
-            this.heatNumberGridColumn.Caption = "Номер плавки";
+            this.heatNumberGridColumn.Caption = "Плавка №";
             this.heatNumberGridColumn.FieldName = "HeatNumber";
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
+            this.heatNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.heatNumberGridColumn.Visible = true;
             this.heatNumberGridColumn.VisibleIndex = 3;
-            this.heatNumberGridColumn.Width = 100;
+            this.heatNumberGridColumn.Width = 170;
             // 
             // statusSearchGridColumn
             // 
             this.statusSearchGridColumn.Caption = "Статус на заводе";
             this.statusSearchGridColumn.FieldName = "Status";
             this.statusSearchGridColumn.Name = "statusSearchGridColumn";
+            this.statusSearchGridColumn.OptionsColumn.AllowEdit = false;
             this.statusSearchGridColumn.Visible = true;
             this.statusSearchGridColumn.VisibleIndex = 4;
             this.statusSearchGridColumn.Width = 100;
@@ -286,6 +293,7 @@
             this.weldingDateGridColumn.Caption = "Дата сварки";
             this.weldingDateGridColumn.FieldName = "WeldingDate";
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
+            this.weldingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.weldingDateGridColumn.Visible = true;
             this.weldingDateGridColumn.VisibleIndex = 5;
             this.weldingDateGridColumn.Width = 100;
@@ -295,18 +303,20 @@
             this.internalCoatingDateGridColumn.Caption = "Дата внутреннего покрытия";
             this.internalCoatingDateGridColumn.FieldName = "InternalCoatingDate";
             this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
+            this.internalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.internalCoatingDateGridColumn.Visible = true;
             this.internalCoatingDateGridColumn.VisibleIndex = 7;
-            this.internalCoatingDateGridColumn.Width = 100;
+            this.internalCoatingDateGridColumn.Width = 87;
             // 
             // externalCoatingDateGridColumn
             // 
             this.externalCoatingDateGridColumn.Caption = "Дата наружного покрытия";
             this.externalCoatingDateGridColumn.FieldName = "ExternalCoatingDate";
             this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
+            this.externalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.externalCoatingDateGridColumn.Visible = true;
             this.externalCoatingDateGridColumn.VisibleIndex = 6;
-            this.externalCoatingDateGridColumn.Width = 109;
+            this.externalCoatingDateGridColumn.Width = 100;
             // 
             // extraGridColumn
             // 
@@ -315,7 +325,7 @@
             this.extraGridColumn.Name = "extraGridColumn";
             this.extraGridColumn.Visible = true;
             this.extraGridColumn.VisibleIndex = 8;
-            this.extraGridColumn.Width = 91;
+            this.extraGridColumn.Width = 85;
             // 
             // pipeRepositoryButtonEdit
             // 
@@ -530,7 +540,7 @@
             this.Controls.Add(this.PipeSearchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeSearchXtraForm";
-            this.Text = "Mill - Find pipes";
+            this.Text = "Завод - поиск труб";
             this.Load += new System.EventHandler(this.MillPipeSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();

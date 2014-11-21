@@ -1,16 +1,19 @@
-﻿using System.ComponentModel;
-using DevExpress.XtraEditors;
-using PrizmMain.DummyData;
 using System;
+using System.ComponentModel;
 
 using Ninject.Parameters;
 using Ninject;
+
+using DevExpress.XtraEditors;
+
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.MainChildForm;
 
+using PrizmMain.DummyData;
+
 namespace PrizmMain.Forms.PipeMill.Search
 {
-    public partial class MillPipeSearchXtraForm : XtraForm
+    public partial class MillPipeSearchXtraForm : ChildForm
     {
         private MillPipeSearchViewModel viewModel;
 
@@ -51,7 +54,12 @@ namespace PrizmMain.Forms.PipeMill.Search
                 .GetFocusedDataSourceRowIndex();
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
-            parent.CreateFormChild( new MillPipeNewEditXtraForm(viewModel.Pipes[selectedPipe].Id) );
+
+            parent.CreateChildForm(
+                    typeof(MillPipeNewEditXtraForm),
+                    new ConstructorArgument(
+                        "pipeNumber",
+                        viewModel.Pipes[selectedPipe].Number));
 
         }
 

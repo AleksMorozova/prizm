@@ -50,6 +50,7 @@
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
     <Compile Include="Entity\Mill\PipeTestResult.cs" />
+    <Compile Include="Entity\Setup\PipeTestControlTypeWrapper.cs" />
     <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
@@ -68,12 +69,18 @@
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
+    <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs" />
     <Compile Include="Entity\Setup\Project.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializableHeat.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializablePipe.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializablePlate.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializableRailcar.cs" />
+    <Compile Include="Serializable Entity\Setup\SerializableProject.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -117,7 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Boolean" xml:space="preserve">
+    <value>Булевское значение</value>
+  </data>
+  <data name="IDS_ERROR" xml:space="preserve">
+    <value>Во время работы программы произошла ошибка. Причина: </value>
+  </data>
+  <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
+    <value>Нельзя одновременно открыть больше документов.</value>
+  </data>
+  <data name="Diapason" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="DLG_ERROR_HEADER" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="DLG_RAILCAR_NUMBER_EMPTY" xml:space="preserve">
+    <value>Введите номер вагона</value>
+  </data>
+  <data name="DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR" xml:space="preserve">
+    <value>Данная труба находится в вагоне #</value>
+  </data>
+  <data name="DLG_RAILCAR_TYPESIZE_ERROR" xml:space="preserve">
+    <value>Все трубы в в вагоне должны быть одного типоразмера</value>
+  </data>
+  <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
+    <value>Отправка вагона без труб невозможна</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Обязательный контроль</value>
+  </data>
   <data name="IDS_QUESTION_SAVE" xml:space="preserve">
-    <value>Do you want to save changes?</value>
+    <value>Сохранить изменения?</value>
+  </data>
+  <data name="Monitor" xml:space="preserve">
+    <value>Визуальный контроль</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Проверка по доументации</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Строковое значение</value>
+  </data>
+  <data name="Witness" xml:space="preserve">
+    <value>Присутствие при испытаниях</value>
+  </data>
+  <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
+    <value>Сначала расформируйте вагон.</value>
+  </data>
+  <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
+    <value>Вагон не отгружен</value>
   </data>
 </root>

@@ -1,19 +1,29 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Forms;
+
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.PipeMill.Heat;
+
 using Ninject;
 using Ninject.Parameters;
-using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using Domain.Entity;
+using Domain.Entity.Mill;
+using DevExpress.XtraGrid.Views.Grid;
+using PrizmMain.Controls;
+using Domain.Entity.Setup;
+using PrizmMain.DummyData;
+using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public partial class MillPipeNewEditXtraForm : XtraForm
+    public partial class MillPipeNewEditXtraForm : ChildForm
     {
 
         MillPipeNewEditViewModel viewModel;
+        WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -23,6 +33,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
+
+            purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
+            purchaseOrderDate.Properties.NullText = string.Empty;
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -39,21 +53,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new heat creating
+
             foreach (var h in viewModel.Heats)
+            {
                 heatNumber.Properties.Items.Add(h);
+            }
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new PurchaseOrders creating
             foreach (var p in viewModel.PurchaseOrders)
+            {
                 purchaseOrder.Properties.Items.Add(p);
+            }
 
-            //TODO: Please change the combo box filling 
-            // after introduction the logic of new pipeSize creating
             foreach (var t in viewModel.PipeTypes)
+            {
                 pipeSize.Properties.Items.Add(t);
-
+            }
 
 
             pipeNumber.DataBindings
@@ -72,20 +86,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
 
 
-            pipeSize.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
+            steelGrade.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
 
 
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Heat");
-
-
-            steelGrade.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
-
+            pipeSize.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
             purchaseOrder.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
+
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
@@ -100,7 +112,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
-
+            weldBindingSource.DataSource = viewModel.Pipe;
+            weldBindingSource.DataMember = "Welds";
+            weldersDataSource.DataSource = viewModel.Welders;
+           
+            weldersSelectionControl.DataSource = weldersDataSource;
+            var weldersPopup = new PopupContainerControl();
+            weldersPopup.Controls.Add(weldersSelectionControl);
+            weldersSelectionControl.Dock = DockStyle.Fill;
+            repositoryItemPopupWelders.PopupControl = weldersPopup;
+            repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)
@@ -116,10 +137,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+            
         }
 
         private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
@@ -134,8 +155,82 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 inspections.RefreshDataSource();
             }
         }
+        
+        
+        private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
 
 
+              weld.Welders.Clear();
+              foreach (Welder w in selectedWelders)
+              {
+                 weld.Welders.Add(w);
+              }
+           }
+            
+        }
+
+        private void repositoryItemPopupWelders_Popup(object sender, EventArgs e)
+        {
+           weldingHistoryGridView.ClearSelection();
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
+
+              weldersSelectionControl.SelectWelders(weld.Welders);
+           }
+        }
+
+        private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+           if (e.Value == null)
+              e.DisplayText = string.Empty;
+
+           IList<Welder> welders = e.Value as IList<Welder>;
+           e.DisplayText = viewModel.FormatWeldersList(welders); 
+        }
+
+        private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
+        {
+           Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+           if (weld == null)
+              e.Cancel = true;
+        }
+
+        private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void pipeNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.Number = pipeNumber.Text;
+            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
+                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
     }
-
 }

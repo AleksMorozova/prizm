@@ -1,33 +1,46 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.XtraEditors;
+using Domain.Entity.Mill;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {
-        private readonly IRailcarRepository repo;
+        private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
 
-        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepository repo)
+        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
         {
             this.viewModel = viewModel;
-            this.repo = repo;
+            this.repos = repo;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
-                viewModel.Railcar.ShippingDate = null;
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
-            repo.BeginTransaction();
-            repo.SaveOrUpdate(viewModel.Railcar);
-            repo.Commit();
-            repo.Evict(viewModel.Railcar);
+            
+                if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+                {
+                    viewModel.Railcar.ShippingDate = null;
+                }
+                repos.BeginTransaction();
+                repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+                repos.Commit();
+                repos.RailcarRepo.Evict(viewModel.Railcar);
+                viewModel.NewRailcar();
         }
 
         public bool CanExecute()

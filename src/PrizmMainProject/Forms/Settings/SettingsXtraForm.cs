@@ -1,20 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
+
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using Ninject;
+using Ninject.Parameters;
+
+using Domain.Entity.Setup;
+
 using PrizmMain.DummyData;
 using PrizmMain.Forms.Settings.Dictionary;
 using PrizmMain.Forms.Settings.UserRole.Role;
 using PrizmMain.Forms.Settings.UserRole.User;
-using DevExpress.XtraGrid.Views.Grid;
-using Domain.Entity.Setup;
-using Ninject;
-using Ninject.Parameters;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Base;
+using PrizmMain.Forms.MainChildForm;
+
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Settings
 {
-    public partial class SettingsXtraForm : XtraForm
+    public partial class SettingsXtraForm : ChildForm
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
@@ -82,6 +88,8 @@ namespace PrizmMain.Forms.Settings
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
             gridControlInspectors.DataSource = viewModel.Inspectors;
+            controlTypeItems.DataSource = viewModel.ControlType;
+            resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
@@ -124,7 +132,10 @@ namespace PrizmMain.Forms.Settings
         {
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
-            CurrentPipeMillSizeType.PipeTests = new BindingList<PipeTest>();
+            if (CurrentPipeMillSizeType != null)
+            {
+                viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
+            }
         }
 
         private void addPlateManufacturerButton_Click(object sender, EventArgs e)

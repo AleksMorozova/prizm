@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
+
 using DevExpress.XtraEditors;
+
 using Ninject;
 using Ninject.Parameters;
+
 using Domain.Entity.Mill;
+
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
-    public partial class RailcarNewEditXtraForm : XtraForm
+    public partial class RailcarNewEditXtraForm : ChildForm
     {
         private RailcarViewModel viewModel;
 
@@ -46,6 +51,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+            shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
+            unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
         }
 
         private void RailcarNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -70,5 +77,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             viewModel.RemovePipe(number);
             pipesList.RefreshDataSource();
         }
+
     }
 }

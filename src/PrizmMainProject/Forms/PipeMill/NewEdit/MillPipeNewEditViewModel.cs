@@ -5,11 +5,14 @@ using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel;
+using System.Text;
+using System.Threading.Tasks;
 using DevExpress.Mvvm;
 using Domain.Entity.Mill;
 using Domain.Entity.Setup;
 using NHibernate.Criterion;
+using System.ComponentModel;
+using Domain.Entity;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -30,9 +33,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
 
         public Pipe Pipe { get; set; }
+        public IList<Welder> Welders { get; set; }
 
-
-        [Inject]
+       [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
         {
             this.repoMill = repoMill;
@@ -61,6 +64,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 Pipe = repoMill.RepoPipe.Get(pipeId);
                 GetAllPipeTestResults();
             }
+
+            Welders = repoMill.WelderRepo.GetAll();
         }
 
         public IList<PurchaseOrder> PurchaseOrders
@@ -218,7 +223,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.Now;
+                    return DateTime.MinValue;
                 }
 
                 return PipePurchaseOrder.Date; 
@@ -316,7 +321,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         #endregion
 
         #region Railcar
-              public Domain.Entity.Mill.Railcar Railcar
+        public Domain.Entity.Mill.Railcar Railcar
               {
                   get { return Pipe.Railcar; }
                   set
@@ -329,7 +334,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public string RailcarNumber
+        public string RailcarNumber
               {
                   get
                   {
@@ -339,18 +344,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Number;
                   }
-
-                  set
-                  {
-                      if (value != Railcar.Number)
-                      {
-                          Railcar.Number = value;
-                          RaisePropertyChanged("RailcarNumber");
-                      }
-                  }
               }
 
-              public string RailcarCertificate
+        public string RailcarCertificate
               {
                   get
                   {
@@ -360,17 +356,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Certificate;
                   }
-                  set
-                  {
-                      if (value != Railcar.Certificate)
-                      {
-                          Railcar.Certificate = value;
-                          RaisePropertyChanged("RailcarCertificate");
-                      }
-                  }
               }
 
-              public string RailcarDestination
+        public string RailcarDestination
               {
                   get
                   {
@@ -380,37 +368,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Destination;
                   }
-                  set
-                  {
-                      if (value != Railcar.Destination)
-                      {
-                          Railcar.Destination = value;
-                          RaisePropertyChanged("RailcarDestination");
-                      }
-                  }
               }
 
-              public DateTime RailcarShippingDate
+        public string RailcarShippingDate
               {
                   get
                   {
                       if (Railcar == null)
                       {
-                          return DateTime.Now;
+                          return string.Empty;
                       }
 
-                      return Railcar.ShippingDate.Value;
+                      return Railcar.ShippingDate.Value.ToShortDateString();
                   }
-                  //set
-                  //{
-                  //    if (value != Railcar.ShippingDate)
-                  //    {
-                  //        Railcar.ShippingDate = value;
-                  //        RaisePropertyChanged("RailcarShippingDate");
-                  //    }
-                  //}
               }
-              #endregion
+        #endregion
 
         #region PipeMillSizeType
 
@@ -460,7 +432,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return extractPurchaseOrderCommand; }
         }
         
-
         public void NewPipe()
         {
             extractPurchaseOrderCommand.Execute();
@@ -478,21 +449,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            this.PipePurchaseOrder = new PurchaseOrder();
-            this.PipePurchaseOrder.Number = string.Empty;
-            this.PipePurchaseOrder.Date = DateTime.Now;
-
+            
             //TODO: Please change set the default value 
             // after introduction the logic of new heat creating 
-            Heat = Heats[0];
+            //Heat = Heats[0];
 
             //TODO: Please change set the default value 
             // after introduction the logic of new heat PipePurchaseOrder 
-            PipePurchaseOrder = purchaseOrders[0];
+            //PipePurchaseOrder = purchaseOrders[0];
 
             //TODO: Please change set the default value 
             // after introduction the logic of new PipeTypes creating 
-            PipeMillSizeType = PipeTypes[0];
+            //PipeMillSizeType = PipeTypes[0];
         }
 
         public void Dispose()
@@ -509,6 +477,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
         }
 
+                internal string FormatWeldersList(IList<Welder> welders)
+        {
+           if (welders == null)
+              return String.Empty;
+
+           return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
+        }
+        
         public List<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
         {
             List<PipeTestResult> requiredTestResults = new List<PipeTestResult>();
