@@ -16,21 +16,23 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
         private readonly IRailcarRepositories repos;
+        private readonly IUserNotify notify;
         private readonly SaveRailcarCommand saveCommand;
         private readonly ShipRailcarCommand shipCommand;
         private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber)
+        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
         {
             this.repos = repos;
+            this.notify = notify;
 
             GetStoredPipes();
 
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
-            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos));
-            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos));
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos, notify));
+            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
+            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -167,8 +169,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (!(pipeToAdd.Railcar == null))
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
-                    Resources.DLG_ERROR_HEADER, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                notify.ShowError(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
+                    Resources.DLG_ERROR_HEADER);
             }
             else
             {
@@ -182,8 +184,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (Railcar.ShippingDate != DateTime.MinValue)
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
                 return;
             }
 
