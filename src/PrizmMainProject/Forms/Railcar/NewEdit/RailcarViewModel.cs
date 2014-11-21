@@ -18,6 +18,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private readonly IRailcarRepositories repos;
         private readonly SaveRailcarCommand saveCommand;
         private readonly ShipRailcarCommand shipCommand;
+        private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
 
         [Inject]
@@ -29,6 +30,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
             shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos));
+            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -128,6 +130,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        #region Commands
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -137,6 +140,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             get { return shipCommand; }
         }
+
+        public ICommand UnshipCommand
+        {
+            get { return unshipCommand; }
+        } 
+        #endregion
 
         public void Dispose()
         {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,7 +57,7 @@
             this.unshipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.shipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
@@ -224,6 +223,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер трубы"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Status", "Статус")});
             this.pipeNumberLookUp.Properties.DisplayMember = "Number";
+            this.pipeNumberLookUp.Properties.NullText = "";
             this.pipeNumberLookUp.Properties.ValueMember = "Id";
             this.pipeNumberLookUp.Size = new System.Drawing.Size(166, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
