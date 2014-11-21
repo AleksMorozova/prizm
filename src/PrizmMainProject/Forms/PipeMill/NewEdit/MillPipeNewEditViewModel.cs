@@ -13,6 +13,7 @@ using Domain.Entity.Mill;
 using Domain.Entity.Setup;
 using System.ComponentModel;
 using Domain.Entity;
+using PrizmMain.Properties;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -25,6 +26,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
+        private IList<Wrapper<PipeMillStatus>> statusTypes;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
@@ -33,6 +35,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public Pipe Pipe { get; set; }
         public IList<Welder> Welders { get; set; }
+        
 
        [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
@@ -65,6 +68,20 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             Welders = repoMill.WelderRepo.GetAll();
+            LoadPipeMillStatuses();
+        }
+
+       public IList<Wrapper<PipeMillStatus>> StatusTypes
+        {
+            get { return statusTypes; }
+            set
+            {
+                if (value != statusTypes)
+                {
+                    statusTypes = value;
+                    RaisePropertyChanged("StatusTypes");
+                }
+            }
         }
 
         public IList<PurchaseOrder> PurchaseOrders
@@ -195,6 +212,26 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 {
                     Pipe.Mill = value;
                     RaisePropertyChanged("Mill");
+                }
+            }
+        }
+
+        public Wrapper<PipeMillStatus> PipeStatus
+        {
+            get
+            {
+                if (StatusTypes.Any<Wrapper<PipeMillStatus>>(x => x.Name == Pipe.Status))
+                {
+                    return StatusTypes.First<Wrapper<PipeMillStatus>>(x => x.Name == Pipe.Status);
+                }
+                return null; //TODO: fix this NullReference
+            }
+            set
+            {
+                if (value.Name != Pipe.Status)
+                {
+                    Pipe.Status = value.Name;
+                    RaisePropertyChanged("PipeStatus");
                 }
             }
         }
@@ -425,7 +462,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
-            this.Pipe.Status = string.Empty;
+            this.Pipe.Status = Enum
+                .GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined);
+
             this.Number = string.Empty;
             this.Mill = string.Empty;
             this.WallThickness = 0;
@@ -433,18 +472,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            
-            //TODO: Please change set the default value 
-            // after introduction the logic of new heat creating 
-            //Heat = Heats[0];
-
-            //TODO: Please change set the default value 
-            // after introduction the logic of new heat PipePurchaseOrder 
-            //PipePurchaseOrder = purchaseOrders[0];
-
-            //TODO: Please change set the default value 
-            // after introduction the logic of new PipeTypes creating 
-            //PipeMillSizeType = PipeTypes[0];
         }
 
         public void Dispose()
@@ -452,13 +479,25 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repoMill.Dispose();
         }
 
-
         internal string FormatWeldersList(IList<Welder> welders)
         {
            if (welders == null)
               return String.Empty;
 
            return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
+        }
+
+        private void LoadPipeMillStatuses()
+        {
+            StatusTypes = new List<Wrapper<PipeMillStatus>>();
+
+            foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
+            {
+                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined))
+                {
+                    StatusTypes.Add(new Wrapper<PipeMillStatus>() { Name = statusTypeName });
+                }
+            }
         }
     }
 }

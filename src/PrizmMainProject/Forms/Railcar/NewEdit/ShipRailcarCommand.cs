@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
+using Domain.Entity.Mill;
 using PrizmMain.Commands;
 using PrizmMain.Properties;
 using System;
@@ -41,7 +42,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             foreach (var pipe in railcar.Pipes)
             {
-                pipe.Status = "Отгружена";
+                pipe.Status = Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Shipped);
             }
             viewModel.SaveCommand.Execute();
         }

@@ -72,29 +72,9 @@ namespace PrizmMain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Диапазон.
         /// </summary>
-
         internal static string Diapason {
             get {
-
                 return ResourceManager.GetString("Diapason", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
-        /// </summary>
-        internal static string IDS_ERROR {
-            get {
-                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
-        /// </summary>
-        internal static string IDS_NO_MORE_DOCUMENTS {
-            get {
-                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
             }
         }
         
@@ -153,6 +133,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
+        /// </summary>
+        internal static string IDS_ERROR {
+            get {
+                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
+        /// </summary>
+        internal static string IDS_NO_MORE_DOCUMENTS {
+            get {
+                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранить изменения?.
         /// </summary>
         internal static string IDS_QUESTION_SAVE {
@@ -171,11 +169,38 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Изготовлена.
+        /// </summary>
+        internal static string Produced {
+            get {
+                return ResourceManager.GetString("Produced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Проверка по доументации.
         /// </summary>
         internal static string Review {
             get {
                 return ResourceManager.GetString("Review", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Погружена.
+        /// </summary>
+        internal static string Shipped {
+            get {
+                return ResourceManager.GetString("Shipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to На складе.
+        /// </summary>
+        internal static string Stocked {
+            get {
+                return ResourceManager.GetString("Stocked", resourceCulture);
             }
         }
         

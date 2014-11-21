@@ -58,8 +58,8 @@ namespace PrizmMain.Forms.PipeMill.Search
             parent.CreateChildForm(
                     typeof(MillPipeNewEditXtraForm),
                     new ConstructorArgument(
-                        "pipeNumber",
-                        viewModel.Pipes[selectedPipe].Number));
+                        "pipeId",
+                        viewModel.Pipes[selectedPipe].Id));
 
         }
 

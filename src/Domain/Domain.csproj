@@ -41,10 +41,10 @@
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
+    <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
-    <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
