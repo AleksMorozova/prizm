@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using PrizmMain.DummyData;
 using PrizmMain.Forms.PipeMill.Heat;
 using Ninject;
@@ -53,7 +54,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             foreach (var t in viewModel.PipeTypes)
                 pipeSize.Properties.Items.Add(t);
 
-            
+
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -75,6 +76,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
 
 
+
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Heat");
 
@@ -87,7 +89,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
-            
+
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
             shippedDate.DataBindings
@@ -96,15 +98,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
-            
 
-
-
-
-
-
-
-
+            inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
 
         }
 
@@ -117,9 +112,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     //TODO: refresh Heat data
                 }
             }
-           
+
         }
-    
+
 
 
         private void BindCommands()
@@ -127,6 +122,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
         }
 
+        private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspections.RefreshDataSource();
+            }
+        }
 
 
     }

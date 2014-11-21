@@ -8,9 +8,9 @@ namespace Domain.Entity
 {
     public class TestResult <T> : Item
     {
-        public virtual DateTime Date { get; set; }
+        public virtual DateTime? Date { get; set; }
         public virtual string Value { get; set; }
-        public virtual T Status { get; set; }
+        public virtual  T Status { get; set; }
         public virtual IList<Inspector> Inspectors { get; set; }
 
         public TestResult()

@@ -5,12 +5,11 @@ using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
 using DevExpress.Mvvm;
 using Domain.Entity.Mill;
 using Domain.Entity.Setup;
+using NHibernate.Criterion;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -23,6 +22,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
+        private IList<PipeTestResult> pipeTestResults;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
@@ -38,7 +38,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repoMill = repoMill;
 
             newEditCommand =
-                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoMill.RepoPipe));
+                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoMill));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -58,8 +58,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-
                 Pipe = repoMill.RepoPipe.Get(pipeId);
+                GetAllPipeTestResults();
             }
         }
 
@@ -430,7 +430,22 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
-        public ICommand NewEditCommand
+        #region PipeTestResults
+          public IList<PipeTestResult> PipeTestResults
+          {
+              get { return pipeTestResults; }
+              set
+              {
+                  if (value != pipeTestResults)
+                  {
+                      pipeTestResults = value;
+                      RaisePropertyChanged("PipeTestResults");
+                  }
+              }
+          }
+          #endregion
+
+          public ICommand NewEditCommand
         {
             get { return newEditCommand; }
         }
@@ -485,5 +500,35 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repoMill.Dispose();
         }
 
+        void GetAllPipeTestResults()
+        {
+            var criteria =  NHibernate.Criterion.DetachedCriteria
+                .For<PipeTestResult>().
+                Add((Restrictions.Eq("Pipe", Pipe)));
+            var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
+            pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
+        }
+
+        public List<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
+        {
+            List<PipeTestResult> requiredTestResults = new List<PipeTestResult>();
+            var criteria = NHibernate.Criterion.DetachedCriteria
+                .For<PipeTest>()
+                .Add(Restrictions.Eq("IsRequired",true))
+                .Add(Restrictions.Eq("pipeType", millSizeType))
+                .Add(Restrictions.Eq("IsActive", true));        
+          IList<PipeTest>  requiredTests = repoMill.RepoPipeTest.GetByCriteria(criteria);
+            foreach (var requiredTest in requiredTests)
+            {
+                PipeTestResult requiredResult = new PipeTestResult()
+                {   Operation = requiredTest, 
+                    IsActive = true, 
+                    Status = PipeTestResultStatus.Scheduled, 
+                    Pipe = Pipe, 
+                    Inspectors = new List<Domain.Entity.Inspector>()};
+                requiredTestResults.Add(requiredResult);
+            }
+            return requiredTestResults;
+        }
     }
 }

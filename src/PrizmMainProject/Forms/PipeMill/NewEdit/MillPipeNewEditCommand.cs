@@ -11,10 +11,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditCommand: ICommand
     {
-        private readonly IPipeRepository repo;
+        private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
 
-        public MillPipeNewEditCommand(MillPipeNewEditViewModel viewModel, IPipeRepository repo)
+        public MillPipeNewEditCommand(MillPipeNewEditViewModel viewModel, IMillRepository repo)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -24,9 +24,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             repo.BeginTransaction();
-            repo.Save(viewModel.Pipe);
+            repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
             repo.Commit();
-            repo.Evict(viewModel.Pipe);
+            repo.RepoPipe.Evict(viewModel.Pipe);
             viewModel.NewPipe();
         }
 

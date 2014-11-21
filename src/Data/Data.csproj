@@ -87,7 +87,6 @@
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
-    <Compile Include="DAL\Mapping\TestResultMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
     <Compile Include="DAL\Mill\IChemicalCompositionRepository.cs" />

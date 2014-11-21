@@ -22,10 +22,10 @@ namespace Data.DAL.Mapping
                });
             Map(_ => _.Certificate).Column("certificate");
             Map(_ => _.CertificateExpiration).Column("certificateExpiration");
-            HasManyToMany(_ => _.TestResults)
-      .Cascade.All()
-      .Inverse()
-      .Table("TestResult_Inspector");
+      //      HasManyToMany(_ => _.TestResults)
+      //.Cascade.All()
+      //.Inverse()
+      //.Table("TestResult_Inspector");
         }
     }
 }

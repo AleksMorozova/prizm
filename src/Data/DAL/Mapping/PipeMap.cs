@@ -20,6 +20,7 @@ namespace Data.DAL.Mapping
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
 
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
+            HasMany<PipeTestResult>(_ => _.PipeTestResult).KeyColumn("pipeId").Inverse().Cascade.All();
         }
     }
 }
