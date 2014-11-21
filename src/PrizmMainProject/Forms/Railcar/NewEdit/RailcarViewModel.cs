@@ -180,6 +180,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void RemovePipe(string number)
         {
+            if (Railcar.ShippingDate != DateTime.MinValue)
+            {
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             foreach (var pipe in Pipes)
             {
                 if (pipe.Number == number)
