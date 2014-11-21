@@ -27,7 +27,7 @@ using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.MainChildForm
 {
-    public partial class PrizmApplicationXtraForm : XtraForm
+    public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
@@ -285,5 +285,23 @@ namespace PrizmMain.Forms.MainChildForm
         {
             CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
+
+        
+        public void ShowError(string text, string header)
+        {
+            XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowWarning(string text, string header)
+        {
+            XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        public void ShowInfo(string text, string header)
+        {
+            XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
     }
 }

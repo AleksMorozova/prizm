@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Ninject;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -27,8 +28,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER,
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IUserNotify notify = Program.Kernel.Get<IUserNotify>();
+                notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
             
