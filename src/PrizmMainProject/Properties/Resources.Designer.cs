@@ -72,29 +72,9 @@ namespace PrizmMain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Диапазон.
         /// </summary>
-
         internal static string Diapason {
             get {
-
                 return ResourceManager.GetString("Diapason", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
-        /// </summary>
-        internal static string IDS_ERROR {
-            get {
-                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
-        /// </summary>
-        internal static string IDS_NO_MORE_DOCUMENTS {
-            get {
-                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
             }
         }
         
@@ -135,6 +115,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сначала расформируйте вагон..
+        /// </summary>
+        internal static string DLG_RAILCAR_UNSHIP_FIRST {
+            get {
+                return ResourceManager.GetString("DLG_RAILCAR_UNSHIP_FIRST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отправка вагона без труб невозможна.
         /// </summary>
         internal static string DLG_SHIP_RAILCAR_VS_PIPES {
@@ -144,11 +133,38 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вагон не отгружен.
+        /// </summary>
+        internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
+            get {
+                return ResourceManager.GetString("DLG_UNSHIP_UNSHIPPED_RAILCAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обязательный контроль.
         /// </summary>
         internal static string Hold {
             get {
                 return ResourceManager.GetString("Hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
+        /// </summary>
+        internal static string IDS_ERROR {
+            get {
+                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
+        /// </summary>
+        internal static string IDS_NO_MORE_DOCUMENTS {
+            get {
+                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
             }
         }
         

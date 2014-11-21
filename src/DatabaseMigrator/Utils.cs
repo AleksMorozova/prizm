@@ -71,7 +71,7 @@
         {
             try
             {
-                var connectionString = String.Format(@"Data Source={0};Initial Catalog=master;Integrated Security=True", dbDataSource);
+                var connectionString = String.Format(@"Data Source={0};Initial Catalog=master;Integrated Security=True;Connection Timeout=60", dbDataSource);
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -108,7 +108,7 @@
         {
             try
             {
-                var connectionString = String.Format(@"Data Source={0};Initial Catalog=master;Integrated Security=True", dbDataSource);
+                var connectionString = String.Format(@"Data Source={0};Initial Catalog=master;Integrated Security=True;Connection Timeout=60", dbDataSource);
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

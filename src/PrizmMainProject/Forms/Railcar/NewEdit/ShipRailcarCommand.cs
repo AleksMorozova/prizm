@@ -34,16 +34,26 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 return;
             }
 
-            if (railcar.ShippingDate == DateTime.MinValue)
-            {
-                railcar.ShippingDate = DateTime.Now;
-            }
+            int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
 
-            foreach (var pipe in railcar.Pipes)
+            if (distinctSizes > 1)
             {
-                pipe.Status = "Отгружена";
+                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            viewModel.SaveCommand.Execute();
+            else
+            {
+                if (railcar.ShippingDate == DateTime.MinValue)
+                {
+                    railcar.ShippingDate = DateTime.Now;
+                }
+
+                foreach (var pipe in railcar.Pipes)
+                {
+                    pipe.Status = "Отгружена";
+                }
+                viewModel.SaveCommand.Execute();
+            }
         }
 
         public bool CanExecute()

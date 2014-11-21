@@ -52,6 +52,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
             shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
+            unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
         }
 
         private void RailcarNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
