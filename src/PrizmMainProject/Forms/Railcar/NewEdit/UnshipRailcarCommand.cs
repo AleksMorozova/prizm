@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
+using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Properties;
 using System;
@@ -15,11 +16,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     {
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public UnshipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
+        [Inject]
+        public UnshipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repos = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -27,8 +31,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
             {
-                XtraMessageBox.Show(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER,
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                notify.ShowError(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER);
             }
             else
             {

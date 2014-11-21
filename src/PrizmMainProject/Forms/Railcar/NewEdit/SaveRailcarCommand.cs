@@ -16,11 +16,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     {
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
+        [Inject]
+        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repos = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -28,9 +31,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
-                //XtraMessageBox.Show(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER,
-                //    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IUserNotify notify = Program.Kernel.Get<IUserNotify>();
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
