@@ -215,5 +215,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
         }
+
+        private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
+           view.RefreshData();
+        }
     }
 }

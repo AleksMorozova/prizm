@@ -168,4 +168,13 @@
   <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
     <value>Вагон не отгружен</value>
   </data>
+  <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
+    <value>Удалить запись?</value>
+  </data>
+  <data name="VALUE_REQUIRED" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
+  <data name="PRIZM" xml:space="preserve">
+    <value>PRIZM</value>
+  </data>
 </root>

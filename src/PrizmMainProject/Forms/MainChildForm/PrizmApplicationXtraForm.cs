@@ -261,6 +261,16 @@ namespace PrizmMain.Forms.MainChildForm
             CreateSettingsChildForm(page: 5);
         }
 
+        private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           CreateSettingsChildForm(page: 6);
+        }
+
+        private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           CreateSettingsChildForm(page: 7);
+        }
+
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(RailcarSearchXtraForm));
@@ -301,7 +311,6 @@ namespace PrizmMain.Forms.MainChildForm
         {
             XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
     }
 }
