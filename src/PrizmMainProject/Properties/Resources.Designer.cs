@@ -250,6 +250,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Изготовлена.
+        /// </summary>
+        internal static string Produced {
+            get {
+                return ResourceManager.GetString("Produced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PRIZM.
         /// </summary>
         internal static string PRIZM {
@@ -264,6 +273,24 @@ namespace PrizmMain.Properties {
         internal static string Review {
             get {
                 return ResourceManager.GetString("Review", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Погружена.
+        /// </summary>
+        internal static string Shipped {
+            get {
+                return ResourceManager.GetString("Shipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to На складе.
+        /// </summary>
+        internal static string Stocked {
+            get {
+                return ResourceManager.GetString("Stocked", resourceCulture);
             }
         }
         

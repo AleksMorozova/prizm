@@ -33,17 +33,19 @@ namespace Data.DAL.Hibernate
             }
         }
 
-        //TODO: now pipeMillStatus - string, sometime it will be converted to type and condition must be changed
+        // TODO: now pipeMillStatus - string, sometime it will be 
+        // converted to type and condition must be changed
          public IList<Pipe> GetStored()
          {
-             try
+try
              {
-                 return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
+ 		return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
              }
              catch (GenericADOException ex)
              {
                  throw new RepositoryException("GetStored", ex);
              }
+             
          }
     }
 }
