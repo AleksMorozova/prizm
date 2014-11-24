@@ -61,6 +61,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Произошла ошибка!.
+        /// </summary>
+        internal static string AlertFailureHeader {
+            get {
+                return ResourceManager.GetString("AlertFailureHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внимание.
         /// </summary>
         internal static string AlertInfoHeader {

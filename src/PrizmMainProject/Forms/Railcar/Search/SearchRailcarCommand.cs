@@ -1,7 +1,9 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
+using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Linq;
 
@@ -11,11 +13,14 @@ namespace PrizmMain.Forms.Railcar.Search
     {
         private readonly RailcarSearchViewModel viewModel;
         private readonly IRailcarRepository repo;
+        private readonly IUserNotify notify;
 
-        public SearchRailcarCommand(RailcarSearchViewModel viewmodel, IRailcarRepository repo)
+        [Inject]
+        public SearchRailcarCommand(RailcarSearchViewModel viewmodel, IRailcarRepository repo, IUserNotify notift)
         {
             this.viewModel = viewmodel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -41,7 +46,17 @@ namespace PrizmMain.Forms.Railcar.Search
             {
                 criteria.Add(Restrictions.Eq("ShippingDate", viewModel.ShippingDate));
             }
-            viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
+
+            try
+            {
+                viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
+            }
+            catch (Exception ex)
+            {
+                notify.ShowFailure(ex.Message, Resources.AlertFailureHeader);
+                throw ex;
+            }
+            
             repo.Clear();
         }
 

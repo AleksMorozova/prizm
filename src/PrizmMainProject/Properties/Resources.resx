@@ -183,4 +183,7 @@
   <data name="AlertInfoHeader" xml:space="preserve">
     <value>Внимание</value>
   </data>
+  <data name="AlertFailureHeader" xml:space="preserve">
+    <value>Произошла ошибка!</value>
+  </data>
 </root>
