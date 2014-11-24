@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Ninject;
+using Data.DAL;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -39,11 +40,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     viewModel.Railcar.ShippingDate = null;
                 }
-                repos.BeginTransaction();
-                repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
-                repos.Commit();
-                repos.RailcarRepo.Evict(viewModel.Railcar);
-                viewModel.NewRailcar();
+                try
+                {
+                    repos.BeginTransaction();
+                    repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+                    repos.Commit();
+                    repos.RailcarRepo.Evict(viewModel.Railcar);
+                    notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
         }
 
         public bool CanExecute()

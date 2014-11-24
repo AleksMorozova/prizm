@@ -98,6 +98,7 @@
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
     <Compile Include="DAL\Mill\IWelderRepository.cs" />
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
+    <Compile Include="DAL\RepositoryException.cs" />
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
