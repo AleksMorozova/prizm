@@ -171,10 +171,10 @@
   <data name="AlertSaveHeader" xml:space="preserve">
     <value>Сохранение успешно</value>
   </data>
-  <data name="AlertSaveRailcar" xml:space="preserve">
+ <data name="AlertSaveRailcar" xml:space="preserve">
     <value>Данные вагона сохранены</value>
   </data>
-  <data name="AlertShipRailcar" xml:space="preserve">
+<data name="AlertShipRailcar" xml:space="preserve">
     <value>Вагон успешно отгружен</value>
   </data>
   <data name="AlertUnsipRailcar" xml:space="preserve">
@@ -185,5 +185,14 @@
   </data>
   <data name="AlertFailureHeader" xml:space="preserve">
     <value>Произошла ошибка!</value>
+  </data>
+   <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
+    <value>Удалить запись?</value>
+  </data>
+  <data name="VALUE_REQUIRED" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
+  <data name="PRIZM" xml:space="preserve">
+    <value>PRIZM</value>
   </data>
 </root>
