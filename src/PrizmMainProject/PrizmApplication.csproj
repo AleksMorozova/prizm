@@ -179,6 +179,7 @@
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
