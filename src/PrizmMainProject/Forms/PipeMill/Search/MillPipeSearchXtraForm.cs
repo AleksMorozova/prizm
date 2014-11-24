@@ -11,6 +11,7 @@ using PrizmMain.Forms.MainChildForm;
 
 using PrizmMain.DummyData;
 using System.Windows.Forms;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -60,15 +61,12 @@ namespace PrizmMain.Forms.PipeMill.Search
                     new ConstructorArgument(
                         "pipeId",
                         viewModel.Pipes[selectedPipe].Id));
-
         }
-
 
         private void pipesSearchResultView_DoubleClick(object sender, EventArgs e)
         {
             pipeRepositoryButtonEdit_Click(sender, e);
         }
-
 
         private void pipesSearchResultView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -77,27 +75,5 @@ namespace PrizmMain.Forms.PipeMill.Search
                 pipeRepositoryButtonEdit_Click(sender, e);
             }
         }
-
-
-
-
-
-        //================================================================================
-
-        private void pipesSearchResultView_LayoutUpgrade(object sender, DevExpress.Utils.LayoutUpgradeEventArgs e)
-        {
-            for (int i = 0; i < pipesSearchResultView.RowCount; ++i)
-            {
-
-
-                string cellValue = "**-**-**";
-                pipesSearchResultView.SetRowCellValue(
-                    i,
-                    pipesSearchResultView.Columns.ColumnByName("statusSearchGridColumn"),
-                    cellValue);
-            }
-        }
-
-
     }
 }

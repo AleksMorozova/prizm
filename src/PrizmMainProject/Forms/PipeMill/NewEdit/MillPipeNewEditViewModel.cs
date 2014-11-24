@@ -26,7 +26,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
-        private IList<Wrapper<PipeMillStatus>> statusTypes;
+        private IList<EnumWrapper<PipeMillStatus>> statusTypes;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
@@ -71,7 +71,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             LoadPipeMillStatuses();
         }
 
-       public IList<Wrapper<PipeMillStatus>> StatusTypes
+       public IList<EnumWrapper<PipeMillStatus>> StatusTypes
         {
             get { return statusTypes; }
             set
@@ -216,13 +216,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public Wrapper<PipeMillStatus> PipeStatus
+        public EnumWrapper<PipeMillStatus> PipeStatus
         {
             get
             {
-                if (StatusTypes.Any<Wrapper<PipeMillStatus>>(x => x.Value == Pipe.Status))
+                if (StatusTypes.Any<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status))
                 {
-                    return StatusTypes.First<Wrapper<PipeMillStatus>>(x => x.Value == Pipe.Status);
+                    return StatusTypes.First<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status);
                 }
                 return null;
             }
@@ -488,13 +488,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void LoadPipeMillStatuses()
         {
-            StatusTypes = new List<Wrapper<PipeMillStatus>>();
+            StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
                 if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined))
                 {
-                    StatusTypes.Add(new Wrapper<PipeMillStatus>() { Name = statusTypeName });
+                    StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                 }
             }
         }
