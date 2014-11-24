@@ -44,11 +44,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
                 viewModel.SaveCommand.Execute();
             }
-
-
         }
-
-
         public bool CanExecute()
         {
             return (viewModel.Railcar.ShippingDate != DateTime.MinValue);
