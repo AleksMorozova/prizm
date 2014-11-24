@@ -24,6 +24,7 @@ using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 
 using PrizmMain.Properties;
+using DevExpress.XtraBars.Alerter;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -323,7 +324,16 @@ namespace PrizmMain.Forms.MainChildForm
                     throw new ArgumentOutOfRangeException(string.Format("Unknown dialog answer - {0}",dlg));
             }
             return result;
-        } 
+        }
+
+        public void ShowAlert(string text, string header)
+        {
+            AlertInfo ai = new AlertInfo(text, header);
+            alertControl.Show(this, ai);
+        }
         #endregion
+
+
+
     }
 }

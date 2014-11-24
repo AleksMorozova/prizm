@@ -13,6 +13,7 @@ namespace PrizmMain.Forms
         void ShowInfo(string text, string header);
         bool ShowYesNo(string text, string header);
         int ShowYesNoCancel(string text, string header);
+        void ShowAlert(string text, string header);
     }
 
 }
