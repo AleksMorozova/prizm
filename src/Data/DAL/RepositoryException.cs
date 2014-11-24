@@ -9,8 +9,6 @@ namespace Data.DAL
     [Serializable]
     public class RepositoryException : ApplicationException
     {
-        public RepositoryException() { }
-
         public RepositoryException(string message) :base(message)
         {
         }
