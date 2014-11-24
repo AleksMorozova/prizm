@@ -20,7 +20,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel: ViewModelBase, IDisposable
     {
-
         private readonly IMillRepository repoMill;
 
         private IList<Domain.Entity.Mill.Heat> heats;
