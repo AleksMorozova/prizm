@@ -14,6 +14,7 @@ using Domain.Entity.Setup;
 using System.ComponentModel;
 using Domain.Entity;
 using PrizmMain.Properties;
+using PrizmMain.Common;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
