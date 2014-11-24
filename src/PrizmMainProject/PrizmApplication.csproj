@@ -160,6 +160,7 @@
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
+    <Compile Include="Common\EnumWrapper.cs" />
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
@@ -182,6 +183,8 @@
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
@@ -626,6 +629,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
-            this.weldBindingSource = new System.Windows.Forms.BindingSource();
+            this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource();
+            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeGeneralParametersLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -118,6 +119,7 @@
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
+            this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -161,8 +163,8 @@
             this.isActiveEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.weldingDs = new System.Windows.Forms.BindingSource();
-            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
+            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
@@ -245,6 +247,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).BeginInit();
             this.generalInspectionsLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
@@ -339,6 +342,7 @@
             this.weldingHistoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.weldingHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.weldingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.weldingHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.weldingHistoryGridView_KeyDown);
             // 
             // weldingDateGridColumn
             // 
@@ -1255,7 +1259,7 @@
             // inspections
             // 
             this.inspections.AccessibleDescription = "l";
-            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;            this.inspections.DataSource = this.inspectionOperation;
             this.inspections.Location = new System.Drawing.Point(14, 17);
             this.inspections.MainView = this.inspectionsGridView;
             this.inspections.Name = "inspections";
@@ -1302,7 +1306,7 @@
             // measurementsGridColumn
             // 
             this.measurementsGridColumn.Caption = "Результат измерения";
-            this.measurementsGridColumn.FieldName = "Value";
+            this.measurementsGridColumn.FieldName = "Measurements";
             this.measurementsGridColumn.Name = "measurementsGridColumn";
             this.measurementsGridColumn.Visible = true;
             this.measurementsGridColumn.VisibleIndex = 3;
@@ -1480,6 +1484,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.purchaseOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.purchaseOrderDate.Properties.ReadOnly = true;
             this.purchaseOrderDate.Size = new System.Drawing.Size(99, 20);
             this.purchaseOrderDate.StyleController = this.generalPipeLayout;
             this.purchaseOrderDate.TabIndex = 6;
@@ -1866,6 +1871,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).EndInit();
             this.generalInspectionsLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();

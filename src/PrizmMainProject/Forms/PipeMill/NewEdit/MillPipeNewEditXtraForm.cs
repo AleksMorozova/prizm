@@ -54,20 +54,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
             }
-
             foreach (var p in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(p);
             }
-
             foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
+            }
+            foreach (var s in viewModel.StatusTypes)
+            {
+                millStatus.Properties.Items.Add(s);
             }
 
 
@@ -115,6 +116,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
+            
+            millStatus.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
+            
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -244,6 +249,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.Number = pipeNumber.Text;
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+        }
+
+        private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
+           view.RefreshData();
         }
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)

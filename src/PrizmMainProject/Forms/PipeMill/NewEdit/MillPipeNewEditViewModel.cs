@@ -14,18 +14,19 @@ using NHibernate.Criterion;
 using System.ComponentModel;
 using Domain.Entity;
 using PrizmMain.Properties;
+using PrizmMain.Common;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, IDisposable
     {
-
         private readonly IMillRepository repoMill;
 
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
+        private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private IList<PipeTestResult> pipeTestResults;
     //    private IList<Inspector> inspectors;
 
@@ -38,6 +39,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public BindingList<Inspector> Inspectors { get; set; }
+        
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
@@ -70,6 +72,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             Welders = repoMill.WelderRepo.GetAll();
+            
             Inspectors =new BindingList<Inspector>(repoMill.RepoInspector.GetAll());
 
             foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
@@ -81,6 +84,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                         Text = Resources.ResourceManager.GetString(controlTypeName)
                     }
                     );
+            }
+            
+            LoadPipeMillStatuses();
+        }
+
+       public IList<EnumWrapper<PipeMillStatus>> StatusTypes
+        {
+            get { return statusTypes; }
+            set
+            {
+                if (value != statusTypes)
+                {
+                    statusTypes = value;
+                    RaisePropertyChanged("StatusTypes");
+                }
             }
         }
 
@@ -212,6 +230,26 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 {
                     Pipe.Mill = value;
                     RaisePropertyChanged("Mill");
+                }
+            }
+        }
+
+        public EnumWrapper<PipeMillStatus> PipeStatus
+        {
+            get
+            {
+                if (StatusTypes.Any<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status))
+                {
+                    return StatusTypes.First<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status);
+                }
+                return null;
+            }
+            set
+            {
+                if (value.Value != Pipe.Status)
+                {
+                    Pipe.Status = value.Value;
+                    RaisePropertyChanged("PipeStatus");
                 }
             }
         }
@@ -390,7 +428,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (Railcar == null)
+                      if (Railcar == null || Railcar.ShippingDate == null)
                 {
                     return string.Empty;
                 }
@@ -457,7 +495,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
-            this.Pipe.Status = string.Empty;
+            this.Pipe.Status = PipeMillStatus.Undefined;
+
             this.Number = string.Empty;
             this.Mill = string.Empty;
             this.WallThickness = 0;
@@ -465,18 +504,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-
-            //TODO: Please change set the default value 
-            // after introduction the logic of new heat creating 
-            //Heat = Heats[0];
-
-            //TODO: Please change set the default value 
-            // after introduction the logic of new heat PipePurchaseOrder 
-            //PipePurchaseOrder = purchaseOrders[0];
-
-            //TODO: Please change set the default value 
-            // after introduction the logic of new PipeTypes creating 
-            //PipeMillSizeType = PipeTypes[0];
         }
 
         public void Dispose()
@@ -492,7 +519,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
             pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
         }
-
         internal string FormatWeldersList(IList<Welder> welders)
         {
             if (welders == null)
@@ -531,6 +557,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 requiredTestResults.Add(requiredResult);
             }
             return requiredTestResults;
+        }
+        
+         private void LoadPipeMillStatuses()
+        {
+            StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
+
+            foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
+            {
+                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined))
+                {
+                    StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
+                }
+            }
         }
     }
 }

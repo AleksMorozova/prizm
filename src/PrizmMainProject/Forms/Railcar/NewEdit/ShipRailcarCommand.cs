@@ -1,5 +1,7 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
+using Domain.Entity.Mill;
+using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Properties;
 using System;
@@ -15,11 +17,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
     {
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public ShipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo)
+        [Inject]
+        public ShipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repos = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -29,8 +34,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (railcar.Pipes.Count == 0)
             {
-                XtraMessageBox.Show(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER, 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                notify.ShowError(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER);
                 return;
             }
 
@@ -38,8 +42,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (distinctSizes > 1)
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                notify.ShowError(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER);
             }
             else
             {
@@ -47,12 +50,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     railcar.ShippingDate = DateTime.Now;
                 }
-
-                foreach (var pipe in railcar.Pipes)
-                {
-                    pipe.Status = "Отгружена";
-                }
-                viewModel.SaveCommand.Execute();
+            }
+           foreach (var pipe in railcar.Pipes)
+            {
+                pipe.Status = PipeMillStatus.Shipped;
             }
         }
 

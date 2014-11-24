@@ -22,6 +22,7 @@ using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.PipeMill;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain
 {
@@ -79,7 +80,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             #endregion
 
-            
+            Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
         }
     }
 }
