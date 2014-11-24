@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Data.DAL;
 using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
@@ -19,6 +20,9 @@ using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Railcar;
+using PrizmMain.Forms.PipeMill;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain
 {
@@ -29,17 +33,24 @@ namespace PrizmMain
 
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
-            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+
             Bind<IPlateRepository>().To<PlateRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
 
+            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+
+
+            Bind<IMillRepository>().To<MillRepository>();
+
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
-            Bind<IInspectorRepository>().To<InspectorRepository>();
+            Bind<IRailcarRepositories>().To<RailcarRepositories>();
+
             #endregion
 
             #region ViewModel
@@ -69,7 +80,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             #endregion
 
-            
+            Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
         }
     }
 }

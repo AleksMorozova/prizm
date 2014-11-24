@@ -34,6 +34,8 @@
       <HintPath>C:\Program Files (x86)\DevExpress 14.1\Components\Bin\Framework\DevExpress.Mvvm.v14.1.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -50,6 +52,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,12 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayObjectInfo.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommandTest.cs" />
     <Compile Include="Forms\Railcar\Edit\SaveRailcarCommandTest.cs" />
+    <Compile Include="Forms\Railcar\Edit\UnshipRailcarCommandTest.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommandTest.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommandTest.cs" />
-    <Compile Include="SetupTests.cs" />
+    <Compile Include="MainChildDocumentsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

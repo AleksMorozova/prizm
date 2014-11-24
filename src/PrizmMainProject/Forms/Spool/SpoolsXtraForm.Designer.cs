@@ -77,7 +77,7 @@
             this.searchButton.Size = new System.Drawing.Size(71, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&Поиск";
             // 
             // mainLayoutControl
             // 
@@ -309,7 +309,7 @@
             this.Controls.Add(this.mainLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
-            this.Text = "Spools";
+            this.Text = "Строительство - создание катушки";
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();

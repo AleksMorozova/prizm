@@ -25,5 +25,10 @@ namespace Data.DAL.Hibernate
             return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
         }
 
+        //TODO: now pipeMillStatus - string, sometime it will be converted to type and condition must be changed
+         public IList<Pipe> GetStored()
+         {
+             return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
+         }
     }
 }

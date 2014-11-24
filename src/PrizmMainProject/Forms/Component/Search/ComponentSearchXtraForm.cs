@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+
 using PrizmMain.DummyData;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Component.Search
 {
-    public partial class ComponentSearchXtraForm : XtraForm
+    public partial class ComponentSearchXtraForm : ChildForm
     {
         private List<ComponentDataDemo> MyComponent;
 

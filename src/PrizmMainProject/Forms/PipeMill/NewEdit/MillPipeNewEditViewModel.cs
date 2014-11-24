@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 using DevExpress.Mvvm;
 using Domain.Entity.Mill;
+using Domain.Entity.Setup;
+using System.ComponentModel;
+using Domain.Entity;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -17,42 +20,36 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     public class MillPipeNewEditViewModel: ViewModelBase, IDisposable
     {
 
-        private readonly IPipeRepository repoPipe;
-        private readonly IPlateRepository repoPlate;
-        private readonly IHeatRepository repoHeat;
-        private readonly IWeldRepository repoWeld;
-        
+        private readonly IMillRepository repoMill;
+
         private IList<Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
+        private IList<PipeMillSizeType> pipeTypes;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
+        private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
 
         public Pipe Pipe { get; set; }
+        public IList<Welder> Welders { get; set; }
 
-        [Inject]
-        public MillPipeNewEditViewModel(
-            IPipeRepository repoPipe,
-            IPlateRepository repoPlate,
-            IHeatRepository repoHeat,
-            IPurchaseOrderRepository repoPurchaseOrder,
-            IWeldRepository repoWeld,
-            Guid pipeId)
+       [Inject]
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
         {
-            this.repoPipe = repoPipe;
-            this.repoPlate = repoPlate;
-            this.repoHeat = repoHeat;
-            this.repoWeld = repoWeld;
+            this.repoMill = repoMill;
 
-            newEditCommand = 
-                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoPipe));
+            newEditCommand =
+                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoMill.RepoPipe));
 
             extractHeatsCommand =
-                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoHeat));
+                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
 
             extractPurchaseOrderCommand =
-                ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoPurchaseOrder));
+                ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoMill.RepoPurchaseOrder));
+
+            extractPipeTypeCommand =
+                ViewModelSource.Create(() => new ExtractPipeTypeCommand(this, repoMill.RepoPipeType));
 
             if (pipeId == Guid.Empty)
             {
@@ -61,12 +58,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             else
             {
                 extractPurchaseOrderCommand.Execute();
-                ExtractHeatsCommand.Execute();
-                Pipe = repoPipe.Get(pipeId);
+                extractHeatsCommand.Execute();
+                extractPipeTypeCommand.Execute();
+
+                Pipe = repoMill.RepoPipe.Get(pipeId);
             }
+
+            Welders = repoMill.WelderRepo.GetAll();
         }
 
-        
         public IList<PurchaseOrder> PurchaseOrders
         {
             get { return purchaseOrders; }
@@ -89,6 +89,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 {
                     heats = value;
                     RaisePropertyChanged("Heats");
+                }
+            }
+        }
+
+        public IList<PipeMillSizeType> PipeTypes
+        {
+            get { return pipeTypes; }
+            set
+            {
+                if (value != pipeTypes)
+                {
+                    pipeTypes = value;
+                    RaisePropertyChanged("PipeTypes");
                 }
             }
         }
@@ -209,7 +222,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.Now;
+                    return DateTime.MinValue;
                 }
 
                 return PipePurchaseOrder.Date; 
@@ -307,7 +320,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         #endregion
 
         #region Railcar
-              public Domain.Entity.Mill.Railcar Railcar
+        public Domain.Entity.Mill.Railcar Railcar
               {
                   get { return Pipe.Railcar; }
                   set
@@ -320,7 +333,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                   }
               }
 
-              public string RailcarNumber
+        public string RailcarNumber
               {
                   get
                   {
@@ -330,18 +343,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Number;
                   }
-
-                  set
-                  {
-                      if (value != Railcar.Number)
-                      {
-                          Railcar.Number = value;
-                          RaisePropertyChanged("RailcarNumber");
-                      }
-                  }
               }
 
-              public string RailcarCertificate
+        public string RailcarCertificate
               {
                   get
                   {
@@ -351,17 +355,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Certificate;
                   }
-                  set
-                  {
-                      if (value != Railcar.Certificate)
-                      {
-                          Railcar.Certificate = value;
-                          RaisePropertyChanged("RailcarCertificate");
-                      }
-                  }
               }
 
-              public string RailcarDestination
+        public string RailcarDestination
               {
                   get
                   {
@@ -371,37 +367,39 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                       }
                       return Railcar.Destination;
                   }
-                  set
-                  {
-                      if (value != Railcar.Destination)
-                      {
-                          Railcar.Destination = value;
-                          RaisePropertyChanged("RailcarDestination");
-                      }
-                  }
               }
 
-              public DateTime? RailcarShippingDate
+        public string RailcarShippingDate
               {
                   get
                   {
                       if (Railcar == null)
                       {
-                          return DateTime.Now;
+                          return string.Empty;
                       }
 
-                      return Railcar.ShippingDate;
-                  }
-                  set
-                  {
-                      if (value != Railcar.ShippingDate)
-                      {
-                          Railcar.ShippingDate = value;
-                          RaisePropertyChanged("RailcarShippingDate");
-                      }
+                      return Railcar.ShippingDate.Value.ToShortDateString();
                   }
               }
-              #endregion
+        #endregion
+
+        #region PipeMillSizeType
+
+          public PipeMillSizeType PipeMillSizeType
+          {
+              get { return Pipe.Type; }
+              set
+              {
+                  if (value != Pipe.Type)
+                  {
+                      Pipe.Type = value;
+                      RaisePropertyChanged("PipeMillSizeType");
+                  }
+             }
+        }
+
+
+        #endregion
 
         public ICommand NewEditCommand
         {
@@ -418,11 +416,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return extractPurchaseOrderCommand; }
         }
         
-
         public void NewPipe()
         {
             extractPurchaseOrderCommand.Execute();
-            ExtractHeatsCommand.Execute();
+            extractHeatsCommand.Execute();
+            extractPipeTypeCommand.Execute();
 
             this.Pipe = new Pipe();
 
@@ -435,15 +433,32 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            this.PipePurchaseOrder = new PurchaseOrder();
-            this.PipePurchaseOrder.Number = string.Empty;
-            this.PipePurchaseOrder.Date = DateTime.Now;
+            
+            //TODO: Please change set the default value 
+            // after introduction the logic of new heat creating 
+            //Heat = Heats[0];
+
+            //TODO: Please change set the default value 
+            // after introduction the logic of new heat PipePurchaseOrder 
+            //PipePurchaseOrder = purchaseOrders[0];
+
+            //TODO: Please change set the default value 
+            // after introduction the logic of new PipeTypes creating 
+            //PipeMillSizeType = PipeTypes[0];
         }
 
         public void Dispose()
         {
-            repoPipe.Dispose();
+            repoMill.Dispose();
         }
 
+
+        internal string FormatWeldersList(IList<Welder> welders)
+        {
+           if (welders == null)
+              return String.Empty;
+
+           return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
+        }
     }
 }

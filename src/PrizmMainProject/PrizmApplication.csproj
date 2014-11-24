@@ -159,6 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Controls\WeldersSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
+      <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
@@ -170,6 +176,7 @@
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
@@ -188,7 +195,10 @@
     </Compile>
     <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
+    <Compile Include="Forms\PipeMill\IMillRepository.cs" />
+    <Compile Include="Forms\PipeMill\MillRepository.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
@@ -196,6 +206,10 @@
     </Compile>
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
+    <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
+    <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
@@ -343,6 +357,9 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\WeldersSelectionControl.resx">
+      <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +445,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
