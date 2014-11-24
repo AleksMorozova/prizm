@@ -9,25 +9,30 @@ using Domain.Entity.Mill;
 using System.Collections.Generic;
 using DevExpress.XtraEditors;
 using PrizmMain.Properties;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
         private readonly IRailcarRepositories repos;
+        private readonly IUserNotify notify;
         private readonly SaveRailcarCommand saveCommand;
         private readonly ShipRailcarCommand shipCommand;
+        private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber)
+        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
         {
             this.repos = repos;
+            this.notify = notify;
 
             GetStoredPipes();
 
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos));
-            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos));
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos, notify));
+            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
+            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -127,6 +132,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        #region Commands
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -136,6 +142,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             get { return shipCommand; }
         }
+
+        public ICommand UnshipCommand
+        {
+            get { return unshipCommand; }
+        } 
+        #endregion
 
         public void Dispose()
         {
@@ -157,7 +169,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             if (!(pipeToAdd.Railcar == null))
             {
-                XtraMessageBox.Show(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
+                notify.ShowError(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
                     Resources.DLG_ERROR_HEADER);
             }
             else
@@ -170,6 +182,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void RemovePipe(string number)
         {
+            if (Railcar.ShippingDate != DateTime.MinValue)
+            {
+                notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
+                return;
+            }
+
             foreach (var pipe in Pipes)
             {
                 if (pipe.Number == number)
@@ -177,7 +195,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     Pipes.Remove(pipe);
                     pipe.Railcar = null;
                     repos.PipeRepo.Merge(pipe);
-                    return;
+                    break;
                 }
             }
         }

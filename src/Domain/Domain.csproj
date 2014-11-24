@@ -74,6 +74,12 @@
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializableHeat.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializablePipe.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializablePlate.cs" />
+    <Compile Include="Serializable Entity\Mill\SerializableRailcar.cs" />
+    <Compile Include="Serializable Entity\Setup\SerializableProject.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

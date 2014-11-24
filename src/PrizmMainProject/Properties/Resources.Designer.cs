@@ -115,11 +115,29 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сначала расформируйте вагон..
+        /// </summary>
+        internal static string DLG_RAILCAR_UNSHIP_FIRST {
+            get {
+                return ResourceManager.GetString("DLG_RAILCAR_UNSHIP_FIRST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отправка вагона без труб невозможна.
         /// </summary>
         internal static string DLG_SHIP_RAILCAR_VS_PIPES {
             get {
                 return ResourceManager.GetString("DLG_SHIP_RAILCAR_VS_PIPES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вагон не отгружен.
+        /// </summary>
+        internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
+            get {
+                return ResourceManager.GetString("DLG_UNSHIP_UNSHIPPED_RAILCAR", resourceCulture);
             }
         }
         

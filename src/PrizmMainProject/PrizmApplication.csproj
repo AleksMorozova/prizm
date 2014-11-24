@@ -179,6 +179,7 @@
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
@@ -212,6 +213,7 @@
     <Compile Include="Forms\PipeMill\Wrapper.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />

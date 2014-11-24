@@ -58,8 +58,8 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\CreateSchemeObjects.sql" />
-    <Content Include="Scripts\RemoveSchemeObjects.sql" />
+    <EmbeddedResource Include="Scripts\CreateSchemeObjects.sql" />
+    <EmbeddedResource Include="Scripts\RemoveSchemeObjects.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
