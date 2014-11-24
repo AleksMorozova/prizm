@@ -138,7 +138,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspectorSelectionControl.Dock = DockStyle.Fill;
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
-           // repositoryItemCheckedComboBoxEdit1.DataSource = viewModel.Inspectors;
             
         }
 
@@ -161,6 +160,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             
         }
 
+        /// <summary>
+        /// Refreshes list of required pipe test results if mill size type was changed
+        /// </summary>
         private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
         {
             ComboBoxEdit cb = sender as ComboBoxEdit;
@@ -295,6 +297,33 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
             e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        /// <summary>
+        ///Customizes data shown in Expected result column
+        /// </summary>
+
+        private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (e.Column.FieldName == "Expected" && e.IsGetData) e.Value =
+              getExpectedValue(view, e.ListSourceRowIndex);
+        }
+
+        /// <summary>
+        /// Returns data shown in Expected result column depending on expected result type
+        /// </summary>
+        private string getExpectedValue(GridView view, int listSourceRowIndex)
+        {
+            PipeTestResult pipeTestResult = view.GetRow(listSourceRowIndex) as PipeTestResult;
+                switch (pipeTestResult.Operation.ResultType)
+                { 
+                    case PipeTestResultType.Boolean:
+                        return pipeTestResult.Operation.BoolExpected.ToString(); 
+                    case PipeTestResultType.Diapason:
+                        return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
+                    default: return "";   
+                }            
         }
 
     }

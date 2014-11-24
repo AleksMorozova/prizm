@@ -159,8 +159,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Controls\InspectorSelectionControl.cs">
     <Compile Include="Common\EnumWrapper.cs" />
+    <Compile Include="Controls\InspectorSelectionControl.cs">  
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\InspectorSelectionControl.Designer.cs">

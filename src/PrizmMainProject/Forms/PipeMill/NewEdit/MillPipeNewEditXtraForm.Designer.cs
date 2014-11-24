@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
-            this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldBindingSource = new System.Windows.Forms.BindingSource();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeGeneralParametersLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -119,11 +118,11 @@
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
-            this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionOperation = new System.Windows.Forms.BindingSource();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.measurementsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ResultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -132,7 +131,6 @@
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectionOperation = new System.Windows.Forms.BindingSource();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -163,8 +161,8 @@
             this.isActiveEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldingDs = new System.Windows.Forms.BindingSource();
+            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
@@ -253,7 +251,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
@@ -1259,7 +1256,8 @@
             // inspections
             // 
             this.inspections.AccessibleDescription = "l";
-            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;            this.inspections.DataSource = this.inspectionOperation;
+            this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
+            this.inspections.DataSource = this.inspectionOperation;
             this.inspections.Location = new System.Drawing.Point(14, 17);
             this.inspections.MainView = this.inspectionsGridView;
             this.inspections.Name = "inspections";
@@ -1271,12 +1269,16 @@
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
             // 
+            // inspectionOperation
+            // 
+            this.inspectionOperation.DataSource = typeof(PrizmMain.DummyData.InspectionDummy);
+            // 
             // inspectionsGridView
             // 
             this.inspectionsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.inspectionNameGridColumn,
             this.expectedResultGridColumn,
-            this.measurementsGridColumn,
+            this.valueGridColumn,
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
             this.controlDateGridColumn,
@@ -1284,6 +1286,7 @@
             this.inspectionsGridView.GridControl = this.inspections;
             this.inspectionsGridView.Name = "inspectionsGridView";
             this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionsGridView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.inspectionsGridView_CustomUnboundColumnData);
             // 
             // inspectionNameGridColumn
             // 
@@ -1297,20 +1300,22 @@
             // expectedResultGridColumn
             // 
             this.expectedResultGridColumn.Caption = "Ожидаемый результат";
-            this.expectedResultGridColumn.FieldName = "Operation.ResultType";
+            this.expectedResultGridColumn.FieldName = "Expected";
             this.expectedResultGridColumn.Name = "expectedResultGridColumn";
+            this.expectedResultGridColumn.OptionsColumn.AllowEdit = false;
+            this.expectedResultGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.expectedResultGridColumn.Visible = true;
             this.expectedResultGridColumn.VisibleIndex = 2;
             this.expectedResultGridColumn.Width = 141;
             // 
-            // measurementsGridColumn
+            // valueGridColumn
             // 
-            this.measurementsGridColumn.Caption = "Результат измерения";
-            this.measurementsGridColumn.FieldName = "Measurements";
-            this.measurementsGridColumn.Name = "measurementsGridColumn";
-            this.measurementsGridColumn.Visible = true;
-            this.measurementsGridColumn.VisibleIndex = 3;
-            this.measurementsGridColumn.Width = 135;
+            this.valueGridColumn.Caption = "Результат измерения";
+            this.valueGridColumn.FieldName = "Value";
+            this.valueGridColumn.Name = "valueGridColumn";
+            this.valueGridColumn.Visible = true;
+            this.valueGridColumn.VisibleIndex = 3;
+            this.valueGridColumn.Width = 135;
             // 
             // inspectionResultGridColumn
             // 
@@ -1396,10 +1401,6 @@
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionsLayout.TextToControlDistance = 0;
             this.inspectionsLayout.TextVisible = false;
-            // 
-            // inspectionOperation
-            // 
-            this.inspectionOperation.DataSource = typeof(PrizmMain.DummyData.InspectionDummy);
             // 
             // pipeSize
             // 
@@ -1877,7 +1878,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
@@ -2031,7 +2031,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView inspectionsGridView;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionNameGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn expectedResultGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn measurementsGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn valueGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionResultGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectorsGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn controlDateGridColumn;

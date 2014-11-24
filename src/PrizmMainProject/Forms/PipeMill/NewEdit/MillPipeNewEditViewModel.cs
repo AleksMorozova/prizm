@@ -28,7 +28,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<PipeMillSizeType> pipeTypes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private IList<PipeTestResult> pipeTestResults;
-    //    private IList<Inspector> inspectors;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
@@ -38,7 +37,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public Pipe Pipe { get; set; }
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
-        public BindingList<Inspector> Inspectors { get; set; }
+        public IList<Inspector> Inspectors { get; set; }
         
 
         [Inject]
@@ -73,7 +72,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             Welders = repoMill.WelderRepo.GetAll();
             
-            Inspectors =new BindingList<Inspector>(repoMill.RepoInspector.GetAll());
+            Inspectors =repoMill.RepoInspector.GetAll();
 
             foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
@@ -511,6 +510,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repoMill.Dispose();
         }
 
+        /// <summary>
+        /// Gets for current pipe all linked pipe test results and sets them to its property
+        /// </summary>
         void GetAllPipeTestResults()
         {
             var criteria = NHibernate.Criterion.DetachedCriteria
@@ -527,6 +529,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
         }
 
+        /// <summary>
+        /// Customize displaying inspectors name in grid cell : show only last name
+        /// </summary>
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
             if (inspectors == null)
@@ -535,6 +540,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }
 
+        /// <summary>
+        /// Creates predefined pipe test results for all active required tests for concrete pipe mill size type
+        /// </summary>
+        /// <param name="millSizeType"></param>
         public List<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
         {
             List<PipeTestResult> requiredTestResults = new List<PipeTestResult>();
