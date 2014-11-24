@@ -237,6 +237,7 @@
             this.pipesSearchResultView.GridControl = this.pipesSearchResult;
             this.pipesSearchResultView.Name = "pipesSearchResultView";
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
+            this.pipesSearchResultView.LayoutUpgrade += new DevExpress.Utils.LayoutUpgradeEventHandler(this.pipesSearchResultView_LayoutUpgrade);
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
             // 

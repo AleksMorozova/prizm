@@ -77,5 +77,27 @@ namespace PrizmMain.Forms.PipeMill.Search
                 pipeRepositoryButtonEdit_Click(sender, e);
             }
         }
+
+
+
+
+
+        //================================================================================
+
+        private void pipesSearchResultView_LayoutUpgrade(object sender, DevExpress.Utils.LayoutUpgradeEventArgs e)
+        {
+            for (int i = 0; i < pipesSearchResultView.RowCount; ++i)
+            {
+
+
+                string cellValue = "**-**-**";
+                pipesSearchResultView.SetRowCellValue(
+                    i,
+                    pipesSearchResultView.Columns.ColumnByName("statusSearchGridColumn"),
+                    cellValue);
+            }
+        }
+
+
     }
 }
