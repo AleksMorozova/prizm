@@ -193,7 +193,7 @@
     <value>Внимание</value>
   </data>
   <data name="AlertFailureHeader" xml:space="preserve">
-    <value>Произошла ошибка! </value>
+    <value>Произошла ошибка!</value>
   </data>
   <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
     <value>Удалить запись?</value>

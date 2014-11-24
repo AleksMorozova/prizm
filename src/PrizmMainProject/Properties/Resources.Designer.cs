@@ -61,7 +61,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Произошла ошибка! .
+        ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
             get {
