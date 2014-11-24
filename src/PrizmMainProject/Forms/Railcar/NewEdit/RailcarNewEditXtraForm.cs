@@ -78,7 +78,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             pipesList.RefreshDataSource();
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void newRailcarButton_Click(object sender, EventArgs e)
         {
             viewModel.NewRailcar();
         }
