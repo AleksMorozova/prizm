@@ -82,13 +82,13 @@
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
+           
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -162,8 +162,7 @@
             this.barManager1.MainMenu = this.barMenu;
             this.barManager1.MaxItemId = 55;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.languageRepositoryComboBox,
-            this.repositoryItemTrackBar1});
+            this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barMenu
@@ -566,19 +565,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
             // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemTrackBar1;
-            this.barEditItem1.Id = 54;
-            this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemTrackBar1
-            // 
-            this.repositoryItemTrackBar1.LabelAppearance.Options.UseTextOptions = true;
-            this.repositoryItemTrackBar1.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.repositoryItemTrackBar1.Name = "repositoryItemTrackBar1";
-            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
@@ -614,7 +600,6 @@
             this.Text = "PRIZMA";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -680,7 +665,6 @@
         private DevExpress.XtraBars.BarSubItem barSubItemLanguage;
         private DevExpress.XtraBars.BarListItem languageBarListItem;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
 
 
 
