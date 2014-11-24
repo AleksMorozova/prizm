@@ -2,6 +2,7 @@
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
+using PrizmMain.Forms;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.Railcar.NewEdit;
 using System;
@@ -21,10 +22,12 @@ namespace UnitTests.Forms.Railcar.Edit
         Mock<IRailcarRepository> carRepo;
         RailcarViewModel viewModel;
         UnshipRailcarCommand command;
+        Mock<IUserNotify> notify; 
 
         [Test]
         public void UnshipRailcarCommand()
         {
+            notify = new Mock<IUserNotify>();
             repos = new Mock<IRailcarRepositories>();
             pipeRepo = new Mock<IPipeRepository>();
             carRepo = new Mock<IRailcarRepository>();
@@ -34,9 +37,9 @@ namespace UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.RailcarRepo).Returns(carRepo.Object);
 
 
-            viewModel = new RailcarViewModel(repos.Object, "");
+            viewModel = new RailcarViewModel(repos.Object, "", notify.Object);
             viewModel.Railcar.Number = "Railcar";
-            command = new UnshipRailcarCommand(viewModel, repos.Object);
+            command = new UnshipRailcarCommand(viewModel, repos.Object, notify.Object);
 
             command.Execute();
 
