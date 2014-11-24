@@ -50,10 +50,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     railcar.ShippingDate = DateTime.Now;
                 }
-
+            }
            foreach (var pipe in railcar.Pipes)
             {
-                pipe.Status = Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Shipped);
+                pipe.Status = PipeMillStatus.Shipped;
             }
         }
 

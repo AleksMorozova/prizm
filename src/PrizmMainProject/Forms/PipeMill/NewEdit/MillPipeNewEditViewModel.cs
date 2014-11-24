@@ -220,17 +220,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (StatusTypes.Any<Wrapper<PipeMillStatus>>(x => x.Name == Pipe.Status))
+                if (StatusTypes.Any<Wrapper<PipeMillStatus>>(x => x.Value == Pipe.Status))
                 {
-                    return StatusTypes.First<Wrapper<PipeMillStatus>>(x => x.Name == Pipe.Status);
+                    return StatusTypes.First<Wrapper<PipeMillStatus>>(x => x.Value == Pipe.Status);
                 }
-                return null; //TODO: fix this NullReference
+                return null;
             }
             set
             {
-                if (value.Name != Pipe.Status)
+                if (value.Value != Pipe.Status)
                 {
-                    Pipe.Status = value.Name;
+                    Pipe.Status = value.Value;
                     RaisePropertyChanged("PipeStatus");
                 }
             }
@@ -410,7 +410,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               {
                   get
                   {
-                      if (Railcar == null)
+                      if (Railcar == null || Railcar.ShippingDate == null)
                       {
                           return string.Empty;
                       }
@@ -462,8 +462,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
-            this.Pipe.Status = Enum
-                .GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined);
+            this.Pipe.Status = PipeMillStatus.Undefined;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;

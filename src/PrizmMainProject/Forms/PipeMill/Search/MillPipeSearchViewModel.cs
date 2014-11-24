@@ -25,7 +25,7 @@ namespace PrizmMain.Forms.PipeMill.Search
         readonly IPipeRepository repo;
         private IList<Pipe> pipes;
         private string pipeNumber;
-        private int pipeSize;
+        private string pipeSize;
         private string pipeMillStatus;
 
         [Inject]
@@ -69,7 +69,7 @@ namespace PrizmMain.Forms.PipeMill.Search
         }
 
 
-        public int PipeSize
+        public string PipeSize
         {
             get
             {

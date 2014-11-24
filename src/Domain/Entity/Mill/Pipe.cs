@@ -33,15 +33,7 @@ namespace Domain.Entity.Mill
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
 
-        public virtual string Status { get; set; }
-
-        //public virtual string TranslateStatus 
-        //{
-        //    get
-        //    {
-        //        return PrizmMain.Properties.Resources.ResourceManager.GetString(Status);
-        //    }
-        //}
-
+        //enum
+        public virtual PipeMillStatus Status { get; set; }
     }
 }

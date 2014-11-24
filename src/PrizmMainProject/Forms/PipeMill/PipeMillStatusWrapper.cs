@@ -16,10 +16,6 @@ namespace PrizmMain.Forms.PipeMill
         {
             get
             {
-                if (Value == null)
-                {
-                    return string.Empty;
-                }
                 return Enum.GetName(typeof(PipeMillStatus), Value);
             }
             set

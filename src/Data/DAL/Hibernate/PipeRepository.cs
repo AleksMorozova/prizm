@@ -30,8 +30,7 @@ namespace Data.DAL.Hibernate
          public IList<Pipe> GetStored()
          {
              return session.QueryOver<Pipe>()
-                 .Where(n => n.Status == 
-                     Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Stocked)).List<Pipe>();
+                 .Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
          }
     }
 }
