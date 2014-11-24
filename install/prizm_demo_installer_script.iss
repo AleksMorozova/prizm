@@ -3,10 +3,12 @@
 
 #define MyAppName "Prizm Demo"
 #define MyAppVersion "0.0.0.4"
-#define MyAppPublisher ""
-#define MyAppURL ""
+#define MyAppPublisher "ISD"
+#define MyAppURL "http://www.isd.dp.ua"
 #define MyAppExeName "prizm.exe"
+#define MyAppExeConfigName MyAppExeName + ".config"
 #define MyDateTimeString GetDateTimeString('dm', '', '');
+#define DevExpressPath "D:\Program Files (x86)\DevExpress 14.1\Components\Bin\Framework\"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -23,9 +25,10 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputDir=..\install\Relise
+OutputDir=..\install\Release
 OutputBaseFilename=setup_prism_{#MyDateTimeString}
 Compression=lzma
+ArchitecturesInstallIn64BitMode=x64
 SolidCompression=yes
 ShowTasksTreeLines=True
 AlwaysShowDirOnReadyPage=True
@@ -44,9 +47,33 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\src\PrizmMainProject\bin\Release\prizm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\PrizmMainProject\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64"; Flags: ignoreversion nocompression
+Source: "..\src\bin\Release\*.exe"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\bin\Release\*.config"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\bin\Release\*.manifest"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#DevExpressPath}DevExpress.Charts.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Data.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Mvvm.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Office.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.PivotGrid.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Printing.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.RichEdit.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Sparkline.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.1.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraBars.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGauges.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGrid.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
+Source: "..\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
+Source: "..\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed
+
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -55,4 +82,181 @@ Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
-Filename: "{tmp}\dotnetfx45_full_x86_x64"; WorkingDir: "{tmp}"; Description: "Windows system requirments" ; StatusMsg: "Update system files"
+Filename: "{tmp}\dotnetfx45_full_x86_x64.exe"; Parameters: "/passive /norestart"; WorkingDir: "{tmp}"; Description: "Windows system requirements"; StatusMsg: "{cm:InstallingNet45}"; Check: not IsRequiredDotNetDetected
+Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\SqlLocalDB.MSI"" /qn IACCEPTSQLLOCALDBLICENSETERMS=YES"; WorkingDir: "{tmp}"; Description: "{cm:InstallingSQLLocalDb}"; StatusMsg: "{cm:InstallingSQLLocalDb}"; Check: not IsLocalDb11Installed
+Filename: "{app}\DatabaseMigrator.exe"; Parameters: "0"; WorkingDir: "{app}"; Flags: runhidden; Description: "{cm:CreatingPrizmDatabase}"; StatusMsg: "{cm:CreatingPrizmDatabase}"; BeforeInstall: UpdateConfig; AfterInstall: PrepareDatabase
+
+[Dirs]
+Name: "{app}\Data"; Attribs: hidden; Permissions: everyone-full
+
+[CustomMessages]
+english.InstallingSQLLocalDb=Installing SQL LocalDb
+russian.InstallingSQLLocalDb=Инсталяция SQL LocalDb
+english.CreatingPrizmDatabase=Creating Prizm Database
+russian.CreatingPrizmDatabase=Создание Базы Данных
+english.UpdateConfigurationFile=Update Configuration File
+russian.UpdateConfigurationFile=Обновление файлов конфигурации
+english.InstallingNet45=Installing Microsoft Framework 4.5. Please wait...
+russian.InstallingNet45=Идет установка .NET Framework 4.5. Это может занять несколько минут...
+english.ErrorCreateDB=Error while creating Prizma Database. Please, contact system administrator
+russian.ErrorCreateDB=Ошибка во время создания базы данных. Свяжитесь с администратором
+english.UnInstallingDB=Do you want to delete Database files?
+russian.UnInstallingDB=Вы хотите удалить файлы Базы Данных?
+
+
+[Code]
+function IsDotNetDetected(version: string; service: cardinal): boolean;
+// Indicates whether the specified version and service pack of the .NET Framework is installed.
+//
+// version -- Specify one of these strings for the required .NET Framework version:
+//    'v1.1.4322'     .NET Framework 1.1
+//    'v2.0.50727'    .NET Framework 2.0
+//    'v3.0'          .NET Framework 3.0
+//    'v3.5'          .NET Framework 3.5
+//    'v4\Client'     .NET Framework 4.0 Client Profile
+//    'v4\Full'       .NET Framework 4.0 Full Installation
+//    'v4.5'          .NET Framework 4.5
+//
+// service -- Specify any non-negative integer for the required service pack level:
+//    0               No service packs required
+//    1, 2, etc.      Service pack 1, 2, etc. required
+var
+    key: string;
+    install, release, serviceCount: cardinal;
+    check45, success: boolean;
+var reqNetVer : string;
+begin
+    // .NET 4.5 installs as update to .NET 4.0 Full
+    if version = 'v4.5' then begin
+        version := 'v4\Full';
+        check45 := true;
+    end else
+        check45 := false;
+
+    // installation key group for all .NET versions
+    key := 'SOFTWARE\Microsoft\NET Framework Setup\NDP\' + version;
+
+    // .NET 3.0 uses value InstallSuccess in subkey Setup
+    if Pos('v3.0', version) = 1 then begin
+        success := RegQueryDWordValue(HKLM, key + '\Setup', 'InstallSuccess', install);
+    end else begin
+        success := RegQueryDWordValue(HKLM, key, 'Install', install);
+    end;
+
+    // .NET 4.0/4.5 uses value Servicing instead of SP
+    if Pos('v4', version) = 1 then begin
+        success := success and RegQueryDWordValue(HKLM, key, 'Servicing', serviceCount);
+    end else begin
+        success := success and RegQueryDWordValue(HKLM, key, 'SP', serviceCount);
+    end;
+
+    // .NET 4.5 uses additional value Release
+    if check45 then begin
+        success := success and RegQueryDWordValue(HKLM, key, 'Release', release);
+        success := success and (release >= 378389);
+    end;
+
+    result := success and (install = 1) and (serviceCount >= service);
+end;
+
+function IsRequiredDotNetDetected(): Boolean;  
+begin
+    result := IsDotNetDetected('v4.5', 0);
+end;
+
+function IsLocalDb11Installed(): Boolean;
+begin
+  if RegKeyExists(HKLM, 'SOFTWARE\Microsoft\Microsoft SQL Server Local DB\Installed Versions\11.0') then
+  begin
+    result := true;
+  end 
+  else 
+  begin
+    result := false;
+  end;
+end;
+
+procedure UpdateConfig();
+var
+  XMLDoc, RootNode, Nodes, Node: Variant;
+  ConfigFilename, Key: String;
+  i: integer;
+
+begin
+  WizardForm.StatusLabel.Caption := CustomMessage('UpdateConfigurationFile');
+
+  ConfigFilename := ExpandConstant('{app}') + '\' + ExpandConstant('{#MyAppExeConfigName}');
+
+  try
+      XMLDoc := CreateOleObject('MSXML2.DOMDocument');
+  except
+    RaiseException('MSXML is required to complete the post-installation process.'#13#13'(Error ''' + GetExceptionMessage + ''' occurred)');
+  end;  
+
+  XMLDoc.async := False;
+  XMLDoc.resolveExternals := False;
+  XMLDoc.load(ConfigFilename);
+  if XMLDoc.parseError.errorCode <> 0 then
+    RaiseException('Error on line ' + IntToStr(XMLDoc.parseError.line) + ', position ' + IntToStr(XMLDoc.parseError.linepos) + ': ' + XMLDoc.parseError.reason);
+
+  RootNode := XMLDoc.documentElement;
+  Nodes := RootNode.selectNodes('//configuration/connectionStrings/add');
+    
+  for i := 0 to Nodes.length - 1 do
+  begin
+    Node := Nodes.Item[i];
+    if Node.NodeType = 1 then
+    begin
+      key := Node.getAttribute('name');
+      Case key of
+        'PrizmDatabase' : Node.setAttribute('connectionString', 'Data Source=(LocalDb)\v11.0;Initial Catalog=prizm;Integrated Security=true;AttachDBFileName=' + ExpandConstant('{app}') + '\Data\prizm.mdf');
+      end;
+    end;
+  end;
+
+  XMLDoc.Save(ConfigFilename); 
+
+end;
+
+procedure PrepareDatabase();
+var
+ ResCode : Integer;
+begin
+ // run database migrator and check error code
+ WizardForm.StatusLabel.Caption := CustomMessage('CreatingPrizmDatabase');
+ if Exec(ExpandConstant('{app}\DatabaseMigrator.exe'), '1', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResCode) then
+ begin
+   // Program Ran successfully ResCode now contains exit code results
+   if resCode <> 0 then
+   begin
+      MsgBox(CustomMessage('ErrorCreateDB'), mbError, MB_OK);
+   end;       
+ end
+ else
+ begin
+   // Problem running Program
+   MsgBox(CustomMessage('ErrorCreateDB'), mbError, MB_OK);
+ end;
+
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+   appDataDir : string;
+begin
+  if CurUninstallStep = usUninstall then begin
+    appDataDir := ExpandConstant('{app}\Data');
+    if DirExists(appDataDir) then
+    begin
+      if MsgBox(CustomMessage('UnInstallingDB'), mbConfirmation, MB_YESNO) = IDYES 
+      then begin
+        try
+          DelTree(appDataDir, true, true, true);
+          DelTree(ExpandConstant('{app}'), true, true, true);
+        except
+          // do nothing
+        end;
+      end;
+    end;
+  end;
+end;
