@@ -77,5 +77,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             viewModel.RemovePipe(number);
             pipesList.RefreshDataSource();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            viewModel.NewRailcar();
+        }
+
     }
 }
