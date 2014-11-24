@@ -81,11 +81,14 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -154,11 +157,13 @@
             this.languageBarSubItem,
             this.languageComboBoxEdit,
             this.barSubItemLanguage,
-            this.languageBarListItem});
+            this.languageBarListItem,
+            this.barEditItem1});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 54;
+            this.barManager1.MaxItemId = 55;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.languageRepositoryComboBox});
+            this.languageRepositoryComboBox,
+            this.repositoryItemTrackBar1});
             this.barManager1.StatusBar = this.barStatus;
             // 
             // barMenu
@@ -226,9 +231,9 @@
             this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillFindEditPipes),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditShipRailcars),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillReports)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillReports, true)});
             this.barSubItemMill.Name = "barSubItemMill";
             // 
             // barButtonItemNewPipe
@@ -241,7 +246,7 @@
             // 
             // barButtonItemMillFindEditPipes
             // 
-            this.barButtonItemMillFindEditPipes.Caption = "&Поиск/Редактирование трубы";
+            this.barButtonItemMillFindEditPipes.Caption = "&Поиск труб";
             this.barButtonItemMillFindEditPipes.Id = 17;
             this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
             this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
@@ -255,7 +260,7 @@
             // 
             // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemFindEditShipRailcars.Caption = "&Редактирование/отправка вагона";
+            this.barButtonItemFindEditShipRailcars.Caption = "Поис&к вагонов";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
@@ -273,14 +278,14 @@
             this.barSubItemComponentry.Id = 13;
             this.barSubItemComponentry.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindEditPipes),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindComponentry),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true)});
             this.barSubItemComponentry.Name = "barSubItemComponentry";
             // 
             // barButtonItemInspectionFindEditPipes
             // 
-            this.barButtonItemInspectionFindEditPipes.Caption = "Поиск/Редактирование &трубы";
+            this.barButtonItemInspectionFindEditPipes.Caption = "Поиск &труб";
             this.barButtonItemInspectionFindEditPipes.Id = 35;
             this.barButtonItemInspectionFindEditPipes.Name = "barButtonItemInspectionFindEditPipes";
             this.barButtonItemInspectionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindEditPipes_ItemClick);
@@ -295,7 +300,7 @@
             // 
             // barButtonItemInspectionFindComponentry
             // 
-            this.barButtonItemInspectionFindComponentry.Caption = "&Поиск/Редактирование компонента";
+            this.barButtonItemInspectionFindComponentry.Caption = "&Поиск компонент";
             this.barButtonItemInspectionFindComponentry.Id = 21;
             this.barButtonItemInspectionFindComponentry.Name = "barButtonItemInspectionFindComponentry";
             this.barButtonItemInspectionFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindComponentry_ItemClick);
@@ -313,23 +318,23 @@
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditPipes),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditComponentry),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditComponentry, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports, true)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
             // barButtonItemConstructionFindEditPipes
             // 
-            this.barButtonItemConstructionFindEditPipes.Caption = "Поиск/Редактирование &трубы";
+            this.barButtonItemConstructionFindEditPipes.Caption = "Поиск &труб";
             this.barButtonItemConstructionFindEditPipes.Id = 27;
             this.barButtonItemConstructionFindEditPipes.Name = "barButtonItemConstructionFindEditPipes";
             this.barButtonItemConstructionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditPipes_ItemClick);
             // 
             // barButtonItemConstructionFindEditComponentry
             // 
-            this.barButtonItemConstructionFindEditComponentry.Caption = "Поиск/Редактирование &компонента";
+            this.barButtonItemConstructionFindEditComponentry.Caption = "Поиск ко&мпонент";
             this.barButtonItemConstructionFindEditComponentry.Id = 28;
             this.barButtonItemConstructionFindEditComponentry.Name = "barButtonItemConstructionFindEditComponentry";
             this.barButtonItemConstructionFindEditComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditComponentry_ItemClick);
@@ -344,7 +349,7 @@
             // 
             // barButtonItemFindEditJoints
             // 
-            this.barButtonItemFindEditJoints.Caption = "&Поиск/Редактирование стыка";
+            this.barButtonItemFindEditJoints.Caption = "&Поиск стыка";
             this.barButtonItemFindEditJoints.Id = 33;
             this.barButtonItemFindEditJoints.Name = "barButtonItemFindEditJoints";
             this.barButtonItemFindEditJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditJoints_ItemClick);
@@ -561,6 +566,19 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
             // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemTrackBar1;
+            this.barEditItem1.Id = 54;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemTrackBar1
+            // 
+            this.repositoryItemTrackBar1.LabelAppearance.Options.UseTextOptions = true;
+            this.repositoryItemTrackBar1.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.repositoryItemTrackBar1.Name = "repositoryItemTrackBar1";
+            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
@@ -596,6 +614,7 @@
             this.Text = "PRIZMA";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -660,6 +679,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox languageRepositoryComboBox;
         private DevExpress.XtraBars.BarSubItem barSubItemLanguage;
         private DevExpress.XtraBars.BarListItem languageBarListItem;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
 
 
 
