@@ -21,8 +21,6 @@ namespace PrizmMain.Forms.Railcar.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-
-
             var criteria = DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
 
             if (!string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
@@ -44,6 +42,7 @@ namespace PrizmMain.Forms.Railcar.Search
                 criteria.Add(Restrictions.Eq("ShippingDate", viewModel.ShippingDate));
             }
             viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
+            repo.Clear();
         }
 
         public bool CanExecute()

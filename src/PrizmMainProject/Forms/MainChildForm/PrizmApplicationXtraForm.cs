@@ -329,6 +329,7 @@ namespace PrizmMain.Forms.MainChildForm
         public void ShowAlert(string text, string header)
         {
             AlertInfo ai = new AlertInfo(text, header);
+            //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
         #endregion
