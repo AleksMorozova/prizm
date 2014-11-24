@@ -307,7 +307,7 @@ namespace PrizmMain.Forms.MainChildForm
         public int ShowYesNoCancel(string text, string header)
         {
             DialogResult dlg = XtraMessageBox.Show(text, header, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            int result;
+            sbyte result;
             switch (dlg)
             {
                 case DialogResult.Cancel:
