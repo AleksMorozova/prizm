@@ -22,17 +22,18 @@ namespace Domain.Entity.Mill
         public virtual int WallThickness { get; set; }
         public virtual int Weight { get; set; }
 
-        public virtual PipeMillSizeType Type { get; set; } // from global dictionary type: PipeMillSizeType
+        public virtual PipeMillSizeType Type { get; set; }
 
         public virtual Railcar Railcar { get; set; }
-        //public virtual PipeMillStatus Status { get; set; } //enum
-        public virtual string Status { get; set; } //FIX: convert string to enum and map enum to database
+
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
 
-
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
+
+        //enum
+        public virtual PipeMillStatus Status { get; set; }
     }
 }

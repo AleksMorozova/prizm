@@ -53,20 +53,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
             }
-
             foreach (var p in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(p);
             }
-
             foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
+            }
+            foreach (var s in viewModel.StatusTypes)
+            {
+                millStatus.Properties.Items.Add(s);
             }
 
 
@@ -109,6 +110,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
+
+
+            millStatus.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
+            
+
 
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";

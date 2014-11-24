@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.XtraEditors;
+using Domain.Entity.Mill;
 using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Properties;
@@ -49,12 +50,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     railcar.ShippingDate = DateTime.Now;
                 }
-
-                foreach (var pipe in railcar.Pipes)
-                {
-                    pipe.Status = "Отгружена";
-                }
-                viewModel.SaveCommand.Execute();
+            }
+           foreach (var pipe in railcar.Pipes)
+            {
+                pipe.Status = PipeMillStatus.Shipped;
             }
         }
 
