@@ -43,7 +43,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
                 repos.Commit();
                 repos.RailcarRepo.Evict(viewModel.Railcar);
-                viewModel.NewRailcar();
+                notify.ShowAlert("Done", "Railcar Saved");
         }
 
         public bool CanExecute()
