@@ -65,7 +65,7 @@
          // 
          // colLastName
          // 
-         this.colLastName.Caption = "Last Name";
+         this.colLastName.Caption = "Фамилия";
          this.colLastName.FieldName = "Name.LastName";
          this.colLastName.Name = "colLastName";
          this.colLastName.OptionsColumn.ReadOnly = true;
@@ -74,7 +74,7 @@
          // 
          // colFirstName
          // 
-         this.colFirstName.Caption = "First Name";
+         this.colFirstName.Caption = "Имя";
          this.colFirstName.FieldName = "Name.FirstName";
          this.colFirstName.Name = "colFirstName";
          this.colFirstName.OptionsColumn.ReadOnly = true;
@@ -83,7 +83,7 @@
          // 
          // colMiddleName
          // 
-         this.colMiddleName.Caption = "Middle Name";
+         this.colMiddleName.Caption = "Отчество";
          this.colMiddleName.FieldName = "Name.MiddleName";
          this.colMiddleName.Name = "colMiddleName";
          this.colMiddleName.OptionsColumn.ReadOnly = true;
