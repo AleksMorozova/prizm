@@ -326,9 +326,16 @@ namespace PrizmMain.Forms.MainChildForm
             return result;
         }
 
-        public void ShowAlert(string text, string header)
+        public void ShowSuccess(string text, string header)
         {
             AlertInfo ai = new AlertInfo(header,text);
+            //TODO: add image and custom buttons if necessity
+            alertControl.Show(this, ai);
+        }
+
+        public void ShowFailure(string text, string header)
+        {
+            AlertInfo ai = new AlertInfo(header, text);
             //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
