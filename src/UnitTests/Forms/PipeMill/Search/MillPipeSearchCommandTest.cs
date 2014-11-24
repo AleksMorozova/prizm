@@ -23,10 +23,10 @@ namespace UnitTests.Forms.PipeMill.Search
             var repo = new Mock<IPipeRepository>();
 
             var pipes = new List<Domain.Entity.Mill.Pipe>();
-            //{
-            //    new Domain.Entity.Mill.Pipe {Number="test-1", Status="test-2"},
-            //    new Domain.Entity.Mill.Pipe {Number="test-3", Status="test-4"}
-            //};
+            {
+                new Domain.Entity.Mill.Pipe { Number = "test-1" };
+                new Domain.Entity.Mill.Pipe { Number = "test-3" };
+            };
 
             repo.Setup(_ => _.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>()))
                 .Returns(pipes).Verifiable();
@@ -34,7 +34,7 @@ namespace UnitTests.Forms.PipeMill.Search
             var criteria = NHibernate.Criterion.DetachedCriteria
               .For<Domain.Entity.Mill.Pipe>()
               .Add(Restrictions.Like("Number", "test-1", MatchMode.Anywhere));
-              //.Add(Restrictions.Like("Status", "test-2", MatchMode.Anywhere));
+
 
 
             var viewModel = new MillPipeSearchViewModel(repo.Object);
