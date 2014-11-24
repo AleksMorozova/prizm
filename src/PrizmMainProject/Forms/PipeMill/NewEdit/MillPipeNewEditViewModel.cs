@@ -13,11 +13,12 @@ using Domain.Entity.Setup;
 using NHibernate.Criterion;
 using System.ComponentModel;
 using Domain.Entity;
+using PrizmMain.Properties;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class MillPipeNewEditViewModel: ViewModelBase, IDisposable
+    public class MillPipeNewEditViewModel : ViewModelBase, IDisposable
     {
 
         private readonly IMillRepository repoMill;
@@ -26,6 +27,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeTestResult> pipeTestResults;
+    //    private IList<Inspector> inspectors;
 
         private readonly MillPipeNewEditCommand newEditCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
@@ -34,8 +36,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public Pipe Pipe { get; set; }
         public IList<Welder> Welders { get; set; }
+        public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
+        public BindingList<Inspector> Inspectors { get; set; }
 
-       [Inject]
+        [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
         {
             this.repoMill = repoMill;
@@ -66,6 +70,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             Welders = repoMill.WelderRepo.GetAll();
+            Inspectors =new BindingList<Inspector>(repoMill.RepoInspector.GetAll());
+
+            foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
+            {
+                if (controlTypeName != Enum.GetName(typeof(PipeTestResultStatus), PipeTestResultStatus.Undef))
+                    TestResultStatuses.Add(new PipeTestResultStatusWrapper()
+                    {
+                        Value = (PipeTestResultStatus)Enum.Parse(typeof(PipeTestResultStatus), controlTypeName),
+                        Text = Resources.ResourceManager.GetString(controlTypeName)
+                    }
+                    );
+            }
         }
 
         public IList<PurchaseOrder> PurchaseOrders
@@ -80,7 +96,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-        
+
         public IList<Domain.Entity.Mill.Heat> Heats
         {
             get { return heats; }
@@ -203,7 +219,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         #endregion
 
         #region PurchaseOrder
-        
+
         public PurchaseOrder PipePurchaseOrder
         {
             get { return Pipe.PurchaseOrder; }
@@ -219,14 +235,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public DateTime PurchaseOrderDate
         {
-            get 
+            get
             {
                 if (PipePurchaseOrder == null)
                 {
                     return DateTime.MinValue;
                 }
 
-                return PipePurchaseOrder.Date; 
+                return PipePurchaseOrder.Date;
             }
             set
             {
@@ -322,102 +338,102 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #region Railcar
         public Domain.Entity.Mill.Railcar Railcar
-              {
-                  get { return Pipe.Railcar; }
-                  set
-                  {
-                      if (value != Pipe.Railcar)
-                      {
-                          Pipe.Railcar = value;
-                          RaisePropertyChanged("Railcar");
-                      }
-                  }
-              }
+        {
+            get { return Pipe.Railcar; }
+            set
+            {
+                if (value != Pipe.Railcar)
+                {
+                    Pipe.Railcar = value;
+                    RaisePropertyChanged("Railcar");
+                }
+            }
+        }
 
         public string RailcarNumber
-              {
-                  get
-                  {
-                      if (Railcar == null)
-                      {
-                          return string.Empty;
-                      }
-                      return Railcar.Number;
-                  }
-              }
+        {
+            get
+            {
+                if (Railcar == null)
+                {
+                    return string.Empty;
+                }
+                return Railcar.Number;
+            }
+        }
 
         public string RailcarCertificate
-              {
-                  get
-                  {
-                      if (Railcar == null)
-                      {
-                          return string.Empty;
-                      }
-                      return Railcar.Certificate;
-                  }
-              }
+        {
+            get
+            {
+                if (Railcar == null)
+                {
+                    return string.Empty;
+                }
+                return Railcar.Certificate;
+            }
+        }
 
         public string RailcarDestination
-              {
-                  get
-                  {
-                      if (Railcar == null)
-                      {
-                          return string.Empty;
-                      }
-                      return Railcar.Destination;
-                  }
-              }
+        {
+            get
+            {
+                if (Railcar == null)
+                {
+                    return string.Empty;
+                }
+                return Railcar.Destination;
+            }
+        }
 
         public string RailcarShippingDate
-              {
-                  get
-                  {
-                      if (Railcar == null)
-                      {
-                          return string.Empty;
-                      }
+        {
+            get
+            {
+                if (Railcar == null)
+                {
+                    return string.Empty;
+                }
 
-                      return Railcar.ShippingDate.Value.ToShortDateString();
-                  }
-              }
+                return Railcar.ShippingDate.Value.ToShortDateString();
+            }
+        }
         #endregion
 
         #region PipeMillSizeType
 
-          public PipeMillSizeType PipeMillSizeType
-          {
-              get { return Pipe.Type; }
-              set
-              {
-                  if (value != Pipe.Type)
-                  {
-                      Pipe.Type = value;
-                      RaisePropertyChanged("PipeMillSizeType");
-                  }
-             }
+        public PipeMillSizeType PipeMillSizeType
+        {
+            get { return Pipe.Type; }
+            set
+            {
+                if (value != Pipe.Type)
+                {
+                    Pipe.Type = value;
+                    RaisePropertyChanged("PipeMillSizeType");
+                }
+            }
         }
 
 
         #endregion
 
         #region PipeTestResults
-          public IList<PipeTestResult> PipeTestResults
-          {
-              get { return pipeTestResults; }
-              set
-              {
-                  if (value != pipeTestResults)
-                  {
-                      pipeTestResults = value;
-                      RaisePropertyChanged("PipeTestResults");
-                  }
-              }
-          }
-          #endregion
+        public IList<PipeTestResult> PipeTestResults
+        {
+            get { return pipeTestResults; }
+            set
+            {
+                if (value != pipeTestResults)
+                {
+                    pipeTestResults = value;
+                    RaisePropertyChanged("PipeTestResults");
+                }
+            }
+        }
+        #endregion
 
-          public ICommand NewEditCommand
+        public ICommand NewEditCommand
         {
             get { return newEditCommand; }
         }
@@ -431,7 +447,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return extractPurchaseOrderCommand; }
         }
-        
+
         public void NewPipe()
         {
             extractPurchaseOrderCommand.Execute();
@@ -449,7 +465,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
 
-            
+
             //TODO: Please change set the default value 
             // after introduction the logic of new heat creating 
             //Heat = Heats[0];
@@ -470,38 +486,48 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         void GetAllPipeTestResults()
         {
-            var criteria =  NHibernate.Criterion.DetachedCriteria
+            var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<PipeTestResult>().
                 Add((Restrictions.Eq("Pipe", Pipe)));
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
             pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
         }
 
-                internal string FormatWeldersList(IList<Welder> welders)
+        internal string FormatWeldersList(IList<Welder> welders)
         {
-           if (welders == null)
-              return String.Empty;
+            if (welders == null)
+                return String.Empty;
 
-           return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
+            return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
         }
-        
+
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
+        }
+
         public List<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
         {
             List<PipeTestResult> requiredTestResults = new List<PipeTestResult>();
             var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<PipeTest>()
-                .Add(Restrictions.Eq("IsRequired",true))
+                .Add(Restrictions.Eq("IsRequired", true))
                 .Add(Restrictions.Eq("pipeType", millSizeType))
-                .Add(Restrictions.Eq("IsActive", true));        
-          IList<PipeTest>  requiredTests = repoMill.RepoPipeTest.GetByCriteria(criteria);
+                .Add(Restrictions.Eq("IsActive", true));
+            IList<PipeTest> requiredTests = repoMill.RepoPipeTest.GetByCriteria(criteria);
             foreach (var requiredTest in requiredTests)
             {
                 PipeTestResult requiredResult = new PipeTestResult()
-                {   Operation = requiredTest, 
-                    IsActive = true, 
-                    Status = PipeTestResultStatus.Scheduled, 
-                    Pipe = Pipe, 
-                    Inspectors = new List<Domain.Entity.Inspector>()};
+                {
+                    Operation = requiredTest,
+                    IsActive = true,
+                    Status = PipeTestResultStatus.Scheduled,
+                    Pipe = Pipe,
+                    Inspectors = new BindingList<Domain.Entity.Inspector>()
+                };
                 requiredTestResults.Add(requiredResult);
             }
             return requiredTestResults;

@@ -13,5 +13,6 @@ namespace Domain.Entity.Mill
 
         public virtual PipeTest Operation { get; set; }
         public virtual Pipe Pipe { get; set; }
+        public virtual IList<Inspector> Inspectors { get; set; }
     }
 }

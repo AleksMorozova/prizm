@@ -18,6 +18,11 @@ namespace Data.DAL.Mapping
 
             References<PipeTest>(_ => _.Operation).Column("pipeTestId");
             References<Pipe>(_ => _.Pipe).Column("pipeId");
+            HasManyToMany(_ => _.Inspectors)
+                    .Table("[TestResult_Inspector]")
+                    .ParentKeyColumn("resultId")
+                    .ChildKeyColumn("inspectorId")
+                    .Cascade.SaveUpdate();
         }
     }
 }

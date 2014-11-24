@@ -168,4 +168,13 @@
   <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
     <value>Вагон не отгружен</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Не пройден</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Пройден</value>
+  </data>
+  <data name="Scheduled" xml:space="preserve">
+    <value>Ожидается</value>
+  </data>
 </root>

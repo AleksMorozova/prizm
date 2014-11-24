@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.PipeMill
         private readonly IPurchaseOrderRepository repoPurchaseOrder;
         private readonly IWelderRepository welderRepo;
         private readonly IPipeTestResultRepository repoPipeTestResult;
+        private readonly IInspectorRepository repoInspector;
         private readonly IPipeTestRepository repoPipeTest;
 
         private readonly ISession session;
@@ -37,6 +38,7 @@ namespace PrizmMain.Forms.PipeMill
             this.repoPipeType = new MillPipeSizeTypeRepository(session);
             this.repoPurchaseOrder = new PurchaseOrderRepository(session);
             this.repoPipeTestResult = new PipeTestResultRepository(session);
+            this.repoInspector = new InspectorRepository(session);
             this.repoPipeTest = new PipeTestRepository(session);
             this.welderRepo = new WelderRepository(session);
         }
@@ -95,10 +97,15 @@ namespace PrizmMain.Forms.PipeMill
         {
             get { return repoPipeTest; }
         }
-        
-                public IWelderRepository WelderRepo
+
+        public IWelderRepository WelderRepo
         {
-           get { return welderRepo; }
-           }
+            get { return welderRepo; }
+        }
+
+        public IInspectorRepository RepoInspector
+        {
+            get { return repoInspector; }
+        }
     }
 }

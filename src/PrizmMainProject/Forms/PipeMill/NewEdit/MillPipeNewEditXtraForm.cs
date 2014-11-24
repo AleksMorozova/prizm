@@ -24,6 +24,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
+        InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -112,6 +113,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+            ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
+
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -122,6 +125,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             weldersSelectionControl.Dock = DockStyle.Fill;
             repositoryItemPopupWelders.PopupControl = weldersPopup;
             repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
+
+            inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorSelectionControl.DataSource = inspectorsDataSource;
+            var inspectorsPopup = new PopupContainerControl();
+            inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            inspectorSelectionControl.Dock = DockStyle.Fill;
+            inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
+           // repositoryItemCheckedComboBoxEdit1.DataSource = viewModel.Inspectors;
+            
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)
@@ -232,5 +245,45 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
         }
+
+        private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            {
+                IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+                if (pipeTestResult == null)
+                    return;
+
+                pipeTestResult.Inspectors.Clear();
+                foreach (Inspector i in selectedInspectors)
+                {
+                    pipeTestResult.Inspectors.Add(i);
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            inspectionsGridView.ClearSelection();
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            {
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+                if (pipeTestResult == null)
+                    return;
+
+                inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
     }
 }
