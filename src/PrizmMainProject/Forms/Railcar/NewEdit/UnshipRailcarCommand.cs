@@ -36,8 +36,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                try
-                {
                     var railcar = viewModel.Railcar;
                     foreach (var pipe in railcar.Pipes)
                     {
@@ -45,13 +43,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     }
                     railcar.ShippingDate = DateTime.MinValue;
                     notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
-                    viewModel.SaveCommand.Execute();
-                }
-                catch (Exception ex)
-                {
-                    notify.ShowFailure(ex.Message, Resources.AlertFailureHeader);
-                    throw ex;
-                }
+                    viewModel.SaveCommand.Execute();                
             }
         }
         public bool CanExecute()

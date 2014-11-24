@@ -46,8 +46,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                try
-                {
                     if (railcar.ShippingDate == DateTime.MinValue)
                     {
                         railcar.ShippingDate = DateTime.Now;
@@ -58,13 +56,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                         pipe.Status = PipeMillStatus.Shipped;
                     }
                     viewModel.SaveCommand.Execute();
-                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);
-                }
-                catch (Exception ex)
-                {
-                    notify.ShowFailure(ex.Message, Resources.AlertFailureHeader);
-                    throw ex;
-                }
+                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);              
             }
         }
 

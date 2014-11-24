@@ -345,7 +345,7 @@ namespace PrizmMain.Forms.MainChildForm
 
         public void ShowFailure(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header, text);
+            AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader + header, text);
             //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
