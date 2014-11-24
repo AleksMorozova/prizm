@@ -55,6 +55,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     pipe.Status = "Отгружена";
                 }
                 viewModel.SaveCommand.Execute();
+                notify.ShowAlert(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);
             }
         }
 

@@ -41,7 +41,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     pipe.Status = "Склад";
                 }
                 railcar.ShippingDate = DateTime.MinValue;
-
+                notify.ShowAlert(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                 viewModel.SaveCommand.Execute();
             }
         }

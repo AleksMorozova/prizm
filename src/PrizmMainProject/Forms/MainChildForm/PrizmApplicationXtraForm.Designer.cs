@@ -585,8 +585,8 @@
             // 
             // alertControl
             // 
-            this.alertControl.AutoFormDelay = 4000;
-            this.alertControl.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.TopRight;
+            this.alertControl.AutoFormDelay = 5000;
+            this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
             this.alertControl.ShowPinButton = false;
             // 
             // PrizmApplicationXtraForm
