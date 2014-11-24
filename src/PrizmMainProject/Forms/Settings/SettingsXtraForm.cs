@@ -17,6 +17,9 @@ using PrizmMain.Forms.Settings.UserRole.User;
 using PrizmMain.Forms.MainChildForm;
 
 using PrizmMain.Properties;
+using System.Collections.Generic;
+using Domain.Entity;
+using PrizmMain.Forms.Settings.ViewTypes;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -24,7 +27,6 @@ namespace PrizmMain.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
-        const string VALUE_REQUIRED = "This value is required."; // TODO: Translate when more languages will be supported.
 
         public SettingsXtraForm()
         {
@@ -175,17 +177,30 @@ namespace PrizmMain.Forms.Settings
 
            if (String.IsNullOrEmpty(firstName))
            {
-              view.SetColumnError(firstNameColumn, VALUE_REQUIRED);
+              view.SetColumnError(firstNameColumn, Resources.VALUE_REQUIRED);
               e.Valid = false;
            }
 
            if (String.IsNullOrEmpty(lastName))
            {
-              view.SetColumnError(lastNameColumn, VALUE_REQUIRED);
+              view.SetColumnError(lastNameColumn, Resources.VALUE_REQUIRED);
               e.Valid = false;
            }
         }
 
+        private void gridViewWelders_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<WelderViewType>(e, viewModel.Welders, (_) => _.Welder.IsNew());
+        }
+
+        private void gridViewInspectors_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
+        }
+
         
     }
+
 }
