@@ -292,7 +292,7 @@
             // 
             // barButtonItemNewComponent
             // 
-            this.barButtonItemNewComponent.Caption = "Новый &компонент";
+            this.barButtonItemNewComponent.Caption = "Новое &комплектующее";
             this.barButtonItemNewComponent.Id = 20;
             this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
@@ -300,7 +300,7 @@
             // 
             // barButtonItemInspectionFindComponentry
             // 
-            this.barButtonItemInspectionFindComponentry.Caption = "&Поиск компонент";
+            this.barButtonItemInspectionFindComponentry.Caption = "&Поиск комплектующих";
             this.barButtonItemInspectionFindComponentry.Id = 21;
             this.barButtonItemInspectionFindComponentry.Name = "barButtonItemInspectionFindComponentry";
             this.barButtonItemInspectionFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindComponentry_ItemClick);
@@ -334,7 +334,7 @@
             // 
             // barButtonItemConstructionFindEditComponentry
             // 
-            this.barButtonItemConstructionFindEditComponentry.Caption = "Поиск ко&мпонент";
+            this.barButtonItemConstructionFindEditComponentry.Caption = "Поиск ко&мплектующих";
             this.barButtonItemConstructionFindEditComponentry.Id = 28;
             this.barButtonItemConstructionFindEditComponentry.Name = "barButtonItemConstructionFindEditComponentry";
             this.barButtonItemConstructionFindEditComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditComponentry_ItemClick);
@@ -356,7 +356,7 @@
             // 
             // barButtonItemSpool
             // 
-            this.barButtonItemSpool.Caption = "&Катушка";
+            this.barButtonItemSpool.Caption = "&Катушки";
             this.barButtonItemSpool.Id = 41;
             this.barButtonItemSpool.Name = "barButtonItemSpool";
             this.barButtonItemSpool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSpool_ItemClick);
@@ -379,7 +379,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsDictionaries),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
             // barButtonItemSetingsProject
