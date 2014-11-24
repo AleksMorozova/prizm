@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Ninject;
+using Data.DAL;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -47,10 +48,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     repos.RailcarRepo.Evict(viewModel.Railcar);
                     notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
                 }
-                catch (Exception ex)
+                catch (RepositoryException ex)
                 {
-                    notify.ShowFailure(ex.Message, Resources.AlertFailureHeader);
-                    throw ex;
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
         }
 

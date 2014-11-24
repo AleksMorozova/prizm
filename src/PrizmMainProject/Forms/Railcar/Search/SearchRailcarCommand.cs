@@ -1,4 +1,5 @@
-﻿using Data.DAL.Mill;
+﻿using Data.DAL;
+using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
 using Ninject;
@@ -16,7 +17,7 @@ namespace PrizmMain.Forms.Railcar.Search
         private readonly IUserNotify notify;
 
         [Inject]
-        public SearchRailcarCommand(RailcarSearchViewModel viewmodel, IRailcarRepository repo, IUserNotify notift)
+        public SearchRailcarCommand(RailcarSearchViewModel viewmodel, IRailcarRepository repo, IUserNotify notify)
         {
             this.viewModel = viewmodel;
             this.repo = repo;
@@ -50,14 +51,14 @@ namespace PrizmMain.Forms.Railcar.Search
             try
             {
                 viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
+                repo.Clear();
             }
-            catch (Exception ex)
+            catch (RepositoryException ex)
             {
-                notify.ShowFailure(ex.Message, Resources.AlertFailureHeader);
-                throw ex;
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
             
-            repo.Clear();
+            
         }
 
         public bool CanExecute()

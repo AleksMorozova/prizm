@@ -193,10 +193,17 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             {
                 if (pipe.Number == number)
                 {
-                    Pipes.Remove(pipe);
-                    pipe.Railcar = null;
-                    repos.PipeRepo.Merge(pipe);
-                    break;
+                    try
+                    {
+                        Pipes.Remove(pipe);
+                        pipe.Railcar = null;
+                        repos.PipeRepo.Merge(pipe);
+                        break;
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
             }
         }
