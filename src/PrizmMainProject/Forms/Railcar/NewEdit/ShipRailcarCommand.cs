@@ -46,14 +46,17 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                if (railcar.ShippingDate == DateTime.MinValue)
-                {
-                    railcar.ShippingDate = DateTime.Now;
-                }
-            }
-           foreach (var pipe in railcar.Pipes)
-            {
-                pipe.Status = PipeMillStatus.Shipped;
+                    if (railcar.ShippingDate == DateTime.MinValue)
+                    {
+                        railcar.ShippingDate = DateTime.Now;
+                    }
+
+                    foreach (var pipe in railcar.Pipes)
+                    {
+                        pipe.Status = PipeMillStatus.Shipped;
+                    }
+                    viewModel.SaveCommand.Execute();
+                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);              
             }
         }
 

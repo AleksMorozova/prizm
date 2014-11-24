@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Mill;
 using Domain.Entity.Mill;
 using NHibernate;
+using NHibernate.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,14 @@ namespace Data.DAL.Hibernate
 
         public PurchaseOrder GetByNumber(string number)
         {
-            return session.QueryOver<PurchaseOrder>().Where(_ => _.Number == number).Take(1).SingleOrDefault();
+            try
+            {
+                return session.QueryOver<PurchaseOrder>().Where(_ => _.Number == number).Take(1).SingleOrDefault();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetByNumber", ex);
+            }
         }
     }
 }
