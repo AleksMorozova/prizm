@@ -2,6 +2,7 @@
 using Domain.Entity;
 using Domain.Entity.Mill;
 using NHibernate;
+using NHibernate.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -22,13 +23,27 @@ namespace Data.DAL.Hibernate
 
          public Pipe GetByNumber(string number)
         {
-            return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
+            try
+            {
+                return session.QueryOver<Pipe>().Where(n => n.Number == number).SingleOrDefault();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetByNumber", ex);
+            }
         }
 
         //TODO: now pipeMillStatus - string, sometime it will be converted to type and condition must be changed
          public IList<Pipe> GetStored()
          {
-             return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
+             try
+             {
+                 return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
+             }
+             catch (GenericADOException ex)
+             {
+                 throw new RepositoryException("GetStored", ex);
+             }
          }
     }
 }

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using DevExpress.XtraEditors;
 using PrizmMain.Properties;
 using System.Windows.Forms;
+using Data.DAL;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -215,7 +216,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void GetStoredPipes()
         {
-            allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+            try
+            {
+                allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
         }
 
         
