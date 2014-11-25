@@ -19,6 +19,9 @@ namespace PrizmMain.Forms.PipeMill
         IMillPipeSizeTypeRepository RepoPipeType { get; }
         IPurchaseOrderRepository RepoPurchaseOrder { get; }
         IWelderRepository WelderRepo { get; }
+        IPipeTestResultRepository RepoPipeTestResult { get; }
+        IPipeTestRepository RepoPipeTest { get; }
+        IInspectorRepository RepoInspector { get; }
 
         void Commit();
         void BeginTransaction();

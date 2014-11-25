@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Mill;
+using Data.DAL.Setup;
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
@@ -18,20 +19,40 @@ namespace UnitTests.Forms.PipeMill.NewEdit
         [Test]
         public void TestMillPipeNewEdit()
         {
-            var repoMill = new Mock<IMillRepository>();
             var repoPipe = new Mock<IPipeRepository>();
+            var repoPlate = new Mock<IPlateRepository>();
+            var repoHeat = new Mock<IHeatRepository>();
+            var repoWeld = new Mock<IWeldRepository>();
+            var repoPipeType = new Mock<IMillPipeSizeTypeRepository>();
+            var repoPurchaseOrder = new Mock<IPurchaseOrderRepository>();
+            var repoWelder = new Mock<IWelderRepository>();
+            var repoPipeTestResult = new Mock<IPipeTestResultRepository>();
+            var repoPipeTest = new Mock<IPipeTestRepository>();
+            var repoInspector = new Mock<IInspectorRepository>();
+
+            Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
+            millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
+            millRepos.SetupGet(_ => _.RepoPlate).Returns(repoPlate.Object);
+            millRepos.SetupGet(_ => _.RepoHeat).Returns(repoHeat.Object);
+            millRepos.SetupGet(_ => _.RepoWeld).Returns(repoWeld.Object);
+            millRepos.SetupGet(_ => _.RepoPipeType).Returns(repoPipeType.Object);
+            millRepos.SetupGet(_ => _.RepoPurchaseOrder).Returns(repoPurchaseOrder.Object);
+            millRepos.SetupGet(_ => _.WelderRepo).Returns(repoWelder.Object);
+            millRepos.SetupGet(_ => _.RepoPipeTestResult).Returns(repoPipeTestResult.Object);
+            millRepos.SetupGet(_ => _.RepoPipeTest).Returns(repoPipeTest.Object);
+            millRepos.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
 
             var viewModel = new MillPipeNewEditViewModel(
-                repoMill.Object,
+                millRepos.Object,
                 Guid.Empty);
 
-            var command = new MillPipeNewEditCommand(viewModel, repoPipe.Object);
+            var command = new MillPipeNewEditCommand(viewModel, millRepos.Object);
 
             command.Execute();
 
-            repoPipe.Verify(_ => _.BeginTransaction(), Times.Once());
-            repoPipe.Verify(_ => _.Save(It.IsAny<Pipe>()), Times.Once());
-            repoPipe.Verify(_ => _.Commit(), Times.Once());
+            millRepos.Verify(_ => _.BeginTransaction(), Times.Once());
+            repoPipe.Verify(_ => _.SaveOrUpdate(It.IsAny<Pipe>()), Times.Once());
+            millRepos.Verify(_ => _.Commit(), Times.Once());
             repoPipe.Verify(_ => _.Evict(It.IsAny<Pipe>()), Times.Once());
         }
     }

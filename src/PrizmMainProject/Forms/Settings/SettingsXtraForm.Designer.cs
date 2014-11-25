@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -39,7 +38,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +86,7 @@
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
             this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,7 +103,7 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roles = new DevExpress.XtraGrid.GridControl();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
             this.rolesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -161,7 +160,7 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -663,7 +662,7 @@
             // 
             // generalProjectParametersLayoutGroup
             // 
-            this.generalProjectParametersLayoutGroup.CustomizationFormText = "Общие параметры проекта";
+            this.generalProjectParametersLayoutGroup.CustomizationFormText = "Общие параметры проекта : Мой новый трубопровод";
             this.generalProjectParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.clientLayout,
             this.plateManufacturerLayout,
@@ -677,7 +676,7 @@
             this.generalProjectParametersLayoutGroup.Name = "generalProjectParametersLayoutGroup";
             this.generalProjectParametersLayoutGroup.Size = new System.Drawing.Size(574, 343);
             this.generalProjectParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 5, 7);
-            this.generalProjectParametersLayoutGroup.Text = "Общие параметры проекта";
+            this.generalProjectParametersLayoutGroup.Text = "Общие параметры проекта : Мой новый трубопровод";
             // 
             // clientLayout
             // 
