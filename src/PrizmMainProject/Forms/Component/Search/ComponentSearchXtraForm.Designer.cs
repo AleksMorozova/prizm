@@ -215,6 +215,7 @@
             // 
             // searchComponentryButton
             // 
+            this.searchComponentryButton.Image = ((System.Drawing.Image)(resources.GetObject("searchComponentryButton.Image")));
             this.searchComponentryButton.Location = new System.Drawing.Point(582, 63);
             this.searchComponentryButton.Name = "searchComponentryButton";
             this.searchComponentryButton.Size = new System.Drawing.Size(89, 21);

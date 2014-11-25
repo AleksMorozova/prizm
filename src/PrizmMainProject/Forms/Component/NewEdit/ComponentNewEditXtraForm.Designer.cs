@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
             this.newEditPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectorNameComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -132,6 +133,7 @@
             // 
             // addInspectorButton
             // 
+            this.addInspectorButton.Image = ((System.Drawing.Image)(resources.GetObject("addInspectorButton.Image")));
             this.addInspectorButton.Location = new System.Drawing.Point(866, 192);
             this.addInspectorButton.Name = "addInspectorButton";
             this.addInspectorButton.Size = new System.Drawing.Size(75, 22);

@@ -140,6 +140,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(620, 61);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(86, 22);

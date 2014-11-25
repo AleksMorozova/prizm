@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.GPSLabel = new DevExpress.XtraEditors.LabelControl();
@@ -185,6 +186,7 @@
             // 
             // add
             // 
+            this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
             this.add.Location = new System.Drawing.Point(776, 178);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(100, 23);
@@ -591,6 +593,7 @@
             // extraFiles
             // 
             this.extraFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.extraFiles.Image = ((System.Drawing.Image)(resources.GetObject("extraFiles.Image")));
             this.extraFiles.Location = new System.Drawing.Point(22, 424);
             this.extraFiles.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
             this.extraFiles.MinimumSize = new System.Drawing.Size(100, 20);
