@@ -37,15 +37,19 @@ namespace Data.DAL.Hibernate
         // converted to type and condition must be changed
          public IList<Pipe> GetStored()
          {
+<<<<<<< HEAD
              try
              {
-                 return session.QueryOver<Pipe>().Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
+                 return session.QueryOver<Pipe>().Where(n => n.Status == "Склад").List<Pipe>();
              }
              catch (GenericADOException ex)
              {
                  throw new RepositoryException("GetStored", ex);
              }
-             
+=======
+             return session.QueryOver<Pipe>()
+                 .Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
+>>>>>>> origin/master
          }
     }
 }

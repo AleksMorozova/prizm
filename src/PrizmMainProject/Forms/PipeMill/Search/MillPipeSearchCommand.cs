@@ -9,6 +9,7 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using Data.DAL.Mill;
 using NHibernate.Criterion;
+using NHibernate.SqlCommand;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -27,9 +28,10 @@ namespace PrizmMain.Forms.PipeMill.Search
         public void Execute()
         {
             var criteria = NHibernate.Criterion.DetachedCriteria
-                .For<Domain.Entity.Mill.Pipe>()
-                .Add(Restrictions.Like("Number", viewModel.PipeNumber, MatchMode.Anywhere))
-                .Add(Restrictions.Like("Status", viewModel.PipeMillStatus, MatchMode.Anywhere));
+                .For<Domain.Entity.Mill.Pipe>("p")
+                .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
+                .CreateCriteria("p.Type", JoinType.InnerJoin)
+                .Add(Restrictions.Like("Type", viewModel.PipeSize, MatchMode.Anywhere));
    
             viewModel.Pipes = repo.GetByCriteria(criteria);
             

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain.Entity;
 using Ninject;
 using NHibernate;
+using NHibernate.Exceptions;
 
 namespace Data.DAL.Hibernate
 {
@@ -17,7 +18,14 @@ namespace Data.DAL.Hibernate
         {}
          public Project GetSingle()
          {
-             return session.QueryOver<Project>().SingleOrDefault(); 
+             try
+             {
+                 return session.QueryOver<Project>().SingleOrDefault();
+             }
+             catch (GenericADOException ex)
+             {
+                 throw new RepositoryException("GetSingle", ex);
+             }
          }
     }
 }

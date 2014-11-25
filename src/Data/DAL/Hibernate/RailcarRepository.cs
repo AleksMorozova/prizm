@@ -3,6 +3,7 @@ using Data.DAL.Mill;
 using Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
+using NHibernate.Exceptions;
 
 namespace Data.DAL.Hibernate
 {
@@ -16,17 +17,26 @@ namespace Data.DAL.Hibernate
 
         public Railcar GetByNumber(string number)
         {
-            return session.QueryOver<Railcar>().Where(n => n.Number == number).SingleOrDefault();
+            try
+            {
+                return session.QueryOver<Railcar>().Where(n => n.Number == number).SingleOrDefault();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetByNumber", ex);
+            }
         }
 
         public new void SaveOrUpdate(Railcar car)
         {
-            //foreach (var pipe in car.Pipes)
-            //{
-            //    pipe.Railcar = car;
-            //    session.Merge(pipe);
-            //}
-            session.SaveOrUpdate(car);
+            try
+            {
+                session.SaveOrUpdate(car);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("SaveOrUpdate", ex);
+            }
         }
 
 
