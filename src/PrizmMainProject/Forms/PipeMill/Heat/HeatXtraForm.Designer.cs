@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.phisicalGrid = new DevExpress.XtraGrid.GridControl();
             this.phisicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tensileParameter = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tensileValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chemicalGrid = new DevExpress.XtraGrid.GridControl();
             this.chemicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.chemElement = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chemHeatValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chemPlateValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chemPipeValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.number = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.heatNumberLookUp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -46,18 +55,12 @@
             this.phisicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.chemElement = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chemHeatValue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chemPlateValue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chemPipeValue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tensileParameter = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tensileValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).BeginInit();
@@ -72,15 +75,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
             // 
-            this.masterLayoutControl.Controls.Add(this.textEdit1);
+            this.masterLayoutControl.Controls.Add(this.steelGrade);
             this.masterLayoutControl.Controls.Add(this.phisicalGrid);
             this.masterLayoutControl.Controls.Add(this.chemicalGrid);
             this.masterLayoutControl.Controls.Add(this.saveButton);
@@ -95,6 +97,14 @@
             this.masterLayoutControl.Size = new System.Drawing.Size(1084, 563);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
+            // 
+            // steelGrade
+            // 
+            this.steelGrade.Location = new System.Drawing.Point(278, 38);
+            this.steelGrade.Name = "steelGrade";
+            this.steelGrade.Size = new System.Drawing.Size(254, 20);
+            this.steelGrade.StyleController = this.masterLayoutControl;
+            this.steelGrade.TabIndex = 8;
             // 
             // phisicalGrid
             // 
@@ -115,6 +125,20 @@
             this.phisicalGridView.GridControl = this.phisicalGrid;
             this.phisicalGridView.Name = "phisicalGridView";
             this.phisicalGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // tensileParameter
+            // 
+            this.tensileParameter.Caption = "Параметр";
+            this.tensileParameter.Name = "tensileParameter";
+            this.tensileParameter.Visible = true;
+            this.tensileParameter.VisibleIndex = 0;
+            // 
+            // tensileValue
+            // 
+            this.tensileValue.Caption = "Значение";
+            this.tensileValue.Name = "tensileValue";
+            this.tensileValue.Visible = true;
+            this.tensileValue.VisibleIndex = 1;
             // 
             // chemicalGrid
             // 
@@ -137,6 +161,34 @@
             this.chemicalGridView.GridControl = this.chemicalGrid;
             this.chemicalGridView.Name = "chemicalGridView";
             this.chemicalGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // chemElement
+            // 
+            this.chemElement.Caption = "Элемент";
+            this.chemElement.Name = "chemElement";
+            this.chemElement.Visible = true;
+            this.chemElement.VisibleIndex = 0;
+            // 
+            // chemHeatValue
+            // 
+            this.chemHeatValue.Caption = "Плавка, %";
+            this.chemHeatValue.Name = "chemHeatValue";
+            this.chemHeatValue.Visible = true;
+            this.chemHeatValue.VisibleIndex = 1;
+            // 
+            // chemPlateValue
+            // 
+            this.chemPlateValue.Caption = "Лист, %";
+            this.chemPlateValue.Name = "chemPlateValue";
+            this.chemPlateValue.Visible = true;
+            this.chemPlateValue.VisibleIndex = 2;
+            // 
+            // chemPipeValue
+            // 
+            this.chemPipeValue.Caption = "Труба, %";
+            this.chemPipeValue.Name = "chemPipeValue";
+            this.chemPipeValue.Visible = true;
+            this.chemPipeValue.VisibleIndex = 3;
             // 
             // saveButton
             // 
@@ -166,18 +218,33 @@
             this.number.Name = "number";
             this.number.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.number.Properties.DisplayMember = "Name";
             this.number.Properties.NullText = "";
+            this.number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.number.Properties.ValueMember = "Id";
             this.number.Properties.View = this.gridLookUpEdit1View;
             this.number.Size = new System.Drawing.Size(238, 20);
             this.number.StyleController = this.masterLayoutControl;
             this.number.TabIndex = 4;
+            this.number.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.number_ProcessNewValue);
+            this.number.Validating += new System.ComponentModel.CancelEventHandler(this.number_Validating);
             // 
             // gridLookUpEdit1View
             // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.heatNumberLookUp});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // heatNumberLookUp
+            // 
+            this.heatNumberLookUp.Caption = "Номер плавки";
+            this.heatNumberLookUp.FieldName = "Number";
+            this.heatNumberLookUp.Name = "heatNumberLookUp";
+            this.heatNumberLookUp.Visible = true;
+            this.heatNumberLookUp.VisibleIndex = 0;
             // 
             // rootLayoutGroup
             // 
@@ -290,17 +357,9 @@
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(278, 38);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(254, 20);
-            this.textEdit1.StyleController = this.masterLayoutControl;
-            this.textEdit1.TabIndex = 8;
-            // 
             // steelLayoutControl
             // 
-            this.steelLayoutControl.Control = this.textEdit1;
+            this.steelLayoutControl.Control = this.steelGrade;
             this.steelLayoutControl.CustomizationFormText = "Марка стали";
             this.steelLayoutControl.Location = new System.Drawing.Point(249, 0);
             this.steelLayoutControl.Name = "steelLayoutControl";
@@ -320,48 +379,6 @@
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // chemElement
-            // 
-            this.chemElement.Caption = "Элемент";
-            this.chemElement.Name = "chemElement";
-            this.chemElement.Visible = true;
-            this.chemElement.VisibleIndex = 0;
-            // 
-            // chemHeatValue
-            // 
-            this.chemHeatValue.Caption = "Плавка, %";
-            this.chemHeatValue.Name = "chemHeatValue";
-            this.chemHeatValue.Visible = true;
-            this.chemHeatValue.VisibleIndex = 1;
-            // 
-            // chemPlateValue
-            // 
-            this.chemPlateValue.Caption = "Лист, %";
-            this.chemPlateValue.Name = "chemPlateValue";
-            this.chemPlateValue.Visible = true;
-            this.chemPlateValue.VisibleIndex = 2;
-            // 
-            // chemPipeValue
-            // 
-            this.chemPipeValue.Caption = "Труба, %";
-            this.chemPipeValue.Name = "chemPipeValue";
-            this.chemPipeValue.Visible = true;
-            this.chemPipeValue.VisibleIndex = 3;
-            // 
-            // tensileParameter
-            // 
-            this.tensileParameter.Caption = "Параметр";
-            this.tensileParameter.Name = "tensileParameter";
-            this.tensileParameter.Visible = true;
-            this.tensileParameter.VisibleIndex = 0;
-            // 
-            // tensileValue
-            // 
-            this.tensileValue.Caption = "Значение";
-            this.tensileValue.Name = "tensileValue";
-            this.tensileValue.Visible = true;
-            this.tensileValue.VisibleIndex = 1;
-            // 
             // HeatXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -376,6 +393,7 @@
             this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();
             this.masterLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalGrid)).EndInit();
@@ -390,10 +408,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.phisicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,9 +433,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem divideButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsLeftEmptySpace;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraEditors.GridLookUpEdit number;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraGrid.Columns.GridColumn chemElement;
         private DevExpress.XtraGrid.Columns.GridColumn chemHeatValue;
         private DevExpress.XtraGrid.Columns.GridColumn chemPlateValue;
@@ -427,5 +442,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn tensileParameter;
         private DevExpress.XtraGrid.Columns.GridColumn tensileValue;
+        private DevExpress.XtraEditors.GridLookUpEdit number;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn heatNumberLookUp;
     }
 }

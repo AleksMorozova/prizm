@@ -15,14 +15,14 @@ namespace PrizmMain.Forms.PipeMill.Heat
 {
     public class HeatViewModel : ViewModelBase, IDisposable
     {
-        private readonly IHeatRepositories heatRepo;
+        private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
         
         [Inject]
         public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
         {
-            this.heatRepo = heatRepository;
-            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, heatRepo));
+            this.repo = heatRepository;
+            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo));
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
@@ -30,7 +30,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
             else
             {
-                var answer = heatRepo.HeatRepo.GetByNumber(heatNumber);
+                var answer = repo.HeatRepo.GetByNumber(heatNumber);
                 if (answer == null)
                 {
                     NewHeat(heatNumber);
@@ -40,22 +40,77 @@ namespace PrizmMain.Forms.PipeMill.Heat
                     Heat = answer;
                 }
             }
+            GetAllHeat();
         }
 
-        public Domain.Entity.Mill.Heat Heat { get; set; }
-
-        public IList<ChemicalComposition> ChemicalCompositions {
-            get { return Heat.ChemicalComposition; }
-            set {
-                if (value != Heat.ChemicalComposition)
+        private Domain.Entity.Mill.Heat heat;
+        public Domain.Entity.Mill.Heat Heat 
+        { 
+            get {return heat;}
+            set 
+            {
+                if (heat != value)
                 {
-                    Heat.ChemicalComposition = value;
-                    RaisePropertyChanged("ChemicalCompositions");
+                    heat = value;
+                    RaisePropertyChanged("Heat");
                 }
             }
         }
 
-  
+        public string Number
+        {
+            get { return Heat.Number; }
+            set
+            {
+                if (value != Heat.Number)
+                {
+                    Heat.Number = value;
+                    RaisePropertyChanged("Number");
+                }
+            }
+        }
+
+        public string Steel
+        {
+            get { return Heat.SteelGrade; }
+            set
+            {
+                if (value != Heat.SteelGrade)
+                {
+                    Heat.SteelGrade = value;
+                    RaisePropertyChanged("SteelGrade");
+                }
+            }
+        }
+
+        public IList<ChemicalComposition> ChemicalCompositions
+        {
+            get { return Heat.ChemicalComposition; }
+            set
+            {
+                if (value != Heat.ChemicalComposition)
+                {
+                    Heat.ChemicalComposition = value;
+                    RaisePropertyChanged("ChemicalComposition");
+                }
+            }
+        }
+
+        public IList<PhysicalParameters> PhysicalParameters
+        {
+            get { return Heat.PhysicalParameters; }
+            set
+            {
+                if (value != Heat.PhysicalParameters)
+                {
+                    Heat.PhysicalParameters = value;
+                    RaisePropertyChanged("PhysicalParameters");
+                }
+            }
+        }
+
+        private IList<Domain.Entity.Mill.Heat> allHeats;
+        public IList<Domain.Entity.Mill.Heat> AllHeats { get { return allHeats; } }
 
         public ICommand SaveCommand
         {
@@ -65,15 +120,26 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         public void Dispose()
         {
-            heatRepo.Dispose();
+            repo.Dispose();
         }
 
         public void NewHeat(string number)
         {
-            if (Heat == null)
+            Heat = new Domain.Entity.Mill.Heat()
             {
-                //TODO: create
-            }
+
+            };
+        }
+
+        private void GetAllHeat()
+        {
+            allHeats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+        }
+
+
+        internal void GetHeatByNumber(string number)
+        {
+            Heat = repo.HeatRepo.GetByNumber(number);
         }
     }
 }

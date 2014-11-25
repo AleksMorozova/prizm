@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
 using PrizmMain.Forms.MainChildForm;
+using System.Linq;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
@@ -31,7 +32,9 @@ namespace PrizmMain.Forms.PipeMill.Heat
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-            //number.DataBindings.Add("EditValue", bindingSource, "Number");
+            number.Properties.DataSource = viewModel.AllHeats;
+            //number.DataBindings.Add("EditValue", bindingSource, "Heat");
+            steelGrade.DataBindings.Add("EditValue", bindingSource, "Steel");
 
         }
 
@@ -44,6 +47,23 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void number_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (viewModel.AllHeats.Where(x => x.Number.Equals(number.Text)) != null)
+            {
+                viewModel.GetHeatByNumber(number.Text);
+            }
+            else
+            {
+                viewModel.NewHeat(number.Text);
+            }
+        }
+
+        private void number_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+                viewModel.NewHeat(number.Text);
         }
     }
 }
