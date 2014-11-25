@@ -3,12 +3,18 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    public partial class HeatXtraForm : XtraForm
+    public partial class HeatXtraForm : ChildForm
     {
         private HeatViewModel viewModel;
+
+        public HeatXtraForm() : this("")
+        {
+
+        }
 
         public HeatXtraForm(string heatNumber)
         {
@@ -25,7 +31,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-            number.DataBindings.Add("EditValue", bindingSource, "Number");
+            //number.DataBindings.Add("EditValue", bindingSource, "Number");
 
         }
 

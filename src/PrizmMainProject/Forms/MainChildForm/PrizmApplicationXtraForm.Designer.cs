@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -83,10 +82,11 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -159,9 +159,10 @@
             this.barSubItemLanguage,
             this.languageBarListItem,
             this.barButtonItemSettingsWelders,
-            this.barButtonItemSettingsInspectors});
+            this.barButtonItemSettingsInspectors,
+            this.barButtonItemHeat});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 56;
+            this.barManager1.MaxItemId = 57;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -231,6 +232,7 @@
             this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillFindEditPipes),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemHeat),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditShipRailcars),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillReports, true)});
@@ -609,6 +611,13 @@
             this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
             this.alertControl.ShowPinButton = false;
             // 
+            // barButtonItemHeat
+            // 
+            this.barButtonItemHeat.Caption = "Пла&вка";
+            this.barButtonItemHeat.Id = 56;
+            this.barButtonItemHeat.Name = "barButtonItemHeat";
+            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -690,6 +699,7 @@
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsWelders;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsInspectors;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemHeat;
 
 
 
