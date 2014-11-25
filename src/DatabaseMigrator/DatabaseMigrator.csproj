@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Migrations\M20141119_CreateBaseSchemeFromFile.cs" />
     <Compile Include="Migrations\M20141120_CreateColumeAndInsertValueFromFile.cs" />
+    <Compile Include="Migrations\M20141125_TestResultInspectorRemoveColumn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
