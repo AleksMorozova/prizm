@@ -1,28 +1,23 @@
-﻿using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-
-using DevExpress.XtraEditors;
-
-using Ninject;
-using Ninject.Parameters;
-using System.Collections.Generic;
-using System.Linq;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entity;
 using Domain.Entity.Mill;
-using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.Controls;
 using Domain.Entity.Setup;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.PipeMill.Heat;
+using Ninject;
+using Ninject.Parameters;
+using PrizmMain.Controls;
 using PrizmMain.Forms.MainChildForm;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
-
+        //TODO: Fix heat/purchase order button style
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
 
@@ -132,13 +127,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void editHeatButton_Click(object sender, EventArgs e)
         {
-            using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
-            {
-                if (heatForm.ShowDialog() == DialogResult.OK)
-                {
-                    //TODO: refresh Heat data
-                }
-            }
            
         }
     
@@ -266,6 +254,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
            GridView view = sender as GridView;
            view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
            view.RefreshData();
+        }
+
+        private void heatButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
