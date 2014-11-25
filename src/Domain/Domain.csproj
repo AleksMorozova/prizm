@@ -43,6 +43,8 @@
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Mill\Coat.cs" />
     <Compile Include="Entity\Mill\CoatingType.cs" />
+    <Compile Include="Entity\Mill\PipeTestResultStatus.cs" />
+    <Compile Include="Entity\Mill\PipeTestResultStatusWrapper.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\ItemExtensions.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
+    <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializable Entity\Mill\SerializableHeat.cs" />
     <Compile Include="Serializable Entity\Mill\SerializablePipe.cs" />

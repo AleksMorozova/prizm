@@ -23,6 +23,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.IsRequired, "isRequired");
 
             References(_ => _.pipeType).Column("pipeMillSizeTypeId");
+            HasMany(_ => _.PipeTestResults).KeyColumn("pipeTestId").Inverse();
         }
     }
 }
