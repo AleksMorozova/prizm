@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Domain.Entity.Mill;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace Data.DAL.Mapping
                   m.Map(x => x.MiddleName).Column("middleName");
                   m.Map(x => x.LastName).Column("lastName");
                });
+            HasManyToMany<Weld>(_ => _.Welds)
+                .Table("[Weld_welder]")
+                .ParentKeyColumn("welderId")
+                .ChildKeyColumn("weldId").Inverse();
         }
     }
 }

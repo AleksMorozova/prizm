@@ -202,6 +202,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               foreach (Welder w in selectedWelders)
               {
                  weld.Welders.Add(w);
+                 w.Welds.Add(weld);
               }
            }
             
@@ -403,6 +404,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                         return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
                     default: return "";   
                 }            
+        }
+
+        private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+           view.RefreshData();
+        }
+
+        private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Weld weld = view.GetRow(e.RowHandle) as Weld;
+              weld.Pipe = viewModel.Pipe;
+           }
         }
 
     }
