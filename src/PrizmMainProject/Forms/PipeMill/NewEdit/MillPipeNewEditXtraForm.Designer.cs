@@ -50,7 +50,7 @@
          this.pipeElementNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.quantityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.coatingHistory = new DevExpress.XtraGrid.GridControl();
-         this.coatDataSource = new System.Windows.Forms.BindingSource(this.components);
+         this.coatDataSource = new System.Windows.Forms.BindingSource();
          this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
