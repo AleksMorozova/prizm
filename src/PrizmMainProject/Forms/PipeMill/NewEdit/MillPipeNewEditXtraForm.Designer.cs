@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -310,12 +311,12 @@
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
             this.weldingHistory.DataSource = this.weldBindingSource;
-            this.weldingHistory.Location = new System.Drawing.Point(181, 36);
+            this.weldingHistory.Location = new System.Drawing.Point(537, 36);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
             this.weldingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPopupWelders});
-            this.weldingHistory.Size = new System.Drawing.Size(576, 200);
+            this.weldingHistory.Size = new System.Drawing.Size(650, 200);
             this.weldingHistory.TabIndex = 40;
             this.weldingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.weldingHistoryGridView,
@@ -343,7 +344,7 @@
             this.weldingDateGridColumn.FieldName = "Date";
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
             this.weldingDateGridColumn.Visible = true;
-            this.weldingDateGridColumn.VisibleIndex = 0;
+            this.weldingDateGridColumn.VisibleIndex = 1;
             // 
             // weldersGridColumn
             // 
@@ -352,7 +353,7 @@
             this.weldersGridColumn.FieldName = "Welders";
             this.weldersGridColumn.Name = "weldersGridColumn";
             this.weldersGridColumn.Visible = true;
-            this.weldersGridColumn.VisibleIndex = 1;
+            this.weldersGridColumn.VisibleIndex = 0;
             // 
             // repositoryItemPopupWelders
             // 
@@ -380,8 +381,9 @@
             // generalParametersPage
             // 
             this.generalParametersPage.Controls.Add(this.pipeGeneralParametersLayout);
+            this.generalParametersPage.Image = ((System.Drawing.Image)(resources.GetObject("generalParametersPage.Image")));
             this.generalParametersPage.Name = "generalParametersPage";
-            this.generalParametersPage.Size = new System.Drawing.Size(1236, 412);
+            this.generalParametersPage.Size = new System.Drawing.Size(1236, 409);
             this.generalParametersPage.Text = "О&бщие параметры трубы";
             // 
             // pipeGeneralParametersLayout
@@ -405,34 +407,34 @@
             this.pipeGeneralParametersLayout.Name = "pipeGeneralParametersLayout";
             this.pipeGeneralParametersLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(0, 167, 619, 715);
             this.pipeGeneralParametersLayout.Root = this.generalParametersLayoutGroup;
-            this.pipeGeneralParametersLayout.Size = new System.Drawing.Size(1236, 412);
+            this.pipeGeneralParametersLayout.Size = new System.Drawing.Size(1236, 409);
             this.pipeGeneralParametersLayout.TabIndex = 0;
             this.pipeGeneralParametersLayout.Text = "layoutControl2";
             // 
             // shippedDate
             // 
-            this.shippedDate.Location = new System.Drawing.Point(29, 358);
+            this.shippedDate.Location = new System.Drawing.Point(29, 456);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.ReadOnly = true;
-            this.shippedDate.Size = new System.Drawing.Size(132, 20);
+            this.shippedDate.Size = new System.Drawing.Size(101, 20);
             this.shippedDate.StyleController = this.pipeGeneralParametersLayout;
             this.shippedDate.TabIndex = 56;
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(180, 309);
+            this.certificateNumber.Location = new System.Drawing.Point(24, 358);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Properties.ReadOnly = true;
-            this.certificateNumber.Size = new System.Drawing.Size(224, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(106, 20);
             this.certificateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.certificateNumber.TabIndex = 55;
             // 
             // destanation
             // 
-            this.destanation.Location = new System.Drawing.Point(180, 358);
+            this.destanation.Location = new System.Drawing.Point(24, 407);
             this.destanation.Name = "destanation";
             this.destanation.Properties.ReadOnly = true;
-            this.destanation.Size = new System.Drawing.Size(224, 20);
+            this.destanation.Size = new System.Drawing.Size(106, 20);
             this.destanation.StyleController = this.pipeGeneralParametersLayout;
             this.destanation.TabIndex = 54;
             // 
@@ -441,17 +443,17 @@
             this.railcarNumber.Location = new System.Drawing.Point(29, 309);
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Properties.ReadOnly = true;
-            this.railcarNumber.Size = new System.Drawing.Size(132, 20);
+            this.railcarNumber.Size = new System.Drawing.Size(101, 20);
             this.railcarNumber.StyleController = this.pipeGeneralParametersLayout;
             this.railcarNumber.TabIndex = 53;
             // 
             // chemicalComposition
             // 
             this.chemicalComposition.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chemicalComposition.Location = new System.Drawing.Point(459, 299);
+            this.chemicalComposition.Location = new System.Drawing.Point(185, 299);
             this.chemicalComposition.MainView = this.chemicalCompositionGridView;
             this.chemicalComposition.Name = "chemicalComposition";
-            this.chemicalComposition.Size = new System.Drawing.Size(748, 84);
+            this.chemicalComposition.Size = new System.Drawing.Size(1005, 172);
             this.chemicalComposition.TabIndex = 52;
             this.chemicalComposition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.chemicalCompositionGridView});
@@ -481,43 +483,43 @@
             // 
             // addCoatingButton
             // 
-            this.addCoatingButton.Location = new System.Drawing.Point(1095, 57);
+            this.addCoatingButton.Location = new System.Drawing.Point(431, 57);
             this.addCoatingButton.Name = "addCoatingButton";
-            this.addCoatingButton.Size = new System.Drawing.Size(92, 22);
+            this.addCoatingButton.Size = new System.Drawing.Size(68, 22);
             this.addCoatingButton.StyleController = this.pipeGeneralParametersLayout;
             this.addCoatingButton.TabIndex = 51;
             this.addCoatingButton.Text = "&Добавить";
             // 
             // coatingType
             // 
-            this.coatingType.Location = new System.Drawing.Point(945, 59);
+            this.coatingType.Location = new System.Drawing.Point(311, 59);
             this.coatingType.Name = "coatingType";
             this.coatingType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.coatingType.Size = new System.Drawing.Size(131, 20);
+            this.coatingType.Size = new System.Drawing.Size(101, 20);
             this.coatingType.StyleController = this.pipeGeneralParametersLayout;
             this.coatingType.TabIndex = 50;
             // 
             // coatingDate
             // 
             this.coatingDate.EditValue = null;
-            this.coatingDate.Location = new System.Drawing.Point(800, 59);
+            this.coatingDate.Location = new System.Drawing.Point(191, 59);
             this.coatingDate.Name = "coatingDate";
             this.coatingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.coatingDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.coatingDate.Size = new System.Drawing.Size(126, 20);
+            this.coatingDate.Size = new System.Drawing.Size(101, 20);
             this.coatingDate.StyleController = this.pipeGeneralParametersLayout;
             this.coatingDate.TabIndex = 49;
             // 
             // coatingHistory
             // 
             this.coatingHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            this.coatingHistory.Location = new System.Drawing.Point(800, 95);
+            this.coatingHistory.Location = new System.Drawing.Point(191, 95);
             this.coatingHistory.MainView = this.coatingHistoryGridView;
             this.coatingHistory.Name = "coatingHistory";
-            this.coatingHistory.Size = new System.Drawing.Size(407, 132);
+            this.coatingHistory.Size = new System.Drawing.Size(318, 132);
             this.coatingHistory.TabIndex = 45;
             this.coatingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.coatingHistoryGridView});
@@ -553,7 +555,7 @@
             this.diameter.Name = "diameter";
             this.diameter.Properties.Mask.EditMask = "d";
             this.diameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.diameter.Size = new System.Drawing.Size(109, 20);
+            this.diameter.Size = new System.Drawing.Size(107, 20);
             this.diameter.StyleController = this.pipeGeneralParametersLayout;
             this.diameter.TabIndex = 28;
             // 
@@ -563,7 +565,7 @@
             this.length.Name = "length";
             this.length.Properties.Mask.EditMask = "d";
             this.length.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.length.Size = new System.Drawing.Size(109, 20);
+            this.length.Size = new System.Drawing.Size(107, 20);
             this.length.StyleController = this.pipeGeneralParametersLayout;
             this.length.TabIndex = 25;
             // 
@@ -573,7 +575,7 @@
             this.weight.Name = "weight";
             this.weight.Properties.Mask.EditMask = "d";
             this.weight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.weight.Size = new System.Drawing.Size(109, 20);
+            this.weight.Size = new System.Drawing.Size(107, 20);
             this.weight.StyleController = this.pipeGeneralParametersLayout;
             this.weight.TabIndex = 27;
             // 
@@ -583,7 +585,7 @@
             this.thickness.Name = "thickness";
             this.thickness.Properties.Mask.EditMask = "d";
             this.thickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.thickness.Size = new System.Drawing.Size(109, 20);
+            this.thickness.Size = new System.Drawing.Size(107, 20);
             this.thickness.StyleController = this.pipeGeneralParametersLayout;
             this.thickness.TabIndex = 26;
             // 
@@ -593,15 +595,15 @@
             this.generalParametersLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.generalParametersLayoutGroup.GroupBordersVisible = false;
             this.generalParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.chemicalCompositionLayoutGroup,
             this.geometricParametersLayoutGroup,
+            this.weldingParametersLayoutGroup,
+            this.chemicalCompositionLayoutGroup,
             this.shipmentParametersLayoutGroup,
-            this.coatingParametersLayoutGroup,
-            this.weldingParametersLayoutGroup});
+            this.coatingParametersLayoutGroup});
             this.generalParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalParametersLayoutGroup.Name = "generalParametersLayoutGroup";
             this.generalParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.generalParametersLayoutGroup.Size = new System.Drawing.Size(1236, 412);
+            this.generalParametersLayoutGroup.Size = new System.Drawing.Size(1219, 500);
             this.generalParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 12, 12);
             this.generalParametersLayoutGroup.Text = "generalParametersLayoutGroup";
             this.generalParametersLayoutGroup.TextVisible = false;
@@ -611,10 +613,10 @@
             this.chemicalCompositionLayoutGroup.CustomizationFormText = "Химический состав";
             this.chemicalCompositionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.chemicalCompositionLayout});
-            this.chemicalCompositionLayoutGroup.Location = new System.Drawing.Point(420, 239);
+            this.chemicalCompositionLayoutGroup.Location = new System.Drawing.Point(146, 239);
             this.chemicalCompositionLayoutGroup.Name = "chemicalCompositionLayoutGroup";
             this.chemicalCompositionLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.chemicalCompositionLayoutGroup.Size = new System.Drawing.Size(788, 145);
+            this.chemicalCompositionLayoutGroup.Size = new System.Drawing.Size(1045, 233);
             this.chemicalCompositionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 12, 0);
             this.chemicalCompositionLayoutGroup.Text = "Химический состав";
             // 
@@ -624,7 +626,7 @@
             this.chemicalCompositionLayout.CustomizationFormText = "chemicalCompositionLayout";
             this.chemicalCompositionLayout.Location = new System.Drawing.Point(0, 0);
             this.chemicalCompositionLayout.Name = "chemicalCompositionLayout";
-            this.chemicalCompositionLayout.Size = new System.Drawing.Size(772, 108);
+            this.chemicalCompositionLayout.Size = new System.Drawing.Size(1029, 196);
             this.chemicalCompositionLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
             this.chemicalCompositionLayout.Text = "chemicalCompositionLayout";
             this.chemicalCompositionLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -643,7 +645,7 @@
             this.geometricParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.geometricParametersLayoutGroup.Name = "geometricParametersLayoutGroup";
             this.geometricParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.geometricParametersLayoutGroup.Size = new System.Drawing.Size(154, 239);
+            this.geometricParametersLayoutGroup.Size = new System.Drawing.Size(152, 239);
             this.geometricParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 14);
             this.geometricParametersLayoutGroup.Text = "Размеры";
             // 
@@ -653,7 +655,7 @@
             this.lengthLayout.CustomizationFormText = "Длина, мм";
             this.lengthLayout.Location = new System.Drawing.Point(0, 0);
             this.lengthLayout.Name = "lengthLayout";
-            this.lengthLayout.Size = new System.Drawing.Size(133, 51);
+            this.lengthLayout.Size = new System.Drawing.Size(131, 51);
             this.lengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.lengthLayout.Text = "Длина, мм";
             this.lengthLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -667,7 +669,7 @@
             this.thicknessLayout.CustomizationFormText = "Толщина, мм";
             this.thicknessLayout.Location = new System.Drawing.Point(0, 97);
             this.thicknessLayout.Name = "thicknessLayout";
-            this.thicknessLayout.Size = new System.Drawing.Size(133, 49);
+            this.thicknessLayout.Size = new System.Drawing.Size(131, 49);
             this.thicknessLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 5);
             this.thicknessLayout.Text = "Толщина, мм";
             this.thicknessLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -681,7 +683,7 @@
             this.diameterLayout.CustomizationFormText = "Диаметр, мм";
             this.diameterLayout.Location = new System.Drawing.Point(0, 51);
             this.diameterLayout.Name = "diameterLayout";
-            this.diameterLayout.Size = new System.Drawing.Size(133, 46);
+            this.diameterLayout.Size = new System.Drawing.Size(131, 46);
             this.diameterLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 2);
             this.diameterLayout.Text = "Диаметр, мм";
             this.diameterLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -695,7 +697,7 @@
             this.weightLayout.CustomizationFormText = "Вес, кг";
             this.weightLayout.Location = new System.Drawing.Point(0, 146);
             this.weightLayout.Name = "weightLayout";
-            this.weightLayout.Size = new System.Drawing.Size(133, 54);
+            this.weightLayout.Size = new System.Drawing.Size(131, 54);
             this.weightLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 10);
             this.weightLayout.Text = "Вес, кг";
             this.weightLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -714,7 +716,7 @@
             this.shipmentParametersLayoutGroup.Location = new System.Drawing.Point(0, 239);
             this.shipmentParametersLayoutGroup.Name = "shipmentParametersLayoutGroup";
             this.shipmentParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.shipmentParametersLayoutGroup.Size = new System.Drawing.Size(420, 145);
+            this.shipmentParametersLayoutGroup.Size = new System.Drawing.Size(146, 233);
             this.shipmentParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 12, 0);
             this.shipmentParametersLayoutGroup.Text = "Параметры отгрузки";
             // 
@@ -724,7 +726,7 @@
             this.railcarNumberLayout.CustomizationFormText = "layoutControlItem1";
             this.railcarNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.railcarNumberLayout.Name = "railcarNumberLayout";
-            this.railcarNumberLayout.Size = new System.Drawing.Size(156, 49);
+            this.railcarNumberLayout.Size = new System.Drawing.Size(125, 49);
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.railcarNumberLayout.Text = "Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -734,9 +736,9 @@
             // 
             this.shiptedDateLayout.Control = this.shippedDate;
             this.shiptedDateLayout.CustomizationFormText = "Дата отгрузки";
-            this.shiptedDateLayout.Location = new System.Drawing.Point(0, 49);
+            this.shiptedDateLayout.Location = new System.Drawing.Point(0, 147);
             this.shiptedDateLayout.Name = "shiptedDateLayout";
-            this.shiptedDateLayout.Size = new System.Drawing.Size(156, 59);
+            this.shiptedDateLayout.Size = new System.Drawing.Size(125, 49);
             this.shiptedDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.shiptedDateLayout.Text = "Дата отгрузки";
             this.shiptedDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -746,9 +748,9 @@
             // 
             this.certificateLayout.Control = this.certificateNumber;
             this.certificateLayout.CustomizationFormText = "Номер сертификата";
-            this.certificateLayout.Location = new System.Drawing.Point(156, 0);
+            this.certificateLayout.Location = new System.Drawing.Point(0, 49);
             this.certificateLayout.Name = "certificateLayout";
-            this.certificateLayout.Size = new System.Drawing.Size(243, 49);
+            this.certificateLayout.Size = new System.Drawing.Size(125, 49);
             this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
             this.certificateLayout.Text = "Номер сертификата";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -758,9 +760,9 @@
             // 
             this.destinationLayout.Control = this.destanation;
             this.destinationLayout.CustomizationFormText = "Получатель";
-            this.destinationLayout.Location = new System.Drawing.Point(156, 49);
+            this.destinationLayout.Location = new System.Drawing.Point(0, 98);
             this.destinationLayout.Name = "destinationLayout";
-            this.destinationLayout.Size = new System.Drawing.Size(243, 59);
+            this.destinationLayout.Size = new System.Drawing.Size(125, 49);
             this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
             this.destinationLayout.Text = "Получатель";
             this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -776,10 +778,10 @@
             this.cpatingParametersEmptySpace,
             this.addCoatingButtonLayout,
             this.coatingAddButtonEmptySpace});
-            this.coatingParametersLayoutGroup.Location = new System.Drawing.Point(761, 0);
+            this.coatingParametersLayoutGroup.Location = new System.Drawing.Point(152, 0);
             this.coatingParametersLayoutGroup.Name = "coatingParametersLayoutGroup";
             this.coatingParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.coatingParametersLayoutGroup.Size = new System.Drawing.Size(447, 239);
+            this.coatingParametersLayoutGroup.Size = new System.Drawing.Size(358, 239);
             this.coatingParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 14);
             this.coatingParametersLayoutGroup.Text = "Параметры покрытия";
             // 
@@ -789,7 +791,7 @@
             this.coatingHistoryLayout.CustomizationFormText = "coatingHistoryLayout";
             this.coatingHistoryLayout.Location = new System.Drawing.Point(0, 50);
             this.coatingHistoryLayout.Name = "coatingHistoryLayout";
-            this.coatingHistoryLayout.Size = new System.Drawing.Size(431, 150);
+            this.coatingHistoryLayout.Size = new System.Drawing.Size(342, 150);
             this.coatingHistoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 7, 7);
             this.coatingHistoryLayout.Text = "coatingHistoryLayout";
             this.coatingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -802,7 +804,7 @@
             this.coatingDateLayout.CustomizationFormText = "Дата покрытия";
             this.coatingDateLayout.Location = new System.Drawing.Point(0, 0);
             this.coatingDateLayout.Name = "coatingDateLayout";
-            this.coatingDateLayout.Size = new System.Drawing.Size(150, 50);
+            this.coatingDateLayout.Size = new System.Drawing.Size(125, 50);
             this.coatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 5, 5);
             this.coatingDateLayout.Text = "Дата покрытия";
             this.coatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -812,9 +814,9 @@
             // 
             this.coatingTypeaLyout.Control = this.coatingType;
             this.coatingTypeaLyout.CustomizationFormText = "Тип покрытия";
-            this.coatingTypeaLyout.Location = new System.Drawing.Point(150, 0);
+            this.coatingTypeaLyout.Location = new System.Drawing.Point(125, 0);
             this.coatingTypeaLyout.Name = "coatingTypeaLyout";
-            this.coatingTypeaLyout.Size = new System.Drawing.Size(150, 50);
+            this.coatingTypeaLyout.Size = new System.Drawing.Size(120, 50);
             this.coatingTypeaLyout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
             this.coatingTypeaLyout.Text = "Тип покрытия";
             this.coatingTypeaLyout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -824,9 +826,9 @@
             // 
             this.cpatingParametersEmptySpace.AllowHotTrack = false;
             this.cpatingParametersEmptySpace.CustomizationFormText = "cpatingParametersEmptySpace";
-            this.cpatingParametersEmptySpace.Location = new System.Drawing.Point(411, 0);
+            this.cpatingParametersEmptySpace.Location = new System.Drawing.Point(332, 0);
             this.cpatingParametersEmptySpace.Name = "cpatingParametersEmptySpace";
-            this.cpatingParametersEmptySpace.Size = new System.Drawing.Size(20, 50);
+            this.cpatingParametersEmptySpace.Size = new System.Drawing.Size(10, 50);
             this.cpatingParametersEmptySpace.Text = "cpatingParametersEmptySpace";
             this.cpatingParametersEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -834,9 +836,9 @@
             // 
             this.addCoatingButtonLayout.Control = this.addCoatingButton;
             this.addCoatingButtonLayout.CustomizationFormText = "addCoatingButtonLayout";
-            this.addCoatingButtonLayout.Location = new System.Drawing.Point(300, 14);
+            this.addCoatingButtonLayout.Location = new System.Drawing.Point(245, 14);
             this.addCoatingButtonLayout.Name = "addCoatingButtonLayout";
-            this.addCoatingButtonLayout.Size = new System.Drawing.Size(111, 36);
+            this.addCoatingButtonLayout.Size = new System.Drawing.Size(87, 36);
             this.addCoatingButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 5, 5);
             this.addCoatingButtonLayout.Text = "addCoatingButtonLayout";
             this.addCoatingButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -847,9 +849,9 @@
             // 
             this.coatingAddButtonEmptySpace.AllowHotTrack = false;
             this.coatingAddButtonEmptySpace.CustomizationFormText = "coatingAddButtonEmptySpace";
-            this.coatingAddButtonEmptySpace.Location = new System.Drawing.Point(300, 0);
+            this.coatingAddButtonEmptySpace.Location = new System.Drawing.Point(245, 0);
             this.coatingAddButtonEmptySpace.Name = "coatingAddButtonEmptySpace";
-            this.coatingAddButtonEmptySpace.Size = new System.Drawing.Size(111, 14);
+            this.coatingAddButtonEmptySpace.Size = new System.Drawing.Size(87, 14);
             this.coatingAddButtonEmptySpace.Text = "coatingAddButtonEmptySpace";
             this.coatingAddButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -858,10 +860,10 @@
             this.weldingParametersLayoutGroup.CustomizationFormText = "Параметры сварки";
             this.weldingParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.weldingHistoryLayout});
-            this.weldingParametersLayoutGroup.Location = new System.Drawing.Point(154, 0);
+            this.weldingParametersLayoutGroup.Location = new System.Drawing.Point(510, 0);
             this.weldingParametersLayoutGroup.Name = "weldingParametersLayoutGroup";
             this.weldingParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.weldingParametersLayoutGroup.Size = new System.Drawing.Size(607, 239);
+            this.weldingParametersLayoutGroup.Size = new System.Drawing.Size(681, 239);
             this.weldingParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 0, 14);
             this.weldingParametersLayoutGroup.Text = "Параметры сварки";
             // 
@@ -873,7 +875,7 @@
             this.weldingHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.weldingHistoryLayout.Name = "weldingHistoryLayout";
             this.weldingHistoryLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.weldingHistoryLayout.Size = new System.Drawing.Size(576, 200);
+            this.weldingHistoryLayout.Size = new System.Drawing.Size(650, 200);
             this.weldingHistoryLayout.Text = "Сварщики";
             this.weldingHistoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.weldingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -883,8 +885,9 @@
             // heatPlateParametersPage
             // 
             this.heatPlateParametersPage.Controls.Add(this.tabPagesLayout);
+            this.heatPlateParametersPage.Image = ((System.Drawing.Image)(resources.GetObject("heatPlateParametersPage.Image")));
             this.heatPlateParametersPage.Name = "heatPlateParametersPage";
-            this.heatPlateParametersPage.Size = new System.Drawing.Size(1236, 412);
+            this.heatPlateParametersPage.Size = new System.Drawing.Size(1236, 393);
             this.heatPlateParametersPage.Text = "&Параметры плавки и листа";
             // 
             // tabPagesLayout
@@ -1234,8 +1237,9 @@
             // inspectionPage
             // 
             this.inspectionPage.Controls.Add(this.generalInspectionsLayout);
+            this.inspectionPage.Image = ((System.Drawing.Image)(resources.GetObject("inspectionPage.Image")));
             this.inspectionPage.Name = "inspectionPage";
-            this.inspectionPage.Size = new System.Drawing.Size(1236, 412);
+            this.inspectionPage.Size = new System.Drawing.Size(1236, 393);
             this.inspectionPage.Text = "&Контрольные операции";
             // 
             // generalInspectionsLayout
@@ -1245,7 +1249,7 @@
             this.generalInspectionsLayout.Location = new System.Drawing.Point(0, 0);
             this.generalInspectionsLayout.Name = "generalInspectionsLayout";
             this.generalInspectionsLayout.Root = this.inspectionsLayoutGroup;
-            this.generalInspectionsLayout.Size = new System.Drawing.Size(1236, 412);
+            this.generalInspectionsLayout.Size = new System.Drawing.Size(1236, 393);
             this.generalInspectionsLayout.TabIndex = 0;
             this.generalInspectionsLayout.Text = "layoutControl1";
             // 
@@ -1257,7 +1261,7 @@
             this.inspections.Location = new System.Drawing.Point(14, 17);
             this.inspections.MainView = this.inspectionsGridView;
             this.inspections.Name = "inspections";
-            this.inspections.Size = new System.Drawing.Size(1200, 381);
+            this.inspections.Size = new System.Drawing.Size(1200, 362);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
@@ -1361,7 +1365,7 @@
             this.inspectionsLayout});
             this.inspectionsLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.inspectionsLayoutGroup.Name = "inspectionsLayoutGroup";
-            this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 412);
+            this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 393);
             this.inspectionsLayoutGroup.Text = "inspectionsLayoutGroup";
             this.inspectionsLayoutGroup.TextVisible = false;
             // 
@@ -1371,7 +1375,7 @@
             this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
             this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionsLayout.Name = "inspectionsLayout";
-            this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
+            this.inspectionsLayout.Size = new System.Drawing.Size(1216, 373);
             this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
             this.inspectionsLayout.Text = "inspectionsLayout";
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1418,26 +1422,28 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(1162, 514);
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(1163, 514);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(92, 22);
+            this.closeButton.Size = new System.Drawing.Size(91, 22);
             this.closeButton.StyleController = this.generalPipeLayout;
             this.closeButton.TabIndex = 27;
             this.closeButton.Text = "Зак&рыть";
             // 
             // deactivate
             // 
-            this.deactivate.Location = new System.Drawing.Point(143, 514);
+            this.deactivate.Location = new System.Drawing.Point(146, 514);
             this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.deactivate.Name = "deactivate";
             this.deactivate.Properties.Caption = "Труба деактивирована";
-            this.deactivate.Size = new System.Drawing.Size(211, 19);
+            this.deactivate.Size = new System.Drawing.Size(210, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(1056, 514);
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(1057, 514);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
@@ -1446,10 +1452,11 @@
             // 
             // attachmentsButton
             // 
+            this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(14, 514);
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(103, 22);
             this.attachmentsButton.StyleController = this.generalPipeLayout;
             this.attachmentsButton.TabIndex = 25;
             this.attachmentsButton.Text = "В&ложения";
@@ -1673,7 +1680,7 @@
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 510);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(104, 26);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(107, 26);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.attachmentsButtonLayout.TextToControlDistance = 0;
@@ -1683,9 +1690,9 @@
             // 
             this.deactivateLayout.Control = this.deactivate;
             this.deactivateLayout.CustomizationFormText = "deactivateLayout";
-            this.deactivateLayout.Location = new System.Drawing.Point(104, 510);
+            this.deactivateLayout.Location = new System.Drawing.Point(107, 510);
             this.deactivateLayout.Name = "deactivateLayout";
-            this.deactivateLayout.Size = new System.Drawing.Size(255, 26);
+            this.deactivateLayout.Size = new System.Drawing.Size(254, 26);
             this.deactivateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
             this.deactivateLayout.Text = "deactivateLayout";
             this.deactivateLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1696,7 +1703,7 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1027, 510);
+            this.saveButtonLayout.Location = new System.Drawing.Point(1028, 510);
             this.saveButtonLayout.Name = "saveButtonLayout";
             this.saveButtonLayout.Size = new System.Drawing.Size(116, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
@@ -1709,9 +1716,9 @@
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1143, 510);
+            this.closeButtonLayout.Location = new System.Drawing.Point(1144, 510);
             this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(101, 26);
+            this.closeButtonLayout.Size = new System.Drawing.Size(100, 26);
             this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1732,9 +1739,9 @@
             // 
             this.isActiveEmptySpace.AllowHotTrack = false;
             this.isActiveEmptySpace.CustomizationFormText = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Location = new System.Drawing.Point(359, 510);
+            this.isActiveEmptySpace.Location = new System.Drawing.Point(361, 510);
             this.isActiveEmptySpace.Name = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Size = new System.Drawing.Size(668, 26);
+            this.isActiveEmptySpace.Size = new System.Drawing.Size(667, 26);
             this.isActiveEmptySpace.Text = "isActiveEmptySpace";
             this.isActiveEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
