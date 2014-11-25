@@ -88,8 +88,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
         }
 
-
-
         private void repositoryLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             if (e.Value is PipeMillStatus)
@@ -97,10 +95,6 @@ namespace PrizmMain.Forms.PipeMill.Search
                 e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
             }
         }
-
-
-
-
 
     }
 }
