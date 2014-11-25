@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionPipeSearchEditXtraForm));
             this.unloadedDate = new DevExpress.XtraEditors.DateEdit();
             this.searchPipeLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionLabel = new DevExpress.XtraEditors.LabelControl();
@@ -204,6 +205,7 @@
             // 
             // addInspectorButton
             // 
+            this.addInspectorButton.Image = ((System.Drawing.Image)(resources.GetObject("addInspectorButton.Image")));
             this.addInspectorButton.Location = new System.Drawing.Point(798, 296);
             this.addInspectorButton.Name = "addInspectorButton";
             this.addInspectorButton.Size = new System.Drawing.Size(75, 22);
@@ -355,6 +357,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(798, 68);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);

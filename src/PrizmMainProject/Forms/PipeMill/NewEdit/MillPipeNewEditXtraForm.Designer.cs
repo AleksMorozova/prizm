@@ -148,6 +148,8 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -251,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -1176,6 +1179,7 @@
             this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
             this.generalPipeLayout.Controls.Add(this.closeButton);
             this.generalPipeLayout.Controls.Add(this.deactivate);
             this.generalPipeLayout.Controls.Add(this.saveButton);
@@ -1190,7 +1194,7 @@
             this.generalPipeLayout.Controls.Add(this.pipeSize);
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
-            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(39, 272, 250, 350);
+            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 272, 250, 350);
             this.generalPipeLayout.Root = this.generalLayoutGroup;
             this.generalPipeLayout.Size = new System.Drawing.Size(1275, 545);
             this.generalPipeLayout.TabIndex = 24;
@@ -1199,9 +1203,9 @@
             // closeButton
             // 
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1162, 514);
+            this.closeButton.Location = new System.Drawing.Point(1159, 514);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(92, 22);
+            this.closeButton.Size = new System.Drawing.Size(97, 22);
             this.closeButton.StyleController = this.generalPipeLayout;
             this.closeButton.TabIndex = 27;
             this.closeButton.Text = "Зак&рыть";
@@ -1212,16 +1216,16 @@
             this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.deactivate.Name = "deactivate";
             this.deactivate.Properties.Caption = "Труба деактивирована";
-            this.deactivate.Size = new System.Drawing.Size(211, 19);
+            this.deactivate.Size = new System.Drawing.Size(194, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
             // 
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(1056, 514);
+            this.saveButton.Location = new System.Drawing.Point(860, 514);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 22);
+            this.saveButton.Size = new System.Drawing.Size(119, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
             this.saveButton.Text = "Со&хранить";
@@ -1331,7 +1335,8 @@
             this.saveButtonLayout,
             this.closeButtonLayout,
             this.closeButtonEmptySpace,
-            this.isActiveEmptySpace});
+            this.isActiveEmptySpace,
+            this.saveAndNewButtonLayout});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -1468,7 +1473,7 @@
             this.deactivateLayout.CustomizationFormText = "deactivateLayout";
             this.deactivateLayout.Location = new System.Drawing.Point(104, 510);
             this.deactivateLayout.Name = "deactivateLayout";
-            this.deactivateLayout.Size = new System.Drawing.Size(255, 26);
+            this.deactivateLayout.Size = new System.Drawing.Size(238, 26);
             this.deactivateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
             this.deactivateLayout.Text = "deactivateLayout";
             this.deactivateLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1479,9 +1484,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1027, 510);
+            this.saveButtonLayout.Location = new System.Drawing.Point(831, 510);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(116, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(143, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1492,10 +1497,10 @@
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1143, 510);
+            this.closeButtonLayout.Location = new System.Drawing.Point(1140, 510);
             this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(101, 26);
-            this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+            this.closeButtonLayout.Size = new System.Drawing.Size(111, 26);
+            this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.closeButtonLayout.TextToControlDistance = 0;
@@ -1505,9 +1510,9 @@
             // 
             this.closeButtonEmptySpace.AllowHotTrack = false;
             this.closeButtonEmptySpace.CustomizationFormText = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1244, 510);
+            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1251, 510);
             this.closeButtonEmptySpace.Name = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Size = new System.Drawing.Size(17, 26);
+            this.closeButtonEmptySpace.Size = new System.Drawing.Size(10, 26);
             this.closeButtonEmptySpace.Text = "closeButtonEmptySpace";
             this.closeButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1515,9 +1520,9 @@
             // 
             this.isActiveEmptySpace.AllowHotTrack = false;
             this.isActiveEmptySpace.CustomizationFormText = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Location = new System.Drawing.Point(359, 510);
+            this.isActiveEmptySpace.Location = new System.Drawing.Point(342, 510);
             this.isActiveEmptySpace.Name = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Size = new System.Drawing.Size(668, 26);
+            this.isActiveEmptySpace.Size = new System.Drawing.Size(489, 26);
             this.isActiveEmptySpace.Text = "isActiveEmptySpace";
             this.isActiveEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1546,6 +1551,29 @@
             // weldingDs
             // 
             this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
+            // 
+            // simpleButton1
+            // 
+            this.saveAndNewButton.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.saveAndNewButton.Location = new System.Drawing.Point(998, 514);
+            this.saveAndNewButton.Name = "simpleButton1";
+            this.saveAndNewButton.Size = new System.Drawing.Size(147, 22);
+            this.saveAndNewButton.StyleController = this.generalPipeLayout;
+            this.saveAndNewButton.TabIndex = 29;
+            this.saveAndNewButton.Text = "Сохранить\\создать";
+            // 
+            // layoutControlItem1
+            // 
+            this.saveAndNewButtonLayout.Control = this.saveAndNewButton;
+            this.saveAndNewButtonLayout.CustomizationFormText = "layoutControlItem1";
+            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(974, 510);
+            this.saveAndNewButtonLayout.Name = "layoutControlItem1";
+            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(166, 26);
+            this.saveAndNewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 5, 0, 0);
+            this.saveAndNewButtonLayout.Text = "layoutControlItem1";
+            this.saveAndNewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveAndNewButtonLayout.TextToControlDistance = 0;
+            this.saveAndNewButtonLayout.TextVisible = false;
             // 
             // MillPipeNewEditXtraForm
             // 
@@ -1661,6 +1689,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1785,5 +1814,7 @@
         private DevExpress.XtraLayout.LayoutControlItem chemicalCompositionLayout;
         private DevExpress.XtraLayout.LayoutControlItem tensileTestsLayout;
         private DevExpress.XtraLayout.EmptySpaceItem steelGradeEmptySpace;
+        private DevExpress.XtraEditors.SimpleButton saveAndNewButton;
+        private DevExpress.XtraLayout.LayoutControlItem saveAndNewButtonLayout;
     }
 }

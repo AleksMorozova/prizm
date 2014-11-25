@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.spoolLength = new DevExpress.XtraEditors.TextEdit();
@@ -71,6 +72,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(822, 48);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 7);
             this.searchButton.Name = "searchButton";
@@ -106,6 +108,7 @@
             // 
             // cutButton
             // 
+            this.cutButton.Image = ((System.Drawing.Image)(resources.GetObject("cutButton.Image")));
             this.cutButton.Location = new System.Drawing.Point(130, 401);
             this.cutButton.Name = "cutButton";
             this.cutButton.Size = new System.Drawing.Size(638, 22);

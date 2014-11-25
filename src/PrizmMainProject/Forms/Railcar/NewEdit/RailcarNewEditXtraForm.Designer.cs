@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.newRailcarButton = new DevExpress.XtraEditors.SimpleButton();
@@ -63,9 +65,9 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).BeginInit();
@@ -91,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -99,6 +100,7 @@
             this.pipesList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pipesList.Cursor = System.Windows.Forms.Cursors.Default;
             this.pipesList.Location = new System.Drawing.Point(20, 65);
             this.pipesList.MainView = this.pipesListView;
             this.pipesList.Name = "pipesList";
@@ -149,9 +151,16 @@
             this.pipeStatusGridColumn.Visible = true;
             this.pipeStatusGridColumn.VisibleIndex = 2;
             // 
+            // repositoryGridLookUpEditStatus
+            // 
+            this.repositoryGridLookUpEditStatus.AutoHeight = false;
+            this.repositoryGridLookUpEditStatus.Name = "repositoryGridLookUpEditStatus";
+            this.repositoryGridLookUpEditStatus.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryGridLookUpEditStatus_CustomDisplayText);
+            // 
             // unshipButton
             // 
             this.unshipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.unshipButton.Image = ((System.Drawing.Image)(resources.GetObject("unshipButton.Image")));
             this.unshipButton.Location = new System.Drawing.Point(899, 479);
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.Size = new System.Drawing.Size(105, 22);
@@ -185,9 +194,10 @@
             // 
             // newRailcarButton
             // 
-            this.newRailcarButton.Location = new System.Drawing.Point(1067, 479);
+            this.newRailcarButton.Image = ((System.Drawing.Image)(resources.GetObject("newRailcarButton.Image")));
+            this.newRailcarButton.Location = new System.Drawing.Point(1045, 479);
             this.newRailcarButton.Name = "newRailcarButton";
-            this.newRailcarButton.Size = new System.Drawing.Size(78, 22);
+            this.newRailcarButton.Size = new System.Drawing.Size(95, 22);
             this.newRailcarButton.StyleController = this.generalLayout;
             this.newRailcarButton.TabIndex = 22;
             this.newRailcarButton.Text = "Создать";
@@ -196,6 +206,7 @@
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.Location = new System.Drawing.Point(1154, 479);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(94, 22);
@@ -206,18 +217,20 @@
             // shipButton
             // 
             this.shipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.shipButton.Location = new System.Drawing.Point(799, 479);
+            this.shipButton.Image = ((System.Drawing.Image)(resources.GetObject("shipButton.Image")));
+            this.shipButton.Location = new System.Drawing.Point(794, 479);
             this.shipButton.Name = "shipButton";
-            this.shipButton.Size = new System.Drawing.Size(86, 22);
+            this.shipButton.Size = new System.Drawing.Size(91, 22);
             this.shipButton.StyleController = this.generalLayout;
             this.shipButton.TabIndex = 21;
             this.shipButton.Text = "О&тгрузить";
             // 
             // removePipe
             // 
-            this.removePipe.Location = new System.Drawing.Point(1153, 25);
+            this.removePipe.Image = ((System.Drawing.Image)(resources.GetObject("removePipe.Image")));
+            this.removePipe.Location = new System.Drawing.Point(1134, 25);
             this.removePipe.Name = "removePipe";
-            this.removePipe.Size = new System.Drawing.Size(95, 22);
+            this.removePipe.Size = new System.Drawing.Size(114, 22);
             this.removePipe.StyleController = this.generalLayout;
             this.removePipe.TabIndex = 17;
             this.removePipe.Text = "&Удалить трубу";
@@ -225,9 +238,10 @@
             // 
             // addPipeButton
             // 
-            this.addPipeButton.Location = new System.Drawing.Point(1018, 25);
+            this.addPipeButton.Image = ((System.Drawing.Image)(resources.GetObject("addPipeButton.Image")));
+            this.addPipeButton.Location = new System.Drawing.Point(980, 25);
             this.addPipeButton.Name = "addPipeButton";
-            this.addPipeButton.Size = new System.Drawing.Size(101, 22);
+            this.addPipeButton.Size = new System.Drawing.Size(120, 22);
             this.addPipeButton.StyleController = this.generalLayout;
             this.addPipeButton.TabIndex = 16;
             this.addPipeButton.Text = "&Добавить трубу";
@@ -248,7 +262,7 @@
             this.pipeNumberLookUp.Properties.NullText = "";
             this.pipeNumberLookUp.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.FrameResize;
             this.pipeNumberLookUp.Properties.ValueMember = "Id";
-            this.pipeNumberLookUp.Size = new System.Drawing.Size(166, 20);
+            this.pipeNumberLookUp.Size = new System.Drawing.Size(128, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
             this.pipeNumberLookUp.TabIndex = 15;
             // 
@@ -390,7 +404,7 @@
             this.pipeNumberLayout.CustomizationFormText = "Номер трубы";
             this.pipeNumberLayout.Location = new System.Drawing.Point(783, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(200, 54);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(162, 54);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeNumberLayout.Text = "Номер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -400,9 +414,9 @@
             // 
             this.addPipeLayoutControl.Control = this.addPipeButton;
             this.addPipeLayoutControl.CustomizationFormText = "addPipelayoutControl";
-            this.addPipeLayoutControl.Location = new System.Drawing.Point(983, 0);
+            this.addPipeLayoutControl.Location = new System.Drawing.Point(945, 0);
             this.addPipeLayoutControl.Name = "addPipeLayoutControl";
-            this.addPipeLayoutControl.Size = new System.Drawing.Size(135, 54);
+            this.addPipeLayoutControl.Size = new System.Drawing.Size(154, 54);
             this.addPipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 21, 7);
             this.addPipeLayoutControl.Text = "addPipelayoutControl";
             this.addPipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -413,9 +427,9 @@
             // 
             this.removePipeLayoutControl.Control = this.removePipe;
             this.removePipeLayoutControl.CustomizationFormText = "removePipeLayoutControl";
-            this.removePipeLayoutControl.Location = new System.Drawing.Point(1118, 0);
+            this.removePipeLayoutControl.Location = new System.Drawing.Point(1099, 0);
             this.removePipeLayoutControl.Name = "removePipeLayoutControl";
-            this.removePipeLayoutControl.Size = new System.Drawing.Size(129, 54);
+            this.removePipeLayoutControl.Size = new System.Drawing.Size(148, 54);
             this.removePipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 21, 7);
             this.removePipeLayoutControl.Text = "removePipeLayoutControl";
             this.removePipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -439,9 +453,9 @@
             // 
             this.shipButtonLayout.Control = this.shipButton;
             this.shipButtonLayout.CustomizationFormText = "shipButtonLayout";
-            this.shipButtonLayout.Location = new System.Drawing.Point(774, 475);
+            this.shipButtonLayout.Location = new System.Drawing.Point(769, 475);
             this.shipButtonLayout.Name = "shipButtonLayout";
-            this.shipButtonLayout.Size = new System.Drawing.Size(100, 31);
+            this.shipButtonLayout.Size = new System.Drawing.Size(105, 31);
             this.shipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.shipButtonLayout.Text = "shipButtonLayout";
             this.shipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -454,7 +468,7 @@
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
             this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 475);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(774, 31);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(769, 31);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -477,7 +491,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(993, 475);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(54, 31);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(27, 31);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -485,9 +499,10 @@
             // 
             this.layoutControlItem2.Control = this.newRailcarButton;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(1047, 475);
+            this.layoutControlItem2.Location = new System.Drawing.Point(1020, 475);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(82, 31);
+            this.layoutControlItem2.Size = new System.Drawing.Size(109, 31);
+            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
@@ -503,12 +518,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 20);
             this.layoutControlItem1.TextToControlDistance = 5;
             // 
-            // repositoryGridLookUpEditStatus
-            // 
-            this.repositoryGridLookUpEditStatus.AutoHeight = false;
-            this.repositoryGridLookUpEditStatus.Name = "repositoryGridLookUpEditStatus";
-            this.repositoryGridLookUpEditStatus.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryGridLookUpEditStatus_CustomDisplayText);
-            // 
             // RailcarNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,6 +531,7 @@
             this.Load += new System.EventHandler(this.RailcarNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).EndInit();
@@ -547,7 +557,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
