@@ -204,4 +204,10 @@
   <data name="PRIZM" xml:space="preserve">
     <value>PRIZM</value>
   </data>
+  <data name="COAT_EXTERNAL" xml:space="preserve">
+    <value>Внешнее</value>
+  </data>
+  <data name="COAT_INTERNAL" xml:space="preserve">
+    <value>Внутреннее</value>
+  </data>
 </root>
