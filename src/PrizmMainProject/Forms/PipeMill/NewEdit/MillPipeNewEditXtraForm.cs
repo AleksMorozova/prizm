@@ -24,7 +24,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
-
+        //TODO: fix heat & purchase order buttons style
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
