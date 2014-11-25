@@ -42,9 +42,9 @@ namespace PrizmMain
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
-
+            Bind<IPipeTestResultRepository>().To<PipeTestResultRepository>();
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
-
+            Bind<IPipeTestRepository>().To<PipeTestRepository>();
 
             Bind<IMillRepository>().To<MillRepository>();
 

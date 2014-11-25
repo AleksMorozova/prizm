@@ -34,6 +34,7 @@ namespace PrizmMain.Forms.Settings
 
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
         #region Role Setting
@@ -140,17 +141,6 @@ namespace PrizmMain.Forms.Settings
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
             }
-        }
-
-        private void addPlateManufacturerButton_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(plateManufacturer.Text))
-            {
-                return;
-            }
-            viewModel.AddNewManufacturer(plateManufacturer.Text);
-            plateManufacturer.Text = string.Empty;
-            plateManufacturersList.RefreshDataSource();
         }
 
         private void gridViewWelders_ValidateRow(object sender, ValidateRowEventArgs e)

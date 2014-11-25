@@ -1,25 +1,34 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using Domain.Entity;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+﻿using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+using DevExpress.XtraEditors;
+
 using Ninject;
 using Ninject.Parameters;
-using PrizmMain.Controls;
-using PrizmMain.Forms.MainChildForm;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using Domain.Entity;
+using Domain.Entity.Mill;
+using DevExpress.XtraGrid.Views.Grid;
+using PrizmMain.Controls;
+using Domain.Entity.Setup;
+using PrizmMain.DummyData;
+using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Properties;
+using System.Collections;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
-        //TODO: Fix heat/purchase order button style
+
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
+        InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
+        Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -87,6 +96,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
 
+
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Heat");
             pipeSize.DataBindings
@@ -97,7 +107,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
-            
+
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
             shippedDate.DataBindings
@@ -107,12 +117,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
+            inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+            ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
+            
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
             
-
-
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -123,13 +134,36 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             weldersSelectionControl.Dock = DockStyle.Fill;
             repositoryItemPopupWelders.PopupControl = weldersPopup;
             repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
+
+            inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorSelectionControl.DataSource = inspectorsDataSource;
+            var inspectorsPopup = new PopupContainerControl();
+            inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            inspectorSelectionControl.Dock = DockStyle.Fill;
+            inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
+            
+            coatingTypeDict.Clear();
+            coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
+            coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
+            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
+            
+            coatDataSource.DataSource = viewModel.Pipe;
+            
         }
 
         private void editHeatButton_Click(object sender, EventArgs e)
         {
-           
+            using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
+            {
+                if (heatForm.ShowDialog() == DialogResult.OK)
+                {
+                    //TODO: refresh Heat data
+                }
+            }
+
         }
-    
+
 
         private void BindCommands()
         {
@@ -137,6 +171,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             
         }
 
+        /// <summary>
+        /// Refreshes list of required pipe test results if mill size type was changed
+        /// </summary>
+        private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspections.RefreshDataSource();
+            }
+        }
+        
+        
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
            if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
@@ -145,6 +196,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
               if (weld == null)
                  return;
+
 
               weld.Welders.Clear();
               foreach (Welder w in selectedWelders)
@@ -256,9 +308,102 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
            view.RefreshData();
         }
 
-        private void heatButton_Click(object sender, EventArgs e)
+        private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
         {
-
+           LookUpEdit lookup = sender as LookUpEdit;
+           
+           if (!(lookup.EditValue is CoatingType))
+           {
+              KeyValuePair<CoatingType, string> val = (KeyValuePair<CoatingType, string>)lookup.EditValue;
+              lookup.EditValue = val.Key;
+           }
         }
+
+        private void repositoryItemLookUpEditCoatType_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+           if (e.Value is CoatingType)
+           {
+              e.DisplayText = coatingTypeDict[(CoatingType)e.Value];
+           }
+        }
+
+        private void coatingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Coat coat = view.GetRow(e.RowHandle) as Coat;
+              coat.Pipe = viewModel.Pipe;
+              coat.Type = CoatingType.Internal;
+              coat.Date = DateTime.Now;
+           }
+        }
+
+        private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            {
+                IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+                if (pipeTestResult == null)
+                    return;
+
+                pipeTestResult.Inspectors.Clear();
+                foreach (Inspector i in selectedInspectors)
+                {
+                    pipeTestResult.Inspectors.Add(i);
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            inspectionsGridView.ClearSelection();
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            {
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+                if (pipeTestResult == null)
+                    return;
+
+                inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        /// <summary>
+        ///Customizes data shown in Expected result column
+        /// </summary>
+
+        private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (e.Column.FieldName == "Expected" && e.IsGetData) e.Value =
+              getExpectedValue(view, e.ListSourceRowIndex);
+        }
+
+        /// <summary>
+        /// Returns data shown in Expected result column depending on expected result type
+        /// </summary>
+        private string getExpectedValue(GridView view, int listSourceRowIndex)
+        {
+            PipeTestResult pipeTestResult = view.GetRow(listSourceRowIndex) as PipeTestResult;
+                switch (pipeTestResult.Operation.ResultType)
+                { 
+                    case PipeTestResultType.Boolean:
+                        return pipeTestResult.Operation.BoolExpected.ToString(); 
+                    case PipeTestResultType.Diapason:
+                        return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
+                    default: return "";   
+                }            
+        }
+
     }
 }

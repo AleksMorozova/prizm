@@ -160,6 +160,12 @@
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
+    <Compile Include="Controls\InspectorSelectionControl.cs">  
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
+      <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\WeldersSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,6 +367,9 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
+      <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\WeldersSelectionControl.resx">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +458,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
