@@ -15,11 +15,11 @@ namespace PrizmMain.Forms.PipeMill.Heat
 {
     public class HeatViewModel : ViewModelBase, IDisposable
     {
-        private readonly IHeatRepository heatRepo;
+        private readonly IHeatRepositories heatRepo;
         private readonly SaveHeatCommand saveCommand;
         
         [Inject]
-        public HeatViewModel(IHeatRepository heatRepository, string heatNumber)
+        public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
         {
             this.heatRepo = heatRepository;
             saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, heatRepo));
@@ -30,7 +30,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
             else
             {
-                var answer = heatRepo.GetByNumber(heatNumber);
+                var answer = heatRepo.HeatRepo.GetByNumber(heatNumber);
                 if (answer == null)
                 {
                     NewHeat(heatNumber);
@@ -44,46 +44,18 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         public Domain.Entity.Mill.Heat Heat { get; set; }
 
-        public string Number
-        {
-            get { return Heat.Number; }
-            set
-            {
-                if (value != Heat.Number)
-                {
-                    Heat.Number = value;
-                    RaisePropertyChanged("Number");
-                }
-            }
-        }
-
-
-
-        public ChemicalComposition Chemical
-        {
+        public IList<ChemicalComposition> ChemicalCompositions {
             get { return Heat.ChemicalComposition; }
-            set
-            {
+            set {
                 if (value != Heat.ChemicalComposition)
                 {
                     Heat.ChemicalComposition = value;
-                    RaisePropertyChanged("ChemicalComposition");
+                    RaisePropertyChanged("ChemicalCompositions");
                 }
             }
         }
 
-        public PhysicalParameters Phisical
-        {
-            get { return Heat.PhysicalParameters; }
-            set
-            {
-                if (value != Heat.PhysicalParameters)
-                {
-                    Heat.PhysicalParameters = value;
-                    RaisePropertyChanged("PhysicalParameters");
-                }
-            }
-        }
+  
 
         public ICommand SaveCommand
         {
@@ -100,11 +72,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             if (Heat == null)
             {
-                Heat = new Domain.Entity.Mill.Heat();
-                Heat.Number = number;
-
-                Heat.PhysicalParameters = new PhysicalParameters();
-                Heat.ChemicalComposition = new ChemicalComposition();
+                //TODO: create
             }
         }
     }

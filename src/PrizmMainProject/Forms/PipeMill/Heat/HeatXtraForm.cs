@@ -25,7 +25,6 @@ namespace PrizmMain.Forms.PipeMill.Heat
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-
             number.DataBindings.Add("EditValue", bindingSource, "Number");
 
         }
