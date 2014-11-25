@@ -9,12 +9,16 @@ using Ninject.Parameters;
 using Domain.Entity.Mill;
 
 using PrizmMain.Forms.MainChildForm;
+using System.Collections.Generic;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public partial class RailcarNewEditXtraForm : ChildForm
     {
         private RailcarViewModel viewModel;
+        private Dictionary<PipeMillStatus, string> statusTypeDict
+            = new Dictionary<PipeMillStatus, string>();
 
         public RailcarNewEditXtraForm(string railcarNumber)
         {
@@ -53,6 +57,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
             shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
             unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
+
+            statusTypeDict.Clear();
+            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
+            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
+            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
+            repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
         }
 
         private void RailcarNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -81,6 +91,14 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private void newRailcarButton_Click(object sender, EventArgs e)
         {
             viewModel.NewRailcar();
+        }
+
+        private void repositoryGridLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value is PipeMillStatus)
+            {
+                e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
+            }
         }
 
     }
