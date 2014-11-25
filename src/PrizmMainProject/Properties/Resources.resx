@@ -213,4 +213,10 @@
   <data name="Scheduled" xml:space="preserve">
     <value>Ожидается</value>
   </data>
+   <data name="COAT_EXTERNAL" xml:space="preserve">
+    <value>Внешнее</value>
+  </data>
+  <data name="COAT_INTERNAL" xml:space="preserve">
+    <value>Внутреннее</value>
+  </data>
 </root>

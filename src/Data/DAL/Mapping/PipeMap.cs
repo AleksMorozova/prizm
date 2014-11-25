@@ -22,6 +22,7 @@ namespace Data.DAL.Mapping
 
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
             HasMany<PipeTestResult>(_ => _.PipeTestResult).KeyColumn("pipeId").Inverse().Cascade.All();
+            HasMany<Coat>(x => x.Coats).KeyColumn("pipeId").Cascade.All();
         }
     }
 }

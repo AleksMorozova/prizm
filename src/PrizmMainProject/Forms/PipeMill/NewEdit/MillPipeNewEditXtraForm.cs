@@ -16,6 +16,8 @@ using Domain.Entity.Setup;
 using PrizmMain.DummyData;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Properties;
+using System.Collections;
 using System.Drawing;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -26,6 +28,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
+        Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -139,6 +142,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspectorSelectionControl.Dock = DockStyle.Fill;
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
+            
+            coatingTypeDict.Clear();
+            coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
+            coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
+            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
+            
+            coatDataSource.DataSource = viewModel.Pipe;
             
         }
 
@@ -296,6 +306,37 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
            GridView view = sender as GridView;
            view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
            view.RefreshData();
+        }
+
+        private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
+        {
+           LookUpEdit lookup = sender as LookUpEdit;
+           
+           if (!(lookup.EditValue is CoatingType))
+           {
+              KeyValuePair<CoatingType, string> val = (KeyValuePair<CoatingType, string>)lookup.EditValue;
+              lookup.EditValue = val.Key;
+           }
+        }
+
+        private void repositoryItemLookUpEditCoatType_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+           if (e.Value is CoatingType)
+           {
+              e.DisplayText = coatingTypeDict[(CoatingType)e.Value];
+           }
+        }
+
+        private void coatingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Coat coat = view.GetRow(e.RowHandle) as Coat;
+              coat.Pipe = viewModel.Pipe;
+              coat.Type = CoatingType.Internal;
+              coat.Date = DateTime.Now;
+           }
         }
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
