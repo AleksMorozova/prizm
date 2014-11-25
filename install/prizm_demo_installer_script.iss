@@ -3,12 +3,13 @@
 
 #define MyAppName "Prizm Demo"
 #define MyAppVersion "0.0.0.4"
-#define MyAppPublisher "ISD"
-#define MyAppURL "http://www.isd.dp.ua"
+#define MyAppPublisher ""
+#define MyAppURL ""
 #define MyAppExeName "prizm.exe"
 #define MyAppExeConfigName MyAppExeName + ".config"
 #define MyDateTimeString GetDateTimeString('dm', '', '');
-#define DevExpressPath "D:\Program Files (x86)\DevExpress 14.1\Components\Bin\Framework\"
+#define DevExpressPath GetEnv('DEV_EXPRESS14_PATH')
+#define PrizmExternalPath GetEnv('PRIZM_EXTERNAL')
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -70,9 +71,9 @@ Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.1.dll"; DestDir: "{app}"; Fl
 Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
-Source: "..\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
-Source: "..\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed
+Source: "{#PrizmExternalPath}\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
+Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
+Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed
 
 
 [Icons]
