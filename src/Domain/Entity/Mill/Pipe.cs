@@ -9,6 +9,7 @@ namespace Domain.Entity.Mill
         public Pipe()
         {
             this.Welds = new List<Weld>();
+            this.Coats = new List<Coat>();
             this.PipeTestResult = new List<PipeTestResult>();
 
             this.Plate = new Plate() { Pipe = this };
@@ -32,6 +33,7 @@ namespace Domain.Entity.Mill
 
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
+        public virtual IList<Coat> Coats { get; set; }
 
         //enum
         public virtual PipeMillStatus Status { get; set; }
