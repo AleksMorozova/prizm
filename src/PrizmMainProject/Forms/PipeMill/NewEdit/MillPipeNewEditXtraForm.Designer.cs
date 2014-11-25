@@ -1276,30 +1276,32 @@
          this.inspectionsLayoutGroup.GroupBordersVisible = false;
          this.inspectionsLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectionsLayout});
-         this.inspectionsLayoutGroup.Location = new System.Drawing.Point(0, 0);
-         this.inspectionsLayoutGroup.Name = "inspectionsLayoutGroup";
-         this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 412);
-         this.inspectionsLayoutGroup.Text = "inspectionsLayoutGroup";
-         this.inspectionsLayoutGroup.TextVisible = false;
-         // 
-         // inspectionsLayout
-         // 
-         this.inspectionsLayout.Control = this.inspections;
-         this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
-         this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
-         this.inspectionsLayout.Name = "inspectionsLayout";
-         this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
-         this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
-         this.inspectionsLayout.Text = "inspectionsLayout";
-         this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
-         this.inspectionsLayout.TextToControlDistance = 0;
-         this.inspectionsLayout.TextVisible = false;
-         // 
-         // pipeSize
-         // 
-         this.pipeSize.Location = new System.Drawing.Point(233, 27);
-         this.pipeSize.Name = "pipeSize";
-         this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.inspectionsLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectionsLayoutGroup.Name = "inspectionsLayoutGroup";
+            this.inspectionsLayoutGroup.Size = new System.Drawing.Size(1236, 412);
+            this.inspectionsLayoutGroup.Text = "inspectionsLayoutGroup";
+            this.inspectionsLayoutGroup.TextVisible = false;
+            // 
+            // inspectionsLayout
+            // 
+            this.inspectionsLayout.Control = this.inspections;
+            this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
+            this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
+            this.inspectionsLayout.Name = "inspectionsLayout";
+            this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
+            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
+            this.inspectionsLayout.Text = "inspectionsLayout";
+            this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.inspectionsLayout.TextToControlDistance = 0;
+            this.inspectionsLayout.TextVisible = false;
+            // 
+            // pipeSize
+            // 
+            this.pipeSize.Location = new System.Drawing.Point(233, 27);
+            this.pipeSize.Name = "pipeSize";
+            this.pipeSize.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.pipeSize.Properties.Appearance.Options.UseBackColor = true;
+            this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.pipeSize.Size = new System.Drawing.Size(169, 20);
          this.pipeSize.StyleController = this.generalPipeLayout;
@@ -1378,27 +1380,31 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.purchaseOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.purchaseOrderDate.Properties.ReadOnly = true;
-         this.purchaseOrderDate.Size = new System.Drawing.Size(99, 20);
-         this.purchaseOrderDate.StyleController = this.generalPipeLayout;
-         this.purchaseOrderDate.TabIndex = 6;
-         // 
-         // purchaseOrder
-         // 
-         this.purchaseOrder.Location = new System.Drawing.Point(646, 27);
-         this.purchaseOrder.Name = "purchaseOrder";
-         this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.purchaseOrderDate.Properties.ReadOnly = true;
+            this.purchaseOrderDate.Size = new System.Drawing.Size(99, 20);
+            this.purchaseOrderDate.StyleController = this.generalPipeLayout;
+            this.purchaseOrderDate.TabIndex = 6;
+            // 
+            // purchaseOrder
+            // 
+            this.purchaseOrder.Location = new System.Drawing.Point(646, 27);
+            this.purchaseOrder.Name = "purchaseOrder";
+            this.purchaseOrder.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.purchaseOrder.Properties.Appearance.Options.UseBackColor = true;
+            this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
-         this.purchaseOrder.StyleController = this.generalPipeLayout;
-         this.purchaseOrder.TabIndex = 5;
-         this.purchaseOrder.SelectedIndexChanged += new System.EventHandler(this.purchaseOrder_SelectedIndexChanged);
-         // 
-         // heatNumber
-         // 
-         this.heatNumber.Location = new System.Drawing.Point(436, 27);
-         this.heatNumber.Name = "heatNumber";
-         this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
+            this.purchaseOrder.StyleController = this.generalPipeLayout;
+            this.purchaseOrder.TabIndex = 5;
+            this.purchaseOrder.SelectedIndexChanged += new System.EventHandler(this.purchaseOrder_SelectedIndexChanged);
+            // 
+            // heatNumber
+            // 
+            this.heatNumber.Location = new System.Drawing.Point(436, 27);
+            this.heatNumber.Name = "heatNumber";
+            this.heatNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.heatNumber.Properties.Appearance.Options.UseBackColor = true;
+            this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.heatNumber.Size = new System.Drawing.Size(176, 20);
          this.heatNumber.StyleController = this.generalPipeLayout;
@@ -1424,25 +1430,27 @@
          this.millStatus.Name = "millStatus";
          this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.millStatus.Size = new System.Drawing.Size(123, 20);
-         this.millStatus.StyleController = this.generalPipeLayout;
-         this.millStatus.TabIndex = 4;
-         // 
-         // pipeNumber
-         // 
-         this.pipeNumber.Location = new System.Drawing.Point(14, 27);
-         this.pipeNumber.Name = "pipeNumber";
-         this.pipeNumber.Size = new System.Drawing.Size(185, 20);
-         this.pipeNumber.StyleController = this.generalPipeLayout;
-         this.pipeNumber.TabIndex = 0;
-         this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
-         // 
-         // generalLayoutGroup
-         // 
-         this.generalLayoutGroup.CustomizationFormText = "pipeGeneralLayoutGroup";
-         this.generalLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-         this.generalLayoutGroup.GroupBordersVisible = false;
-         this.generalLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.millStatus.Size = new System.Drawing.Size(123, 20);
+            this.millStatus.StyleController = this.generalPipeLayout;
+            this.millStatus.TabIndex = 4;
+            // 
+            // pipeNumber
+            // 
+            this.pipeNumber.Location = new System.Drawing.Point(14, 27);
+            this.pipeNumber.Name = "pipeNumber";
+            this.pipeNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.pipeNumber.Properties.Appearance.Options.UseBackColor = true;
+            this.pipeNumber.Size = new System.Drawing.Size(185, 20);
+            this.pipeNumber.StyleController = this.generalPipeLayout;
+            this.pipeNumber.TabIndex = 0;
+            this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
+            // 
+            // generalLayoutGroup
+            // 
+            this.generalLayoutGroup.CustomizationFormText = "pipeGeneralLayoutGroup";
+            this.generalLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.generalLayoutGroup.GroupBordersVisible = false;
+            this.generalLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeNumberLayout,
             this.pipeSizeLayout,
             this.pipeLayout,
