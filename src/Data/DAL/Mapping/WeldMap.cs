@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Table("Weld");
             Map(_ => _.Date).Column("date");
-            References(_ => _.Pipe,"id");
+            References(_ => _.Pipe,"pipeId");
             HasManyToMany(_ => _.Welders)
                 .Table("[Weld_welder]")
                 .ParentKeyColumn("weldId")

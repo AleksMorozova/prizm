@@ -245,7 +245,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             set
             {
-                if (value.Value != Pipe.Status)
+                if (value != null && value.Value != Pipe.Status)
                 {
                     Pipe.Status = value.Value;
                     RaisePropertyChanged("PipeStatus");
