@@ -35,12 +35,11 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             if (viewModel.PipeMillStatus != null)
             {
-
                 criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
-               
             }
  
             viewModel.Pipes = repo.GetByCriteria(criteria);
+            repo.Clear();
         }
 
         public bool CanExecute()
