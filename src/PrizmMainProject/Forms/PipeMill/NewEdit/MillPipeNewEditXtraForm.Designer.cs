@@ -149,6 +149,7 @@
             this.weldingDs = new System.Windows.Forms.BindingSource();
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.valueRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -253,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -388,6 +390,8 @@
             // 
             this.plateThickness.Location = new System.Drawing.Point(471, 65);
             this.plateThickness.Name = "plateThickness";
+            this.plateThickness.Properties.Mask.EditMask = "d";
+            this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.plateThickness.Size = new System.Drawing.Size(149, 20);
             this.plateThickness.StyleController = this.pipeGeneralParametersLayout;
             this.plateThickness.TabIndex = 58;
@@ -1023,7 +1027,8 @@
             this.inspections.Name = "inspections";
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ResultStatusLookUpEdit,
-            this.inspectorsPopupContainerEdit});
+            this.inspectorsPopupContainerEdit,
+            this.valueRepositoryTextEdit});
             this.inspections.Size = new System.Drawing.Size(1200, 381);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1053,6 +1058,7 @@
             this.inspectionNameGridColumn.Caption = "Название операции";
             this.inspectionNameGridColumn.FieldName = "Operation.Name";
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
+            this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
             this.inspectionNameGridColumn.Width = 274;
@@ -1071,6 +1077,7 @@
             // valueGridColumn
             // 
             this.valueGridColumn.Caption = "Результат измерения";
+            this.valueGridColumn.ColumnEdit = this.valueRepositoryTextEdit;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
@@ -1132,6 +1139,7 @@
             this.inspectionCodeGridColumn.Caption = "Код";
             this.inspectionCodeGridColumn.FieldName = "Operation.Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
+            this.inspectionCodeGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
             this.inspectionCodeGridColumn.Width = 62;
@@ -1580,6 +1588,11 @@
             // 
             this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
             // 
+            // valueRepositoryTextEdit
+            // 
+            this.valueRepositoryTextEdit.AutoHeight = false;
+            this.valueRepositoryTextEdit.Name = "valueRepositoryTextEdit";
+            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1695,6 +1708,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1821,5 +1835,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem steelGradeEmptySpace;
         private DevExpress.XtraEditors.SimpleButton saveAndNewButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndNewButtonLayout;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit valueRepositoryTextEdit;
     }
 }

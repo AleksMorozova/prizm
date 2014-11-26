@@ -31,6 +31,7 @@ namespace PrizmMain.Forms.Settings
         public SettingsXtraForm()
         {
             InitializeComponent();
+            SetControlsTextLength();
 
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
@@ -190,6 +191,25 @@ namespace PrizmMain.Forms.Settings
            view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
         }
 
+        private void SetControlsTextLength()
+        {
+            client.Properties.MaxLength = 100;
+            design.Properties.MaxLength = 100;
+            manufacturerRepositoryTextEdit.MaxLength = 20;
+            typeRepositoryTextEdit.MaxLength = 50;
+            codeRepositoryTextEdit.MaxLength = 20;
+            controlNameRepositoryTextEdit.MaxLength = 20;
+            subjectRepositoryItemEdit.MaxLength = 50;
+            welderFNRepositoryTextEdit.MaxLength = 20;
+            welderLNRepositoryTextEdit.MaxLength = 20;
+            welderMNRepositoryTextEdit.MaxLength = 20;
+            welderCertificateTextEdit.MaxLength = 20;
+            stampRepositoryTextEdit.MaxLength = 10;
+            inspectorFNRepositoryTextEdit.MaxLength = 20;
+            inspectorLNRepositoryTextEdit.MaxLength = 20;
+            inspectorMNRepositoryTextEdit.MaxLength = 20;
+            inspectorCertificateTextEdit.MaxLength = 20;
+        }
         
     }
 

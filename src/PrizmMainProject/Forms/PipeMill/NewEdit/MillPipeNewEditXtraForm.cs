@@ -35,6 +35,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
             InitializeComponent();
+            SetControlsTextLength();
 
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
@@ -387,5 +388,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
            }
         }
 
+        private void SetControlsTextLength()
+        {
+            pipeNumber.Properties.MaxLength = 20;
+            plateNumber.Properties.MaxLength = 20;
+            steelGrade.Properties.MaxLength = 20;
+            valueRepositoryTextEdit.MaxLength = 20;
+            //TODO: limit fields for Plate and heat parameters tab
+        }
     }
 }
