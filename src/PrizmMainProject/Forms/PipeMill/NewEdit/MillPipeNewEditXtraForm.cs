@@ -400,11 +400,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
-            PurchaseOrder order = new PurchaseOrder();
-            order.Number = purchaseOrder.Text;
-            order.Date = viewModel.PipePurchaseOrder.Date;
-
-            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(order);
+            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(purchaseOrder.Text, purchaseOrderDate.Text);
             form.ShowDialog();
         }
 
