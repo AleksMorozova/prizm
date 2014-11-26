@@ -90,9 +90,16 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private void repositoryLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PipeMillStatus)
+            try
             {
-                e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
+                if (e.Value is PipeMillStatus)
+                {
+                    e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
+                }
+            }
+            catch (KeyNotFoundException exception)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(exception.Message);
             }
         }
 

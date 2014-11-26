@@ -164,6 +164,9 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.projectTitle = new DevExpress.XtraEditors.TextEdit();
+            this.projectTitleLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.projectTitleEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.inspectorLNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectorFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectorMNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -268,6 +271,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).BeginInit();
@@ -596,6 +602,7 @@
             // 
             // generalProjectLayout
             // 
+            this.generalProjectLayout.Controls.Add(this.projectTitle);
             this.generalProjectLayout.Controls.Add(this.design);
             this.generalProjectLayout.Controls.Add(this.externalDocumentSize);
             this.generalProjectLayout.Controls.Add(this.client);
@@ -611,7 +618,7 @@
             // 
             // design
             // 
-            this.design.Location = new System.Drawing.Point(451, 62);
+            this.design.Location = new System.Drawing.Point(451, 112);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(405, 20);
             this.design.StyleController = this.generalProjectLayout;
@@ -620,20 +627,20 @@
             // externalDocumentSize
             // 
             this.externalDocumentSize.EditValue = "";
-            this.externalDocumentSize.Location = new System.Drawing.Point(19, 335);
+            this.externalDocumentSize.Location = new System.Drawing.Point(34, 311);
             this.externalDocumentSize.Name = "externalDocumentSize";
             this.externalDocumentSize.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.externalDocumentSize.Properties.Mask.EditMask = "d";
             this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.externalDocumentSize.Properties.Mask.SaveLiteral = false;
             this.externalDocumentSize.Properties.Mask.ShowPlaceHolders = false;
-            this.externalDocumentSize.Size = new System.Drawing.Size(257, 20);
+            this.externalDocumentSize.Size = new System.Drawing.Size(260, 20);
             this.externalDocumentSize.StyleController = this.generalProjectLayout;
             this.externalDocumentSize.TabIndex = 3;
             // 
             // client
             // 
-            this.client.Location = new System.Drawing.Point(32, 62);
+            this.client.Location = new System.Drawing.Point(32, 112);
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(403, 20);
             this.client.StyleController = this.generalProjectLayout;
@@ -645,12 +652,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.plateManufacturersList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.plateManufacturersList.Location = new System.Drawing.Point(34, 112);
+            this.plateManufacturersList.Location = new System.Drawing.Point(34, 162);
             this.plateManufacturersList.MainView = this.plateManufacturersListView;
             this.plateManufacturersList.Name = "plateManufacturersList";
+            this.plateManufacturersList.Size = new System.Drawing.Size(838, 71);
             this.plateManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.manufacturerRepositoryTextEdit});
-            this.plateManufacturersList.Size = new System.Drawing.Size(838, 181);
             this.plateManufacturersList.TabIndex = 10;
             this.plateManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateManufacturersListView});
@@ -698,18 +705,20 @@
             this.clientLayout,
             this.designLayout,
             this.clientEmptySpace,
-            this.plateManufacturersLayout});
+            this.plateManufacturersLayout,
+            this.projectTitleLayout,
+            this.projectTitleEmptySpace});
             this.generalProjectParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalProjectParametersLayoutGroup.Name = "generalProjectParametersLayoutGroup";
-            this.generalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 307);
+            this.generalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 247);
             this.generalProjectParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 5, 7);
-            this.generalProjectParametersLayoutGroup.Text = "Общие параметры проекта : Мой новый трубопровод";
+            this.generalProjectParametersLayoutGroup.Text = "Общие параметры проекта";
             // 
             // clientLayout
             // 
             this.clientLayout.Control = this.client;
             this.clientLayout.CustomizationFormText = "Заказчик";
-            this.clientLayout.Location = new System.Drawing.Point(0, 0);
+            this.clientLayout.Location = new System.Drawing.Point(0, 50);
             this.clientLayout.Name = "clientLayout";
             this.clientLayout.Size = new System.Drawing.Size(419, 40);
             this.clientLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 0);
@@ -721,7 +730,7 @@
             // 
             this.designLayout.Control = this.design;
             this.designLayout.CustomizationFormText = "Производитель";
-            this.designLayout.Location = new System.Drawing.Point(419, 0);
+            this.designLayout.Location = new System.Drawing.Point(419, 50);
             this.designLayout.Name = "designLayout";
             this.designLayout.Size = new System.Drawing.Size(421, 40);
             this.designLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 0);
@@ -733,7 +742,7 @@
             // 
             this.clientEmptySpace.AllowHotTrack = false;
             this.clientEmptySpace.CustomizationFormText = "clientEmptySpace";
-            this.clientEmptySpace.Location = new System.Drawing.Point(840, 0);
+            this.clientEmptySpace.Location = new System.Drawing.Point(840, 50);
             this.clientEmptySpace.Name = "clientEmptySpace";
             this.clientEmptySpace.Size = new System.Drawing.Size(16, 40);
             this.clientEmptySpace.Text = "clientEmptySpace";
@@ -743,9 +752,9 @@
             // 
             this.plateManufacturersLayout.Control = this.plateManufacturersList;
             this.plateManufacturersLayout.CustomizationFormText = "производители листов";
-            this.plateManufacturersLayout.Location = new System.Drawing.Point(0, 40);
+            this.plateManufacturersLayout.Location = new System.Drawing.Point(0, 90);
             this.plateManufacturersLayout.Name = "plateManufacturersLayout";
-            this.plateManufacturersLayout.Size = new System.Drawing.Size(856, 216);
+            this.plateManufacturersLayout.Size = new System.Drawing.Size(856, 106);
             this.plateManufacturersLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 10, 5);
             this.plateManufacturersLayout.Text = "Производители листов";
             this.plateManufacturersLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -755,13 +764,12 @@
             // 
             this.technicalProjectParametersLayoutGroup.CustomizationFormText = "Технические параметры проекта";
             this.technicalProjectParametersLayoutGroup.ExpandButtonVisible = true;
-            this.technicalProjectParametersLayoutGroup.Expanded = false;
             this.technicalProjectParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.externalDocumentSizeLayout,
             this.externalDocumentSizeEmptySpace});
-            this.technicalProjectParametersLayoutGroup.Location = new System.Drawing.Point(0, 307);
+            this.technicalProjectParametersLayoutGroup.Location = new System.Drawing.Point(0, 247);
             this.technicalProjectParametersLayoutGroup.Name = "technicalProjectParametersLayoutGroup";
-            this.technicalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 36);
+            this.technicalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 96);
             this.technicalProjectParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 7, 5);
             this.technicalProjectParametersLayoutGroup.Text = "Технические параметры проекта";
             // 
@@ -771,7 +779,7 @@
             this.externalDocumentSizeLayout.CustomizationFormText = "External document size limit, Kbytes";
             this.externalDocumentSizeLayout.Location = new System.Drawing.Point(0, 0);
             this.externalDocumentSizeLayout.Name = "externalDocumentSizeLayout";
-            this.externalDocumentSizeLayout.Size = new System.Drawing.Size(268, 45);
+            this.externalDocumentSizeLayout.Size = new System.Drawing.Size(271, 45);
             this.externalDocumentSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 5);
             this.externalDocumentSizeLayout.Text = "Допустимый размер внешнего документа, Kbytes";
             this.externalDocumentSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -781,9 +789,9 @@
             // 
             this.externalDocumentSizeEmptySpace.AllowHotTrack = false;
             this.externalDocumentSizeEmptySpace.CustomizationFormText = "externalDocumentSizeEmptySpace";
-            this.externalDocumentSizeEmptySpace.Location = new System.Drawing.Point(268, 0);
+            this.externalDocumentSizeEmptySpace.Location = new System.Drawing.Point(271, 0);
             this.externalDocumentSizeEmptySpace.Name = "externalDocumentSizeEmptySpace";
-            this.externalDocumentSizeEmptySpace.Size = new System.Drawing.Size(580, 45);
+            this.externalDocumentSizeEmptySpace.Size = new System.Drawing.Size(585, 45);
             this.externalDocumentSizeEmptySpace.Text = "externalDocumentSizeEmptySpace";
             this.externalDocumentSizeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1704,6 +1712,28 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
+            // projectTitle
+            // 
+            this.projectTitle.EditValue = "Мой новый трубопровод";
+            this.projectTitle.Location = new System.Drawing.Point(32, 62);
+            this.projectTitle.Name = "projectTitle";
+            this.projectTitle.Properties.ReadOnly = true;
+            this.projectTitle.Size = new System.Drawing.Size(403, 20);
+            this.projectTitle.StyleController = this.generalProjectLayout;
+            this.projectTitle.TabIndex = 14;
+            // 
+            // projectTitleLayout
+            // 
+            this.projectTitleLayout.Control = this.projectTitle;
+            this.projectTitleLayout.CustomizationFormText = "Название проекта";
+            this.projectTitleLayout.Location = new System.Drawing.Point(0, 0);
+            this.projectTitleLayout.Name = "projectTitleLayout";
+            this.projectTitleLayout.Size = new System.Drawing.Size(419, 50);
+            this.projectTitleLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 10);
+            this.projectTitleLayout.Text = "Название проекта";
+            this.projectTitleLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.projectTitleLayout.TextSize = new System.Drawing.Size(251, 13);
+             // 
             // inspectorLNRepositoryTextEdit
             // 
             this.inspectorLNRepositoryTextEdit.AutoHeight = false;
@@ -1723,6 +1753,17 @@
             // 
             this.inspectorCertificateTextEdit.AutoHeight = false;
             this.inspectorCertificateTextEdit.Name = "inspectorCertificateTextEdit";
+            // 
+            // 
+            // projectTitleEmptySpace
+            // 
+            this.projectTitleEmptySpace.AllowHotTrack = false;
+            this.projectTitleEmptySpace.CustomizationFormText = "projectTitleEmptySpace";
+            this.projectTitleEmptySpace.Location = new System.Drawing.Point(419, 0);
+            this.projectTitleEmptySpace.Name = "projectTitleEmptySpace";
+            this.projectTitleEmptySpace.Size = new System.Drawing.Size(437, 50);
+            this.projectTitleEmptySpace.Text = "projectTitleEmptySpace";
+            this.projectTitleEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // SettingsXtraForm
             // 
@@ -1835,6 +1876,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).EndInit();
@@ -1969,6 +2013,9 @@
         private DevExpress.XtraLayout.LayoutControl layoutControlInspectors;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemInspectors;
+        private DevExpress.XtraEditors.TextEdit projectTitle;
+        private DevExpress.XtraLayout.LayoutControlItem projectTitleLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem projectTitleEmptySpace;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit manufacturerRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit typeRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit codeRepositoryTextEdit;

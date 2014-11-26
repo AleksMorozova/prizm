@@ -9,5 +9,6 @@ namespace Data.DAL.Mill
 {
     public interface IChemicalCompositionRepository : IRepository<Guid, ChemicalComposition>
     {
+        IList<ChemicalComposition> GetByHeatId(Guid heatId);
     }
 }
