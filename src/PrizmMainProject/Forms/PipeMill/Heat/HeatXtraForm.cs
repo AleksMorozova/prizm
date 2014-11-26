@@ -86,7 +86,21 @@ namespace PrizmMain.Forms.PipeMill.Heat
             new Domain.Entity.Mill.Heat(){Number = "7652359"},
             new Domain.Entity.Mill.Heat(){Number = "125855"}
         };
-            number.Properties.DataSource = heats; 
+            number.Properties.DataSource = heats;
+            number.EditValue = number.Properties.GetKeyValue(0);
+
+            List<PlateManufacturer> manufacturers = new List<PlateManufacturer>()
+            {
+                new PlateManufacturer(){Name = "Криворожский металургический комбинат"},
+                new PlateManufacturer(){Name = "Нижнеднепровский трубопрокатный завод"},
+                new PlateManufacturer(){Name = "Армавирский завод промышленного оборудования"},
+                new PlateManufacturer(){Name = "Новгородский металургический завод"},
+                new PlateManufacturer(){Name = "Гурьевский металургический завод"},
+                new PlateManufacturer(){Name = "Ижевский металургический завод"},
+                new PlateManufacturer(){Name = "Щелковский металургический завод"}
+            };
+            plateManufacturer.Properties.DataSource = manufacturers;
+            plateManufacturer.EditValue = plateManufacturer.Properties.GetKeyValue(0);
 
             List<ChemicalComposition> chem = new List<ChemicalComposition>()
         {
@@ -99,7 +113,39 @@ namespace PrizmMain.Forms.PipeMill.Heat
         };
             chemicalGrid.DataSource = chem;
             steelGrade.Text = "H18N9T";
-  
+
+            List<TensileTest> tests = new List<TensileTest>()
+            {
+                new TensileTest()
+                {
+                    Parameter = "Предел текучести, Rt0.5,",
+                    BaseValue = 645f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Временное сопротивление, Rm,МПа",
+                    BaseValue = 700f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Удлиннение на 2 дюймах (50,8мм)",
+                    BaseValue = 32f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "ИПГ при t=0С,ср.,%",
+                    BaseValue = 100f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Доля вязкой сост. на ударных образцах при t=-10C,ср.,%",
+                    BaseValue = 100f,
+                },
+            };
+
+            phisicalGrid.DataSource = tests;
+
+
 
         }
 
