@@ -257,6 +257,7 @@
             // 
             this.barButtonItemNewRailcar.Caption = "&Новый вагон";
             this.barButtonItemNewRailcar.Id = 37;
+            this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
             this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
             this.barButtonItemNewRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRailcar_ItemClick);
             // 

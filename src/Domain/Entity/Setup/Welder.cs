@@ -9,6 +9,7 @@ namespace Domain.Entity
         public Welder()
         {
            Name = new PersonName();
+           Welds = new List<Weld>();
         }
 
         public virtual string Certificate { get; set; }
@@ -16,5 +17,6 @@ namespace Domain.Entity
         public virtual string Stamp { get; set; }
         public virtual int Grade { get; set; }
         public virtual PersonName Name { get; set; }
+        public virtual IList<Weld> Welds { get; set; }
     }
 }

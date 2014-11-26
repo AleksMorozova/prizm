@@ -58,5 +58,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             return true;
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

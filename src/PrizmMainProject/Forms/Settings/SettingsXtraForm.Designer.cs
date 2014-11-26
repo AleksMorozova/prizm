@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -38,7 +39,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,7 +80,7 @@
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
-            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,7 +97,7 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roles = new DevExpress.XtraGrid.GridControl();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,7 +154,7 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -1510,18 +1511,20 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(843, 404);
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(840, 404);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(78, 22);
+            this.closeButton.Size = new System.Drawing.Size(81, 22);
             this.closeButton.StyleController = this.generalSettingsLayout;
             this.closeButton.TabIndex = 5;
             this.closeButton.Text = "За&крыть";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(751, 404);
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(734, 404);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(78, 22);
+            this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalSettingsLayout;
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Со&хранить";
@@ -1560,9 +1563,9 @@
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(824, 395);
+            this.closeButtonLayout.Location = new System.Drawing.Point(821, 395);
             this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(92, 31);
+            this.closeButtonLayout.Size = new System.Drawing.Size(95, 31);
             this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1575,7 +1578,7 @@
             this.buttonEmptySpaceItem.CustomizationFormText = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 395);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(732, 31);
+            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(715, 31);
             this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1583,9 +1586,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(732, 395);
+            this.saveButtonLayout.Location = new System.Drawing.Point(715, 395);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(92, 31);
+            this.saveButtonLayout.Size = new System.Drawing.Size(106, 31);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);

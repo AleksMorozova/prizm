@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionReportsXtraForm));
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
             this.toDate = new DevExpress.XtraEditors.DateEdit();
@@ -44,17 +45,19 @@
             // 
             // previewButton
             // 
-            this.previewButton.Location = new System.Drawing.Point(420, 36);
+            this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
+            this.previewButton.Location = new System.Drawing.Point(404, 36);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(89, 23);
+            this.previewButton.Size = new System.Drawing.Size(105, 23);
             this.previewButton.TabIndex = 56;
             this.previewButton.Text = "&Предпросмотр";
             // 
             // createReportButton
             // 
+            this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
             this.createReportButton.Location = new System.Drawing.Point(533, 35);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(89, 23);
+            this.createReportButton.Size = new System.Drawing.Size(110, 23);
             this.createReportButton.TabIndex = 55;
             this.createReportButton.Text = "Соз&дать отчет";
             // 

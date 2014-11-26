@@ -35,5 +35,6 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             return true;
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

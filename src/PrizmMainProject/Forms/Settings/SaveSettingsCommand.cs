@@ -109,5 +109,6 @@ namespace PrizmMain.Forms.Settings
                 repos.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
             }
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

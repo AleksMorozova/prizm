@@ -50,5 +50,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             return (viewModel.Railcar.ShippingDate != DateTime.MinValue);
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

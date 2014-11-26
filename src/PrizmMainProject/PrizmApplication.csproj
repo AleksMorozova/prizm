@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Common\ControlColorExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
       <SubType>UserControl</SubType>
@@ -214,6 +215,12 @@
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.Designer.cs">
+      <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
