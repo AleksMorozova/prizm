@@ -280,7 +280,6 @@
             this.shippedDate.Size = new System.Drawing.Size(101, 20);
             this.shippedDate.StyleController = this.generalLayout;
             this.shippedDate.TabIndex = 12;
-            this.shippedDate.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.shippedDate_EditValueChanging);
             // 
             // certificateNumber
             // 

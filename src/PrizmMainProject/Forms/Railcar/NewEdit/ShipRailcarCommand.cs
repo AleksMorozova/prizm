@@ -47,7 +47,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                    if (railcar.ShippingDate == DateTime.MinValue)
+                if (railcar.ShippingDate == DateTime.MinValue || railcar.ShippingDate == null)
                     {
                         railcar.ShippingDate = DateTime.Now;
                     }
