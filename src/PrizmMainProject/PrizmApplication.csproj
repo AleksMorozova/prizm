@@ -389,6 +389,9 @@
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\PurchaseOrderXtraForm.resx">
+      <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1219,6 +1219,7 @@
             this.purchaseOrderButton.Size = new System.Drawing.Size(26, 22);
             this.purchaseOrderButton.StyleController = this.generalPipeLayout;
             this.purchaseOrderButton.TabIndex = 31;
+            this.purchaseOrderButton.Click += new System.EventHandler(this.purchaseOrderButton_Click);
             // 
             // heatButton
             // 
