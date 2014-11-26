@@ -54,7 +54,6 @@
             this.joinStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointWeldingDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -326,8 +325,7 @@
             this.jointNumberGridColumn,
             this.joinStatusGridColumn,
             this.jointWeldingDateColumn,
-            this.repairGridColumn,
-            this.extraGridColumn});
+            this.repairGridColumn});
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
             this.resultView.OptionsBehavior.Editable = false;
@@ -336,7 +334,7 @@
             // 
             // jointNumberGridColumn
             // 
-            this.jointNumberGridColumn.Caption = "Стык №";
+            this.jointNumberGridColumn.Caption = "Номер стыка";
             this.jointNumberGridColumn.FieldName = "ID";
             this.jointNumberGridColumn.Name = "jointNumberGridColumn";
             this.jointNumberGridColumn.Visible = true;
@@ -369,14 +367,6 @@
             this.repairGridColumn.Visible = true;
             this.repairGridColumn.VisibleIndex = 3;
             this.repairGridColumn.Width = 150;
-            // 
-            // extraGridColumn
-            // 
-            this.extraGridColumn.ColumnEdit = this.extraJointButton;
-            this.extraGridColumn.Name = "extraGridColumn";
-            this.extraGridColumn.Visible = true;
-            this.extraGridColumn.VisibleIndex = 4;
-            this.extraGridColumn.Width = 94;
             // 
             // JointSearchXtraForm
             // 
@@ -422,7 +412,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn jointNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn joinStatusGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn repairGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
         private DevExpress.XtraEditors.TextEdit pegNumber;
         private DevExpress.XtraLayout.LayoutControl searchLayoutControl;
         private DevExpress.XtraEditors.TextEdit jointNumber;

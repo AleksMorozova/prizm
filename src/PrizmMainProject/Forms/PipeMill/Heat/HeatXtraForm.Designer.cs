@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.plateManufacturer = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -59,7 +60,7 @@
             this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
@@ -393,7 +394,7 @@
             this.chemicalLayoutControl.Name = "chemicalLayoutControl";
             this.chemicalLayoutControl.Size = new System.Drawing.Size(521, 456);
             this.chemicalLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 15, 0);
-            this.chemicalLayoutControl.Text = "Ковшовой химический состав";
+            this.chemicalLayoutControl.Text = "Ковшевой химический состав";
             this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.chemicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 

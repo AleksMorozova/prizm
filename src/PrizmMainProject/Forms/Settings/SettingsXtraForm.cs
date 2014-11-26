@@ -210,6 +210,11 @@ namespace PrizmMain.Forms.Settings
             inspectorMNRepositoryTextEdit.MaxLength = 20;
             inspectorCertificateTextEdit.MaxLength = 20;
         }
+
+        private void gridControlInspectors_Click(object sender, EventArgs e)
+        {
+
+        }
         
     }
 
