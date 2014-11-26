@@ -36,7 +36,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             InitializeComponent();
             SetControlsTextLength();
-
+            Dummy();
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
@@ -419,5 +419,62 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             valueRepositoryTextEdit.MaxLength = 20;
             //TODO: limit fields for Plate and heat parameters tab
         }
+
+        #region DummyData
+
+        private void Dummy()
+        {
+            
+           
+            List<ChemicalComposition> chem = new List<ChemicalComposition>()
+        {
+            new ChemicalComposition(){Parameter = "C",HeatValue = 0.06f, PlateValue = 0.06f,PipeValue = 0.06f},
+            new ChemicalComposition(){Parameter = "Mn",HeatValue = 1.64f, PlateValue = 1.64f},
+            new ChemicalComposition(){Parameter = "Si",HeatValue = 0.29f ,PlateValue = 0.29f,PipeValue = 0.29f},
+            new ChemicalComposition(){Parameter = "P",HeatValue = 0.007f, PlateValue = 0.006f,PipeValue = 0.006f},
+            new ChemicalComposition(){Parameter = "S",HeatValue = 0.001f, PlateValue = 0,},
+            new ChemicalComposition(){Parameter = "Mo",HeatValue = 0.175f, PlateValue = 0.175f}
+        };
+            chemicalComposition.DataSource = chem;
+            steelGrade.Text = "H18N9T";
+
+            List<TensileTest> tests = new List<TensileTest>()
+            {
+                new TensileTest()
+                {
+                    Parameter = "Предел текучести, Rt0.5,",
+                    BaseValue = 645f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Временное сопротивление, Rm,МПа",
+                    BaseValue = 700f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Удлиннение на 2 дюймах (50,8мм)",
+                    BaseValue = 32f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "ИПГ при t=0С,ср.,%",
+                    BaseValue = 100f,
+                },
+                new TensileTest()
+                {
+                    Parameter = "Доля вязкой сост. на ударных образцах при t=-10C,ср.,%",
+                    BaseValue = 100f,
+                },
+            };
+
+            tensileTests.DataSource = tests;
+
+
+
+        }
+
+
+
+        #endregion
     }
 }
