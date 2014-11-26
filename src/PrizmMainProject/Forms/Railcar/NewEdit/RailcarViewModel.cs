@@ -212,12 +212,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (Railcar == null)
             {
-                Railcar = new Domain.Entity.Mill.Railcar {IsActive = true};
+                Railcar = new Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
             }
             Number = string.Empty;
             Destination = string.Empty;
             ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
+
             Pipes = new List<Pipe>();
         }
 
