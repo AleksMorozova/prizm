@@ -154,7 +154,7 @@
     <value>Визуальный контроль</value>
   </data>
   <data name="Review" xml:space="preserve">
-    <value>Проверка по доументации</value>
+    <value>Проверка по документации</value>
   </data>
   <data name="String" xml:space="preserve">
     <value>Строковое значение</value>
@@ -213,7 +213,7 @@
   <data name="Scheduled" xml:space="preserve">
     <value>Ожидается</value>
   </data>
-   <data name="COAT_EXTERNAL" xml:space="preserve">
+  <data name="COAT_EXTERNAL" xml:space="preserve">
     <value>Внешнее</value>
   </data>
   <data name="COAT_INTERNAL" xml:space="preserve">
