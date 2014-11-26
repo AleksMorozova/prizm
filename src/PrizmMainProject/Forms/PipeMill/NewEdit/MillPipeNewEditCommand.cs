@@ -41,9 +41,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.RaiseCanExecuteChanged(x => x.Execute());
         }
 
-
-
-
         public bool CanExecute()
         {
             bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&

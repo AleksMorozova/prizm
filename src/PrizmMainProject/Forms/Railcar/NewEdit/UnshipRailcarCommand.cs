@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
 using Ninject;
@@ -51,5 +52,10 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             return (viewModel.Railcar.ShippingDate != DateTime.MinValue);
         }
         public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
     }
 }
