@@ -20,6 +20,8 @@ using PrizmMain.Properties;
 using System.Collections;
 using System.Drawing;
 
+using PrizmMain.Common;
+
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : ChildForm
@@ -42,6 +44,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
             purchaseOrderDate.Properties.NullText = string.Empty;
 
+            pipeNumber.SetRequiredText();
+            pipeSize.SetRequiredCombo();
+            heatNumber.SetRequiredCombo();
+            purchaseOrder.SetRequiredCombo();
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -242,15 +248,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(heatNumber.Text))
-            {
-                heatNumber.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                heatNumber.BackColor = Color.White;
-            }
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,16 +255,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-           
-            if (string.IsNullOrEmpty(pipeSize.Text))
-            {
-                pipeSize.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                pipeSize.BackColor = Color.White;
-            }
-
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,15 +262,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(purchaseOrder.Text))
-            {
-                purchaseOrder.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                purchaseOrder.BackColor = Color.White;
-            }
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
@@ -291,15 +269,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.Number = pipeNumber.Text;
             ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
                 !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(pipeNumber.Text))
-            {
-                pipeNumber.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                pipeNumber.BackColor = Color.White;
-            }
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
