@@ -25,6 +25,7 @@ using PrizmMain.Forms.Spool;
 
 using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
+using PrizmMain.Forms.PipeMill.Heat;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -293,6 +294,11 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
 
+        private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(HeatXtraForm));
+        }
+
 
         #region IUserNotify
         public void ShowError(string text, string header)
@@ -350,6 +356,8 @@ namespace PrizmMain.Forms.MainChildForm
             alertControl.Show(this, ai);
         }
         #endregion
+
+
 
 
     }

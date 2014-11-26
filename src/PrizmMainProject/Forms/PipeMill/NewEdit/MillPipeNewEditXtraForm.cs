@@ -387,5 +387,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
            }
         }
 
+        private void heatButton_Click(object sender, EventArgs e)
+        {
+            var parent = this.MdiParent as PrizmApplicationXtraForm;
+            parent.CreateChildForm(typeof(HeatXtraForm), new ConstructorArgument("heatNumber", heatNumber.Text));
+        }
+
     }
 }
