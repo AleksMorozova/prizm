@@ -1228,6 +1228,7 @@
             this.heatButton.Size = new System.Drawing.Size(26, 22);
             this.heatButton.StyleController = this.generalPipeLayout;
             this.heatButton.TabIndex = 30;
+            this.heatButton.Click += new System.EventHandler(this.heatButton_Click);
             // 
             // saveAndNewButton
             // 
