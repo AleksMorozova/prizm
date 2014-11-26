@@ -107,7 +107,7 @@
             // 
             // plateManufacturer
             // 
-            this.plateManufacturer.Location = new System.Drawing.Point(543, 38);
+            this.plateManufacturer.Location = new System.Drawing.Point(550, 38);
             this.plateManufacturer.Name = "plateManufacturer";
             this.plateManufacturer.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.plateManufacturer.Properties.Appearance.Options.UseBackColor = true;
@@ -118,7 +118,7 @@
             this.plateManufacturer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.plateManufacturer.Properties.ValueMember = "Name";
             this.plateManufacturer.Properties.View = this.gridView1;
-            this.plateManufacturer.Size = new System.Drawing.Size(519, 20);
+            this.plateManufacturer.Size = new System.Drawing.Size(512, 20);
             this.plateManufacturer.StyleController = this.masterLayoutControl;
             this.plateManufacturer.TabIndex = 9;
             // 
@@ -169,17 +169,24 @@
             // 
             // tensileParameter
             // 
+            this.tensileParameter.AppearanceCell.Options.UseTextOptions = true;
+            this.tensileParameter.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.tensileParameter.Caption = "Параметр";
+            this.tensileParameter.FieldName = "Parameter";
             this.tensileParameter.Name = "tensileParameter";
+            this.tensileParameter.OptionsColumn.ReadOnly = true;
             this.tensileParameter.Visible = true;
             this.tensileParameter.VisibleIndex = 0;
             // 
             // tensileValue
             // 
             this.tensileValue.Caption = "Значение";
+            this.tensileValue.FieldName = "BaseValue";
+            this.tensileValue.MaxWidth = 70;
             this.tensileValue.Name = "tensileValue";
             this.tensileValue.Visible = true;
             this.tensileValue.VisibleIndex = 1;
+            this.tensileValue.Width = 50;
             // 
             // chemicalGrid
             // 
@@ -208,6 +215,7 @@
             this.chemElement.Caption = "Элемент";
             this.chemElement.FieldName = "Parameter";
             this.chemElement.Name = "chemElement";
+            this.chemElement.OptionsColumn.ReadOnly = true;
             this.chemElement.Visible = true;
             this.chemElement.VisibleIndex = 0;
             // 
@@ -375,7 +383,7 @@
             this.phisicalLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 15, 0);
             this.phisicalLayoutControl.Text = "Механические испытания";
             this.phisicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(157, 13);
+            this.phisicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // chemicalLayoutControl
             // 
@@ -387,7 +395,7 @@
             this.chemicalLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 15, 0);
             this.chemicalLayoutControl.Text = "Ковшовой химический состав";
             this.chemicalLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(157, 13);
+            this.chemicalLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // numberLayoutControl
             // 
@@ -399,7 +407,7 @@
             this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
             this.numberLayoutControl.Text = "Номер плавки";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayoutControl.TextSize = new System.Drawing.Size(157, 13);
+            this.numberLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // steelLayoutControl
             // 
@@ -411,18 +419,19 @@
             this.steelLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.steelLayoutControl.Text = "Марка стали";
             this.steelLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.steelLayoutControl.TextSize = new System.Drawing.Size(157, 13);
+            this.steelLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // plateManufacturerLayoutControl
             // 
             this.plateManufacturerLayoutControl.Control = this.plateManufacturer;
-            this.plateManufacturerLayoutControl.CustomizationFormText = "plateManufacturerLayoutControl";
+            this.plateManufacturerLayoutControl.CustomizationFormText = "Производитель листа";
             this.plateManufacturerLayoutControl.Location = new System.Drawing.Point(521, 0);
             this.plateManufacturerLayoutControl.Name = "plateManufacturerLayoutControl";
             this.plateManufacturerLayoutControl.Size = new System.Drawing.Size(523, 40);
-            this.plateManufacturerLayoutControl.Text = "plateManufacturerLayoutControl";
+            this.plateManufacturerLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 0);
+            this.plateManufacturerLayoutControl.Text = "Производитель листа";
             this.plateManufacturerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(157, 13);
+            this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
             // layoutControlItem1
             // 
