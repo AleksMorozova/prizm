@@ -14,11 +14,28 @@ namespace PrizmMain.Forms.PipeMill
 {
     public partial class PurchaseOrderXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public PurchaseOrderXtraForm(PurchaseOrder order)
+        public PurchaseOrderXtraForm()
+            : this("", "")
+        {
+
+        }
+        public PurchaseOrderXtraForm(string orderNumber, string date)
         {
             InitializeComponent();
-            purchaseOrderNumber.Text = order.Number;
-            purchaseOrderDate.Text = order.Date.ToShortDateString();
+            purchaseOrderNumber.Text = orderNumber;
+
+            if (string.IsNullOrWhiteSpace(orderNumber))
+            {
+                //TODO: create new order
+            }
+            else
+            {
+                //TODO: get order from repo by number 
+                purchaseOrderDate.Text = date;
+                purchaseOrderNumber.Text = orderNumber;
+            }
         }
+
+
     }
 }
