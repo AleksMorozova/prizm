@@ -48,6 +48,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
+            millStatus.SetRequiredCombo();
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -181,15 +182,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
         {
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            {
-                viewModel.PipeMillSizeType = currentPipeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                inspections.RefreshDataSource();
-            }
+
         }
         
         
@@ -263,6 +256,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
+            viewModel.NewEditCommand.IsExecutable ^= true;
+        }
+
+        private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
             viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
@@ -386,6 +385,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               weld.Pipe = viewModel.Pipe;
            }
         }
+
+
 
     }
 }
