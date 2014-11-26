@@ -165,6 +165,7 @@
             // chemElement
             // 
             this.chemElement.Caption = "Элемент";
+            this.chemElement.FieldName = "Parameter";
             this.chemElement.Name = "chemElement";
             this.chemElement.Visible = true;
             this.chemElement.VisibleIndex = 0;
@@ -172,6 +173,7 @@
             // chemHeatValue
             // 
             this.chemHeatValue.Caption = "Плавка, %";
+            this.chemHeatValue.FieldName = "HeatValue";
             this.chemHeatValue.Name = "chemHeatValue";
             this.chemHeatValue.Visible = true;
             this.chemHeatValue.VisibleIndex = 1;
@@ -179,6 +181,7 @@
             // chemPlateValue
             // 
             this.chemPlateValue.Caption = "Лист, %";
+            this.chemPlateValue.FieldName = "PlateValue";
             this.chemPlateValue.Name = "chemPlateValue";
             this.chemPlateValue.Visible = true;
             this.chemPlateValue.VisibleIndex = 2;
@@ -186,6 +189,7 @@
             // chemPipeValue
             // 
             this.chemPipeValue.Caption = "Труба, %";
+            this.chemPipeValue.FieldName = "PipeValue";
             this.chemPipeValue.Name = "chemPipeValue";
             this.chemPipeValue.Visible = true;
             this.chemPipeValue.VisibleIndex = 3;
