@@ -1181,7 +1181,7 @@
             this.pipeSize.Size = new System.Drawing.Size(169, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
-            this.pipeSize.SelectedValueChanged += new System.EventHandler(this.pipeSize_SelectedValueChanged);
+            this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
             // 
             // generalPipeLayout
             // 
@@ -1340,12 +1340,15 @@
             // 
             this.millStatus.Location = new System.Drawing.Point(1162, 27);
             this.millStatus.Name = "millStatus";
+            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.millStatus.Properties.Appearance.Options.UseBackColor = true;
             this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.millStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.millStatus.Size = new System.Drawing.Size(99, 20);
             this.millStatus.StyleController = this.generalPipeLayout;
             this.millStatus.TabIndex = 4;
+            this.millStatus.SelectedIndexChanged += new System.EventHandler(this.millStatus_SelectedIndexChanged);
             // 
             // pipeNumber
             // 
