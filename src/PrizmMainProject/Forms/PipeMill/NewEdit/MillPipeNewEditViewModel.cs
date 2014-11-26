@@ -504,7 +504,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
-            this.Pipe.Status = PipeMillStatus.Undefined;
+            this.Pipe.Status = PipeMillStatus.Produced;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
