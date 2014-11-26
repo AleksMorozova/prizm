@@ -106,9 +106,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void shippedDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
+            
+        }
+
+        private void ButtonRefresh()
+        {
             viewModel.ShipCommand.IsExecutable ^= true;
             viewModel.UnshipCommand.IsExecutable ^= true;
         }
-
     }
 }

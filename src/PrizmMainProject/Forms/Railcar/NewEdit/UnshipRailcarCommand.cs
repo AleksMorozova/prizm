@@ -49,7 +49,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         }
         public bool CanExecute()
         {
-            return (viewModel.Railcar.ShippingDate != DateTime.MinValue);
+            return (viewModel.Railcar.IsShipped);
         }
         public virtual bool IsExecutable { get; set; }
 
