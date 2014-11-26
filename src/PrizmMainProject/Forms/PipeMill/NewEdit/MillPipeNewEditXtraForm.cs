@@ -261,6 +261,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
             viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
