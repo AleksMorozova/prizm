@@ -174,7 +174,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
-            
         }
 
         /// <summary>
@@ -246,29 +245,25 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
