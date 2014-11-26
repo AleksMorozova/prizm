@@ -5,5 +5,7 @@
         void Execute();
 
         bool CanExecute();
+
+        bool IsExecutable { get; set; }
     }
 }

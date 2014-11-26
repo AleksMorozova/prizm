@@ -65,5 +65,6 @@ namespace PrizmMain.Forms.Railcar.Search
         {
             return true;
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

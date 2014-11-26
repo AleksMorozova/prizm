@@ -33,5 +33,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             return true;
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }
