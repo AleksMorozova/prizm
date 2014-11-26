@@ -177,15 +177,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
         }
 
-        /// <summary>
-        /// Refreshes list of required pipe test results if mill size type was changed
-        /// </summary>
-        private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
-        {
 
-        }
-        
-        
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
            if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
@@ -241,8 +233,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
+        /// <summary>
+        /// Refreshes list of required pipe test results if mill size type was changed
+        /// </summary>
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspections.RefreshDataSource();
+            }
+
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
             viewModel.NewEditCommand.IsExecutable ^= true;
         }
@@ -385,8 +392,5 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               weld.Pipe = viewModel.Pipe;
            }
         }
-
-
-
     }
 }
