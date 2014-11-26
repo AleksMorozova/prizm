@@ -37,7 +37,6 @@ namespace PrizmMain
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
-
             Bind<IPlateRepository>().To<PlateRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
@@ -45,11 +44,11 @@ namespace PrizmMain
             Bind<IPipeTestResultRepository>().To<PipeTestResultRepository>();
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
-
             Bind<IMillRepository>().To<MillRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
+            Bind<IHeatRepositories>().To<HeatRepositories>();
 
             #endregion
 

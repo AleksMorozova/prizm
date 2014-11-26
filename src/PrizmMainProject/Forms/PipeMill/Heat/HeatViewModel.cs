@@ -15,14 +15,14 @@ namespace PrizmMain.Forms.PipeMill.Heat
 {
     public class HeatViewModel : ViewModelBase, IDisposable
     {
-        private readonly IHeatRepository heatRepo;
+        private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
         
         [Inject]
-        public HeatViewModel(IHeatRepository heatRepository, string heatNumber)
+        public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
         {
-            this.heatRepo = heatRepository;
-            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, heatRepo));
+            this.repo = heatRepository;
+            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo));
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
@@ -30,7 +30,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
             else
             {
-                var answer = heatRepo.GetByNumber(heatNumber);
+                var answer = repo.HeatRepo.GetByNumber(heatNumber);
                 if (answer == null)
                 {
                     NewHeat(heatNumber);
@@ -40,9 +40,22 @@ namespace PrizmMain.Forms.PipeMill.Heat
                     Heat = answer;
                 }
             }
+            GetAllHeat();
         }
 
-        public Domain.Entity.Mill.Heat Heat { get; set; }
+        private Domain.Entity.Mill.Heat heat;
+        public Domain.Entity.Mill.Heat Heat 
+        { 
+            get {return heat;}
+            set 
+            {
+                if (heat != value)
+                {
+                    heat = value;
+                    RaisePropertyChanged("Heat");
+                }
+            }
+        }
 
         public string Number
         {
@@ -57,9 +70,20 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
+        public string Steel
+        {
+            get { return Heat.SteelGrade; }
+            set
+            {
+                if (value != Heat.SteelGrade)
+                {
+                    Heat.SteelGrade = value;
+                    RaisePropertyChanged("SteelGrade");
+                }
+            }
+        }
 
-
-        public ChemicalComposition Chemical
+        public IList<ChemicalComposition> ChemicalCompositions
         {
             get { return Heat.ChemicalComposition; }
             set
@@ -72,7 +96,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        public PhysicalParameters Phisical
+        public IList<PhysicalParameters> PhysicalParameters
         {
             get { return Heat.PhysicalParameters; }
             set
@@ -85,6 +109,9 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
+        private IList<Domain.Entity.Mill.Heat> allHeats;
+        public IList<Domain.Entity.Mill.Heat> AllHeats { get { return allHeats; } }
+
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -93,19 +120,26 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         public void Dispose()
         {
-            heatRepo.Dispose();
+            repo.Dispose();
         }
 
         public void NewHeat(string number)
         {
-            if (Heat == null)
+            Heat = new Domain.Entity.Mill.Heat()
             {
-                Heat = new Domain.Entity.Mill.Heat();
-                Heat.Number = number;
 
-                Heat.PhysicalParameters = new PhysicalParameters();
-                Heat.ChemicalComposition = new ChemicalComposition();
-            }
+            };
+        }
+
+        private void GetAllHeat()
+        {
+            allHeats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+        }
+
+
+        internal void GetHeatByNumber(string number)
+        {
+            Heat = repo.HeatRepo.GetByNumber(number);
         }
     }
 }

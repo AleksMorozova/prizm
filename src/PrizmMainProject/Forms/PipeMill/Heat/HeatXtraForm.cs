@@ -3,17 +3,28 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
+using PrizmMain.Forms.MainChildForm;
+using System.Linq;
+using System.Collections.Generic;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    public partial class HeatXtraForm : XtraForm
+    public partial class HeatXtraForm : ChildForm
     {
+
         private HeatViewModel viewModel;
+
+        public HeatXtraForm() : this("")
+        {
+
+        }
 
         public HeatXtraForm(string heatNumber)
         {
             InitializeComponent();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
+            Dummy();
         }
 
         private void HeatXtraForm_Load(object sender, EventArgs e)
@@ -24,9 +35,11 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void BindToViewModel()
         {
-            bindingSource.DataSource = viewModel;
 
-            number.DataBindings.Add("EditValue", bindingSource, "Number");
+            //bindingSource.DataSource = viewModel;
+            //number.Properties.DataSource = viewModel.AllHeats;
+            //number.DataBindings.Add("EditValue", bindingSource, "Heat");
+            //steelGrade.DataBindings.Add("EditValue", bindingSource, "Steel");
 
         }
 
@@ -40,5 +53,58 @@ namespace PrizmMain.Forms.PipeMill.Heat
             viewModel.Dispose();
             viewModel = null;
         }
+
+        private void number_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //if (viewModel.AllHeats.Where(x => x.Number.Equals(number.Text)) != null)
+            //{
+            //    viewModel.GetHeatByNumber(number.Text);
+            //}
+            //else
+            //{
+            //    viewModel.NewHeat(number.Text);
+            //}
+        }
+
+        private void number_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+                //viewModel.NewHeat(number.Text);
+        }
+
+
+        #region DummyData
+
+        private void Dummy() 
+        {
+            List<Domain.Entity.Mill.Heat> heats = new List<Domain.Entity.Mill.Heat>()
+        {
+            new Domain.Entity.Mill.Heat(){Number = "1256985"},
+            new Domain.Entity.Mill.Heat(){Number = "2456867"},
+            new Domain.Entity.Mill.Heat(){Number = "7435611"},
+            new Domain.Entity.Mill.Heat(){Number = "1451363"},
+            new Domain.Entity.Mill.Heat(){Number = "6451238"},
+            new Domain.Entity.Mill.Heat(){Number = "7652359"},
+            new Domain.Entity.Mill.Heat(){Number = "125855"}
+        };
+            number.Properties.DataSource = heats; 
+
+            List<ChemicalComposition> chem = new List<ChemicalComposition>()
+        {
+            new ChemicalComposition(){Parameter = "C",HeatValue = 0.06f, PlateValue = 0.06f,PipeValue = 0.06f},
+            new ChemicalComposition(){Parameter = "Mn",HeatValue = 1.64f, PlateValue = 1.64f},
+            new ChemicalComposition(){Parameter = "Si",HeatValue = 0.29f ,PlateValue = 0.29f,PipeValue = 0.29f},
+            new ChemicalComposition(){Parameter = "P",HeatValue = 0.007f, PlateValue = 0.006f,PipeValue = 0.006f},
+            new ChemicalComposition(){Parameter = "S",HeatValue = 0.001f, PlateValue = 0,},
+            new ChemicalComposition(){Parameter = "Mo",HeatValue = 0.175f, PlateValue = 0.175f}
+        };
+            chemicalGrid.DataSource = chem;
+            steelGrade.Text = "H18N9T";
+  
+
+        }
+
+        
+
+        #endregion
     }
 }
