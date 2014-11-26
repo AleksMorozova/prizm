@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -39,9 +38,10 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isShipped = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dest = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -139,6 +139,7 @@
             // 
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.editGridColumn,
+            this.isShipped,
             this.number,
             this.dest,
             this.certificate,
@@ -158,6 +159,12 @@
             this.editGridColumn.MaxWidth = 30;
             this.editGridColumn.Name = "editGridColumn";
             this.editGridColumn.Width = 30;
+            // 
+            // isShipped
+            // 
+            this.isShipped.Caption = "Статус отправки";
+            this.isShipped.FieldName = "IsShipped";
+            this.isShipped.Name = "isShipped";
             // 
             // number
             // 
@@ -498,5 +505,6 @@
         private DevExpress.XtraLayout.LayoutControlItem shippedDateLayoutControl;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit shipGridButton;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit unshipGridButton;
+        private DevExpress.XtraGrid.Columns.GridColumn isShipped;
     }
 }
