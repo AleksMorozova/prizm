@@ -120,7 +120,6 @@
             this.purchaseOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.heatButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
-            this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.deactivate = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -143,8 +142,6 @@
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.closeButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.isActiveEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -154,6 +151,7 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valueRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -249,8 +247,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).BeginInit();
@@ -260,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -395,6 +392,8 @@
             // 
             this.plateThickness.Location = new System.Drawing.Point(471, 65);
             this.plateThickness.Name = "plateThickness";
+            this.plateThickness.Properties.Mask.EditMask = "d";
+            this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.plateThickness.Size = new System.Drawing.Size(149, 20);
             this.plateThickness.StyleController = this.pipeGeneralParametersLayout;
             this.plateThickness.TabIndex = 58;
@@ -914,6 +913,7 @@
             // 
             this.steelGrade.Location = new System.Drawing.Point(656, 65);
             this.steelGrade.Name = "steelGrade";
+            this.steelGrade.Properties.ReadOnly = true;
             this.steelGrade.Size = new System.Drawing.Size(175, 20);
             this.steelGrade.StyleController = this.tabPagesLayout;
             this.steelGrade.TabIndex = 54;
@@ -1030,8 +1030,8 @@
             this.inspections.Name = "inspections";
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ResultStatusLookUpEdit,
-            this.inspectorsPopupContainerEdit});
-            this.inspections.Size = new System.Drawing.Size(1200, 380);
+            this.inspectorsPopupContainerEdit,
+            this.valueRepositoryTextEdit});
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
@@ -1060,6 +1060,7 @@
             this.inspectionNameGridColumn.Caption = "Название операции";
             this.inspectionNameGridColumn.FieldName = "Operation.Name";
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
+            this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
             this.inspectionNameGridColumn.Width = 274;
@@ -1078,6 +1079,7 @@
             // valueGridColumn
             // 
             this.valueGridColumn.Caption = "Результат измерения";
+            this.valueGridColumn.ColumnEdit = this.valueRepositoryTextEdit;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
@@ -1139,6 +1141,7 @@
             this.inspectionCodeGridColumn.Caption = "Код";
             this.inspectionCodeGridColumn.FieldName = "Operation.Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
+            this.inspectionCodeGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
             this.inspectionCodeGridColumn.Width = 62;
@@ -1181,7 +1184,7 @@
             this.pipeSize.Size = new System.Drawing.Size(169, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
-            this.pipeSize.SelectedValueChanged += new System.EventHandler(this.pipeSize_SelectedValueChanged);
+            this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
             // 
             // generalPipeLayout
             // 
@@ -1191,7 +1194,6 @@
             this.generalPipeLayout.Controls.Add(this.purchaseOrderButton);
             this.generalPipeLayout.Controls.Add(this.heatButton);
             this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
-            this.generalPipeLayout.Controls.Add(this.closeButton);
             this.generalPipeLayout.Controls.Add(this.deactivate);
             this.generalPipeLayout.Controls.Add(this.saveButton);
             this.generalPipeLayout.Controls.Add(this.attachmentsButton);
@@ -1219,6 +1221,7 @@
             this.purchaseOrderButton.Size = new System.Drawing.Size(26, 22);
             this.purchaseOrderButton.StyleController = this.generalPipeLayout;
             this.purchaseOrderButton.TabIndex = 31;
+            this.purchaseOrderButton.Click += new System.EventHandler(this.purchaseOrderButton_Click);
             // 
             // heatButton
             // 
@@ -1233,22 +1236,12 @@
             // saveAndNewButton
             // 
             this.saveAndNewButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndNewButton.Image")));
-            this.saveAndNewButton.Location = new System.Drawing.Point(998, 514);
+            this.saveAndNewButton.Location = new System.Drawing.Point(1123, 514);
             this.saveAndNewButton.Name = "saveAndNewButton";
-            this.saveAndNewButton.Size = new System.Drawing.Size(147, 22);
+            this.saveAndNewButton.Size = new System.Drawing.Size(143, 22);
             this.saveAndNewButton.StyleController = this.generalPipeLayout;
             this.saveAndNewButton.TabIndex = 29;
-            this.saveAndNewButton.Text = "Сохранить\\создать";
-            // 
-            // closeButton
-            // 
-            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1159, 514);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(97, 22);
-            this.closeButton.StyleController = this.generalPipeLayout;
-            this.closeButton.TabIndex = 27;
-            this.closeButton.Text = "Зак&рыть";
+            this.saveAndNewButton.Text = "Сохранить / Создать";
             // 
             // deactivate
             // 
@@ -1263,9 +1256,9 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(860, 514);
+            this.saveButton.Location = new System.Drawing.Point(1001, 514);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(119, 22);
+            this.saveButton.Size = new System.Drawing.Size(103, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
             this.saveButton.Text = "Со&хранить";
@@ -1340,12 +1333,15 @@
             // 
             this.millStatus.Location = new System.Drawing.Point(1162, 27);
             this.millStatus.Name = "millStatus";
+            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.millStatus.Properties.Appearance.Options.UseBackColor = true;
             this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.millStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.millStatus.Size = new System.Drawing.Size(99, 20);
             this.millStatus.StyleController = this.generalPipeLayout;
             this.millStatus.TabIndex = 4;
+            this.millStatus.SelectedIndexChanged += new System.EventHandler(this.millStatus_SelectedIndexChanged);
             // 
             // pipeNumber
             // 
@@ -1376,8 +1372,6 @@
             this.attachmentsButtonLayout,
             this.deactivateLayout,
             this.saveButtonLayout,
-            this.closeButtonLayout,
-            this.closeButtonEmptySpace,
             this.isActiveEmptySpace,
             this.saveAndNewButtonLayout,
             this.heatLayoutControl,
@@ -1529,37 +1523,14 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(831, 510);
+            this.saveButtonLayout.Location = new System.Drawing.Point(972, 510);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(143, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(127, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
-            // 
-            // closeButtonLayout
-            // 
-            this.closeButtonLayout.Control = this.closeButton;
-            this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1140, 510);
-            this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(111, 26);
-            this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.closeButtonLayout.Text = "closeButtonLayout";
-            this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.closeButtonLayout.TextToControlDistance = 0;
-            this.closeButtonLayout.TextVisible = false;
-            // 
-            // closeButtonEmptySpace
-            // 
-            this.closeButtonEmptySpace.AllowHotTrack = false;
-            this.closeButtonEmptySpace.CustomizationFormText = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1251, 510);
-            this.closeButtonEmptySpace.Name = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Size = new System.Drawing.Size(10, 26);
-            this.closeButtonEmptySpace.Text = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // isActiveEmptySpace
             // 
@@ -1567,7 +1538,7 @@
             this.isActiveEmptySpace.CustomizationFormText = "isActiveEmptySpace";
             this.isActiveEmptySpace.Location = new System.Drawing.Point(342, 510);
             this.isActiveEmptySpace.Name = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Size = new System.Drawing.Size(489, 26);
+            this.isActiveEmptySpace.Size = new System.Drawing.Size(630, 26);
             this.isActiveEmptySpace.Text = "isActiveEmptySpace";
             this.isActiveEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1575,9 +1546,9 @@
             // 
             this.saveAndNewButtonLayout.Control = this.saveAndNewButton;
             this.saveAndNewButtonLayout.CustomizationFormText = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(974, 510);
+            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(1099, 510);
             this.saveAndNewButtonLayout.Name = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(166, 26);
+            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(162, 26);
             this.saveAndNewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 5, 0, 0);
             this.saveAndNewButtonLayout.Text = "layoutControlItem1";
             this.saveAndNewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1637,6 +1608,11 @@
             // weldingDs
             // 
             this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
+            // 
+            // valueRepositoryTextEdit
+            // 
+            this.valueRepositoryTextEdit.AutoHeight = false;
+            this.valueRepositoryTextEdit.Name = "valueRepositoryTextEdit";
             // 
             // MillPipeNewEditXtraForm
             // 
@@ -1744,8 +1720,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).EndInit();
@@ -1755,6 +1729,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1801,7 +1776,6 @@
         private DevExpress.XtraLayout.LayoutControlItem coatingHistoryLayout;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.SimpleButton closeButton;
         private DevExpress.XtraLayout.LayoutControl tabPagesLayout;
         private DevExpress.XtraLayout.LayoutControlGroup heatLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlGroup chemicalCompositionLayoutGroup;
@@ -1824,8 +1798,6 @@
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
-        private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem closeButtonEmptySpace;
         private DevExpress.XtraGrid.Views.Grid.GridView weldersListGridView;
         private System.Windows.Forms.BindingSource inspectionOperation;
         private DevExpress.XtraLayout.LayoutControl generalInspectionsLayout;
@@ -1885,5 +1857,7 @@
         private DevExpress.XtraEditors.SimpleButton heatButton;
         private DevExpress.XtraLayout.LayoutControlItem heatLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderLayoutControl;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit valueRepositoryTextEdit;
+
     }
 }

@@ -46,6 +46,12 @@ namespace PrizmMain.Forms.PipeMill.Search
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
+
+            foreach (var s in viewModel.StatusTypes)
+            {
+                pipeMillStatus.Properties.Items.Add(s);
+            }
+
         }
 
         private void BindCommands()
@@ -90,9 +96,16 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private void repositoryLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PipeMillStatus)
+            try
             {
-                e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
+                if (e.Value is PipeMillStatus)
+                {
+                    e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
+                }
+            }
+            catch (KeyNotFoundException exception)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(exception.Message);
             }
         }
 

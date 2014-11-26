@@ -28,13 +28,19 @@ namespace PrizmMain.Forms.PipeMill.Search
         public void Execute()
         {
             var criteria = NHibernate.Criterion.DetachedCriteria
-                .For<Domain.Entity.Mill.Pipe>("p")
-                .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
-                .CreateCriteria("p.Type", JoinType.InnerJoin)
-                .Add(Restrictions.Like("Type", viewModel.PipeSize, MatchMode.Anywhere));
-   
+                    .For<Domain.Entity.Mill.Pipe>("p")
+                    .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
+                    .CreateCriteria("p.Type", JoinType.InnerJoin)
+                    .Add(Restrictions.Like("Type", viewModel.PipeSize, MatchMode.Anywhere));
+
+            if (viewModel.PipeMillStatus != null)
+            {
+
+                criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
+               
+            }
+ 
             viewModel.Pipes = repo.GetByCriteria(criteria);
-            
         }
 
         public bool CanExecute()

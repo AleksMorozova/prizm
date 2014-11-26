@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.plateManufacturer = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.plateMan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.phisicalGrid = new DevExpress.XtraGrid.GridControl();
             this.phisicalGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,10 +58,13 @@
             this.chemicalLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).BeginInit();
@@ -76,12 +81,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
             // 
+            this.masterLayoutControl.Controls.Add(this.plateManufacturer);
             this.masterLayoutControl.Controls.Add(this.steelGrade);
             this.masterLayoutControl.Controls.Add(this.phisicalGrid);
             this.masterLayoutControl.Controls.Add(this.chemicalGrid);
@@ -91,12 +98,46 @@
             this.masterLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.masterLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.masterLayoutControl.Name = "masterLayoutControl";
-            this.masterLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(196, 267, 423, 437);
+            this.masterLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(40, 155, 423, 437);
             this.masterLayoutControl.Root = this.rootLayoutGroup;
             this.masterLayoutControl.ShowTemplates = true;
             this.masterLayoutControl.Size = new System.Drawing.Size(1084, 563);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
+            // 
+            // plateManufacturer
+            // 
+            this.plateManufacturer.Location = new System.Drawing.Point(550, 38);
+            this.plateManufacturer.Name = "plateManufacturer";
+            this.plateManufacturer.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.plateManufacturer.Properties.Appearance.Options.UseBackColor = true;
+            this.plateManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.plateManufacturer.Properties.DisplayMember = "Name";
+            this.plateManufacturer.Properties.NullText = "";
+            this.plateManufacturer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.plateManufacturer.Properties.ValueMember = "Name";
+            this.plateManufacturer.Properties.View = this.gridView1;
+            this.plateManufacturer.Size = new System.Drawing.Size(512, 20);
+            this.plateManufacturer.StyleController = this.masterLayoutControl;
+            this.plateManufacturer.TabIndex = 9;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.plateMan});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // plateMan
+            // 
+            this.plateMan.Caption = "производители листа";
+            this.plateMan.FieldName = "Name";
+            this.plateMan.Name = "plateMan";
+            this.plateMan.Visible = true;
+            this.plateMan.VisibleIndex = 0;
             // 
             // steelGrade
             // 
@@ -128,17 +169,24 @@
             // 
             // tensileParameter
             // 
+            this.tensileParameter.AppearanceCell.Options.UseTextOptions = true;
+            this.tensileParameter.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.tensileParameter.Caption = "Параметр";
+            this.tensileParameter.FieldName = "Parameter";
             this.tensileParameter.Name = "tensileParameter";
+            this.tensileParameter.OptionsColumn.ReadOnly = true;
             this.tensileParameter.Visible = true;
             this.tensileParameter.VisibleIndex = 0;
             // 
             // tensileValue
             // 
             this.tensileValue.Caption = "Значение";
+            this.tensileValue.FieldName = "BaseValue";
+            this.tensileValue.MaxWidth = 70;
             this.tensileValue.Name = "tensileValue";
             this.tensileValue.Visible = true;
             this.tensileValue.VisibleIndex = 1;
+            this.tensileValue.Width = 50;
             // 
             // chemicalGrid
             // 
@@ -167,6 +215,7 @@
             this.chemElement.Caption = "Элемент";
             this.chemElement.FieldName = "Parameter";
             this.chemElement.Name = "chemElement";
+            this.chemElement.OptionsColumn.ReadOnly = true;
             this.chemElement.Visible = true;
             this.chemElement.VisibleIndex = 0;
             // 
@@ -214,7 +263,7 @@
             this.cancelButton.Size = new System.Drawing.Size(100, 23);
             this.cancelButton.StyleController = this.masterLayoutControl;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Отменить";
             // 
             // number
             // 
@@ -263,7 +312,7 @@
             this.chemicalLayoutControl,
             this.numberLayoutControl,
             this.steelLayoutControl,
-            this.emptySpaceItem1});
+            this.plateManufacturerLayoutControl});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "Root";
             this.rootLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
@@ -372,15 +421,30 @@
             this.steelLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.steelLayoutControl.TextSize = new System.Drawing.Size(150, 13);
             // 
-            // emptySpaceItem1
+            // plateManufacturerLayoutControl
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(521, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(523, 40);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.plateManufacturerLayoutControl.Control = this.plateManufacturer;
+            this.plateManufacturerLayoutControl.CustomizationFormText = "Производитель листа";
+            this.plateManufacturerLayoutControl.Location = new System.Drawing.Point(521, 0);
+            this.plateManufacturerLayoutControl.Name = "plateManufacturerLayoutControl";
+            this.plateManufacturerLayoutControl.Size = new System.Drawing.Size(523, 40);
+            this.plateManufacturerLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 0);
+            this.plateManufacturerLayoutControl.Text = "Производитель листа";
+            this.plateManufacturerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(150, 13);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.number;
+            this.layoutControlItem1.CustomizationFormText = "Номер плавки";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "numberLayoutControl";
+            this.layoutControlItem1.Size = new System.Drawing.Size(249, 40);
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
+            this.layoutControlItem1.Text = "Номер плавки";
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(150, 13);
+            this.layoutControlItem1.TextToControlDistance = 5;
             // 
             // HeatXtraForm
             // 
@@ -396,6 +460,8 @@
             this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();
             this.masterLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phisicalGridView)).EndInit();
@@ -412,8 +478,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.chemicalLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -442,11 +509,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn chemPlateValue;
         private DevExpress.XtraGrid.Columns.GridColumn chemPipeValue;
         private DevExpress.XtraLayout.LayoutControlItem steelLayoutControl;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn tensileParameter;
         private DevExpress.XtraGrid.Columns.GridColumn tensileValue;
         private DevExpress.XtraEditors.GridLookUpEdit number;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn heatNumber;
+        private DevExpress.XtraEditors.GridLookUpEdit plateManufacturer;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn plateMan;
+        private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayoutControl;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

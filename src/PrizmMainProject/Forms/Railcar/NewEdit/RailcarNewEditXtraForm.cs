@@ -30,6 +30,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             shippedDate.Properties.NullText = string.Empty;
 
             this.railcarNumber.SetRequiredText();
+            SetControlsTextLength();
         }
 
         public RailcarNewEditXtraForm():this("")
@@ -106,13 +107,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void shippedDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            
+        } 
+        
+        private void SetControlsTextLength()
+        {
+            railcarNumber.Properties.MaxLength = 20;
+            destination.Properties.MaxLength = 50;
+            certificateNumber.Properties.MaxLength = 20;
         }
-
-        private void ButtonRefresh()
+private void ButtonRefresh()
         {
             viewModel.ShipCommand.IsExecutable ^= true;
             viewModel.UnshipCommand.IsExecutable ^= true;
         }
+
     }
 }

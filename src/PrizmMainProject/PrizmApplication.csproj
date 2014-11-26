@@ -211,10 +211,11 @@
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
-    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\NewSavePipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Forms\PipeMill\NewEdit\SavePipeCommand.cs" />
     <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\PurchaseOrderXtraForm.resx">
+      <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
