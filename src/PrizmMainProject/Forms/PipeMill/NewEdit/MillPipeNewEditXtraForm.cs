@@ -398,5 +398,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             parent.CreateChildForm(typeof(HeatXtraForm), new ConstructorArgument("heatNumber", heatNumber.Text));
         }
 
+        private void purchaseOrderButton_Click(object sender, EventArgs e)
+        {
+            PurchaseOrder order = new PurchaseOrder();
+            order.Number = purchaseOrder.Text;
+            order.Date = viewModel.PipePurchaseOrder.Date;
+
+            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(order);
+            form.ShowDialog();
+        }
+
     }
 }
