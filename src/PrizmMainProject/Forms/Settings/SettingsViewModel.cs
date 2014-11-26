@@ -1,4 +1,4 @@
-﻿using Data.DAL.Mill;
+using Data.DAL.Mill;
 using Data.DAL.Setup;
 using Data.DAL;
 using Domain.Entity.Mill;
@@ -55,7 +55,7 @@ namespace PrizmMain.Forms.Settings
                ControlType.Add(new PipeTestControlTypeWrapper()
                {
                    Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName),
-                   Text = Resources.ResourceManager.GetString(controlTypeName)
+                   Text = Resources.ResourceManager.GetString("InspectionControlType_" + controlTypeName)
                }
                );
            }
@@ -66,7 +66,7 @@ namespace PrizmMain.Forms.Settings
                ResultType.Add(new PipeTestResultTypeWrapper()
                {
                    Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName),
-                   Text = Resources.ResourceManager.GetString(resultTypeName)
+                   Text = Resources.ResourceManager.GetString("InspectionResultType_" + resultTypeName)
                }
                );
            }

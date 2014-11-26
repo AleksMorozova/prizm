@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -39,6 +40,7 @@
             this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemMillFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
@@ -82,11 +84,10 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
-            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -209,12 +210,14 @@
             // barButtonItemExport
             // 
             this.barButtonItemExport.Caption = "&Экспорт";
+            this.barButtonItemExport.Enabled = false;
             this.barButtonItemExport.Id = 46;
             this.barButtonItemExport.Name = "barButtonItemExport";
             // 
             // barButtonItemImport
             // 
             this.barButtonItemImport.Caption = "&Импорт";
+            this.barButtonItemImport.Enabled = false;
             this.barButtonItemImport.Id = 49;
             this.barButtonItemImport.Name = "barButtonItemImport";
             // 
@@ -252,6 +255,13 @@
             this.barButtonItemMillFindEditPipes.Id = 17;
             this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
             this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
+            // 
+            // barButtonItemHeat
+            // 
+            this.barButtonItemHeat.Caption = "Пла&вка";
+            this.barButtonItemHeat.Id = 56;
+            this.barButtonItemHeat.Name = "barButtonItemHeat";
+            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
             // 
             // barButtonItemNewRailcar
             // 
@@ -295,7 +305,7 @@
             // 
             // barButtonItemNewComponent
             // 
-            this.barButtonItemNewComponent.Caption = "Новый &комплектующий";
+            this.barButtonItemNewComponent.Caption = "Новое &комплектующее";
             this.barButtonItemNewComponent.Id = 20;
             this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
@@ -470,12 +480,14 @@
             // barButtonItemCustomReport
             // 
             this.barButtonItemCustomReport.Caption = "&Конструктор отчетов";
+            this.barButtonItemCustomReport.Enabled = false;
             this.barButtonItemCustomReport.Id = 24;
             this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
             // 
             // barButtonItemAudit
             // 
             this.barButtonItemAudit.Caption = "&Аудит";
+            this.barButtonItemAudit.Enabled = false;
             this.barButtonItemAudit.Id = 45;
             this.barButtonItemAudit.Name = "barButtonItemAudit";
             // 
@@ -490,6 +502,7 @@
             // barButtonItemAbout
             // 
             this.barButtonItemAbout.Caption = "О программе";
+            this.barButtonItemAbout.Enabled = false;
             this.barButtonItemAbout.Id = 44;
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             // 
@@ -521,28 +534,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1276, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(1276, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 598);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 600);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 580);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Location = new System.Drawing.Point(1276, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 580);
             // 
             // barButtonItemNewProject
             // 
@@ -611,13 +624,6 @@
             this.alertControl.AutoFormDelay = 5000;
             this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
             this.alertControl.ShowPinButton = false;
-            // 
-            // barButtonItemHeat
-            // 
-            this.barButtonItemHeat.Caption = "Пла&вка";
-            this.barButtonItemHeat.Id = 56;
-            this.barButtonItemHeat.Name = "barButtonItemHeat";
-            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
             // 
             // PrizmApplicationXtraForm
             // 
