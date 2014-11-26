@@ -42,5 +42,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             return true;
         }
 
+        public virtual bool IsExecutable { get; set; }
     }
 }

@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Common\ControlColorExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
       <SubType>UserControl</SubType>

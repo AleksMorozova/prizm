@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
-            this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldBindingSource = new System.Windows.Forms.BindingSource();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeGeneralParametersLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -51,7 +50,7 @@
             this.destanation = new DevExpress.XtraEditors.TextEdit();
             this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
             this.coatingHistory = new DevExpress.XtraGrid.GridControl();
-            this.coatDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coatDataSource = new System.Windows.Forms.BindingSource();
             this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,7 +101,7 @@
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
-            this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionOperation = new System.Windows.Forms.BindingSource();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,6 +116,7 @@
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.deactivate = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -143,13 +143,12 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.closeButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.isActiveEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
-            this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldingDs = new System.Windows.Forms.BindingSource();
+            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -248,12 +247,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -309,6 +308,7 @@
             this.weldingHistoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.weldingHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.weldingHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.weldingHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.weldingHistoryGridView_InitNewRow);
             this.weldingHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.weldingHistoryGridView_KeyDown);
             // 
             // weldingDateGridColumn
@@ -475,6 +475,7 @@
             this.coatingHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.coatingHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.coatingHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.coatingHistoryGridView_InitNewRow);
+            this.coatingHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.coatingHistoryGridView_KeyDown);
             // 
             // coatingDateGridColumn
             // 
@@ -1169,6 +1170,7 @@
             this.pipeSize.Properties.Appearance.Options.UseBackColor = true;
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeSize.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.pipeSize.Size = new System.Drawing.Size(169, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
@@ -1199,6 +1201,16 @@
             this.generalPipeLayout.Size = new System.Drawing.Size(1275, 545);
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
+            // 
+            // saveAndNewButton
+            // 
+            this.saveAndNewButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndNewButton.Image")));
+            this.saveAndNewButton.Location = new System.Drawing.Point(998, 514);
+            this.saveAndNewButton.Name = "saveAndNewButton";
+            this.saveAndNewButton.Size = new System.Drawing.Size(147, 22);
+            this.saveAndNewButton.StyleController = this.generalPipeLayout;
+            this.saveAndNewButton.TabIndex = 29;
+            this.saveAndNewButton.Text = "Сохранить\\создать";
             // 
             // closeButton
             // 
@@ -1263,6 +1275,7 @@
             this.purchaseOrder.Properties.Appearance.Options.UseBackColor = true;
             this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.purchaseOrder.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.purchaseOrder.Size = new System.Drawing.Size(180, 20);
             this.purchaseOrder.StyleController = this.generalPipeLayout;
             this.purchaseOrder.TabIndex = 5;
@@ -1276,6 +1289,7 @@
             this.heatNumber.Properties.Appearance.Options.UseBackColor = true;
             this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.heatNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.heatNumber.Size = new System.Drawing.Size(176, 20);
             this.heatNumber.StyleController = this.generalPipeLayout;
             this.heatNumber.TabIndex = 2;
@@ -1300,6 +1314,7 @@
             this.millStatus.Name = "millStatus";
             this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.millStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.millStatus.Size = new System.Drawing.Size(123, 20);
             this.millStatus.StyleController = this.generalPipeLayout;
             this.millStatus.TabIndex = 4;
@@ -1526,6 +1541,19 @@
             this.isActiveEmptySpace.Text = "isActiveEmptySpace";
             this.isActiveEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // saveAndNewButtonLayout
+            // 
+            this.saveAndNewButtonLayout.Control = this.saveAndNewButton;
+            this.saveAndNewButtonLayout.CustomizationFormText = "layoutControlItem1";
+            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(974, 510);
+            this.saveAndNewButtonLayout.Name = "layoutControlItem1";
+            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(166, 26);
+            this.saveAndNewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 5, 0, 0);
+            this.saveAndNewButtonLayout.Text = "layoutControlItem1";
+            this.saveAndNewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveAndNewButtonLayout.TextToControlDistance = 0;
+            this.saveAndNewButtonLayout.TextVisible = false;
+            // 
             // pipeParametersLayout
             // 
             this.pipeParametersLayout.Control = this.pipe;
@@ -1551,29 +1579,6 @@
             // weldingDs
             // 
             this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
-            // 
-            // simpleButton1
-            // 
-            this.saveAndNewButton.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.saveAndNewButton.Location = new System.Drawing.Point(998, 514);
-            this.saveAndNewButton.Name = "simpleButton1";
-            this.saveAndNewButton.Size = new System.Drawing.Size(147, 22);
-            this.saveAndNewButton.StyleController = this.generalPipeLayout;
-            this.saveAndNewButton.TabIndex = 29;
-            this.saveAndNewButton.Text = "Сохранить\\создать";
-            // 
-            // layoutControlItem1
-            // 
-            this.saveAndNewButtonLayout.Control = this.saveAndNewButton;
-            this.saveAndNewButtonLayout.CustomizationFormText = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(974, 510);
-            this.saveAndNewButtonLayout.Name = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(166, 26);
-            this.saveAndNewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 5, 0, 0);
-            this.saveAndNewButtonLayout.Text = "layoutControlItem1";
-            this.saveAndNewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveAndNewButtonLayout.TextToControlDistance = 0;
-            this.saveAndNewButtonLayout.TextVisible = false;
             // 
             // MillPipeNewEditXtraForm
             // 
@@ -1684,12 +1689,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             this.ResumeLayout(false);
 
         }

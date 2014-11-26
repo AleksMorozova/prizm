@@ -20,6 +20,8 @@ using PrizmMain.Properties;
 using System.Collections;
 using System.Drawing;
 
+using PrizmMain.Common;
+
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public partial class MillPipeNewEditXtraForm : ChildForm
@@ -42,6 +44,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
             purchaseOrderDate.Properties.NullText = string.Empty;
 
+            pipeNumber.SetRequiredText();
+            pipeSize.SetRequiredCombo();
+            heatNumber.SetRequiredCombo();
+            purchaseOrder.SetRequiredCombo();
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -168,7 +174,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
-            
         }
 
         /// <summary>
@@ -202,6 +207,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               foreach (Welder w in selectedWelders)
               {
                  weld.Welders.Add(w);
+                 w.Welds.Add(weld);
               }
            }
             
@@ -239,66 +245,25 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(heatNumber.Text))
-            {
-                heatNumber.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                heatNumber.BackColor = Color.White;
-            }
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-           
-            if (string.IsNullOrEmpty(pipeSize.Text))
-            {
-                pipeSize.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                pipeSize.BackColor = Color.White;
-            }
-
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(purchaseOrder.Text))
-            {
-                purchaseOrder.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                purchaseOrder.BackColor = Color.White;
-            }
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            ((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable =
-                !((MillPipeNewEditCommand)viewModel.NewEditCommand).IsExecutable;
-
-            if (string.IsNullOrEmpty(pipeNumber.Text))
-            {
-                pipeNumber.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                pipeNumber.BackColor = Color.White;
-            }
+            viewModel.NewEditCommand.IsExecutable ^= true;
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -403,6 +368,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                         return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
                     default: return "";   
                 }            
+        }
+
+        private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+           view.RefreshData();
+        }
+
+        private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Weld weld = view.GetRow(e.RowHandle) as Weld;
+              weld.Pipe = viewModel.Pipe;
+           }
         }
 
     }
