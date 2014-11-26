@@ -56,14 +56,17 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     {
                         pipe.Status = PipeMillStatus.Shipped;
                     }
+                    railcar.IsShipped = true;
                     viewModel.SaveCommand.Execute();
-                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);              
+                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);
+                    viewModel.ShipCommand.IsExecutable ^= true;
+                    viewModel.UnshipCommand.IsExecutable ^= true;
             }
         }
 
         public bool CanExecute()
         {
-            return !(viewModel.Railcar.IsShipped);
+            return (!viewModel.Railcar.IsShipped);
         }
         public virtual bool IsExecutable { get; set; }
 
