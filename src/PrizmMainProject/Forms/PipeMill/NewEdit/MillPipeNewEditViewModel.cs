@@ -29,7 +29,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private IList<PipeTestResult> pipeTestResults;
 
-        private readonly MillPipeNewEditCommand newEditCommand;
+        private readonly NewSavePipeCommand newSavePipeCommand;
+        private readonly SavePipeCommand savePipeCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
@@ -45,8 +46,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.repoMill = repoMill;
 
-            newEditCommand =
-                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoMill));
+            newSavePipeCommand =
+                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill));
+
+            savePipeCommand =
+                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -245,7 +249,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             set
             {
-                if (value.Value != Pipe.Status)
+                if (value != null && value.Value != Pipe.Status)
                 {
                     Pipe.Status = value.Value;
                     RaisePropertyChanged("PipeStatus");
@@ -470,9 +474,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
-        public ICommand NewEditCommand
+        public ICommand NewSavePipeCommand
         {
-            get { return newEditCommand; }
+            get { return newSavePipeCommand; }
         }
 
         public ICommand ExtractHeatsCommand
@@ -485,6 +489,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return extractPurchaseOrderCommand; }
         }
 
+        public ICommand SavePipeCommand
+        {
+            get { return savePipeCommand; }
+        }
+        
+
         public void NewPipe()
         {
             extractPurchaseOrderCommand.Execute();
@@ -494,7 +504,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
-            this.Pipe.Status = PipeMillStatus.Undefined;
+            this.Pipe.Status = PipeMillStatus.Produced;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
@@ -502,6 +512,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Weight = 0;
             this.Length = 0;
             this.Diameter = 0;
+            this.PipeTestResults = new List<PipeTestResult>();
 
         }
 

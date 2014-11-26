@@ -48,6 +48,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
+            millStatus.SetRequiredCombo();
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -173,26 +174,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+            saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
+            saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
         }
 
-        /// <summary>
-        /// Refreshes list of required pipe test results if mill size type was changed
-        /// </summary>
-        private void pipeSize_SelectedValueChanged(object sender, EventArgs e)
-        {
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            {
-                viewModel.PipeMillSizeType = currentPipeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                inspections.RefreshDataSource();
-            }
-        }
-        
-        
+
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
            if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
@@ -245,25 +231,51 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
+        /// <summary>
+        /// Refreshes list of required pipe test results if mill size type was changed
+        /// </summary>
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspections.RefreshDataSource();
+            }
+
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -385,6 +397,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               Weld weld = view.GetRow(e.RowHandle) as Weld;
               weld.Pipe = viewModel.Pipe;
            }
+        }
+        private void heatButton_Click(object sender, EventArgs e)
+        {
+            var parent = this.MdiParent as PrizmApplicationXtraForm;
+            parent.CreateChildForm(typeof(HeatXtraForm), new ConstructorArgument("heatNumber", heatNumber.Text));
+        }
+
+        private void purchaseOrderButton_Click(object sender, EventArgs e)
+        {
+            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(purchaseOrder.Text, purchaseOrderDate.Text);
+            form.ShowDialog();
         }
 
     }

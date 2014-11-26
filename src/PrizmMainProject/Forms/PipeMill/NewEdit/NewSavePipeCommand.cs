@@ -12,12 +12,12 @@ using DevExpress.Mvvm.POCO;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class MillPipeNewEditCommand: ICommand
+    public class NewSavePipeCommand: ICommand
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
 
-        public MillPipeNewEditCommand(MillPipeNewEditViewModel viewModel, IMillRepository repo)
+        public NewSavePipeCommand(MillPipeNewEditViewModel viewModel, IMillRepository repo)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -26,10 +26,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            repo.BeginTransaction();
-            repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-            repo.Commit();
-            repo.RepoPipe.Evict(viewModel.Pipe);
+            viewModel.SavePipeCommand.Execute();
             viewModel.NewPipe();
         }
 
@@ -42,16 +39,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-
-
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&
-                viewModel.PipeMillSizeType != null &&
-                viewModel.PipePurchaseOrder != null &&
-                !string.IsNullOrEmpty(viewModel.Number);
-
-            return condition;
+            return viewModel.SavePipeCommand.CanExecute();
         }
     }
 }

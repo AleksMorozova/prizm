@@ -19,5 +19,10 @@ namespace Data.DAL.Hibernate
         {
 
         }
+
+        public IList<ChemicalComposition> GetByHeatId(Guid heatId)
+        {
+            return session.QueryOver<ChemicalComposition>().Where(x => x.Id == heatId).List();
+        }
     }
 }
