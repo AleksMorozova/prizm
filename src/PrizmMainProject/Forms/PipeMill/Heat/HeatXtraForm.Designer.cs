@@ -46,7 +46,7 @@
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.number = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.heatNumberLookUp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.heatNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -220,35 +220,34 @@
             // 
             this.number.Location = new System.Drawing.Point(22, 38);
             this.number.Name = "number";
+            this.number.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.number.Properties.Appearance.Options.UseBackColor = true;
             this.number.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.number.Properties.DisplayMember = "Name";
             this.number.Properties.NullText = "";
             this.number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.number.Properties.ValueMember = "Id";
             this.number.Properties.View = this.gridLookUpEdit1View;
             this.number.Size = new System.Drawing.Size(238, 20);
             this.number.StyleController = this.masterLayoutControl;
             this.number.TabIndex = 4;
-            this.number.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.number_ProcessNewValue);
             this.number.Validating += new System.ComponentModel.CancelEventHandler(this.number_Validating);
             // 
             // gridLookUpEdit1View
             // 
             this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.heatNumberLookUp});
+            this.heatNumber});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // heatNumberLookUp
+            // heatNumber
             // 
-            this.heatNumberLookUp.Caption = "Номер плавки";
-            this.heatNumberLookUp.FieldName = "Number";
-            this.heatNumberLookUp.Name = "heatNumberLookUp";
-            this.heatNumberLookUp.Visible = true;
-            this.heatNumberLookUp.VisibleIndex = 0;
+            this.heatNumber.Caption = "Номер плавки";
+            this.heatNumber.FieldName = "Number";
+            this.heatNumber.Name = "heatNumber";
+            this.heatNumber.Visible = true;
+            this.heatNumber.VisibleIndex = 0;
             // 
             // rootLayoutGroup
             // 
@@ -448,6 +447,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn tensileValue;
         private DevExpress.XtraEditors.GridLookUpEdit number;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
-        private DevExpress.XtraGrid.Columns.GridColumn heatNumberLookUp;
+        private DevExpress.XtraGrid.Columns.GridColumn heatNumber;
     }
 }

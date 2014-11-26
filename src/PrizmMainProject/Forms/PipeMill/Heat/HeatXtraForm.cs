@@ -86,7 +86,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             new Domain.Entity.Mill.Heat(){Number = "7652359"},
             new Domain.Entity.Mill.Heat(){Number = "125855"}
         };
-            number.Properties.DataSource = heats;
+            number.Properties.DataSource = heats; 
 
             List<ChemicalComposition> chem = new List<ChemicalComposition>()
         {

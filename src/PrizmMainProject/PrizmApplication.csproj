@@ -205,7 +205,6 @@
     <Compile Include="Forms\PipeMill\Heat\HeatRepositories.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\IHeatRepositories.cs" />
-    <Compile Include="Forms\PipeMill\Heat\List.cs" />
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
