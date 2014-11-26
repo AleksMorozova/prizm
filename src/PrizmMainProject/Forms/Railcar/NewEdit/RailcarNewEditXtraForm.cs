@@ -11,6 +11,7 @@ using Domain.Entity.Mill;
 using PrizmMain.Forms.MainChildForm;
 using System.Collections.Generic;
 using PrizmMain.Properties;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -27,6 +28,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
+
+            this.railcarNumber.SetRequiredText();
         }
 
         public RailcarNewEditXtraForm():this("")
