@@ -120,7 +120,6 @@
             this.purchaseOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.heatButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
-            this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.deactivate = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -143,8 +142,6 @@
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.closeButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.isActiveEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -249,8 +246,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).BeginInit();
@@ -914,6 +909,7 @@
             // 
             this.steelGrade.Location = new System.Drawing.Point(656, 65);
             this.steelGrade.Name = "steelGrade";
+            this.steelGrade.Properties.ReadOnly = true;
             this.steelGrade.Size = new System.Drawing.Size(175, 20);
             this.steelGrade.StyleController = this.tabPagesLayout;
             this.steelGrade.TabIndex = 54;
@@ -1191,7 +1187,6 @@
             this.generalPipeLayout.Controls.Add(this.purchaseOrderButton);
             this.generalPipeLayout.Controls.Add(this.heatButton);
             this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
-            this.generalPipeLayout.Controls.Add(this.closeButton);
             this.generalPipeLayout.Controls.Add(this.deactivate);
             this.generalPipeLayout.Controls.Add(this.saveButton);
             this.generalPipeLayout.Controls.Add(this.attachmentsButton);
@@ -1233,22 +1228,12 @@
             // saveAndNewButton
             // 
             this.saveAndNewButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndNewButton.Image")));
-            this.saveAndNewButton.Location = new System.Drawing.Point(998, 514);
+            this.saveAndNewButton.Location = new System.Drawing.Point(1123, 514);
             this.saveAndNewButton.Name = "saveAndNewButton";
-            this.saveAndNewButton.Size = new System.Drawing.Size(147, 22);
+            this.saveAndNewButton.Size = new System.Drawing.Size(143, 22);
             this.saveAndNewButton.StyleController = this.generalPipeLayout;
             this.saveAndNewButton.TabIndex = 29;
-            this.saveAndNewButton.Text = "Сохранить\\создать";
-            // 
-            // closeButton
-            // 
-            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1159, 514);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(97, 22);
-            this.closeButton.StyleController = this.generalPipeLayout;
-            this.closeButton.TabIndex = 27;
-            this.closeButton.Text = "Зак&рыть";
+            this.saveAndNewButton.Text = "Сохранить / Создать";
             // 
             // deactivate
             // 
@@ -1263,9 +1248,9 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(860, 514);
+            this.saveButton.Location = new System.Drawing.Point(1001, 514);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(119, 22);
+            this.saveButton.Size = new System.Drawing.Size(103, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
             this.saveButton.Text = "Со&хранить";
@@ -1379,8 +1364,6 @@
             this.attachmentsButtonLayout,
             this.deactivateLayout,
             this.saveButtonLayout,
-            this.closeButtonLayout,
-            this.closeButtonEmptySpace,
             this.isActiveEmptySpace,
             this.saveAndNewButtonLayout,
             this.heatLayoutControl,
@@ -1532,37 +1515,14 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(831, 510);
+            this.saveButtonLayout.Location = new System.Drawing.Point(972, 510);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(143, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(127, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
-            // 
-            // closeButtonLayout
-            // 
-            this.closeButtonLayout.Control = this.closeButton;
-            this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1140, 510);
-            this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(111, 26);
-            this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.closeButtonLayout.Text = "closeButtonLayout";
-            this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.closeButtonLayout.TextToControlDistance = 0;
-            this.closeButtonLayout.TextVisible = false;
-            // 
-            // closeButtonEmptySpace
-            // 
-            this.closeButtonEmptySpace.AllowHotTrack = false;
-            this.closeButtonEmptySpace.CustomizationFormText = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Location = new System.Drawing.Point(1251, 510);
-            this.closeButtonEmptySpace.Name = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.Size = new System.Drawing.Size(10, 26);
-            this.closeButtonEmptySpace.Text = "closeButtonEmptySpace";
-            this.closeButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // isActiveEmptySpace
             // 
@@ -1570,7 +1530,7 @@
             this.isActiveEmptySpace.CustomizationFormText = "isActiveEmptySpace";
             this.isActiveEmptySpace.Location = new System.Drawing.Point(342, 510);
             this.isActiveEmptySpace.Name = "isActiveEmptySpace";
-            this.isActiveEmptySpace.Size = new System.Drawing.Size(489, 26);
+            this.isActiveEmptySpace.Size = new System.Drawing.Size(630, 26);
             this.isActiveEmptySpace.Text = "isActiveEmptySpace";
             this.isActiveEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1578,9 +1538,9 @@
             // 
             this.saveAndNewButtonLayout.Control = this.saveAndNewButton;
             this.saveAndNewButtonLayout.CustomizationFormText = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(974, 510);
+            this.saveAndNewButtonLayout.Location = new System.Drawing.Point(1099, 510);
             this.saveAndNewButtonLayout.Name = "layoutControlItem1";
-            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(166, 26);
+            this.saveAndNewButtonLayout.Size = new System.Drawing.Size(162, 26);
             this.saveAndNewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 5, 0, 0);
             this.saveAndNewButtonLayout.Text = "layoutControlItem1";
             this.saveAndNewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -1747,8 +1707,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isActiveEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).EndInit();
@@ -1804,7 +1762,6 @@
         private DevExpress.XtraLayout.LayoutControlItem coatingHistoryLayout;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.SimpleButton closeButton;
         private DevExpress.XtraLayout.LayoutControl tabPagesLayout;
         private DevExpress.XtraLayout.LayoutControlGroup heatLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlGroup chemicalCompositionLayoutGroup;
@@ -1827,8 +1784,6 @@
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
-        private DevExpress.XtraLayout.LayoutControlItem closeButtonLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem closeButtonEmptySpace;
         private DevExpress.XtraGrid.Views.Grid.GridView weldersListGridView;
         private System.Windows.Forms.BindingSource inspectionOperation;
         private DevExpress.XtraLayout.LayoutControl generalInspectionsLayout;

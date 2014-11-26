@@ -29,7 +29,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private IList<PipeTestResult> pipeTestResults;
 
-        private readonly MillPipeNewEditCommand newEditCommand;
+        private readonly NewSavePipeCommand newSavePipeCommand;
+        private readonly SavePipeCommand savePipeCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
@@ -45,8 +46,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.repoMill = repoMill;
 
-            newEditCommand =
-                ViewModelSource.Create(() => new MillPipeNewEditCommand(this, repoMill));
+            newSavePipeCommand =
+                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill));
+
+            savePipeCommand =
+                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -470,9 +474,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
-        public ICommand NewEditCommand
+        public ICommand NewSavePipeCommand
         {
-            get { return newEditCommand; }
+            get { return newSavePipeCommand; }
         }
 
         public ICommand ExtractHeatsCommand
@@ -484,6 +488,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return extractPurchaseOrderCommand; }
         }
+
+        public ICommand SavePipeCommand
+        {
+            get { return savePipeCommand; }
+        }
+        
 
         public void NewPipe()
         {

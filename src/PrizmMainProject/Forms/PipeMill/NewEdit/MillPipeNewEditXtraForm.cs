@@ -174,7 +174,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.NewEditCommand.Execute(), viewModel.NewEditCommand);
+            saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
+            saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
         }
 
 
@@ -230,7 +231,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         /// <summary>
@@ -251,25 +253,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
-            viewModel.NewEditCommand.IsExecutable ^= true;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
