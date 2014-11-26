@@ -39,7 +39,6 @@
             this.weldingDate = new DevExpress.XtraEditors.DateEdit();
             this.internalCoatingDate = new DevExpress.XtraEditors.DateEdit();
             this.pipeSize = new DevExpress.XtraEditors.TextEdit();
-            this.pipeMillStatus = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipesSearchResult = new DevExpress.XtraGrid.GridControl();
             this.pipesSearchResultView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -72,6 +71,7 @@
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
             this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -82,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultView)).BeginInit();
@@ -106,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MillPipeSearchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // extraButton
@@ -127,9 +127,9 @@
             this.PipeSearchLayoutControl.Controls.Add(this.weldingDate);
             this.PipeSearchLayoutControl.Controls.Add(this.internalCoatingDate);
             this.PipeSearchLayoutControl.Controls.Add(this.pipeSize);
-            this.PipeSearchLayoutControl.Controls.Add(this.pipeMillStatus);
             this.PipeSearchLayoutControl.Controls.Add(this.pipeNumber);
             this.PipeSearchLayoutControl.Controls.Add(this.pipesSearchResult);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeMillStatus);
             this.PipeSearchLayoutControl.Location = new System.Drawing.Point(1, 4);
             this.PipeSearchLayoutControl.Name = "PipeSearchLayoutControl";
             this.PipeSearchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(92, 342, 250, 350);
@@ -194,14 +194,6 @@
             this.pipeSize.Size = new System.Drawing.Size(160, 20);
             this.pipeSize.StyleController = this.PipeSearchLayoutControl;
             this.pipeSize.TabIndex = 36;
-            // 
-            // pipeMillStatus
-            // 
-            this.pipeMillStatus.Location = new System.Drawing.Point(429, 62);
-            this.pipeMillStatus.Name = "pipeMillStatus";
-            this.pipeMillStatus.Size = new System.Drawing.Size(162, 20);
-            this.pipeMillStatus.StyleController = this.PipeSearchLayoutControl;
-            this.pipeMillStatus.TabIndex = 35;
             // 
             // pipeNumber
             // 
@@ -555,6 +547,18 @@
             this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // pipeMillStatus
+            // 
+            this.pipeMillStatus.Location = new System.Drawing.Point(429, 62);
+            this.pipeMillStatus.Name = "pipeMillStatus";
+            this.pipeMillStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeMillStatus.Properties.PopupSizeable = true;
+            this.pipeMillStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.pipeMillStatus.Size = new System.Drawing.Size(162, 20);
+            this.pipeMillStatus.StyleController = this.PipeSearchLayoutControl;
+            this.pipeMillStatus.TabIndex = 35;
+            // 
             // MillPipeSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,7 +579,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.internalCoatingDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultView)).EndInit();
@@ -599,6 +602,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MillPipeSearchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,7 +624,6 @@
         private DevExpress.XtraLayout.LayoutControlItem PipeSearchGridLayout;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit extraButton;
         private DevExpress.XtraEditors.TextEdit pipeSize;
-        private DevExpress.XtraEditors.TextEdit pipeMillStatus;
         private DevExpress.XtraEditors.TextEdit pipeNumber;
         private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeMillStatusLayout;
@@ -645,6 +648,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit pipeRepositoryButtonEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryLookUpEditStatus;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryGridLookUpEditViewStatus;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeMillStatus;
 
 
     }

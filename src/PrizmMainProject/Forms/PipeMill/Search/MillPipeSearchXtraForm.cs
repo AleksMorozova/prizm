@@ -46,6 +46,12 @@ namespace PrizmMain.Forms.PipeMill.Search
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
+
+            foreach (var s in viewModel.StatusTypes)
+            {
+                pipeMillStatus.Properties.Items.Add(s);
+            }
+
         }
 
         private void BindCommands()
