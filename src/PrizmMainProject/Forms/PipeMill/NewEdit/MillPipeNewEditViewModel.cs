@@ -502,6 +502,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Weight = 0;
             this.Length = 0;
             this.Diameter = 0;
+            this.PipeTestResults = new List<PipeTestResult>();
 
         }
 
