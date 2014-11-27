@@ -121,13 +121,8 @@ private void ButtonRefresh()
             viewModel.UnshipCommand.IsExecutable ^= true;
         }
 
-private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
-{
-    viewModel.GetStoredPipes();
     pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
     pipeNumberLookUp.Refresh();
     pipeListLookUpView.RefreshData();
-}
-
     }
 }
