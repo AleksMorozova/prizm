@@ -46,13 +46,14 @@
             this.TableStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TableHeaderStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -205,6 +206,46 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // xrLabel5
+            // 
+            this.xrLabel5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Size")});
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(503.5833F, 2.000013F);
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(136.4167F, 23F);
+            this.xrLabel5.Text = "xrLabel5";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Status")});
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(369.2366F, 2.000013F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(134.3466F, 23F);
+            this.xrLabel4.Text = "xrLabel4";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Manufacturer")});
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(166.6667F, 2.000014F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(202.57F, 23F);
+            this.xrLabel3.Text = "xrLabel3";
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "PipeNumber")});
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 2.000014F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(166.6667F, 23F);
+            this.xrLabel2.Text = "xrLabel2";
+            // 
             // GroupHeader1
             // 
             this.GroupHeader1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -225,49 +266,14 @@
             this.PageFooter.HeightF = 100F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // xrLabel2
-            // 
-            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "PipeNumber")});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 2.000014F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(166.6667F, 23F);
-            this.xrLabel2.Text = "xrLabel2";
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Manufacturer")});
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(166.6667F, 2.000014F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(202.57F, 23F);
-            this.xrLabel3.Text = "xrLabel3";
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Status")});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(369.2366F, 2.000013F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(134.3466F, 23F);
-            this.xrLabel4.Text = "xrLabel4";
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Size")});
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(503.5833F, 2.000013F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(136.4167F, 23F);
-            this.xrLabel5.Text = "xrLabel5";
-            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(PrizmMain.DummyData.PipesDummy);
+            // 
+            // parameter1
+            // 
+            this.parameter1.Description = "Parameter1";
+            this.parameter1.Name = "parameter1";
             // 
             // MillReportsXtraReport
             // 
@@ -281,10 +287,13 @@
             this.PageFooter});
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DataSource = this.bindingSource1;
+            this.FilterString = "StartsWith([Manufacturer], ?parameter1)";
             this.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
             this.FormattingRuleSheet.AddRange(new DevExpress.XtraReports.UI.FormattingRule[] {
             this.formattingRule1});
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 73, 273);
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.parameter1});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.LightBlue,
             this.TableHeaderStyle,
@@ -324,6 +333,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private DevExpress.XtraReports.Parameters.Parameter parameter1;
 
     }
 }

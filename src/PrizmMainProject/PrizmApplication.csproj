@@ -71,6 +71,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -98,6 +99,7 @@
     <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -253,6 +255,12 @@
     </Compile>
     <Compile Include="Forms\Login\LoginXtraForm.Designer.cs">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\MillReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\MillReport.Designer.cs">
+      <DependentUpon>MillReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.cs">
       <SubType>Component</SubType>
@@ -419,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\MillReport.resx">
+      <DependentUpon>MillReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraForm.resx">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
