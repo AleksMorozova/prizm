@@ -418,6 +418,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillReportsXtraForm";
             this.Text = "Завод - отчет";
+            this.Load += new System.EventHandler(this.MillReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).EndInit();
             this.generalReportLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).EndInit();

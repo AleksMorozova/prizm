@@ -98,22 +98,65 @@
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo48 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo49 = new DevExpress.DataAccess.Sql.ColumnInfo();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReport));
+            DevExpress.DataAccess.Sql.TableQuery tableQuery2 = new DevExpress.DataAccess.Sql.TableQuery();
+            DevExpress.DataAccess.Sql.RelationInfo relationInfo7 = new DevExpress.DataAccess.Sql.RelationInfo();
+            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo7 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
+            DevExpress.DataAccess.Sql.RelationInfo relationInfo8 = new DevExpress.DataAccess.Sql.RelationInfo();
+            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo8 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
+            DevExpress.DataAccess.Sql.RelationInfo relationInfo9 = new DevExpress.DataAccess.Sql.RelationInfo();
+            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo9 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
+            DevExpress.DataAccess.Sql.TableInfo tableInfo8 = new DevExpress.DataAccess.Sql.TableInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo50 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo51 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo52 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo53 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo54 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo55 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo56 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo57 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo58 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo59 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo60 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo61 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo62 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo63 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo64 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo65 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.TableInfo tableInfo9 = new DevExpress.DataAccess.Sql.TableInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo66 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo67 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo68 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo69 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo70 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo71 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.TableInfo tableInfo10 = new DevExpress.DataAccess.Sql.TableInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo72 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo73 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo74 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo75 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo76 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo77 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.TableInfo tableInfo11 = new DevExpress.DataAccess.Sql.TableInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo78 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo79 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo80 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.ColumnInfo columnInfo81 = new DevExpress.DataAccess.Sql.ColumnInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
-            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
             this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
+            this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -136,11 +179,15 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1,
             this.xrLabel21,
             this.xrLabel22,
             this.xrLabel23,
@@ -158,6 +205,136 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel21
+            // 
+            this.xrLabel21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.type")});
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(89.67304F, 0F);
+            this.xrLabel21.Name = "xrLabel21";
+            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel21.SizeF = new System.Drawing.SizeF(171.3324F, 22.04167F);
+            this.xrLabel21.StyleName = "DataField";
+            this.xrLabel21.Text = "xrLabel21";
+            // 
+            // xrLabel22
+            // 
+            this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.wallThickness")});
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(480.8674F, 0F);
+            this.xrLabel22.Name = "xrLabel22";
+            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel22.SizeF = new System.Drawing.SizeF(72.46927F, 22.04166F);
+            this.xrLabel22.StyleName = "DataField";
+            this.xrLabel22.Text = "xrLabel22";
+            // 
+            // xrLabel23
+            // 
+            this.xrLabel23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.weight")});
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(553.3366F, 0F);
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(54.31158F, 22.04166F);
+            this.xrLabel23.StyleName = "DataField";
+            this.xrLabel23.Text = "xrLabel23";
+            // 
+            // xrLabel24
+            // 
+            this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_date")});
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 0F);
+            this.xrLabel24.Name = "xrLabel24";
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(83.88968F, 22.04166F);
+            this.xrLabel24.StyleName = "DataField";
+            this.xrLabel24.Text = "xrLabel24";
+            // 
+            // xrLabel25
+            // 
+            this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_number")});
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(406.587F, 0F);
+            this.xrLabel25.Name = "xrLabel25";
+            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(74.28036F, 22.04166F);
+            this.xrLabel25.StyleName = "DataField";
+            this.xrLabel25.Text = "xrLabel25";
+            // 
+            // xrLabel29
+            // 
+            this.xrLabel29.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.number")});
+            this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
+            this.xrLabel29.Name = "xrLabel29";
+            this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel29.SizeF = new System.Drawing.SizeF(83.673F, 22.04166F);
+            this.xrLabel29.StyleName = "DataField";
+            this.xrLabel29.Text = "xrLabel29";
+            // 
+            // xrLabel28
+            // 
+            this.xrLabel28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.pipeMillStatus")});
+            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(261.0054F, 0F);
+            this.xrLabel28.Name = "xrLabel28";
+            this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(61.69193F, 22.04166F);
+            this.xrLabel28.StyleName = "DataField";
+            this.xrLabel28.Text = "xrLabel28";
+            // 
+            // xrLabel27
+            // 
+            this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Plate_number")});
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(722.0372F, 0F);
+            this.xrLabel27.Name = "xrLabel27";
+            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel27.SizeF = new System.Drawing.SizeF(70.93787F, 22.04166F);
+            this.xrLabel27.StyleName = "DataField";
+            this.xrLabel27.Text = "xrLabel27";
+            // 
+            // xrLabel31
+            // 
+            this.xrLabel31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.length")});
+            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(607.6481F, 0F);
+            this.xrLabel31.Name = "xrLabel31";
+            this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel31.SizeF = new System.Drawing.SizeF(46.40631F, 22.04166F);
+            this.xrLabel31.StyleName = "DataField";
+            this.xrLabel31.Text = "xrLabel31";
+            // 
+            // xrLabel32
+            // 
+            this.xrLabel32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.diameter")});
+            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(654.0544F, 2.083333F);
+            this.xrLabel32.Name = "xrLabel32";
+            this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel32.SizeF = new System.Drawing.SizeF(67.98236F, 22.04167F);
+            this.xrLabel32.StyleName = "DataField";
+            this.xrLabel32.Text = "xrLabel32";
+            // 
+            // xrCheckBox1
+            // 
+            this.xrCheckBox1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Pipe.isActive")});
+            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(912.4758F, 0F);
+            this.xrCheckBox1.Name = "xrCheckBox1";
+            this.xrCheckBox1.SizeF = new System.Drawing.SizeF(55.48248F, 22.04167F);
+            this.xrCheckBox1.StyleName = "DataField";
+            // 
+            // xrLabel34
+            // 
+            this.xrLabel34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.date")});
+            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(866.9333F, 0F);
+            this.xrLabel34.Name = "xrLabel34";
+            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel34.SizeF = new System.Drawing.SizeF(45.54248F, 22.04167F);
+            this.xrLabel34.StyleName = "DataField";
+            this.xrLabel34.Text = "xrLabel34";
             // 
             // TopMargin
             // 
@@ -362,139 +539,9 @@
             tableQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
-            // xrLabel21
-            // 
-            this.xrLabel21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.type")});
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(89.67304F, 0F);
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(171.3324F, 22.04167F);
-            this.xrLabel21.StyleName = "DataField";
-            this.xrLabel21.Text = "xrLabel21";
-            // 
-            // xrLabel22
-            // 
-            this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.wallThickness")});
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(480.8674F, 0F);
-            this.xrLabel22.Name = "xrLabel22";
-            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(72.46927F, 22.04166F);
-            this.xrLabel22.StyleName = "DataField";
-            this.xrLabel22.Text = "xrLabel22";
-            // 
-            // xrLabel23
-            // 
-            this.xrLabel23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.weight")});
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(553.3366F, 0F);
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(54.31158F, 22.04166F);
-            this.xrLabel23.StyleName = "DataField";
-            this.xrLabel23.Text = "xrLabel23";
-            // 
-            // xrLabel24
-            // 
-            this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_date")});
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 0F);
-            this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(83.88968F, 22.04166F);
-            this.xrLabel24.StyleName = "DataField";
-            this.xrLabel24.Text = "xrLabel24";
-            // 
-            // xrLabel25
-            // 
-            this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_number")});
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(406.587F, 0F);
-            this.xrLabel25.Name = "xrLabel25";
-            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(74.28036F, 22.04166F);
-            this.xrLabel25.StyleName = "DataField";
-            this.xrLabel25.Text = "xrLabel25";
-            // 
-            // xrLabel27
-            // 
-            this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Plate_number")});
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(722.0371F, 0F);
-            this.xrLabel27.Name = "xrLabel27";
-            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel27.SizeF = new System.Drawing.SizeF(70.93787F, 22.04166F);
-            this.xrLabel27.StyleName = "DataField";
-            this.xrLabel27.Text = "xrLabel27";
-            // 
-            // xrLabel28
-            // 
-            this.xrLabel28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.pipeMillStatus")});
-            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(261.0054F, 0F);
-            this.xrLabel28.Name = "xrLabel28";
-            this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel28.SizeF = new System.Drawing.SizeF(61.69193F, 22.04166F);
-            this.xrLabel28.StyleName = "DataField";
-            this.xrLabel28.Text = "xrLabel28";
-            // 
-            // xrLabel29
-            // 
-            this.xrLabel29.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.number")});
-            this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
-            this.xrLabel29.Name = "xrLabel29";
-            this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel29.SizeF = new System.Drawing.SizeF(83.673F, 22.04166F);
-            this.xrLabel29.StyleName = "DataField";
-            this.xrLabel29.Text = "xrLabel29";
-            // 
-            // xrLabel31
-            // 
-            this.xrLabel31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.length")});
-            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(607.6483F, 0F);
-            this.xrLabel31.Name = "xrLabel31";
-            this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel31.SizeF = new System.Drawing.SizeF(46.40631F, 22.04166F);
-            this.xrLabel31.StyleName = "DataField";
-            this.xrLabel31.Text = "xrLabel31";
-            // 
-            // xrCheckBox1
-            // 
-            this.xrCheckBox1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Pipe.isActive")});
-            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(838.5175F, 0F);
-            this.xrCheckBox1.Name = "xrCheckBox1";
-            this.xrCheckBox1.SizeF = new System.Drawing.SizeF(55.48248F, 22.04167F);
-            this.xrCheckBox1.StyleName = "DataField";
-            // 
-            // xrLabel32
-            // 
-            this.xrLabel32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.diameter")});
-            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(654.0547F, 0F);
-            this.xrLabel32.Name = "xrLabel32";
-            this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel32.SizeF = new System.Drawing.SizeF(67.98236F, 22.04167F);
-            this.xrLabel32.StyleName = "DataField";
-            this.xrLabel32.Text = "xrLabel32";
-            // 
-            // xrLabel34
-            // 
-            this.xrLabel34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.date")});
-            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(792.975F, 0F);
-            this.xrLabel34.Name = "xrLabel34";
-            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel34.SizeF = new System.Drawing.SizeF(45.54248F, 22.04167F);
-            this.xrLabel34.StyleName = "DataField";
-            this.xrLabel34.Text = "xrLabel34";
-            // 
             // xrLabel2
             // 
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(480.8673F, 1.916663F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(480.8675F, 1.916662F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(72.46924F, 28.70834F);
@@ -512,7 +559,7 @@
             // 
             // xrLabel5
             // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(553.3365F, 1.916663F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(553.3367F, 1.916663F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(54.31171F, 28.70834F);
@@ -539,7 +586,7 @@
             // 
             // xrLabel9
             // 
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(728.0371F, 1.916663F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(722.0372F, 1.916662F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
@@ -566,7 +613,7 @@
             // 
             // xrLabel13
             // 
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(607.6483F, 1.916663F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(607.6484F, 1.916663F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(46.40631F, 28.70834F);
@@ -575,7 +622,7 @@
             // 
             // xrLabel14
             // 
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(844.5175F, 1.916663F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(912.4758F, 1.916663F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(55.48254F, 28.70834F);
@@ -593,7 +640,7 @@
             // 
             // xrLabel17
             // 
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(798.975F, 1.916663F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(866.9333F, 1.916663F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel17.SizeF = new System.Drawing.SizeF(45.54248F, 28.70834F);
@@ -687,6 +734,7 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel4,
             this.xrLabel3,
             this.xrLabel10,
             this.xrLabel6,
@@ -699,8 +747,144 @@
             this.xrLabel14,
             this.xrLabel17,
             this.xrLabel9});
-            this.PageHeader.HeightF = 32.29167F;
+            this.PageHeader.HeightF = 32.29168F;
             this.PageHeader.Name = "PageHeader";
+            // 
+            // sqlDataSource2
+            // 
+            tableQuery2.Name = "Pipe";
+            relationColumnInfo7.NestedKeyColumn = "id";
+            relationColumnInfo7.ParentKeyColumn = "plateId";
+            relationInfo7.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo7});
+            relationInfo7.NestedTable = "Plate";
+            relationInfo7.ParentTable = "Pipe";
+            relationColumnInfo8.NestedKeyColumn = "id";
+            relationColumnInfo8.ParentKeyColumn = "heatId";
+            relationInfo8.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo8});
+            relationInfo8.NestedTable = "Heat";
+            relationInfo8.ParentTable = "Plate";
+            relationColumnInfo9.NestedKeyColumn = "id";
+            relationColumnInfo9.ParentKeyColumn = "purchaseOrderId";
+            relationInfo9.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo9});
+            relationInfo9.NestedTable = "PurchaseOrder";
+            relationInfo9.ParentTable = "Pipe";
+            tableQuery2.Relations.AddRange(new DevExpress.DataAccess.Sql.RelationInfo[] {
+            relationInfo7,
+            relationInfo8,
+            relationInfo9});
+            tableInfo8.Name = "Pipe";
+            columnInfo50.Name = "id";
+            columnInfo51.Name = "wallThickness";
+            columnInfo52.Name = "diameter";
+            columnInfo53.Name = "weight";
+            columnInfo54.Name = "mill";
+            columnInfo55.Name = "pipeMillStatus";
+            columnInfo56.Name = "number";
+            columnInfo57.Name = "isActive";
+            columnInfo58.Name = "inspectionStatus";
+            columnInfo59.Name = "constructionStatus";
+            columnInfo60.Name = "typeId";
+            columnInfo61.Name = "plateId";
+            columnInfo62.Name = "purchaseOrderId";
+            columnInfo63.Name = "railcarId";
+            columnInfo64.Name = "chemicalCompositionId";
+            columnInfo65.Name = "length";
+            tableInfo8.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo50,
+            columnInfo51,
+            columnInfo52,
+            columnInfo53,
+            columnInfo54,
+            columnInfo55,
+            columnInfo56,
+            columnInfo57,
+            columnInfo58,
+            columnInfo59,
+            columnInfo60,
+            columnInfo61,
+            columnInfo62,
+            columnInfo63,
+            columnInfo64,
+            columnInfo65});
+            tableInfo9.Name = "Plate";
+            columnInfo66.Alias = "Plate_id";
+            columnInfo66.Name = "id";
+            columnInfo67.Alias = "Plate_number";
+            columnInfo67.Name = "number";
+            columnInfo68.Name = "thickness";
+            columnInfo69.Alias = "Plate_chemicalCompositionId";
+            columnInfo69.Name = "chemicalCompositionId";
+            columnInfo70.Name = "heatId";
+            columnInfo71.Alias = "Plate_isActive";
+            columnInfo71.Name = "isActive";
+            tableInfo9.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo66,
+            columnInfo67,
+            columnInfo68,
+            columnInfo69,
+            columnInfo70,
+            columnInfo71});
+            tableInfo10.Name = "Heat";
+            columnInfo72.Alias = "Heat_id";
+            columnInfo72.Name = "id";
+            columnInfo73.Alias = "Heat_number";
+            columnInfo73.Name = "number";
+            columnInfo74.Name = "steelGrade";
+            columnInfo75.Name = "plateManufacturer";
+            columnInfo76.Alias = "Heat_chemicalCompositionId";
+            columnInfo76.Name = "chemicalCompositionId";
+            columnInfo77.Alias = "Heat_isActive";
+            columnInfo77.Name = "isActive";
+            tableInfo10.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo72,
+            columnInfo73,
+            columnInfo74,
+            columnInfo75,
+            columnInfo76,
+            columnInfo77});
+            tableInfo11.Name = "PurchaseOrder";
+            columnInfo78.Alias = "PurchaseOrder_id";
+            columnInfo78.Name = "id";
+            columnInfo79.Alias = "PurchaseOrder_number";
+            columnInfo79.Name = "number";
+            columnInfo80.Name = "date";
+            columnInfo81.Alias = "PurchaseOrder_isActive";
+            columnInfo81.Name = "isActive";
+            tableInfo11.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo78,
+            columnInfo79,
+            columnInfo80,
+            columnInfo81});
+            tableQuery2.Tables.AddRange(new DevExpress.DataAccess.Sql.TableInfo[] {
+            tableInfo8,
+            tableInfo9,
+            tableInfo10,
+            tableInfo11});
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            tableQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Heat_number")});
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(792.975F, 0F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(73.95831F, 23F);
+            this.xrLabel1.Text = "xrLabel1";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(795.9955F, 1.916663F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
+            this.xrLabel4.StyleName = "FieldCaption";
+            this.xrLabel4.Text = "Heat";
             // 
             // MillReport
             // 
@@ -712,7 +896,7 @@
             this.reportHeaderBand1,
             this.PageHeader});
             this.DataMember = "Pipe";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.sqlDataSource2;
             this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(52, 51, 51, 51);
             this.PageHeight = 850;
@@ -767,5 +951,8 @@
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle DataField;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }

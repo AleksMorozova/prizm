@@ -270,6 +270,14 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\ReportSearchCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\SQLQueryString.cs" />
+    <Compile Include="Forms\Reports\Mill\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
     <Compile Include="Forms\Settings\SettingsRepositories.cs" />
@@ -448,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.resx">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
