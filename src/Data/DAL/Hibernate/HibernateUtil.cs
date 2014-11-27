@@ -11,7 +11,7 @@ namespace Data.DAL.Hibernate
     public class HibernateUtil
     {
         private static ISessionFactory sessionFactory;
-
+        public static ISession session { get; private set; }
         public static void Initialize(string connectionString)
         {
             try
@@ -21,6 +21,7 @@ namespace Data.DAL.Hibernate
             .ShowSql())
             .Mappings(_ => _.FluentMappings.AddFromAssemblyOf<HibernateUtil>())
             .BuildSessionFactory();
+                session = sessionFactory.OpenSession();
             }
             catch (GenericADOException ex)
             {
@@ -32,7 +33,7 @@ namespace Data.DAL.Hibernate
         {
             try
             {
-                return sessionFactory.OpenSession();
+                return sessionFactory.OpenSession(new AuditInterceptor());
             }
             catch (GenericADOException ex)
             {

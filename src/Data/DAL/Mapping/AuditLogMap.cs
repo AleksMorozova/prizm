@@ -12,14 +12,14 @@ namespace Data.DAL.Mapping
     {
         public AuditLogMap()
         {
-            Id(a => a.AuditID);
-            Map(a => a.EntityID);
-            Map(a => a.AuditDate);
-            Map(a => a.User);
-            Map(a => a.TableName);
-            Map(a => a.FieldName);
-            Map(a => a.OldValue);
-            Map(a => a.NewValue);
+            Id(a => a.AuditID).Column("id");
+            Map(a => a.EntityID).Column("entityID");
+            Map(a => a.AuditDate).Column("auditDate");
+            Map(a => a.User).Column("[user]");
+            Map(a => a.TableName).Column("tableName");
+            Map(a => a.FieldName).Column("fieldName");
+            Map(a => a.OldValue).Column("oldValue").Nullable();
+            Map(a => a.NewValue).Column("newValue").Nullable();
         }
     }
 }

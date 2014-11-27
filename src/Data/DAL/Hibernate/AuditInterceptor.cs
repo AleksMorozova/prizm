@@ -15,9 +15,10 @@ namespace Data.DAL.Hibernate
         private readonly IAuditLogRepository repo;
 
         [Inject]
-        public AuditInterceptor(IAuditLogRepository repo)
+        public AuditInterceptor(/*IAuditLogRepository repo*/)
         {
-            this.repo = repo;
+          // this.repo = repo;
+            repo = new AuditLogRepository(HibernateUtil.session);
         }
         enum Actions { Insert, Delete };
         public override bool OnSave(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
@@ -33,7 +34,25 @@ namespace Data.DAL.Hibernate
             {
                 for (var i = 0; i < currentState.Count(); i++)
                 {
-                    if (currentState[i].ToString() != previousState[i].ToString())
+                    if (currentState[i] == null && previousState[i] == null) continue;
+                    else if (currentState[i] == null || previousState[i] == null)
+                    {
+                        AuditLog record = new AuditLog()
+                        {
+                            AuditID = Guid.NewGuid(),
+                            EntityID = curentity.Id,
+                            AuditDate = DateTime.Now,
+                            User = curentity.GetUser(),
+                            TableName = curentity.GetType().ToString(),
+                            FieldName = propertyNames[i],
+                            NewValue = (currentState[i] == null) ? "" : currentState[i].ToString(),
+                            OldValue = (previousState[i] == null) ? "" : previousState[i].ToString(),
+                        };
+                        repo.BeginTransaction();
+                        repo.Save(record);
+                        repo.Commit();   
+                    }
+                    else if (currentState[i] as Item ==null && currentState[i].ToString() != previousState[i].ToString())
                     {
                         AuditLog record = new AuditLog()
                         {
@@ -46,8 +65,13 @@ namespace Data.DAL.Hibernate
                             NewValue = currentState[i].ToString(),
                             OldValue = previousState[i].ToString()
                         };
+                        repo.BeginTransaction();
                         repo.Save(record);
+                        repo.Commit();
                     }
+                    //var objectProperty = currentState[i] as Item;
+                    //if (objectProperty != null)
+                    //{ objectProperty.}
                 }
             }
          return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);                 
@@ -84,7 +108,9 @@ namespace Data.DAL.Hibernate
                      NewValue = newValue,
                      OldValue = ""
                  };
+                 repo.BeginTransaction();
                  repo.Save(record);
+                 repo.Commit();
              }
         }
     }
