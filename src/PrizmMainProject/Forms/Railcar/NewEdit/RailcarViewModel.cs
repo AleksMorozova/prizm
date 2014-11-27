@@ -183,7 +183,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void RemovePipe(string number)
         {
-            if (Railcar.IsShipped)
+            if (Railcar.ShippingDate != DateTime.MinValue)
             {
                 notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
                 return;
@@ -222,7 +222,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             Pipes = new List<Pipe>();
         }
 
-        public void GetStoredPipes()
+        private void GetStoredPipes()
         {
             try
             {

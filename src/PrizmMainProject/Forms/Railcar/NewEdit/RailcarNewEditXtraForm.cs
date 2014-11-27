@@ -121,10 +121,5 @@ private void ButtonRefresh()
             viewModel.UnshipCommand.IsExecutable ^= true;
         }
 
-private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
-{
-    viewModel.GetStoredPipes();
-}
-
     }
 }
