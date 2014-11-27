@@ -226,7 +226,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             try
             {
-                allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+                var tmp = new List<Pipe>(repos.PipeRepo.GetStored());
+                allPipes = tmp;
             }
             catch (RepositoryException ex)
             {

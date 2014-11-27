@@ -124,6 +124,9 @@ private void ButtonRefresh()
 private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
 {
     viewModel.GetStoredPipes();
+    pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+    pipeNumberLookUp.Refresh();
+    pipeListLookUpView.RefreshData();
 }
 
     }
