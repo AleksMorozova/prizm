@@ -1,4 +1,4 @@
-namespace PrizmMain.Forms.Joint.NewEdit
+п»їnamespace PrizmMain.Forms.Joint.NewEdit
 {
     partial class JointNewEditXtraForm
     {
@@ -28,6 +28,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.GPSLabel = new DevExpress.XtraEditors.LabelControl();
@@ -185,12 +186,13 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // 
             // add
             // 
+            this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
             this.add.Location = new System.Drawing.Point(776, 178);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(100, 23);
             this.add.StyleController = this.newJointLayoutControl;
             this.add.TabIndex = 25;
-            this.add.Text = "Добавить";
+            this.add.Text = "&Р”РѕР±Р°РІРёС‚СЊ";
             // 
             // result
             // 
@@ -293,7 +295,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.secondJointElement.Name = "secondJointElement";
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
-            this.secondJointElement.Properties.NullText = "Введите номер";
+            this.secondJointElement.Properties.NullText = "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ";
             this.secondJointElement.Size = new System.Drawing.Size(150, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
             this.secondJointElement.TabIndex = 16;
@@ -304,7 +306,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.firstJointElement.Name = "firstJointElement";
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
-            this.firstJointElement.Properties.NullText = "Введите номер";
+            this.firstJointElement.Properties.NullText = "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ";
             this.firstJointElement.Size = new System.Drawing.Size(150, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 15;
@@ -356,62 +358,62 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // firstJointElementLayout
             // 
             this.firstJointElementLayout.Control = this.firstJointElement;
-            this.firstJointElementLayout.CustomizationFormText = "Первый стыкуемый элемент";
+            this.firstJointElementLayout.CustomizationFormText = "ГЏГҐГ°ГўГ»Г© Г±ГІГ»ГЄГіГҐГ¬Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ";
             this.firstJointElementLayout.Location = new System.Drawing.Point(0, 0);
             this.firstJointElementLayout.MinSize = new System.Drawing.Size(169, 47);
             this.firstJointElementLayout.Name = "firstJointElementLayout";
             this.firstJointElementLayout.Size = new System.Drawing.Size(169, 48);
             this.firstJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.firstJointElementLayout.Text = "Первый стыкуемый элемент";
+            this.firstJointElementLayout.Text = "РџРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃС‚С‹РєР°";
             this.firstJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.firstJointElementLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.firstJointElementLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // secondJointElementLayout
             // 
             this.secondJointElementLayout.Control = this.secondJointElement;
-            this.secondJointElementLayout.CustomizationFormText = "Второй стыкуемый элемент";
+            this.secondJointElementLayout.CustomizationFormText = "Г‚ГІГ®Г°Г®Г© Г±ГІГ»ГЄГіГҐГ¬Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ";
             this.secondJointElementLayout.Location = new System.Drawing.Point(0, 48);
             this.secondJointElementLayout.MinSize = new System.Drawing.Size(169, 47);
             this.secondJointElementLayout.Name = "secondJointElementLayout";
             this.secondJointElementLayout.Size = new System.Drawing.Size(169, 47);
             this.secondJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.secondJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.secondJointElementLayout.Text = "Второй стыкуемый элемент";
+            this.secondJointElementLayout.Text = "Р’С‚РѕСЂРѕР№ СЌР»РµРјРµРЅС‚ СЃС‚С‹РєР°";
             this.secondJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.secondJointElementLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.secondJointElementLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // jointNumberLayout
             // 
             this.jointNumberLayout.Control = this.jointNumber;
-            this.jointNumberLayout.CustomizationFormText = "Номер стыка";
+            this.jointNumberLayout.CustomizationFormText = "ГЌГ®Г¬ГҐГ° Г±ГІГ»ГЄГ ";
             this.jointNumberLayout.Location = new System.Drawing.Point(169, 0);
             this.jointNumberLayout.MinSize = new System.Drawing.Size(100, 47);
             this.jointNumberLayout.Name = "jointNumberLayout";
             this.jointNumberLayout.Size = new System.Drawing.Size(134, 48);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.jointNumberLayout.Text = "Номер стыка";
+            this.jointNumberLayout.Text = "РќРѕРјРµСЂ СЃС‚С‹РєР°";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.jointNumberLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.jointNumberLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // loweringDateLayout
             // 
             this.loweringDateLayout.Control = this.loweringDate;
-            this.loweringDateLayout.CustomizationFormText = "Дата укладки";
+            this.loweringDateLayout.CustomizationFormText = "Г„Г ГІГ  ГіГЄГ«Г Г¤ГЄГЁ";
             this.loweringDateLayout.Location = new System.Drawing.Point(169, 48);
             this.loweringDateLayout.MinSize = new System.Drawing.Size(134, 47);
             this.loweringDateLayout.Name = "loweringDateLayout";
             this.loweringDateLayout.Size = new System.Drawing.Size(134, 47);
             this.loweringDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.loweringDateLayout.Text = "Дата укладки";
+            this.loweringDateLayout.Text = "Р”Р°С‚Р° СѓРєР»Р°РґРєРё";
             this.loweringDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.loweringDateLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.loweringDateLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // inspectionLayoutGroup
             // 
-            this.inspectionLayoutGroup.CustomizationFormText = "Контрольные операции";
+            this.inspectionLayoutGroup.CustomizationFormText = "Р”Р°РЅРЅС‹Рµ РєРѕРЅС‚СЂРѕР»СЏ";
             this.inspectionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectionsLayout,
             this.controlTypeLayout,
@@ -425,7 +427,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.inspectionLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
             this.inspectionLayoutGroup.Size = new System.Drawing.Size(900, 301);
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 2);
-            this.inspectionLayoutGroup.Text = "Контрольные операции";
+            this.inspectionLayoutGroup.Text = "РљРѕРЅС‚СЂРѕР»СЊРЅС‹Рµ РѕРїРµСЂР°С†РёРё";
             // 
             // inspectionsLayout
             // 
@@ -442,42 +444,42 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // controlTypeLayout
             // 
             this.controlTypeLayout.Control = this.controlType;
-            this.controlTypeLayout.CustomizationFormText = "Тип операции";
+            this.controlTypeLayout.CustomizationFormText = "Г’ГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ";
             this.controlTypeLayout.Location = new System.Drawing.Point(0, 0);
             this.controlTypeLayout.MinSize = new System.Drawing.Size(219, 47);
             this.controlTypeLayout.Name = "controlTypeLayout";
             this.controlTypeLayout.Size = new System.Drawing.Size(219, 47);
             this.controlTypeLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.controlTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.controlTypeLayout.Text = "Тип операции";
+            this.controlTypeLayout.Text = "Р’РёРґ РєРѕРЅС‚СЂРѕР»СЏ";
             this.controlTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.controlTypeLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.controlTypeLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // inspectorNameLayout
             // 
             this.inspectorNameLayout.Control = this.inspectorName;
-            this.inspectorNameLayout.CustomizationFormText = "Инспектор";
+            this.inspectorNameLayout.CustomizationFormText = "Г€Г­Г±ГЇГҐГЄГІГ®Г°";
             this.inspectorNameLayout.Location = new System.Drawing.Point(353, 0);
             this.inspectorNameLayout.Name = "inspectorNameLayout";
             this.inspectorNameLayout.Size = new System.Drawing.Size(234, 47);
             this.inspectorNameLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.inspectorNameLayout.Text = "Инспектор/Сварщик";
+            this.inspectorNameLayout.Text = "РРЅСЃРїРµРєС‚РѕСЂ";
             this.inspectorNameLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectorNameLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.inspectorNameLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // resultLayout
             // 
             this.resultLayout.Control = this.result;
-            this.resultLayout.CustomizationFormText = "Результат";
+            this.resultLayout.CustomizationFormText = "ГђГҐГ§ГіГ«ГјГІГ ГІ";
             this.resultLayout.Location = new System.Drawing.Point(587, 0);
             this.resultLayout.MinSize = new System.Drawing.Size(134, 47);
             this.resultLayout.Name = "resultLayout";
             this.resultLayout.Size = new System.Drawing.Size(134, 47);
             this.resultLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.resultLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.resultLayout.Text = "Результат";
+            this.resultLayout.Text = "Р РµР·СѓР»СЊС‚Р°С‚";
             this.resultLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.resultLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.resultLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // addLayout
             // 
@@ -497,16 +499,16 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // controlDateLayout
             // 
             this.controlDateLayout.Control = this.controlDate;
-            this.controlDateLayout.CustomizationFormText = "Дата";
+            this.controlDateLayout.CustomizationFormText = "Г„Г ГІГ ";
             this.controlDateLayout.Location = new System.Drawing.Point(219, 0);
             this.controlDateLayout.MinSize = new System.Drawing.Size(134, 47);
             this.controlDateLayout.Name = "controlDateLayout";
             this.controlDateLayout.Size = new System.Drawing.Size(134, 47);
             this.controlDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.controlDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.controlDateLayout.Text = "Дата";
+            this.controlDateLayout.Text = "Р”Р°С‚Р° РєРѕРЅС‚СЂРѕР»СЏ";
             this.controlDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.controlDateLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.controlDateLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // addButtonEmptySpace
             // 
@@ -520,7 +522,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // 
             // loweringLayoutGroup
             // 
-            this.loweringLayoutGroup.CustomizationFormText = "Укладка";
+            this.loweringLayoutGroup.CustomizationFormText = "Г“ГЄГ«Г Г¤ГЄГ ";
             this.loweringLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.GPSLatLayout,
             this.GPSLongLayout,
@@ -531,49 +533,49 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.loweringLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
             this.loweringLayoutGroup.Size = new System.Drawing.Size(463, 95);
             this.loweringLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 2, 2, 2);
-            this.loweringLayoutGroup.Text = "Укладка";
+            this.loweringLayoutGroup.Text = "РџР°СЂР°РјРµС‚СЂС‹ СѓРєР»Р°РґРєРё";
             // 
             // GPSLatLayout
             // 
             this.GPSLatLayout.Control = this.GPSLat;
-            this.GPSLatLayout.CustomizationFormText = "Широта";
+            this.GPSLatLayout.CustomizationFormText = "ГГЁГ°Г®ГІГ ";
             this.GPSLatLayout.Location = new System.Drawing.Point(23, 0);
             this.GPSLatLayout.MinSize = new System.Drawing.Size(119, 40);
             this.GPSLatLayout.Name = "GPSLatLayout";
             this.GPSLatLayout.Size = new System.Drawing.Size(119, 40);
             this.GPSLatLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLatLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
-            this.GPSLatLayout.Text = "Широта";
+            this.GPSLatLayout.Text = "РЁРёСЂРѕС‚Р°";
             this.GPSLatLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLatLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.GPSLatLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // GPSLongLayout
             // 
             this.GPSLongLayout.Control = this.GPSLong;
-            this.GPSLongLayout.CustomizationFormText = "Долгота";
+            this.GPSLongLayout.CustomizationFormText = "Г„Г®Г«ГЈГ®ГІГ ";
             this.GPSLongLayout.Location = new System.Drawing.Point(142, 0);
             this.GPSLongLayout.MinSize = new System.Drawing.Size(134, 40);
             this.GPSLongLayout.Name = "GPSLongLayout";
             this.GPSLongLayout.Size = new System.Drawing.Size(134, 40);
             this.GPSLongLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLongLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
-            this.GPSLongLayout.Text = "Долгота";
+            this.GPSLongLayout.Text = "Р”РѕР»РіРѕС‚Р°";
             this.GPSLongLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLongLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.GPSLongLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // elevationLayout
             // 
             this.elevationLayout.Control = this.seaLevel;
-            this.elevationLayout.CustomizationFormText = "Высота";
+            this.elevationLayout.CustomizationFormText = "Г‚Г»Г±Г®ГІГ ";
             this.elevationLayout.Location = new System.Drawing.Point(276, 0);
             this.elevationLayout.MinSize = new System.Drawing.Size(119, 40);
             this.elevationLayout.Name = "elevationLayout";
             this.elevationLayout.Size = new System.Drawing.Size(138, 40);
             this.elevationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
-            this.elevationLayout.Text = "Высота";
+            this.elevationLayout.Text = "Р’С‹СЃРѕС‚Р°";
             this.elevationLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.elevationLayout.TextSize = new System.Drawing.Size(143, 13);
+            this.elevationLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
             // GPSLabelLayout
             // 
@@ -591,20 +593,21 @@ namespace PrizmMain.Forms.Joint.NewEdit
             // extraFiles
             // 
             this.extraFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.extraFiles.Image = ((System.Drawing.Image)(resources.GetObject("extraFiles.Image")));
             this.extraFiles.Location = new System.Drawing.Point(22, 424);
             this.extraFiles.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
             this.extraFiles.MinimumSize = new System.Drawing.Size(100, 20);
             this.extraFiles.Name = "extraFiles";
             this.extraFiles.Size = new System.Drawing.Size(100, 23);
             this.extraFiles.TabIndex = 16;
-            this.extraFiles.Text = "Вложения";
+            this.extraFiles.Text = "Р’&Р»РѕР¶РµРЅРёСЏ";
             // 
             // deactivated
             // 
             this.deactivated.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deactivated.Location = new System.Drawing.Point(154, 426);
             this.deactivated.Name = "deactivated";
-            this.deactivated.Properties.Caption = "Труба деактивирована";
+            this.deactivated.Properties.Caption = "РЎС‚С‹Рє РґРµР°РєС‚РёРІРёСЂРѕРІР°РЅ";
             this.deactivated.Size = new System.Drawing.Size(152, 19);
             this.deactivated.TabIndex = 17;
             // 
@@ -622,7 +625,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.MinimizeBox = false;
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
-            this.Text = "Создание/редактирование стыка";
+            this.Text = "РЎС‚СЂРѕРёС‚РµР»СЊСЃС‚РІРѕ - СЃС‚С‹Рє";
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);

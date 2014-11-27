@@ -16,6 +16,8 @@ namespace PrizmMain.Forms.PipeMill.Search
     using Pipe = Domain.Entity.Mill.Pipe;
 
     using Data.DAL.Mill;
+    using Domain.Entity.Mill;
+    using PrizmMain.Common;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
@@ -24,8 +26,10 @@ namespace PrizmMain.Forms.PipeMill.Search
         readonly ICommand searchCommand;
         readonly IPipeRepository repo;
         private IList<Pipe> pipes;
+        private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private string pipeNumber;
-        private int pipeSize;
+        private string pipeSize;
+        private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
         [Inject]
         public MillPipeSearchViewModel(IPipeRepository repo)
@@ -33,6 +37,7 @@ namespace PrizmMain.Forms.PipeMill.Search
             this.repo = repo;
             searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
                 () => new MillPipeSearchCommand(this, repo));
+            LoadPipeMillStatuses();
 
         }
         public IList<Pipe> Pipes
@@ -68,7 +73,7 @@ namespace PrizmMain.Forms.PipeMill.Search
         }
 
 
-        public int PipeSize
+        public string PipeSize
         {
             get
             {
@@ -84,8 +89,35 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
         }
 
+        public EnumWrapper<PipeMillStatus> PipeMillStatus
+        {
+            get
+            {
+                return pipeMillStatus;
+            }
+            set
+            {
+                if (value != pipeMillStatus)
+                {
+                    pipeMillStatus = value;
+                    RaisePropertyChanged("PipeMillStatus");
+                }
+            }
+        }
 
 
+        public IList<EnumWrapper<PipeMillStatus>> StatusTypes
+        {
+            get { return statusTypes; }
+            set
+            {
+                if (value != statusTypes)
+                {
+                    statusTypes = value;
+                    RaisePropertyChanged("StatusTypes");
+                }
+            }
+        }
 
         public ICommand SearchCommand
         {
@@ -96,7 +128,18 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             repo.Dispose();
         }
+        private void LoadPipeMillStatuses()
+        {
+            StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
+            foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
+            {
+                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Domain.Entity.Mill.PipeMillStatus.Undefined))
+                {
+                    StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
+                }
+            }
+        }
 
     }
 }

@@ -13,6 +13,13 @@ namespace Data.DAL.Mapping
         public ChemicalCompositionMap()
         {
             Table("ChemicalComposition");
+
+            Map(x => x.Parameter).Column("parameter");
+            Map(x => x.HeatValue).Column("heatValue");
+            Map(x => x.PlateValue).Column("plateValue");
+            Map(x => x.PipeValue).Column("pipeValue");
+
+            References<Heat>(x => x.HeatId).Column("heatId");
         }
     }
 }

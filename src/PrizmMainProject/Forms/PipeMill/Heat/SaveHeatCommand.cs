@@ -12,9 +12,9 @@ namespace PrizmMain.Forms.PipeMill.Heat
     public class SaveHeatCommand : ICommand
     {
         private readonly HeatViewModel viewModel;
-        private readonly IHeatRepository repo;
+        private readonly IHeatRepositories repo;
 
-        public SaveHeatCommand(HeatViewModel viewModel, IHeatRepository repo)
+        public SaveHeatCommand(HeatViewModel viewModel, IHeatRepositories repo)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -23,16 +23,18 @@ namespace PrizmMain.Forms.PipeMill.Heat
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            repo.BeginTransaction();
-            repo.Save(viewModel.Heat);
-            repo.Commit();
-            repo.Evict(viewModel.Heat);
-            viewModel.NewHeat(string.Empty);
+            //TODO: is old!!!
+            //repo.BeginTransaction();
+            //repo.HeatRepo.Save(viewModel.Heat);
+            //repo.Commit();
+            //repo.HeatRepo.Evict(viewModel.Heat);
+            //viewModel.NewHeat(string.Empty);
         }
 
         public bool CanExecute()
         {
             return true;
         }
+        public virtual bool IsExecutable { get; set; }
     }
 }

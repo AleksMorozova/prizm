@@ -9,12 +9,12 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using Data.DAL.Mill;
 using NHibernate.Criterion;
+using NHibernate.SqlCommand;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
     public class MillPipeSearchCommand : ICommand
     {
-
         readonly IPipeRepository repo;
         readonly MillPipeSearchViewModel viewModel;
 
@@ -24,17 +24,22 @@ namespace PrizmMain.Forms.PipeMill.Search
             this.repo = repo;
         }
 
-
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            
             var criteria = NHibernate.Criterion.DetachedCriteria
-                .For<Domain.Entity.Mill.Pipe>()
-                .Add(Restrictions.Like("Number", viewModel.PipeNumber));
-   
+                    .For<Domain.Entity.Mill.Pipe>("p")
+                    .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
+                    .CreateCriteria("p.Type", JoinType.InnerJoin)
+                    .Add(Restrictions.Like("Type", viewModel.PipeSize, MatchMode.Anywhere));
+
+            if (viewModel.PipeMillStatus != null)
+            {
+                criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
+            }
+ 
             viewModel.Pipes = repo.GetByCriteria(criteria);
-            
+            repo.Clear();
         }
 
         public bool CanExecute()
@@ -42,5 +47,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             return true;
         }
 
+        public virtual bool IsExecutable { get; set; }
     }
 }

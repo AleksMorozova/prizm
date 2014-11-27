@@ -1,4 +1,4 @@
-namespace PrizmMain.Forms.Joint.Search
+п»їnamespace PrizmMain.Forms.Joint.Search
 {
     partial class JointSearchXtraForm
     {
@@ -29,7 +29,7 @@ namespace PrizmMain.Forms.Joint.Search
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.controlState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.searchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -54,7 +54,6 @@ namespace PrizmMain.Forms.Joint.Search
             this.joinStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointWeldingDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.extraGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -81,7 +80,7 @@ namespace PrizmMain.Forms.Joint.Search
             // 
             this.extraJointButton.AutoHeight = false;
             this.extraJointButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraJointButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraJointButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraJointButton.LookAndFeel.SkinName = "Office 2013";
             this.extraJointButton.Name = "extraJointButton";
             this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -122,7 +121,7 @@ namespace PrizmMain.Forms.Joint.Search
             this.weldingDateLabel.Size = new System.Drawing.Size(64, 13);
             this.weldingDateLabel.StyleController = this.searchLayoutControl;
             this.weldingDateLabel.TabIndex = 65;
-            this.weldingDateLabel.Text = "Дата сварки";
+            this.weldingDateLabel.Text = "Р”Р°С‚Р° СЃРІР°СЂРєРё";
             // 
             // weldingDateTo
             // 
@@ -160,12 +159,13 @@ namespace PrizmMain.Forms.Joint.Search
             // 
             // searchButton
             // 
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(797, 14);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(100, 21);
             this.searchButton.StyleController = this.searchLayoutControl;
             this.searchButton.TabIndex = 60;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&РџРѕРёСЃРє";
             // 
             // jointNumber
             // 
@@ -200,42 +200,42 @@ namespace PrizmMain.Forms.Joint.Search
             // jointNumberLayout
             // 
             this.jointNumberLayout.Control = this.jointNumber;
-            this.jointNumberLayout.CustomizationFormText = "Номер";
+            this.jointNumberLayout.CustomizationFormText = "ГЌГ®Г¬ГҐГ°";
             this.jointNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.jointNumberLayout.MinSize = new System.Drawing.Size(119, 47);
             this.jointNumberLayout.Name = "jointNumberLayout";
             this.jointNumberLayout.Size = new System.Drawing.Size(119, 48);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.jointNumberLayout.Text = "Номер";
+            this.jointNumberLayout.Text = "РќРѕРјРµСЂ СЃС‚С‹РєР°";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.jointNumberLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
             // controlStateLayout
             // 
             this.controlStateLayout.Control = this.controlState;
-            this.controlStateLayout.CustomizationFormText = "Статус";
+            this.controlStateLayout.CustomizationFormText = "Г‘ГІГ ГІГіГ±";
             this.controlStateLayout.Location = new System.Drawing.Point(119, 0);
             this.controlStateLayout.MinSize = new System.Drawing.Size(184, 47);
             this.controlStateLayout.Name = "controlStateLayout";
             this.controlStateLayout.Size = new System.Drawing.Size(184, 48);
             this.controlStateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.controlStateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.controlStateLayout.Text = "Статус";
+            this.controlStateLayout.Text = "РЎС‚Р°С‚СѓСЃ";
             this.controlStateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.controlStateLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
             // weldingDateFromLayout
             // 
             this.weldingDateFromLayout.Control = this.weldingDateFrom;
-            this.weldingDateFromLayout.CustomizationFormText = "с";
+            this.weldingDateFromLayout.CustomizationFormText = "Г±";
             this.weldingDateFromLayout.Location = new System.Drawing.Point(393, 0);
             this.weldingDateFromLayout.MinSize = new System.Drawing.Size(119, 47);
             this.weldingDateFromLayout.Name = "weldingDateFromLayout";
             this.weldingDateFromLayout.Size = new System.Drawing.Size(119, 48);
             this.weldingDateFromLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.weldingDateFromLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.weldingDateFromLayout.Text = "с";
+            this.weldingDateFromLayout.Text = "СЃ";
             this.weldingDateFromLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.weldingDateFromLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
@@ -258,28 +258,28 @@ namespace PrizmMain.Forms.Joint.Search
             // KMlayout
             // 
             this.KMlayout.Control = this.pegNumber;
-            this.KMlayout.CustomizationFormText = "Номер пикета";
+            this.KMlayout.CustomizationFormText = "ГЌГ®Г¬ГҐГ° ГЇГЁГЄГҐГІГ ";
             this.KMlayout.Location = new System.Drawing.Point(646, 0);
             this.KMlayout.MinSize = new System.Drawing.Size(119, 47);
             this.KMlayout.Name = "KMlayout";
             this.KMlayout.Size = new System.Drawing.Size(134, 48);
             this.KMlayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.KMlayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.KMlayout.Text = "Номер пикета";
+            this.KMlayout.Text = "РќРѕРјРµСЂ РїРёРєРµС‚Р°";
             this.KMlayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.KMlayout.TextSize = new System.Drawing.Size(70, 13);
             // 
             // weldingDateToLayout
             // 
             this.weldingDateToLayout.Control = this.weldingDateTo;
-            this.weldingDateToLayout.CustomizationFormText = "по";
+            this.weldingDateToLayout.CustomizationFormText = "ГЇГ®";
             this.weldingDateToLayout.Location = new System.Drawing.Point(512, 0);
             this.weldingDateToLayout.MinSize = new System.Drawing.Size(134, 47);
             this.weldingDateToLayout.Name = "weldingDateToLayout";
             this.weldingDateToLayout.Size = new System.Drawing.Size(134, 48);
             this.weldingDateToLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.weldingDateToLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 7);
-            this.weldingDateToLayout.Text = "по";
+            this.weldingDateToLayout.Text = "РїРѕ";
             this.weldingDateToLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.weldingDateToLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
@@ -325,8 +325,7 @@ namespace PrizmMain.Forms.Joint.Search
             this.jointNumberGridColumn,
             this.joinStatusGridColumn,
             this.jointWeldingDateColumn,
-            this.repairGridColumn,
-            this.extraGridColumn});
+            this.repairGridColumn});
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
             this.resultView.OptionsBehavior.Editable = false;
@@ -335,47 +334,39 @@ namespace PrizmMain.Forms.Joint.Search
             // 
             // jointNumberGridColumn
             // 
-            this.jointNumberGridColumn.Caption = "№";
-            this.jointNumberGridColumn.FieldName = "Id";
+            this.jointNumberGridColumn.Caption = "РќРѕРјРµСЂ СЃС‚С‹РєР°";
+            this.jointNumberGridColumn.FieldName = "ID";
             this.jointNumberGridColumn.Name = "jointNumberGridColumn";
             this.jointNumberGridColumn.Visible = true;
             this.jointNumberGridColumn.VisibleIndex = 0;
-            this.jointNumberGridColumn.Width = 118;
+            this.jointNumberGridColumn.Width = 250;
             // 
             // joinStatusGridColumn
             // 
-            this.joinStatusGridColumn.Caption = "Статус";
+            this.joinStatusGridColumn.Caption = "РЎС‚Р°С‚СѓСЃ";
             this.joinStatusGridColumn.FieldName = "Status";
             this.joinStatusGridColumn.Name = "joinStatusGridColumn";
             this.joinStatusGridColumn.Visible = true;
             this.joinStatusGridColumn.VisibleIndex = 1;
-            this.joinStatusGridColumn.Width = 185;
+            this.joinStatusGridColumn.Width = 250;
             // 
             // jointWeldingDateColumn
             // 
-            this.jointWeldingDateColumn.Caption = "Дата сварки";
+            this.jointWeldingDateColumn.Caption = "Р”Р°С‚Р° СЃРІР°СЂРєРё";
             this.jointWeldingDateColumn.FieldName = "ControlDate";
             this.jointWeldingDateColumn.Name = "jointWeldingDateColumn";
             this.jointWeldingDateColumn.Visible = true;
             this.jointWeldingDateColumn.VisibleIndex = 2;
-            this.jointWeldingDateColumn.Width = 86;
+            this.jointWeldingDateColumn.Width = 150;
             // 
             // repairGridColumn
             // 
-            this.repairGridColumn.Caption = "В ремонте";
+            this.repairGridColumn.Caption = "РџРѕРІС‚РѕСЂРЅР°СЏ СЃРІР°СЂРєР°";
             this.repairGridColumn.FieldName = "Repair";
             this.repairGridColumn.Name = "repairGridColumn";
             this.repairGridColumn.Visible = true;
             this.repairGridColumn.VisibleIndex = 3;
-            this.repairGridColumn.Width = 457;
-            // 
-            // extraGridColumn
-            // 
-            this.extraGridColumn.ColumnEdit = this.extraJointButton;
-            this.extraGridColumn.Name = "extraGridColumn";
-            this.extraGridColumn.Visible = true;
-            this.extraGridColumn.VisibleIndex = 4;
-            this.extraGridColumn.Width = 50;
+            this.repairGridColumn.Width = 150;
             // 
             // JointSearchXtraForm
             // 
@@ -387,7 +378,7 @@ namespace PrizmMain.Forms.Joint.Search
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JointSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(2);
-            this.Text = "Поиск стыка";
+            this.Text = "РЎС‚СЂРѕРёС‚РµР»СЊСЃС‚РІРѕ - РїРѕРёСЃРє СЃС‚С‹РєРѕРІ";
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).EndInit();
@@ -421,7 +412,6 @@ namespace PrizmMain.Forms.Joint.Search
         private DevExpress.XtraGrid.Columns.GridColumn jointNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn joinStatusGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn repairGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn extraGridColumn;
         private DevExpress.XtraEditors.TextEdit pegNumber;
         private DevExpress.XtraLayout.LayoutControl searchLayoutControl;
         private DevExpress.XtraEditors.TextEdit jointNumber;

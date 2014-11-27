@@ -4,19 +4,36 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Ninject;
 using PrizmMain.Commands;
+using System.ComponentModel;
+using Domain.Entity.Mill;
+using System.Collections.Generic;
+using DevExpress.XtraEditors;
+using PrizmMain.Properties;
+using System.Windows.Forms;
+using Data.DAL;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository repo;
+        private readonly IRailcarRepositories repos;
+        private readonly IUserNotify notify;
         private readonly SaveRailcarCommand saveCommand;
+        private readonly ShipRailcarCommand shipCommand;
+        private readonly UnshipRailcarCommand unshipCommand;
+        private List<Pipe> allPipes;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepository repo, string railcarNumber)
+        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
         {
-            this.repo = repo;
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repo));
+            this.repos = repos;
+            this.notify = notify;
+
+            GetStoredPipes();
+
+            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos, notify));
+            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
+            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify));
 
             if (string.IsNullOrWhiteSpace(railcarNumber))
             {
@@ -24,9 +41,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                Railcar = repo.GetByNumber(railcarNumber);
+                Railcar = repos.RailcarRepo.GetByNumber(railcarNumber);
+                if (!Railcar.ShippingDate.HasValue)
+                {
+                    Railcar.ShippingDate = DateTime.MinValue;
+                }
             }
             
+        }
+
+        public List<Pipe> AllPipes
+        {
+            get { return allPipes; }
         }
 
         public Domain.Entity.Mill.Railcar Railcar { get; set; }
@@ -72,7 +98,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public DateTime ShippingDate
         {
-            get { return Railcar.ShippingDate; }
+            get 
+            {
+                if (Railcar.ShippingDate.HasValue)
+                {
+                    return Railcar.ShippingDate.Value;
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            
+            }
             set
             {
                 if (value != Railcar.ShippingDate)
@@ -83,39 +120,120 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime DeliveryDate
+        public IList<Pipe> Pipes
         {
-            get { return Railcar.DeliveryDate; }
-            set
+            get { return Railcar.Pipes; }
+            set 
             {
-                if (value != Railcar.DeliveryDate)
+                if (value != Railcar.Pipes)
                 {
-                    Railcar.DeliveryDate = value;
-                    RaisePropertyChanged("DeliveryDate");
+                    Railcar.Pipes = value;
+                    RaisePropertyChanged("Pipes");
                 }
             }
         }
 
+        #region Commands
         public ICommand SaveCommand
         {
             get { return saveCommand; }
         }
 
+        public ICommand ShipCommand
+        {
+            get { return shipCommand; }
+        }
+
+        public ICommand UnshipCommand
+        {
+            get { return unshipCommand; }
+        } 
+        #endregion
+
         public void Dispose()
         {
-            repo.Dispose();
+            repos.Dispose();
+        }
+
+        public void AddPipe(Guid id)
+        {
+            foreach (var pipe in Pipes)
+	        {
+                if (pipe.Id == id)
+	            {
+		        return;
+	            }
+	        }
+            GetStoredPipes();
+
+            var pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
+
+            if (!(pipeToAdd.Railcar == null))
+            {
+                notify.ShowError(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
+                    Resources.DLG_ERROR_HEADER);
+            }
+            else
+            {
+                Pipes.Add(pipeToAdd);
+            }
+
+            
+        }
+
+        public void RemovePipe(string number)
+        {
+            if (Railcar.ShippingDate != DateTime.MinValue)
+            {
+                notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
+                return;
+            }
+
+            foreach (var pipe in Pipes)
+            {
+                if (pipe.Number == number)
+                {
+                    try
+                    {
+                        Pipes.Remove(pipe);
+                        pipe.Railcar = null;
+                        repos.PipeRepo.Merge(pipe);
+                        break;
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
+                }
+            }
         }
 
         public void NewRailcar()
         {
             if (Railcar == null)
             {
-                Railcar = new Domain.Entity.Mill.Railcar {IsActive = true};
+                Railcar = new Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
             }
             Number = string.Empty;
             Destination = string.Empty;
-            ShippingDate = DateTime.Now;
+            ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
+
+            Pipes = new List<Pipe>();
         }
+
+        private void GetStoredPipes()
+        {
+            try
+            {
+                allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
+        }
+
+        
     }
 }

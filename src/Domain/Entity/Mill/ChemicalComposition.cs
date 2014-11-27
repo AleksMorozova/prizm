@@ -1,12 +1,13 @@
-﻿namespace Domain.Entity.Mill
+﻿using System;
+namespace Domain.Entity.Mill
 {
     public class ChemicalComposition : Item
     {
-        public ChemicalComposition()
-        {
-        }
+        public virtual string Parameter { get; set;}
+        public virtual float HeatValue { get; set; }
+        public virtual float PlateValue { get; set; }
+        public virtual float PipeValue { get; set; }
 
-        public virtual string Value { get; set; }
-        public virtual string Quantity { get; set; }
+        public virtual Guid HeatId { get; set; }
     }
 }

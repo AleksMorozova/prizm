@@ -1,2 +1,5 @@
 *.~ml
 src/PrizmMainProject/Properties/licenses.licx
+*.bak
+src/PrizmMainProject/Properties/licenses.licx
+[Ee]xternal/

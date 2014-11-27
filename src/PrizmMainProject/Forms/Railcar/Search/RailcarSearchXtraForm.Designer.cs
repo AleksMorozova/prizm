@@ -33,6 +33,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             this.openRailcarButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -40,12 +42,13 @@
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isShipped = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dest = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shippingDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.shipGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.unshipGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.shipGridButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.unshipGridButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.shippedDate = new DevExpress.XtraEditors.DateEdit();
@@ -55,11 +58,11 @@
             this.generalLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.destinationLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.shippedDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchLayoutGroupEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.shippedDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
@@ -68,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.railcarList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipGridButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipGridButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -78,11 +83,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).BeginInit();
             this.SuspendLayout();
@@ -122,8 +127,11 @@
             this.railcarList.Location = new System.Drawing.Point(27, 148);
             this.railcarList.MainView = this.railcarListView;
             this.railcarList.Name = "railcarList";
+            this.railcarList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.shipGridButton,
+            this.unshipGridButton});
             this.railcarList.Size = new System.Drawing.Size(1211, 363);
-            this.railcarList.TabIndex = 1;
+            this.railcarList.TabIndex = 5;
             this.railcarList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.railcarListView});
             // 
@@ -131,16 +139,17 @@
             // 
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.editGridColumn,
+            this.isShipped,
             this.number,
             this.dest,
             this.certificate,
-            this.shippingDate,
-            this.shipGridColumn,
-            this.unshipGridColumn});
+            this.shippingDate});
             this.railcarListView.GridControl = this.railcarList;
             this.railcarListView.Name = "railcarListView";
             this.railcarListView.OptionsBehavior.Editable = false;
+            this.railcarListView.OptionsBehavior.ReadOnly = true;
             this.railcarListView.OptionsView.ShowGroupPanel = false;
+            this.railcarListView.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.railcarListView_CustomRowCellEdit);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
             // editGridColumn
@@ -148,85 +157,94 @@
             this.editGridColumn.ColumnEdit = this.openRailcarButton;
             this.editGridColumn.MaxWidth = 30;
             this.editGridColumn.Name = "editGridColumn";
-            this.editGridColumn.Visible = true;
-            this.editGridColumn.VisibleIndex = 0;
             this.editGridColumn.Width = 30;
+            // 
+            // isShipped
+            // 
+            this.isShipped.Caption = "Статус отправки";
+            this.isShipped.FieldName = "IsShipped";
+            this.isShipped.Name = "isShipped";
             // 
             // number
             // 
-            this.number.Caption = "Номер";
+            this.number.Caption = "Номер вагона";
             this.number.FieldName = "Number";
             this.number.Name = "number";
+            this.number.OptionsColumn.AllowEdit = false;
             this.number.Visible = true;
-            this.number.VisibleIndex = 1;
+            this.number.VisibleIndex = 0;
             // 
             // dest
             // 
             this.dest.Caption = "Получатель";
             this.dest.FieldName = "Destination";
             this.dest.Name = "dest";
+            this.dest.OptionsColumn.AllowEdit = false;
             this.dest.Visible = true;
-            this.dest.VisibleIndex = 2;
+            this.dest.VisibleIndex = 1;
             // 
             // certificate
             // 
             this.certificate.Caption = "Сертификат";
             this.certificate.FieldName = "Certificate";
             this.certificate.Name = "certificate";
+            this.certificate.OptionsColumn.AllowEdit = false;
             this.certificate.Visible = true;
-            this.certificate.VisibleIndex = 3;
+            this.certificate.VisibleIndex = 2;
             // 
             // shippingDate
             // 
-            this.shippingDate.Caption = "Дата формирования";
+            this.shippingDate.Caption = "Дата отгрузки";
             this.shippingDate.FieldName = "ShippingDate";
-            this.shippingDate.MaxWidth = 150;
+            this.shippingDate.MaxWidth = 100;
             this.shippingDate.Name = "shippingDate";
+            this.shippingDate.OptionsColumn.AllowEdit = false;
             this.shippingDate.Visible = true;
-            this.shippingDate.VisibleIndex = 4;
-            this.shippingDate.Width = 70;
+            this.shippingDate.VisibleIndex = 3;
+            this.shippingDate.Width = 100;
             // 
-            // shipGridColumn
+            // shipGridButton
             // 
-            this.shipGridColumn.ColumnEdit = this.shipButton;
-            this.shipGridColumn.MaxWidth = 30;
-            this.shipGridColumn.Name = "shipGridColumn";
-            this.shipGridColumn.Visible = true;
-            this.shipGridColumn.VisibleIndex = 5;
-            this.shipGridColumn.Width = 30;
+            this.shipGridButton.AutoHeight = false;
+            this.shipGridButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("shipGridButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            this.shipGridButton.Name = "shipGridButton";
+            this.shipGridButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.shipGridButton.Click += new System.EventHandler(this.shipGridButton_Click);
             // 
-            // unshipGridColumn
+            // unshipGridButton
             // 
-            this.unshipGridColumn.ColumnEdit = this.unshipButton;
-            this.unshipGridColumn.MaxWidth = 30;
-            this.unshipGridColumn.Name = "unshipGridColumn";
-            this.unshipGridColumn.Visible = true;
-            this.unshipGridColumn.VisibleIndex = 6;
-            this.unshipGridColumn.Width = 30;
+            this.unshipGridButton.AutoHeight = false;
+            this.unshipGridButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("unshipGridButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            this.unshipGridButton.Name = "unshipGridButton";
+            this.unshipGridButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.unshipGridButton.Click += new System.EventHandler(this.unshipGridButton_Click);
             // 
             // searchButton
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter;
-            this.searchButton.Location = new System.Drawing.Point(777, 60);
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
+            this.searchButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.searchButton.Location = new System.Drawing.Point(787, 60);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(102, 22);
+            this.searchButton.Size = new System.Drawing.Size(96, 22);
             this.searchButton.StyleController = this.generalLayout;
-            this.searchButton.TabIndex = 29;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "&Поиск";
             // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.shippedDate);
             this.generalLayout.Controls.Add(this.railcarList);
             this.generalLayout.Controls.Add(this.searchButton);
-            this.generalLayout.Controls.Add(this.shippedDate);
             this.generalLayout.Controls.Add(this.certificateNumber);
             this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Controls.Add(this.destination);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(5, 5);
             this.generalLayout.Name = "generalLayout";
-            this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(288, 412, 250, 350);
+            this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(15, 412, 250, 350);
             this.generalLayout.Root = this.generalLayoutGroup;
             this.generalLayout.ShowTemplates = true;
             this.generalLayout.Size = new System.Drawing.Size(1265, 540);
@@ -236,40 +254,42 @@
             // shippedDate
             // 
             this.shippedDate.EditValue = null;
-            this.shippedDate.Location = new System.Drawing.Point(625, 61);
+            this.shippedDate.Location = new System.Drawing.Point(637, 61);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.shippedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.shippedDate.Size = new System.Drawing.Size(136, 20);
+            this.shippedDate.Properties.Mask.EditMask = "";
+            this.shippedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.shippedDate.Size = new System.Drawing.Size(116, 20);
             this.shippedDate.StyleController = this.generalLayout;
-            this.shippedDate.TabIndex = 12;
+            this.shippedDate.TabIndex = 3;
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(426, 61);
+            this.certificateNumber.Location = new System.Drawing.Point(437, 61);
             this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(185, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(166, 20);
             this.certificateNumber.StyleController = this.generalLayout;
-            this.certificateNumber.TabIndex = 14;
+            this.certificateNumber.TabIndex = 2;
             // 
             // railcarNumber
             // 
             this.railcarNumber.Location = new System.Drawing.Point(27, 61);
             this.railcarNumber.Margin = new System.Windows.Forms.Padding(10);
             this.railcarNumber.Name = "railcarNumber";
-            this.railcarNumber.Size = new System.Drawing.Size(136, 20);
+            this.railcarNumber.Size = new System.Drawing.Size(126, 20);
             this.railcarNumber.StyleController = this.generalLayout;
-            this.railcarNumber.TabIndex = 7;
+            this.railcarNumber.TabIndex = 0;
             // 
             // destination
             // 
-            this.destination.Location = new System.Drawing.Point(177, 61);
+            this.destination.Location = new System.Drawing.Point(187, 61);
             this.destination.Name = "destination";
-            this.destination.Size = new System.Drawing.Size(235, 20);
+            this.destination.Size = new System.Drawing.Size(216, 20);
             this.destination.StyleController = this.generalLayout;
-            this.destination.TabIndex = 3;
+            this.destination.TabIndex = 1;
             // 
             // generalLayoutGroup
             // 
@@ -291,11 +311,11 @@
             this.searchParametersLayoutGroup.CustomizationFormText = "Параметры поиска";
             this.searchParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.destinationLayout,
-            this.shippedDateLayout,
             this.certificateNumberLayout,
             this.searchButtonLayout,
             this.railcarNumberLayout,
-            this.searchLayoutGroupEmptySpace});
+            this.searchLayoutGroupEmptySpace,
+            this.shippedDateLayoutControl});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
             this.searchParametersLayoutGroup.Size = new System.Drawing.Size(1251, 98);
@@ -308,32 +328,20 @@
             this.destinationLayout.CustomizationFormText = "Destination";
             this.destinationLayout.Location = new System.Drawing.Point(150, 0);
             this.destinationLayout.Name = "destinationLayout";
-            this.destinationLayout.Size = new System.Drawing.Size(249, 45);
-            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.destinationLayout.Size = new System.Drawing.Size(250, 45);
+            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
             this.destinationLayout.Text = "&Получатель";
             this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.destinationLayout.TextSize = new System.Drawing.Size(101, 13);
-            // 
-            // shippedDateLayout
-            // 
-            this.shippedDateLayout.Control = this.shippedDate;
-            this.shippedDateLayout.CustomizationFormText = "Shipped date";
-            this.shippedDateLayout.Location = new System.Drawing.Point(598, 0);
-            this.shippedDateLayout.Name = "shippedDateLayout";
-            this.shippedDateLayout.Size = new System.Drawing.Size(150, 45);
-            this.shippedDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
-            this.shippedDateLayout.Text = "&Дата отгрузки";
-            this.shippedDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.shippedDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // certificateNumberLayout
             // 
             this.certificateNumberLayout.Control = this.certificateNumber;
             this.certificateNumberLayout.CustomizationFormText = "Certificate number";
-            this.certificateNumberLayout.Location = new System.Drawing.Point(399, 0);
+            this.certificateNumberLayout.Location = new System.Drawing.Point(400, 0);
             this.certificateNumberLayout.Name = "certificateNumberLayout";
-            this.certificateNumberLayout.Size = new System.Drawing.Size(199, 45);
-            this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.certificateNumberLayout.Size = new System.Drawing.Size(200, 45);
+            this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
             this.certificateNumberLayout.Text = "Номер &сертификата";
             this.certificateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateNumberLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -343,10 +351,10 @@
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.ControlAlignment = System.Drawing.ContentAlignment.BottomLeft;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(748, 0);
+            this.searchButtonLayout.Location = new System.Drawing.Point(750, 0);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(113, 45);
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 15, 0);
+            this.searchButtonLayout.Size = new System.Drawing.Size(115, 45);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextLocation = DevExpress.Utils.Locations.Bottom;
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -360,7 +368,7 @@
             this.railcarNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.railcarNumberLayout.Name = "railcarNumberLayout";
             this.railcarNumberLayout.Size = new System.Drawing.Size(150, 45);
-            this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.railcarNumberLayout.Text = "&Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -369,11 +377,23 @@
             // 
             this.searchLayoutGroupEmptySpace.AllowHotTrack = false;
             this.searchLayoutGroupEmptySpace.CustomizationFormText = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(861, 0);
+            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(865, 0);
             this.searchLayoutGroupEmptySpace.Name = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(364, 45);
+            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(360, 45);
             this.searchLayoutGroupEmptySpace.Text = "searchLayoutGroupEmptySpace";
             this.searchLayoutGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // shippedDateLayoutControl
+            // 
+            this.shippedDateLayoutControl.Control = this.shippedDate;
+            this.shippedDateLayoutControl.CustomizationFormText = "layoutControlItem1";
+            this.shippedDateLayoutControl.Location = new System.Drawing.Point(600, 0);
+            this.shippedDateLayoutControl.Name = "shippedDateLayoutControl";
+            this.shippedDateLayoutControl.Size = new System.Drawing.Size(150, 45);
+            this.shippedDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 5);
+            this.shippedDateLayoutControl.Text = "Дата отправки";
+            this.shippedDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.shippedDateLayoutControl.TextSize = new System.Drawing.Size(101, 13);
             // 
             // resultParametersLayoutGroup
             // 
@@ -408,7 +428,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "Find railcars";
+            this.Text = "Завод - поиск вагонов";
+            this.Activated += new System.EventHandler(this.RailcarSearchXtraForm_Activated);
             this.Load += new System.EventHandler(this.RailcarSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).EndInit();
@@ -416,6 +437,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.railcarList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipGridButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unshipGridButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
@@ -426,11 +449,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destinationLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroupEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shippedDateLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).EndInit();
             this.ResumeLayout(false);
@@ -443,16 +466,12 @@
         private DevExpress.XtraGrid.Views.Grid.GridView railcarListView;
         private DevExpress.XtraGrid.Columns.GridColumn editGridColumn;
         private DevExpress.XtraEditors.SimpleButton searchButton;
-        private DevExpress.XtraGrid.Columns.GridColumn shipGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn unshipGridColumn;
         private DevExpress.XtraLayout.LayoutControl generalLayout;
-        private DevExpress.XtraEditors.DateEdit shippedDate;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
         private DevExpress.XtraLayout.LayoutControlGroup generalLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem certificateNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem destinationLayout;
-        private DevExpress.XtraLayout.LayoutControlItem shippedDateLayout;
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit openRailcarButton;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit shipButton;
@@ -468,5 +487,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn certificate;
         private DevExpress.XtraGrid.Columns.GridColumn dest;
         private DevExpress.XtraGrid.Columns.GridColumn shippingDate;
+        private DevExpress.XtraEditors.DateEdit shippedDate;
+        private DevExpress.XtraLayout.LayoutControlItem shippedDateLayoutControl;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit shipGridButton;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit unshipGridButton;
+        private DevExpress.XtraGrid.Columns.GridColumn isShipped;
     }
 }

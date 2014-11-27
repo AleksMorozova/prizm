@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,7 +117,106 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="InspectionResultType_Boolean" xml:space="preserve">
+    <value>Логический</value>
+  </data>
+  <data name="IDS_ERROR" xml:space="preserve">
+    <value>Во время работы программы произошла ошибка. Причина: </value>
+  </data>
+  <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
+    <value>Нельзя одновременно открыть больше документов.</value>
+  </data>
+  <data name="InspectionResultType_Diapason" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="DLG_ERROR_HEADER" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="DLG_RAILCAR_NUMBER_EMPTY" xml:space="preserve">
+    <value>Введите номер вагона</value>
+  </data>
+  <data name="DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR" xml:space="preserve">
+    <value>Данная труба находится в вагоне #</value>
+  </data>
+  <data name="DLG_RAILCAR_TYPESIZE_ERROR" xml:space="preserve">
+    <value>Все трубы в в вагоне должны быть одного типоразмера</value>
+  </data>
+  <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
+    <value>Отправка вагона без труб невозможна</value>
+  </data>
+  <data name="InspectionControlType_Hold" xml:space="preserve">
+    <value>Обязательный</value>
+  </data>
   <data name="IDS_QUESTION_SAVE" xml:space="preserve">
-    <value>Do you want to save changes?</value>
+    <value>Сохранить изменения?</value>
+  </data>
+  <data name="InspectionControlType_Monitor" xml:space="preserve">
+    <value>Визуальный</value>
+  </data>
+  <data name="InspectionControlType_Review" xml:space="preserve">
+    <value>По документации</value>
+  </data>
+  <data name="InspectionResultType_String" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="InspectionControlType_Witness" xml:space="preserve">
+    <value>Присутствие</value>
+  </data>
+  <data name="Produced" xml:space="preserve">
+    <value>Производится</value>
+  </data>
+  <data name="Shipped" xml:space="preserve">
+    <value>Отгружена</value>
+  </data>
+  <data name="Stocked" xml:space="preserve">
+    <value>На складе</value>
+  </data>
+  <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
+    <value>Сначала расформируйте вагон.</value>
+  </data>
+  <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
+    <value>Вагон не отгружен</value>
+  </data>
+  <data name="AlertSaveHeader" xml:space="preserve">
+    <value>Сохранение успешно</value>
+  </data>
+  <data name="AlertSaveRailcar" xml:space="preserve">
+    <value>Данные вагона сохранены</value>
+  </data>
+  <data name="AlertShipRailcar" xml:space="preserve">
+    <value>Вагон успешно отгружен</value>
+  </data>
+  <data name="AlertUnsipRailcar" xml:space="preserve">
+    <value>Отгрузка вагона отменена. Дата отгрузки аннулированна. Трубы перемещены на склад.</value>
+  </data>
+  <data name="AlertInfoHeader" xml:space="preserve">
+    <value>Внимание</value>
+  </data>
+  <data name="AlertFailureHeader" xml:space="preserve">
+    <value>Произошла ошибка!</value>
+  </data>
+  <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
+    <value>Удалить запись?</value>
+  </data>
+  <data name="VALUE_REQUIRED" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
+  <data name="PRIZM" xml:space="preserve">
+    <value>PRIZM</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Не пройден</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Пройден</value>
+  </data>
+  <data name="Scheduled" xml:space="preserve">
+    <value>Ожидается</value>
+  </data>
+  <data name="COAT_EXTERNAL" xml:space="preserve">
+    <value>Внешнее</value>
+  </data>
+  <data name="COAT_INTERNAL" xml:space="preserve">
+    <value>Внутреннее</value>
   </data>
 </root>

@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using Domain.Entity.Setup;
+using System.Collections.Generic;
 
 namespace Domain.Entity.Mill
 {
     public class Pipe : PipelinePiece
     {
-public Pipe()
+        public Pipe()
         {
             this.Welds = new List<Weld>();
+            this.Coats = new List<Coat>();
             this.PipeTestResult = new List<PipeTestResult>();
+
+            this.Plate = new Plate() { Pipe = this };
         }
 
 
@@ -18,16 +23,19 @@ public Pipe()
         public virtual int WallThickness { get; set; }
         public virtual int Weight { get; set; }
 
-        public virtual string Type { get; set; } // from global dictionary type: PipeMillSizeType
+        public virtual PipeMillSizeType Type { get; set; }
 
         public virtual Railcar Railcar { get; set; }
-        public virtual PipeMillStatus Status { get; set; } //enum
+
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual ChemicalComposition ChemicalComposition { get; set; }
 
-        
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
+        public virtual IList<Coat> Coats { get; set; }
+
+        //enum
+        public virtual PipeMillStatus Status { get; set; }
     }
 }

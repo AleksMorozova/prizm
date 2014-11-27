@@ -42,7 +42,6 @@
             this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.editButtonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.searchComponentryButton = new DevExpress.XtraEditors.SimpleButton();
             this.searchComponentLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -135,8 +134,7 @@
             this.certificateNumberColumn,
             this.inspectorColumn,
             this.inspectionResultColumn,
-            this.inspectionDateColumn,
-            this.editButtonColumn});
+            this.inspectionDateColumn});
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
             this.searchResultsView.OptionsView.EnableAppearanceEvenRow = true;
@@ -149,6 +147,7 @@
             this.numberColumn.Name = "numberColumn";
             this.numberColumn.Visible = true;
             this.numberColumn.VisibleIndex = 0;
+            this.numberColumn.Width = 150;
             // 
             // typeColumn
             // 
@@ -157,6 +156,7 @@
             this.typeColumn.Name = "typeColumn";
             this.typeColumn.Visible = true;
             this.typeColumn.VisibleIndex = 1;
+            this.typeColumn.Width = 130;
             // 
             // certificateNumberColumn
             // 
@@ -165,6 +165,7 @@
             this.certificateNumberColumn.Name = "certificateNumberColumn";
             this.certificateNumberColumn.Visible = true;
             this.certificateNumberColumn.VisibleIndex = 2;
+            this.certificateNumberColumn.Width = 150;
             // 
             // inspectorColumn
             // 
@@ -173,6 +174,7 @@
             this.inspectorColumn.Name = "inspectorColumn";
             this.inspectorColumn.Visible = true;
             this.inspectorColumn.VisibleIndex = 3;
+            this.inspectorColumn.Width = 190;
             // 
             // inspectionResultColumn
             // 
@@ -181,6 +183,7 @@
             this.inspectionResultColumn.Name = "inspectionResultColumn";
             this.inspectionResultColumn.Visible = true;
             this.inspectionResultColumn.VisibleIndex = 4;
+            this.inspectionResultColumn.Width = 80;
             // 
             // inspectionDateColumn
             // 
@@ -189,14 +192,7 @@
             this.inspectionDateColumn.Name = "inspectionDateColumn";
             this.inspectionDateColumn.Visible = true;
             this.inspectionDateColumn.VisibleIndex = 5;
-            // 
-            // editButtonColumn
-            // 
-            this.editButtonColumn.Caption = "Редактировать";
-            this.editButtonColumn.ColumnEdit = this.repositoryButtonEdit;
-            this.editButtonColumn.Name = "editButtonColumn";
-            this.editButtonColumn.Visible = true;
-            this.editButtonColumn.VisibleIndex = 6;
+            this.inspectionDateColumn.Width = 99;
             // 
             // repositoryButtonEdit
             // 
@@ -208,12 +204,13 @@
             // 
             // searchComponentryButton
             // 
+            this.searchComponentryButton.Image = ((System.Drawing.Image)(resources.GetObject("searchComponentryButton.Image")));
             this.searchComponentryButton.Location = new System.Drawing.Point(582, 63);
             this.searchComponentryButton.Name = "searchComponentryButton";
             this.searchComponentryButton.Size = new System.Drawing.Size(89, 21);
             this.searchComponentryButton.StyleController = this.searchComponentLayout;
             this.searchComponentryButton.TabIndex = 3;
-            this.searchComponentryButton.Text = "Поиск";
+            this.searchComponentryButton.Text = "&Поиск";
             // 
             // searchComponentLayout
             // 
@@ -382,7 +379,7 @@
             this.Controls.Add(this.searchComponentLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentSearchXtraForm";
-            this.Text = "Find components";
+            this.Text = "Поиск комлектующих изделий";
             ((System.ComponentModel.ISupportInitialize)(this.diameterThicknessSubGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsView)).EndInit();
@@ -431,7 +428,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionResultColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionDateColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn editButtonColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryButtonEdit;
         private DevExpress.XtraLayout.EmptySpaceItem underButtonEmptySpace;
     }

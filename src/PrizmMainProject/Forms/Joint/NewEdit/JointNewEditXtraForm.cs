@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel;
+
 using DevExpress.XtraEditors;
+
 using PrizmMain.DummyData;
+
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
-    public partial class JointNewEditXtraForm : XtraForm
+    public partial class JointNewEditXtraForm : ChildForm
     {
         public JointNewEditXtraForm()
         {
@@ -17,10 +21,10 @@ namespace PrizmMain.Forms.Joint.NewEdit
             var pipeList = new BindingList<string> {"123", "556", "344"};
             var componentList = new BindingList<string> {"567", "865", "677"};
             controls.DataSource = JointsDummy.GetAllControlTypes();
-            inspectorName.Text = "Ivanov Ivan";
+            inspectorName.Text = "Иванов Иван";
             controlDate.Text = "10/10/2014";
-            result.Text = "Accepted";
-            controlType.Text = "Joint isolation";
+            result.Text = "Принят";
+            controlType.Text = "Изоляция стыка";
         }
     }
 }

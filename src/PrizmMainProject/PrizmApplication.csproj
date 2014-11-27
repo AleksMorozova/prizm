@@ -34,7 +34,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,7 +43,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -137,9 +137,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernate.3.3.4.4000\lib\Net35\NHibernate.dll</HintPath>
@@ -162,6 +159,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Common\ControlColorExtensions.cs" />
+    <Compile Include="Common\EnumWrapper.cs" />
+    <Compile Include="Controls\InspectorSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
+      <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WeldersSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
+      <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
@@ -172,6 +183,9 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
+    <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
@@ -188,12 +202,32 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PipeMill\Heat\HeatRepositories.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Heat\IHeatRepositories.cs" />
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
-    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommand.cs" />
-    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs" />
+    <Compile Include="Forms\PipeMill\IMillRepository.cs" />
+    <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\NewSavePipeCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\NewEdit\SavePipeCommand.cs" />
+    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.Designer.cs">
+      <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
+    <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
+    <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
+    <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
@@ -228,6 +262,14 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
+    <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
+    <Compile Include="Forms\Settings\SettingsRepositories.cs" />
+    <Compile Include="Forms\Settings\SettingsViewModel.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\CertificatedPersonSetupViewType.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\InspectorViewType.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\PersonSetupViewType.cs" />
+    <Compile Include="Forms\Settings\ViewTypes\WelderViewType.cs" />
     <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +375,12 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
+      <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WeldersSelectionControl.resx">
+      <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\PurchaseOrderXtraForm.resx">
+      <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
@@ -418,6 +469,8 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
+    <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
@@ -589,6 +642,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

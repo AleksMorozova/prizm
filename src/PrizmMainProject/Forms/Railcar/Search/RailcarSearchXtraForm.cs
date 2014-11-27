@@ -1,25 +1,32 @@
-﻿using System;
+using System;
 using System.ComponentModel;
-using DevExpress.XtraEditors;
-using PrizmMain.DummyData;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using System.Windows.Forms;
-using PrizmMain.Forms.Railcar.NewEdit;
+
 using Ninject;
 using Ninject.Parameters;
+
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+
+using System.Windows.Forms;
+
+using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.MainChildForm;
+
+using PrizmMain.DummyData;
+
 
 namespace PrizmMain.Forms.Railcar.Search
 {
-    public partial class RailcarSearchXtraForm : XtraForm
+    public partial class RailcarSearchXtraForm : ChildForm
     {
         private RailcarSearchViewModel viewModel;
 
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
-
+            shippedDate.Properties.NullDate = DateTime.MinValue;
+            shippedDate.Properties.NullText = string.Empty;
         }
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
@@ -27,6 +34,7 @@ namespace PrizmMain.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
+
         }
 
         private void BindToViewModel()
@@ -54,10 +62,42 @@ namespace PrizmMain.Forms.Railcar.Search
             {
                 
                 string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
-                var edit = (XtraForm)Program.Kernel.Get<RailcarNewEditXtraForm>(new ConstructorArgument("railcarNumber", number));
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.CreateFormChild(edit);
+                parent.CreateChildForm(typeof(RailcarNewEditXtraForm), new ConstructorArgument("railcarNumber", number));
             }
+        }
+
+        private void railcarListView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName != "ShippingButton")
+            {
+                return;
+            }
+            GridView gv = sender as GridView;
+            var tmp = (bool)gv.GetRowCellValue(e.RowHandle, "IsShipped");
+            if (tmp)
+            {
+                e.RepositoryItem = unshipGridButton;
+            }
+            else
+            {
+                e.RepositoryItem = shipGridButton;
+            }
+        }
+
+        private void shipGridButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ship");
+        }
+
+        private void unshipGridButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Unship");
+        }
+
+        private void RailcarSearchXtraForm_Activated(object sender, EventArgs e)
+        {
+            viewModel.SearchCommand.Execute();
         }
     }
 }

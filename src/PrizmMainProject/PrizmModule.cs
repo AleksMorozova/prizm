@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Hibernate;
 using Data.DAL.Mill;
+using Data.DAL.Setup;
 using Data.DAL;
 using NHibernate;
 using Ninject.Modules;
@@ -19,6 +20,9 @@ using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Railcar;
+using PrizmMain.Forms.PipeMill;
+using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain
 {
@@ -29,10 +33,24 @@ namespace PrizmMain
 
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
+            Bind<IPlateRepository>().To<PlateRepository>();
             Bind<IAuditLogRepository>().To<AuditLogRepository>();
+            Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
+            Bind<IWeldRepository>().To<WeldRepository>();
+            Bind<IWelderRepository>().To<WelderRepository>();
+            Bind<IPipeTestResultRepository>().To<PipeTestResultRepository>();
+            Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
+            Bind<IPipeTestRepository>().To<PipeTestRepository>();
+            Bind<IMillRepository>().To<MillRepository>();
+
+            Bind<ISettingsRepositories>().To<SettingsRepositories>();
+            Bind<IRailcarRepositories>().To<RailcarRepositories>();
+            Bind<IHeatRepositories>().To<HeatRepositories>();
+
             #endregion
 
             #region ViewModel
@@ -41,6 +59,7 @@ namespace PrizmMain
             Bind<MillPipeSearchViewModel>().ToSelf();
             Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
+            Bind<SettingsViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -61,6 +80,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             #endregion
 
+            Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
             Bind<AuditInterceptor>().ToSelf();
         }
     }

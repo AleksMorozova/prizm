@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using NHibernate.Exceptions;
 using System.Collections.Generic;
 
 namespace Data.DAL.Hibernate
@@ -15,49 +16,124 @@ namespace Data.DAL.Hibernate
 
         public TEntity Get(TKey key)
         {
-            return session.Get<TEntity>(key);
+            try
+            {
+                return session.Get<TEntity>(key);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Get", ex);
+            }
         }
 
         public void Save(TEntity entity)
         {
-            session.Save(entity);
+            try
+            {
+                session.Save(entity);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Save", ex);
+            }
         }
 
         public IList<TEntity> GetAll()
         {
-            return session.CreateCriteria<TEntity>().List<TEntity>();
+            try
+            {
+                return session.CreateCriteria<TEntity>().List<TEntity>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetAll", ex);
+            }
         }
 
         public IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria)
         {
-            return criteria.GetExecutableCriteria(session).List<TEntity>();
+            try
+            {
+                return criteria.GetExecutableCriteria(session).List<TEntity>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetByCriteria", ex);
+            }
         }
 
         public void SaveOrUpdate(TEntity entity)
         {
-            session.SaveOrUpdate(entity);
+            try
+            {
+                session.SaveOrUpdate(entity);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("SaveOrUpdate", ex);
+            }
+        }
+
+        public void Merge(TEntity entity)
+        {
+            try
+            {
+                session.Merge(entity);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Merge", ex);
+            }
         }
 
         public void Delete(TEntity entity)
         {
-            session.Delete(entity);
+            try
+            {
+                session.Delete(entity);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Delete", ex);
+            }
         }
 
         public void Evict(TEntity entity)
         {
-            session.Evict(entity);
+            try
+            {
+                session.Evict(entity);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Evict", ex);
+            }
         }
 
         public void Flush()
         {
-            session.Flush();
+            try
+            {
+                session.Flush();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Flush", ex);
+            }
         }
 
         public void Commit()
         {
             if (IsTransactionActive())
             {
-                session.Transaction.Commit();
+                try
+                {
+                    session.Transaction.Commit();
+                }
+                catch (GenericADOException ex)
+                {
+                    throw new RepositoryException("Commit", ex);
+                }
             }
         }
 
@@ -65,23 +141,64 @@ namespace Data.DAL.Hibernate
         {
             if (IsTransactionActive())
             {
-                session.Transaction.Rollback();
+                try
+                {
+                    session.Transaction.Rollback();
+                }
+                catch (GenericADOException ex)
+                {
+                    throw new RepositoryException("Rollback", ex);
+                }
             }
         }
 
         public void BeginTransaction()
         {
-            session.BeginTransaction();
+            try
+            {
+                session.BeginTransaction();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("BeginTransaction", ex);
+            }
         }
 
         public bool IsTransactionActive()
         {
-            return session.Transaction.IsActive;
+            try
+            {
+                return session.Transaction.IsActive;
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("IsTransactionActive", ex);
+            }
         }
 
         public void Dispose()
         {
-            session.Dispose();
+            try
+            {
+                session.Dispose();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Dispose", ex);
+            }
+        }
+
+
+        public void Clear()
+        {
+            try
+            {
+                session.Clear();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Clear", ex);
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Domain.Entity.Mill
             this.Heats = new List<Heat>();
         }
 
-        public virtual string Number { get; set; }
+        public virtual string Name { get; set; }
         public virtual IList<Heat> Heats { get; set; }
     }
 }

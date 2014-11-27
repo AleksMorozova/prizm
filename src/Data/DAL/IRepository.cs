@@ -8,8 +8,10 @@ namespace Data.DAL
         TEntity Get(TKey key);
         IList<TEntity> GetAll();
         IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria);
+        void Clear();
         void Save(TEntity entity);
         void SaveOrUpdate(TEntity entity);
+        void Merge(TEntity entity);
         void Delete(TEntity entity);
         void Evict(TEntity entity);
         void Flush();
@@ -17,5 +19,6 @@ namespace Data.DAL
         void Commit();
         void Rollback();
         bool IsTransactionActive();
+
     }
 }
