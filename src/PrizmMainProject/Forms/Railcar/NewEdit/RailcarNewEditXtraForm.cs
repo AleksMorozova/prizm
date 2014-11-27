@@ -33,7 +33,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             SetControlsTextLength();
         }
 
-        public RailcarNewEditXtraForm():this("")
+        public RailcarNewEditXtraForm()
+            : this("")
         {
 
         }
@@ -107,22 +108,26 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void shippedDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-        } 
-        
+        }
+
         private void SetControlsTextLength()
         {
             railcarNumber.Properties.MaxLength = 20;
             destination.Properties.MaxLength = 50;
             certificateNumber.Properties.MaxLength = 20;
         }
-private void ButtonRefresh()
+        private void ButtonRefresh()
         {
             viewModel.ShipCommand.IsExecutable ^= true;
             viewModel.UnshipCommand.IsExecutable ^= true;
         }
 
-    pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
-    pipeNumberLookUp.Refresh();
-    pipeListLookUpView.RefreshData();
+        private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            viewModel.GetStoredPipes();
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Refresh();
+            pipeListLookUpView.RefreshData();
+        }
     }
 }
