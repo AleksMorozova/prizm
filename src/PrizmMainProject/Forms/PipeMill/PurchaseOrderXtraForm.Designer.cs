@@ -121,9 +121,9 @@
             this.purchaseOrderNumberLayout.Name = "purchaseOrderNumberLayout";
             this.purchaseOrderNumberLayout.Size = new System.Drawing.Size(184, 70);
             this.purchaseOrderNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
-            this.purchaseOrderNumberLayout.Text = "Номер Наряд заказа";
+            this.purchaseOrderNumberLayout.Text = "Номер";
             this.purchaseOrderNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.purchaseOrderNumberLayout.TextSize = new System.Drawing.Size(103, 13);
+            this.purchaseOrderNumberLayout.TextSize = new System.Drawing.Size(31, 13);
             // 
             // saveButtonLayout
             // 
@@ -146,9 +146,9 @@
             this.purchaseOrderDateLayout.Name = "purchaseOrderDateLayout";
             this.purchaseOrderDateLayout.Size = new System.Drawing.Size(185, 70);
             this.purchaseOrderDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
-            this.purchaseOrderDateLayout.Text = "Дата наряд-заказа";
+            this.purchaseOrderDateLayout.Text = "Дата";
             this.purchaseOrderDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.purchaseOrderDateLayout.TextSize = new System.Drawing.Size(103, 13);
+            this.purchaseOrderDateLayout.TextSize = new System.Drawing.Size(31, 13);
             // 
             // saveButtonEmptySpace
             // 

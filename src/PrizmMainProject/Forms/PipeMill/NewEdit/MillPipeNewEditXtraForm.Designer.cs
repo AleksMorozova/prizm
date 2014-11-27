@@ -315,7 +315,7 @@
             // 
             // weldingDateGridColumn
             // 
-            this.weldingDateGridColumn.Caption = "Дата сварки";
+            this.weldingDateGridColumn.Caption = "Дата";
             this.weldingDateGridColumn.FieldName = "Date";
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
             this.weldingDateGridColumn.Visible = true;
@@ -473,7 +473,7 @@
             // 
             // coatingDateGridColumn
             // 
-            this.coatingDateGridColumn.Caption = "Дата покрытия";
+            this.coatingDateGridColumn.Caption = "Дата";
             this.coatingDateGridColumn.FieldName = "Date";
             this.coatingDateGridColumn.Name = "coatingDateGridColumn";
             this.coatingDateGridColumn.Visible = true;
@@ -665,7 +665,7 @@
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.railcarNumberLayout.Text = "Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.railcarNumberLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // certificateLayout
             // 
@@ -677,7 +677,7 @@
             this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
             this.certificateLayout.Text = "Номер сертификата";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certificateLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.certificateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // destinationLayout
             // 
@@ -689,19 +689,19 @@
             this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
             this.destinationLayout.Text = "Получатель";
             this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.destinationLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.destinationLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // shiptedDateLayout
             // 
             this.shiptedDateLayout.Control = this.shippedDate;
-            this.shiptedDateLayout.CustomizationFormText = "Дата отгрузки";
+            this.shiptedDateLayout.CustomizationFormText = "Дата";
             this.shiptedDateLayout.Location = new System.Drawing.Point(228, 0);
             this.shiptedDateLayout.Name = "shiptedDateLayout";
             this.shiptedDateLayout.Size = new System.Drawing.Size(146, 49);
             this.shiptedDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
-            this.shiptedDateLayout.Text = "Дата отгрузки";
+            this.shiptedDateLayout.Text = "Дата";
             this.shiptedDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.shiptedDateLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.shiptedDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // coatingParametersLayoutGroup
             // 
@@ -775,9 +775,9 @@
             this.plateManufacturerLayout.Name = "plateManufacturerLayout";
             this.plateManufacturerLayout.Size = new System.Drawing.Size(364, 65);
             this.plateManufacturerLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
-            this.plateManufacturerLayout.Text = "Производитель листа";
+            this.plateManufacturerLayout.Text = "Производитель";
             this.plateManufacturerLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.plateManufacturerLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.plateManufacturerLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // plateNumberLayout
             // 
@@ -787,9 +787,9 @@
             this.plateNumberLayout.Name = "plateNumberLayout";
             this.plateNumberLayout.Size = new System.Drawing.Size(191, 49);
             this.plateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
-            this.plateNumberLayout.Text = "Номер листа";
+            this.plateNumberLayout.Text = "Номер";
             this.plateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.plateNumberLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.plateNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // plateThicknessLayout
             // 
@@ -801,7 +801,7 @@
             this.plateThicknessLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.plateThicknessLayout.Text = "Толщина ";
             this.plateThicknessLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.plateThicknessLayout.TextSize = new System.Drawing.Size(111, 13);
+            this.plateThicknessLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // heatPlateParametersPage
             // 

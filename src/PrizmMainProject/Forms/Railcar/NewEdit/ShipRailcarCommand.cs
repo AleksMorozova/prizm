@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
 using Ninject;
@@ -46,7 +47,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                    if (railcar.ShippingDate == DateTime.MinValue)
+                if (railcar.ShippingDate == DateTime.MinValue || railcar.ShippingDate == null)
                     {
                         railcar.ShippingDate = DateTime.Now;
                     }
@@ -55,15 +56,23 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     {
                         pipe.Status = PipeMillStatus.Shipped;
                     }
+                    railcar.IsShipped = true;
                     viewModel.SaveCommand.Execute();
-                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);              
+                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);
+                    viewModel.ShipCommand.IsExecutable ^= true;
+                    viewModel.UnshipCommand.IsExecutable ^= true;
             }
         }
 
         public bool CanExecute()
         {
-            return !(viewModel.Railcar.ShippingDate != DateTime.MinValue);
+            return (!viewModel.Railcar.IsShipped);
         }
         public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
     }
 }

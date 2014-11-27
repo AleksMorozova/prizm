@@ -675,7 +675,7 @@
             this.millLengthLayout.Name = "millLengthLayout";
             this.millLengthLayout.Size = new System.Drawing.Size(136, 54);
             this.millLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.millLengthLayout.Text = "Длинна, м";
+            this.millLengthLayout.Text = "Длина, м";
             this.millLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.millLengthLayout.TextSize = new System.Drawing.Size(102, 13);
             // 
@@ -735,7 +735,7 @@
             this.inspectionLengthLayout.Name = "inspectionLengthLayout";
             this.inspectionLengthLayout.Size = new System.Drawing.Size(136, 54);
             this.inspectionLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.inspectionLengthLayout.Text = "Длинна, м";
+            this.inspectionLengthLayout.Text = "Длина, м";
             this.inspectionLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionLengthLayout.TextSize = new System.Drawing.Size(102, 13);
             // 

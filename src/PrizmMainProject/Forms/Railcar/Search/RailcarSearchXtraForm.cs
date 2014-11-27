@@ -74,14 +74,14 @@ namespace PrizmMain.Forms.Railcar.Search
                 return;
             }
             GridView gv = sender as GridView;
-            var tmp = (DateTime?)gv.GetRowCellValue(e.RowHandle, "ShippingDate");
-            if (tmp == null)
+            var tmp = (bool)gv.GetRowCellValue(e.RowHandle, "IsShipped");
+            if (tmp)
             {
-                e.RepositoryItem = shipGridButton;
+                e.RepositoryItem = unshipGridButton;
             }
             else
             {
-                e.RepositoryItem = unshipGridButton;
+                e.RepositoryItem = shipGridButton;
             }
         }
 
