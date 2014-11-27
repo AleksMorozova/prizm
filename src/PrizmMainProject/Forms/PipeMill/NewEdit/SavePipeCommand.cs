@@ -25,6 +25,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            var p = repo.RepoPipe.GetByNumber(viewModel.Number);
+            repo.RepoPipe.Clear();
+
+            if (p != null &&
+                p.Id != viewModel.Pipe.Id)
+            {
+                viewModel.Number = string.Empty;
+                return;
+            }
+
             repo.BeginTransaction();
             repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
             repo.Commit();

@@ -33,8 +33,7 @@ namespace Data.DAL.Hibernate
             }
         }
 
-        // TODO: now pipeMillStatus - string, sometime it will be 
-        // converted to type and condition must be changed
+
          public IList<Pipe> GetStored()
          {
              try

@@ -27,6 +27,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.SavePipeCommand.Execute();
+
+            if (viewModel.Number == string.Empty)
+            {
+                return;
+            }
             viewModel.NewPipe();
         }
 
