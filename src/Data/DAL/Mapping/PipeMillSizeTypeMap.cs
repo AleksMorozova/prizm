@@ -15,7 +15,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.Type, "type");
 
             HasMany(x => x.Pipes).KeyColumn("typeId");
-            HasMany(_ => _.PipeTests).KeyColumn("pipeMillSizeTypeId").Cascade.All().Inverse();
+            HasMany(_ => _.PipeTests).KeyColumn("pipeMillSizeTypeId").Cascade.All().Inverse().Not.LazyLoad();
         }
     }
 }
