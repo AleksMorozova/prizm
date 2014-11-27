@@ -37,13 +37,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                    var railcar = viewModel.Railcar;
-                    foreach (var pipe in railcar.Pipes)
+                    foreach (var pipe in viewModel.Railcar.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Stocked;
                     }
-                    railcar.ShippingDate = DateTime.MinValue;
-                    railcar.IsShipped = false;
+                    viewModel.Railcar.ShippingDate = DateTime.MinValue;
+                    viewModel.Railcar.IsShipped = false;
                     notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                     viewModel.SaveCommand.Execute();
                     viewModel.ShipCommand.IsExecutable ^= true;
