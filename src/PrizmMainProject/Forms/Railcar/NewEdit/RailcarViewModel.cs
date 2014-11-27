@@ -222,7 +222,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             Pipes = new List<Pipe>();
         }
 
-        private void GetStoredPipes()
+        public void GetStoredPipes()
         {
             try
             {

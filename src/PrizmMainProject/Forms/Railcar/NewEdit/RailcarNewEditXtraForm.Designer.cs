@@ -526,6 +526,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarNewEditXtraForm";
             this.Text = "Завод - вагон";
+            this.Activated += new System.EventHandler(this.RailcarNewEditXtraForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
