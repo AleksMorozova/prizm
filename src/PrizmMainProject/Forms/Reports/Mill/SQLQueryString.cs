@@ -25,7 +25,7 @@ namespace PrizmMain.Forms.Reports.Mill
 
         public const string GetAllPipesOnMill = @"select Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
                Pipe.weight as weight, Pipe.mill as mill, Pipe.pipeMillStatus as pipeMillStatus, Pipe.number
-               as number, Pipe.isActive as Pipe_isActive, Pipe.typeId as typeId, Pipe.plateId
+               as number, Pipe.isActive as isActive, Pipe.typeId as typeId, Pipe.plateId
                as plateId, Pipe.purchaseOrderId as purchaseOrderId, Pipe.length as length,
                Plate.number as Plate_number, Plate.thickness as thickness, Plate.heatId as heatId,
                PipeMillSizeType.type as type, Heat.number as Heat_number, Heat.steelGrade
