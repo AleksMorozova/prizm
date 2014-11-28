@@ -42,6 +42,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 }
                 try
                 {
+                    foreach (var pipe in viewModel.Railcar.Pipes)
+                    {
+                        pipe.Railcar = viewModel.Railcar;
+                    }
+
                     repos.BeginTransaction();
                     repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
                     repos.Commit();
