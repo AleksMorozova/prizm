@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Preview;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,7 +16,7 @@ namespace PrizmMain.Forms.Reports.Mill
     {
         public DataSet pipeDataSet;
 
-        public DataSet GetAllPipes() 
+        public DataSet GetAllPipes(string status) 
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.TableMappings.Add("Table", "Pipe");
@@ -27,16 +29,13 @@ namespace PrizmMain.Forms.Reports.Mill
             {
 
                 connection.Open();
+                command.Parameters.AddWithValue("@status", status);
                 adapter.SelectCommand = command;
                 pipeDataSet = new DataSet();
                 adapter.Fill(pipeDataSet);
                 adapter.Dispose();
                 command.Dispose();
                 connection.Close();
-
-                // command.ExecuteNonQuery();
-
-                //XtraMessageBox.Show("DataBase is Created Successfully", "MyProgram");
             }
             catch (System.Exception ex)
             {
@@ -51,6 +50,19 @@ namespace PrizmMain.Forms.Reports.Mill
             }
 
             return pipeDataSet;
+        }
+
+        public void CreateReport (DataSet dataSet)
+        {
+            var report = new MillReport() { DataSource = dataSet };
+            report.CreateDocument();
+            var tool = new ReportPrintTool(report);
+            tool.ShowPreview();
+        }
+
+        public void PreviewReport ()
+        { 
+
         }
     }
 }
