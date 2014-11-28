@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PrizmMain.Security
 {
-    interface ISecurityContext
+    public interface ISecurityContext
     {
         bool HasAccess(Privileges privilege);
     }

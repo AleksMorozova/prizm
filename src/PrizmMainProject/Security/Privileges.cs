@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Security
 {
-    enum Privileges
+    public enum Privileges
     {
 
     }
