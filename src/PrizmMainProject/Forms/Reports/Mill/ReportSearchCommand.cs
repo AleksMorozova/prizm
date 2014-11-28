@@ -16,18 +16,29 @@ namespace PrizmMain.Forms.Reports.Mill
     {
         public DataSet pipeDataSet;
 
-        public DataSet GetAllPipes(string status) 
+        private SqlDataAdapter adapter;
+        private System.Data.SqlClient.SqlConnection connection;
+        private System.Data.SqlClient.SqlCommand command; 
+
+        public ReportSearchCommand()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            adapter = new SqlDataAdapter();
             adapter.TableMappings.Add("Table", "Pipe");
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
+            command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
 
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
+        }
 
+        /// <summary>
+        /// Creat new DataSet with status parameter
+        /// </summary>
+        /// <param name="form"></param>
+        public DataSet GetPipesByStatus(string status) 
+        {
             try
             {
-
                 connection.Open();
                 command.Parameters.AddWithValue("@status", status);
                 adapter.SelectCommand = command;
@@ -39,7 +50,7 @@ namespace PrizmMain.Forms.Reports.Mill
             }
             catch (System.Exception ex)
             {
-                XtraMessageBox.Show(ex.ToString(), "MyProgram");
+                XtraMessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -52,6 +63,10 @@ namespace PrizmMain.Forms.Reports.Mill
             return pipeDataSet;
         }
 
+        /// <summary>
+        /// Creating report
+        /// </summary>
+        /// <param name="form"></param>
         public void CreateReport (DataSet dataSet)
         {
             var report = new MillReport() { DataSource = dataSet };

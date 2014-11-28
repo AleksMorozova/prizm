@@ -27,6 +27,8 @@ namespace PrizmMain.Forms.Reports.Mill
 
         private void previewButton_Click(object sender, EventArgs e)
         {
+            //TODO: input logic for reports parameters
+            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
             var report = new MillReport() { DataSource = allMillPipeDataSet };
             report.CreateDocument();
             DocumentViewer doc = previewReportDocument;
@@ -35,13 +37,13 @@ namespace PrizmMain.Forms.Reports.Mill
 
         private void createReportButton_Click(object sender, EventArgs e)
         {
-            allMillPipeDataSet = command.GetAllPipes("Produced"); 
+            //TODO: input logic for reports parameters
+            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
             command.CreateReport(allMillPipeDataSet);
         }
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
-           // allMillPipeDataSet = command.GetAllPipes("Produced"); 
         }
     }
 }
