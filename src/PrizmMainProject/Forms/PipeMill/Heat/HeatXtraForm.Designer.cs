@@ -31,47 +31,47 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.createButton = new DevExpress.XtraEditors.SimpleButton();
             this.plateManufacturer = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.plateMan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.number = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.heatNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.heatNumberView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonsLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.createButton = new DevExpress.XtraEditors.SimpleButton();
+            this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.createLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.plateMan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.heatNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumberView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLeftEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
@@ -92,6 +92,16 @@
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
             // 
+            // createButton
+            // 
+            this.createButton.Image = ((System.Drawing.Image)(resources.GetObject("createButton.Image")));
+            this.createButton.Location = new System.Drawing.Point(134, 129);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(99, 22);
+            this.createButton.StyleController = this.masterLayoutControl;
+            this.createButton.TabIndex = 10;
+            this.createButton.Text = "Создать";
+            // 
             // plateManufacturer
             // 
             this.plateManufacturer.Location = new System.Drawing.Point(29, 78);
@@ -102,8 +112,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.plateManufacturer.Properties.DisplayMember = "Name";
             this.plateManufacturer.Properties.NullText = "";
-            this.plateManufacturer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.plateManufacturer.Properties.ValueMember = "Name";
+            this.plateManufacturer.Properties.ValueMember = "Id";
             this.plateManufacturer.Properties.View = this.gridView1;
             this.plateManufacturer.Size = new System.Drawing.Size(414, 20);
             this.plateManufacturer.StyleController = this.masterLayoutControl;
@@ -118,19 +127,11 @@
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // plateMan
-            // 
-            this.plateMan.Caption = "производители листа";
-            this.plateMan.FieldName = "Name";
-            this.plateMan.Name = "plateMan";
-            this.plateMan.Visible = true;
-            this.plateMan.VisibleIndex = 0;
-            // 
             // steelGrade
             // 
-            this.steelGrade.Location = new System.Drawing.Point(158, 38);
+            this.steelGrade.Location = new System.Drawing.Point(235, 38);
             this.steelGrade.Name = "steelGrade";
-            this.steelGrade.Size = new System.Drawing.Size(285, 20);
+            this.steelGrade.Size = new System.Drawing.Size(208, 20);
             this.steelGrade.StyleController = this.masterLayoutControl;
             this.steelGrade.TabIndex = 8;
             // 
@@ -164,30 +165,23 @@
             this.number.Properties.Appearance.Options.UseBackColor = true;
             this.number.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.number.Properties.DisplayMember = "Number";
             this.number.Properties.NullText = "";
-            this.number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.number.Properties.View = this.gridLookUpEdit1View;
-            this.number.Size = new System.Drawing.Size(111, 20);
+            this.number.Properties.ValueMember = "Id";
+            this.number.Properties.View = this.heatNumberView;
+            this.number.Size = new System.Drawing.Size(188, 20);
             this.number.StyleController = this.masterLayoutControl;
             this.number.TabIndex = 4;
-            this.number.Validating += new System.ComponentModel.CancelEventHandler(this.number_Validating);
+            this.number.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
             // 
-            // gridLookUpEdit1View
+            // heatNumberView
             // 
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.heatNumberView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.heatNumber});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // heatNumber
-            // 
-            this.heatNumber.Caption = "Номер плавки";
-            this.heatNumber.FieldName = "Number";
-            this.heatNumber.Name = "heatNumber";
-            this.heatNumber.Visible = true;
-            this.heatNumber.VisibleIndex = 0;
+            this.heatNumberView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.heatNumberView.Name = "heatNumberView";
+            this.heatNumberView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.heatNumberView.OptionsView.ShowGroupPanel = false;
             // 
             // rootLayoutGroup
             // 
@@ -235,18 +229,6 @@
             this.cancelLayoutControl.TextToControlDistance = 0;
             this.cancelLayoutControl.TextVisible = false;
             // 
-            // divideButtonEmptySpace
-            // 
-            this.divideButtonEmptySpace.AllowHotTrack = false;
-            this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
-            this.divideButtonEmptySpace.Location = new System.Drawing.Point(0, 80);
-            this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
-            this.divideButtonEmptySpace.Name = "divideButtonEmptySpace";
-            this.divideButtonEmptySpace.Size = new System.Drawing.Size(432, 27);
-            this.divideButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
-            this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // buttonsLeftEmptySpace
             // 
             this.buttonsLeftEmptySpace.AllowHotTrack = false;
@@ -263,7 +245,7 @@
             this.numberLayoutControl.CustomizationFormText = "Номер плавки";
             this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.numberLayoutControl.Name = "numberLayoutControl";
-            this.numberLayoutControl.Size = new System.Drawing.Size(129, 40);
+            this.numberLayoutControl.Size = new System.Drawing.Size(206, 40);
             this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.numberLayoutControl.Text = "Номер плавки";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
@@ -273,9 +255,9 @@
             // 
             this.steelLayoutControl.Control = this.steelGrade;
             this.steelLayoutControl.CustomizationFormText = "Марка стали";
-            this.steelLayoutControl.Location = new System.Drawing.Point(129, 0);
+            this.steelLayoutControl.Location = new System.Drawing.Point(206, 0);
             this.steelLayoutControl.Name = "steelLayoutControl";
-            this.steelLayoutControl.Size = new System.Drawing.Size(303, 40);
+            this.steelLayoutControl.Size = new System.Drawing.Size(226, 40);
             this.steelLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.steelLayoutControl.Text = "Марка стали";
             this.steelLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
@@ -293,28 +275,17 @@
             this.plateManufacturerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(111, 13);
             // 
-            // layoutControlItem1
+            // divideButtonEmptySpace
             // 
-            this.layoutControlItem1.Control = this.number;
-            this.layoutControlItem1.CustomizationFormText = "Номер плавки";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "numberLayoutControl";
-            this.layoutControlItem1.Size = new System.Drawing.Size(249, 40);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
-            this.layoutControlItem1.Text = "Номер плавки";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(150, 13);
-            this.layoutControlItem1.TextToControlDistance = 5;
-            // 
-            // createButton
-            // 
-            this.createButton.Image = ((System.Drawing.Image)(resources.GetObject("createButton.Image")));
-            this.createButton.Location = new System.Drawing.Point(134, 129);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(99, 22);
-            this.createButton.StyleController = this.masterLayoutControl;
-            this.createButton.TabIndex = 10;
-            this.createButton.Text = "Создать";
+            this.divideButtonEmptySpace.AllowHotTrack = false;
+            this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.Location = new System.Drawing.Point(0, 80);
+            this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
+            this.divideButtonEmptySpace.Name = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.Size = new System.Drawing.Size(432, 27);
+            this.divideButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
+            this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // createLayoutControl
             // 
@@ -338,6 +309,35 @@
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.number;
+            this.layoutControlItem1.CustomizationFormText = "Номер плавки";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "numberLayoutControl";
+            this.layoutControlItem1.Size = new System.Drawing.Size(249, 40);
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
+            this.layoutControlItem1.Text = "Номер плавки";
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(150, 13);
+            this.layoutControlItem1.TextToControlDistance = 5;
+            // 
+            // plateMan
+            // 
+            this.plateMan.Caption = "производители листа";
+            this.plateMan.FieldName = "Name";
+            this.plateMan.Name = "plateMan";
+            this.plateMan.Visible = true;
+            this.plateMan.VisibleIndex = 0;
+            // 
+            // heatNumber
+            // 
+            this.heatNumber.Caption = "Номер плавки";
+            this.heatNumber.FieldName = "Number";
+            this.heatNumber.Name = "heatNumber";
+            this.heatNumber.Visible = true;
+            this.heatNumber.VisibleIndex = 0;
+            // 
             // HeatXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -356,19 +356,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumberView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsLeftEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,7 +388,7 @@
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelLayoutControl;
         private DevExpress.XtraEditors.GridLookUpEdit number;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Views.Grid.GridView heatNumberView;
         private DevExpress.XtraGrid.Columns.GridColumn heatNumber;
         private DevExpress.XtraEditors.GridLookUpEdit plateManufacturer;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

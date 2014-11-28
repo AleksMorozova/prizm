@@ -10,6 +10,7 @@ using Domain.Entity.Mill;
 using PrizmMain.Commands;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using System.ComponentModel;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
@@ -17,7 +18,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
     {
         private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
-        
+
         [Inject]
         public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
         {
@@ -26,30 +27,31 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
-                NewHeat(heatNumber);
+                HeatsList();
             }
             else
             {
-                var answer = repo.HeatRepo.GetByNumber(heatNumber);
-                if (answer == null)
+                var heat = GetHeatByNumber(heatNumber);
+                if (heat != null)
                 {
-                    NewHeat(heatNumber);
+                    Heat = heat;
                 }
                 else
                 {
-                    Heat = answer;
+                    HeatsList();
                 }
             }
-            GetAllHeat();
+         
         }
 
-        private Domain.Entity.Mill.Heat heat;
-        public Domain.Entity.Mill.Heat Heat 
-        { 
-            get {return heat;}
-            set 
+        #region Property
+        Domain.Entity.Mill.Heat heat;
+        public Domain.Entity.Mill.Heat Heat
+        {
+            get { return heat; }
+            set
             {
-                if (heat != value)
+                if (value != heat)
                 {
                     heat = value;
                     RaisePropertyChanged("Heat");
@@ -57,20 +59,13 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        public string Number
+        IList<Domain.Entity.Mill.Heat> heats;
+        public IList<Domain.Entity.Mill.Heat> Heats
         {
-            get { return Heat.Number; }
-            set
-            {
-                if (value != Heat.Number)
-                {
-                    Heat.Number = value;
-                    RaisePropertyChanged("Number");
-                }
-            }
+            get { return heats; }
         }
-
-        public string Steel
+        
+        public string SteelGrade
         {
             get { return Heat.SteelGrade; }
             set
@@ -83,34 +78,43 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        public IList<ChemicalComposition> ChemicalCompositions
+        public PlateManufacturer PlateManufacturer
         {
-            get { return Heat.ChemicalComposition; }
+            get
+            {
+                if (Heat.PlateManufacturer != null)
+                {
+                    return Heat.PlateManufacturer;
+                }
+                else
+                {
+                    return null;
+                }
+            }
             set
             {
-                if (value != Heat.ChemicalComposition)
+                if (value != Heat.PlateManufacturer)
                 {
-                    Heat.ChemicalComposition = value;
-                    RaisePropertyChanged("ChemicalComposition");
+                    Heat.PlateManufacturer = value;
+                    RaisePropertyChanged("PlateManufacturer");
                 }
             }
         }
 
-        public IList<PhysicalParameters> PhysicalParameters
+        IList<PlateManufacturer> manufacrurers;
+        public IList<PlateManufacturer> Manufacrurers
         {
-            get { return Heat.PhysicalParameters; }
-            set
-            {
-                if (value != Heat.PhysicalParameters)
-                {
-                    Heat.PhysicalParameters = value;
-                    RaisePropertyChanged("PhysicalParameters");
-                }
-            }
+            get { return manufacrurers; }
         }
 
-        private IList<Domain.Entity.Mill.Heat> allHeats;
-        public IList<Domain.Entity.Mill.Heat> AllHeats { get { return allHeats; } }
+        #endregion
+
+        private void HeatsList()
+        {
+            heats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+            heat = heats[0];
+            manufacrurers = new List<PlateManufacturer>(repo.PlateManRepo.GetAll().ToList());
+        }
 
         public ICommand SaveCommand
         {
@@ -127,19 +131,23 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             Heat = new Domain.Entity.Mill.Heat()
             {
-
+                
             };
         }
 
-        private void GetAllHeat()
+        internal Domain.Entity.Mill.Heat GetHeatByNumber(string number)
         {
-            allHeats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+            return repo.HeatRepo.GetByNumber(number);
         }
 
-
-        internal void GetHeatByNumber(string number)
+        internal void GetHeatById(Guid id)
         {
-            Heat = repo.HeatRepo.GetByNumber(number);
+            Heat = repo.HeatRepo.Get(id);
+        }
+
+        internal void SetHeat(Guid guid)
+        {
+            Heat = heats.Where(x => x.Id == guid).FirstOrDefault();
         }
     }
 }
