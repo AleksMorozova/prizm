@@ -35,13 +35,15 @@ namespace PrizmMain.Forms.Reports.Mill
 
         private void createReportButton_Click(object sender, EventArgs e)
         {
-            allMillPipeDataSet = command.GetAllPipes("Produced"); 
-            command.CreateReport(allMillPipeDataSet);
+            //TODO: input logic for reports parameters
+            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
+            command.CreateReport(new MillReport(),allMillPipeDataSet);
         }
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
-           // allMillPipeDataSet = command.GetAllPipes("Produced"); 
+            //TODO: input logic for reports parameters
+            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
         }
     }
 }
