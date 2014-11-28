@@ -252,7 +252,7 @@
             // xrLabel24
             // 
             this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_date")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_date", "{0:M/d/yyyy}")});
             this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 0F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
