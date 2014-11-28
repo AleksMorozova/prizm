@@ -225,6 +225,7 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
@@ -375,6 +376,7 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Privileges.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
