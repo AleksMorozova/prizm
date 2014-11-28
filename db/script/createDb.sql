@@ -116,6 +116,7 @@ CREATE TABLE [dbo].[Pipe](
 	[weight] [int] NULL,
 	[mill] [nvarchar](250) NULL,
 	[pipeMillStatus] [nvarchar](20) NULL,
+	[date] [date] NULL,
 	[typeId] [uniqueidentifier] NULL,
 	[plateId] [uniqueidentifier] NULL,
 	[purchaseOrderId] [uniqueidentifier] NULL,

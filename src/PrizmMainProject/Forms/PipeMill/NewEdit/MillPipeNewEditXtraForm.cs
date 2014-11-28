@@ -45,6 +45,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
             purchaseOrderDate.Properties.NullText = string.Empty;
 
+            pipeCreationDate.Properties.NullDate = DateTime.MinValue;
+            pipeCreationDate.Properties.NullText = string.Empty;
+
             pipeNumber.SetRequiredText();
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
@@ -98,7 +101,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
-
+            pipeCreationDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Date");
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
