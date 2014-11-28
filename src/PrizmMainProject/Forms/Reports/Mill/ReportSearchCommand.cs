@@ -31,8 +31,8 @@ namespace PrizmMain.Forms.Reports.Mill
 
             //select query with parameter
             //command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesByStatus, connection);
-            
-            command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
+
+            command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesByStatus, connection);
 
         }
 

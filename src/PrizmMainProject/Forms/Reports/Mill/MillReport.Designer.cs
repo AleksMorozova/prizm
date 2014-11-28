@@ -210,7 +210,7 @@
             // 
             this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Heat_number")});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(792.975F, 0F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(846.2289F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(73.95831F, 22.04166F);
@@ -223,7 +223,7 @@
             this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(89.67304F, 0F);
             this.xrLabel21.Name = "xrLabel21";
             this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(171.3324F, 22.04167F);
+            this.xrLabel21.SizeF = new System.Drawing.SizeF(150.4989F, 22.04167F);
             this.xrLabel21.StyleName = "DataField";
             this.xrLabel21.Text = "xrLabel21";
             // 
@@ -231,7 +231,7 @@
             // 
             this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.wallThickness")});
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(480.8674F, 0F);
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 0F);
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel22.SizeF = new System.Drawing.SizeF(72.46927F, 22.04166F);
@@ -242,7 +242,7 @@
             // 
             this.xrLabel23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.weight")});
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(553.3366F, 0F);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 0F);
             this.xrLabel23.Name = "xrLabel23";
             this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel23.SizeF = new System.Drawing.SizeF(54.31158F, 22.04166F);
@@ -286,7 +286,7 @@
             // 
             this.xrLabel28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.pipeMillStatus")});
-            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(261.0054F, 0F);
+            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 0F);
             this.xrLabel28.Name = "xrLabel28";
             this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel28.SizeF = new System.Drawing.SizeF(61.69193F, 22.04166F);
@@ -297,7 +297,7 @@
             // 
             this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Plate_number")});
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(722.0372F, 0F);
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(757.5826F, 0F);
             this.xrLabel27.Name = "xrLabel27";
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel27.SizeF = new System.Drawing.SizeF(70.93787F, 22.04166F);
@@ -308,7 +308,7 @@
             // 
             this.xrLabel31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.length")});
-            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(607.6481F, 0F);
+            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(632.6485F, 9.536743E-06F);
             this.xrLabel31.Name = "xrLabel31";
             this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel31.SizeF = new System.Drawing.SizeF(46.40631F, 22.04166F);
@@ -319,7 +319,7 @@
             // 
             this.xrLabel32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.diameter")});
-            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(654.0544F, 0F);
+            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(679.0548F, 0F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel32.SizeF = new System.Drawing.SizeF(67.98236F, 22.04167F);
@@ -330,7 +330,7 @@
             // 
             this.xrCheckBox1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Pipe.isActive")});
-            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(882.5176F, 0F);
+            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(928.5175F, 0F);
             this.xrCheckBox1.Name = "xrCheckBox1";
             this.xrCheckBox1.SizeF = new System.Drawing.SizeF(55.48248F, 22.04167F);
             this.xrCheckBox1.StyleName = "DataField";
@@ -344,7 +344,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 101.3333F;
+            this.BottomMargin.HeightF = 101F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -541,7 +541,7 @@
             // xrLabel2
             // 
             this.xrLabel2.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(480.8675F, 10F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 10.00001F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(72.46924F, 28.70834F);
@@ -563,7 +563,7 @@
             // xrLabel5
             // 
             this.xrLabel5.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(553.3367F, 10F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 10.00001F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(54.31171F, 28.70834F);
@@ -596,7 +596,7 @@
             // xrLabel9
             // 
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(722.0372F, 10F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(757.5827F, 10.00001F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
@@ -607,7 +607,7 @@
             // xrLabel10
             // 
             this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(261.0053F, 10F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 10F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(61.69189F, 28.70834F);
@@ -629,7 +629,7 @@
             // xrLabel13
             // 
             this.xrLabel13.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(607.6484F, 10F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(632.6483F, 10.00001F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(46.40631F, 28.70834F);
@@ -640,7 +640,7 @@
             // xrLabel14
             // 
             this.xrLabel14.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(882.5175F, 10F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(928.5175F, 10.00001F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(55.48254F, 28.70834F);
@@ -651,7 +651,7 @@
             // xrLabel15
             // 
             this.xrLabel15.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(654.0547F, 10F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(679.0547F, 10.00001F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel15.SizeF = new System.Drawing.SizeF(67.98248F, 28.70834F);
@@ -664,7 +664,7 @@
             this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1,
             this.xrPageInfo2});
-            this.pageFooterBand1.HeightF = 29F;
+            this.pageFooterBand1.HeightF = 29.00001F;
             this.pageFooterBand1.Name = "pageFooterBand1";
             // 
             // xrPageInfo1
@@ -679,7 +679,7 @@
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(456F, 6F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(546F, 6.00001F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(438F, 23F);
@@ -759,7 +759,7 @@
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(888F, 33F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(905.7083F, 33F);
             this.xrLabel8.StyleName = "Title";
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.Text = "Mill report";
@@ -767,7 +767,7 @@
             // xrLabel4
             // 
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(795.9955F, 10F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(846.2289F, 10.00001F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
@@ -929,7 +929,7 @@
             this.DataSource = this.sqlDataSource2;
             this.FilterString = "StartsWith([pipeMillStatus], ?StatusParameter)";
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(104, 48, 51, 101);
+            this.Margins = new System.Drawing.Printing.Margins(68, 48, 51, 101);
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
