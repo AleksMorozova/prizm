@@ -39,7 +39,7 @@ namespace PrizmMain.Forms.Reports.Mill
         {
             //TODO: input logic for reports parameters
             allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
-            command.CreateReport(allMillPipeDataSet);
+            command.CreateReport(new MillReport(), allMillPipeDataSet);
         }
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)

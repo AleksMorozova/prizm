@@ -17,6 +17,7 @@ namespace PrizmMain.Forms.Reports.Mill
         public DataSet pipeDataSet;
 
         private SqlDataAdapter adapter;
+        private ConnectionStringSettings settings;
         private System.Data.SqlClient.SqlConnection connection;
         private System.Data.SqlClient.SqlCommand command; 
 
@@ -25,8 +26,12 @@ namespace PrizmMain.Forms.Reports.Mill
 
             adapter = new SqlDataAdapter();
             adapter.TableMappings.Add("Table", "Pipe");
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
             connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
+
+            //select query with parameter
+            //command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesByStatus, connection);
+            
             command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
 
         }
@@ -34,13 +39,19 @@ namespace PrizmMain.Forms.Reports.Mill
         /// <summary>
         /// Creat new DataSet with status parameter
         /// </summary>
-        /// <param name="form"></param>
+        /// <param name="status"></param>
+        /// <summary>
+        /// search criteria value
+        /// </summary>
         public DataSet GetPipesByStatus(string status) 
         {
             try
             {
                 connection.Open();
-                command.Parameters.AddWithValue("@status", status);
+
+                //input search criteria value
+                //command.Parameters.AddWithValue("@status", status);
+
                 adapter.SelectCommand = command;
                 pipeDataSet = new DataSet();
                 adapter.Fill(pipeDataSet);
@@ -66,18 +77,22 @@ namespace PrizmMain.Forms.Reports.Mill
         /// <summary>
         /// Creating report
         /// </summary>
-        /// <param name="form"></param>
-        public void CreateReport (DataSet dataSet)
+        /// <param name="report"></param>
+        /// <summary>
+        /// creation report name
+        /// </summary>
+        /// <param name="dataSet"></param>
+        /// <summary>
+        /// dataSet for creation report
+        /// </summary>
+        /// 
+        public void CreateReport (XtraReport report, DataSet dataSet)
         {
-            var report = new MillReport() { DataSource = dataSet };
+            report.DataSource = dataSet;
             report.CreateDocument();
             var tool = new ReportPrintTool(report);
+            tool.AutoShowParametersPanel = false;
             tool.ShowPreview();
-        }
-
-        public void PreviewReport ()
-        { 
-
         }
     }
 }

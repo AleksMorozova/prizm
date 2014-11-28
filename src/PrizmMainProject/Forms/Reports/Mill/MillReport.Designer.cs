@@ -178,10 +178,10 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.StatusParameter = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -753,6 +753,17 @@
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
             // 
+            // xrLabel8
+            // 
+            this.xrLabel8.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(888F, 33F);
+            this.xrLabel8.StyleName = "Title";
+            this.xrLabel8.StylePriority.UseForeColor = false;
+            this.xrLabel8.Text = "Mill report";
+            // 
             // xrLabel4
             // 
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
@@ -898,17 +909,6 @@
             this.xrLabel4});
             this.GroupHeader1.HeightF = 40F;
             this.GroupHeader1.Name = "GroupHeader1";
-            // 
-            // xrLabel8
-            // 
-            this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
-            this.xrLabel8.Name = "xrLabel8";
-            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(888F, 33F);
-            this.xrLabel8.StyleName = "Title";
-            this.xrLabel8.StylePriority.UseForeColor = false;
-            this.xrLabel8.Text = "Mill report";
             // 
             // StatusParameter
             // 
