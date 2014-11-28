@@ -27,8 +27,7 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         readonly ICommand searchCommand;
 
-        readonly IMillPipeSizeTypeRepository repoSizeType;
-        readonly IPipeRepository repoPipe;
+        readonly IMillRepository repoMill;
 
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
@@ -41,17 +40,14 @@ namespace PrizmMain.Forms.PipeMill.Search
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
         [Inject]
-        public MillPipeSearchViewModel(
-            IPipeRepository repoPipe,
-            IMillPipeSizeTypeRepository repoSizeType)
+        public MillPipeSearchViewModel(IMillRepository repoMill)
         {
-            this.repoPipe = repoPipe;
-            this.repoSizeType = repoSizeType;
+            this.repoMill = repoMill;
 
             searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
-                () => new MillPipeSearchCommand(this, repoPipe));
+                () => new MillPipeSearchCommand(this, repoMill.RepoPipe));
 
-            pipeTypes = repoSizeType.GetAll();
+            pipeTypes = repoMill.RepoPipeType.GetAll();
             LoadPipeMillStatuses();
         }
 
@@ -149,8 +145,7 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         public void Dispose()
         {
-            repoSizeType.Dispose();
-            repoPipe.Dispose();
+            repoMill.Dispose();
         }
 
         private void LoadPipeMillStatuses()

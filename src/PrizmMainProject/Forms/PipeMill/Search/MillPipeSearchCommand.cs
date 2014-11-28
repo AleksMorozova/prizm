@@ -28,6 +28,8 @@ namespace PrizmMain.Forms.PipeMill.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            repo.Clear();
+
             var criteria = NHibernate.Criterion.DetachedCriteria
                     .For<Domain.Entity.Mill.Pipe>("p")
                     .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
@@ -39,7 +41,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
 
             viewModel.Pipes = repo.GetByCriteria(criteria);
-            repo.Clear();
         }
 
         public bool CanExecute()
