@@ -173,7 +173,6 @@
     <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
@@ -211,6 +210,7 @@
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
+    <Compile Include="Documents\IModifiable.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\NewSavePipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
       <SubType>Code</SubType>

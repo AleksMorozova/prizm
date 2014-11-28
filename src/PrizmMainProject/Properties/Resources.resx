@@ -147,8 +147,8 @@
   <data name="InspectionControlType_Hold" xml:space="preserve">
     <value>Обязательный</value>
   </data>
-  <data name="IDS_QUESTION_SAVE" xml:space="preserve">
-    <value>Сохранить изменения?</value>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE" xml:space="preserve">
+    <value>У вас остались несохранённые изменения. Отменить закрытие документа?</value>
   </data>
   <data name="InspectionControlType_Monitor" xml:space="preserve">
     <value>Визуальный</value>
@@ -218,5 +218,8 @@
   </data>
   <data name="COAT_INTERNAL" xml:space="preserve">
     <value>Внутреннее</value>
+  </data>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
+    <value>Несохранённые изменения</value>
   </data>
 </root>
