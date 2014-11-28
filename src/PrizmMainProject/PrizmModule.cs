@@ -28,6 +28,16 @@ namespace PrizmMain
 {
     public class PrizmModule : NinjectModule
     {
+        private class TemporaryContext : PrizmMain.Security.ISecurityContext
+        {
+            // TODO: this is stub instead of real context.
+            // Remove after binding to real context.
+            public bool HasAccess(Security.Privileges privilege)
+            {
+                //throw new System.NotImplementedException();
+                return true;
+            }
+        }
         public override void Load()
         {
 
@@ -49,6 +59,9 @@ namespace PrizmMain
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
+
+            // TODO: remove TemporaryContext after binding to real context.
+            Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
 
             #endregion
 
