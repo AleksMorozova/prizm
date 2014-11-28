@@ -31,9 +31,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            var railcar = viewModel.Railcar;
-
-            if (railcar.Pipes.Count == 0)
+            if (viewModel.Railcar.Pipes.Count == 0)
             {
                 notify.ShowError(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER);
                 return;
@@ -47,18 +45,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                if (railcar.ShippingDate == DateTime.MinValue || railcar.ShippingDate == null)
+                if (viewModel.Railcar.ShippingDate == DateTime.MinValue || viewModel.Railcar.ShippingDate == null)
                     {
-                        railcar.ShippingDate = DateTime.Now;
+                        viewModel.Railcar.ShippingDate = DateTime.Now;
                     }
 
-                    foreach (var pipe in railcar.Pipes)
+                foreach (var pipe in viewModel.Railcar.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Shipped;
                     }
-                    railcar.IsShipped = true;
+                viewModel.Railcar.IsShipped = true;
                     viewModel.SaveCommand.Execute();
-                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + railcar.Number, Resources.AlertInfoHeader);
+                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
                     viewModel.ShipCommand.IsExecutable ^= true;
                     viewModel.UnshipCommand.IsExecutable ^= true;
             }
