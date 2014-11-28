@@ -44,6 +44,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
 
+
+            if (viewModel.Number == string.Empty)
+            {
+                return;
+            }
             viewModel.NewPipe();
         }
 
