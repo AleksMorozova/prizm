@@ -178,6 +178,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Уже существует труба с номером: .
+        /// </summary>
+        internal static string DLG_PIPE_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера трубы.
+        /// </summary>
+        internal static string DLG_PIPE_DUPLICATE_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DUPLICATE_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер вагона.
         /// </summary>
         internal static string DLG_RAILCAR_NUMBER_EMPTY {

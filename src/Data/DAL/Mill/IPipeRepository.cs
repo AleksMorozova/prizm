@@ -11,5 +11,6 @@ namespace Data.DAL.Mill
     {
         Pipe GetByNumber(string number);
         IList<Pipe> GetStored();
+        IList<Pipe> GetActiveByNumber(Pipe pipe);
     }
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// for method RaiseCanExecuteChanged
 using DevExpress.Mvvm.POCO;
 using PrizmMain.Properties;
 
@@ -37,21 +36,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             if (viewModel.PipeIsDeactivated)
             {
                 if (notify.ShowYesNo(
-                    Resources.DLG_PIPE_CREATION,
+                    Resources.DLG_PIPE_CREATION, 
                     Resources.DLG_PIPE_CREATION_HEDER))
                 {
                     return;
                 }
             }
-
-
-            if (viewModel.Number == string.Empty)
+            if (viewModel.Number != string.Empty)
             {
-                return;
+                viewModel.NewPipe();
             }
-            viewModel.NewPipe();
         }
-
 
         public virtual bool IsExecutable { get; set; }
 
@@ -59,7 +54,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.RaiseCanExecuteChanged(x => x.Execute());
         }
-
 
         public bool CanExecute()
         {

@@ -208,6 +208,7 @@
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />

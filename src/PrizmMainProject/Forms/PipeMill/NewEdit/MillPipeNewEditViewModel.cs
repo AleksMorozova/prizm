@@ -36,9 +36,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
+        private readonly GetPipeCommand getPipeCommand;
         private readonly IUserNotify notify;
 
         public Pipe Pipe { get; set; }
+        public Guid PipeId { get; set; }
+
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
@@ -49,6 +52,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.repoMill = repoMill;
             this.notify = notify;
+            this.PipeId = pipeId;
 
             newSavePipeCommand =
                 ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify));
@@ -65,6 +69,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             extractPipeTypeCommand =
                 ViewModelSource.Create(() => new ExtractPipeTypeCommand(this, repoMill.RepoPipeType));
 
+            getPipeCommand =
+                ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
+
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
@@ -74,10 +81,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-                Pipe = repoMill.RepoPipe.Get(pipeId);
                 GetAllPipeTestResults();
+
+                getPipeCommand.Execute();
             }
 
+            
             Welders = repoMill.WelderRepo.GetAll();
             
             Inspectors =repoMill.RepoInspector.GetAll();
@@ -96,7 +105,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             LoadPipeMillStatuses();
         }
 
-       public IList<EnumWrapper<PipeMillStatus>> StatusTypes
+        public IList<EnumWrapper<PipeMillStatus>> StatusTypes
         {
             get { return statusTypes; }
             set
@@ -541,6 +550,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
             pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
         }
+
         internal string FormatWeldersList(IList<Welder> welders)
         {
             if (welders == null)

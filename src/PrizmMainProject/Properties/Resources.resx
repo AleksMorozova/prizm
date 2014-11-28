@@ -231,4 +231,10 @@
   <data name="DLG_PIPE_CREATION_HEDER" xml:space="preserve">
     <value>Создание трубы</value>
   </data>
+  <data name="DLG_PIPE_DUPLICATE" xml:space="preserve">
+    <value>Уже существует труба с номером: </value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера трубы</value>
+  </data>
 </root>

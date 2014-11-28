@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// for method RaiseCanExecuteChanged
 using DevExpress.Mvvm.POCO;
 using PrizmMain.Properties;
 using Data.DAL;
@@ -32,6 +31,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
+            repo.RepoPipe.Clear();
+
+            if (p.Count > 0)
+            {
+                notify.ShowInfo(
+                    string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
+                    Resources.DLG_PIPE_DUPLICATE_HEDER);
+                viewModel.Number = string.Empty;
+                return;
+            }
+
             if (viewModel.PipeIsDeactivated)
             {
                 if (!notify.ShowYesNo(
@@ -52,20 +63,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-            var p = repo.RepoPipe.GetByNumber(viewModel.Number);
-            repo.RepoPipe.Clear();
-
-            if (p != null &&
-                p.Id != viewModel.Pipe.Id)
-            {
-                viewModel.Number = string.Empty;
-                return;
-            }
-
-            repo.BeginTransaction();
-            repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-            repo.Commit();
-            repo.RepoPipe.Evict(viewModel.Pipe);
         }
 
 
