@@ -18,28 +18,43 @@ namespace PrizmMain.Forms.PipeMill.Search
     using Data.DAL.Mill;
     using Domain.Entity.Mill;
     using PrizmMain.Common;
+    using Data.DAL.Setup;
+    using Domain.Entity.Setup;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
     {
 
         readonly ICommand searchCommand;
-        readonly IPipeRepository repo;
+
+        readonly IMillPipeSizeTypeRepository repoSizeType;
+        readonly IPipeRepository repoPipe;
+
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
+        private IList<PipeMillSizeType> pipeTypes;
+        private IList<PipeMillSizeType> checkedPipeTypes 
+            = new List<PipeMillSizeType>();
+
         private string pipeNumber;
-        private string pipeSize;
+
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
         [Inject]
-        public MillPipeSearchViewModel(IPipeRepository repo)
+        public MillPipeSearchViewModel(
+            IPipeRepository repoPipe,
+            IMillPipeSizeTypeRepository repoSizeType)
         {
-            this.repo = repo;
-            searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
-                () => new MillPipeSearchCommand(this, repo));
-            LoadPipeMillStatuses();
+            this.repoPipe = repoPipe;
+            this.repoSizeType = repoSizeType;
 
+            searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
+                () => new MillPipeSearchCommand(this, repoPipe));
+
+            pipeTypes = repoSizeType.GetAll();
+            LoadPipeMillStatuses();
         }
+
         public IList<Pipe> Pipes
         {
             get
@@ -72,19 +87,28 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
         }
 
-
-        public string PipeSize
+        public IList<PipeMillSizeType> PipeTypes
         {
-            get
-            {
-                return pipeSize;
-            }
+            get { return pipeTypes; }
             set
             {
-                if (value != pipeSize)
+                if (value != pipeTypes)
                 {
-                    pipeSize = value;
-                    RaisePropertyChanged("PipeSize");
+                    pipeTypes = value;
+                    RaisePropertyChanged("PipeTypes");
+                }
+            }
+        }
+
+        public IList<PipeMillSizeType> CheckedPipeTypes
+        {
+            get { return checkedPipeTypes; }
+            set
+            {
+                if (value != checkedPipeTypes)
+                {
+                    checkedPipeTypes = value;
+                    RaisePropertyChanged("CheckedPipeTypes");
                 }
             }
         }
@@ -104,7 +128,6 @@ namespace PrizmMain.Forms.PipeMill.Search
                 }
             }
         }
-
 
         public IList<EnumWrapper<PipeMillStatus>> StatusTypes
         {
@@ -126,8 +149,10 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         public void Dispose()
         {
-            repo.Dispose();
+            repoSizeType.Dispose();
+            repoPipe.Dispose();
         }
+
         private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();

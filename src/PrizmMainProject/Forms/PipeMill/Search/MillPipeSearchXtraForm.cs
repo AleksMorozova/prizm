@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Domain.Entity.Mill;
 using System.Collections.Generic;
 using PrizmMain.Properties;
+using Domain.Entity.Setup;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -32,25 +33,28 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             MillPipeSearchBindingSource.DataSource = viewModel;
 
-
+            foreach (var s in viewModel.PipeTypes)
+            {
+                pipeSize.Properties.Items.Add(s);
+            }
+            foreach (var s in viewModel.StatusTypes)
+            {
+                pipeMillStatus.Properties.Items.Add(s);
+            }
 
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeMillStatus.DataBindings
-                .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");
+                .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");      
 
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
+            statusTypeDict.Add(PipeMillStatus.Undefined, Resources.Undefined);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
-
-            foreach (var s in viewModel.StatusTypes)
-            {
-                pipeMillStatus.Properties.Items.Add(s);
-            }
 
         }
 
@@ -106,6 +110,20 @@ namespace PrizmMain.Forms.PipeMill.Search
             catch (KeyNotFoundException exception)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(exception.Message);
+            }
+        }
+
+        private void pipeSize_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            viewModel.CheckedPipeTypes.Clear();
+
+            for(int i = 0; i < pipeSize.Properties.Items.Count; ++i)
+            {
+                if (pipeSize.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    viewModel.CheckedPipeTypes
+                        .Add(pipeSize.Properties.Items[i].Value as PipeMillSizeType);
+                }
             }
         }
 
