@@ -15,25 +15,19 @@ namespace PrizmMain.Forms.Reports.Mill
     public class ReportSearchCommand
     {
         public DataSet pipeDataSet;
-        private SqlDataAdapter adapter = new SqlDataAdapter();
-        private System.Data.SqlClient.SqlConnection connection;
-        private System.Data.SqlClient.SqlCommand command;
-        
-        public ReportSearchCommand()
-        {
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
-            connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
-            command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
-        }
 
-        /// <summary>
-        /// Creat new DataSet with status parameter
-        /// </summary>
-        /// <param name="form"></param>
-        public DataSet GetPipesByStatus(string status) 
+        public DataSet GetAllPipes(string status) 
         {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.TableMappings.Add("Table", "Pipe");
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesOnMill, connection);
+
             try
             {
+
                 connection.Open();
                 command.Parameters.AddWithValue("@status", status);
                 adapter.SelectCommand = command;
@@ -45,7 +39,7 @@ namespace PrizmMain.Forms.Reports.Mill
             }
             catch (System.Exception ex)
             {
-                XtraMessageBox.Show(ex.ToString());
+                XtraMessageBox.Show(ex.ToString(), "MyProgram");
             }
             finally
             {
@@ -58,13 +52,9 @@ namespace PrizmMain.Forms.Reports.Mill
             return pipeDataSet;
         }
 
-        /// <summary>
-        /// Creating report
-        /// </summary>
-        /// <param name="form"></param>
-        public void CreateReport (XtraReport report, DataSet dataSet)
+        public void CreateReport (DataSet dataSet)
         {
-            report.DataSource = dataSet;
+            var report = new MillReport() { DataSource = dataSet };
             report.CreateDocument();
             var tool = new ReportPrintTool(report);
             tool.ShowPreview();
