@@ -237,4 +237,10 @@
   <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
     <value>Дублирование номера трубы</value>
   </data>
+  <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
+    <value>Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.</value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR_HEDER" xml:space="preserve">
+    <value>Деактивация трубы в вагоне невозможна</value>
+  </data>
 </root>

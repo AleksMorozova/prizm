@@ -196,6 +196,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона..
+        /// </summary>
+        internal static string DLG_PIPE_IN_RAILCAR {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы в вагоне невозможна.
+        /// </summary>
+        internal static string DLG_PIPE_IN_RAILCAR_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер вагона.
         /// </summary>
         internal static string DLG_RAILCAR_NUMBER_EMPTY {
