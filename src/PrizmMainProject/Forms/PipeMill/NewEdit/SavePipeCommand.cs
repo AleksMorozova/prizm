@@ -45,6 +45,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             if (viewModel.PipeIsDeactivated)
             {
+                if (!string.IsNullOrEmpty(viewModel.Pipe.Railcar.Number))
+                {
+                    notify.ShowInfo(
+                        Resources.DLG_PIPE_DEACTIVATION,
+                        Resources.DLG_PIPE_DEACTIVATION_HEDER);
+                    return;
+
+                }
                 if (!notify.ShowYesNo(
                     Resources.DLG_PIPE_DEACTIVATION,
                     Resources.DLG_PIPE_DEACTIVATION_HEDER))
