@@ -18,7 +18,7 @@ namespace Data.DAL.Hibernate
         public AuditInterceptor(/*IAuditLogRepository repo*/)
         {
           // this.repo = repo;
-            repo = new AuditLogRepository(HibernateUtil.session);
+            repo = new AuditLogRepository(HibernateUtil.OpenAuditSession());
         }
         enum Actions { Insert, Delete };
         public override bool OnSave(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
@@ -29,6 +29,7 @@ namespace Data.DAL.Hibernate
 
         public override bool OnFlushDirty(object entity, object id, object[] currentState, object[] previousState, string[] propertyNames, NHibernate.Type.IType[] types)
         {
+            if (previousState == null) return false;
             var curentity = entity as Item;
             if (curentity != null)
             {
@@ -37,44 +38,40 @@ namespace Data.DAL.Hibernate
                     if (currentState[i] == null && previousState[i] == null) continue;
                     else if (currentState[i] == null || previousState[i] == null)
                     {
-                        AuditLog record = new AuditLog()
-                        {
-                            AuditID = Guid.NewGuid(),
-                            EntityID = curentity.Id,
-                            AuditDate = DateTime.Now,
-                            User = curentity.GetUser(),
-                            TableName = curentity.GetType().ToString(),
-                            FieldName = propertyNames[i],
-                            NewValue = (currentState[i] == null) ? "" : currentState[i].ToString(),
-                            OldValue = (previousState[i] == null) ? "" : previousState[i].ToString(),
-                        };
-                        repo.BeginTransaction();
-                        repo.Save(record);
-                        repo.Commit();   
+                        string newValue = (currentState[i] == null) ? "" : currentState[i].ToString();
+                        string oldValue = (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
+                        NewAuditRecord(curentity, propertyNames[i],newValue,oldValue);
+                        
                     }
-                    else if (currentState[i] as Item ==null && currentState[i].ToString() != previousState[i].ToString())
+                    else if (currentState[i].ToString() != previousState[i].ToString())
                     {
-                        AuditLog record = new AuditLog()
-                        {
-                            AuditID = Guid.NewGuid(),
-                            EntityID = curentity.Id,
-                            AuditDate = DateTime.Now,
-                            User = curentity.GetUser(),
-                            TableName = curentity.GetType().ToString(),
-                            FieldName = propertyNames[i],
-                            NewValue = currentState[i].ToString(),
-                            OldValue = previousState[i].ToString()
-                        };
-                        repo.BeginTransaction();
-                        repo.Save(record);
-                        repo.Commit();
+                        NewAuditRecord(curentity, propertyNames[i], currentState[i].ToString(), previousState[i].ToString());
                     }
-                    //var objectProperty = currentState[i] as Item;
-                    //if (objectProperty != null)
-                    //{ objectProperty.}
+                    else
+                    {
+                        var objectProperty = currentState[i] as Item;
+                    }
                 }
             }
          return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);                 
+        }
+
+        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue )
+        {
+            AuditLog record = new AuditLog()
+            {
+                AuditID = Guid.NewGuid(),
+                EntityID = curentity.Id,
+                AuditDate = DateTime.Now,
+                User = curentity.GetUser(),
+                TableName = curentity.GetType().ToString(),
+                FieldName = fieldName,
+                NewValue = newValue,
+                OldValue = oldValue
+            };
+            repo.BeginTransaction();
+            repo.Save(record);
+            repo.Commit();   
         }
 
         public override void OnDelete(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
@@ -97,20 +94,7 @@ namespace Data.DAL.Hibernate
                          break;
                      default: break;
                  }
-                 AuditLog record = new AuditLog()
-                 {
-                     AuditID = Guid.NewGuid(),
-                     EntityID = curentity.Id,
-                     AuditDate = DateTime.Now,
-                     User = curentity.GetUser(),
-                     TableName = curentity.GetType().ToString(),
-                     FieldName = "All",
-                     NewValue = newValue,
-                     OldValue = ""
-                 };
-                 repo.BeginTransaction();
-                 repo.Save(record);
-                 repo.Commit();
+                 NewAuditRecord(curentity, "All", newValue,"");
              }
         }
     }
