@@ -53,7 +53,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
-            statusTypeDict.Add(PipeMillStatus.Undefined, Resources.Undefined);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
 
         }

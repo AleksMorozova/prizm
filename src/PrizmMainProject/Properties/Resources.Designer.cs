@@ -358,15 +358,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не определен.
-        /// </summary>
-        internal static string Undefined {
-            get {
-                return ResourceManager.GetString("Undefined", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Значение обязательно.
         /// </summary>
         internal static string VALUE_REQUIRED {

@@ -219,7 +219,4 @@
   <data name="COAT_INTERNAL" xml:space="preserve">
     <value>Внутреннее</value>
   </data>
-  <data name="Undefined" xml:space="preserve">
-    <value>Не определен</value>
-  </data>
 </root>
