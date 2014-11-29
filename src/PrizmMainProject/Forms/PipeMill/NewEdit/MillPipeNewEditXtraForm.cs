@@ -118,6 +118,9 @@ heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resourc
 
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Heat");
+            plateManufacturer.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateManufacturer");
+
             pipeSize.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
             purchaseOrder.DataBindings
