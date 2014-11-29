@@ -22,6 +22,7 @@ namespace Domain.Entity.Mill
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
         public virtual int Weight { get; set; }
+        public virtual DateTime ProductionDate { get; set; }
 
         public virtual PipeMillSizeType Type { get; set; }
 

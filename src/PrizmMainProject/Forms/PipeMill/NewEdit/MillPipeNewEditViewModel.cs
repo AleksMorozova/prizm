@@ -258,6 +258,22 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+        public DateTime ProductionDate
+        {
+            get 
+            {
+                return Pipe.ProductionDate; 
+            }
+            set
+            {
+                if (value != Pipe.ProductionDate)
+                {
+                    Pipe.ProductionDate = value;
+                    RaisePropertyChanged("ProductionDate");
+                }
+            }
+        }
+
         public EnumWrapper<PipeMillStatus> PipeStatus
         {
             get
