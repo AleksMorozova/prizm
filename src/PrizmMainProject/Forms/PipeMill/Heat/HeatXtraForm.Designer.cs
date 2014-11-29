@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.createButton = new DevExpress.XtraEditors.SimpleButton();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -45,7 +44,6 @@
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.createLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
@@ -61,14 +59,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
             // 
-            this.masterLayoutControl.Controls.Add(this.createButton);
             this.masterLayoutControl.Controls.Add(this.steelGrade);
             this.masterLayoutControl.Controls.Add(this.saveButton);
             this.masterLayoutControl.Controls.Add(this.cancelButton);
@@ -83,17 +79,6 @@
             this.masterLayoutControl.Size = new System.Drawing.Size(472, 173);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
-            // 
-            // createButton
-            // 
-            this.createButton.Image = ((System.Drawing.Image)(resources.GetObject("createButton.Image")));
-            this.createButton.Location = new System.Drawing.Point(134, 129);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(99, 22);
-            this.createButton.StyleController = this.masterLayoutControl;
-            this.createButton.TabIndex = 10;
-            this.createButton.Text = "Создать";
-            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // steelGrade
             // 
@@ -166,7 +151,6 @@
             this.steelLayoutControl,
             this.plateManufacturerLayoutControl,
             this.divideButtonEmptySpace,
-            this.createLayoutControl,
             this.emptySpaceItem1});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "Root";
@@ -257,25 +241,13 @@
             this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // createLayoutControl
-            // 
-            this.createLayoutControl.Control = this.createButton;
-            this.createLayoutControl.CustomizationFormText = "createLayoutControl";
-            this.createLayoutControl.Location = new System.Drawing.Point(112, 107);
-            this.createLayoutControl.Name = "createLayoutControl";
-            this.createLayoutControl.Size = new System.Drawing.Size(103, 26);
-            this.createLayoutControl.Text = "createLayoutControl";
-            this.createLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.createLayoutControl.TextToControlDistance = 0;
-            this.createLayoutControl.TextVisible = false;
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(215, 107);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(112, 107);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(113, 26);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -304,7 +276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -326,8 +297,6 @@
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayoutControl;
-        private DevExpress.XtraEditors.SimpleButton createButton;
-        private DevExpress.XtraLayout.LayoutControlItem createLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.ComboBoxEdit number;
         private DevExpress.XtraEditors.ComboBoxEdit plateManufacturer;

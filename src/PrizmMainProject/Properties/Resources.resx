@@ -219,4 +219,7 @@
   <data name="COAT_INTERNAL" xml:space="preserve">
     <value>Внутреннее</value>
   </data>
+  <data name="NewHeatCombo" xml:space="preserve">
+    <value>&lt; Создать плавку &gt;</value>
+  </data>
 </root>

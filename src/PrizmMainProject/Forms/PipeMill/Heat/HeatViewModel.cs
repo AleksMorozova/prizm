@@ -12,6 +12,7 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using System.ComponentModel;
 using System.Windows.Forms;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
@@ -28,25 +29,31 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
             if (string.IsNullOrWhiteSpace(heatNumber))
             {
-                HeatsList();
+                CreateHeat();
             }
             else
             {
-                var heat = GetHeatByNumber(heatNumber);
-                if (heat != null)
+                if (heatNumber.Equals(Resources.NewHeatCombo))
                 {
-                    Heat = heat;
-                    SetupManufacturers();
-                    heats = new List<Domain.Entity.Mill.Heat>() { heat };
+                    CreateHeat();
                 }
                 else
                 {
-                    HeatsList();
+                    var heat = GetHeatByNumber(heatNumber);
+                    if (heat != null)
+                    {
+                        Heat = heat;
+                        SetupManufacturers();
+                        heats = new List<Domain.Entity.Mill.Heat>() { heat };
+                    }
+                    else
+                    {
+                        CreateHeat();
+                    }
                 }
-            }
-         
-        }
 
+            }
+        }
         #region Property
         Domain.Entity.Mill.Heat heat;
         public Domain.Entity.Mill.Heat Heat
@@ -146,10 +153,10 @@ namespace PrizmMain.Forms.PipeMill.Heat
             var heatFromDb = GetHeatByNumber(number);
             if (heatFromDb != null)
             {
-                //TODO:notify for already created
+                HeatsList();
                 return;
             }
-
+            SetupManufacturers();
             Heat = new Domain.Entity.Mill.Heat() 
             {
                 IsActive = true, 
@@ -158,7 +165,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
                 PlateManufacturer = manufacrurers[0]
             };
 
-            SetupManufacturers();
+            
             heats = new List<Domain.Entity.Mill.Heat>() { Heat };
 
         }
@@ -180,13 +187,17 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         internal void CreateHeat()
         {
-            using (var numberForm = new HeatNumberXtraForm())
-            {
+            var numberForm = new HeatNumberXtraForm();
+            
                 if (numberForm.ShowDialog() == DialogResult.OK)
                 {
                     NewHeat(numberForm.Number);
                 }
-            }
+                else
+                {
+                    HeatsList();
+                }
+            
 
         }
     }
