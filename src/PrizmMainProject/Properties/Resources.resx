@@ -225,12 +225,6 @@
   <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация трубы</value>
   </data>
-  <data name="DLG_PIPE_CREATION" xml:space="preserve">
-    <value>Продолжить редактирование трубы?</value>
-  </data>
-  <data name="DLG_PIPE_CREATION_HEDER" xml:space="preserve">
-    <value>Создание трубы</value>
-  </data>
   <data name="DLG_PIPE_DUPLICATE" xml:space="preserve">
     <value>Уже существует труба с номером: </value>
   </data>

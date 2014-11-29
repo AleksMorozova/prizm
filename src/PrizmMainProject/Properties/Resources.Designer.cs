@@ -142,24 +142,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Продолжить редактирование трубы?.
-        /// </summary>
-        internal static string DLG_PIPE_CREATION {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_CREATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Создание трубы.
-        /// </summary>
-        internal static string DLG_PIPE_CREATION_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_CREATION_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
         /// </summary>
         internal static string DLG_PIPE_DEACTIVATION {
