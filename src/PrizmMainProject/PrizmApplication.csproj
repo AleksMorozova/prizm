@@ -173,7 +173,6 @@
     <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
@@ -213,6 +212,7 @@
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
+    <Compile Include="Documents\IModifiable.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\NewSavePipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
       <SubType>Code</SubType>
@@ -227,6 +227,7 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
@@ -377,6 +378,7 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Privileges.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
