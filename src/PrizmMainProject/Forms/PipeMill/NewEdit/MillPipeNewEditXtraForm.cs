@@ -66,8 +66,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindToViewModel()
         {
-            pipeNewEditBindingSource.DataSource = viewModel;
 
+            #region ComboBox filling
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
@@ -84,7 +84,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 millStatus.Properties.Items.Add(s);
             }
+            #endregion
 
+            #region DataBindings
+
+            pipeNewEditBindingSource.DataSource = viewModel;
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -128,13 +132,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
-            inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+            plateNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+            
+
+            inspections.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            
+            #endregion
+
+
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -288,6 +300,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
+
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {

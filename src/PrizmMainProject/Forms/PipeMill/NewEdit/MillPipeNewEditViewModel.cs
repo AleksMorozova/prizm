@@ -482,6 +482,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
+
         public ICommand NewSavePipeCommand
         {
             get { return newSavePipeCommand; }
