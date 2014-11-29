@@ -42,14 +42,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
 
-            purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
-            purchaseOrderDate.Properties.NullText = string.Empty;
+            pipeCreationDate.Properties.NullDate = DateTime.MinValue;
+            pipeCreationDate.Properties.NullText = string.Empty;
 
             pipeNumber.SetRequiredText();
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
             millStatus.SetRequiredCombo();
+            pipeCreationDate.SetRequiredText();
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -64,9 +66,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindToViewModel()
         {
-            pipeNewEditBindingSource.DataSource = viewModel;
+pipeNewEditBindingSource.DataSource = viewModel;
 
-            heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
+#region ComboBox filling
+heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
+            
             
             foreach (var h in viewModel.Heats)
             {
@@ -84,7 +88,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 millStatus.Properties.Items.Add(s);
             }
+            #endregion
 
+            #region DataBindings
+
+            pipeNewEditBindingSource.DataSource = viewModel;
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -100,7 +108,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
-
+            pipeCreationDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ProductionDate");
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
@@ -127,13 +136,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
-            inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+            plateNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+            
+
+            inspections.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            
+            #endregion
+
+
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -280,6 +297,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
+
+        private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ProductionDate = pipeCreationDate.DateTime;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -478,5 +503,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
         #endregion
+
     }
 }

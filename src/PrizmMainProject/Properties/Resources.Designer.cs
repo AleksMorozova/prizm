@@ -232,11 +232,20 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Сохранить изменения?.
+        ///   Looks up a localized string similar to У вас остались несохранённые изменения. Отменить закрытие документа?.
         /// </summary>
-        internal static string IDS_QUESTION_SAVE {
+        internal static string IDS_QUESTION_DO_NOT_CLOSE {
             get {
-                return ResourceManager.GetString("IDS_QUESTION_SAVE", resourceCulture);
+                return ResourceManager.GetString("IDS_QUESTION_DO_NOT_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Несохранённые изменения.
+        /// </summary>
+        internal static string IDS_QUESTION_DO_NOT_CLOSE_HEADER {
+            get {
+                return ResourceManager.GetString("IDS_QUESTION_DO_NOT_CLOSE_HEADER", resourceCulture);
             }
         }
         

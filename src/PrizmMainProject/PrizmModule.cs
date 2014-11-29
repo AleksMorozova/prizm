@@ -28,6 +28,21 @@ namespace PrizmMain
 {
     public class PrizmModule : NinjectModule
     {
+        private class TemporaryContext : PrizmMain.Security.ISecurityContext
+        {
+            // TODO: this is stub instead of real context.
+            // Remove after binding to real context.
+            public bool HasAccess(Security.Privileges privilege)
+            {
+                //throw new System.NotImplementedException();
+                return true;
+            }
+
+            public Domain.Entity.PersonName GetLoggedPerson()
+            {
+                return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
+            }
+        }
         public override void Load()
         {
 
@@ -38,6 +53,7 @@ namespace PrizmMain
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
             Bind<IPlateRepository>().To<PlateRepository>();
+            Bind<IAuditLogRepository>().To<AuditLogRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
@@ -49,6 +65,9 @@ namespace PrizmMain
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
+
+            // TODO: remove TemporaryContext after binding to real context.
+            Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
 
             #endregion
 
@@ -80,6 +99,7 @@ namespace PrizmMain
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
+            Bind<AuditInterceptor>().ToSelf();
         }
     }
 }

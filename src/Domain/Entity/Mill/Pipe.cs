@@ -22,6 +22,7 @@ namespace Domain.Entity.Mill
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
         public virtual int Weight { get; set; }
+        public virtual DateTime ProductionDate { get; set; }
 
         public virtual PipeMillSizeType Type { get; set; }
 
@@ -35,7 +36,6 @@ namespace Domain.Entity.Mill
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
         public virtual IList<Coat> Coats { get; set; }
 
-        //enum
         public virtual PipeMillStatus Status { get; set; }
     }
 }
