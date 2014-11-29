@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
+    <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
+    <Compile Include="DAL\Hibernate\AuditLogRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
@@ -69,8 +71,10 @@
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
+    <Compile Include="DAL\IAuditLogRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />

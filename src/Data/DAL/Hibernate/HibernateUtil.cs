@@ -11,7 +11,6 @@ namespace Data.DAL.Hibernate
     public class HibernateUtil
     {
         private static ISessionFactory sessionFactory;
-
         public static void Initialize(string connectionString)
         {
             try
@@ -32,12 +31,25 @@ namespace Data.DAL.Hibernate
         {
             try
             {
-                return sessionFactory.OpenSession();
+                return sessionFactory.OpenSession(new AuditInterceptor());
             }
             catch (GenericADOException ex)
             {
                 throw new RepositoryException("OpenSession", ex);
             }
+        }
+
+        public static ISession OpenAuditSession()
+        {
+            try
+            {
+                return sessionFactory.OpenSession();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("OpenAuditSession", ex);
+            }
+        
         }
     }
 }
