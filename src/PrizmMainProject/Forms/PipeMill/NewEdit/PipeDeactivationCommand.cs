@@ -47,8 +47,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             else if (viewModel.PipeStatus.Value == PipeMillStatus.Shipped)
             {
                 notify.ShowInfo(
-                    Resources.DLG_PIPE_IN_RAILCAR,
-                    Resources.DLG_PIPE_IN_RAILCAR_HEDER);
+                    Resources.DLG_PIPE_IS_SHIPPED,
+                    Resources.DLG_PIPE_IS_SHIPPED_HEDER);
 
                 viewModel.IsNotActive = false;
             }

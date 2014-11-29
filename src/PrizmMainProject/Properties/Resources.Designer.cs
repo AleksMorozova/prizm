@@ -196,6 +196,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Невозможно деактивировать отгруженную трубу..
+        /// </summary>
+        internal static string DLG_PIPE_IS_SHIPPED {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба отгружена.
+        /// </summary>
+        internal static string DLG_PIPE_IS_SHIPPED_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер вагона.
         /// </summary>
         internal static string DLG_RAILCAR_NUMBER_EMPTY {

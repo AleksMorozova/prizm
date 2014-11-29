@@ -240,4 +240,10 @@
   <data name="DLG_PIPE_IN_RAILCAR_HEDER" xml:space="preserve">
     <value>Деактивация трубы в вагоне невозможна</value>
   </data>
+  <data name="DLG_PIPE_IS_SHIPPED" xml:space="preserve">
+    <value>Невозможно деактивировать отгруженную трубу.</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
+    <value>Труба отгружена</value>
+  </data>
 </root>
