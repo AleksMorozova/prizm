@@ -42,9 +42,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
 
-            purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
-            purchaseOrderDate.Properties.NullText = string.Empty;
-
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
 
