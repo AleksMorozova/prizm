@@ -37,6 +37,11 @@ namespace PrizmMain
                 //throw new System.NotImplementedException();
                 return true;
             }
+
+            public Domain.Entity.PersonName GetLoggedPerson()
+            {
+                return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
+            }
         }
         public override void Load()
         {

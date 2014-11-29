@@ -8,5 +8,6 @@ namespace PrizmMain.Security
     public interface ISecurityContext
     {
         bool HasAccess(Privileges privilege);
+        Domain.Entity.PersonName GetLoggedPerson();
     }
 }
