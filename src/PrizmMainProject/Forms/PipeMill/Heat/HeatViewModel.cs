@@ -11,6 +11,7 @@ using PrizmMain.Commands;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
@@ -145,11 +146,11 @@ namespace PrizmMain.Forms.PipeMill.Heat
             var heatFromDb = GetHeatByNumber(number);
             if (heatFromDb != null)
             {
-                //TODO:notify for already done
+                //TODO:notify for already created
                 return;
             }
 
-            heat = new Domain.Entity.Mill.Heat() 
+            Heat = new Domain.Entity.Mill.Heat() 
             {
                 IsActive = true, 
                 Number=number,
@@ -158,7 +159,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             };
 
             SetupManufacturers();
-            heats = new List<Domain.Entity.Mill.Heat>() { heat };
+            heats = new List<Domain.Entity.Mill.Heat>() { Heat };
 
         }
 
@@ -175,6 +176,18 @@ namespace PrizmMain.Forms.PipeMill.Heat
         internal void SetHeat(Guid guid)
         {
             Heat = heats.Where(x => x.Id == guid).FirstOrDefault();
+        }
+
+        internal void CreateHeat()
+        {
+            using (var numberForm = new HeatNumberXtraForm())
+            {
+                if (numberForm.ShowDialog() == DialogResult.OK)
+                {
+                    NewHeat(numberForm.Number);
+                }
+            }
+
         }
     }
 }

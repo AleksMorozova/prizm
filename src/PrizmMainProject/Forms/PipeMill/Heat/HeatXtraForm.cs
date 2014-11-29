@@ -39,15 +39,9 @@ namespace PrizmMain.Forms.PipeMill.Heat
             number.DataBindings.Add("EditValue", bindingSource, "Heat");
             plateManufacturer.DataBindings.Add("EditValue", bindingSource, "PlateManufacturer");
 
-            foreach (var item in viewModel.Heats)
-            {
-                number.Properties.Items.Add(item);
-            }
+            RefreshControls();
 
-            foreach (var item in viewModel.Manufacrurers)
-            {
-                plateManufacturer.Properties.Items.Add(item);
-            }
+            
         }
 
         private void BindCommands()
@@ -63,15 +57,34 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void RefreshControls()
         {
-            number.Refresh();
-            plateManufacturer.Refresh();
-            steelGrade.Refresh();
+            number.Properties.Items.Clear();
+            SetupHeats();
+
+            plateManufacturer.Properties.Items.Clear();
+            SetupManufacturers();
+
+        }
+
+        private void SetupHeats()
+        {
+            foreach (var item in viewModel.Heats)
+            {
+                number.Properties.Items.Add(item);
+            }
+        }
+
+        private void SetupManufacturers()
+        {
+            foreach (var item in viewModel.Manufacrurers)
+            {
+                plateManufacturer.Properties.Items.Add(item);
+            }
         }
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            viewModel.NewHeat("");
-            number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            viewModel.CreateHeat();
+            RefreshControls();
         }
     }
 }

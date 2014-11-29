@@ -11,11 +11,14 @@ using DevExpress.XtraEditors;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    public partial class HeatNumber : DevExpress.XtraEditors.XtraForm
+    public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        public HeatNumber()
+
+        public HeatNumberXtraForm()
         {
             InitializeComponent();
         }
+
+        public string Number { get { return number.Text; } }
     }
 }

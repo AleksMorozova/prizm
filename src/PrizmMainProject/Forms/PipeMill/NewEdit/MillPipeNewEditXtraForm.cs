@@ -66,6 +66,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
+            heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = "< Создать плавку >" });
+            
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);

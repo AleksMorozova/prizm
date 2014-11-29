@@ -1,6 +1,6 @@
 ﻿namespace PrizmMain.Forms.PipeMill.Heat
 {
-    partial class HeatNumber
+    partial class HeatNumberXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatNumber));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatNumberXtraForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.number = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.numberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.okButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonDividerEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.okButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Controls.Add(this.number);
             this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.cancelButton);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -64,42 +64,13 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // rootLayoutControlGroup
+            // number
             // 
-            this.rootLayoutControlGroup.CustomizationFormText = "rootLayoutControlGroup";
-            this.rootLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.rootLayoutControlGroup.GroupBordersVisible = false;
-            this.rootLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.numberLayoutControl,
-            this.okButtonLayoutControl,
-            this.cancelButtonLayoutControl,
-            this.buttonDividerEmptySpace,
-            this.buttonLeftEmptySpace});
-            this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
-            this.rootLayoutControlGroup.Size = new System.Drawing.Size(358, 105);
-            this.rootLayoutControlGroup.Text = "rootLayoutControlGroup";
-            this.rootLayoutControlGroup.TextVisible = false;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(19, 35);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(327, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
-            // 
-            // numberLayoutControl
-            // 
-            this.numberLayoutControl.Control = this.textEdit1;
-            this.numberLayoutControl.CustomizationFormText = "Номер плавки";
-            this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
-            this.numberLayoutControl.Name = "numberLayoutControl";
-            this.numberLayoutControl.Size = new System.Drawing.Size(338, 54);
-            this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 7, 7);
-            this.numberLayoutControl.Text = "Номер плавки";
-            this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayoutControl.TextSize = new System.Drawing.Size(70, 13);
+            this.number.Location = new System.Drawing.Point(19, 35);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(327, 20);
+            this.number.StyleController = this.layoutControl1;
+            this.number.TabIndex = 4;
             // 
             // saveButton
             // 
@@ -122,6 +93,35 @@
             this.cancelButton.StyleController = this.layoutControl1;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Отменить";
+            // 
+            // rootLayoutControlGroup
+            // 
+            this.rootLayoutControlGroup.CustomizationFormText = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.rootLayoutControlGroup.GroupBordersVisible = false;
+            this.rootLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.numberLayoutControl,
+            this.okButtonLayoutControl,
+            this.cancelButtonLayoutControl,
+            this.buttonDividerEmptySpace,
+            this.buttonLeftEmptySpace});
+            this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.Size = new System.Drawing.Size(358, 105);
+            this.rootLayoutControlGroup.Text = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.TextVisible = false;
+            // 
+            // numberLayoutControl
+            // 
+            this.numberLayoutControl.Control = this.number;
+            this.numberLayoutControl.CustomizationFormText = "Номер плавки";
+            this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.numberLayoutControl.Name = "numberLayoutControl";
+            this.numberLayoutControl.Size = new System.Drawing.Size(338, 54);
+            this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 7, 7);
+            this.numberLayoutControl.Text = "Номер плавки";
+            this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.numberLayoutControl.TextSize = new System.Drawing.Size(70, 13);
             // 
             // okButtonLayoutControl
             // 
@@ -178,7 +178,7 @@
             this.buttonLeftEmptySpace.Text = "buttonLeftEmptySpace";
             this.buttonLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // HeatNumber
+            // HeatNumberXtraForm
             // 
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,12 +186,12 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(358, 105);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "HeatNumber";
+            this.Name = "HeatNumberXtraForm";
             this.Text = "Завод - добавление плавки";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.okButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).EndInit();
@@ -205,7 +205,7 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup rootLayoutControlGroup;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit number;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.LayoutControlItem numberLayoutControl;
