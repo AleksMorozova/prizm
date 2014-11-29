@@ -48,6 +48,7 @@ namespace PrizmMain.Forms.PipeMill.Search
                 () => new MillPipeSearchCommand(this, repoMill.RepoPipe));
 
             pipeTypes = repoMill.RepoPipeType.GetAll();
+
             LoadPipeMillStatuses();
         }
 

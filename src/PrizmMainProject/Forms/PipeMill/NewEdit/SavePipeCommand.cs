@@ -34,7 +34,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
             repo.RepoPipe.Clear();
 
-            if (p.Count > 0)
+            if (p != null && p.Count > 0)
             {
                 notify.ShowInfo(
                     string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
