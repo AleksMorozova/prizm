@@ -20,5 +20,10 @@ namespace Domain.Entity.Mill
         public virtual IList<Plate> Plates { get; set; }
         //public virtual IList<PhysicalParameters> PhysicalParameters { get; set; }
         //public virtual IList<ChemicalComposition> ChemicalComposition { get; set; }
+
+        public override string ToString()
+        {
+            return Number;
+        }
     }
 }

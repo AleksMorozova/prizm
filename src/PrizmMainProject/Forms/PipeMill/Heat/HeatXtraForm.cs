@@ -36,14 +36,18 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             bindingSource.DataSource = viewModel;
             steelGrade.DataBindings.Add("EditValue", bindingSource, "SteelGrade");
+            number.DataBindings.Add("EditValue", bindingSource, "Heat");
+            plateManufacturer.DataBindings.Add("EditValue", bindingSource, "PlateManufacturer");
 
-            //number.Properties.DataSource = viewModel.Heats;
-            //number.EditValue = number.Properties.GetKeyValue(0);
+            foreach (var item in viewModel.Heats)
+            {
+                number.Properties.Items.Add(item);
+            }
 
-            //plateManufacturer.Properties.DataSource = viewModel.Manufacrurers;
-            plateManufacturer.DataBindings.Add("EditValue", bindingSource, "Manufacturers");
-            number.DataBindings.Add("EditValue", bindingSource, "Heats");
-
+            foreach (var item in viewModel.Manufacrurers)
+            {
+                plateManufacturer.Properties.Items.Add(item);
+            }
         }
 
         private void BindCommands()
@@ -57,10 +61,17 @@ namespace PrizmMain.Forms.PipeMill.Heat
             viewModel = null;
         }
 
-        private void number_EditValueChanged(object sender, EventArgs e)
+        private void RefreshControls()
         {
-            Guid id = (Guid)(sender as GridLookUpEdit).EditValue;
-            viewModel.SetHeat(id);
+            number.Refresh();
+            plateManufacturer.Refresh();
+            steelGrade.Refresh();
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            viewModel.NewHeat("");
+            number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
         }
     }
 }

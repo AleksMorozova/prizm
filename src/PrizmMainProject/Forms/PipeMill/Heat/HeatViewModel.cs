@@ -35,6 +35,8 @@ namespace PrizmMain.Forms.PipeMill.Heat
                 if (heat != null)
                 {
                     Heat = heat;
+                    SetupManufacturers();
+                    heats = new List<Domain.Entity.Mill.Heat>() { heat };
                 }
                 else
                 {
@@ -59,12 +61,29 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        IList<Domain.Entity.Mill.Heat> heats;
-        public IList<Domain.Entity.Mill.Heat> Heats
+        public PlateManufacturer PlateManufacturer
         {
-            get { return heats; }
+            get
+            {
+                if (heat.PlateManufacturer != null)
+                {
+                    return heat.PlateManufacturer;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (value != heat.PlateManufacturer)
+                {
+                    heat.PlateManufacturer = value;
+                    RaisePropertyChanged("PlateManufacturer");
+                }
+            }
         }
-        
+
         public string SteelGrade
         {
             get { return Heat.SteelGrade; }
@@ -78,29 +97,12 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        public PlateManufacturer PlateManufacturer
+        IList<Domain.Entity.Mill.Heat> heats;
+        public IList<Domain.Entity.Mill.Heat> Heats
         {
-            get
-            {
-                if (Heat.PlateManufacturer != null)
-                {
-                    return Heat.PlateManufacturer;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            set
-            {
-                if (value != Heat.PlateManufacturer)
-                {
-                    Heat.PlateManufacturer = value;
-                    RaisePropertyChanged("PlateManufacturer");
-                }
-            }
+            get { return heats; }
         }
-
+        
         IList<PlateManufacturer> manufacrurers;
         public IList<PlateManufacturer> Manufacrurers
         {
@@ -111,8 +113,19 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void HeatsList()
         {
-            heats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+            SetupHeats();
+            SetupManufacturers();
             heat = heats[0];
+            
+        }
+
+        private void SetupHeats()
+        {
+            heats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+        }
+
+        private void SetupManufacturers()
+        {
             manufacrurers = new List<PlateManufacturer>(repo.PlateManRepo.GetAll().ToList());
         }
 
@@ -129,10 +142,24 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         public void NewHeat(string number)
         {
-            Heat = new Domain.Entity.Mill.Heat()
+            var heatFromDb = GetHeatByNumber(number);
+            if (heatFromDb != null)
             {
-                
+                //TODO:notify for already done
+                return;
+            }
+
+            heat = new Domain.Entity.Mill.Heat() 
+            {
+                IsActive = true, 
+                Number=number,
+                SteelGrade = string.Empty,
+                PlateManufacturer = manufacrurers[0]
             };
+
+            SetupManufacturers();
+            heats = new List<Domain.Entity.Mill.Heat>() { heat };
+
         }
 
         internal Domain.Entity.Mill.Heat GetHeatByNumber(string number)

@@ -32,13 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.createButton = new DevExpress.XtraEditors.SimpleButton();
-            this.plateManufacturer = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.number = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.heatNumberView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.number = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.plateManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.saveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -50,16 +48,11 @@
             this.createLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.plateMan = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.heatNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumberView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).BeginInit();
@@ -71,17 +64,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
             // 
             this.masterLayoutControl.Controls.Add(this.createButton);
-            this.masterLayoutControl.Controls.Add(this.plateManufacturer);
             this.masterLayoutControl.Controls.Add(this.steelGrade);
             this.masterLayoutControl.Controls.Add(this.saveButton);
             this.masterLayoutControl.Controls.Add(this.cancelButton);
             this.masterLayoutControl.Controls.Add(this.number);
+            this.masterLayoutControl.Controls.Add(this.plateManufacturer);
             this.masterLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.masterLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.masterLayoutControl.Name = "masterLayoutControl";
@@ -101,31 +93,7 @@
             this.createButton.StyleController = this.masterLayoutControl;
             this.createButton.TabIndex = 10;
             this.createButton.Text = "Создать";
-            // 
-            // plateManufacturer
-            // 
-            this.plateManufacturer.Location = new System.Drawing.Point(29, 78);
-            this.plateManufacturer.Name = "plateManufacturer";
-            this.plateManufacturer.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
-            this.plateManufacturer.Properties.Appearance.Options.UseBackColor = true;
-            this.plateManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.plateManufacturer.Properties.DisplayMember = "Name";
-            this.plateManufacturer.Properties.NullText = "";
-            this.plateManufacturer.Properties.ValueMember = "Id";
-            this.plateManufacturer.Properties.View = this.gridView1;
-            this.plateManufacturer.Size = new System.Drawing.Size(414, 20);
-            this.plateManufacturer.StyleController = this.masterLayoutControl;
-            this.plateManufacturer.TabIndex = 9;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.plateMan});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // steelGrade
             // 
@@ -165,23 +133,25 @@
             this.number.Properties.Appearance.Options.UseBackColor = true;
             this.number.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.number.Properties.DisplayMember = "Number";
-            this.number.Properties.NullText = "";
-            this.number.Properties.ValueMember = "Id";
-            this.number.Properties.View = this.heatNumberView;
+            this.number.Properties.PopupSizeable = true;
+            this.number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.number.Size = new System.Drawing.Size(188, 20);
             this.number.StyleController = this.masterLayoutControl;
             this.number.TabIndex = 4;
-            this.number.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
             // 
-            // heatNumberView
+            // plateManufacturer
             // 
-            this.heatNumberView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.heatNumber});
-            this.heatNumberView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.heatNumberView.Name = "heatNumberView";
-            this.heatNumberView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.heatNumberView.OptionsView.ShowGroupPanel = false;
+            this.plateManufacturer.Location = new System.Drawing.Point(29, 78);
+            this.plateManufacturer.Name = "plateManufacturer";
+            this.plateManufacturer.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.plateManufacturer.Properties.Appearance.Options.UseBackColor = true;
+            this.plateManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.plateManufacturer.Properties.PopupSizeable = true;
+            this.plateManufacturer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.plateManufacturer.Size = new System.Drawing.Size(414, 20);
+            this.plateManufacturer.StyleController = this.masterLayoutControl;
+            this.plateManufacturer.TabIndex = 9;
             // 
             // rootLayoutGroup
             // 
@@ -309,35 +279,6 @@
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.number;
-            this.layoutControlItem1.CustomizationFormText = "Номер плавки";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "numberLayoutControl";
-            this.layoutControlItem1.Size = new System.Drawing.Size(249, 40);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
-            this.layoutControlItem1.Text = "Номер плавки";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(150, 13);
-            this.layoutControlItem1.TextToControlDistance = 5;
-            // 
-            // plateMan
-            // 
-            this.plateMan.Caption = "производители листа";
-            this.plateMan.FieldName = "Name";
-            this.plateMan.Name = "plateMan";
-            this.plateMan.Visible = true;
-            this.plateMan.VisibleIndex = 0;
-            // 
-            // heatNumber
-            // 
-            this.heatNumber.Caption = "Номер плавки";
-            this.heatNumber.FieldName = "Number";
-            this.heatNumber.Name = "heatNumber";
-            this.heatNumber.Visible = true;
-            this.heatNumber.VisibleIndex = 0;
-            // 
             // HeatXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -352,11 +293,9 @@
             this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();
             this.masterLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumberView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManufacturer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControl)).EndInit();
@@ -368,7 +307,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.createLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,16 +325,11 @@
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelLayoutControl;
-        private DevExpress.XtraEditors.GridLookUpEdit number;
-        private DevExpress.XtraGrid.Views.Grid.GridView heatNumberView;
-        private DevExpress.XtraGrid.Columns.GridColumn heatNumber;
-        private DevExpress.XtraEditors.GridLookUpEdit plateManufacturer;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn plateMan;
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayoutControl;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton createButton;
         private DevExpress.XtraLayout.LayoutControlItem createLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.ComboBoxEdit number;
+        private DevExpress.XtraEditors.ComboBoxEdit plateManufacturer;
     }
 }
