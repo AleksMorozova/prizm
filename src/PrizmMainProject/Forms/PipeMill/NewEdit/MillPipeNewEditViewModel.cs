@@ -313,24 +313,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public DateTime PurchaseOrderDate
+        public string PurchaseOrderDate
         {
             get
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.MinValue;
+                    return string.Empty;
                 }
 
-                return PipePurchaseOrder.Date;
-            }
-            set
-            {
-                if (value != PipePurchaseOrder.Date)
-                {
-                    PipePurchaseOrder.Date = value;
-                    RaisePropertyChanged("PurchaseOrderDate");
-                }
+                return PipePurchaseOrder.Date.ToShortDateString();
             }
         }
 
@@ -512,6 +504,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
         #endregion
+
 
         public ICommand NewSavePipeCommand
         {
