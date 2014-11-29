@@ -48,6 +48,7 @@ namespace PrizmMain
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
             Bind<IPlateRepository>().To<PlateRepository>();
+            Bind<IAuditLogRepository>().To<AuditLogRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
@@ -93,6 +94,7 @@ namespace PrizmMain
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
+            Bind<AuditInterceptor>().ToSelf();
         }
     }
 }
