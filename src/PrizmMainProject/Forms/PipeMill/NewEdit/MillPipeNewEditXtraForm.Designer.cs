@@ -118,6 +118,7 @@
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.purchaseOrderDate = new DevExpress.XtraEditors.TextEdit();
             this.purchaseOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.heatButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
@@ -144,13 +145,12 @@
             this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.purchaseOrderLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.purchaseOrderDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.purchaseOrderDate = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -225,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
@@ -247,13 +248,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -1225,6 +1225,15 @@
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
             // 
+            // purchaseOrderDate
+            // 
+            this.purchaseOrderDate.Location = new System.Drawing.Point(878, 27);
+            this.purchaseOrderDate.Name = "purchaseOrderDate";
+            this.purchaseOrderDate.Properties.ReadOnly = true;
+            this.purchaseOrderDate.Size = new System.Drawing.Size(105, 20);
+            this.purchaseOrderDate.StyleController = this.generalPipeLayout;
+            this.purchaseOrderDate.TabIndex = 32;
+            // 
             // purchaseOrderButton
             // 
             this.purchaseOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("purchaseOrderButton.Image")));
@@ -1375,7 +1384,7 @@
             this.saveAndNewButtonLayout,
             this.heatLayoutControl,
             this.purchaseOrderLayoutControl,
-            this.layoutControlItem1});
+            this.purchaseOrderDateLayoutControl});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -1561,6 +1570,18 @@
             this.purchaseOrderLayoutControl.TextToControlDistance = 0;
             this.purchaseOrderLayoutControl.TextVisible = false;
             // 
+            // purchaseOrderDateLayoutControl
+            // 
+            this.purchaseOrderDateLayoutControl.Control = this.purchaseOrderDate;
+            this.purchaseOrderDateLayoutControl.CustomizationFormText = "Дата наряд-заказа";
+            this.purchaseOrderDateLayoutControl.Location = new System.Drawing.Point(849, 0);
+            this.purchaseOrderDateLayoutControl.Name = "purchaseOrderDateLayoutControl";
+            this.purchaseOrderDateLayoutControl.Size = new System.Drawing.Size(139, 55);
+            this.purchaseOrderDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.purchaseOrderDateLayoutControl.Text = "Дата наряд-заказа";
+            this.purchaseOrderDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.purchaseOrderDateLayoutControl.TextSize = new System.Drawing.Size(99, 13);
+            // 
             // pipeParametersLayout
             // 
             this.pipeParametersLayout.Control = this.pipe;
@@ -1586,27 +1607,6 @@
             // weldingDs
             // 
             this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
-            // 
-            // purchaseOrderDate
-            // 
-            this.purchaseOrderDate.Location = new System.Drawing.Point(878, 27);
-            this.purchaseOrderDate.Name = "purchaseOrderDate";
-            this.purchaseOrderDate.Properties.ReadOnly = true;
-            this.purchaseOrderDate.Size = new System.Drawing.Size(105, 20);
-            this.purchaseOrderDate.StyleController = this.generalPipeLayout;
-            this.purchaseOrderDate.TabIndex = 32;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.purchaseOrderDate;
-            this.layoutControlItem1.CustomizationFormText = "Дата наряд-заказа";
-            this.layoutControlItem1.Location = new System.Drawing.Point(849, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(139, 55);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.layoutControlItem1.Text = "Дата наряд-заказа";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(99, 13);
             // 
             // MillPipeNewEditXtraForm
             // 
@@ -1693,6 +1693,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
@@ -1715,13 +1716,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1848,7 +1848,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit valueRepositoryTextEdit;
         private DevExpress.XtraEditors.TextEdit plateManufacturer;
         private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
 
     }
 }
