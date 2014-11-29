@@ -45,11 +45,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
             purchaseOrderDate.Properties.NullText = string.Empty;
 
+            pipeCreationDate.Properties.NullDate = DateTime.MinValue;
+            pipeCreationDate.Properties.NullText = string.Empty;
+
             pipeNumber.SetRequiredText();
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
             millStatus.SetRequiredCombo();
+            pipeCreationDate.SetRequiredText();
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -98,7 +103,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
-
+            pipeCreationDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ProductionDate");
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
@@ -275,6 +281,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ProductionDate = pipeCreationDate.DateTime;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
@@ -476,5 +489,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
         #endregion
+
     }
 }
