@@ -53,6 +53,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
             millStatus.SetRequiredCombo();
+            pipeCreationDate.SetRequiredText();
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -283,6 +285,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
+        private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ProductionDate = pipeCreationDate.DateTime;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
            GridView view = sender as GridView;
@@ -480,5 +489,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
         #endregion
+
     }
 }

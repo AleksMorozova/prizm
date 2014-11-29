@@ -239,7 +239,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public DateTime ProductionDate
         {
-            get { return Pipe.ProductionDate; }
+            get 
+            {
+                return Pipe.ProductionDate; 
+            }
             set
             {
                 if (value != Pipe.ProductionDate)
