@@ -44,9 +44,13 @@ namespace UnitTests.Forms.PipeMill.NewEdit
 
             var viewModel = new MillPipeNewEditViewModel(
                 millRepos.Object,
-                Guid.Empty);
+                Guid.Empty, 
+                null);
 
-            var command = new NewSavePipeCommand(viewModel, millRepos.Object);
+            var command = new NewSavePipeCommand(
+                viewModel, 
+                millRepos.Object, 
+                null);
 
             command.Execute();
 

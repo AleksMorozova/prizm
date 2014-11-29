@@ -65,7 +65,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void ControlsDeactivation(Control control)
         {
-            if (viewModel.PipeIsDeactivated)
+            if (viewModel.IsNotActive)
             {
                 foreach (Control c in control.Controls)
                 {
@@ -130,8 +130,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+
+
             deactivate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeIsDeactivated");
+                .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
+
+            deactivate.DataBindings
+                .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
+
+
+
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
 
@@ -512,5 +520,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
         #endregion
+
+        private void deactivate_Modified(object sender, EventArgs e)
+        {
+            viewModel.IsNotActive = (bool)deactivate.EditValue;
+
+            if (viewModel.IsNotActive)
+            {
+                viewModel.PipeDeactivationCommand.Execute();
+                ControlsDeactivation(this);
+            }
+        }
     }
 }

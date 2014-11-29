@@ -1,24 +1,23 @@
-﻿using Data.DAL.Mill;
-using DevExpress.Mvvm.DataAnnotations;
+﻿using DevExpress.Mvvm.DataAnnotations;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DevExpress.Mvvm.POCO;
 using PrizmMain.Properties;
 
+
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class NewSavePipeCommand: ICommand
+    public class PipeDeactivationCommand: ICommand
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
 
-        public NewSavePipeCommand(
+        public PipeDeactivationCommand(
             MillPipeNewEditViewModel viewModel, 
             IMillRepository repo,
             IUserNotify notify)
@@ -31,12 +30,25 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.SavePipeCommand.Execute();
-
-             if (viewModel.Number != string.Empty)
+            if (viewModel.Pipe.Railcar == null)
             {
-                viewModel.NewPipe();
+                if (notify.ShowYesNo(
+                    Resources.DLG_PIPE_DEACTIVATION,
+                    Resources.DLG_PIPE_DEACTIVATION_HEDER))
+                {
+                    viewModel.SavePipeCommand.Execute();
+                    return;
+                }
+
+                viewModel.IsNotActive = false;
+                return;
             }
+
+            notify.ShowInfo(
+                Resources.DLG_PIPE_IN_RAILCAR,
+                Resources.DLG_PIPE_IN_RAILCAR_HEDER);
+
+            viewModel.IsNotActive = false;
         }
 
         public virtual bool IsExecutable { get; set; }
@@ -48,7 +60,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            return viewModel.SavePipeCommand.CanExecute();
+            return true;
         }
     }
 }

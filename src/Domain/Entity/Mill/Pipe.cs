@@ -35,7 +35,6 @@ namespace Domain.Entity.Mill
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
         public virtual IList<Coat> Coats { get; set; }
 
-        //enum
         public virtual PipeMillStatus Status { get; set; }
     }
 }

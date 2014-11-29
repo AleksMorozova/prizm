@@ -1265,6 +1265,7 @@
             this.deactivate.Size = new System.Drawing.Size(194, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
+            this.deactivate.Modified += new System.EventHandler(this.deactivate_Modified);
             // 
             // saveButton
             // 

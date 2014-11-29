@@ -160,7 +160,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Сохранение данных приведет к деактивации трубы. Деактивировать трубу?.
+        ///   Looks up a localized string similar to Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
         /// </summary>
         internal static string DLG_PIPE_DEACTIVATION {
             get {

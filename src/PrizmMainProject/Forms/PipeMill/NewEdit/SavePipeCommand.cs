@@ -42,24 +42,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.Number = string.Empty;
                 return;
             }
-
-            if (viewModel.PipeIsDeactivated)
-            {
-                if (!string.IsNullOrEmpty(viewModel.Pipe.Railcar.Number))
-                {
-                    notify.ShowInfo(
-                        Resources.DLG_PIPE_IN_RAILCAR,
-                        Resources.DLG_PIPE_IN_RAILCAR_HEDER);
-                    return;
-
-                }
-                if (!notify.ShowYesNo(
-                    Resources.DLG_PIPE_DEACTIVATION,
-                    Resources.DLG_PIPE_DEACTIVATION_HEDER))
-                {
-                    return;
-                }
-            }
             try
             {
                 repo.BeginTransaction();

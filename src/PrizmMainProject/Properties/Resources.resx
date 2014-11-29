@@ -220,7 +220,7 @@
     <value>Внутреннее</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
-    <value>Сохранение данных приведет к деактивации трубы. Деактивировать трубу?</value>
+    <value>Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация трубы</value>
