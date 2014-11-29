@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using PrizmMain.Properties;
+using Domain.Entity.Mill;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
@@ -37,18 +38,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     Resources.DLG_PIPE_DEACTIVATION_HEDER))
                 {
                     viewModel.SavePipeCommand.Execute();
-                    return;
                 }
+                else
+                {
+                    viewModel.IsNotActive = false;
+                }
+            }
+            else if (viewModel.PipeStatus.Value == PipeMillStatus.Shipped)
+            {
+                notify.ShowInfo(
+                    Resources.DLG_PIPE_IN_RAILCAR,
+                    Resources.DLG_PIPE_IN_RAILCAR_HEDER);
 
                 viewModel.IsNotActive = false;
-                return;
             }
+            else
+            {
+                notify.ShowInfo(
+                    Resources.DLG_PIPE_IN_RAILCAR,
+                    Resources.DLG_PIPE_IN_RAILCAR_HEDER);
 
-            notify.ShowInfo(
-                Resources.DLG_PIPE_IN_RAILCAR,
-                Resources.DLG_PIPE_IN_RAILCAR_HEDER);
-
-            viewModel.IsNotActive = false;
+                viewModel.IsNotActive = false;
+            }
         }
 
         public virtual bool IsExecutable { get; set; }
@@ -60,7 +71,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            return true;
+            return 
+                viewModel.Pipe.Status != PipeMillStatus.Shipped;  
         }
     }
 }

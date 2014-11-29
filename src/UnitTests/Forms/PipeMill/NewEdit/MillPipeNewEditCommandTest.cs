@@ -20,6 +20,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
         public void TestMillPipeNewEdit()
         {
             var repoPipe = new Mock<IPipeRepository>();
+
             var repoPlate = new Mock<IPlateRepository>();
             var repoHeat = new Mock<IHeatRepository>();
             var repoWeld = new Mock<IWeldRepository>();

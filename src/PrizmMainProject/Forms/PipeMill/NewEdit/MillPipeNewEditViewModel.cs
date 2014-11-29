@@ -54,7 +54,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repoMill = repoMill;
             this.notify = notify;
             this.PipeId = pipeId;
-            this.CanDeactivatePipe = true;
+            //this.CanDeactivatePipe = true;
 
             pipeDeactivationCommand =
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
@@ -89,6 +89,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 GetAllPipeTestResults();
 
                 getPipeCommand.Execute();
+
+                this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
             }
 
             

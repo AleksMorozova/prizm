@@ -40,18 +40,20 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
                     Resources.DLG_PIPE_DUPLICATE_HEDER);
                 viewModel.Number = string.Empty;
-                return;
             }
-            try
+            else
             {
-                repo.BeginTransaction();
-                repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-                repo.Commit();
-                repo.RepoPipe.Evict(viewModel.Pipe);
-            }
-            catch (RepositoryException ex)
-            {
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                try
+                {
+                    repo.BeginTransaction();
+                    repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
+                    repo.Commit();
+                    repo.RepoPipe.Evict(viewModel.Pipe);
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
         }
 
