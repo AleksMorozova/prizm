@@ -237,15 +237,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public DateTime Date
+        public DateTime ProductionDate
         {
-            get { return Pipe.Date; }
+            get { return Pipe.ProductionDate; }
             set
             {
-                if (value != Pipe.Date)
+                if (value != Pipe.ProductionDate)
                 {
-                    Pipe.Date = value;
-                    RaisePropertyChanged("Date");
+                    Pipe.ProductionDate = value;
+                    RaisePropertyChanged("ProductionDate");
                 }
             }
         }

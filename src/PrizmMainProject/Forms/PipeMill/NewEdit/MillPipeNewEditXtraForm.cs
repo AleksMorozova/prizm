@@ -102,7 +102,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
             pipeCreationDate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "Date");
+                .Add("EditValue", pipeNewEditBindingSource, "ProductionDate");
 
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
