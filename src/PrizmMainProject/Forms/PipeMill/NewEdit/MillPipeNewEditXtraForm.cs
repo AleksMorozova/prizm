@@ -31,6 +31,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
+        private PipeTestResult currentTestResult;
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -141,9 +142,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
-            
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
+
+            inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
             #endregion
 
 
@@ -265,6 +267,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.PipeMillSizeType = currentPipeType;
                 viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
                 inspections.RefreshDataSource();
             }
 
@@ -396,14 +399,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private string getExpectedValue(GridView view, int listSourceRowIndex)
         {
             PipeTestResult pipeTestResult = view.GetRow(listSourceRowIndex) as PipeTestResult;
+            if (pipeTestResult != null && pipeTestResult.Operation != null)
+            {
                 switch (pipeTestResult.Operation.ResultType)
-                { 
+                {
                     case PipeTestResultType.Boolean:
-                        return pipeTestResult.Operation.BoolExpected.ToString(); 
+                        return pipeTestResult.Operation.BoolExpected.ToString();
                     case PipeTestResultType.Diapason:
                         return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
-                    default: return "";   
-                }            
+                    default: return "";
+                }
+            }
+            else return "";
         }
 
         private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -499,6 +506,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
 
         #endregion
+
+       
+        private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit q = sender as LookUpEdit;
+            object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
+            PipeTest selectedTest = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PipeTest;
+            if (selectedTest != null)
+                currentTestResult.Operation = selectedTest;
+        }
+
+        private void inspectionsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+             GridView view = sender as GridView;
+             if (view.IsValidRowHandle(e.RowHandle))
+             { 
+              currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
+              currentTestResult.IsActive = true;
+              currentTestResult.Pipe = viewModel.Pipe;
+              viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+             }
+        }
 
     }
 }
