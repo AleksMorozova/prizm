@@ -69,13 +69,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 pipeNewEditBindingSource.DataSource = viewModel;
 
 #region ComboBox filling
-heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
-            
-            
-            foreach (var h in viewModel.Heats)
-            {
-                heatNumber.Properties.Items.Add(h);
-            }
+
+            HeatFill();
+
             foreach (var p in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(p);
@@ -182,6 +178,17 @@ heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resourc
             
         }
 
+        private void HeatFill() 
+        {
+            heatNumber.Properties.Items.Clear();
+            heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
+
+            foreach (var h in viewModel.Heats)
+            {
+                heatNumber.Properties.Items.Add(h);
+            }
+        }
+
         private void editHeatButton_Click(object sender, EventArgs e)
         {
             using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
@@ -189,6 +196,7 @@ heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resourc
                 if (heatForm.ShowDialog() == DialogResult.OK)
                 {
                     //TODO: refresh Heat data
+                    HeatFill();
                 }
             }
 

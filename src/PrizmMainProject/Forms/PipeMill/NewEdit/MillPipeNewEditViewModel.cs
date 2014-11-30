@@ -393,7 +393,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
                 else
                 {
-                    return Heat.PlateManufacturer.Name;
+                    if (Heat.PlateManufacturer.Name != null)
+                    {
+                        return Heat.PlateManufacturer.Name;
+                    }
+                    else
+                    {
+                        return string.Empty;
+                    }
                 }
                 
             }
