@@ -71,6 +71,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Images.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -225,10 +226,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Forms\PipeMill\NewEdit\SavePipeCommand.cs" />
-    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.cs">
+    <Compile Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.Designer.cs">
       <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
@@ -406,7 +407,7 @@
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeMill\PurchaseOrderXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.resx">
       <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
