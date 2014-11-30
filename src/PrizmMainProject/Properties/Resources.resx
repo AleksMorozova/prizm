@@ -222,7 +222,31 @@
   <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
     <value>Несохранённые изменения</value>
   </data>
-  <data name="NewHeatCombo" xml:space="preserve">
+<data name="NewHeatCombo" xml:space="preserve">
     <value>&lt; Создать плавку &gt;</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE" xml:space="preserve">
+    <value>Уже существует труба с номером: </value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера трубы</value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
+    <value>Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.</value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR_HEDER" xml:space="preserve">
+    <value>Деактивация трубы в вагоне невозможна</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED" xml:space="preserve">
+    <value>Невозможно деактивировать отгруженную трубу.</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
+    <value>Труба отгружена</value>
   </data>
 </root>

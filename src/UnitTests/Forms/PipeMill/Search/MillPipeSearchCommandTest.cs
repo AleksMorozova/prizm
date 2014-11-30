@@ -21,8 +21,7 @@ namespace UnitTests.Forms.PipeMill.Search
         [Test]
         public void TestMillPipeSearchCommand()
         {
-            var repo = new Mock<IPipeRepository>();
-            var repoGlob = new Mock<IMillRepository>();
+            var repo = new Mock<IMillRepository>();
 
             var pipes = new List<Domain.Entity.Mill.Pipe>();
             {
@@ -30,28 +29,20 @@ namespace UnitTests.Forms.PipeMill.Search
                 new Domain.Entity.Mill.Pipe { Number = "test-3" };
             };
 
-            repo.Setup(_ => _.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>()))
+            repo.Setup(x => x.RepoPipe.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>()))
                 .Returns(pipes).Verifiable();
 
             var criteria = NHibernate.Criterion.DetachedCriteria
               .For<Domain.Entity.Mill.Pipe>()
               .Add(Restrictions.Like("Number", "test-1", MatchMode.Anywhere));
 
-
-
-            var viewModel = new MillPipeSearchViewModel(repoGlob.Object);
-
-            var command = new MillPipeSearchCommand(viewModel, repo.Object);
-
-
+            var viewModel = new MillPipeSearchViewModel(repo.Object);
+            var command = new MillPipeSearchCommand(viewModel, repo.Object.RepoPipe);
 
             command.Execute();
 
-
-
-            repo.Verify(x => x.GetByCriteria(It.IsAny<DetachedCriteria>()), Times.Once());
-
-            Assert.AreEqual(repo.Object.GetByCriteria(criteria), pipes);
+            repo.Verify(x => x.RepoPipe.GetByCriteria(It.IsAny<DetachedCriteria>()), Times.Once());
+            Assert.AreEqual(repo.Object.RepoPipe.GetByCriteria(criteria), pipes);
 
         }
 
