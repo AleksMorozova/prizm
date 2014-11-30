@@ -42,9 +42,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
 
-            purchaseOrderDate.Properties.NullDate = DateTime.MinValue;
-            purchaseOrderDate.Properties.NullText = string.Empty;
-
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
 
@@ -64,13 +61,49 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
+
+            ControlsDeactivation(this);
+        }
+
+        private void ControlsDeactivation(Control control)
+        {
+            if (viewModel.IsNotActive)
+            {
+                foreach (Control c in control.Controls)
+                {
+                    if (c is TextEdit)
+                    {
+                        ((TextEdit)c).Properties.ReadOnly = true;
+                    }
+
+                    if (c is SimpleButton && c.Name != "attachmentsButton")
+                    {
+                        ((SimpleButton)c).Enabled = false;
+                    }
+
+                    if (c is DevExpress.XtraGrid.GridControl)
+                    {
+                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                        {
+                            ((GridView)v).OptionsBehavior.Editable = false;
+                        }
+                    }
+
+                    if (c is DevExpress.XtraEditors.CheckEdit)
+                    {
+                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = false;
+                    }
+
+                    ControlsDeactivation(c);
+                }
+            }
         }
 
 
         private void BindToViewModel()
         {
-            pipeNewEditBindingSource.DataSource = viewModel;
 
+            #region ComboBox filling
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
@@ -87,7 +120,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 millStatus.Properties.Items.Add(s);
             }
+            #endregion
 
+            #region DataBindings
+
+            pipeNewEditBindingSource.DataSource = viewModel;
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -99,8 +136,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+
+
             deactivate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
+                .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
+
+            deactivate.DataBindings
+                .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
+
+
+
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
             pipeCreationDate.DataBindings
@@ -131,13 +176,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             destanation.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
-            inspections.DataBindings.Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+            plateNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+            
+
+            inspections.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
+
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            
+            #endregion
+
+
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
             weldersDataSource.DataSource = viewModel.Welders;
@@ -291,6 +344,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
+
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -490,5 +544,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
+
+        private void deactivate_Modified(object sender, EventArgs e)
+        {
+            viewModel.IsNotActive = (bool)deactivate.EditValue;
+
+            if (viewModel.IsNotActive)
+            {
+                viewModel.PipeDeactivationCommand.Execute();
+                ControlsDeactivation(this);
+            }
+        }
     }
 }

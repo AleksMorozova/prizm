@@ -29,28 +29,41 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private IList<PipeTestResult> pipeTestResults;
 
+        private readonly PipeDeactivationCommand pipeDeactivationCommand;
         private readonly NewSavePipeCommand newSavePipeCommand;
         private readonly SavePipeCommand savePipeCommand;
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
+        private readonly GetPipeCommand getPipeCommand;
+        private readonly IUserNotify notify;
 
         public Pipe Pipe { get; set; }
+        public Guid PipeId { get; set; }
+
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
+
+        public bool CanDeactivatePipe { get; set; }
         
 
         [Inject]
-        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId)
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
         {
             this.repoMill = repoMill;
+            this.notify = notify;
+            this.PipeId = pipeId;
+            //this.CanDeactivatePipe = true;
+
+            pipeDeactivationCommand =
+                ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
 
             newSavePipeCommand =
-                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill));
+                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify));
 
             savePipeCommand =
-                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill));
+                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -61,6 +74,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             extractPipeTypeCommand =
                 ViewModelSource.Create(() => new ExtractPipeTypeCommand(this, repoMill.RepoPipeType));
 
+            getPipeCommand =
+                ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
+
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
@@ -70,13 +86,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-                Pipe = repoMill.RepoPipe.Get(pipeId);
                 GetAllPipeTestResults();
+
+                getPipeCommand.Execute();
+
+                this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
             }
 
+            
             Welders = repoMill.WelderRepo.GetAll();
             
-            Inspectors =repoMill.RepoInspector.GetAll();
+            Inspectors = repoMill.RepoInspector.GetAll();
 
             foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
@@ -92,7 +112,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             LoadPipeMillStatuses();
         }
 
-       public IList<EnumWrapper<PipeMillStatus>> StatusTypes
+        public IList<EnumWrapper<PipeMillStatus>> StatusTypes
         {
             get { return statusTypes; }
             set
@@ -146,15 +166,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #region Pipe
 
-        public bool PipeIsActive
+        public bool IsNotActive
         {
-            get { return Pipe.IsActive; }
+            get 
+            {
+                return Pipe.IsNotActive; 
+            }
             set
             {
-                if (value != Pipe.IsActive)
+                if (value != Pipe.IsNotActive)
                 {
-                    Pipe.IsActive = value;
-                    RaisePropertyChanged("PipeIsActive");
+                    Pipe.IsNotActive = value;
+                    RaisePropertyChanged("IsNotActive");
                 }
             }
         }
@@ -290,24 +313,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public DateTime PurchaseOrderDate
+        public string PurchaseOrderDate
         {
             get
             {
                 if (PipePurchaseOrder == null)
                 {
-                    return DateTime.MinValue;
+                    return string.Empty;
                 }
 
-                return PipePurchaseOrder.Date;
-            }
-            set
-            {
-                if (value != PipePurchaseOrder.Date)
-                {
-                    PipePurchaseOrder.Date = value;
-                    RaisePropertyChanged("PurchaseOrderDate");
-                }
+                return PipePurchaseOrder.Date.ToShortDateString();
             }
         }
 
@@ -490,6 +505,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
+
         public ICommand NewSavePipeCommand
         {
             get { return newSavePipeCommand; }
@@ -509,6 +525,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return savePipeCommand; }
         }
+
+        public ICommand PipeDeactivationCommand
+        {
+            get { return pipeDeactivationCommand; }
+        }
         
 
         public void NewPipe()
@@ -520,6 +541,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
 
             this.PlateNumber = string.Empty;
+            this.Pipe.IsActive = true;
             this.Pipe.Status = PipeMillStatus.Produced;
 
             this.Number = string.Empty;
@@ -529,6 +551,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
             this.PipeTestResults = new List<PipeTestResult>();
+
+            this.CanDeactivatePipe = false;
 
         }
 
@@ -548,6 +572,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
             pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
         }
+
         internal string FormatWeldersList(IList<Welder> welders)
         {
             if (welders == null)

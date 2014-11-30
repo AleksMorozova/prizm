@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// for method RaiseCanExecuteChanged
 using DevExpress.Mvvm.POCO;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -16,20 +16,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public NewSavePipeCommand(MillPipeNewEditViewModel viewModel, IMillRepository repo)
+        public NewSavePipeCommand(
+            MillPipeNewEditViewModel viewModel, 
+            IMillRepository repo,
+            IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
             viewModel.SavePipeCommand.Execute();
-            viewModel.NewPipe();
-        }
 
+             if (viewModel.Number != string.Empty)
+            {
+                viewModel.NewPipe();
+            }
+        }
 
         public virtual bool IsExecutable { get; set; }
 
@@ -37,7 +45,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.RaiseCanExecuteChanged(x => x.Execute());
         }
-
 
         public bool CanExecute()
         {

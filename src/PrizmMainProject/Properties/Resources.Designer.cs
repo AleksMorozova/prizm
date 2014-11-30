@@ -151,6 +151,78 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
+        /// </summary>
+        internal static string DLG_PIPE_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы.
+        /// </summary>
+        internal static string DLG_PIPE_DEACTIVATION_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DEACTIVATION_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует труба с номером: .
+        /// </summary>
+        internal static string DLG_PIPE_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера трубы.
+        /// </summary>
+        internal static string DLG_PIPE_DUPLICATE_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_DUPLICATE_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона..
+        /// </summary>
+        internal static string DLG_PIPE_IN_RAILCAR {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы в вагоне невозможна.
+        /// </summary>
+        internal static string DLG_PIPE_IN_RAILCAR_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невозможно деактивировать отгруженную трубу..
+        /// </summary>
+        internal static string DLG_PIPE_IS_SHIPPED {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба отгружена.
+        /// </summary>
+        internal static string DLG_PIPE_IS_SHIPPED_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер вагона.
         /// </summary>
         internal static string DLG_RAILCAR_NUMBER_EMPTY {

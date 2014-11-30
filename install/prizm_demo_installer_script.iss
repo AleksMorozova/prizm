@@ -2,10 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Prizm Demo"
-#define MyAppVersion "0.0.0.4"
+#define MyAppVersion "0.0.0.5"
 #define MyAppPublisher ""
 #define MyAppURL ""
-#define MyAppExeName "prizm.exe"
+#define MyAppExeName "Prizm.Program.exe"
+#define MyAppMigratorExeName "Prizm.DatabaseMigrator.exe"
 #define MyAppExeConfigName MyAppExeName + ".config"
 #define MyDateTimeString GetDateTimeString('dm', '', '');
 #define DevExpressPath GetEnv('DEV_EXPRESS14_PATH')
@@ -85,7 +86,7 @@ Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"
 Filename: "{tmp}\dotnetfx45_full_x86_x64.exe"; Parameters: "/passive /norestart"; WorkingDir: "{tmp}"; Description: "Windows system requirements"; StatusMsg: "{cm:InstallingNet45}"; Check: not IsRequiredDotNetDetected
 Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\SqlLocalDB.MSI"" /qn IACCEPTSQLLOCALDBLICENSETERMS=YES"; WorkingDir: "{tmp}"; Description: "{cm:InstallingSQLLocalDb}"; StatusMsg: "{cm:InstallingSQLLocalDb}"; Check: not IsLocalDb11Installed
-Filename: "{app}\DatabaseMigrator.exe"; Parameters: "0"; WorkingDir: "{app}"; Flags: runhidden; Description: "{cm:CreatingPrizmDatabase}"; StatusMsg: "{cm:CreatingPrizmDatabase}"; BeforeInstall: UpdateConfig; AfterInstall: PrepareDatabase
+Filename: "{app}\{#MyAppMigratorExeName}"; Parameters: "0"; WorkingDir: "{app}"; Flags: runhidden; Description: "{cm:CreatingPrizmDatabase}"; StatusMsg: "{cm:CreatingPrizmDatabase}"; BeforeInstall: UpdateConfig; AfterInstall: PrepareDatabase
 
 [Dirs]
 Name: "{app}\Data"; Attribs: hidden; Permissions: everyone-full
@@ -197,6 +198,7 @@ begin
   XMLDoc.async := False;
   XMLDoc.resolveExternals := False;
   XMLDoc.load(ConfigFilename);
+
   if XMLDoc.parseError.errorCode <> 0 then
     RaiseException('Error on line ' + IntToStr(XMLDoc.parseError.line) + ', position ' + IntToStr(XMLDoc.parseError.linepos) + ': ' + XMLDoc.parseError.reason);
 
@@ -225,7 +227,7 @@ var
 begin
  // run database migrator and check error code
  WizardForm.StatusLabel.Caption := CustomMessage('CreatingPrizmDatabase');
- if Exec(ExpandConstant('{app}\DatabaseMigrator.exe'), '1', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResCode) then
+ if Exec(ExpandConstant('{app}\{#MyAppMigratorExeName}'), '1', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResCode) then
  begin
    // Program Ran successfully ResCode now contains exit code results
    if resCode <> 0 then
