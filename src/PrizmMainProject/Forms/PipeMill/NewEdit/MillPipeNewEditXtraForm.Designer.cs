@@ -1619,6 +1619,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeNewEditXtraForm";
             this.Text = "Завод - труба";
+            this.Activated += new System.EventHandler(this.MillPipeNewEditXtraForm_Activated);
             this.Load += new System.EventHandler(this.MillPipeNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();

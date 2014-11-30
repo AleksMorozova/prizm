@@ -406,6 +406,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+        public string PlateManufacturer
+        {
+            get
+            {
+                string manufacturer = string.Empty;
+                if (Heat.Id != Guid.Empty && Heat.PlateManufacturer.Name != null)
+                {
+                    manufacturer = Heat.PlateManufacturer.Name;
+                }
+                return manufacturer;
+                
+            }
+            set
+            {
+                if (value != Heat.PlateManufacturer.Name)
+                {
+                    Heat.PlateManufacturer.Name = value;
+                    RaisePropertyChanged("PlateManufacturer");
+                }
+            }
+        }
+
         #endregion
 
         #region Railcar

@@ -222,6 +222,9 @@
   <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
     <value>Несохранённые изменения</value>
   </data>
+<data name="NewHeatCombo" xml:space="preserve">
+    <value>&lt; Создать плавку &gt;</value>
+  </data>
   <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
   </data>

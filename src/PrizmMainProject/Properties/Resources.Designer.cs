@@ -403,6 +403,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt; Создать плавку &gt;.
+        /// </summary>
+        internal static string NewHeatCombo {
+            get {
+                return ResourceManager.GetString("NewHeatCombo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Пройден.
         /// </summary>
         internal static string Passed {
