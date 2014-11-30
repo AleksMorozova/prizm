@@ -614,14 +614,5 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-
-         public void UpdateTestResults()
-         {
-          //   Pipe.PipeTestResult.Clear();
-             //foreach (PipeTestResult ptr in Pipe.PipeTestResult)
-             //{
-             //    Pipe.PipeTestResult.Add(ptr);
-             //}
-         }
     }
 }
