@@ -222,4 +222,7 @@
   <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
     <value>Несохранённые изменения</value>
   </data>
+  <data name="AlertWrongDateForReport" xml:space="preserve">
+    <value>Конечная дата периода раньше начальной даты</value>
+  </data>
 </root>

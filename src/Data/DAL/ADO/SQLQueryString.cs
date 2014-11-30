@@ -1,9 +1,13 @@
-﻿
-namespace PrizmMain.Forms.Reports.Mill
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Data.DAL.ADO
 {
-    class SQLQueryString
+    public static class SQLQueryString
     {
-        //selec only active pipes
         public const string GetAllPipesByStatus = @"select Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
                Pipe.weight as weight, Pipe.mill as mill, Pipe.pipeMillStatus as pipeMillStatus, Pipe.number
                as number, Pipe.isActive as isActive, Pipe.typeId as typeId, Pipe.plateId

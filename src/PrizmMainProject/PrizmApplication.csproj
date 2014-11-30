@@ -160,6 +160,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Common\ControlColorExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
@@ -271,7 +273,7 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
-    <Compile Include="Forms\Reports\Mill\ReportSearchCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Mill\SQLQueryString.cs" />
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />

@@ -115,6 +115,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Конечная дата периода раньше начальной даты.
+        /// </summary>
+        internal static string AlertWrongDateForReport {
+            get {
+                return ResourceManager.GetString("AlertWrongDateForReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внешнее.
         /// </summary>
         internal static string COAT_EXTERNAL {

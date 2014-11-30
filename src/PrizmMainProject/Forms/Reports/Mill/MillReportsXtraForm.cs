@@ -16,8 +16,8 @@ namespace PrizmMain.Forms.Reports.Mill
 {
     public partial class MillReportsXtraForm : ChildForm
     {
-        private System.Data.DataSet allMillPipeDataSet;
-        private ReportSearchCommand command = new ReportSearchCommand();
+        private System.Data.DataSet allMillPipeDataSet = null;
+        //private CreateReportCommand command = new CreateReportCommand();
 
 
         public MillReportsXtraForm()
@@ -25,22 +25,38 @@ namespace PrizmMain.Forms.Reports.Mill
             InitializeComponent();
         }
 
-        private void previewButton_Click(object sender, EventArgs e)
-        {
-            //TODO: input logic for reports parameters
-            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
-            var report = new MillReport() { DataSource = allMillPipeDataSet };
-            report.CreateDocument();
-            DocumentViewer doc = previewReportDocument;
-            doc.DocumentSource = report;
-        }
+        //private void previewButton_Click(object sender, EventArgs e)
+        //{
+        //    //TODO: input logic for reports parameters
 
-        private void createReportButton_Click(object sender, EventArgs e)
-        {
-            //TODO: input logic for reports parameters
-            allMillPipeDataSet = command.GetPipesByStatus("Produced"); 
-            command.CreateReport(new MillReport(), allMillPipeDataSet);
-        }
+        //    if (allMillPipeDataSet == null)
+        //    {
+        //        allMillPipeDataSet = command.GetPipesByStatus(startDate.DateTime.Date, finalDate.DateTime.Date);
+        //        command.PreviewReport(previewReportDocument, new MillReport(), allMillPipeDataSet);
+        //    }
+
+        //    else 
+        //    {
+        //        command.PreviewReport(previewReportDocument, new MillReport(), allMillPipeDataSet);
+        //    }
+            
+
+        //}
+
+        //private void createReportButton_Click(object sender, EventArgs e)
+        //{
+        //    //TODO: input logic for reports parameters
+        //    if (allMillPipeDataSet == null)
+        //    {
+        //        allMillPipeDataSet = command.GetPipesByStatus(startDate.DateTime.Date, finalDate.DateTime.Date);
+        //        command.CreateReport(new MillReport(), allMillPipeDataSet);
+        //    }
+
+        //    else
+        //    {
+        //        command.CreateReport(new MillReport(), allMillPipeDataSet);
+        //    }
+        //}
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
