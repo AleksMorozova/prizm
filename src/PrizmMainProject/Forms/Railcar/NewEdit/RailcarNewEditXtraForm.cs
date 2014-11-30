@@ -112,9 +112,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void SetControlsTextLength()
         {
-            railcarNumber.Properties.MaxLength = 20;
-            destination.Properties.MaxLength = 50;
-            certificateNumber.Properties.MaxLength = 20;
+            railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
+            destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
+            certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
         }
         private void ButtonRefresh()
         {

@@ -20,6 +20,7 @@ using PrizmMain.Properties;
 using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -193,22 +194,22 @@ namespace PrizmMain.Forms.Settings
 
         private void SetControlsTextLength()
         {
-            client.Properties.MaxLength = 100;
-            design.Properties.MaxLength = 100;
-            manufacturerRepositoryTextEdit.MaxLength = 20;
-            typeRepositoryTextEdit.MaxLength = 50;
-            codeRepositoryTextEdit.MaxLength = 20;
-            controlNameRepositoryTextEdit.MaxLength = 20;
-            subjectRepositoryItemEdit.MaxLength = 50;
-            welderFNRepositoryTextEdit.MaxLength = 20;
-            welderLNRepositoryTextEdit.MaxLength = 20;
-            welderMNRepositoryTextEdit.MaxLength = 20;
-            welderCertificateTextEdit.MaxLength = 20;
-            stampRepositoryTextEdit.MaxLength = 10;
-            inspectorFNRepositoryTextEdit.MaxLength = 20;
-            inspectorLNRepositoryTextEdit.MaxLength = 20;
-            inspectorMNRepositoryTextEdit.MaxLength = 20;
-            inspectorCertificateTextEdit.MaxLength = 20;
+            client.Properties.MaxLength = LengthLimit.MaxProjectClient;
+            design.Properties.MaxLength = LengthLimit.MaxProjectDesigner;
+            manufacturerRepositoryTextEdit.MaxLength = LengthLimit.MaxPlateManufacturerName;
+            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipetestResultType;
+            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
+            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
+            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+            welderFNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderFirstName;
+            welderLNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderLastName;
+            welderMNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderMiddleName;
+            welderCertificateTextEdit.MaxLength = LengthLimit.MaxWelderCertificate;
+            stampRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderStamp;
+            inspectorFNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorFirstName;
+            inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
+            inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
+            inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
         }
 
         private void gridControlInspectors_Click(object sender, EventArgs e)

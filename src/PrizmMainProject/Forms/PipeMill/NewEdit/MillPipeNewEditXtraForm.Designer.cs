@@ -107,7 +107,7 @@
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.valueRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.testResultValue = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ResultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -217,7 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
@@ -1037,7 +1037,7 @@
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ResultStatusLookUpEdit,
             this.inspectorsPopupContainerEdit,
-            this.valueRepositoryTextEdit});
+            this.testResultValue});
             this.inspections.Size = new System.Drawing.Size(1200, 380);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1086,17 +1086,17 @@
             // valueGridColumn
             // 
             this.valueGridColumn.Caption = "Результат измерения";
-            this.valueGridColumn.ColumnEdit = this.valueRepositoryTextEdit;
+            this.valueGridColumn.ColumnEdit = this.testResultValue;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
             this.valueGridColumn.VisibleIndex = 3;
             this.valueGridColumn.Width = 135;
             // 
-            // valueRepositoryTextEdit
+            // testResultValue
             // 
-            this.valueRepositoryTextEdit.AutoHeight = false;
-            this.valueRepositoryTextEdit.Name = "valueRepositoryTextEdit";
+            this.testResultValue.AutoHeight = false;
+            this.testResultValue.Name = "testResultValue";
             // 
             // inspectionResultGridColumn
             // 
@@ -1687,7 +1687,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
@@ -1847,7 +1847,7 @@
         private DevExpress.XtraEditors.SimpleButton heatButton;
         private DevExpress.XtraLayout.LayoutControlItem heatLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderLayoutControl;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit valueRepositoryTextEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit testResultValue;
         private DevExpress.XtraEditors.TextEdit plateManufacturer;
         private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
