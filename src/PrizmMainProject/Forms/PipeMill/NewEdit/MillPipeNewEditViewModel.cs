@@ -410,21 +410,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (Heat.Id == Guid.Empty)
+                string manufacturer = string.Empty;
+                if (Heat.Id != Guid.Empty && Heat.PlateManufacturer.Name != null)
                 {
-                    return string.Empty;
+                    manufacturer = Heat.PlateManufacturer.Name;
                 }
-                else
-                {
-                    if (Heat.PlateManufacturer.Name != null)
-                    {
-                        return Heat.PlateManufacturer.Name;
-                    }
-                    else
-                    {
-                        return string.Empty;
-                    }
-                }
+                return manufacturer;
                 
             }
             set
