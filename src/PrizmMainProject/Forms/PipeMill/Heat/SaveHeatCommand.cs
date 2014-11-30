@@ -29,13 +29,6 @@ namespace PrizmMain.Forms.PipeMill.Heat
             repo.HeatRepo.SaveOrUpdate(heat);
             repo.Commit();
             repo.HeatRepo.Evict(heat);
-
-            //TODO: is old!!!
-            //repo.BeginTransaction();
-            //repo.HeatRepo.Save(viewModel.Heat);
-            //repo.Commit();
-            //repo.HeatRepo.Evict(viewModel.Heat);
-            //viewModel.NewHeat(string.Empty);
         }
 
         public bool CanExecute()
