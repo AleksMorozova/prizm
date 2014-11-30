@@ -30,12 +30,18 @@ namespace PrizmMain.Forms.Reports.Mill
             {
                 notify.ShowNotify(Resources.AlertFailureReportDate, Resources.AlertFailureReportDateHeader);
             }
-
-            data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate);
-            MillReportsXtraReport report = new MillReportsXtraReport();
-            report.DataSource = data;
-            report.CreateDocument();
-            viewModel.PreviewSource = report;
+            try
+            {
+                data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate);
+                MillReportsXtraReport report = new MillReportsXtraReport();
+                report.DataSource = data;
+                report.CreateDocument();
+                viewModel.PreviewSource = report;
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
           
         }
    

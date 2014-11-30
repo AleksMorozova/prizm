@@ -36,31 +36,31 @@ namespace PrizmMain.Forms.Reports.Mill
             {
                 notify.ShowNotify(Resources.AlertFailureReportDate, Resources.AlertFailureReportDateHeader);
             }
-
-            data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate);
-            MillReportsXtraReport report = new MillReportsXtraReport();
-            report.DataSource = data;
-            report.CreateDocument();
-            var tool = new ReportPrintTool(report);
-            tool.AutoShowParametersPanel = false;
-            tool.ShowPreview();
+            try 
+            {
+                data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate);
+                MillReportsXtraReport report = new MillReportsXtraReport();
+                report.DataSource = data;  
+                report.CreateDocument();
+                var tool = new ReportPrintTool(report);
+                tool.AutoShowParametersPanel = false;
+                tool.ShowPreview();
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
+           
         }
    
         public bool CanExecute()
         {
             return true;
         }
-        
+
         public bool IsExecutable
         {
-            get 
-            { 
-                throw new NotImplementedException(); 
-            }
-            set 
-            { 
-                throw new NotImplementedException(); 
-            }
-}
+            get; set;
+        }
     }
 }

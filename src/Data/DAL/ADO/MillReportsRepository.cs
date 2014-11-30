@@ -15,35 +15,38 @@ namespace Data.DAL.ADO
     {
         [Inject]
         public MillReportsRepository() { }
-        //private DataSet pipeDataSet;
-        public SqlConnection connection;
+        private SqlConnection connection=null;
         
 
         public DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate)
         {
-            CreateConnection();
+            if (connection == null)
+            { 
+                CreateConnection();
+            }
+            
             DataSet pipeDataSet = new DataSet();
 
             try
             {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.TableMappings.Add("Table", "Pipe");
-                SqlCommand  command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllActivePipesByDate, connection);
-                //input search criteria value
-                command.Parameters.AddWithValue("@startDate", startDate);
-                command.Parameters.AddWithValue("@finalDate", finalDate);
-
-                adapter.SelectCommand = command;
-               
-                adapter.Fill(pipeDataSet);
-                adapter.Dispose();
-                command.Dispose();
-                connection.Close();
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                using (SqlCommand  command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    adapter.TableMappings.Add("Table", "Pipe");
+                    command.Connection = connection;
+                    command.CommandText = SQLQueryString.GetAllActivePipesByDate;
+                    //input search criteria value
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@finalDate", finalDate);
+                    adapter.SelectCommand = command;
+                    adapter.Fill(pipeDataSet);
+                }
+                
             }
-            catch (System.Exception ex)
+            catch (SqlException ex)
             {
-                return null;
+                throw new RepositoryException("SQLException", ex);
             }
             finally
             {
