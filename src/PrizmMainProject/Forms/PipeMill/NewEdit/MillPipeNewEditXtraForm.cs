@@ -61,6 +61,42 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
+
+            ControlsDeactivation(this);
+        }
+
+        private void ControlsDeactivation(Control control)
+        {
+            if (viewModel.IsNotActive)
+            {
+                foreach (Control c in control.Controls)
+                {
+                    if (c is TextEdit)
+                    {
+                        ((TextEdit)c).Properties.ReadOnly = true;
+                    }
+
+                    if (c is SimpleButton && c.Name != "attachmentsButton")
+                    {
+                        ((SimpleButton)c).Enabled = false;
+                    }
+
+                    if (c is DevExpress.XtraGrid.GridControl)
+                    {
+                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                        {
+                            ((GridView)v).OptionsBehavior.Editable = false;
+                        }
+                    }
+
+                    if (c is DevExpress.XtraEditors.CheckEdit)
+                    {
+                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = false;
+                    }
+
+                    ControlsDeactivation(c);
+                }
+            }
         }
 
 
@@ -100,8 +136,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+
+
             deactivate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
+                .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
+
+            deactivate.DataBindings
+                .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
+
+
+
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
             pipeCreationDate.DataBindings
@@ -500,5 +544,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
+
+        private void deactivate_Modified(object sender, EventArgs e)
+        {
+            viewModel.IsNotActive = (bool)deactivate.EditValue;
+
+            if (viewModel.IsNotActive)
+            {
+                viewModel.PipeDeactivationCommand.Execute();
+                ControlsDeactivation(this);
+            }
+        }
     }
 }
