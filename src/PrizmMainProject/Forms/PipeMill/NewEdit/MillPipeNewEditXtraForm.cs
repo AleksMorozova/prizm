@@ -66,9 +66,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void BindToViewModel()
         {
-pipeNewEditBindingSource.DataSource = viewModel;
+            pipeNewEditBindingSource.DataSource = viewModel;
 
-#region ComboBox filling
+            #region ComboBox filling
 
             HeatFill();
 
@@ -180,6 +180,7 @@ pipeNewEditBindingSource.DataSource = viewModel;
 
         private void HeatFill() 
         {
+            viewModel.ExtractHeatsCommand.Execute();
             heatNumber.Properties.Items.Clear();
             heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
 
@@ -441,6 +442,7 @@ pipeNewEditBindingSource.DataSource = viewModel;
         {
             var heatForm = new HeatXtraForm(heatNumber.Text);
             heatForm.ShowDialog();
+            HeatFill();
         }
 
         private void purchaseOrderButton_Click(object sender, EventArgs e)
@@ -514,6 +516,11 @@ pipeNewEditBindingSource.DataSource = viewModel;
 
 
         #endregion
+
+        private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            HeatFill();
+        }
 
     }
 }

@@ -39,7 +39,7 @@ namespace PrizmMain
             }
             catch (Exception ex)
             {
-                String error = String.Format(Resources.IDS_ERROR + "\n{0}", ex.Message);
+                String error = ex.ToString();//String.Format(Resources.IDS_ERROR + Environment.NewLine + "{0}\n{01}", ex.InnerException.Message + Environment.NewLine, ex.InnerException.InnerException.Message + Environment.NewLine);
                 if (cmdLineMode)
                 {
                     Console.Error.WriteLine(error);
