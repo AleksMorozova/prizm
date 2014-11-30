@@ -8,7 +8,7 @@ namespace PrizmMain.Common
 {
     public class LengthLimit
     {
-        public const int MaxHeanNumber = 20;
+        public const int MaxHeatNumber = 20;
         public const int MaxSteelGrade = 20;
 
         public const int MaxInspectorFirstName = 30;

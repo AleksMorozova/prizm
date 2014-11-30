@@ -497,10 +497,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void SetControlsTextLength()
         {
-            pipeNumber.Properties.MaxLength = 20;
-            plateNumber.Properties.MaxLength = 20;
-            steelGrade.Properties.MaxLength = 20;
-            valueRepositoryTextEdit.MaxLength = 20;
+            pipeNumber.Properties.MaxLength = LengthLimit.MaxPipeNumber;
+            plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
+            steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
+            testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             //TODO: limit fields for Plate and heat parameters tab
         }
 
