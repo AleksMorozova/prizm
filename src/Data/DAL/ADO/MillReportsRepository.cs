@@ -11,10 +11,10 @@ using Ninject;
 
 namespace Data.DAL.ADO
 {
-    public class MillReportRepository : IMillReportRepository
+    public class MillReportsRepository : IMillReportsRepository
     {
         [Inject]
-        public MillReportRepository() { }
+        public MillReportsRepository() { }
         //private DataSet pipeDataSet;
         public SqlConnection connection;
         
@@ -29,7 +29,7 @@ namespace Data.DAL.ADO
                 connection.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.TableMappings.Add("Table", "Pipe");
-                SqlCommand  command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllPipesByStatus, connection);
+                SqlCommand  command = new System.Data.SqlClient.SqlCommand(SQLQueryString.GetAllActivePipesByDate, connection);
                 //input search criteria value
                 command.Parameters.AddWithValue("@startDate", startDate);
                 command.Parameters.AddWithValue("@finalDate", finalDate);
@@ -63,9 +63,5 @@ namespace Data.DAL.ADO
             return connection;
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

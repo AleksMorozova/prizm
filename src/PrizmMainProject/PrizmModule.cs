@@ -68,7 +68,7 @@ namespace PrizmMain
             Bind<IHeatRepositories>().To<HeatRepositories>();
 
 
-            Bind<IMillReportRepository>().To<MillReportRepository>();
+            Bind<IMillReportsRepository>().To<MillReportsRepository>();
 
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
@@ -101,8 +101,6 @@ namespace PrizmMain
             Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
-
-            Bind<MillReportsXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

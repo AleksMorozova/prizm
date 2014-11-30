@@ -8,7 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
-        public const string GetAllPipesByStatus = @"select Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
+        public const string GetAllActivePipesByDate = @"select Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
                Pipe.weight as weight, Pipe.mill as mill, Pipe.pipeMillStatus as pipeMillStatus, Pipe.number
                as number, Pipe.isActive as isActive, Pipe.typeId as typeId, Pipe.plateId
                as plateId, Pipe.purchaseOrderId as purchaseOrderId, Pipe.length as length,

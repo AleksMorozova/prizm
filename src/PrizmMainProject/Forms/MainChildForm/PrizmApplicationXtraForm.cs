@@ -355,10 +355,19 @@ namespace PrizmMain.Forms.MainChildForm
             //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
+        public void ShowNotify(string text, string header)
+        {
+            AlertInfo ai = new AlertInfo(header, text);
+            //TODO: add image and custom buttons if necessity
+            alertControl.Show(this, ai);
+        }
         #endregion
 
 
 
 
+
+
+     
     }
 }

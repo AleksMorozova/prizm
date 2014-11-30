@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL
 {
-    public interface IMillReportRepository : IDisposable
+    public interface IMillReportsRepository
     {
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate);
 

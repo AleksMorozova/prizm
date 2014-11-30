@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\ADO\MillReportRepository.cs" />
+    <Compile Include="DAL\ADO\MillReportsRepository.cs" />
     <Compile Include="DAL\ADO\SQLQueryString.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
@@ -75,8 +75,8 @@
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
+    <Compile Include="DAL\IMillReportsRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
-    <Compile Include="DAL\IMillReportRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />

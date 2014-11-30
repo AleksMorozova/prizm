@@ -16,50 +16,34 @@ namespace PrizmMain.Forms.Reports.Mill
 {
     public partial class MillReportsXtraForm : ChildForm
     {
-        private System.Data.DataSet allMillPipeDataSet = null;
-        //private CreateReportCommand command = new CreateReportCommand();
-
+        private MillReportsViewModel viewModel;
 
         public MillReportsXtraForm()
         {
             InitializeComponent();
         }
+        
+        private void BindToViewModel()
+        {
+            millReportsBindingSource.DataSource = viewModel;
+            startDate.DataBindings.Add("EditValue", millReportsBindingSource, "StartDate");
+            endDate.DataBindings.Add("EditValue", millReportsBindingSource, "EndDate");
+            previewReportDocument.DataBindings.Add("DocumentSource", millReportsBindingSource, "PreviewSource");
+        }
 
-        //private void previewButton_Click(object sender, EventArgs e)
-        //{
-        //    //TODO: input logic for reports parameters
-
-        //    if (allMillPipeDataSet == null)
-        //    {
-        //        allMillPipeDataSet = command.GetPipesByStatus(startDate.DateTime.Date, finalDate.DateTime.Date);
-        //        command.PreviewReport(previewReportDocument, new MillReport(), allMillPipeDataSet);
-        //    }
-
-        //    else 
-        //    {
-        //        command.PreviewReport(previewReportDocument, new MillReport(), allMillPipeDataSet);
-        //    }
-            
-
-        //}
-
-        //private void createReportButton_Click(object sender, EventArgs e)
-        //{
-        //    //TODO: input logic for reports parameters
-        //    if (allMillPipeDataSet == null)
-        //    {
-        //        allMillPipeDataSet = command.GetPipesByStatus(startDate.DateTime.Date, finalDate.DateTime.Date);
-        //        command.CreateReport(new MillReport(), allMillPipeDataSet);
-        //    }
-
-        //    else
-        //    {
-        //        command.CreateReport(new MillReport(), allMillPipeDataSet);
-        //    }
-        //}
+        private void BindCommands()
+        {
+            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
+            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+        }
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
+            viewModel = (MillReportsViewModel)Program.Kernel.GetService(typeof(MillReportsViewModel));
+            BindToViewModel();
+            BindCommands();
+            viewModel.StartDate = DateTime.Now.Date;
+            viewModel.EndDate = DateTime.Now.Date;
         }
     }
 }
