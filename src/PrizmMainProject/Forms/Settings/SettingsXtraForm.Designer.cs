@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,7 +39,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.codeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -88,7 +87,7 @@
             this.userEditButton = new DevExpress.XtraEditors.SimpleButton();
             this.userAddButton = new DevExpress.XtraEditors.SimpleButton();
             this.users = new DevExpress.XtraGrid.GridControl();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
             this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,7 +104,7 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roles = new DevExpress.XtraGrid.GridControl();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
             this.rolesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -148,6 +147,10 @@
             this.layoutControlItemWelders = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorsPage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControlInspectors = new DevExpress.XtraLayout.LayoutControl();
+            this.gridControlInspectorsCertificates = new DevExpress.XtraGrid.GridControl();
+            this.inspectorCertificateGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.inspectorCertificateNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorCertificateExpiration = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -162,6 +165,7 @@
             this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemInspectors = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorCertificatesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -171,7 +175,7 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -261,6 +265,8 @@
             this.inspectorsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlInspectors)).BeginInit();
             this.layoutControlInspectors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectorsCertificates)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).BeginInit();
@@ -269,6 +275,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemInspectors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificatesLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).BeginInit();
             this.settingsTabPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).BeginInit();
@@ -1299,7 +1306,7 @@
             // 
             this.editItem.AutoHeight = false;
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.editItem.Name = "editItem";
             this.editItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.editItem.Click += new System.EventHandler(this.editItem_Click);
@@ -1520,21 +1527,59 @@
             // 
             // layoutControlInspectors
             // 
+            this.layoutControlInspectors.Controls.Add(this.gridControlInspectorsCertificates);
             this.layoutControlInspectors.Controls.Add(this.gridControlInspectors);
             this.layoutControlInspectors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControlInspectors.Location = new System.Drawing.Point(0, 0);
             this.layoutControlInspectors.Name = "layoutControlInspectors";
-            this.layoutControlInspectors.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1014, 176, 250, 350);
+            this.layoutControlInspectors.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(39, 176, 250, 350);
             this.layoutControlInspectors.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControlInspectors.Root = this.layoutControlGroup1;
             this.layoutControlInspectors.Size = new System.Drawing.Size(1241, 463);
             this.layoutControlInspectors.TabIndex = 1;
             this.layoutControlInspectors.Text = "layoutControl2";
             // 
+            // gridControlInspectorsCertificates
+            // 
+            this.gridControlInspectorsCertificates.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gridControlInspectorsCertificates.Location = new System.Drawing.Point(974, 28);
+            this.gridControlInspectorsCertificates.MainView = this.inspectorCertificateGridView;
+            this.gridControlInspectorsCertificates.Name = "gridControlInspectorsCertificates";
+            this.gridControlInspectorsCertificates.Size = new System.Drawing.Size(255, 423);
+            this.gridControlInspectorsCertificates.TabIndex = 4;
+            this.gridControlInspectorsCertificates.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.inspectorCertificateGridView});
+            // 
+            // inspectorCertificateGridView
+            // 
+            this.inspectorCertificateGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.inspectorCertificateNumber,
+            this.inspectorCertificateExpiration});
+            this.inspectorCertificateGridView.GridControl = this.gridControlInspectorsCertificates;
+            this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
+            this.inspectorCertificateGridView.OptionsCustomization.AllowGroup = false;
+            this.inspectorCertificateGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // inspectorCertificateNumber
+            // 
+            this.inspectorCertificateNumber.Caption = "Номер";
+            this.inspectorCertificateNumber.FieldName = "Certificate";
+            this.inspectorCertificateNumber.Name = "inspectorCertificateNumber";
+            this.inspectorCertificateNumber.Visible = true;
+            this.inspectorCertificateNumber.VisibleIndex = 0;
+            // 
+            // inspectorCertificateExpiration
+            // 
+            this.inspectorCertificateExpiration.Caption = "Дата окончания";
+            this.inspectorCertificateExpiration.FieldName = "CertificateExpiration";
+            this.inspectorCertificateExpiration.Name = "inspectorCertificateExpiration";
+            this.inspectorCertificateExpiration.Visible = true;
+            this.inspectorCertificateExpiration.VisibleIndex = 1;
+            // 
             // gridControlInspectors
             // 
             this.gridControlInspectors.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControlInspectors.Location = new System.Drawing.Point(12, 12);
+            this.gridControlInspectors.Location = new System.Drawing.Point(12, 28);
             this.gridControlInspectors.MainView = this.gridViewInspectors;
             this.gridControlInspectors.Name = "gridControlInspectors";
             this.gridControlInspectors.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1542,7 +1587,7 @@
             this.inspectorFNRepositoryTextEdit,
             this.inspectorMNRepositoryTextEdit,
             this.inspectorCertificateTextEdit});
-            this.gridControlInspectors.Size = new System.Drawing.Size(1217, 439);
+            this.gridControlInspectors.Size = new System.Drawing.Size(958, 423);
             this.gridControlInspectors.TabIndex = 0;
             this.gridControlInspectors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectors});
@@ -1616,8 +1661,6 @@
             this.colInspectorCertificate.ColumnEdit = this.inspectorCertificateTextEdit;
             this.colInspectorCertificate.FieldName = "Certificate";
             this.colInspectorCertificate.Name = "colInspectorCertificate";
-            this.colInspectorCertificate.Visible = true;
-            this.colInspectorCertificate.VisibleIndex = 3;
             this.colInspectorCertificate.Width = 332;
             // 
             // inspectorCertificateTextEdit
@@ -1630,8 +1673,6 @@
             this.colInspectorCertExp.Caption = "Дата аттестации";
             this.colInspectorCertExp.FieldName = "CertificateExpiration";
             this.colInspectorCertExp.Name = "colInspectorCertExp";
-            this.colInspectorCertExp.Visible = true;
-            this.colInspectorCertExp.VisibleIndex = 4;
             // 
             // colInspectorActive
             // 
@@ -1639,7 +1680,7 @@
             this.colInspectorActive.FieldName = "Active";
             this.colInspectorActive.Name = "colInspectorActive";
             this.colInspectorActive.Visible = true;
-            this.colInspectorActive.VisibleIndex = 5;
+            this.colInspectorActive.VisibleIndex = 3;
             // 
             // layoutControlGroup1
             // 
@@ -1647,7 +1688,8 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemInspectors});
+            this.layoutControlItemInspectors,
+            this.inspectorCertificatesLayoutControl});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1241, 463);
@@ -1657,14 +1699,24 @@
             // layoutControlItemInspectors
             // 
             this.layoutControlItemInspectors.Control = this.gridControlInspectors;
-            this.layoutControlItemInspectors.CustomizationFormText = "layoutControlItemInspectors";
+            this.layoutControlItemInspectors.CustomizationFormText = "Инспекторы";
             this.layoutControlItemInspectors.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemInspectors.Name = "layoutControlItemInspectors";
-            this.layoutControlItemInspectors.Size = new System.Drawing.Size(1221, 443);
-            this.layoutControlItemInspectors.Text = "layoutControlItemInspectors";
-            this.layoutControlItemInspectors.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemInspectors.TextToControlDistance = 0;
-            this.layoutControlItemInspectors.TextVisible = false;
+            this.layoutControlItemInspectors.Size = new System.Drawing.Size(962, 443);
+            this.layoutControlItemInspectors.Text = "Инспекторы";
+            this.layoutControlItemInspectors.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItemInspectors.TextSize = new System.Drawing.Size(71, 13);
+            // 
+            // inspectorCertificatesLayoutControl
+            // 
+            this.inspectorCertificatesLayoutControl.Control = this.gridControlInspectorsCertificates;
+            this.inspectorCertificatesLayoutControl.CustomizationFormText = "Сертификаты";
+            this.inspectorCertificatesLayoutControl.Location = new System.Drawing.Point(962, 0);
+            this.inspectorCertificatesLayoutControl.Name = "inspectorCertificatesLayoutControl";
+            this.inspectorCertificatesLayoutControl.Size = new System.Drawing.Size(259, 443);
+            this.inspectorCertificatesLayoutControl.Text = "Сертификаты";
+            this.inspectorCertificatesLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectorCertificatesLayoutControl.TextSize = new System.Drawing.Size(71, 13);
             // 
             // settingsTabPanel
             // 
@@ -1877,6 +1929,8 @@
             this.inspectorsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlInspectors)).EndInit();
             this.layoutControlInspectors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectorsCertificates)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).EndInit();
@@ -1885,6 +1939,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemInspectors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificatesLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsTabPanel)).EndInit();
             this.settingsTabPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalSettingsLayout)).EndInit();
@@ -2042,5 +2097,10 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorLNRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorMNRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorCertificateTextEdit;
+        private DevExpress.XtraGrid.GridControl gridControlInspectorsCertificates;
+        private DevExpress.XtraGrid.Views.Grid.GridView inspectorCertificateGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateExpiration;
+        private DevExpress.XtraLayout.LayoutControlItem inspectorCertificatesLayoutControl;
     }
 }
