@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Settings.ViewTypes
 {
-   public class WelderViewType : CertificatedPersonSetupViewType
+    public class WelderViewType : PersonSetupViewType
    {
       readonly Welder welder;
       
@@ -75,7 +75,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public override string Certificate 
+      public Certificate Certificate 
       { 
          get
          {
@@ -83,25 +83,25 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
          set
          {
-            if (value != welder.Certificate)
+             if (value != welder.Certificate)
             {
-               welder.Certificate = value;
+                welder.Certificate = value;
                FirePropertyChanged("Certificate");
             }
          }
       }
 
-      public override DateTime? CertificateExpiration
+      public DateTime CertificateExpiration
       {
          get
          {
-            return welder.CertificateExpiration;
+            return welder.Certificate.ExpirationDate;
          }
          set
          {
-            if (value != welder.CertificateExpiration)
+             if (value != welder.Certificate.ExpirationDate)
             {
-               welder.CertificateExpiration = value;
+                welder.Certificate.ExpirationDate = value;
                FirePropertyChanged("CertificateExpiration");
             }
          }

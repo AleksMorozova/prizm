@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Settings.ViewTypes
 {
-   public class InspectorViewType : CertificatedPersonSetupViewType
+    public class InspectorViewType : PersonSetupViewType
    {
       readonly Inspector inspector;
 
@@ -80,7 +81,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public override string Certificate
+      public InspectorCertificate Certificate
       {
          get
          {
@@ -95,23 +96,6 @@ namespace PrizmMain.Forms.Settings.ViewTypes
             }
          }
       }
-
-      public override DateTime? CertificateExpiration
-      {
-         get
-         {
-            return inspector.CertificateExpiration;
-         }
-         set
-         {
-            if (value != inspector.CertificateExpiration)
-            {
-               inspector.CertificateExpiration = value;
-               FirePropertyChanged("CertificateExpiration");
-            }
-         }
-      }
-
       public override bool Active
       {
          get
