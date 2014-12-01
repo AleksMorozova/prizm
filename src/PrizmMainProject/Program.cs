@@ -22,7 +22,7 @@ namespace PrizmMain
         private static void Main()
         {
             bool cmdLineMode = false;
-            //try
+            try
             {
                 // Database
                 ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
@@ -37,18 +37,18 @@ namespace PrizmMain
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new PrizmApplicationXtraForm());
             }
-            //catch (Exception ex)
-            //{
-            //    String error = ex.ToString();//String.Format(Resources.IDS_ERROR + Environment.NewLine + "{0}\n{01}", ex.InnerException.Message + Environment.NewLine, ex.InnerException.InnerException.Message + Environment.NewLine);
-            //    if (cmdLineMode)
-            //    {
-            //        Console.Error.WriteLine(error);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(error);
-            //    }
-            //}
+            catch (Exception ex)
+            {
+                String error = ex.ToString();//String.Format(Resources.IDS_ERROR + Environment.NewLine + "{0}\n{01}", ex.InnerException.Message + Environment.NewLine, ex.InnerException.InnerException.Message + Environment.NewLine);
+                if (cmdLineMode)
+                {
+                    Console.Error.WriteLine(error);
+                }
+                else
+                {
+                    MessageBox.Show(error);
+                }
+            }
         }
     }
 }
