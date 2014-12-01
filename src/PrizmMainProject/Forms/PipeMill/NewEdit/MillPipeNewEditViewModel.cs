@@ -417,21 +417,39 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public string PlateManufacturer
+        public PlateManufacturer PlateManufacturer
         {
             get
             {
-                string manufacturer = string.Empty;
-                if (Heat.Id != Guid.Empty && Heat.PlateManufacturer.Name != null)
+                if (Heat == null)
                 {
-                    manufacturer = Heat.PlateManufacturer.Name;
+                    return null;
                 }
-                return manufacturer;
-                
+                return Heat.PlateManufacturer;
             }
             set
             {
-                if (value != Heat.PlateManufacturer.Name)
+                if (value != Heat.PlateManufacturer)
+                {
+                    Heat.PlateManufacturer = value;
+                    RaisePropertyChanged("PlateManufacturer");
+                }
+            }
+        }
+
+        public string PlateManufacturerName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(PlateManufacturer.Name))
+                {
+                    return string.Empty;
+                }
+                return PlateManufacturer.Name;
+            }
+            set
+            {
+                if (value != PlateManufacturer.Name)
                 {
                     Heat.PlateManufacturer.Name = value;
                     RaisePropertyChanged("PlateManufacturer");
@@ -579,6 +597,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
+
             this.WallThickness = 0;
             this.Weight = 0;
             this.Length = 0;
@@ -586,7 +605,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
             this.CanDeactivatePipe = false;
-
         }
 
         public void Dispose()

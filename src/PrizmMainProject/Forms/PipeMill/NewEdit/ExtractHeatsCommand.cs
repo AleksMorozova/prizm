@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class ExtractHeatsCommand: ICommand
     {
-        
         readonly IHeatRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
 
@@ -27,6 +27,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.Heats = repo.GetAll();
+
+            viewModel.Heats.Insert(0, new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
         }
 
         public bool CanExecute()
