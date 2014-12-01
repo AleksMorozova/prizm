@@ -23,12 +23,12 @@ namespace PrizmMain.Forms.PipeMill.Heat
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            //TODO: is old!!!
-            //repo.BeginTransaction();
-            //repo.HeatRepo.Save(viewModel.Heat);
-            //repo.Commit();
-            //repo.HeatRepo.Evict(viewModel.Heat);
-            //viewModel.NewHeat(string.Empty);
+            var heat = viewModel.Heat;
+
+            repo.BeginTransaction();
+            repo.HeatRepo.SaveOrUpdate(heat);
+            repo.Commit();
+            repo.HeatRepo.Evict(heat);
         }
 
         public bool CanExecute()

@@ -107,7 +107,7 @@
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.valueRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.testResultValue = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ResultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -118,13 +118,13 @@
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.purchaseOrderDate = new DevExpress.XtraEditors.TextEdit();
             this.purchaseOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.heatButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
             this.deactivate = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
-            this.purchaseOrderDate = new DevExpress.XtraEditors.DateEdit();
             this.purchaseOrder = new DevExpress.XtraEditors.ComboBoxEdit();
             this.heatNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeCreationDate = new DevExpress.XtraEditors.DateEdit();
@@ -138,7 +138,6 @@
             this.statusLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.creationDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.purhaseOrderLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.purhaseOrderDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -146,6 +145,7 @@
             this.saveAndNewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.purchaseOrderLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.purchaseOrderDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
@@ -217,7 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
@@ -225,9 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -242,7 +241,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
@@ -250,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
@@ -1038,7 +1037,7 @@
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ResultStatusLookUpEdit,
             this.inspectorsPopupContainerEdit,
-            this.valueRepositoryTextEdit});
+            this.testResultValue});
             this.inspections.Size = new System.Drawing.Size(1200, 380);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1087,17 +1086,17 @@
             // valueGridColumn
             // 
             this.valueGridColumn.Caption = "Результат измерения";
-            this.valueGridColumn.ColumnEdit = this.valueRepositoryTextEdit;
+            this.valueGridColumn.ColumnEdit = this.testResultValue;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
             this.valueGridColumn.VisibleIndex = 3;
             this.valueGridColumn.Width = 135;
             // 
-            // valueRepositoryTextEdit
+            // testResultValue
             // 
-            this.valueRepositoryTextEdit.AutoHeight = false;
-            this.valueRepositoryTextEdit.Name = "valueRepositoryTextEdit";
+            this.testResultValue.AutoHeight = false;
+            this.testResultValue.Name = "testResultValue";
             // 
             // inspectionResultGridColumn
             // 
@@ -1187,14 +1186,14 @@
             // 
             // pipeSize
             // 
-            this.pipeSize.Location = new System.Drawing.Point(233, 27);
+            this.pipeSize.Location = new System.Drawing.Point(229, 27);
             this.pipeSize.Name = "pipeSize";
             this.pipeSize.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.pipeSize.Properties.Appearance.Options.UseBackColor = true;
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeSize.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.pipeSize.Size = new System.Drawing.Size(169, 20);
+            this.pipeSize.Size = new System.Drawing.Size(166, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
             this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
@@ -1204,13 +1203,13 @@
             this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalPipeLayout.Controls.Add(this.purchaseOrderDate);
             this.generalPipeLayout.Controls.Add(this.purchaseOrderButton);
             this.generalPipeLayout.Controls.Add(this.heatButton);
             this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
             this.generalPipeLayout.Controls.Add(this.deactivate);
             this.generalPipeLayout.Controls.Add(this.saveButton);
             this.generalPipeLayout.Controls.Add(this.attachmentsButton);
-            this.generalPipeLayout.Controls.Add(this.purchaseOrderDate);
             this.generalPipeLayout.Controls.Add(this.purchaseOrder);
             this.generalPipeLayout.Controls.Add(this.pipe);
             this.generalPipeLayout.Controls.Add(this.heatNumber);
@@ -1226,10 +1225,20 @@
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
             // 
+            // purchaseOrderDate
+            // 
+            this.purchaseOrderDate.Location = new System.Drawing.Point(878, 27);
+            this.purchaseOrderDate.Name = "purchaseOrderDate";
+            this.purchaseOrderDate.Properties.ReadOnly = true;
+            this.purchaseOrderDate.Size = new System.Drawing.Size(105, 20);
+            this.purchaseOrderDate.StyleController = this.generalPipeLayout;
+            this.purchaseOrderDate.TabIndex = 32;
+            // 
             // purchaseOrderButton
             // 
             this.purchaseOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("purchaseOrderButton.Image")));
-            this.purchaseOrderButton.Location = new System.Drawing.Point(830, 26);
+            this.purchaseOrderButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.purchaseOrderButton.Location = new System.Drawing.Point(818, 26);
             this.purchaseOrderButton.Name = "purchaseOrderButton";
             this.purchaseOrderButton.Size = new System.Drawing.Size(26, 22);
             this.purchaseOrderButton.StyleController = this.generalPipeLayout;
@@ -1239,7 +1248,8 @@
             // heatButton
             // 
             this.heatButton.Image = ((System.Drawing.Image)(resources.GetObject("heatButton.Image")));
-            this.heatButton.Location = new System.Drawing.Point(629, 26);
+            this.heatButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.heatButton.Location = new System.Drawing.Point(592, 26);
             this.heatButton.Name = "heatButton";
             this.heatButton.Size = new System.Drawing.Size(26, 22);
             this.heatButton.StyleController = this.generalPipeLayout;
@@ -1265,6 +1275,7 @@
             this.deactivate.Size = new System.Drawing.Size(194, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
+            this.deactivate.Modified += new System.EventHandler(this.deactivate_Modified);
             // 
             // saveButton
             // 
@@ -1287,44 +1298,30 @@
             this.attachmentsButton.TabIndex = 25;
             this.attachmentsButton.Text = "В&ложения";
             // 
-            // purchaseOrderDate
-            // 
-            this.purchaseOrderDate.EditValue = null;
-            this.purchaseOrderDate.Location = new System.Drawing.Point(890, 27);
-            this.purchaseOrderDate.Name = "purchaseOrderDate";
-            this.purchaseOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrderDate.Properties.ReadOnly = true;
-            this.purchaseOrderDate.Size = new System.Drawing.Size(99, 20);
-            this.purchaseOrderDate.StyleController = this.generalPipeLayout;
-            this.purchaseOrderDate.TabIndex = 6;
-            // 
             // purchaseOrder
             // 
-            this.purchaseOrder.Location = new System.Drawing.Point(689, 27);
+            this.purchaseOrder.Location = new System.Drawing.Point(652, 27);
             this.purchaseOrder.Name = "purchaseOrder";
             this.purchaseOrder.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.purchaseOrder.Properties.Appearance.Options.UseBackColor = true;
             this.purchaseOrder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.purchaseOrder.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.purchaseOrder.Size = new System.Drawing.Size(139, 20);
+            this.purchaseOrder.Size = new System.Drawing.Size(164, 20);
             this.purchaseOrder.StyleController = this.generalPipeLayout;
             this.purchaseOrder.TabIndex = 5;
             this.purchaseOrder.SelectedIndexChanged += new System.EventHandler(this.purchaseOrder_SelectedIndexChanged);
             // 
             // heatNumber
             // 
-            this.heatNumber.Location = new System.Drawing.Point(436, 27);
+            this.heatNumber.Location = new System.Drawing.Point(429, 27);
             this.heatNumber.Name = "heatNumber";
             this.heatNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.heatNumber.Properties.Appearance.Options.UseBackColor = true;
             this.heatNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.heatNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.heatNumber.Size = new System.Drawing.Size(191, 20);
+            this.heatNumber.Size = new System.Drawing.Size(161, 20);
             this.heatNumber.StyleController = this.generalPipeLayout;
             this.heatNumber.TabIndex = 2;
             this.heatNumber.SelectedIndexChanged += new System.EventHandler(this.heatNumber_SelectedIndexChanged);
@@ -1332,13 +1329,13 @@
             // pipeCreationDate
             // 
             this.pipeCreationDate.EditValue = null;
-            this.pipeCreationDate.Location = new System.Drawing.Point(1023, 27);
+            this.pipeCreationDate.Location = new System.Drawing.Point(1017, 27);
             this.pipeCreationDate.Name = "pipeCreationDate";
             this.pipeCreationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeCreationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeCreationDate.Size = new System.Drawing.Size(99, 20);
+            this.pipeCreationDate.Size = new System.Drawing.Size(105, 20);
             this.pipeCreationDate.StyleController = this.generalPipeLayout;
             this.pipeCreationDate.TabIndex = 3;
             this.pipeCreationDate.EditValueChanged += new System.EventHandler(this.pipeCreationDate_EditValueChanged);
@@ -1363,7 +1360,7 @@
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.pipeNumber.Properties.Appearance.Options.UseBackColor = true;
-            this.pipeNumber.Size = new System.Drawing.Size(185, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(181, 20);
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
             this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
@@ -1381,14 +1378,14 @@
             this.statusLayout,
             this.creationDateLayout,
             this.purhaseOrderLayout,
-            this.purhaseOrderDateLayout,
             this.attachmentsButtonLayout,
             this.deactivateLayout,
             this.saveButtonLayout,
             this.isActiveEmptySpace,
             this.saveAndNewButtonLayout,
             this.heatLayoutControl,
-            this.purchaseOrderLayoutControl});
+            this.purchaseOrderLayoutControl,
+            this.purchaseOrderDateLayoutControl});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -1403,7 +1400,7 @@
             this.pipeNumberLayout.CustomizationFormText = "Pipe number";
             this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(204, 55);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(200, 55);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.pipeNumberLayout.Text = "Номер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1413,9 +1410,9 @@
             // 
             this.pipeSizeLayout.Control = this.pipeSize;
             this.pipeSizeLayout.CustomizationFormText = "Pipe size";
-            this.pipeSizeLayout.Location = new System.Drawing.Point(204, 0);
+            this.pipeSizeLayout.Location = new System.Drawing.Point(200, 0);
             this.pipeSizeLayout.Name = "pipeSizeLayout";
-            this.pipeSizeLayout.Size = new System.Drawing.Size(203, 55);
+            this.pipeSizeLayout.Size = new System.Drawing.Size(200, 55);
             this.pipeSizeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeSizeLayout.Text = "Типоразмер трубы";
             this.pipeSizeLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1441,9 +1438,9 @@
             // 
             this.heatNumberLayout.Control = this.heatNumber;
             this.heatNumberLayout.CustomizationFormText = "Heat number";
-            this.heatNumberLayout.Location = new System.Drawing.Point(407, 0);
+            this.heatNumberLayout.Location = new System.Drawing.Point(400, 0);
             this.heatNumberLayout.Name = "heatNumberLayout";
-            this.heatNumberLayout.Size = new System.Drawing.Size(210, 55);
+            this.heatNumberLayout.Size = new System.Drawing.Size(180, 55);
             this.heatNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 7);
             this.heatNumberLayout.Text = "Номер плавки";
             this.heatNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1465,9 +1462,9 @@
             // 
             this.creationDateLayout.Control = this.pipeCreationDate;
             this.creationDateLayout.CustomizationFormText = "Creation date";
-            this.creationDateLayout.Location = new System.Drawing.Point(994, 0);
+            this.creationDateLayout.Location = new System.Drawing.Point(988, 0);
             this.creationDateLayout.Name = "creationDateLayout";
-            this.creationDateLayout.Size = new System.Drawing.Size(133, 55);
+            this.creationDateLayout.Size = new System.Drawing.Size(139, 55);
             this.creationDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.creationDateLayout.Text = "Дата изготовления";
             this.creationDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1477,25 +1474,13 @@
             // 
             this.purhaseOrderLayout.Control = this.purchaseOrder;
             this.purhaseOrderLayout.CustomizationFormText = "Наряд заказ";
-            this.purhaseOrderLayout.Location = new System.Drawing.Point(660, 0);
+            this.purhaseOrderLayout.Location = new System.Drawing.Point(623, 0);
             this.purhaseOrderLayout.Name = "purhaseOrderLayout";
-            this.purhaseOrderLayout.Size = new System.Drawing.Size(158, 55);
+            this.purhaseOrderLayout.Size = new System.Drawing.Size(183, 55);
             this.purhaseOrderLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 7);
             this.purhaseOrderLayout.Text = "Наряд-заказ";
             this.purhaseOrderLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.purhaseOrderLayout.TextSize = new System.Drawing.Size(99, 13);
-            // 
-            // purhaseOrderDateLayout
-            // 
-            this.purhaseOrderDateLayout.Control = this.purchaseOrderDate;
-            this.purhaseOrderDateLayout.CustomizationFormText = "Дата наряд-заказа";
-            this.purhaseOrderDateLayout.Location = new System.Drawing.Point(861, 0);
-            this.purhaseOrderDateLayout.Name = "purhaseOrderDateLayout";
-            this.purhaseOrderDateLayout.Size = new System.Drawing.Size(133, 55);
-            this.purhaseOrderDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.purhaseOrderDateLayout.Text = "Дата наряд-заказа";
-            this.purhaseOrderDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.purhaseOrderDateLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
             // attachmentsButtonLayout
             // 
@@ -1562,7 +1547,7 @@
             // 
             this.heatLayoutControl.Control = this.heatButton;
             this.heatLayoutControl.CustomizationFormText = "heatLayoutControl";
-            this.heatLayoutControl.Location = new System.Drawing.Point(617, 0);
+            this.heatLayoutControl.Location = new System.Drawing.Point(580, 0);
             this.heatLayoutControl.Name = "heatLayoutControl";
             this.heatLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 2, 2, 2);
             this.heatLayoutControl.Size = new System.Drawing.Size(43, 55);
@@ -1576,7 +1561,7 @@
             // 
             this.purchaseOrderLayoutControl.Control = this.purchaseOrderButton;
             this.purchaseOrderLayoutControl.CustomizationFormText = "purchaseOrderLayoutControl";
-            this.purchaseOrderLayoutControl.Location = new System.Drawing.Point(818, 0);
+            this.purchaseOrderLayoutControl.Location = new System.Drawing.Point(806, 0);
             this.purchaseOrderLayoutControl.Name = "purchaseOrderLayoutControl";
             this.purchaseOrderLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 2, 2, 2);
             this.purchaseOrderLayoutControl.Size = new System.Drawing.Size(43, 55);
@@ -1585,6 +1570,18 @@
             this.purchaseOrderLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.purchaseOrderLayoutControl.TextToControlDistance = 0;
             this.purchaseOrderLayoutControl.TextVisible = false;
+            // 
+            // purchaseOrderDateLayoutControl
+            // 
+            this.purchaseOrderDateLayoutControl.Control = this.purchaseOrderDate;
+            this.purchaseOrderDateLayoutControl.CustomizationFormText = "Дата наряд-заказа";
+            this.purchaseOrderDateLayoutControl.Location = new System.Drawing.Point(849, 0);
+            this.purchaseOrderDateLayoutControl.Name = "purchaseOrderDateLayoutControl";
+            this.purchaseOrderDateLayoutControl.Size = new System.Drawing.Size(139, 55);
+            this.purchaseOrderDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.purchaseOrderDateLayoutControl.Text = "Дата наряд-заказа";
+            this.purchaseOrderDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.purchaseOrderDateLayoutControl.TextSize = new System.Drawing.Size(99, 13);
             // 
             // pipeParametersLayout
             // 
@@ -1622,6 +1619,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeNewEditXtraForm";
             this.Text = "Завод - труба";
+            this.Activated += new System.EventHandler(this.MillPipeNewEditXtraForm_Activated);
             this.Load += new System.EventHandler(this.MillPipeNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();
@@ -1689,7 +1687,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.valueRepositoryTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
@@ -1697,9 +1695,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).EndInit();
@@ -1714,7 +1711,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.statusLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creationDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purhaseOrderDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
@@ -1722,6 +1718,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveAndNewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
@@ -1787,8 +1784,6 @@
         private DevExpress.XtraLayout.LayoutControlItem destinationLayout;
         private DevExpress.XtraLayout.LayoutControlItem certificateLayout;
         private DevExpress.XtraLayout.LayoutControlItem shiptedDateLayout;
-        private DevExpress.XtraEditors.DateEdit purchaseOrderDate;
-        private DevExpress.XtraLayout.LayoutControlItem purhaseOrderDateLayout;
         private DevExpress.XtraLayout.EmptySpaceItem certificateEmptySpace;
         private DevExpress.XtraLayout.LayoutControlGroup tensileTestsLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
@@ -1852,8 +1847,10 @@
         private DevExpress.XtraEditors.SimpleButton heatButton;
         private DevExpress.XtraLayout.LayoutControlItem heatLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderLayoutControl;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit valueRepositoryTextEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit testResultValue;
         private DevExpress.XtraEditors.TextEdit plateManufacturer;
+        private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
+        private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
 
     }
 }

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -70,7 +69,7 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -112,7 +111,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -274,7 +273,7 @@
             // heatNumberGridColumn
             // 
             this.heatNumberGridColumn.Caption = "Номер плавки";
-            this.heatNumberGridColumn.FieldName = "HeatNumber";
+            this.heatNumberGridColumn.FieldName = "Plate.Heat.Number";
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
             this.heatNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.heatNumberGridColumn.Visible = true;
@@ -340,7 +339,7 @@
             // 
             this.pipeRepositoryButtonEdit.AutoHeight = false;
             this.pipeRepositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pipeRepositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pipeRepositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.pipeRepositoryButtonEdit.Name = "pipeRepositoryButtonEdit";
             this.pipeRepositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.pipeRepositoryButtonEdit.Click += new System.EventHandler(this.pipeRepositoryButtonEdit_Click);
