@@ -19,8 +19,8 @@ namespace Data.DAL.Mapping
             References<Railcar>(x => x.Railcar).Column("railcarId");
 	        References<PipeMillSizeType>(x => x.Type).Column("typeId");
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
-
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
+
             HasMany<PipeTestResult>(_ => _.PipeTestResult).KeyColumn("pipeId").Inverse().Cascade.All();
             HasMany<Coat>(x => x.Coats).KeyColumn("pipeId").Cascade.All();
             HasMany<Weld>(x => x.Welds).KeyColumn("pipeId").Cascade.All();

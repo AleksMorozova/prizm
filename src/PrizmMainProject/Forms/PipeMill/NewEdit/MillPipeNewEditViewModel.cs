@@ -441,11 +441,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (string.IsNullOrEmpty(PlateManufacturer.Name))
-                {
-                    return string.Empty;
-                }
-                return PlateManufacturer.Name;
+                return (string.IsNullOrEmpty(PlateManufacturer.Name)
+                    ? string.Empty
+                    : PlateManufacturer.Name);
             }
             set
             {
