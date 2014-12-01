@@ -23,6 +23,7 @@ using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.MainChildForm;
+using Data.DAL.ADO;
 
 namespace PrizmMain
 {
@@ -66,6 +67,9 @@ namespace PrizmMain
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
 
+
+            Bind<IMillReportsRepository>().To<MillReportsRepository>();
+
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
 
@@ -78,6 +82,7 @@ namespace PrizmMain
             Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
+            Bind<MillReportsViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding

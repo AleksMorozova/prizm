@@ -249,4 +249,10 @@
   <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
     <value>Труба отгружена</value>
   </data>
+  <data name="AlertFailureReportDateHeader" xml:space="preserve">
+    <value>Неверный диапазон дат</value>
+  </data>
+  <data name="AlertFailureReportDate" xml:space="preserve">
+    <value>Начальная дата позже конечной</value>
+  </data>
 </root>
