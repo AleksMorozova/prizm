@@ -26,8 +26,9 @@ namespace Data.DAL.Hibernate
             get
             {
                 if (repo == null)
+                {
                     repo = new AuditLogRepository(HibernateUtil.OpenSession(false));
-
+                }
                 return repo;
             }
             set
@@ -75,24 +76,26 @@ namespace Data.DAL.Hibernate
                         var previousStateId = previousState[i] as Item;
                         var currentStateId = currentState[i] as Item;
                         if (previousStateId != null && currentState[i].Equals(previousState[i]) == false)
-                        { NewAuditRecord(curentity, propertyNames[i], previousStateId.Id.ToString(), currentStateId.Id.ToString()); }
+                        {
+                            NewAuditRecord(curentity, propertyNames[i], previousStateId.Id.ToString(), currentStateId.Id.ToString());
+                        }
                     }
                 }
             }
-         return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);                 
+            return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);
         }
 
         /// <summary>
         /// Creating log record and saving it to DB
         /// </summary>
-        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue )
+        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
         {
             AuditLog record = new AuditLog()
             {
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
-                User = currentUser.FirstName + " " + currentUser.LastName + " " + currentUser.MiddleName,
+                User = currentUser.GetFullName(),
                 TableName = curentity.GetType().ToString(),
                 FieldName = fieldName,
                 NewValue = newValue,
@@ -100,7 +103,7 @@ namespace Data.DAL.Hibernate
             };
             LogRepo.BeginTransaction();
             LogRepo.Save(record);
-            LogRepo.Commit();   
+            LogRepo.Commit();
         }
 
         /// <summary>
@@ -115,7 +118,7 @@ namespace Data.DAL.Hibernate
         /// <summary>
         /// Log  insert/delete record (just one state)
         /// </summary>
-        private  void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
+        private void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
         {
             string oldValue = "just inserted", newValue = "";
             var curentity = entity as Item;
@@ -127,7 +130,7 @@ namespace Data.DAL.Hibernate
                     var objectProperty = state[i] as Item;
                     switch (actionType)
                     {
-                        case Actions.Insert: newValue = (objectProperty ==null)? state[i].ToString(): objectProperty.Id.ToString();
+                        case Actions.Insert: newValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
                             break;
                         case Actions.Delete: oldValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
                             newValue = "deleted";
