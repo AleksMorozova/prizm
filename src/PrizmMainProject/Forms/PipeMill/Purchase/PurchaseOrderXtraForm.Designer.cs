@@ -28,41 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrderXtraForm));
             this.purchaseOrderLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.purchaseOrderDate = new DevExpress.XtraEditors.DateEdit();
-            this.purchaseOrderNumber = new DevExpress.XtraEditors.TextEdit();
+            this.date = new DevExpress.XtraEditors.DateEdit();
+            this.number = new DevExpress.XtraEditors.TextEdit();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.purchaseOrderLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.purchaseOrderNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.purchaseOrderDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.canselLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).BeginInit();
             this.purchaseOrderLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canselLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // purchaseOrderLayout
             // 
-            this.purchaseOrderLayout.Controls.Add(this.purchaseOrderDate);
-            this.purchaseOrderLayout.Controls.Add(this.purchaseOrderNumber);
-            this.purchaseOrderLayout.Controls.Add(this.simpleButton1);
-            this.purchaseOrderLayout.Controls.Add(this.simpleButton2);
+            this.purchaseOrderLayout.Controls.Add(this.date);
+            this.purchaseOrderLayout.Controls.Add(this.number);
+            this.purchaseOrderLayout.Controls.Add(this.saveButton);
+            this.purchaseOrderLayout.Controls.Add(this.cancelButton);
             this.purchaseOrderLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.purchaseOrderLayout.Location = new System.Drawing.Point(0, 0);
             this.purchaseOrderLayout.Name = "purchaseOrderLayout";
@@ -73,26 +76,48 @@
             this.purchaseOrderLayout.TabIndex = 0;
             this.purchaseOrderLayout.Text = "layoutControl1";
             // 
-            // purchaseOrderDate
+            // date
             // 
-            this.purchaseOrderDate.EditValue = null;
-            this.purchaseOrderDate.Location = new System.Drawing.Point(278, 35);
-            this.purchaseOrderDate.Name = "purchaseOrderDate";
-            this.purchaseOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date.EditValue = null;
+            this.date.Location = new System.Drawing.Point(278, 35);
+            this.date.Name = "date";
+            this.date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.purchaseOrderDate.Size = new System.Drawing.Size(92, 20);
-            this.purchaseOrderDate.StyleController = this.purchaseOrderLayout;
-            this.purchaseOrderDate.TabIndex = 5;
+            this.date.Size = new System.Drawing.Size(92, 20);
+            this.date.StyleController = this.purchaseOrderLayout;
+            this.date.TabIndex = 5;
             // 
-            // purchaseOrderNumber
+            // number
             // 
-            this.purchaseOrderNumber.Location = new System.Drawing.Point(19, 35);
-            this.purchaseOrderNumber.Name = "purchaseOrderNumber";
-            this.purchaseOrderNumber.Size = new System.Drawing.Size(241, 20);
-            this.purchaseOrderNumber.StyleController = this.purchaseOrderLayout;
-            this.purchaseOrderNumber.TabIndex = 4;
+            this.number.Location = new System.Drawing.Point(19, 35);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(241, 20);
+            this.number.StyleController = this.purchaseOrderLayout;
+            this.number.TabIndex = 4;
+            // 
+            // saveButton
+            // 
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(171, 66);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(96, 23);
+            this.saveButton.StyleController = this.purchaseOrderLayout;
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Сохранить";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.Location = new System.Drawing.Point(281, 66);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(96, 23);
+            this.cancelButton.StyleController = this.purchaseOrderLayout;
+            this.cancelButton.TabIndex = 6;
+            this.cancelButton.Text = "Отменить";
             // 
             // purchaseOrderLayoutGroup
             // 
@@ -115,7 +140,7 @@
             // 
             // purchaseOrderNumberLayout
             // 
-            this.purchaseOrderNumberLayout.Control = this.purchaseOrderNumber;
+            this.purchaseOrderNumberLayout.Control = this.number;
             this.purchaseOrderNumberLayout.CustomizationFormText = "Номер Наряд заказа";
             this.purchaseOrderNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.purchaseOrderNumberLayout.Name = "purchaseOrderNumberLayout";
@@ -127,7 +152,7 @@
             // 
             // purchaseOrderDateLayout
             // 
-            this.purchaseOrderDateLayout.Control = this.purchaseOrderDate;
+            this.purchaseOrderDateLayout.Control = this.date;
             this.purchaseOrderDateLayout.CustomizationFormText = "Дата наряд-заказа";
             this.purchaseOrderDateLayout.Location = new System.Drawing.Point(259, 0);
             this.purchaseOrderDateLayout.Name = "purchaseOrderDateLayout";
@@ -136,6 +161,16 @@
             this.purchaseOrderDateLayout.Text = "Дата";
             this.purchaseOrderDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.purchaseOrderDateLayout.TextSize = new System.Drawing.Size(31, 13);
+            // 
+            // saveButtonEmptySpace
+            // 
+            this.saveButtonEmptySpace.AllowHotTrack = false;
+            this.saveButtonEmptySpace.CustomizationFormText = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.Location = new System.Drawing.Point(0, 54);
+            this.saveButtonEmptySpace.Name = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.Size = new System.Drawing.Size(159, 27);
+            this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // generalEmptySpace
             // 
@@ -147,31 +182,9 @@
             this.generalEmptySpace.Text = "generalEmptySpace";
             this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(171, 66);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(96, 23);
-            this.simpleButton1.StyleController = this.purchaseOrderLayout;
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "Сохранить";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(281, 66);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(96, 23);
-            this.simpleButton2.StyleController = this.purchaseOrderLayout;
-            this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Отменить";
-            // 
             // saveButtonLayoutControl
             // 
-            this.saveButtonLayoutControl.Control = this.simpleButton1;
+            this.saveButtonLayoutControl.Control = this.saveButton;
             this.saveButtonLayoutControl.CustomizationFormText = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.Location = new System.Drawing.Point(159, 54);
             this.saveButtonLayoutControl.MaxSize = new System.Drawing.Size(154, 31);
@@ -186,7 +199,7 @@
             // 
             // canselLayoutControl
             // 
-            this.canselLayoutControl.Control = this.simpleButton2;
+            this.canselLayoutControl.Control = this.cancelButton;
             this.canselLayoutControl.CustomizationFormText = "canselLayoutControl";
             this.canselLayoutControl.Location = new System.Drawing.Point(269, 54);
             this.canselLayoutControl.MaxSize = new System.Drawing.Size(154, 31);
@@ -212,38 +225,32 @@
             this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // saveButtonEmptySpace
-            // 
-            this.saveButtonEmptySpace.AllowHotTrack = false;
-            this.saveButtonEmptySpace.CustomizationFormText = "saveButtonEmptySpace";
-            this.saveButtonEmptySpace.Location = new System.Drawing.Point(0, 54);
-            this.saveButtonEmptySpace.Name = "saveButtonEmptySpace";
-            this.saveButtonEmptySpace.Size = new System.Drawing.Size(159, 27);
-            this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
-            this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // PurchaseOrderXtraForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(389, 129);
             this.Controls.Add(this.purchaseOrderLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseOrderXtraForm";
             this.Text = "Наряд-заказ";
+            this.Load += new System.EventHandler(this.PurchaseOrderXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).EndInit();
             this.purchaseOrderLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canselLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,16 +259,17 @@
 
         private DevExpress.XtraLayout.LayoutControl purchaseOrderLayout;
         private DevExpress.XtraLayout.LayoutControlGroup purchaseOrderLayoutGroup;
-        private DevExpress.XtraEditors.DateEdit purchaseOrderDate;
-        private DevExpress.XtraEditors.TextEdit purchaseOrderNumber;
+        private DevExpress.XtraEditors.DateEdit date;
+        private DevExpress.XtraEditors.TextEdit number;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayout;
         private DevExpress.XtraLayout.EmptySpaceItem generalEmptySpace;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.EmptySpaceItem saveButtonEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem canselLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem divideButtonEmptySpace;
+        private System.Windows.Forms.BindingSource bindingSource;
     }
 }

@@ -491,7 +491,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
-            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(purchaseOrder.Text, purchaseOrderDate.Text);
+            var order = purchaseOrder.EditValue as PurchaseOrder;
+            Guid id = Guid.Empty;
+            if (order != null)
+            {
+                id = order.Id;
+            }
+            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(id);
             form.ShowDialog();
         }
 
