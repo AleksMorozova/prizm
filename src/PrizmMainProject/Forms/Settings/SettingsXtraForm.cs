@@ -36,6 +36,7 @@ namespace PrizmMain.Forms.Settings
 
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
@@ -89,10 +90,14 @@ namespace PrizmMain.Forms.Settings
         private void BindToViewModel()
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            inspectionBindingSource.DataSource = viewModel.Inspectors;
+
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
-            gridControlInspectors.DataSource = viewModel.Inspectors;
+            gridControlInspectors.DataSource = inspectionBindingSource;
+            gridControlInspectorsCertificates.DataSource = inspectionBindingSource;
+            gridControlInspectorsCertificates.DataMember = "Certificates";
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
@@ -214,6 +219,12 @@ namespace PrizmMain.Forms.Settings
 
         private void gridControlInspectors_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            var gv = sender as GridView;
 
         }
         

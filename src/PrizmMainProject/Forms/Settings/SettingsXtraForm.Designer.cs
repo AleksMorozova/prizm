@@ -176,6 +176,7 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -286,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -1559,11 +1561,12 @@
             this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
             this.inspectorCertificateGridView.OptionsCustomization.AllowGroup = false;
             this.inspectorCertificateGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectorCertificateGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectorCertificateGridView_InitNewRow);
             // 
             // inspectorCertificateNumber
             // 
             this.inspectorCertificateNumber.Caption = "Номер";
-            this.inspectorCertificateNumber.FieldName = "Certificate";
+            this.inspectorCertificateNumber.FieldName = "Certificate.Number";
             this.inspectorCertificateNumber.Name = "inspectorCertificateNumber";
             this.inspectorCertificateNumber.Visible = true;
             this.inspectorCertificateNumber.VisibleIndex = 0;
@@ -1571,7 +1574,7 @@
             // inspectorCertificateExpiration
             // 
             this.inspectorCertificateExpiration.Caption = "Дата окончания";
-            this.inspectorCertificateExpiration.FieldName = "CertificateExpiration";
+            this.inspectorCertificateExpiration.FieldName = "Certificate.ExpirationDate";
             this.inspectorCertificateExpiration.Name = "inspectorCertificateExpiration";
             this.inspectorCertificateExpiration.Visible = true;
             this.inspectorCertificateExpiration.VisibleIndex = 1;
@@ -1950,6 +1953,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2102,5 +2106,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateNumber;
         private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateExpiration;
         private DevExpress.XtraLayout.LayoutControlItem inspectorCertificatesLayoutControl;
+        private System.Windows.Forms.BindingSource inspectorBindingSource;
     }
 }

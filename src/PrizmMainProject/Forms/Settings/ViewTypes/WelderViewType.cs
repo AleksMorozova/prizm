@@ -169,7 +169,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
           if (welder.Certificate == null)
           {
               welder.Certificate = new Certificate();
-              welder.Certificate.ExpirationDate = DateTime.Now();
+              welder.Certificate.ExpirationDate = DateTime.Now;
           }
       }
 

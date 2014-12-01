@@ -8,11 +8,7 @@ namespace Domain.Entity.Setup
 {
     public class InspectorCertificate : Item
     {
-        public InspectorCertificate()
-        {
-            this.Certificates = new List<Certificate>();
-        }
         public virtual Inspector Inspector { get; set; }
-        public virtual IList<Certificate> Certificates { get; set; }
+        public virtual Certificate Certificate { get; set; }
     }
 }
