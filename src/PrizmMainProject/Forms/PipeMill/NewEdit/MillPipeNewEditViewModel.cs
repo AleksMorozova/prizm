@@ -35,6 +35,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
+        private readonly ChangePipeSizeCommand changePipeSizeCommand;
         private readonly GetPipeCommand getPipeCommand;
         private readonly IUserNotify notify;
 
@@ -45,9 +46,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-
+                
         public bool CanDeactivatePipe { get; set; }
-        
+
+        public bool IsNew { get; set; }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
@@ -55,7 +57,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repoMill = repoMill;
             this.notify = notify;
             this.PipeId = pipeId;
-
+            
             pipeDeactivationCommand =
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
 
@@ -64,6 +66,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             savePipeCommand =
                 ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify));
+
+            changePipeSizeCommand =
+    ViewModelSource.Create(() => new ChangePipeSizeCommand(this, repoMill, notify));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -86,8 +91,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-               
-
+                this.IsNew = false;
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
@@ -538,6 +542,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
+        public ICommand ChangePipeSizeCommand
+        {
+            get { return changePipeSizeCommand; }
+        }
 
         public ICommand NewSavePipeCommand
         {
@@ -556,7 +564,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand SavePipeCommand
         {
-            get { return savePipeCommand; }
+            get {return savePipeCommand; }
         }
 
         public ICommand PipeDeactivationCommand
@@ -576,6 +584,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;
             this.Pipe.Status = PipeMillStatus.Produced;
+
+            this.IsNew = true;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
@@ -654,7 +664,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             return requiredTestResults;
         }
-        
+
+        public int IsAnyInspectionResult()
+        {
+            int count = 0; 
+            foreach (PipeTestResult test in pipeTestResults)
+            {
+                if ((test.Status.ToString() == "Failed") || (test.Status.ToString() == "Passed"))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
          private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();

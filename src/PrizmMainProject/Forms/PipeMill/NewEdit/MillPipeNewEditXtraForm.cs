@@ -32,6 +32,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
+        private PipeMillSizeType type=null;
+        private bool isFirst=true;
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -99,7 +101,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-
 
         private void BindToViewModel()
         {
@@ -318,22 +319,58 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            //if (viewModel.IsNew == false)
+            //{
+            //    isFirst = false;
+            //    type = viewModel.PipeMillSizeType;
+            //}
 
-            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            {
-                viewModel.PipeMillSizeType = currentPipeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-                inspections.RefreshDataSource();
-            }
+            //ComboBoxEdit cb = sender as ComboBoxEdit;
+            //Domain.Entity.Setup.PipeMillSizeType currentPipeType
+            //    = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
 
-            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+            //if (isFirst == true)
+            //{
+            //    if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            //    {
+            //        viewModel.PipeMillSizeType = currentPipeType;
+            //        type = currentPipeType;
+            //        viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+            //        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+            //        inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+            //        inspections.RefreshDataSource();
+            //        isFirst = false;
+            //        viewModel.IsModify = true;
+            //    }
+            //}
+            //else 
+            //{
+            //    viewModel.ChangePipeSizeCommand.Execute();
+
+            //    if (viewModel.ChangePipeSizeCommand.CanExecute())
+            //    {
+            //        viewModel.PipeMillSizeType = currentPipeType;
+            //        type = currentPipeType;
+            //        viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+            //        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+            //        inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+            //        inspections.RefreshDataSource();
+            //        isFirst = false;
+            //        //viewModel.IsModify = true;
+            //    }
+
+            //    else 
+            //    {
+            //        //viewModel.IsModify = false;
+            //        currentPipeType = type;
+            //        pipeSize.SelectedItem = type;
+                    
+
+            //    }
+            //}
+            //viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            //viewModel.SavePipeCommand.IsExecutable ^= true;
+            //viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -605,6 +642,60 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.PipeDeactivationCommand.Execute();
                 ControlsDeactivation(this);
             }
+        }
+
+        private void pipeSize_Modified(object sender, EventArgs e)
+        {
+            if (viewModel.IsNew == false)
+            {
+                isFirst = false;
+                type = viewModel.PipeMillSizeType;
+            }
+
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+
+            if (isFirst == true)
+            {
+                if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+                {
+                    viewModel.PipeMillSizeType = currentPipeType;
+                    type = currentPipeType;
+                    viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                    viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                    inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                    inspections.RefreshDataSource();
+                    isFirst = false;
+                    
+                }
+            }
+            else
+            {
+                viewModel.ChangePipeSizeCommand.Execute();
+
+                if (viewModel.ChangePipeSizeCommand.CanExecute())
+                {
+                    viewModel.PipeMillSizeType = currentPipeType;
+                    type = currentPipeType;
+                    viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                    viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                    inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                    inspections.RefreshDataSource();
+                    isFirst = false;
+                }
+
+                else
+                {
+                    currentPipeType = type;
+                    pipeSize.SelectedItem = type;
+
+
+                }
+            }
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
     }
 }

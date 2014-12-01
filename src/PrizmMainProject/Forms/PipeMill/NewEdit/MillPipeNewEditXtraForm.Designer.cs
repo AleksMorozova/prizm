@@ -1221,6 +1221,7 @@
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
             this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
+            this.pipeSize.Modified += new System.EventHandler(this.pipeSize_Modified);
             // 
             // generalPipeLayout
             // 
