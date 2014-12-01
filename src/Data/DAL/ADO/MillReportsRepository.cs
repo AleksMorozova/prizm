@@ -20,33 +20,32 @@ namespace Data.DAL.ADO
 
         public DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate)
         {
-            if (connection == null)
-            { 
-                CreateConnection();
-            }
-            
+            CreateConnection();
             DataSet pipeDataSet = new DataSet();
 
             try
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
-                using (SqlCommand  command = new System.Data.SqlClient.SqlCommand())
                 {
-                    connection.Open();
-                    adapter.TableMappings.Add("Table", "Pipe");
-                    command.Connection = connection;
-                    command.CommandText = SQLQueryString.GetAllActivePipesByDate;
-                    //input search criteria value
-                    command.Parameters.AddWithValue("@startDate", startDate);
-                    command.Parameters.AddWithValue("@finalDate", finalDate);
-                    adapter.SelectCommand = command;
-                    adapter.Fill(pipeDataSet);
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.CommandText = SQLQueryString.GetAllActivePipesByDate;
+                        //input search criteria value
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
                 }
                 
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("SQLException", ex);
+                throw new RepositoryException("GetPipesByStatus", ex);
             }
             finally
             {
@@ -61,8 +60,12 @@ namespace Data.DAL.ADO
 
         public SqlConnection CreateConnection() 
         {
+            if (connection == null)
+            {
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
             connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
+            }
+
             return connection;
         }
 
