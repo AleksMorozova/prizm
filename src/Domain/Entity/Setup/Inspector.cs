@@ -7,12 +7,7 @@ namespace Domain.Entity
 {
     public class Inspector : Item
     {
-        public Inspector()
-        {
-        }
-
         public virtual PersonName Name { get; set; }
-        public virtual string Certificate { get; set; }
-        public virtual DateTime? CertificateExpiration { get; set; }
+        public virtual Certificate Certificate { get; set; }
     }
 }
