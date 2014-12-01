@@ -18,8 +18,8 @@ namespace Data.DAL.Mapping
             Map(_ => _.Grade).Column("grade");
             Component<Certificate>(x => x.Certificate, m =>
                 {
-                    m.Map(x => x.Number).Column("number");
-                    m.Map(x => x.ExpirationDate).Column("expirationDate");
+                    m.Map(x => x.Number).Column("certificate");
+                    m.Map(x => x.ExpirationDate).Column("certificateExpiration");
                 }
                 );
             Component<PersonName>(x => x.Name, m =>

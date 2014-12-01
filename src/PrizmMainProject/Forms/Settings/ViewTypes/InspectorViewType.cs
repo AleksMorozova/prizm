@@ -81,17 +81,17 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public InspectorCertificate Certificate
+      public IList<InspectorCertificate> Certificates
       {
          get
          {
-            return inspector.Certificate;
+            return inspector.Certificates;
          }
          set
          {
-            if (value != inspector.Certificate)
+            if (value != inspector.Certificates)
             {
-               inspector.Certificate = value;
+               inspector.Certificates = value;
                FirePropertyChanged("Certificate");
             }
          }

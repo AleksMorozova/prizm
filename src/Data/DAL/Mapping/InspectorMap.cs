@@ -21,7 +21,7 @@ namespace Data.DAL.Mapping
                   m.Map(_ => _.LastName).Column("lastName");
                   m.Map(_ => _.MiddleName).Column("middleName");
                });
-            References(x => x.Certificate).Column("inspectorId");
+            HasMany<InspectorCertificate>(x => x.Certificates).KeyColumn("inspectorId");
         }
     }
 }
