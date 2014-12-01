@@ -13,11 +13,13 @@ namespace Data.DAL.Hibernate
     public class AuditInterceptor : EmptyInterceptor
     {
         private readonly IAuditLogRepository repo;
+        private PersonName currentUser;
 
         [Inject]
-        public AuditInterceptor()
+        public AuditInterceptor(PersonName currentUser)
         {
-            repo = new AuditLogRepository(HibernateUtil.OpenAuditSession());
+            repo = new AuditLogRepository(HibernateUtil.OpenSession(false));
+            this.currentUser = currentUser;
         }
         enum Actions { Insert, Delete };
 
@@ -55,9 +57,10 @@ namespace Data.DAL.Hibernate
                     }
                     else
                     {
-                        var objectProperty = currentState[i] as Item;
-                        if (objectProperty!=null && currentState[i].Equals(previousState[i]) == false)
-                        { NewAuditRecord(curentity, propertyNames[i], objectProperty.Id.ToString(), objectProperty.Id.ToString()); }
+                        var previousStateId = previousState[i] as Item;
+                        var currentStateId = currentState[i] as Item;
+                        if (previousStateId != null && currentState[i].Equals(previousState[i]) == false)
+                        { NewAuditRecord(curentity, propertyNames[i], previousStateId.Id.ToString(), currentStateId.Id.ToString()); }
                     }
                 }
             }
@@ -74,7 +77,7 @@ namespace Data.DAL.Hibernate
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
-                User = curentity.GetUser(),
+                User = currentUser.FirstName + " " + currentUser.LastName + " " + currentUser.MiddleName,
                 TableName = curentity.GetType().ToString(),
                 FieldName = fieldName,
                 NewValue = newValue,

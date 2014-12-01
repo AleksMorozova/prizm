@@ -32,7 +32,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
-            repo.RepoPipe.Clear();
 
             if (p != null && p.Count > 0)
             {

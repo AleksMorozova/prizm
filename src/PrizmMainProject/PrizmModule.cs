@@ -39,15 +39,18 @@ namespace PrizmMain
             }
 
             public Domain.Entity.PersonName GetLoggedPerson()
-            {
+            {               
                 return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
             }
         }
         public override void Load()
         {
-
+            //TODO: Review if it can be changed
+            TemporaryContext temporaryContext = new TemporaryContext();
+            HibernateUtil.CurrentUser = temporaryContext.GetLoggedPerson();
+            
             #region Repository
-            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession(true));
 
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
