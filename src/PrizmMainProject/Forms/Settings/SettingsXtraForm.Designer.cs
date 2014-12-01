@@ -1559,6 +1559,7 @@
             this.inspectorCertificateExpiration});
             this.inspectorCertificateGridView.GridControl = this.gridControlInspectorsCertificates;
             this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
+            this.inspectorCertificateGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.inspectorCertificateGridView.OptionsCustomization.AllowGroup = false;
             this.inspectorCertificateGridView.OptionsView.ShowGroupPanel = false;
             this.inspectorCertificateGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectorCertificateGridView_InitNewRow);
@@ -1609,6 +1610,7 @@
             this.gridViewInspectors.Name = "gridViewInspectors";
             this.gridViewInspectors.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewInspectors.OptionsView.ShowGroupPanel = false;
+            this.gridViewInspectors.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewInspectors_FocusedRowChanged);
             this.gridViewInspectors.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.gridViewInspectors.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewInspectors_ValidateRow);
             this.gridViewInspectors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewInspectors_KeyDown);

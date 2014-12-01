@@ -224,8 +224,15 @@ namespace PrizmMain.Forms.Settings
 
         private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            var gv = sender as GridView;
+            
 
+        }
+
+        private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            var gv = sender as GridView;
+            var inspect = (InspectorViewType)gv.GetRow(e.FocusedRowHandle);
+            gridControlInspectorsCertificates.DataSource = inspect;
         }
         
     }
