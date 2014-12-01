@@ -15,6 +15,7 @@ namespace PrizmMain.Forms
         int ShowYesNoCancel(string text, string header);
         void ShowSuccess(string text, string header);
         void ShowFailure(string text, string header);
+        void ShowNotify(string text, string header);
     }
 
 }

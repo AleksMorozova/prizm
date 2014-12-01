@@ -70,6 +70,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Начальная дата позже конечной.
+        /// </summary>
+        internal static string AlertFailureReportDate {
+            get {
+                return ResourceManager.GetString("AlertFailureReportDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный диапазон дат.
+        /// </summary>
+        internal static string AlertFailureReportDateHeader {
+            get {
+                return ResourceManager.GetString("AlertFailureReportDateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внимание.
         /// </summary>
         internal static string AlertInfoHeader {
