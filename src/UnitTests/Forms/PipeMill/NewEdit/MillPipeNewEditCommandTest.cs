@@ -20,6 +20,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
         public void TestMillPipeNewEdit()
         {
             var repoPipe = new Mock<IPipeRepository>();
+
             var repoPlate = new Mock<IPlateRepository>();
             var repoHeat = new Mock<IHeatRepository>();
             var repoWeld = new Mock<IWeldRepository>();
@@ -44,9 +45,13 @@ namespace UnitTests.Forms.PipeMill.NewEdit
 
             var viewModel = new MillPipeNewEditViewModel(
                 millRepos.Object,
-                Guid.Empty);
+                Guid.Empty, 
+                null);
 
-            var command = new NewSavePipeCommand(viewModel, millRepos.Object);
+            var command = new NewSavePipeCommand(
+                viewModel, 
+                millRepos.Object, 
+                null);
 
             command.Execute();
 

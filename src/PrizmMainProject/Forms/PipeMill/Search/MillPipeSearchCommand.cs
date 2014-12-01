@@ -39,7 +39,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             {
                 criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
             }
-
             viewModel.Pipes = repo.GetByCriteria(criteria);
         }
 

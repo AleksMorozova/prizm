@@ -62,17 +62,53 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
+
+            ControlsDeactivation(this);
+        }
+
+        private void ControlsDeactivation(Control control)
+        {
+            if (viewModel.IsNotActive)
+            {
+                foreach (Control c in control.Controls)
+                {
+                    if (c is TextEdit)
+                    {
+                        ((TextEdit)c).Properties.ReadOnly = true;
+                    }
+
+                    if (c is SimpleButton && c.Name != "attachmentsButton")
+                    {
+                        ((SimpleButton)c).Enabled = false;
+                    }
+
+                    if (c is DevExpress.XtraGrid.GridControl)
+                    {
+                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                        {
+                            ((GridView)v).OptionsBehavior.Editable = false;
+                        }
+                    }
+
+                    if (c is DevExpress.XtraEditors.CheckEdit)
+                    {
+                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = false;
+                    }
+
+                    ControlsDeactivation(c);
+                }
+            }
         }
 
 
         private void BindToViewModel()
         {
+            pipeNewEditBindingSource.DataSource = viewModel;
 
             #region ComboBox filling
-            foreach (var h in viewModel.Heats)
-            {
-                heatNumber.Properties.Items.Add(h);
-            }
+
+            HeatFill();
+
             foreach (var p in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(p);
@@ -101,8 +137,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
+
+
             deactivate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
+                .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
+
+            deactivate.DataBindings
+                .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
+
+
+
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
             pipeCreationDate.DataBindings
@@ -115,6 +159,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             heatNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Heat");
+            plateManufacturer.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PlateManufacturer");
+
             pipeSize.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
             purchaseOrder.DataBindings
@@ -177,6 +224,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             
         }
 
+        private void HeatFill() 
+        {
+            viewModel.ExtractHeatsCommand.Execute();
+            heatNumber.Properties.Items.Clear();
+            heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
+
+            foreach (var h in viewModel.Heats)
+            {
+                heatNumber.Properties.Items.Add(h);
+            }
+        }
+
         private void editHeatButton_Click(object sender, EventArgs e)
         {
             using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
@@ -184,6 +243,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (heatForm.ShowDialog() == DialogResult.OK)
                 {
                     //TODO: refresh Heat data
+                    HeatFill();
                 }
             }
 
@@ -431,8 +491,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         private void heatButton_Click(object sender, EventArgs e)
         {
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-            parent.CreateChildForm(typeof(HeatXtraForm), new ConstructorArgument("heatNumber", heatNumber.Text));
+            var heatForm = new HeatXtraForm(heatNumber.Text);
+            heatForm.ShowDialog();
+            HeatFill();
         }
 
         private void purchaseOrderButton_Click(object sender, EventArgs e)
@@ -443,10 +504,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void SetControlsTextLength()
         {
-            pipeNumber.Properties.MaxLength = 20;
-            plateNumber.Properties.MaxLength = 20;
-            steelGrade.Properties.MaxLength = 20;
-            valueRepositoryTextEdit.MaxLength = 20;
+            pipeNumber.Properties.MaxLength = LengthLimit.MaxPipeNumber;
+            plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
+            steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
+            testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             //TODO: limit fields for Plate and heat parameters tab
         }
 
@@ -529,5 +590,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              }
         }
 
+        private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            HeatFill();
+        }
+
+
+        private void deactivate_Modified(object sender, EventArgs e)
+        {
+            viewModel.IsNotActive = (bool)deactivate.EditValue;
+
+            if (viewModel.IsNotActive)
+            {
+                viewModel.PipeDeactivationCommand.Execute();
+                ControlsDeactivation(this);
+            }
+        }
     }
 }
