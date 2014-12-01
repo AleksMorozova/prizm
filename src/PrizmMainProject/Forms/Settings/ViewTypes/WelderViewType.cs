@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          this.welder = new Welder();
          this.welder.IsActive = true;
          CheckName();
+         CheckCertificate();
       }
 
       public override String FirstName
@@ -83,6 +84,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
          set
          {
+             CheckCertificate();
              if (value != welder.Certificate)
             {
                 welder.Certificate = value;
@@ -99,6 +101,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
          set
          {
+             CheckCertificate();
              if (value != welder.Certificate.ExpirationDate)
             {
                 welder.Certificate.ExpirationDate = value;
@@ -159,6 +162,15 @@ namespace PrizmMain.Forms.Settings.ViewTypes
       {
          if (welder.Name == null)
             welder.Name = new PersonName();
+      }
+      
+      private void CheckCertificate()
+      {
+          if (welder.Certificate == null)
+          {
+              welder.Certificate = new Certificate();
+              welder.Certificate.ExpirationDate = DateTime.Now();
+          }
       }
 
       public Welder Welder
