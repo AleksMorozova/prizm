@@ -114,6 +114,7 @@
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionCodeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -220,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
@@ -1037,7 +1039,8 @@
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ResultStatusLookUpEdit,
             this.inspectorsPopupContainerEdit,
-            this.testResultValue});
+            this.testResultValue,
+            this.inspectionCodeLookUpEdit});
             this.inspections.Size = new System.Drawing.Size(1200, 380);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1059,7 +1062,11 @@
             this.inspectionCodeGridColumn});
             this.inspectionsGridView.GridControl = this.inspections;
             this.inspectionsGridView.Name = "inspectionsGridView";
+            this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionsGridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.inspectionsGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsGridView_InitNewRow);
             this.inspectionsGridView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.inspectionsGridView_CustomUnboundColumnData);
             // 
             // inspectionNameGridColumn
@@ -1117,6 +1124,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Статус результата")});
             this.ResultStatusLookUpEdit.DisplayMember = "Text";
             this.ResultStatusLookUpEdit.Name = "ResultStatusLookUpEdit";
+            this.ResultStatusLookUpEdit.NullText = "";
             this.ResultStatusLookUpEdit.ValueMember = "Value";
             // 
             // inspectorsGridColumn
@@ -1151,12 +1159,28 @@
             // inspectionCodeGridColumn
             // 
             this.inspectionCodeGridColumn.Caption = "Код";
+            this.inspectionCodeGridColumn.ColumnEdit = this.inspectionCodeLookUpEdit;
             this.inspectionCodeGridColumn.FieldName = "Operation.Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
-            this.inspectionCodeGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
             this.inspectionCodeGridColumn.Width = 62;
+            // 
+            // inspectionCodeLookUpEdit
+            // 
+            this.inspectionCodeLookUpEdit.AutoHeight = false;
+            this.inspectionCodeLookUpEdit.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
+            this.inspectionCodeLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectionCodeLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Код"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Название"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default)});
+            this.inspectionCodeLookUpEdit.DisplayMember = "Code";
+            this.inspectionCodeLookUpEdit.Name = "inspectionCodeLookUpEdit";
+            this.inspectionCodeLookUpEdit.NullText = "";
+            this.inspectionCodeLookUpEdit.ValueMember = "Code";
+            this.inspectionCodeLookUpEdit.EditValueChanged += new System.EventHandler(this.inspectionCodeLookUpEdit_EditValueChanged);
             // 
             // inspectionsLayoutGroup
             // 
@@ -1275,7 +1299,6 @@
             this.deactivate.Size = new System.Drawing.Size(194, 19);
             this.deactivate.StyleController = this.generalPipeLayout;
             this.deactivate.TabIndex = 28;
-            this.deactivate.Modified += new System.EventHandler(this.deactivate_Modified);
             // 
             // saveButton
             // 
@@ -1619,7 +1642,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeNewEditXtraForm";
             this.Text = "Завод - труба";
-            this.Activated += new System.EventHandler(this.MillPipeNewEditXtraForm_Activated);
             this.Load += new System.EventHandler(this.MillPipeNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();
@@ -1690,6 +1712,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
@@ -1851,6 +1874,7 @@
         private DevExpress.XtraEditors.TextEdit plateManufacturer;
         private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit inspectionCodeLookUpEdit;
 
     }
 }
