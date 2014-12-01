@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,7 @@ namespace Data.DAL.Mapping
                   m.Map(_ => _.LastName).Column("lastName");
                   m.Map(_ => _.MiddleName).Column("middleName");
                });
-            Map(_ => _.Certificate).Column("certificate");
-            Map(_ => _.CertificateExpiration).Column("certificateExpiration");
+            References(x => x.Certificate).Column("inspectorId");
         }
     }
 }
