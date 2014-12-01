@@ -12,15 +12,30 @@ namespace Data.DAL.Hibernate
     [Serializable]
     public class AuditInterceptor : EmptyInterceptor
     {
-        private readonly IAuditLogRepository repo;
+        private IAuditLogRepository repo;
         private PersonName currentUser;
 
         [Inject]
         public AuditInterceptor(PersonName currentUser)
         {
-            repo = new AuditLogRepository(HibernateUtil.OpenSession(false));
             this.currentUser = currentUser;
         }
+
+        public virtual IAuditLogRepository LogRepo
+        {
+            get
+            {
+                if (repo == null)
+                    repo = new AuditLogRepository(HibernateUtil.OpenSession(false));
+
+                return repo;
+            }
+            set
+            {
+                repo = value;
+            }
+        }
+
         enum Actions { Insert, Delete };
 
         /// <summary>
@@ -83,9 +98,9 @@ namespace Data.DAL.Hibernate
                 NewValue = newValue,
                 OldValue = oldValue
             };
-            repo.BeginTransaction();
-            repo.Save(record);
-            repo.Commit();   
+            LogRepo.BeginTransaction();
+            LogRepo.Save(record);
+            LogRepo.Commit();   
         }
 
         /// <summary>
