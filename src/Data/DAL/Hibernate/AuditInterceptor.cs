@@ -12,13 +12,31 @@ namespace Data.DAL.Hibernate
     [Serializable]
     public class AuditInterceptor : EmptyInterceptor
     {
-        private readonly IAuditLogRepository repo;
+        private IAuditLogRepository repo;
+        private PersonName currentUser;
 
         [Inject]
-        public AuditInterceptor()
+        public AuditInterceptor(PersonName currentUser)
         {
-            repo = new AuditLogRepository(HibernateUtil.OpenAuditSession());
+            this.currentUser = currentUser;
         }
+
+        public virtual IAuditLogRepository LogRepo
+        {
+            get
+            {
+                if (repo == null)
+                {
+                    repo = new AuditLogRepository(HibernateUtil.OpenSession(false));
+                }
+                return repo;
+            }
+            set
+            {
+                repo = value;
+            }
+        }
+
         enum Actions { Insert, Delete };
 
         /// <summary>
@@ -55,34 +73,37 @@ namespace Data.DAL.Hibernate
                     }
                     else
                     {
-                        var objectProperty = currentState[i] as Item;
-                        if (objectProperty!=null && currentState[i].Equals(previousState[i]) == false)
-                        { NewAuditRecord(curentity, propertyNames[i], objectProperty.Id.ToString(), objectProperty.Id.ToString()); }
+                        var previousStateId = previousState[i] as Item;
+                        var currentStateId = currentState[i] as Item;
+                        if (previousStateId != null && currentState[i].Equals(previousState[i]) == false)
+                        {
+                            NewAuditRecord(curentity, propertyNames[i], previousStateId.Id.ToString(), currentStateId.Id.ToString());
+                        }
                     }
                 }
             }
-         return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);                 
+            return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);
         }
 
         /// <summary>
         /// Creating log record and saving it to DB
         /// </summary>
-        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue )
+        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
         {
             AuditLog record = new AuditLog()
             {
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
-                User = curentity.GetUser(),
+                User = currentUser.GetFullName(),
                 TableName = curentity.GetType().ToString(),
                 FieldName = fieldName,
                 NewValue = newValue,
                 OldValue = oldValue
             };
-            repo.BeginTransaction();
-            repo.Save(record);
-            repo.Commit();   
+            LogRepo.BeginTransaction();
+            LogRepo.Save(record);
+            LogRepo.Commit();
         }
 
         /// <summary>
@@ -97,7 +118,7 @@ namespace Data.DAL.Hibernate
         /// <summary>
         /// Log  insert/delete record (just one state)
         /// </summary>
-        private  void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
+        private void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
         {
             string oldValue = "just inserted", newValue = "";
             var curentity = entity as Item;
@@ -109,7 +130,7 @@ namespace Data.DAL.Hibernate
                     var objectProperty = state[i] as Item;
                     switch (actionType)
                     {
-                        case Actions.Insert: newValue = (objectProperty ==null)? state[i].ToString(): objectProperty.Id.ToString();
+                        case Actions.Insert: newValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
                             break;
                         case Actions.Delete: oldValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
                             newValue = "deleted";

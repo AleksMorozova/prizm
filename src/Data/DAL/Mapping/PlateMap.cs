@@ -17,7 +17,7 @@ namespace Data.DAL.Mapping
 
             References<Heat>(x => x.Heat).Column("heatId");
 
-            HasOne<Pipe>(x => x.Pipe).PropertyRef("Plate").Cascade.All();
+            HasOne<Pipe>(x => x.Pipe).PropertyRef("Plate");
         }
     }
 }

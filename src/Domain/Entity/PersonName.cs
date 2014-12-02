@@ -9,5 +9,9 @@ namespace Domain.Entity
         public virtual string LastName { get; set; }
         public virtual string MiddleName { get; set; }
 
+        public virtual string GetFullName()
+        {
+            return FirstName + " " + LastName + " " + MiddleName;
+        }
     }
 }
