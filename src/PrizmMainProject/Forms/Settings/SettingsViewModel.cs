@@ -16,10 +16,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrizmMain.Properties;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Settings
 {
-    public class SettingsViewModel : ViewModelBase, IDisposable
+    public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
@@ -30,6 +31,7 @@ namespace PrizmMain.Forms.Settings
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
         private IList<PlateManufacturer> plateManufacturers;
+        private IModifiable modifiable;
 
         [Inject]
         public SettingsViewModel(ISettingsRepositories repos)
@@ -182,7 +184,8 @@ namespace PrizmMain.Forms.Settings
                  Welders.Add(new WelderViewType(w));
               }
            }
-                      
+
+           Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllInspectors()
@@ -198,6 +201,8 @@ namespace PrizmMain.Forms.Settings
                  Inspectors.Add(new InspectorViewType(i));
               }
            }
+
+           Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void NewPipeMillSizeType()
@@ -239,6 +244,7 @@ namespace PrizmMain.Forms.Settings
         public void Dispose()
         {
             repos.Dispose();
+            ModifiableView = null;
         }
 
         internal void UpdatePipeTests(object sizeType)
@@ -253,5 +259,17 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        public IModifiable ModifiableView
+        {
+           get
+           {
+              return modifiable;
+           }
+           set
+           {
+              modifiable = value;
+           }
+        }
+        
     }
 }

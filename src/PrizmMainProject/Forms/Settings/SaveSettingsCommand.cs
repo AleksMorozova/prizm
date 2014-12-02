@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -39,6 +40,7 @@ namespace PrizmMain.Forms.Settings
             EvictInspectors();
             EvictPlateManufacturers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+            viewModel.ModifiableView.IsModified = false;
         }
 
         private void EvictWelders()

@@ -42,6 +42,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
+            viewModel.ModifiableView = this;
+            
 
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
@@ -52,7 +54,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrder.SetRequiredCombo();
             millStatus.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
-
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -62,8 +63,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
-
+            viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
+            if (!viewModel.Pipe.IsNew())
+               IsModified = false;
         }
 
         private void ControlsDeactivation(Control control)
@@ -198,8 +201,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
+            weldBindingSource.ListChanged += (s, eve) => IsModified = true;
             weldersDataSource.DataSource = viewModel.Welders;
-           
+
             weldersSelectionControl.DataSource = weldersDataSource;
             var weldersPopup = new PopupContainerControl();
             weldersPopup.Controls.Add(weldersSelectionControl);
@@ -208,6 +212,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
             inspectorSelectionControl.DataSource = inspectorsDataSource;
             var inspectorsPopup = new PopupContainerControl();
             inspectorsPopup.Controls.Add(inspectorSelectionControl);
@@ -218,8 +223,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             coatingTypeDict.Clear();
             coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
             coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
-            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
-            
+            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;
+
+            coatDataSource.ListChanged += (s, eve) => IsModified = true; 
             coatDataSource.DataSource = viewModel.Pipe;
             
         }
@@ -254,6 +260,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
             saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
+            SaveCommand = viewModel.SavePipeCommand;
         }
 
 
