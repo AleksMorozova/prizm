@@ -23,6 +23,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.Pipe = repo.RepoPipe.Get(viewModel.PipeId);
+            if (viewModel.Pipe.Coats.Count == 0)
+            {
+                viewModel.Pipe.Coats = new List<Domain.Entity.Mill.Coat>();
+            }
         }
 
         public bool CanExecute()
