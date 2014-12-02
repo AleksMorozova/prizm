@@ -27,6 +27,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 viewModel.Pipe.Coats = new List<Domain.Entity.Mill.Coat>();
             }
+            if (viewModel.Pipe.Welds.Count == 0)
+            {
+                viewModel.Pipe.Welds = new List<Domain.Entity.Mill.Weld>();
+            }
         }
 
         public bool CanExecute()
