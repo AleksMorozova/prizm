@@ -255,13 +255,7 @@
   <data name="AlertFailureReportDate" xml:space="preserve">
     <value>Начальная дата позже конечной</value>
   </data>
-  <data name="DLG_CHANGE_PIPESIZE_ON_EDITPIPE" xml:space="preserve">
-    <value>Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.</value>
-  </data>
-  <data name="DLG_CHANGE_PIPESIZE_ON_NEWPIPE" xml:space="preserve">
-    <value>Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново</value>
-  </data>
-  <data name="PipeSizeChangeHeader" xml:space="preserve">
-    <value>Изменение типоразмера трубы</value>
+  <data name="DATA_EXPIRED" xml:space="preserve">
+    <value>Срок действия истек</value>
   </data>
 </root>

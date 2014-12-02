@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Settings.ViewTypes
 {
-   public class WelderViewType : CertificatedPersonSetupViewType
+    public class WelderViewType : PersonSetupViewType
    {
       readonly Welder welder;
       
@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          this.welder = new Welder();
          this.welder.IsActive = true;
          CheckName();
+         CheckCertificate();
       }
 
       public override String FirstName
@@ -75,7 +76,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public override string Certificate 
+      public Certificate Certificate 
       { 
          get
          {
@@ -83,25 +84,27 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
          set
          {
-            if (value != welder.Certificate)
+             CheckCertificate();
+             if (value != welder.Certificate)
             {
-               welder.Certificate = value;
+                welder.Certificate = value;
                FirePropertyChanged("Certificate");
             }
          }
       }
 
-      public override DateTime? CertificateExpiration
+      public DateTime CertificateExpiration
       {
          get
          {
-            return welder.CertificateExpiration;
+            return welder.Certificate.ExpirationDate;
          }
          set
          {
-            if (value != welder.CertificateExpiration)
+             CheckCertificate();
+             if (value != welder.Certificate.ExpirationDate)
             {
-               welder.CertificateExpiration = value;
+                welder.Certificate.ExpirationDate = value;
                FirePropertyChanged("CertificateExpiration");
             }
          }
@@ -159,6 +162,15 @@ namespace PrizmMain.Forms.Settings.ViewTypes
       {
          if (welder.Name == null)
             welder.Name = new PersonName();
+      }
+      
+      private void CheckCertificate()
+      {
+          if (welder.Certificate == null)
+          {
+              welder.Certificate = new Certificate();
+              welder.Certificate.ExpirationDate = DateTime.Now;
+          }
       }
 
       public Welder Welder

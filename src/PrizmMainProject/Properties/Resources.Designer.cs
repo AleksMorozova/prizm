@@ -151,20 +151,11 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером..
+        ///   Looks up a localized string similar to Срок действия истек.
         /// </summary>
-        internal static string DLG_CHANGE_PIPESIZE_ON_EDITPIPE {
+        internal static string DATA_EXPIRED {
             get {
-                return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_EDITPIPE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново.
-        /// </summary>
-        internal static string DLG_CHANGE_PIPESIZE_ON_NEWPIPE {
-            get {
-                return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_NEWPIPE", resourceCulture);
+                return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
             }
         }
         
@@ -435,15 +426,6 @@ namespace PrizmMain.Properties {
         internal static string Passed {
             get {
                 return ResourceManager.GetString("Passed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изменение типоразмера трубы.
-        /// </summary>
-        internal static string PipeSizeChangeHeader {
-            get {
-                return ResourceManager.GetString("PipeSizeChangeHeader", resourceCulture);
             }
         }
         
