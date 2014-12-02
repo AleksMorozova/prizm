@@ -13,7 +13,7 @@ namespace Data.DAL.Mapping
         public ProjectMap()
         {
             Map(x => x.Client).Column("client");
-            Map(x => x.Designer).Column("designer");
+            Map(x => x.MillName).Column("millName");
             Map(x => x.DocumentSizeLimit).Column("documentSizeLimit");      
         }
     }

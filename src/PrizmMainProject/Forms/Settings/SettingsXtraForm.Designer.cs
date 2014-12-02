@@ -82,7 +82,7 @@
             this.externalDocumentSizeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.externalDocumentSizeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.millLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.designLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.millNameLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeNumberMaskLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeNumberMaskRulesLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -217,7 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSizeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSizeEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.designLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millNameLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskRulesLabelLayout)).BeginInit();
@@ -632,9 +632,9 @@
             this.pipeNumberMaskRulesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(296, 307);
+            this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(296, 297);
             this.pipeNumberMaskRulesLabel.Name = "pipeNumberMaskRulesLabel";
-            this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(576, 36);
+            this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(576, 46);
             this.pipeNumberMaskRulesLabel.StyleController = this.generalProjectLayout;
             this.pipeNumberMaskRulesLabel.TabIndex = 16;
             this.pipeNumberMaskRulesLabel.Text = "Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой пе" +
@@ -840,7 +840,7 @@
             this.millLayoutGroup.CustomizationFormText = "Завод";
             this.millLayoutGroup.ExpandButtonVisible = true;
             this.millLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.designLayout,
+            this.millNameLayout,
             this.clientEmptySpace,
             this.pipeNumberMaskLayout,
             this.pipeNumberMaskRulesLabelLayout});
@@ -849,17 +849,17 @@
             this.millLayoutGroup.Size = new System.Drawing.Size(883, 143);
             this.millLayoutGroup.Text = "Завод";
             // 
-            // designLayout
+            // millNameLayout
             // 
-            this.designLayout.Control = this.millName;
-            this.designLayout.CustomizationFormText = "Производитель";
-            this.designLayout.Location = new System.Drawing.Point(0, 0);
-            this.designLayout.Name = "designLayout";
-            this.designLayout.Size = new System.Drawing.Size(267, 50);
-            this.designLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 10);
-            this.designLayout.Text = "Производитель";
-            this.designLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.designLayout.TextSize = new System.Drawing.Size(251, 13);
+            this.millNameLayout.Control = this.millName;
+            this.millNameLayout.CustomizationFormText = "Производитель";
+            this.millNameLayout.Location = new System.Drawing.Point(0, 0);
+            this.millNameLayout.Name = "millNameLayout";
+            this.millNameLayout.Size = new System.Drawing.Size(267, 50);
+            this.millNameLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 10);
+            this.millNameLayout.Text = "Производитель";
+            this.millNameLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.millNameLayout.TextSize = new System.Drawing.Size(251, 13);
             // 
             // clientEmptySpace
             // 
@@ -895,7 +895,7 @@
             this.pipeNumberMaskRulesLabelLayout.Name = "pipeNumberMaskRulesLabelLayout";
             this.pipeNumberMaskRulesLabelLayout.Size = new System.Drawing.Size(592, 50);
             this.pipeNumberMaskRulesLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.pipeNumberMaskRulesLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 10, 0);
+            this.pipeNumberMaskRulesLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 0);
             this.pipeNumberMaskRulesLabelLayout.Text = "pipeNumberMaskRulesLabelLayout";
             this.pipeNumberMaskRulesLabelLayout.TextSize = new System.Drawing.Size(0, 0);
             this.pipeNumberMaskRulesLabelLayout.TextToControlDistance = 0;
@@ -1895,7 +1895,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSizeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSizeEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.designLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millNameLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskRulesLabelLayout)).EndInit();
@@ -2111,7 +2111,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorLNRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorMNRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorCertificateTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem designLayout;
+        private DevExpress.XtraLayout.LayoutControlItem millNameLayout;
         private DevExpress.XtraEditors.TextEdit pipeNumberMask;
         private DevExpress.XtraLayout.LayoutControlGroup millLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskLayout;

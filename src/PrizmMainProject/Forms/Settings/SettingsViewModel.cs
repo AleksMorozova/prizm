@@ -108,18 +108,18 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        public string Designer
+        public string MillName
         {
             get 
             {
-                return CurrentProjectSettings.Designer;
+                return CurrentProjectSettings.MillName;
             }
             set
             {
-                if (value != CurrentProjectSettings.Designer)
+                if (value != CurrentProjectSettings.MillName)
                 {
-                    CurrentProjectSettings.Designer = value;
-                    RaisePropertyChanged("Designer");
+                    CurrentProjectSettings.MillName = value;
+                    RaisePropertyChanged("MillName");
                 }
             }
         }
@@ -214,7 +214,7 @@ namespace PrizmMain.Forms.Settings
             CurrentProjectSettings = (repos.ProjectRepo.GetSingle() == null) ? new Project()
                                                                             {
                                                                                 Client = string.Empty,
-                                                                                Designer = string.Empty,
+                                                                                MillName = string.Empty,
                                                                                 IsActive = true
                                                                             }
                                                                         : repos.ProjectRepo.GetSingle();
