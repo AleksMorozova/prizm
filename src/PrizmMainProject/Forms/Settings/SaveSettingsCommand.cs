@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -17,11 +18,13 @@ namespace PrizmMain.Forms.Settings
     {
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
+        readonly IUserNotify notify;
 
-        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos)
+        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repos = repos;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -39,6 +42,10 @@ namespace PrizmMain.Forms.Settings
             EvictInspectors();
             EvictPlateManufacturers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+
+            notify.ShowNotify(
+                Resources.DLG_SETUP_SAVED,
+                Resources.DLG_SETUP_SAVED_HEADER);
         }
 
         private void EvictWelders()

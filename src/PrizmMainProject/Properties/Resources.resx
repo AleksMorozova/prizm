@@ -267,4 +267,16 @@
   <data name="PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
   </data>
+  <data name="DLG_PIPE_SAVED" xml:space="preserve">
+    <value>Труба успешно сохранена в базе. Труба  # </value>
+  </data>
+  <data name="DLG_PIPE_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение трубы</value>
+  </data>
+  <data name="DLG_SETUP_SAVED" xml:space="preserve">
+    <value>Настройки успешно сохранены.</value>
+  </data>
+  <data name="DLG_SETUP_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение настроек</value>
+  </data>
 </root>
