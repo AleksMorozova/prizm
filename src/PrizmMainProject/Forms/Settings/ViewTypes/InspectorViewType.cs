@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Settings.ViewTypes
 {
-   public class InspectorViewType : CertificatedPersonSetupViewType
+    public class InspectorViewType : PersonSetupViewType
    {
       readonly Inspector inspector;
 
@@ -27,6 +28,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          this.inspector = new Inspector();
          this.inspector.IsActive = true;
          CheckName();
+         CheckCertificate();
       }
 
       public override string FirstName
@@ -80,34 +82,19 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
       }
 
-      public override string Certificate
+      public IList<InspectorCertificate> Certificates
       {
          get
          {
-            return inspector.Certificate;
+            return inspector.Certificates;
          }
          set
          {
-            if (value != inspector.Certificate)
+             CheckCertificate();
+            if (value != inspector.Certificates)
             {
-               inspector.Certificate = value;
-               FirePropertyChanged("Certificate");
-            }
-         }
-      }
-
-      public override DateTime? CertificateExpiration
-      {
-         get
-         {
-            return inspector.CertificateExpiration;
-         }
-         set
-         {
-            if (value != inspector.CertificateExpiration)
-            {
-               inspector.CertificateExpiration = value;
-               FirePropertyChanged("CertificateExpiration");
+               inspector.Certificates = value;
+               FirePropertyChanged("Certificates");
             }
          }
       }
@@ -132,6 +119,14 @@ namespace PrizmMain.Forms.Settings.ViewTypes
       {
          if (inspector.Name == null)
             inspector.Name = new PersonName();
+      }
+
+      private void CheckCertificate()
+      {
+          if (inspector.Certificates == null)
+          {
+              inspector.Certificates = new BindingList<InspectorCertificate>();
+          }
       }
 
       

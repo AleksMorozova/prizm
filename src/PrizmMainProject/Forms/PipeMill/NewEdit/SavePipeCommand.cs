@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using PrizmMain.Properties;
 using Data.DAL;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -32,7 +33,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
-            repo.RepoPipe.Clear();
+            foreach (var pipe in p)
+            {
+                repo.RepoPipe.Evict(pipe);
+            }
 
             if (p != null && p.Count > 0)
             {
@@ -46,7 +50,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 try
                 {
                     repo.BeginTransaction();
-                    repo.RepoPlate.SaveOrUpdate(viewModel.Pipe.Plate);
                     repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
                     repo.Commit();
                     repo.RepoPipe.Evict(viewModel.Pipe);

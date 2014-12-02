@@ -70,6 +70,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Начальная дата позже конечной.
+        /// </summary>
+        internal static string AlertFailureReportDate {
+            get {
+                return ResourceManager.GetString("AlertFailureReportDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный диапазон дат.
+        /// </summary>
+        internal static string AlertFailureReportDateHeader {
+            get {
+                return ResourceManager.GetString("AlertFailureReportDateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внимание.
         /// </summary>
         internal static string AlertInfoHeader {
@@ -133,6 +151,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Срок действия истек.
+        /// </summary>
+        internal static string DATA_EXPIRED {
+            get {
+                return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         internal static string DLG_ERROR_HEADER {
@@ -142,7 +169,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
         /// </summary>
         internal static string DLG_PIPE_DEACTIVATION {
             get {

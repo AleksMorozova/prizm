@@ -44,6 +44,7 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ADO\MillReportsRepository.cs" />
+    <Compile Include="DAL\ADO\SQLQueryString.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
@@ -72,12 +75,14 @@
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
+    <Compile Include="DAL\IMillReportsRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />

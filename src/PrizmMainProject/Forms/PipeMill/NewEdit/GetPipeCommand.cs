@@ -23,6 +23,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.Pipe = repo.RepoPipe.Get(viewModel.PipeId);
+
+            // Due to incomplete the collection type matching returned 
+            // at reading from the database and properties binding  
+            // the following solution have been proposed.
+            // Perhaps this problem can be solved by entities mapping.
+            if (viewModel.Pipe.Coats.Count == 0)
+            {
+                viewModel.Pipe.Coats = new List<Domain.Entity.Mill.Coat>();
+            }
+            if (viewModel.Pipe.Welds.Count == 0)
+            {
+                viewModel.Pipe.Welds = new List<Domain.Entity.Mill.Weld>();
+            }
         }
 
         public bool CanExecute()

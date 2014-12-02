@@ -222,11 +222,11 @@
   <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
     <value>Несохранённые изменения</value>
   </data>
-<data name="NewHeatCombo" xml:space="preserve">
+  <data name="NewHeatCombo" xml:space="preserve">
     <value>&lt; Создать плавку &gt;</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
-    <value>Данное действие приведет к дуактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
+    <value>Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация трубы</value>
@@ -248,5 +248,14 @@
   </data>
   <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
     <value>Труба отгружена</value>
+  </data>
+  <data name="AlertFailureReportDateHeader" xml:space="preserve">
+    <value>Неверный диапазон дат</value>
+  </data>
+  <data name="AlertFailureReportDate" xml:space="preserve">
+    <value>Начальная дата позже конечной</value>
+  </data>
+  <data name="DATA_EXPIRED" xml:space="preserve">
+    <value>Срок действия истек</value>
   </data>
 </root>
