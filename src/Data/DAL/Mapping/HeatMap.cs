@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Map(x => x.Number).Column("number");
             Map(x => x.SteelGrade).Column("steelGrade");
-            References(x => x.PlateManufacturer).Column("plateManufacturer");
+            References(x => x.PlateManufacturer).Column("plateManufacturer").Cascade.All();
 
             HasMany(x => x.Plates).KeyColumn("heatId");
             //HasMany(x => x.ChemicalComposition).KeyColumn("heatId");

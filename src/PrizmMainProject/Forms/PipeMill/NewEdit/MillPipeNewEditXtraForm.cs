@@ -226,8 +226,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void HeatFill() 
         {
             viewModel.ExtractHeatsCommand.Execute();
+
             heatNumber.Properties.Items.Clear();
-            heatNumber.Properties.Items.Add(new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
 
             foreach (var h in viewModel.Heats)
             {

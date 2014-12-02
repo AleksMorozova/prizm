@@ -8,6 +8,7 @@ namespace Domain.Entity.Mill
         public Heat()
         {
             this.Plates = new List<Plate>();
+            this.PlateManufacturer = new PlateManufacturer();
             //this.PhysicalParameters = new List<PhysicalParameters>();
             //this.ChemicalComposition = new List<ChemicalComposition>();
         }
