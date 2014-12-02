@@ -97,6 +97,7 @@ namespace PrizmMain.Forms.Settings
             resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
+            pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
             plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
         }

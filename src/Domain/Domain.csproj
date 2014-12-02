@@ -74,11 +74,14 @@
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
-    <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs" />
+    <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Entity\Setup\Project.cs" />
     <Compile Include="Entity\Setup\Role.cs" />
     <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
+    <Compile Include="Entity\Setup\WorkstationType.cs" />
     <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializable Entity\Mill\SerializableHeat.cs" />

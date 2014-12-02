@@ -64,6 +64,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindToViewModel();
 
             ControlsDeactivation(this);
+            CheckRegex();
         }
 
         private void ControlsDeactivation(Control control)
@@ -193,6 +194,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
 
             inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+
             #endregion
 
 
@@ -604,6 +606,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 viewModel.PipeDeactivationCommand.Execute();
                 ControlsDeactivation(this);
+            }
+        }
+
+        private void CheckRegex()
+        {
+            if (viewModel.Regex != null && viewModel.Regex != String.Empty)
+            {
+                pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                pipeNumber.Properties.Mask.EditMask = viewModel.Regex;
             }
         }
     }
