@@ -252,6 +252,5 @@ namespace PrizmMain.Forms.Settings
                 PipeTests.Add(t);
             }
         }
-
     }
 }
