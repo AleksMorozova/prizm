@@ -151,6 +151,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Срок действия истек.
+        /// </summary>
+        internal static string DATA_EXPIRED {
+            get {
+                return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         internal static string DLG_ERROR_HEADER {
