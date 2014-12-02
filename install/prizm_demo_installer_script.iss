@@ -8,7 +8,7 @@
 #define MyAppExeName "Prizm.Program.exe"
 #define MyAppMigratorExeName "Prizm.DatabaseMigrator.exe"
 #define MyAppExeConfigName MyAppExeName + ".config"
-#define MyDateTimeString GetDateTimeString('dm', '', '');
+#define MyDateTimeString GetDateTimeString('yyyy/mm/dd', '_', '');
 #define DevExpressPath GetEnv('DEV_EXPRESS14_PATH')
 #define PrizmExternalPath GetEnv('PRIZM_EXTERNAL')
 
