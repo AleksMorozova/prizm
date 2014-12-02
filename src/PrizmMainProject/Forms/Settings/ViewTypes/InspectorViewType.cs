@@ -28,6 +28,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          this.inspector = new Inspector();
          this.inspector.IsActive = true;
          CheckName();
+         CheckCertificate();
       }
 
       public override string FirstName
@@ -89,6 +90,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
          }
          set
          {
+             CheckCertificate();
             if (value != inspector.Certificates)
             {
                inspector.Certificates = value;
@@ -96,6 +98,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
             }
          }
       }
+
       public override bool Active
       {
          get
@@ -116,6 +119,14 @@ namespace PrizmMain.Forms.Settings.ViewTypes
       {
          if (inspector.Name == null)
             inspector.Name = new PersonName();
+      }
+
+      private void CheckCertificate()
+      {
+          if (inspector.Certificates == null)
+          {
+              inspector.Certificates = new BindingList<InspectorCertificate>();
+          }
       }
 
       

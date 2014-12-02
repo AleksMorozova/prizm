@@ -253,5 +253,12 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+
+        internal void AddInspectorCertificate(InspectorViewType insp)
+        {
+            var current = Inspectors.Where(x => x.Inspector.Id == insp.Inspector.Id).Take(1);
+            int q;
+         
+        }
     }
 }
