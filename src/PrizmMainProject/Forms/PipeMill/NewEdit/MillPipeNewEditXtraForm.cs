@@ -187,6 +187,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspections.DataBindings
                 .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
 
+
+            coatingHistory.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "Coats");
+            weldingHistory.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "Welds");
+
+
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             millStatus.DataBindings
@@ -219,9 +226,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
             coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
             repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
-            
-            coatDataSource.DataSource = viewModel.Pipe;
-            
+
         }
 
         private void HeatFill() 
@@ -445,7 +450,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// <summary>
         ///Customizes data shown in Expected result column
         /// </summary>
-
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
@@ -489,6 +493,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               weld.Pipe = viewModel.Pipe;
            }
         }
+
         private void heatButton_Click(object sender, EventArgs e)
         {
             var heatForm = new HeatXtraForm(heatNumber.Text);
@@ -594,7 +599,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             HeatFill();
         }
-
 
         private void deactivate_Modified(object sender, EventArgs e)
         {

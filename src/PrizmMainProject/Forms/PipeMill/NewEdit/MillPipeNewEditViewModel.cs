@@ -86,8 +86,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-               
-
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
@@ -122,6 +120,32 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
             if (tests!=null)
             AvailableTests = new BindingList<PipeTest>(tests);
+        }
+
+        public BindingList<Coat> Coats
+        {
+            get { return new BindingList<Coat>(Pipe.Coats); }
+            set
+            {
+                if (value != Pipe.Coats)
+                {
+                    Pipe.Coats = value;
+                    RaisePropertyChanged("Coats");
+                }
+            }
+        }
+
+        public BindingList<Weld> Welds
+        {
+            get { return new BindingList<Weld>(Pipe.Welds); }
+            set
+            {
+                if (value != Pipe.Coats)
+                {
+                    Pipe.Welds = value;
+                    RaisePropertyChanged("Welds");
+                }
+            }
         }
 
         public IList<EnumWrapper<PipeMillStatus>> StatusTypes
