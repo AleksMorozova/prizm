@@ -35,7 +35,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractHeatsCommand extractHeatsCommand;
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
-        private readonly ChangePipeSizeCommand changePipeSizeCommand;
         private readonly GetPipeCommand getPipeCommand;
         private readonly IUserNotify notify;
 
@@ -67,9 +66,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             savePipeCommand =
                 ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify));
-
-            changePipeSizeCommand =
-    ViewModelSource.Create(() => new ChangePipeSizeCommand(this, repoMill, notify));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
@@ -543,11 +539,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
         #endregion
-
-        public ICommand ChangePipeSizeCommand
-        {
-            get { return changePipeSizeCommand; }
-        }
 
         public ICommand NewSavePipeCommand
         {

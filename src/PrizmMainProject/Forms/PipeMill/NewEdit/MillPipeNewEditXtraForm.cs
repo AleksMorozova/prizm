@@ -32,8 +32,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
-        private PipeMillSizeType type=null;
-        private bool isFirst=true;
+        private PipeMillSizeType currentPipeType = null;
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -64,7 +63,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
-
             ControlsDeactivation(this);
         }
 
@@ -590,53 +588,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            if (viewModel.IsNew == false)
+            if (pipeSize.SelectedIndex>=0)
             {
-                isFirst = false;
-                type = viewModel.PipeMillSizeType;
-            }
-
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-
-            if (isFirst == true)
-            {
+                currentPipeType = (PipeMillSizeType)e.NewValue;
                 if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
                 {
-                    viewModel.PipeMillSizeType = currentPipeType;
-                    type = currentPipeType;
-                    viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                    viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                    inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-                    inspections.RefreshDataSource();
-                    isFirst = false;
+                    if (viewModel.IsAnyInspectionResult() > 0) 
+                    {
+                        if (viewModel.IsNew == true)
+                        {
+                            if (this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader)!=true)
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        else
+                        {
+                            this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
+                            e.Cancel = true;
+                        }
+                    } 
                 }
             }
-            else
-            {
-                viewModel.ChangePipeSizeCommand.Execute();
-
-                if (viewModel.ChangePipeSizeCommand.CanExecute())
-                {
-                    viewModel.PipeMillSizeType = currentPipeType;
-                    type = currentPipeType;
-                    viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                    viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                    inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-                    inspections.RefreshDataSource();
-                    isFirst = false;
-                }
-
-                else
-                {
-                    e.Cancel = true;
-                    pipeSize.SelectedItem = e.OldValue;
-                }
-            }
-            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
         
         /// <summary>
@@ -644,13 +617,26 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void RefreshPipeTest(PipeMillSizeType currentPipeType)
         {
-            viewModel.PipeMillSizeType = currentPipeType;
-            type = currentPipeType;
-            viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-            viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-            inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-            inspections.RefreshDataSource();
-            isFirst = false;
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                inspections.RefreshDataSource();
+            }
+
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            RefreshPipeTest(currentPipeType);
         }
     }
 }

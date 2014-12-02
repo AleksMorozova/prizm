@@ -34,5 +34,17 @@ namespace PrizmMain.Forms.MainChildForm
         public virtual bool IsModified { get; set; }
 
         public event System.Action<bool> Modified;
+
+        public PrizmApplicationXtraForm MdiParent 
+        { 
+            get 
+            { 
+                return base.MdiParent as PrizmApplicationXtraForm; 
+            } 
+            set 
+            { 
+                base.MdiParent = value; 
+            } 
+        }
     }
 }

@@ -1220,6 +1220,7 @@
             this.pipeSize.Size = new System.Drawing.Size(166, 20);
             this.pipeSize.StyleController = this.generalPipeLayout;
             this.pipeSize.TabIndex = 1;
+            this.pipeSize.SelectedIndexChanged += new System.EventHandler(this.pipeSize_SelectedIndexChanged);
             this.pipeSize.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.pipeSize_EditValueChanging);
             // 
             // generalPipeLayout
