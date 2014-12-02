@@ -14,10 +14,14 @@ namespace Data.DAL.Mapping
         public WelderMap()
         {
             Table("Welder");
-            Map(_ => _.Certificate).Column("certificate");
-            Map(_ => _.CertificateExpiration).Column("certificateExpiration");
             Map(_ => _.Stamp).Column("stamp");
             Map(_ => _.Grade).Column("grade");
+            Component<Certificate>(x => x.Certificate, m =>
+                {
+                    m.Map(x => x.Number).Column("certificate");
+                    m.Map(x => x.ExpirationDate).Column("certificateExpiration");
+                }
+                );
             Component<PersonName>(x => x.Name, m =>
                {
                   m.Map(x => x.FirstName).Column("firstName");
