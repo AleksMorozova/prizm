@@ -62,7 +62,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
-
             ControlsDeactivation(this);
         }
 
@@ -99,7 +98,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-
 
         private void BindToViewModel()
         {
@@ -309,29 +307,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
-        }
-
-        /// <summary>
-        /// Refreshes list of required pipe test results if mill size type was changed
-        /// </summary>
-        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-
-            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            {
-                viewModel.PipeMillSizeType = currentPipeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-                inspections.RefreshDataSource();
-            }
-
-            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
@@ -605,6 +580,63 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.PipeDeactivationCommand.Execute();
                 ControlsDeactivation(this);
             }
+        }
+
+        /// <summary>
+        /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
+        /// </summary>
+        private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            PipeMillSizeType currentPipeType;
+            if (pipeSize.SelectedIndex>=0)
+            {
+                currentPipeType = (PipeMillSizeType)e.NewValue;
+                if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+                {
+                    if (viewModel.IsAnyInspectionResult() > 0) 
+                    {
+                        if (viewModel.IsNew == true)
+                        {
+                            if (this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader)!=true)
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        else
+                        {
+                            this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
+                            e.Cancel = true;
+                        }
+                    } 
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Refreshes list of required pipe test 
+        /// </summary>
+        private void RefreshPipeTest(PipeMillSizeType currentPipeType)
+        {
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                inspections.RefreshDataSource();
+            }
+
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            RefreshPipeTest(currentPipeType);
         }
     }
 }
