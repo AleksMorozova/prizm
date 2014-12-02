@@ -90,14 +90,16 @@ namespace PrizmMain.Forms.Settings
         private void BindToViewModel()
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
-            inspectionBindingSource.DataSource = viewModel.Inspectors;
+            inspectorBindingSource.DataSource = viewModel.Inspectors;
+            //inspectionBindingSource.DataMember = "Inspectors";
+            inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
+            inspectorCertificateBindingSource.DataMember = "Certificates";
 
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
-            gridControlInspectors.DataSource = inspectionBindingSource;
-            gridControlInspectorsCertificates.DataSource = inspectionBindingSource;
-            gridControlInspectorsCertificates.DataMember = "Certificates";
+            gridControlInspectors.DataSource = inspectorBindingSource;
+            gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
@@ -230,14 +232,15 @@ namespace PrizmMain.Forms.Settings
         private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType;
-            viewModel.AddInspectorCertificate(insp);
+            var id = insp.Inspector.Id;
+            viewModel.AddInspectorCertificate(id);
         }
 
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            var gv = sender as GridView;
-            var inspect = (InspectorViewType)gv.GetRow(e.FocusedRowHandle);
-            gridControlInspectorsCertificates.DataSource = inspect;
+            //var gv = sender as GridView;
+            //var inspect = (InspectorViewType)gv.GetRow(e.FocusedRowHandle);
+            //gridControlInspectorsCertificates.DataSource = inspect;
         } 
     }
 

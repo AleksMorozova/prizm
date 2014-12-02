@@ -154,10 +154,10 @@
             this.inspectorCertificateExpiration = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectorFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorLNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colInspectorFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorMNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -178,6 +178,7 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -271,8 +272,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -289,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -1602,8 +1604,8 @@
             // gridViewInspectors
             // 
             this.gridViewInspectors.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colInspectorFirstName,
             this.colInspectorLastName,
+            this.colInspectorFirstName,
             this.colInspectorMiddleName,
             this.colInspectorCertificate,
             this.colInspectorCertExp,
@@ -1617,21 +1619,6 @@
             this.gridViewInspectors.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewInspectors_ValidateRow);
             this.gridViewInspectors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewInspectors_KeyDown);
             // 
-            // colInspectorFirstName
-            // 
-            this.colInspectorFirstName.Caption = "Имя";
-            this.colInspectorFirstName.ColumnEdit = this.inspectorFNRepositoryTextEdit;
-            this.colInspectorFirstName.FieldName = "FirstName";
-            this.colInspectorFirstName.Name = "colInspectorFirstName";
-            this.colInspectorFirstName.Visible = true;
-            this.colInspectorFirstName.VisibleIndex = 0;
-            this.colInspectorFirstName.Width = 199;
-            // 
-            // inspectorFNRepositoryTextEdit
-            // 
-            this.inspectorFNRepositoryTextEdit.AutoHeight = false;
-            this.inspectorFNRepositoryTextEdit.Name = "inspectorFNRepositoryTextEdit";
-            // 
             // colInspectorLastName
             // 
             this.colInspectorLastName.Caption = "Фамилия";
@@ -1639,13 +1626,28 @@
             this.colInspectorLastName.FieldName = "LastName";
             this.colInspectorLastName.Name = "colInspectorLastName";
             this.colInspectorLastName.Visible = true;
-            this.colInspectorLastName.VisibleIndex = 1;
+            this.colInspectorLastName.VisibleIndex = 0;
             this.colInspectorLastName.Width = 199;
             // 
             // inspectorLNRepositoryTextEdit
             // 
             this.inspectorLNRepositoryTextEdit.AutoHeight = false;
             this.inspectorLNRepositoryTextEdit.Name = "inspectorLNRepositoryTextEdit";
+            // 
+            // colInspectorFirstName
+            // 
+            this.colInspectorFirstName.Caption = "Имя";
+            this.colInspectorFirstName.ColumnEdit = this.inspectorFNRepositoryTextEdit;
+            this.colInspectorFirstName.FieldName = "FirstName";
+            this.colInspectorFirstName.Name = "colInspectorFirstName";
+            this.colInspectorFirstName.Visible = true;
+            this.colInspectorFirstName.VisibleIndex = 1;
+            this.colInspectorFirstName.Width = 199;
+            // 
+            // inspectorFNRepositoryTextEdit
+            // 
+            this.inspectorFNRepositoryTextEdit.AutoHeight = false;
+            this.inspectorFNRepositoryTextEdit.Name = "inspectorFNRepositoryTextEdit";
             // 
             // colInspectorMiddleName
             // 
@@ -1940,8 +1942,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -1958,6 +1960,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2111,5 +2114,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateExpiration;
         private DevExpress.XtraLayout.LayoutControlItem inspectorCertificatesLayoutControl;
         private System.Windows.Forms.BindingSource inspectorBindingSource;
+        private System.Windows.Forms.BindingSource inspectorCertificateBindingSource;
     }
 }

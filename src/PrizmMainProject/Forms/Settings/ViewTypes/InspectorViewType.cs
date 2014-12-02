@@ -94,7 +94,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
             if (value != inspector.Certificates)
             {
                inspector.Certificates = value;
-               FirePropertyChanged("Certificate");
+               FirePropertyChanged("Certificates");
             }
          }
       }
