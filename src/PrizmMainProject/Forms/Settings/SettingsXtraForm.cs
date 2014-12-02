@@ -197,6 +197,11 @@ namespace PrizmMain.Forms.Settings
            view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
         }
 
+        private void inspectorCertificateGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+
+        }
+
         private void SetControlsTextLength()
         {
             client.Properties.MaxLength = LengthLimit.MaxProjectClient;
@@ -226,8 +231,6 @@ namespace PrizmMain.Forms.Settings
         {
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType;
             viewModel.AddInspectorCertificate(insp);
-
-
         }
 
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
@@ -235,8 +238,7 @@ namespace PrizmMain.Forms.Settings
             var gv = sender as GridView;
             var inspect = (InspectorViewType)gv.GetRow(e.FocusedRowHandle);
             gridControlInspectorsCertificates.DataSource = inspect;
-        }
-        
+        } 
     }
 
 }
