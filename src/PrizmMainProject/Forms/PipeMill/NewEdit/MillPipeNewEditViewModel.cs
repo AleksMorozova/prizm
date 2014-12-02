@@ -50,6 +50,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public bool CanDeactivatePipe { get; set; }
 
         public bool IsNew { get; set; }
+        public bool IsModify { get; set; }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
@@ -549,7 +550,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand NewSavePipeCommand
         {
-            get { return newSavePipeCommand; }
+            get { /*this.IsNew = true*/ return newSavePipeCommand; }
         }
 
         public ICommand ExtractHeatsCommand
@@ -564,7 +565,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand SavePipeCommand
         {
-            get {return savePipeCommand; }
+            get { /*this.IsNew = false*/; return savePipeCommand; }
         }
 
         public ICommand PipeDeactivationCommand

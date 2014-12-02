@@ -26,33 +26,32 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.notify = notify;
         }
 
-        //[Command(UseCommandManager = false)]
         public void Execute()
         {
             if (viewModel.IsAnyInspectionResult() > 0)
             {
                 if (viewModel.IsNew == true)
                 {
-                    if (notify.ShowYesNo("Вы действительно хотите изменить типоразмер трубы?", "Изменение типоразмера"))
+                    if (notify.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader))
                     {
                         condition = true;
                     }
                     else
                     {
+                        viewModel.IsModify = false;
                         condition = false;
                     }
                 }
                 else
                 {
-                    notify.ShowFailure("Нельзя изменить типоразмер", "Изменение типоразмера");
+                    notify.ShowFailure(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
                     condition = false;
                 }
             }
-
-            else 
-            {
-                notify.ShowNotify("Вы изменили типоразмер", "Изменение типоразмера");
-            }
+            //else 
+            //{
+            //    notify.ShowNotify("Вы изменили типоразмер", Resources.PipeSizeChangeHeader);
+            //}
         }
         
         public bool CanExecute()

@@ -314,65 +314,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
-        /// <summary>
-        /// Refreshes list of required pipe test results if mill size type was changed
-        /// </summary>
-        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (viewModel.IsNew == false)
-            //{
-            //    isFirst = false;
-            //    type = viewModel.PipeMillSizeType;
-            //}
-
-            //ComboBoxEdit cb = sender as ComboBoxEdit;
-            //Domain.Entity.Setup.PipeMillSizeType currentPipeType
-            //    = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-
-            //if (isFirst == true)
-            //{
-            //    if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            //    {
-            //        viewModel.PipeMillSizeType = currentPipeType;
-            //        type = currentPipeType;
-            //        viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-            //        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-            //        inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-            //        inspections.RefreshDataSource();
-            //        isFirst = false;
-            //        viewModel.IsModify = true;
-            //    }
-            //}
-            //else 
-            //{
-            //    viewModel.ChangePipeSizeCommand.Execute();
-
-            //    if (viewModel.ChangePipeSizeCommand.CanExecute())
-            //    {
-            //        viewModel.PipeMillSizeType = currentPipeType;
-            //        type = currentPipeType;
-            //        viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-            //        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-            //        inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-            //        inspections.RefreshDataSource();
-            //        isFirst = false;
-            //        //viewModel.IsModify = true;
-            //    }
-
-            //    else 
-            //    {
-            //        //viewModel.IsModify = false;
-            //        currentPipeType = type;
-            //        pipeSize.SelectedItem = type;
-                    
-
-            //    }
-            //}
-            //viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            //viewModel.SavePipeCommand.IsExecutable ^= true;
-            //viewModel.NewSavePipeCommand.IsExecutable ^= true;
-        }
-
         private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
@@ -644,7 +585,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        private void pipeSize_Modified(object sender, EventArgs e)
+        /// <summary>
+        /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
+        /// </summary>
+        private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
             if (viewModel.IsNew == false)
             {
@@ -667,7 +611,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
                     inspections.RefreshDataSource();
                     isFirst = false;
-                    
                 }
             }
             else
@@ -687,15 +630,27 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
                 else
                 {
-                    currentPipeType = type;
-                    pipeSize.SelectedItem = type;
-
-
+                    e.Cancel = true;
+                    pipeSize.SelectedItem = e.OldValue;
                 }
             }
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+        
+        /// <summary>
+        ///Refreshes list of required pipe test 
+        /// </summary>
+        private void RefreshPipeTest(PipeMillSizeType currentPipeType)
+        {
+            viewModel.PipeMillSizeType = currentPipeType;
+            type = currentPipeType;
+            viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+            viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+            inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+            inspections.RefreshDataSource();
+            isFirst = false;
         }
     }
 }
