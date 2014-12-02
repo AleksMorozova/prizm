@@ -540,7 +540,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand NewSavePipeCommand
         {
-            get { /*this.IsNew = true*/ return newSavePipeCommand; }
+            get { return newSavePipeCommand; }
         }
 
         public ICommand ExtractHeatsCommand
@@ -555,7 +555,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand SavePipeCommand
         {
-            get { /*this.IsNew = false*/; return savePipeCommand; }
+            get { this.IsNew = false; return savePipeCommand; }
         }
 
         public ICommand PipeDeactivationCommand
@@ -661,7 +661,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             int count = 0; 
             foreach (PipeTestResult test in pipeTestResults)
             {
-                if ((test.Status.ToString() == "Failed") || (test.Status.ToString() == "Passed"))
+                if ((test.Status.ToString() == PipeTestResultStatus.Failed.ToString()) || (test.Status.ToString() == PipeTestResultStatus.Passed.ToString()))
                 {
                     count++;
                 }

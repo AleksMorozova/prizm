@@ -32,7 +32,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
-        private PipeMillSizeType currentPipeType = null;
 
         public MillPipeNewEditXtraForm(Guid pipeId)
         {
@@ -588,6 +587,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
+            PipeMillSizeType currentPipeType;
             if (pipeSize.SelectedIndex>=0)
             {
                 currentPipeType = (PipeMillSizeType)e.NewValue;
