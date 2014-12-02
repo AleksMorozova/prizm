@@ -252,13 +252,5 @@ namespace PrizmMain.Forms.Settings
                 PipeTests.Add(t);
             }
         }
-
-
-        internal void AddInspectorCertificate(Guid insp)
-        {
-            var i = Inspectors.Where(x => x.Inspector.Id == insp).SingleOrDefault<InspectorViewType>();
-            i.Certificates.Add(new InspectorCertificate() { Inspector=i.Inspector,Certificate = new Certificate()});
-            Console.WriteLine();
-        }
     }
 }

@@ -201,7 +201,9 @@ namespace PrizmMain.Forms.Settings
 
         private void inspectorCertificateGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-
+            GridView view = sender as GridView;
+            var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
+            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.Certificate.IsNew());
         }
 
         private void SetControlsTextLength()
@@ -231,16 +233,23 @@ namespace PrizmMain.Forms.Settings
 
         private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType;
-            var id = insp.Inspector.Id;
-            viewModel.AddInspectorCertificate(id);
+            var view = sender as GridView; //cert Grid
+
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
+                InspectorCertificate cert = view.GetRow(e.RowHandle) as InspectorCertificate; //certif from certif grid 
+                if (cert != null)
+                {
+                    cert.Inspector = insp.Inspector;
+                    cert.IsActive = true;
+                    cert.Certificate = new Certificate { ExpirationDate = DateTime.Now };
+                }
+            }
         }
 
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            //var gv = sender as GridView;
-            //var inspect = (InspectorViewType)gv.GetRow(e.FocusedRowHandle);
-            //gridControlInspectorsCertificates.DataSource = inspect;
         } 
     }
 

@@ -15,12 +15,6 @@ namespace Data.DAL.Mapping
         {
             Table("InspectorCertificate");
             References(x => x.Inspector).Column("inspectorId");
-            //HasMany<Certificate>(x => x.Certificates)
-            //    .Component(x => 
-            //    {
-            //        x.Map(m => m.Number).Column("number");
-            //        x.Map(m => m.ExpirationDate).Column("expirationDate");
-            //    });
             Component<Certificate>(x => x.Certificate, m =>
             {
                 m.Map(x => x.Number).Column("Number");
