@@ -96,7 +96,7 @@ namespace PrizmMain.Forms.Settings
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
-            design.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
+            millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Designer");
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
             plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
         }
@@ -195,7 +195,8 @@ namespace PrizmMain.Forms.Settings
         private void SetControlsTextLength()
         {
             client.Properties.MaxLength = LengthLimit.MaxProjectClient;
-            design.Properties.MaxLength = LengthLimit.MaxProjectDesigner;
+            millName.Properties.MaxLength = LengthLimit.MaxProjectDesigner;
+            pipeNumberMask.Properties.MaxLength = LengthLimit.MaxPipeNumber;
             manufacturerRepositoryTextEdit.MaxLength = LengthLimit.MaxPlateManufacturerName;
             typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipetestResultType;
             codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
