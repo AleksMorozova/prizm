@@ -47,9 +47,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-
+                
         public bool CanDeactivatePipe { get; set; }
-        
+
+        public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
@@ -57,7 +58,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repoMill = repoMill;
             this.notify = notify;
             this.PipeId = pipeId;
-
+            
             pipeDeactivationCommand =
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
 
@@ -88,8 +89,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-               
-
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
@@ -539,7 +538,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
-
         public ICommand NewSavePipeCommand
         {
             get { return newSavePipeCommand; }
@@ -656,7 +654,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             return requiredTestResults;
         }
-        
+
+        public int IsAnyInspectionResult()
+        {
+            int count = 0; 
+            foreach (PipeTestResult test in pipeTestResults)
+            {
+                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
          private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();

@@ -75,5 +75,17 @@ namespace PrizmMain.Forms.MainChildForm
         }
 
         public event System.Action<bool> Modified = delegate { };
+
+        public PrizmApplicationXtraForm MdiParent 
+        { 
+            get 
+            { 
+                return base.MdiParent as PrizmApplicationXtraForm; 
+            } 
+            set 
+            { 
+                base.MdiParent = value; 
+            } 
+        }
     }
 }
