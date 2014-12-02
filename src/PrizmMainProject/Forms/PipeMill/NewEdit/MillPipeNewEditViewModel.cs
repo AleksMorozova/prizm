@@ -124,7 +124,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// </summary>
         private void GetAvailableTests()
         {
-            var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type).ToList<PipeTest>();
+            var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
+            if (tests!=null)
             AvailableTests = new BindingList<PipeTest>(tests);
         }
 
