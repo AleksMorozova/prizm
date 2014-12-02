@@ -258,4 +258,7 @@
   <data name="DATA_EXPIRED" xml:space="preserve">
     <value>Срок действия истек</value>
   </data>
+  <data name="NewOrderCombo" xml:space="preserve">
+    <value>&lt; Создать наряд-заказ&gt;</value>
+  </data>
 </root>

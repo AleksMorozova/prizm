@@ -109,10 +109,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             HeatFill();
 
-            foreach (var p in viewModel.PurchaseOrders)
-            {
-                purchaseOrder.Properties.Items.Add(p);
-            }
+            PurchaseOrderFill();
+
             foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
@@ -233,6 +231,18 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             foreach (var h in viewModel.Heats)
             {
                 heatNumber.Properties.Items.Add(h);
+            }
+        }
+
+        private void PurchaseOrderFill()
+        {
+            viewModel.ExtractPurchaseOrderCommand.Execute();
+            purchaseOrder.Properties.Items.Clear();
+            purchaseOrder.Properties.Items.Insert(0, Resources.NewOrderCombo);
+
+            foreach (var h in viewModel.PurchaseOrders)
+            {
+                purchaseOrder.Properties.Items.Add(h);
             }
         }
 
@@ -506,6 +516,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(id);
             form.ShowDialog();
+            PurchaseOrderFill();
         }
 
         private void SetControlsTextLength()

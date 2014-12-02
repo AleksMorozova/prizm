@@ -421,6 +421,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt; Создать наряд-заказ&gt;.
+        /// </summary>
+        internal static string NewOrderCombo {
+            get {
+                return ResourceManager.GetString("NewOrderCombo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Пройден.
         /// </summary>
         internal static string Passed {
