@@ -255,4 +255,7 @@
   <data name="AlertFailureReportDate" xml:space="preserve">
     <value>Начальная дата позже конечной</value>
   </data>
+  <data name="DATA_EXPIRED" xml:space="preserve">
+    <value>Срок действия истек</value>
+  </data>
 </root>

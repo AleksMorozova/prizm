@@ -150,8 +150,8 @@
             this.layoutControlInspectors = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlInspectorsCertificates = new DevExpress.XtraGrid.GridControl();
             this.inspectorCertificateGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.inspectorCertificateNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectorCertificateExpiration = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorCertificateNumberCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorCertificateExpirationCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1558,31 +1558,32 @@
             // inspectorCertificateGridView
             // 
             this.inspectorCertificateGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.inspectorCertificateNumber,
-            this.inspectorCertificateExpiration});
+            this.inspectorCertificateNumberCol,
+            this.inspectorCertificateExpirationCol});
             this.inspectorCertificateGridView.GridControl = this.gridControlInspectorsCertificates;
             this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
             this.inspectorCertificateGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.inspectorCertificateGridView.OptionsCustomization.AllowGroup = false;
             this.inspectorCertificateGridView.OptionsView.ShowGroupPanel = false;
             this.inspectorCertificateGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectorCertificateGridView_InitNewRow);
+            this.inspectorCertificateGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectorCertificateGridView_ValidateRow);
             this.inspectorCertificateGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectorCertificateGridView_KeyDown);
             // 
-            // inspectorCertificateNumber
+            // inspectorCertificateNumberCol
             // 
-            this.inspectorCertificateNumber.Caption = "Номер";
-            this.inspectorCertificateNumber.FieldName = "Certificate.Number";
-            this.inspectorCertificateNumber.Name = "inspectorCertificateNumber";
-            this.inspectorCertificateNumber.Visible = true;
-            this.inspectorCertificateNumber.VisibleIndex = 0;
+            this.inspectorCertificateNumberCol.Caption = "Номер";
+            this.inspectorCertificateNumberCol.FieldName = "Certificate.Number";
+            this.inspectorCertificateNumberCol.Name = "inspectorCertificateNumberCol";
+            this.inspectorCertificateNumberCol.Visible = true;
+            this.inspectorCertificateNumberCol.VisibleIndex = 0;
             // 
-            // inspectorCertificateExpiration
+            // inspectorCertificateExpirationCol
             // 
-            this.inspectorCertificateExpiration.Caption = "Дата окончания";
-            this.inspectorCertificateExpiration.FieldName = "Certificate.ExpirationDate";
-            this.inspectorCertificateExpiration.Name = "inspectorCertificateExpiration";
-            this.inspectorCertificateExpiration.Visible = true;
-            this.inspectorCertificateExpiration.VisibleIndex = 1;
+            this.inspectorCertificateExpirationCol.Caption = "Дата окончания";
+            this.inspectorCertificateExpirationCol.FieldName = "Certificate.ExpirationDate";
+            this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
+            this.inspectorCertificateExpirationCol.Visible = true;
+            this.inspectorCertificateExpirationCol.VisibleIndex = 1;
             // 
             // gridControlInspectors
             // 
@@ -2110,8 +2111,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit inspectorCertificateTextEdit;
         private DevExpress.XtraGrid.GridControl gridControlInspectorsCertificates;
         private DevExpress.XtraGrid.Views.Grid.GridView inspectorCertificateGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateExpiration;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateNumberCol;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateExpirationCol;
         private DevExpress.XtraLayout.LayoutControlItem inspectorCertificatesLayoutControl;
         private System.Windows.Forms.BindingSource inspectorBindingSource;
         private System.Windows.Forms.BindingSource inspectorCertificateBindingSource;

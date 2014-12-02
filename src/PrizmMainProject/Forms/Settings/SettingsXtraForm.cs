@@ -91,7 +91,6 @@ namespace PrizmMain.Forms.Settings
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
             inspectorBindingSource.DataSource = viewModel.Inspectors;
-            //inspectionBindingSource.DataMember = "Inspectors";
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
@@ -165,6 +164,31 @@ namespace PrizmMain.Forms.Settings
         private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
+        } 
+
+        void ValidateCertificate(GridView view, GridColumn certNameColumn, GridColumn expDateColumn, ValidateRowEventArgs e)
+        {
+            string certName = (string)view.GetRowCellValue(e.RowHandle, certNameColumn);
+            DateTime certExpDate = (DateTime)view.GetRowCellValue(e.RowHandle, expDateColumn);
+
+            view.ClearColumnErrors();
+
+            if (string.IsNullOrWhiteSpace(certName))
+            {
+                view.SetColumnError(certNameColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+
+            if (certExpDate < DateTime.Now)
+            {
+                view.SetColumnError(expDateColumn, Resources.DATA_EXPIRED);
+                e.Valid = false;
+            }
         }
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
@@ -250,7 +274,9 @@ namespace PrizmMain.Forms.Settings
 
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-        } 
+        }
+
+
     }
 
 }
