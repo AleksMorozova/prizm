@@ -48,8 +48,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 
         public bool CanDeactivatePipe { get; set; }
 
-        public bool IsNew { get; set; }
-        public bool IsModify { get; set; }
+        public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
@@ -88,7 +87,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-                this.IsNew = false;
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
@@ -555,7 +553,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public ICommand SavePipeCommand
         {
-            get { this.IsNew = false; return savePipeCommand; }
+            get { return savePipeCommand; }
         }
 
         public ICommand PipeDeactivationCommand
@@ -575,8 +573,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;
             this.Pipe.Status = PipeMillStatus.Produced;
-
-            this.IsNew = true;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
@@ -661,7 +657,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             int count = 0; 
             foreach (PipeTestResult test in pipeTestResults)
             {
-                if ((test.Status.ToString() == PipeTestResultStatus.Failed.ToString()) || (test.Status.ToString() == PipeTestResultStatus.Passed.ToString()))
+                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
                 {
                     count++;
                 }
