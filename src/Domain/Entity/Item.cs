@@ -23,10 +23,5 @@ namespace Domain.Entity
             }
         }
 
-        public virtual string GetUser()
-        {
-           //TODO : Implement logic of getting current user
-            return "test user";
-        }
     }
 }

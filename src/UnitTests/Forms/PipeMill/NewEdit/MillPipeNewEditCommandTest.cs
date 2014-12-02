@@ -3,6 +3,7 @@ using Data.DAL.Setup;
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
+using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using System;
@@ -20,7 +21,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
         public void TestMillPipeNewEdit()
         {
             var repoPipe = new Mock<IPipeRepository>();
-
+            var notify = new Mock<IUserNotify>();
             var repoPlate = new Mock<IPlateRepository>();
             var repoHeat = new Mock<IHeatRepository>();
             var repoWeld = new Mock<IWeldRepository>();
@@ -43,15 +44,19 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             millRepos.SetupGet(_ => _.RepoPipeTest).Returns(repoPipeTest.Object);
             millRepos.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
 
+
+
             var viewModel = new MillPipeNewEditViewModel(
                 millRepos.Object,
                 Guid.Empty, 
-                null);
+                notify.Object);
+
+          
 
             var command = new NewSavePipeCommand(
                 viewModel, 
                 millRepos.Object, 
-                null);
+                notify.Object);
 
             command.Execute();
 
