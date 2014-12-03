@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Mill
 {
-    public interface IСategoryRepository : IRepository<Guid, Domain.Entity.Mill.Category>
+    public interface ICategoryRepository : IRepository<Guid, Domain.Entity.Mill.Category>
     {
         
     }

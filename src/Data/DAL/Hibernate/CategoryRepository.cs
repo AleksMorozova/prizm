@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Ninject;
 using NHibernate;
 using Data.DAL.Mill;
+using Domain.Entity.Mill;
 
 namespace Data.DAL.Hibernate
 {
-    public class CategoryRepository: AbstractHibernateRepository<Guid,Domain.Entity.Mill.Category>, IСategoryRepository
+    public class CategoryRepository: AbstractHibernateRepository<Guid, Category>, ICategoryRepository
     {
         [Inject]
         public CategoryRepository(ISession session)

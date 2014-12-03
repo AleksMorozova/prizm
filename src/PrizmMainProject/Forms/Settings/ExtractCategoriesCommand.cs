@@ -29,9 +29,8 @@ namespace PrizmMain.Forms.Settings
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.CategoryTypes 
+            viewModel.CategoryTypes
                 = new BindingList<Category>(repos.СategoryRepo.GetAll());
-
         }
 
 

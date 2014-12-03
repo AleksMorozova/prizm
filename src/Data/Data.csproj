@@ -59,7 +59,7 @@
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
     <Compile Include="DAL\Hibernate\AuditLogRepository.cs" />
-    <Compile Include="DAL\Hibernate\СategoryRepository.cs" />
+    <Compile Include="DAL\Hibernate\CategoryRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
@@ -113,7 +113,7 @@
     <Compile Include="DAL\Mill\IRailcarRepository.cs" />
     <Compile Include="DAL\Mill\IWelderRepository.cs" />
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
-    <Compile Include="DAL\Mill\IСategoryRepository.cs" />
+    <Compile Include="DAL\Mill\ICategoryRepository.cs" />
     <Compile Include="DAL\RepositoryException.cs" />
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
