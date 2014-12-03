@@ -39,6 +39,9 @@ namespace Domain.Entity.Setup
             this.PipeTestResults = new List<PipeTestResult>();
         }
 
+        //category of test
+        public virtual Category Category { get; set; }
+
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
         public virtual string TestSubject { get; set; }
