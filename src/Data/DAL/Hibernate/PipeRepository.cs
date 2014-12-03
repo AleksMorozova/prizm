@@ -38,7 +38,7 @@ namespace Data.DAL.Hibernate
         {
             try
             {
-                return session.QueryOver<Pipe>().Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
+                return session.QueryOver<Pipe>().Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive==true))).List<Pipe>();
             }
             catch (GenericADOException ex)
             {

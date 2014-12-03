@@ -51,6 +51,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
                     repos.Commit();
                     repos.RailcarRepo.Evict(viewModel.Railcar);
+                    viewModel.ModifiableView.IsModified = false;
                     notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
                 }
                 catch (RepositoryException ex)
