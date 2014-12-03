@@ -232,12 +232,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
 
-            
-            coatDataSource.DataSource = viewModel.Pipe;
-
             coatDataSource.ListChanged += (s, eve) => IsModified = true; 
-            coatDataSource.DataSource = viewModel.Pipe;
-            
+
+            coatDataSource.DataSource = viewModel.Pipe; 
         }
 
         private void HeatFill() 
