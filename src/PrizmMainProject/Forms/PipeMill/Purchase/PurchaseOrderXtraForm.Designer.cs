@@ -99,7 +99,6 @@
             // 
             // saveButton
             // 
-            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.Location = new System.Drawing.Point(171, 66);
             this.saveButton.Name = "saveButton";
@@ -107,10 +106,10 @@
             this.saveButton.StyleController = this.purchaseOrderLayout;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
             this.cancelButton.Location = new System.Drawing.Point(281, 66);
             this.cancelButton.Name = "cancelButton";
@@ -118,6 +117,7 @@
             this.cancelButton.StyleController = this.purchaseOrderLayout;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Отменить";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // purchaseOrderLayoutGroup
             // 
@@ -227,10 +227,8 @@
             // 
             // PurchaseOrderXtraForm
             // 
-            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(389, 129);
             this.Controls.Add(this.purchaseOrderLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

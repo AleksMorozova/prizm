@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,14 @@ namespace PrizmMain.Forms.PipeMill.Purchase
     {
         IPurchaseOrderRepository repo;
         PurchaseOrderViewModel viewModel;
+        IUserNotify notify;
 
         [Inject]
-        public SaveOrderCommand(IPurchaseOrderRepository repo, PurchaseOrderViewModel viewModel)
+        public SaveOrderCommand(IPurchaseOrderRepository repo, PurchaseOrderViewModel viewModel, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -27,12 +30,17 @@ namespace PrizmMain.Forms.PipeMill.Purchase
         {
             if (string.IsNullOrWhiteSpace(viewModel.Order.Number))
             {
-                //notify
-                return;
+                viewModel.IsSaved = false;
+                notify.ShowError(Resources.DLG_ORDER_NUMBER_REQUIRED, Resources.DLG_ERROR_HEADER);
             }
-            repo.BeginTransaction();
-            repo.SaveOrUpdate(viewModel.Order);
-            repo.Commit();
+            else
+            {
+                repo.BeginTransaction();
+                repo.SaveOrUpdate(viewModel.Order);
+                repo.Commit();
+                viewModel.IsSaved = true;
+            }
+            
         }
 
         public bool CanExecute()

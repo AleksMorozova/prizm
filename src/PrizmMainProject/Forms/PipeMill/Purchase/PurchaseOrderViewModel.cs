@@ -16,14 +16,18 @@ namespace PrizmMain.Forms.PipeMill.Purchase
     {
         private readonly IPurchaseOrderRepository repo;
         private readonly SaveOrderCommand saveCommand;
+        private readonly IUserNotify notify;
+
+        public bool IsSaved = false;
 
         private PurchaseOrder order;
 
         [Inject]
-        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, Guid id)
+        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, Guid id, IUserNotify notify)
         {
             this.repo = repo;
-            saveCommand = ViewModelSource.Create(() => new SaveOrderCommand(repo, this));
+            this.notify = notify;
+            saveCommand = ViewModelSource.Create(() => new SaveOrderCommand(repo, this, notify));
 
             if (id == Guid.Empty)
             {

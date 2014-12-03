@@ -32,13 +32,7 @@ namespace PrizmMain.Forms.PipeMill
 
         private void PurchaseOrderXtraForm_Load(object sender, EventArgs e)
         {
-            BindCommands();
             BindToViewModel();
-        }
-
-        private void BindCommands()
-        {
-            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
         }
 
         private void BindToViewModel()
@@ -48,6 +42,19 @@ namespace PrizmMain.Forms.PipeMill
             date.DataBindings.Add("EditValue", bindingSource, "Date");
         }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            viewModel.SaveCommand.Execute();
+            if (viewModel.IsSaved == true)
+            {
+                this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
+        }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
