@@ -1,4 +1,5 @@
-﻿using Data.DAL.Mill;
+﻿using Data.DAL;
+using Data.DAL.Mill;
 using Data.DAL.Setup;
 using Domain.Entity.Mill;
 using Moq;
@@ -31,6 +32,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             var repoPipeTestResult = new Mock<IPipeTestResultRepository>();
             var repoPipeTest = new Mock<IPipeTestRepository>();
             var repoInspector = new Mock<IInspectorRepository>();
+            var repoProject = new Mock<IProjectRepository>();
 
             Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
             millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
@@ -43,6 +45,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             millRepos.SetupGet(_ => _.RepoPipeTestResult).Returns(repoPipeTestResult.Object);
             millRepos.SetupGet(_ => _.RepoPipeTest).Returns(repoPipeTest.Object);
             millRepos.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
+            millRepos.SetupGet(_ => _.RepoProject).Returns(repoProject.Object);
 
 
 

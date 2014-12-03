@@ -110,18 +110,18 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        public string Designer
+        public string MillName
         {
             get 
             {
-                return CurrentProjectSettings.Designer;
+                return CurrentProjectSettings.MillName;
             }
             set
             {
-                if (value != CurrentProjectSettings.Designer)
+                if (value != CurrentProjectSettings.MillName)
                 {
-                    CurrentProjectSettings.Designer = value;
-                    RaisePropertyChanged("Designer");
+                    CurrentProjectSettings.MillName = value;
+                    RaisePropertyChanged("MillName");
                 }
             }
         }
@@ -141,6 +141,40 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
+
+        public string MillPipeNumberMask
+        {
+            get
+            {
+                return CurrentProjectSettings.MillPipeNumberMask;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.MillPipeNumberMask)
+                {
+                    CurrentProjectSettings.MillPipeNumberMask = value;
+                    StringBuilder mask = new StringBuilder();
+                    foreach (char ch in CurrentProjectSettings.MillPipeNumberMask)
+                    {
+                        string convertedToRegex = "";
+                        switch (ch)
+                        { 
+                            case '#': convertedToRegex = @"\d";break;
+                            case '@': convertedToRegex = @"\p{L}"; break;
+                            case '%': convertedToRegex = @"(\d|\p{L})"; break;
+                            case '&': convertedToRegex = @"\w"; break;
+                            default: convertedToRegex = ch.ToString(); break;
+
+                        }
+                        mask.Append(convertedToRegex);
+                    }
+                    CurrentProjectSettings.MillPipeNumberMaskRegexp = mask.ToString();
+                    RaisePropertiesChanged("MillPipeNumberMask");
+                }
+            }
+
+        }
+
         #endregion
 
         #region Plate Manufacturers
@@ -216,13 +250,7 @@ namespace PrizmMain.Forms.Settings
         private void GetProjectSettings()
         {
 
-            CurrentProjectSettings = (repos.ProjectRepo.GetSingle() == null) ? new Project()
-                                                                            {
-                                                                                Client = string.Empty,
-                                                                                Designer = string.Empty,
-                                                                                IsActive = true
-                                                                            }
-                                                                        : repos.ProjectRepo.GetSingle();
+            CurrentProjectSettings = repos.ProjectRepo.GetSingle();
         }
 
         private void GetAllManufacturers()
