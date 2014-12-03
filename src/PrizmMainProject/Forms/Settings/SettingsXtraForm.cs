@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
 using PrizmMain.Common;
+using DevExpress.XtraLayout.Customization;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -90,6 +91,8 @@ namespace PrizmMain.Forms.Settings
 
             gridViewWelders.BestFitColumns();
             gridViewInspectors.BestFitColumns();
+
+
         }
 
 
@@ -101,12 +104,29 @@ namespace PrizmMain.Forms.Settings
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+
             inspectionOperation.DataSource = viewModel.PipeTests;
+
             gridControlWelders.DataSource = viewModel.Welders;
             gridControlInspectors.DataSource = inspectorBindingSource;
             gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
+
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
+
+
+            // TODO: remove after fill data adding
+            //====================================================================================
+            var category = new List<Domain.Entity.Mill.Category>();
+            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-1", IsActive = true });
+            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-3" });
+            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-2", IsActive = true });
+            categoriesGrid.DataSource = category;
+            //====================================================================================
+
+            //repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
+            repositoryItemsСategory.DataSource = category;
+
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
             millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");

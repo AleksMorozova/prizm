@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.Settings
       readonly IProjectRepository projectRepo;
       readonly IPlateManufacturerRepository manufacturerRepo;
       readonly IInspectorRepository inspectorRepo;
+      readonly IСategoryRepository categoryRepo;
       readonly ISession session;
 
       [Inject]
@@ -33,12 +34,20 @@ namespace PrizmMain.Forms.Settings
          this.manufacturerRepo = new PlateManufacturerRepository(session);
          this.inspectorRepo = new InspectorRepository(session);
 
+         this.categoryRepo = new CategoryRepository(session);
       }
 
-      
       public void Dispose()
       {
          session.Dispose();
+      }
+
+      public IСategoryRepository СategoryRepo 
+      {
+          get
+          {
+              return categoryRepo;
+          }
       }
 
       public IWelderRepository WelderRepo

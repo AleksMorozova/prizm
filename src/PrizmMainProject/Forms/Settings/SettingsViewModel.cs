@@ -28,7 +28,10 @@ namespace PrizmMain.Forms.Settings
         public BindingList<InspectorViewType> Inspectors { get; set; }
         public BindingList<PipeTestControlTypeWrapper> ControlType { get; set; }
         public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
+
         readonly SaveSettingsCommand saveCommand;
+        readonly ExtractCategoriesCommand extractCategoriesCommand;
+
         readonly ISettingsRepositories repos;
         readonly IUserNotify notify;
         private IList<PlateManufacturer> plateManufacturers;
@@ -40,7 +43,14 @@ namespace PrizmMain.Forms.Settings
             NewPipeMillSizeType();  
             this.repos = repos;
             this.notify = notify;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify));
+
+            saveCommand = ViewModelSource
+                .Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify));
+
+            extractCategoriesCommand = ViewModelSource
+                .Create<ExtractCategoriesCommand>(() => new ExtractCategoriesCommand(this, repos, notify));
+
+            this.ExtractCategoriesCommand.Execute();
         }
 
         public void LoadData()
@@ -93,6 +103,11 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
+
+
+        public BindingList<Category> CategoryTypes 
+        { get; set; }
+
 
         #region Current Project Settings
 
@@ -196,9 +211,15 @@ namespace PrizmMain.Forms.Settings
             }
         }
         #endregion
+
         public ICommand SaveCommand
         {
             get { return saveCommand; }
+        }
+
+        public ICommand ExtractCategoriesCommand
+        {
+            get { return extractCategoriesCommand; }
         }
 
         private void GetAllPipeMillSizeType()
