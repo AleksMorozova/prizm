@@ -56,7 +56,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.repoMill = repoMill;
             this.notify = notify;
             this.PipeId = pipeId;
-            
+
+            #region Commands creation
             pipeDeactivationCommand =
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
 
@@ -77,6 +78,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             getPipeCommand =
                 ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
+            #endregion
 
             if (pipeId == Guid.Empty)
             {
@@ -123,9 +125,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             AvailableTests = new BindingList<PipeTest>(tests);
         }
 
+        #region Collection-like properties
         public BindingList<Coat> Coats
         {
-            get { return new BindingList<Coat>(Pipe.Coats); }
+            get
+            {
+                return
+                    (Pipe.Coats is BindingList<Coat>
+                    ? (BindingList<Coat>)Pipe.Coats
+                    : new BindingList<Coat>(Pipe.Coats));
+            }
             set
             {
                 if (value != Pipe.Coats)
@@ -138,7 +147,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public BindingList<Weld> Welds
         {
-            get { return new BindingList<Weld>(Pipe.Welds); }
+            get
+            {
+                return
+                    (Pipe.Welds is BindingList<Weld>
+                    ? (BindingList<Weld>)Pipe.Welds
+                    : new BindingList<Weld>(Pipe.Welds));
+            }
             set
             {
                 if (value != Pipe.Coats)
@@ -200,6 +215,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+        #endregion
 
         #region Pipe
 
@@ -562,6 +578,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
+        #region Commands
         public ICommand NewSavePipeCommand
         {
             get { return newSavePipeCommand; }
@@ -586,7 +603,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return pipeDeactivationCommand; }
         }
-        
+        #endregion
+
 
         public void NewPipe()
         {
