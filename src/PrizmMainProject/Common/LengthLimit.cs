@@ -40,7 +40,7 @@ namespace PrizmMain.Common
         public const int MaxPlateManufacturerName = 50;
         
         public const int MaxProjectClient = 100;
-        public const int MaxProjectDesigner = 100;
+        public const int MaxProjectMillName = 100;
         
         public const int MaxRailcarNumber = 20;
         public const int MaxRailcarCertificate = 20;

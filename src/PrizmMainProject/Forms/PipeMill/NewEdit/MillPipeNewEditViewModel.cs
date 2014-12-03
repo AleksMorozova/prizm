@@ -15,11 +15,12 @@ using System.ComponentModel;
 using Domain.Entity;
 using PrizmMain.Properties;
 using PrizmMain.Common;
+using PrizmMain.Documents;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class MillPipeNewEditViewModel : ViewModelBase, IDisposable
+    public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private readonly IMillRepository repoMill;
 
@@ -36,7 +37,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
         private readonly GetPipeCommand getPipeCommand;
+        private readonly GetRegexCommand getRegexCommand;
         private readonly IUserNotify notify;
+        private IModifiable modifiableView;
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
@@ -45,9 +48,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-
+        public string Regex;
+                
         public bool CanDeactivatePipe { get; set; }
-        
+
+        public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
@@ -56,6 +61,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.notify = notify;
             this.PipeId = pipeId;
 
+            #region Commands creation
             pipeDeactivationCommand =
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
 
@@ -77,17 +83,20 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             getPipeCommand =
                 ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
 
+            getRegexCommand =
+                ViewModelSource.Create(() => new GetRegexCommand(this, repoMill.RepoProject));
+            #endregion
+
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
+                getRegexCommand.Execute();
             }
             else
             {
                 extractPurchaseOrderCommand.Execute();
                 extractHeatsCommand.Execute();
                 extractPipeTypeCommand.Execute();
-               
-
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
@@ -122,6 +131,45 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
             if (tests!=null)
             AvailableTests = new BindingList<PipeTest>(tests);
+        }
+
+        #region Collection-like properties
+        public BindingList<Coat> Coats
+        {
+            get
+            {
+                return
+                    (Pipe.Coats is BindingList<Coat>
+                    ? (BindingList<Coat>)Pipe.Coats
+                    : new BindingList<Coat>(Pipe.Coats));
+            }
+            set
+            {
+                if (value != Pipe.Coats)
+                {
+                    Pipe.Coats = value;
+                    RaisePropertyChanged("Coats");
+                }
+            }
+        }
+
+        public BindingList<Weld> Welds
+        {
+            get
+            {
+                return
+                    (Pipe.Welds is BindingList<Weld>
+                    ? (BindingList<Weld>)Pipe.Welds
+                    : new BindingList<Weld>(Pipe.Welds));
+            }
+            set
+            {
+                if (value != Pipe.Coats)
+                {
+                    Pipe.Welds = value;
+                    RaisePropertyChanged("Welds");
+                }
+            }
         }
 
         public IList<EnumWrapper<PipeMillStatus>> StatusTypes
@@ -175,6 +223,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+        #endregion
 
         #region Pipe
 
@@ -537,7 +586,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         #endregion
 
-
+        #region Commands
         public ICommand NewSavePipeCommand
         {
             get { return newSavePipeCommand; }
@@ -562,7 +611,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return pipeDeactivationCommand; }
         }
-        
+
+
+        public ICommand GetRegexCommand
+        {
+            get { return getRegexCommand; }
+        }
+        #endregion
 
         public void NewPipe()
         {
@@ -591,6 +646,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Dispose()
         {
             repoMill.Dispose();
+            ModifiableView = null;
         }
 
         /// <summary>
@@ -653,7 +709,21 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             return requiredTestResults;
         }
-        
+
+        public int IsAnyInspectionResult()
+        {
+            int count = 0; 
+            foreach (PipeTestResult test in pipeTestResults)
+            {
+                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
          private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
@@ -666,5 +736,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
+
+         public Documents.IModifiable ModifiableView
+         {
+            get
+            {
+               return modifiableView;
+            }
+            set
+            {
+               modifiableView = value;
+            }
+         }
     }
 }

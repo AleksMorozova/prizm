@@ -16,10 +16,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrizmMain.Properties;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Settings
 {
-    public class SettingsViewModel : ViewModelBase, IDisposable
+    public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
@@ -29,14 +30,17 @@ namespace PrizmMain.Forms.Settings
         public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
+        readonly IUserNotify notify;
         private IList<PlateManufacturer> plateManufacturers;
+        private IModifiable modifiable;
 
         [Inject]
-        public SettingsViewModel(ISettingsRepositories repos)
+        public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify)
         {
             NewPipeMillSizeType();  
             this.repos = repos;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos));
+            this.notify = notify;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify));
         }
 
         public void LoadData()
@@ -108,18 +112,18 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-        public string Designer
+        public string MillName
         {
             get 
             {
-                return CurrentProjectSettings.Designer;
+                return CurrentProjectSettings.MillName;
             }
             set
             {
-                if (value != CurrentProjectSettings.Designer)
+                if (value != CurrentProjectSettings.MillName)
                 {
-                    CurrentProjectSettings.Designer = value;
-                    RaisePropertyChanged("Designer");
+                    CurrentProjectSettings.MillName = value;
+                    RaisePropertyChanged("MillName");
                 }
             }
         }
@@ -139,6 +143,40 @@ namespace PrizmMain.Forms.Settings
                 }
             }
         }
+
+        public string MillPipeNumberMask
+        {
+            get
+            {
+                return CurrentProjectSettings.MillPipeNumberMask;
+            }
+            set
+            {
+                if (value != CurrentProjectSettings.MillPipeNumberMask)
+                {
+                    CurrentProjectSettings.MillPipeNumberMask = value;
+                    StringBuilder mask = new StringBuilder();
+                    foreach (char ch in CurrentProjectSettings.MillPipeNumberMask)
+                    {
+                        string convertedToRegex = "";
+                        switch (ch)
+                        { 
+                            case '#': convertedToRegex = @"\d";break;
+                            case '@': convertedToRegex = @"\p{L}"; break;
+                            case '%': convertedToRegex = @"(\d|\p{L})"; break;
+                            case '&': convertedToRegex = @"\w"; break;
+                            default: convertedToRegex = ch.ToString(); break;
+
+                        }
+                        mask.Append(convertedToRegex);
+                    }
+                    CurrentProjectSettings.MillPipeNumberMaskRegexp = mask.ToString();
+                    RaisePropertiesChanged("MillPipeNumberMask");
+                }
+            }
+
+        }
+
         #endregion
 
         #region Plate Manufacturers
@@ -182,7 +220,8 @@ namespace PrizmMain.Forms.Settings
                  Welders.Add(new WelderViewType(w));
               }
            }
-                      
+
+           Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllInspectors()
@@ -198,6 +237,8 @@ namespace PrizmMain.Forms.Settings
                  Inspectors.Add(new InspectorViewType(i));
               }
            }
+
+           Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void NewPipeMillSizeType()
@@ -211,13 +252,7 @@ namespace PrizmMain.Forms.Settings
         private void GetProjectSettings()
         {
 
-            CurrentProjectSettings = (repos.ProjectRepo.GetSingle() == null) ? new Project()
-                                                                            {
-                                                                                Client = string.Empty,
-                                                                                Designer = string.Empty,
-                                                                                IsActive = true
-                                                                            }
-                                                                        : repos.ProjectRepo.GetSingle();
+            CurrentProjectSettings = repos.ProjectRepo.GetSingle();
         }
 
         private void GetAllManufacturers()
@@ -239,6 +274,7 @@ namespace PrizmMain.Forms.Settings
         public void Dispose()
         {
             repos.Dispose();
+            ModifiableView = null;
         }
 
         internal void UpdatePipeTests(object sizeType)
@@ -252,5 +288,18 @@ namespace PrizmMain.Forms.Settings
                 PipeTests.Add(t);
             }
         }
+
+        public IModifiable ModifiableView
+        {
+           get
+           {
+              return modifiable;
+           }
+           set
+           {
+              modifiable = value;
+           }
+        }
+        
     }
 }

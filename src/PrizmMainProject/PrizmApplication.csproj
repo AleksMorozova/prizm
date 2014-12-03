@@ -187,7 +187,14 @@
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\Common\SaveDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\SaveDialog.Designer.cs">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
@@ -205,6 +212,7 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\PrizmApplicationViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +225,7 @@
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\GetRegexCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
@@ -402,6 +411,9 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\SaveDialog.resx">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,6 +464,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.resx">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.resx">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
@@ -666,7 +679,9 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Question.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

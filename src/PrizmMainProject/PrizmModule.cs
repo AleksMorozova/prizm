@@ -70,7 +70,7 @@ namespace PrizmMain
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
-
+            Bind<IProjectRepository>().To<ProjectRepository>();
 
             Bind<IMillReportsRepository>().To<MillReportsRepository>();
 
@@ -88,6 +88,7 @@ namespace PrizmMain
             Bind<RailcarSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
+            Bind<PrizmApplicationViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding

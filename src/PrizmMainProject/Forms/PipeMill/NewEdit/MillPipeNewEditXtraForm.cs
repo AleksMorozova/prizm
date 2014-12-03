@@ -42,6 +42,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
+            viewModel.ModifiableView = this;
+            
 
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
@@ -52,7 +54,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrder.SetRequiredCombo();
             millStatus.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
-
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -62,8 +63,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             BindCommands();
             BindToViewModel();
-
+            viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
+            CheckRegex();
+            if (!viewModel.Pipe.IsNew())
+               IsModified = false;
         }
 
         private void ControlsDeactivation(Control control)
@@ -99,7 +103,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
             }
         }
-
 
         private void BindToViewModel()
         {
@@ -185,19 +188,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspections.DataBindings
                 .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
 
+
+            coatingHistory.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "Coats");
+            weldingHistory.DataBindings
+                .Add("DataSource", pipeNewEditBindingSource, "Welds");
+
+
             ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
 
             inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+
             #endregion
 
 
             weldBindingSource.DataSource = viewModel.Pipe;
             weldBindingSource.DataMember = "Welds";
+            weldBindingSource.ListChanged += (s, eve) => IsModified = true;
             weldersDataSource.DataSource = viewModel.Welders;
-           
+
             weldersSelectionControl.DataSource = weldersDataSource;
             var weldersPopup = new PopupContainerControl();
             weldersPopup.Controls.Add(weldersSelectionControl);
@@ -206,6 +218,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             repositoryItemPopupWelders.PopupControl.MaximumSize = weldersPopup.MaximumSize;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
             inspectorSelectionControl.DataSource = inspectorsDataSource;
             var inspectorsPopup = new PopupContainerControl();
             inspectorsPopup.Controls.Add(inspectorSelectionControl);
@@ -216,10 +229,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             coatingTypeDict.Clear();
             coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
             coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
+
             repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
-            
-            coatDataSource.DataSource = viewModel.Pipe;
-            
+
+            coatDataSource.ListChanged += (s, eve) => IsModified = true; 
+
+            coatDataSource.DataSource = viewModel.Pipe; 
         }
 
         private void HeatFill() 
@@ -253,6 +268,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
             saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
+            SaveCommand = viewModel.SavePipeCommand;
         }
 
 
@@ -308,29 +324,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
-        }
-
-        /// <summary>
-        /// Refreshes list of required pipe test results if mill size type was changed
-        /// </summary>
-        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
-
-            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
-            {
-                viewModel.PipeMillSizeType = currentPipeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
-                inspections.RefreshDataSource();
-            }
-
-            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
@@ -444,7 +437,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         /// <summary>
         ///Customizes data shown in Expected result column
         /// </summary>
-
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
@@ -488,6 +480,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
               weld.Pipe = viewModel.Pipe;
            }
         }
+
         private void heatButton_Click(object sender, EventArgs e)
         {
             var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text));
@@ -605,7 +598,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             PurchaseOrderFill();
         }
 
-
         private void deactivate_Modified(object sender, EventArgs e)
         {
             viewModel.IsNotActive = (bool)deactivate.EditValue;
@@ -615,6 +607,72 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.PipeDeactivationCommand.Execute();
                 ControlsDeactivation(this);
             }
+        }
+
+        private void CheckRegex()
+        {
+            if (viewModel.Regex != null && viewModel.Regex != String.Empty)
+            {
+                pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                pipeNumber.Properties.Mask.EditMask = viewModel.Regex;
+            }
+        }
+
+        /// <summary>
+        /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
+        /// </summary>
+        private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            PipeMillSizeType currentPipeType;
+            if (pipeSize.SelectedIndex>=0)
+            {
+                currentPipeType = (PipeMillSizeType)e.NewValue;
+                if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+                {
+                    if (viewModel.IsAnyInspectionResult() > 0) 
+                    {
+                        if (viewModel.IsNew == true)
+                        {
+                            if (this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader)!=true)
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        else
+                        {
+                            this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
+                            e.Cancel = true;
+                        }
+                    } 
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Refreshes list of required pipe test 
+        /// </summary>
+        private void RefreshPipeTest(PipeMillSizeType currentPipeType)
+        {
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            {
+                viewModel.PipeMillSizeType = currentPipeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                inspections.RefreshDataSource();
+            }
+
+            viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+            Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            RefreshPipeTest(currentPipeType);
         }
     }
 }
