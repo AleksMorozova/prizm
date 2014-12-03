@@ -30,15 +30,17 @@ namespace PrizmMain.Forms.Settings
         public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
         readonly SaveSettingsCommand saveCommand;
         readonly ISettingsRepositories repos;
+        readonly IUserNotify notify;
         private IList<PlateManufacturer> plateManufacturers;
         private IModifiable modifiable;
 
         [Inject]
-        public SettingsViewModel(ISettingsRepositories repos)
+        public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify)
         {
             NewPipeMillSizeType();  
             this.repos = repos;
-            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos));
+            this.notify = notify;
+            saveCommand = ViewModelSource.Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify));
         }
 
         public void LoadData()

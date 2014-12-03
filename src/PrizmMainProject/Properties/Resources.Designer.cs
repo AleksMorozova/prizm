@@ -259,6 +259,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Труба успешно сохранена в базе. Труба  # .
+        /// </summary>
+        internal static string DLG_PIPE_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение трубы.
+        /// </summary>
+        internal static string DLG_PIPE_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_PIPE_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер вагона.
         /// </summary>
         internal static string DLG_RAILCAR_NUMBER_EMPTY {
@@ -291,6 +309,24 @@ namespace PrizmMain.Properties {
         internal static string DLG_RAILCAR_UNSHIP_FIRST {
             get {
                 return ResourceManager.GetString("DLG_RAILCAR_UNSHIP_FIRST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки успешно сохранены..
+        /// </summary>
+        internal static string DLG_SETUP_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_SETUP_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение настроек.
+        /// </summary>
+        internal static string DLG_SETUP_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_SETUP_SAVED_HEADER", resourceCulture);
             }
         }
         

@@ -54,6 +54,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     repo.Commit();
                     repo.RepoPipe.Evict(viewModel.Pipe);
                     viewModel.ModifiableView.IsModified = false;
+                    notify.ShowNotify(
+                        string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number), 
+                        Resources.DLG_PIPE_SAVED_HEADER);
                 }
                 catch (RepositoryException ex)
                 {
