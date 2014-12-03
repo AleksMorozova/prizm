@@ -15,6 +15,7 @@ using Domain.Entity.Mill;
 using System.Collections.Generic;
 using PrizmMain.Properties;
 using Domain.Entity.Setup;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -33,29 +34,28 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             MillPipeSearchBindingSource.DataSource = viewModel;
 
-            pipeSize.Properties.DisplayMember = "Number";
-            pipeSize.Properties.ValueMember = "Id";
             foreach (var s in viewModel.PipeTypes)
             {
-                pipeSize.Properties.Items.Add(s);
+                pipeSize.Properties.Items.Add(s,true);
             }
             foreach (var s in viewModel.StatusTypes)
             {
-                pipeMillStatus.Properties.Items.Add(s);
+                pipeMillStatus.Properties.Items.Add(s,true);
             }
 
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
-            pipeMillStatus.DataBindings
-                .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");      
+            //pipeMillStatus.DataBindings
+             //   .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");      
 
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
+
 
         }
 
@@ -70,9 +70,6 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             BindCommands();
             BindToViewModel();
-
-            pipeSize.CheckAll();
-            pipeMillStatus.CheckAll();
         }
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
@@ -126,6 +123,20 @@ namespace PrizmMain.Forms.PipeMill.Search
                 {
                     viewModel.CheckedPipeTypes
                         .Add(pipeSize.Properties.Items[i].Value as PipeMillSizeType);
+                }
+            }
+        }
+
+        private void pipeMillStatus_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            viewModel.CheckedStatusTypes.Clear();
+
+            for (int i = 0; i < pipeMillStatus.Properties.Items.Count; i++)
+            {
+                if (pipeMillStatus.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    viewModel.CheckedStatusTypes.Add((PipeMillStatus)Enum.Parse(
+                        typeof(PipeMillStatus), pipeMillStatus.Properties.Items[i].Description as string));
                 }
             }
         }
