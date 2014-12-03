@@ -36,6 +36,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              if (viewModel.Number != string.Empty)
             {
                 viewModel.NewPipe();
+                viewModel.GetRegexCommand.Execute();
             }
         }
 

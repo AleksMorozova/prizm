@@ -11,10 +11,11 @@ using DevExpress.XtraEditors;
 using PrizmMain.Properties;
 using System.Windows.Forms;
 using Data.DAL;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
-    public class RailcarViewModel : ViewModelBase, IDisposable
+    public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private readonly IRailcarRepositories repos;
         private readonly IUserNotify notify;
@@ -22,6 +23,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private readonly ShipRailcarCommand shipCommand;
         private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
+        IModifiable modifiableView;
 
         [Inject]
         public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
@@ -153,6 +155,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         public void Dispose()
         {
             repos.Dispose();
+            ModifiableView = null;
         }
 
         public void AddPipe(Guid id)
@@ -235,6 +238,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        
+
+
+        public Documents.IModifiable ModifiableView
+        {
+           get
+           {
+              return modifiableView;
+           }
+           set
+           {
+              modifiableView = value;
+           }
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrizmMain.Properties;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -42,6 +43,7 @@ namespace PrizmMain.Forms.Settings
             EvictInspectors();
             EvictPlateManufacturers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+            viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
                 Resources.DLG_SETUP_SAVED,

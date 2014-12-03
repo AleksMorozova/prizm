@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -40,7 +39,6 @@
             this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemMillFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
@@ -84,10 +82,11 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -254,13 +253,6 @@
             this.barButtonItemMillFindEditPipes.Id = 17;
             this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
             this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
-            // 
-            // barButtonItemHeat
-            // 
-            this.barButtonItemHeat.Caption = "Пла&вка";
-            this.barButtonItemHeat.Id = 56;
-            this.barButtonItemHeat.Name = "barButtonItemHeat";
-            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
             // 
             // barButtonItemNewRailcar
             // 
@@ -597,6 +589,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
             // 
+            // barButtonItemHeat
+            // 
+            this.barButtonItemHeat.Caption = "Пла&вка";
+            this.barButtonItemHeat.Id = 56;
+            this.barButtonItemHeat.Name = "barButtonItemHeat";
+            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
+            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
@@ -636,6 +635,7 @@
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
             this.Text = "PRIZMA";
+            this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
