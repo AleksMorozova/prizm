@@ -37,6 +37,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
         private readonly GetPipeCommand getPipeCommand;
+        private readonly GetRegexCommand getRegexCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
 
@@ -47,6 +48,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
+        public string Regex;
                 
         public bool CanDeactivatePipe { get; set; }
 
@@ -80,9 +82,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             getPipeCommand =
                 ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
 
+            getRegexCommand =
+                ViewModelSource.Create(() => new GetRegexCommand(this, repoMill.RepoProject));
+
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
+                getRegexCommand.Execute();
             }
             else
             {
@@ -562,7 +568,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get { return pipeDeactivationCommand; }
         }
-        
+
+        public ICommand GetRegexCommand
+        {
+            get { return getRegexCommand; }
+        }
 
         public void NewPipe()
         {

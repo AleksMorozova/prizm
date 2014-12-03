@@ -1,4 +1,5 @@
-﻿using Data.DAL.Hibernate;
+﻿using Data.DAL;
+using Data.DAL.Hibernate;
 using Data.DAL.Mill;
 using Data.DAL.Setup;
 using NHibernate;
@@ -24,6 +25,7 @@ namespace PrizmMain.Forms.PipeMill
         private readonly IPipeTestResultRepository repoPipeTestResult;
         private readonly IInspectorRepository repoInspector;
         private readonly IPipeTestRepository repoPipeTest;
+        private readonly IProjectRepository repoProject;
 
         private readonly ISession session;
 
@@ -41,6 +43,7 @@ namespace PrizmMain.Forms.PipeMill
             this.repoInspector = new InspectorRepository(session);
             this.repoPipeTest = new PipeTestRepository(session);
             this.welderRepo = new WelderRepository(session);
+            this.repoProject = new ProjectRepository(session);
         }
 
         public void Commit()
@@ -106,6 +109,11 @@ namespace PrizmMain.Forms.PipeMill
         public IInspectorRepository RepoInspector
         {
             get { return repoInspector; }
+        }
+
+        public IProjectRepository RepoProject
+        {
+            get { return repoProject; }
         }
     }
 }

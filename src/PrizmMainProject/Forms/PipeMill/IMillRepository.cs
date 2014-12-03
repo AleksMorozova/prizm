@@ -1,4 +1,5 @@
-﻿using Data.DAL.Mill;
+﻿using Data.DAL;
+using Data.DAL.Mill;
 using Data.DAL.Setup;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace PrizmMain.Forms.PipeMill
         IPipeTestResultRepository RepoPipeTestResult { get; }
         IPipeTestRepository RepoPipeTest { get; }
         IInspectorRepository RepoInspector { get; }
+        IProjectRepository RepoProject { get; }
 
         void Commit();
         void BeginTransaction();

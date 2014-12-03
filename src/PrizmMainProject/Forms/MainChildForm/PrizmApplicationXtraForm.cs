@@ -33,6 +33,7 @@ namespace PrizmMain.Forms.MainChildForm
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
+        private PrizmApplicationViewModel viewModel;
 
         public PrizmApplicationXtraForm()
         {
@@ -365,6 +366,12 @@ namespace PrizmMain.Forms.MainChildForm
             alertControl.Show(this, ai);
         }
         #endregion
+
+        private void PrizmApplicationXtraForm_Load(object sender, EventArgs e)
+        {
+            viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
+            viewModel.GetOrCreateProject();
+        }
 
 
 

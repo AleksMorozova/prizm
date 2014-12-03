@@ -212,6 +212,7 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\PrizmApplicationViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +225,7 @@
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\GetRegexCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />

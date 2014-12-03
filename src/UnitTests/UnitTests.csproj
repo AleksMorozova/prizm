@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="DisplayObjectInfo.cs" />
     <Compile Include="AuditTrailTests.cs" />
+    <Compile Include="Forms\PrizmMainForm.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommandTest.cs" />
     <Compile Include="Forms\Railcar\Edit\SaveRailcarCommandTest.cs" />
