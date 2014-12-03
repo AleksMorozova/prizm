@@ -33,6 +33,8 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             MillPipeSearchBindingSource.DataSource = viewModel;
 
+            pipeSize.Properties.DisplayMember = "Number";
+            pipeSize.Properties.ValueMember = "Id";
             foreach (var s in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(s);

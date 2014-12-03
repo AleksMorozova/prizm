@@ -52,6 +52,7 @@ namespace PrizmMain.Forms.PipeMill.Search
             LoadPipeMillStatuses();
         }
 
+        #region Properties
         public IList<Pipe> Pipes
         {
             get
@@ -137,7 +138,8 @@ namespace PrizmMain.Forms.PipeMill.Search
                     RaisePropertyChanged("StatusTypes");
                 }
             }
-        }
+        } 
+        #endregion
 
         public ICommand SearchCommand
         {
