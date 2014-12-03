@@ -7,7 +7,7 @@ using Ninject;
 using Ninject.Parameters;
 
 using Domain.Entity.Mill;
-
+using Domain.Entity;
 using PrizmMain.Forms.MainChildForm;
 using System.Collections.Generic;
 using PrizmMain.Properties;
@@ -25,6 +25,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("railcarNumber", railcarNumber));
+            viewModel.ModifiableView = this;
+            viewModel.PropertyChanged += (s, e) => IsModified = true;
 
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
@@ -43,6 +45,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             BindCommands();
             BindToViewModel();
+            IsModified = viewModel.Railcar.IsNew();
         }
 
         private void BindToViewModel()
@@ -60,6 +63,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+            SaveCommand = viewModel.SaveCommand;
             shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
             unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
 

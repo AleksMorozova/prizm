@@ -15,11 +15,12 @@ using System.ComponentModel;
 using Domain.Entity;
 using PrizmMain.Properties;
 using PrizmMain.Common;
+using PrizmMain.Documents;
 
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class MillPipeNewEditViewModel : ViewModelBase, IDisposable
+    public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private readonly IMillRepository repoMill;
 
@@ -38,6 +39,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly GetPipeCommand getPipeCommand;
         private readonly GetRegexCommand getRegexCommand;
         private readonly IUserNotify notify;
+        private IModifiable modifiableView;
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
@@ -599,6 +601,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Dispose()
         {
             repoMill.Dispose();
+            ModifiableView = null;
         }
 
         /// <summary>
@@ -689,5 +692,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
+         public Documents.IModifiable ModifiableView
+         {
+            get
+            {
+               return modifiableView;
+            }
+            set
+            {
+               modifiableView = value;
+            }
+         }
     }
 }

@@ -79,15 +79,21 @@ namespace PrizmMain.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+            viewModel.ModifiableView = this;
+            viewModel.PropertyChanged += (s, eve) => IsModified = true; 
+
             viewModel.LoadData();
             BindToViewModel();
-            BindCommands();
+
+            IsModified = false;
+            BindCommands(); 
 
             gridViewWelders.BestFitColumns();
             gridViewInspectors.BestFitColumns();
         }
 
-        private void BindToViewModel()
+
+       private void BindToViewModel()
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
             inspectorBindingSource.DataSource = viewModel.Inspectors;
@@ -110,7 +116,8 @@ namespace PrizmMain.Forms.Settings
        
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+           saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+           SaveCommand = viewModel.SaveCommand;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
