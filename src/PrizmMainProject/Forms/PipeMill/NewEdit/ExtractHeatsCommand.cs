@@ -28,6 +28,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             viewModel.Heats = repo.GetAll();
 
+            if (viewModel.Heats == null)
+            {
+                viewModel.Heats = new List<Domain.Entity.Mill.Heat>();
+            }
             viewModel.Heats.Insert(0, new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
         }
 

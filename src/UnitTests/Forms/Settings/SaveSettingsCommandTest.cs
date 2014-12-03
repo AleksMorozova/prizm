@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entity;
 using Domain.Entity.Mill;
+using PrizmMain.Forms;
+
 
 namespace UnitTests.Forms.Settings
 {
@@ -21,6 +23,7 @@ namespace UnitTests.Forms.Settings
         [Test]
         public void TestSaveSettings()
         {
+            var notify = new Mock<IUserNotify>();
             var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
             var repoPipeTests = new Mock<IPipeTestRepository>();
             var repoWelders = new Mock<IWelderRepository>();
@@ -46,10 +49,10 @@ namespace UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.ProjectRepo).Returns(repoProjectSetting.Object);
             settingsRepos.SetupGet(_ => _.InspectorRepo).Returns(repoInspectors.Object);
 
-            var viewModel = new SettingsViewModel(settingsRepos.Object);
+            var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
             viewModel.LoadData();
 
-            var command = new SaveSettingsCommand(viewModel, settingsRepos.Object);
+            var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
 
             command.Execute();
 

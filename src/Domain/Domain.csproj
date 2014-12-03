@@ -43,6 +43,7 @@
     <Compile Include="Entity\Certificate.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
+    <Compile Include="Entity\Mill\Category.cs" />
     <Compile Include="Entity\Mill\Coat.cs" />
     <Compile Include="Entity\Mill\CoatingType.cs" />
     <Compile Include="Entity\Mill\PipeTestResultStatus.cs" />
