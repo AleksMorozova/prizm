@@ -706,6 +706,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     Inspectors = new BindingList<Domain.Entity.Inspector>()
                 };
                 requiredTestResults.Add(requiredResult);
+                requiredResult.Order++;
             }
             return requiredTestResults;
         }
@@ -747,6 +748,42 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                modifiableView = value;
             }
+         }
+
+         public void CheckStatus() 
+         {
+             bool isDone = false;
+             //var query = Pipe.PipeTestResult.GroupBy(
+             //       test => test.Operation.Name,
+             //       (operation, value) => new
+             //       {
+             //           Key = operation,
+             //           Count.
+             //       });
+
+             foreach (PipeTestResult test in Pipe.PipeTestResult)
+             {
+                
+
+                 if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Scheduled))
+                 {
+                     isDone = false;
+                 }
+                 else 
+                 { 
+                     isDone = true; 
+                 }
+
+
+                 if (isDone == true)
+                 {
+                     Pipe.Status = PipeMillStatus.Stocked;
+                 }
+                 else 
+                 {
+                     Pipe.Status = PipeMillStatus.Produced;
+                 }
+             }
          }
     }
 }

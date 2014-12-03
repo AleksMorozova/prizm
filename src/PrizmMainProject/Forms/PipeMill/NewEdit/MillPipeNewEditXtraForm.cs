@@ -576,10 +576,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              GridView view = sender as GridView;
              if (view.IsValidRowHandle(e.RowHandle))
              { 
-              currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
-              currentTestResult.IsActive = true;
-              currentTestResult.Pipe = viewModel.Pipe;
-              viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                 currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
+                 currentTestResult.IsActive = true;
+                 currentTestResult.Pipe = viewModel.Pipe;
+                 currentTestResult.Order = viewModel.PipeTestResults.Max(test=>test.Order)+1;
+                 //currentTestResult.Operation.Order = viewModel.Pipe.PipeTestResult.Max(test => test.Operation.Order) + 1; ;
+                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
              }
         }
 
