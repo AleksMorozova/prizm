@@ -115,7 +115,6 @@
             this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -1060,8 +1059,7 @@
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
             this.controlDateGridColumn,
-            this.inspectionCodeGridColumn,
-            this.categoryGridColumn});
+            this.inspectionCodeGridColumn});
             this.inspectionsGridView.GridControl = this.inspections;
             this.inspectionsGridView.Name = "inspectionsGridView";
             this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -1079,7 +1077,7 @@
             this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 260;
+            this.inspectionNameGridColumn.Width = 274;
             // 
             // expectedResultGridColumn
             // 
@@ -1089,8 +1087,8 @@
             this.expectedResultGridColumn.OptionsColumn.AllowEdit = false;
             this.expectedResultGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.expectedResultGridColumn.Visible = true;
-            this.expectedResultGridColumn.VisibleIndex = 3;
-            this.expectedResultGridColumn.Width = 140;
+            this.expectedResultGridColumn.VisibleIndex = 2;
+            this.expectedResultGridColumn.Width = 141;
             // 
             // valueGridColumn
             // 
@@ -1099,8 +1097,8 @@
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
-            this.valueGridColumn.VisibleIndex = 4;
-            this.valueGridColumn.Width = 140;
+            this.valueGridColumn.VisibleIndex = 3;
+            this.valueGridColumn.Width = 135;
             // 
             // testResultValue
             // 
@@ -1114,8 +1112,8 @@
             this.inspectionResultGridColumn.FieldName = "Status";
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.Visible = true;
-            this.inspectionResultGridColumn.VisibleIndex = 5;
-            this.inspectionResultGridColumn.Width = 120;
+            this.inspectionResultGridColumn.VisibleIndex = 4;
+            this.inspectionResultGridColumn.Width = 150;
             // 
             // ResultStatusLookUpEdit
             // 
@@ -1136,8 +1134,8 @@
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
-            this.inspectorsGridColumn.VisibleIndex = 6;
-            this.inspectorsGridColumn.Width = 211;
+            this.inspectorsGridColumn.VisibleIndex = 5;
+            this.inspectorsGridColumn.Width = 272;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -1155,8 +1153,8 @@
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
-            this.controlDateGridColumn.VisibleIndex = 7;
-            this.controlDateGridColumn.Width = 131;
+            this.controlDateGridColumn.VisibleIndex = 6;
+            this.controlDateGridColumn.Width = 148;
             // 
             // inspectionCodeGridColumn
             // 
@@ -1166,7 +1164,7 @@
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 60;
+            this.inspectionCodeGridColumn.Width = 62;
             // 
             // inspectionCodeLookUpEdit
             // 
@@ -1183,16 +1181,6 @@
             this.inspectionCodeLookUpEdit.NullText = "";
             this.inspectionCodeLookUpEdit.ValueMember = "Code";
             this.inspectionCodeLookUpEdit.EditValueChanged += new System.EventHandler(this.inspectionCodeLookUpEdit_EditValueChanged);
-            // 
-            // categoryGridColumn
-            // 
-            this.categoryGridColumn.Caption = "Категория";
-            this.categoryGridColumn.FieldName = "Operation.Category";
-            this.categoryGridColumn.Name = "categoryGridColumn";
-            this.categoryGridColumn.OptionsColumn.AllowEdit = false;
-            this.categoryGridColumn.Visible = true;
-            this.categoryGridColumn.VisibleIndex = 2;
-            this.categoryGridColumn.Width = 120;
             // 
             // inspectionsLayoutGroup
             // 
@@ -1889,7 +1877,6 @@
         private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit inspectionCodeLookUpEdit;
-        private DevExpress.XtraGrid.Columns.GridColumn categoryGridColumn;
 
     }
 }
