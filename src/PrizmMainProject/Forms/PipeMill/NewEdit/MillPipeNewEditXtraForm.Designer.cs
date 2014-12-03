@@ -1187,7 +1187,7 @@
             // categoryGridColumn
             // 
             this.categoryGridColumn.Caption = "Категория";
-            this.categoryGridColumn.FieldName = "Operation.Category.Name";
+            this.categoryGridColumn.FieldName = "Operation.Category";
             this.categoryGridColumn.Name = "categoryGridColumn";
             this.categoryGridColumn.OptionsColumn.AllowEdit = false;
             this.categoryGridColumn.Visible = true;
