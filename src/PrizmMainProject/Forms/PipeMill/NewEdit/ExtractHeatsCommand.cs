@@ -27,8 +27,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.Heats = repo.GetAll();
-
-            viewModel.Heats.Insert(0, new Domain.Entity.Mill.Heat() { Number = Resources.NewHeatCombo });
         }
 
         public bool CanExecute()

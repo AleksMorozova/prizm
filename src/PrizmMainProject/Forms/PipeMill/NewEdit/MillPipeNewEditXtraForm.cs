@@ -224,9 +224,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void HeatFill() 
         {
-            viewModel.ExtractHeatsCommand.Execute();
+            //TODO: FEATURE return heat & purchase order from editform for select in combo
 
+            viewModel.ExtractHeatsCommand.Execute();
             heatNumber.Properties.Items.Clear();
+            heatNumber.Properties.Items.Insert(0, Resources.NewHeatCombo);
+            heatNumber.SelectedIndex = -1;
 
             foreach (var h in viewModel.Heats)
             {
@@ -239,27 +242,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.ExtractPurchaseOrderCommand.Execute();
             purchaseOrder.Properties.Items.Clear();
             purchaseOrder.Properties.Items.Insert(0, Resources.NewOrderCombo);
+            purchaseOrder.SelectedIndex = -1;
 
             foreach (var h in viewModel.PurchaseOrders)
             {
                 purchaseOrder.Properties.Items.Add(h);
             }
         }
-
-        private void editHeatButton_Click(object sender, EventArgs e)
-        {
-            using (var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text)))
-            {
-                if (heatForm.ShowDialog() == DialogResult.OK)
-                {
-                    //TODO: refresh Heat data
-                    HeatFill();
-                }
-            }
-
-        }
-
-
         private void BindCommands()
         {
             saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
@@ -501,10 +490,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         private void heatButton_Click(object sender, EventArgs e)
         {
-            var heatForm = new HeatXtraForm(heatNumber.Text);
+            var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text));
             heatForm.ShowDialog();
             HeatFill();
+            heatNumber.SelectedIndex = -1;
         }
+
 
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
@@ -517,6 +508,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(id);
             form.ShowDialog();
             PurchaseOrderFill();
+            purchaseOrder.SelectedIndex = -1;
         }
 
         private void SetControlsTextLength()
@@ -610,6 +602,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
         {
             HeatFill();
+            PurchaseOrderFill();
         }
 
 
