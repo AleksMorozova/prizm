@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
 using Ninject;
@@ -30,26 +31,33 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            if (!viewModel.Railcar.IsShipped)
             {
                 notify.ShowError(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER);
             }
             else
             {
-                    var railcar = viewModel.Railcar;
-                    foreach (var pipe in railcar.Pipes)
+                    foreach (var pipe in viewModel.Railcar.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Stocked;
                     }
-                    railcar.ShippingDate = DateTime.MinValue;
+                    viewModel.Railcar.ShippingDate = DateTime.MinValue;
+                    viewModel.Railcar.IsShipped = false;
                     notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
-                    viewModel.SaveCommand.Execute();                
+                    viewModel.SaveCommand.Execute();
+                    viewModel.ShipCommand.IsExecutable ^= true;
+                    viewModel.UnshipCommand.IsExecutable ^= true;
             }
         }
         public bool CanExecute()
         {
-            return (viewModel.Railcar.ShippingDate != DateTime.MinValue);
+            return (viewModel.Railcar.IsShipped);
         }
         public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
     }
 }

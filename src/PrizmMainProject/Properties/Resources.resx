@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Boolean" xml:space="preserve">
-    <value>Булевское значение</value>
+  <data name="InspectionResultType_Boolean" xml:space="preserve">
+    <value>Логический</value>
   </data>
   <data name="IDS_ERROR" xml:space="preserve">
     <value>Во время работы программы произошла ошибка. Причина: </value>
@@ -126,7 +126,7 @@
   <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
     <value>Нельзя одновременно открыть больше документов.</value>
   </data>
-  <data name="Diapason" xml:space="preserve">
+  <data name="InspectionResultType_Diapason" xml:space="preserve">
     <value>Диапазон</value>
   </data>
   <data name="DLG_ERROR_HEADER" xml:space="preserve">
@@ -144,29 +144,29 @@
   <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
     <value>Отправка вагона без труб невозможна</value>
   </data>
-  <data name="Hold" xml:space="preserve">
-    <value>Обязательный контроль</value>
+  <data name="InspectionControlType_Hold" xml:space="preserve">
+    <value>Обязательный</value>
   </data>
-  <data name="IDS_QUESTION_SAVE" xml:space="preserve">
-    <value>Сохранить изменения?</value>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE" xml:space="preserve">
+    <value>У вас остались несохранённые изменения. Отменить закрытие документа?</value>
   </data>
-  <data name="Monitor" xml:space="preserve">
-    <value>Визуальный контроль</value>
+  <data name="InspectionControlType_Monitor" xml:space="preserve">
+    <value>Визуальный</value>
   </data>
-  <data name="Review" xml:space="preserve">
-    <value>Проверка по документации</value>
+  <data name="InspectionControlType_Review" xml:space="preserve">
+    <value>По документации</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>Строковое значение</value>
+  <data name="InspectionResultType_String" xml:space="preserve">
+    <value>Строка</value>
   </data>
-  <data name="Witness" xml:space="preserve">
-    <value>Присутствие при испытаниях</value>
+  <data name="InspectionControlType_Witness" xml:space="preserve">
+    <value>Присутствие</value>
   </data>
   <data name="Produced" xml:space="preserve">
-    <value>Изготовлена</value>
+    <value>Производится</value>
   </data>
   <data name="Shipped" xml:space="preserve">
-    <value>Погружена</value>
+    <value>Отгружена</value>
   </data>
   <data name="Stocked" xml:space="preserve">
     <value>На складе</value>
@@ -218,5 +218,53 @@
   </data>
   <data name="COAT_INTERNAL" xml:space="preserve">
     <value>Внутреннее</value>
+  </data>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
+    <value>Несохранённые изменения</value>
+  </data>
+  <data name="NewHeatCombo" xml:space="preserve">
+    <value>&lt; Создать плавку &gt;</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE" xml:space="preserve">
+    <value>Уже существует труба с номером: </value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера трубы</value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
+    <value>Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.</value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR_HEDER" xml:space="preserve">
+    <value>Деактивация трубы в вагоне невозможна</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED" xml:space="preserve">
+    <value>Невозможно деактивировать отгруженную трубу.</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
+    <value>Труба отгружена</value>
+  </data>
+  <data name="AlertFailureReportDateHeader" xml:space="preserve">
+    <value>Неверный диапазон дат</value>
+  </data>
+  <data name="AlertFailureReportDate" xml:space="preserve">
+    <value>Начальная дата позже конечной</value>
+  </data>
+  <data name="DATA_EXPIRED" xml:space="preserve">
+    <value>Срок действия истек</value>
+  </data>
+  <data name="DLG_CHANGE_PIPESIZE_ON_EDITPIPE" xml:space="preserve">
+    <value>Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.</value>
+  </data>
+  <data name="DLG_CHANGE_PIPESIZE_ON_NEWPIPE" xml:space="preserve">
+    <value>Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново</value>
+  </data>
+  <data name="PipeSizeChangeHeader" xml:space="preserve">
+    <value>Изменение типоразмера</value>
   </data>
 </root>

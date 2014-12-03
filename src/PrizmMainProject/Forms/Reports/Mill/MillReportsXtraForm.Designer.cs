@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReportsXtraForm));
             this.previewReportDocument = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalReportLayout = new DevExpress.XtraLayout.LayoutControl();
             this.cheneralReportTypes = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.finalDate = new DevExpress.XtraEditors.DateEdit();
+            this.endDate = new DevExpress.XtraEditors.DateEdit();
             this.startDate = new DevExpress.XtraEditors.DateEdit();
             this.reportPeriodLabel = new DevExpress.XtraEditors.LabelControl();
             this.reportTypes = new DevExpress.XtraEditors.RadioGroup();
@@ -55,11 +56,12 @@
             this.cheneralReportTypesEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.previewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.millReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).BeginInit();
             this.generalReportLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypes.Properties)).BeginInit();
@@ -80,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypesEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millReportsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // previewReportDocument
@@ -101,12 +104,11 @@
             this.previewButton.StyleController = this.generalReportLayout;
             this.previewButton.TabIndex = 76;
             this.previewButton.Text = "&Предпросмотр";
-            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
             // generalReportLayout
             // 
             this.generalReportLayout.Controls.Add(this.cheneralReportTypes);
-            this.generalReportLayout.Controls.Add(this.finalDate);
+            this.generalReportLayout.Controls.Add(this.endDate);
             this.generalReportLayout.Controls.Add(this.startDate);
             this.generalReportLayout.Controls.Add(this.reportPeriodLabel);
             this.generalReportLayout.Controls.Add(this.reportTypes);
@@ -125,13 +127,12 @@
             // cheneralReportTypes
             // 
             this.cheneralReportTypes.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "листов находящихся в производстве", System.Windows.Forms.CheckState.Indeterminate),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "труб с ремонтом сварки"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "ремонта сварки"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "постоянного брака"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "временного брака"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятых труб без покрытия"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятых труб")});
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "листы в производстве", System.Windows.Forms.CheckState.Indeterminate),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "трубы с ремонтом сварки"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятые трубы без покрытия"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "постоянный брак"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "временный брак"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятые трубы")});
             this.cheneralReportTypes.Location = new System.Drawing.Point(384, 59);
             this.cheneralReportTypes.MultiColumn = true;
             this.cheneralReportTypes.Name = "cheneralReportTypes";
@@ -139,18 +140,18 @@
             this.cheneralReportTypes.StyleController = this.generalReportLayout;
             this.cheneralReportTypes.TabIndex = 83;
             // 
-            // finalDate
+            // endDate
             // 
-            this.finalDate.EditValue = null;
-            this.finalDate.Location = new System.Drawing.Point(290, 60);
-            this.finalDate.Name = "finalDate";
-            this.finalDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.endDate.EditValue = null;
+            this.endDate.Location = new System.Drawing.Point(290, 60);
+            this.endDate.Name = "endDate";
+            this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.finalDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.endDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.finalDate.Size = new System.Drawing.Size(75, 20);
-            this.finalDate.StyleController = this.generalReportLayout;
-            this.finalDate.TabIndex = 82;
+            this.endDate.Size = new System.Drawing.Size(75, 20);
+            this.endDate.StyleController = this.generalReportLayout;
+            this.endDate.TabIndex = 82;
             // 
             // startDate
             // 
@@ -169,10 +170,10 @@
             // 
             this.reportPeriodLabel.Location = new System.Drawing.Point(180, 43);
             this.reportPeriodLabel.Name = "reportPeriodLabel";
-            this.reportPeriodLabel.Size = new System.Drawing.Size(176, 13);
+            this.reportPeriodLabel.Size = new System.Drawing.Size(52, 13);
             this.reportPeriodLabel.StyleController = this.generalReportLayout;
             this.reportPeriodLabel.TabIndex = 80;
-            this.reportPeriodLabel.Text = "Период для формирования отчета";
+            this.reportPeriodLabel.Text = "За период";
             // 
             // reportTypes
             // 
@@ -183,8 +184,8 @@
             this.reportTypes.Properties.Appearance.Options.UseBackColor = true;
             this.reportTypes.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.reportTypes.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Общий отчет"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Отчет по отгрузке")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Общий"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "По отгрузке")});
             this.reportTypes.Size = new System.Drawing.Size(140, 48);
             this.reportTypes.StyleController = this.generalReportLayout;
             this.reportTypes.TabIndex = 79;
@@ -197,8 +198,7 @@
             this.createReportButton.Size = new System.Drawing.Size(113, 22);
             this.createReportButton.StyleController = this.generalReportLayout;
             this.createReportButton.TabIndex = 75;
-            this.createReportButton.Text = "Соз&дать отчет";
-            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
+            this.createReportButton.Text = "Соз&дать отчёт";
             // 
             // generalReportLayoutGroup
             // 
@@ -234,7 +234,7 @@
             this.createReportaLyoutGroup.Location = new System.Drawing.Point(0, 0);
             this.createReportaLyoutGroup.Name = "createReportaLyoutGroup";
             this.createReportaLyoutGroup.Size = new System.Drawing.Size(920, 145);
-            this.createReportaLyoutGroup.Text = "Сформировать отчет";
+            this.createReportaLyoutGroup.Text = "Сформировать отчёт";
             // 
             // startDateLayout
             // 
@@ -251,7 +251,7 @@
             // 
             // finalDateLayout
             // 
-            this.finalDateLayout.Control = this.finalDate;
+            this.finalDateLayout.Control = this.endDate;
             this.finalDateLayout.CustomizationFormText = "По";
             this.finalDateLayout.Location = new System.Drawing.Point(243, 17);
             this.finalDateLayout.Name = "finalDateLayout";
@@ -294,7 +294,7 @@
             this.reportPeriodLayout.CustomizationFormText = "reportPeriodLayout";
             this.reportPeriodLayout.Location = new System.Drawing.Point(146, 0);
             this.reportPeriodLayout.Name = "reportPeriodLayout";
-            this.reportPeriodLayout.Size = new System.Drawing.Size(190, 17);
+            this.reportPeriodLayout.Size = new System.Drawing.Size(66, 17);
             this.reportPeriodLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.reportPeriodLayout.Text = "reportPeriodLayout";
             this.reportPeriodLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -309,20 +309,20 @@
             this.reportTypesLayout.Name = "reportTypesLayout";
             this.reportTypesLayout.Size = new System.Drawing.Size(146, 68);
             this.reportTypesLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 0, 0, 0);
-            this.reportTypesLayout.Text = "Выбор типа отчета";
+            this.reportTypesLayout.Text = "Выбор типа";
             this.reportTypesLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.reportTypesLayout.TextSize = new System.Drawing.Size(98, 13);
+            this.reportTypesLayout.TextSize = new System.Drawing.Size(59, 13);
             // 
             // cheneralReportTypesLayout
             // 
             this.cheneralReportTypesLayout.Control = this.cheneralReportTypes;
-            this.cheneralReportTypesLayout.CustomizationFormText = "Отчет с учетом:";
+            this.cheneralReportTypesLayout.CustomizationFormText = "Включить";
             this.cheneralReportTypesLayout.Location = new System.Drawing.Point(360, 0);
             this.cheneralReportTypesLayout.Name = "cheneralReportTypesLayout";
             this.cheneralReportTypesLayout.Size = new System.Drawing.Size(354, 102);
-            this.cheneralReportTypesLayout.Text = "Отчет с учетом:";
+            this.cheneralReportTypesLayout.Text = "Включить";
             this.cheneralReportTypesLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.cheneralReportTypesLayout.TextSize = new System.Drawing.Size(98, 13);
+            this.cheneralReportTypesLayout.TextSize = new System.Drawing.Size(59, 13);
             // 
             // buttonsEmptySpace
             // 
@@ -370,9 +370,9 @@
             // 
             this.reportPeriodEmptySpace.AllowHotTrack = false;
             this.reportPeriodEmptySpace.CustomizationFormText = "reportPeriodEmptySpace";
-            this.reportPeriodEmptySpace.Location = new System.Drawing.Point(336, 0);
+            this.reportPeriodEmptySpace.Location = new System.Drawing.Point(212, 0);
             this.reportPeriodEmptySpace.Name = "reportPeriodEmptySpace";
-            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(24, 17);
+            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(148, 17);
             this.reportPeriodEmptySpace.Text = "reportPeriodEmptySpace";
             this.reportPeriodEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -395,7 +395,7 @@
             this.previewLayoutGroup.Name = "previewLayoutGroup";
             this.previewLayoutGroup.Size = new System.Drawing.Size(920, 285);
             this.previewLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
-            this.previewLayoutGroup.Text = "Предворительный просмотр отчета:";
+            this.previewLayoutGroup.Text = "Предворительный просмотр отчёта";
             // 
             // previewLayout
             // 
@@ -419,11 +419,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillReportsXtraForm";
             this.Text = "Завод - отчет";
+            this.Load += new System.EventHandler(this.MillReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).EndInit();
             this.generalReportLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypes.Properties)).EndInit();
@@ -444,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypesEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millReportsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,7 +462,7 @@
         private DevExpress.XtraLayout.LayoutControlItem previewButtonLayout;
         private DevExpress.XtraEditors.RadioGroup reportTypes;
         private DevExpress.XtraLayout.LayoutControlItem reportTypesLayout;
-        private DevExpress.XtraEditors.DateEdit finalDate;
+        private DevExpress.XtraEditors.DateEdit endDate;
         private DevExpress.XtraEditors.DateEdit startDate;
         private DevExpress.XtraEditors.LabelControl reportPeriodLabel;
         private DevExpress.XtraLayout.LayoutControlItem reportPeriodLayout;
@@ -476,5 +478,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem reportTypesEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem reportPeriodEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem cheneralReportTypesEmptySpace;
+        private System.Windows.Forms.BindingSource millReportsBindingSource;
     }
 }

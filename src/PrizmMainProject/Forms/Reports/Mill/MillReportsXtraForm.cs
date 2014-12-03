@@ -7,73 +7,43 @@ using DevExpress.XtraReports.UI;
 
 using PrizmMain.DummyData;
 using PrizmMain.Forms.MainChildForm;
+using DevExpress.XtraReports.Parameters;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
     public partial class MillReportsXtraForm : ChildForm
     {
+        private MillReportsViewModel viewModel;
+
         public MillReportsXtraForm()
         {
             InitializeComponent();
         }
-
-        private List<PipesDummy> CreateData()
+        
+        private void BindToViewModel()
         {
-            var pipeList = new List<PipesDummy>();
-
-            var pipe1 = new PipesDummy
-            {
-                PipeNumber = 1342352,
-                Status = "production",
-                Size = "1100x20",
-                Manufacturer = "Mill 1"
-            };
-            pipeList.Add(pipe1);
-
-            var pipe2 = new PipesDummy
-            {
-                PipeNumber = 1342352,
-                Status = "production",
-                Size = "1100x20",
-                Manufacturer = "Mill 1"
-            };
-            pipeList.Add(pipe2);
-
-            var pipe3 = new PipesDummy
-            {
-                PipeNumber = 1342352,
-                Status = "production",
-                Size = "1100x20",
-                Manufacturer = "Mill 1"
-            };
-            pipeList.Add(pipe3);
-
-            var pipe4 = new PipesDummy
-            {
-                PipeNumber = 1342352,
-                Status = "production",
-                Size = "1100x20",
-                Manufacturer = "Mill 1"
-            };
-            pipeList.Add(pipe4);
-
-            return pipeList;
+            millReportsBindingSource.DataSource = viewModel;
+            startDate.DataBindings.Add("EditValue", millReportsBindingSource, "StartDate");
+            endDate.DataBindings.Add("EditValue", millReportsBindingSource, "EndDate");
+            previewReportDocument.DataBindings.Add("DocumentSource", millReportsBindingSource, "PreviewSource");
         }
 
-        private void previewButton_Click(object sender, EventArgs e)
+        private void BindCommands()
         {
-            var report = new MillReportsXtraReport {DataSource = CreateData()};
-            report.CreateDocument();
-            DocumentViewer doc = previewReportDocument;
-            doc.DocumentSource = report;
+            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
+            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
         }
 
-        private void createReportButton_Click(object sender, EventArgs e)
+        private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
-            var report = new MillReportsXtraReport {DataSource = CreateData()};
-            report.CreateDocument();
-            var tool = new ReportPrintTool(report);
-            tool.ShowPreview();
+            viewModel = (MillReportsViewModel)Program.Kernel.GetService(typeof(MillReportsViewModel));
+            BindToViewModel();
+            BindCommands();
+            viewModel.StartDate = DateTime.Now.Date;
+            viewModel.EndDate = DateTime.Now.Date;
         }
     }
 }

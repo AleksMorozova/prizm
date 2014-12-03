@@ -183,7 +183,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public void RemovePipe(string number)
         {
-            if (Railcar.ShippingDate != DateTime.MinValue)
+            if (Railcar.IsShipped)
             {
                 notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
                 return;
@@ -212,20 +212,22 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (Railcar == null)
             {
-                Railcar = new Domain.Entity.Mill.Railcar {IsActive = true};
+                Railcar = new Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
             }
             Number = string.Empty;
             Destination = string.Empty;
             ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
+
             Pipes = new List<Pipe>();
         }
 
-        private void GetStoredPipes()
+        public void GetStoredPipes()
         {
             try
             {
-                allPipes = new List<Pipe>(repos.PipeRepo.GetStored());
+                var tmp = new List<Pipe>(repos.PipeRepo.GetStored());
+                allPipes = tmp;
             }
             catch (RepositoryException ex)
             {

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <AssemblyName>Prizm.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\AuditLog.cs" />
+    <Compile Include="Entity\Certificate.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Mill\Coat.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
+    <Compile Include="Entity\Setup\InspectorCertificate.cs" />
     <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />

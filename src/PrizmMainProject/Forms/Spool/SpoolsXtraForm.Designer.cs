@@ -73,10 +73,10 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(822, 48);
+            this.searchButton.Location = new System.Drawing.Point(783, 48);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 7);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(71, 22);
+            this.searchButton.Size = new System.Drawing.Size(110, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "&Поиск";
@@ -109,12 +109,12 @@
             // cutButton
             // 
             this.cutButton.Image = ((System.Drawing.Image)(resources.GetObject("cutButton.Image")));
-            this.cutButton.Location = new System.Drawing.Point(130, 401);
+            this.cutButton.Location = new System.Drawing.Point(326, 401);
             this.cutButton.Name = "cutButton";
-            this.cutButton.Size = new System.Drawing.Size(638, 22);
+            this.cutButton.Size = new System.Drawing.Size(308, 22);
             this.cutButton.StyleController = this.mainLayoutControl;
             this.cutButton.TabIndex = 43;
-            this.cutButton.Text = "Отрезать";
+            this.cutButton.Text = "&Отрезать";
             // 
             // pipeLength
             // 
@@ -139,7 +139,7 @@
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeNumber.Size = new System.Drawing.Size(741, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(702, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
             // 
@@ -172,7 +172,7 @@
             this.pipeNumberLabel.CustomizationFormText = "Номер трубы";
             this.pipeNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLabel.Name = "pipeNumberLabel";
-            this.pipeNumberLabel.Size = new System.Drawing.Size(775, 54);
+            this.pipeNumberLabel.Size = new System.Drawing.Size(736, 54);
             this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.pipeNumberLabel.Text = "Номер трубы";
             this.pipeNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
@@ -201,7 +201,7 @@
             this.layoutlengthGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutlengthGroup.Size = new System.Drawing.Size(880, 119);
             this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
-            this.layoutlengthGroup.Text = "Длинна";
+            this.layoutlengthGroup.Text = "Длина";
             // 
             // pipelengthLabel
             // 
@@ -233,9 +233,9 @@
             // 
             this.searchLayoutControlItem.Control = this.searchButton;
             this.searchLayoutControlItem.CustomizationFormText = "searchLayoutControlItem";
-            this.searchLayoutControlItem.Location = new System.Drawing.Point(775, 14);
+            this.searchLayoutControlItem.Location = new System.Drawing.Point(736, 14);
             this.searchLayoutControlItem.Name = "searchLayoutControlItem";
-            this.searchLayoutControlItem.Size = new System.Drawing.Size(105, 40);
+            this.searchLayoutControlItem.Size = new System.Drawing.Size(144, 40);
             this.searchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.searchLayoutControlItem.Text = "searchLayoutControlItem";
             this.searchLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -266,9 +266,9 @@
             // 
             this.cutLayoutControlItem.Control = this.cutButton;
             this.cutLayoutControlItem.CustomizationFormText = "cutLayoutControlItem";
-            this.cutLayoutControlItem.Location = new System.Drawing.Point(98, 374);
+            this.cutLayoutControlItem.Location = new System.Drawing.Point(294, 374);
             this.cutLayoutControlItem.Name = "cutLayoutControlItem";
-            this.cutLayoutControlItem.Size = new System.Drawing.Size(642, 26);
+            this.cutLayoutControlItem.Size = new System.Drawing.Size(312, 26);
             this.cutLayoutControlItem.Text = "cutLayoutControlItem";
             this.cutLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cutLayoutControlItem.TextToControlDistance = 0;
@@ -278,9 +278,9 @@
             // 
             this.cutRightEmptySpace.AllowHotTrack = false;
             this.cutRightEmptySpace.CustomizationFormText = "cutRightEmptySpace";
-            this.cutRightEmptySpace.Location = new System.Drawing.Point(740, 374);
+            this.cutRightEmptySpace.Location = new System.Drawing.Point(606, 374);
             this.cutRightEmptySpace.Name = "cutRightEmptySpace";
-            this.cutRightEmptySpace.Size = new System.Drawing.Size(140, 26);
+            this.cutRightEmptySpace.Size = new System.Drawing.Size(274, 26);
             this.cutRightEmptySpace.Text = "cutRightEmptySpace";
             this.cutRightEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -290,7 +290,7 @@
             this.cutLeftEmptySpace.CustomizationFormText = "cutLeftEmptySpace";
             this.cutLeftEmptySpace.Location = new System.Drawing.Point(0, 374);
             this.cutLeftEmptySpace.Name = "cutLeftEmptySpace";
-            this.cutLeftEmptySpace.Size = new System.Drawing.Size(98, 26);
+            this.cutLeftEmptySpace.Size = new System.Drawing.Size(294, 26);
             this.cutLeftEmptySpace.Text = "cutLeftEmptySpace";
             this.cutLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -298,9 +298,9 @@
             // 
             this.upperSearchEmptySpace.AllowHotTrack = false;
             this.upperSearchEmptySpace.CustomizationFormText = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Location = new System.Drawing.Point(775, 0);
+            this.upperSearchEmptySpace.Location = new System.Drawing.Point(736, 0);
             this.upperSearchEmptySpace.Name = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Size = new System.Drawing.Size(105, 14);
+            this.upperSearchEmptySpace.Size = new System.Drawing.Size(144, 14);
             this.upperSearchEmptySpace.Text = "upperSearchEmptySpace";
             this.upperSearchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 

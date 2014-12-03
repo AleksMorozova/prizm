@@ -21,7 +21,7 @@ namespace Data.DAL.Hibernate
 
         }
 
-         public Pipe GetByNumber(string number)
+        public Pipe GetByNumber(string number)
         {
             try
             {
@@ -33,19 +33,35 @@ namespace Data.DAL.Hibernate
             }
         }
 
-        // TODO: now pipeMillStatus - string, sometime it will be 
-        // converted to type and condition must be changed
-         public IList<Pipe> GetStored()
-         {
-             try
-             {
-                 return session.QueryOver<Pipe>().Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
-             }
-             catch (GenericADOException ex)
-             {
-                 throw new RepositoryException("GetStored", ex);
-             }
-             
-         }
+
+        public IList<Pipe> GetStored()
+        {
+            try
+            {
+                return session.QueryOver<Pipe>().Where(n => n.Status == PipeMillStatus.Stocked).List<Pipe>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetStored", ex);
+            }
+
+        }
+
+        public IList<Pipe> GetActiveByNumber(Pipe pipe)
+        {
+            try
+            {
+                return session
+                    .QueryOver<Pipe>()
+                    .Where(x => x.IsActive && x.Number == pipe.Number && x.Id != pipe.Id)
+                    .List<Pipe>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Get", ex);
+            }
+
+        }
+
     }
 }

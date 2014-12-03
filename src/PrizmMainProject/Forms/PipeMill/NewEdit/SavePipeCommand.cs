@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// for method RaiseCanExecuteChanged
 using DevExpress.Mvvm.POCO;
+using PrizmMain.Properties;
+using Data.DAL;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -15,20 +17,48 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public SavePipeCommand(MillPipeNewEditViewModel viewModel, IMillRepository repo)
+        public SavePipeCommand(
+            MillPipeNewEditViewModel viewModel, 
+            IMillRepository repo, 
+            IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            repo.BeginTransaction();
-            repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-            repo.Commit();
-            repo.RepoPipe.Evict(viewModel.Pipe);
+            var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
+            foreach (var pipe in p)
+            {
+                repo.RepoPipe.Evict(pipe);
+            }
+
+            if (p != null && p.Count > 0)
+            {
+                notify.ShowInfo(
+                    string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
+                    Resources.DLG_PIPE_DUPLICATE_HEDER);
+                viewModel.Number = string.Empty;
+            }
+            else
+            {
+                try
+                {
+                    repo.BeginTransaction();
+                    repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
+                    repo.Commit();
+                    repo.RepoPipe.Evict(viewModel.Pipe);
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+            }
         }
 
 
@@ -39,14 +69,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.RaiseCanExecuteChanged(x => x.Execute());
         }
 
-
         public bool CanExecute()
         {
             bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&
                 viewModel.PipeMillSizeType != null &&
                 viewModel.PipeStatus != null &&
                 viewModel.PipePurchaseOrder != null &&
-                !string.IsNullOrEmpty(viewModel.Number);
+                !string.IsNullOrEmpty(viewModel.Number) &&
+                viewModel.ProductionDate != DateTime.MinValue;
 
             return condition;
         }

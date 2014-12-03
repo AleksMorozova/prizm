@@ -23,21 +23,41 @@ using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.MainChildForm;
+using Data.DAL.ADO;
 
 namespace PrizmMain
 {
     public class PrizmModule : NinjectModule
     {
+        private class TemporaryContext : PrizmMain.Security.ISecurityContext
+        {
+            // TODO: this is stub instead of real context.
+            // Remove after binding to real context.
+            public bool HasAccess(Security.Privileges privilege)
+            {
+                //throw new System.NotImplementedException();
+                return true;
+            }
+
+            public Domain.Entity.PersonName GetLoggedPerson()
+            {               
+                return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
+            }
+        }
         public override void Load()
         {
-
+            //TODO: Review if it can be changed
+            TemporaryContext temporaryContext = new TemporaryContext();
+            HibernateUtil.CurrentUser = temporaryContext.GetLoggedPerson();
+            
             #region Repository
-            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession());
+            Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession(true));
 
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();
             Bind<IPlateRepository>().To<PlateRepository>();
+            Bind<IAuditLogRepository>().To<AuditLogRepository>();
             Bind<IPurchaseOrderRepository>().To<PurchaseOrderRepository>();
             Bind<IWeldRepository>().To<WeldRepository>();
             Bind<IWelderRepository>().To<WelderRepository>();
@@ -50,6 +70,12 @@ namespace PrizmMain
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
 
+
+            Bind<IMillReportsRepository>().To<MillReportsRepository>();
+
+            // TODO: remove TemporaryContext after binding to real context.
+            Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
+
             #endregion
 
             #region ViewModel
@@ -59,6 +85,7 @@ namespace PrizmMain
             Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
+            Bind<MillReportsViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -80,6 +107,7 @@ namespace PrizmMain
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
+            Bind<AuditInterceptor>().ToSelf();
         }
     }
 }

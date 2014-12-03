@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrizmMain</RootNamespace>
-    <AssemblyName>prizm</AssemblyName>
+    <AssemblyName>Prizm.Program</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -71,6 +71,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -98,6 +99,7 @@
     <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -158,9 +160,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Common\ControlColorExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
+    <Compile Include="Common\LengthLimit.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,7 +177,6 @@
     <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Documents\IDocument.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
@@ -202,15 +205,24 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.Designer.cs">
+      <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PipeMill\Heat\HeatRepositories.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\IHeatRepositories.cs" />
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPipeTypeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractPurchaseOrderCommand.cs" />
+    <Compile Include="Documents\IModifiable.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\NewSavePipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditViewModel.cs">
       <SubType>Code</SubType>
@@ -225,6 +237,9 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
+    <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
+    <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
@@ -262,6 +277,7 @@
     </Compile>
     <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
     <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\CreateReportCommand.cs" />
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
     <Compile Include="Forms\Settings\SettingsRepositories.cs" />
@@ -375,17 +391,23 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Privileges.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\WeldersSelectionControl.resx">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\Heat\HeatNumberXtraForm.resx">
+      <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
@@ -420,6 +442,9 @@
     <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
+      <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraForm.resx">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,9 +453,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.resx">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
-      <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainChildForm\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>

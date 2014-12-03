@@ -20,6 +20,7 @@ using PrizmMain.Properties;
 using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -31,9 +32,11 @@ namespace PrizmMain.Forms.Settings
         public SettingsXtraForm()
         {
             InitializeComponent();
+            SetControlsTextLength();
 
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
@@ -87,10 +90,15 @@ namespace PrizmMain.Forms.Settings
         private void BindToViewModel()
         {
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            inspectorBindingSource.DataSource = viewModel.Inspectors;
+            inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
+            inspectorCertificateBindingSource.DataMember = "Certificates";
+
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
             inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
-            gridControlInspectors.DataSource = viewModel.Inspectors;
+            gridControlInspectors.DataSource = inspectorBindingSource;
+            gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
@@ -158,6 +166,31 @@ namespace PrizmMain.Forms.Settings
            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
+        private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
+        } 
+
+        void ValidateCertificate(GridView view, GridColumn certNameColumn, GridColumn expDateColumn, ValidateRowEventArgs e)
+        {
+            string certName = (string)view.GetRowCellValue(e.RowHandle, certNameColumn);
+            DateTime certExpDate = (DateTime)view.GetRowCellValue(e.RowHandle, expDateColumn);
+
+            view.ClearColumnErrors();
+
+            if (string.IsNullOrWhiteSpace(certName))
+            {
+                view.SetColumnError(certNameColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+
+            if (certExpDate < DateTime.Now)
+            {
+                view.SetColumnError(expDateColumn, Resources.DATA_EXPIRED);
+                e.Valid = false;
+            }
+        }
+
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
         {
            string firstName = (string)view.GetRowCellValue(e.RowHandle, firstNameColumn);
@@ -190,7 +223,60 @@ namespace PrizmMain.Forms.Settings
            view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
         }
 
-        
+        private void inspectorCertificateGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
+            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.Certificate.IsNew());
+        }
+
+        private void SetControlsTextLength()
+        {
+            client.Properties.MaxLength = LengthLimit.MaxProjectClient;
+            design.Properties.MaxLength = LengthLimit.MaxProjectDesigner;
+            manufacturerRepositoryTextEdit.MaxLength = LengthLimit.MaxPlateManufacturerName;
+            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipetestResultType;
+            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
+            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
+            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+            welderFNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderFirstName;
+            welderLNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderLastName;
+            welderMNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderMiddleName;
+            welderCertificateTextEdit.MaxLength = LengthLimit.MaxWelderCertificate;
+            stampRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderStamp;
+            inspectorFNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorFirstName;
+            inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
+            inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
+            inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+        }
+
+        private void gridControlInspectors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            var view = sender as GridView; //cert Grid
+
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
+                InspectorCertificate cert = view.GetRow(e.RowHandle) as InspectorCertificate; //certif from certif grid 
+                if (cert != null)
+                {
+                    cert.Inspector = insp.Inspector;
+                    cert.IsActive = true;
+                    cert.Certificate = new Certificate { ExpirationDate = DateTime.Now };
+                }
+            }
+        }
+
+        private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+        }
+
+
     }
 
 }

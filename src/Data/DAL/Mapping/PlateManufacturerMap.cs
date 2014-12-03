@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Table("PlateManufacturer");
             Map(_ => _.Name).Column("name");
-            HasMany(_ => _.Heats).KeyColumn("manufacturerId").Inverse();
+            HasMany(_ => _.Heats).KeyColumn("plateManufacturer");
         }
     }
 }

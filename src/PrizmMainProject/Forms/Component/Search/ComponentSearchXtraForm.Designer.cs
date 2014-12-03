@@ -42,7 +42,6 @@
             this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.editButtonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.searchComponentryButton = new DevExpress.XtraEditors.SimpleButton();
             this.searchComponentLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -135,8 +134,7 @@
             this.certificateNumberColumn,
             this.inspectorColumn,
             this.inspectionResultColumn,
-            this.inspectionDateColumn,
-            this.editButtonColumn});
+            this.inspectionDateColumn});
             this.searchResultsView.GridControl = this.searchResultsGrid;
             this.searchResultsView.Name = "searchResultsView";
             this.searchResultsView.OptionsView.EnableAppearanceEvenRow = true;
@@ -195,15 +193,6 @@
             this.inspectionDateColumn.Visible = true;
             this.inspectionDateColumn.VisibleIndex = 5;
             this.inspectionDateColumn.Width = 99;
-            // 
-            // editButtonColumn
-            // 
-            this.editButtonColumn.Caption = "Редактировать";
-            this.editButtonColumn.ColumnEdit = this.repositoryButtonEdit;
-            this.editButtonColumn.Name = "editButtonColumn";
-            this.editButtonColumn.Visible = true;
-            this.editButtonColumn.VisibleIndex = 6;
-            this.editButtonColumn.Width = 63;
             // 
             // repositoryButtonEdit
             // 
@@ -439,7 +428,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionResultColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionDateColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn editButtonColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryButtonEdit;
         private DevExpress.XtraLayout.EmptySpaceItem underButtonEmptySpace;
     }

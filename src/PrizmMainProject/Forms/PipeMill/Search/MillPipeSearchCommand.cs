@@ -10,6 +10,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using Data.DAL.Mill;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
+using Domain.Entity.Setup;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -27,19 +28,17 @@ namespace PrizmMain.Forms.PipeMill.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            repo.Clear();
+
             var criteria = NHibernate.Criterion.DetachedCriteria
                     .For<Domain.Entity.Mill.Pipe>("p")
                     .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
-                    .CreateCriteria("p.Type", JoinType.InnerJoin)
-                    .Add(Restrictions.Like("Type", viewModel.PipeSize, MatchMode.Anywhere));
+                    .Add(Restrictions.InG<PipeMillSizeType>("p.Type", viewModel.CheckedPipeTypes));
 
             if (viewModel.PipeMillStatus != null)
             {
-
                 criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
-               
             }
- 
             viewModel.Pipes = repo.GetByCriteria(criteria);
         }
 

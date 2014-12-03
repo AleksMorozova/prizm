@@ -30,9 +30,11 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             shippedDate.Properties.NullText = string.Empty;
 
             this.railcarNumber.SetRequiredText();
+            SetControlsTextLength();
         }
 
-        public RailcarNewEditXtraForm():this("")
+        public RailcarNewEditXtraForm()
+            : this("")
         {
 
         }
@@ -104,5 +106,28 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        private void shippedDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+        }
+
+        private void SetControlsTextLength()
+        {
+            railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
+            destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
+            certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
+        }
+        private void ButtonRefresh()
+        {
+            viewModel.ShipCommand.IsExecutable ^= true;
+            viewModel.UnshipCommand.IsExecutable ^= true;
+        }
+
+        private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            viewModel.GetStoredPipes();
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Refresh();
+            pipeListLookUpView.RefreshData();
+        }
     }
 }
