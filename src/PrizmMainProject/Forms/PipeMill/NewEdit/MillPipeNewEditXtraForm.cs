@@ -65,8 +65,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
             CheckRegex();
-            if (!viewModel.Pipe.IsNew())
-               IsModified = false;
+            IsModified = false;
         }
 
         private void ControlsDeactivation(Control control)
