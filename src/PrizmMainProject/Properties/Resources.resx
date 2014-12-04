@@ -299,6 +299,6 @@
     <value>Деактивированные</value>
   </data>
   <data name="TestResultIncorrectDate" xml:space="preserve">
-    <value>Дата проверки не может быть в будующем</value>
+    <value>Некорректная дата</value>
   </data>
 </root>
