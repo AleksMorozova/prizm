@@ -298,4 +298,7 @@
   <data name="PipeStatusComboUnactive" xml:space="preserve">
     <value>Деактивированные</value>
   </data>
+  <data name="TestResultIncorrectDate" xml:space="preserve">
+    <value>Дата проверки не может быть в будующем</value>
+  </data>
 </root>
