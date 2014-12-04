@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.PipeMill.Search
     using PrizmMain.Common;
     using Data.DAL.Setup;
     using Domain.Entity.Setup;
+using PrizmMain.Properties;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
@@ -31,11 +32,15 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
+        public IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
 
-        private string pipeNumber;
+        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
+
+
+        private string pipeNumber; 
 
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
@@ -48,8 +53,26 @@ namespace PrizmMain.Forms.PipeMill.Search
                 () => new MillPipeSearchCommand(this, repoMill.RepoPipe));
 
             pipeTypes = repoMill.RepoPipeType.GetAll();
+            checkedPipeTypes = repoMill.RepoPipeType.GetAll();
 
             LoadPipeMillStatuses();
+
+            Activity = ActivityArray[0];
+        }
+
+        #region Properties
+        private string activity;
+        public string Activity
+        {
+            get { return activity; }
+            set
+            {
+                if (value != activity)
+                {
+                    activity = value;
+                    RaisePropertyChanged("Activity");
+                }
+            }
         }
 
         public IList<Pipe> Pipes
@@ -137,7 +160,8 @@ namespace PrizmMain.Forms.PipeMill.Search
                     RaisePropertyChanged("StatusTypes");
                 }
             }
-        }
+        } 
+        #endregion
 
         public ICommand SearchCommand
         {
@@ -152,12 +176,14 @@ namespace PrizmMain.Forms.PipeMill.Search
         private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
+            CheckedStatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
                 if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Domain.Entity.Mill.PipeMillStatus.Undefined))
                 {
                     StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
+                    CheckedStatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                 }
             }
         }

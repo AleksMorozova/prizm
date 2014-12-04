@@ -11,6 +11,8 @@ using Data.DAL.Mill;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using Domain.Entity.Setup;
+using Domain.Entity.Mill;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -35,12 +37,28 @@ namespace PrizmMain.Forms.PipeMill.Search
                     .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
                     .Add(Restrictions.InG<PipeMillSizeType>("p.Type", viewModel.CheckedPipeTypes));
 
-            if (viewModel.PipeMillStatus != null)
+            if (viewModel.CheckedStatusTypes != null && viewModel.CheckedStatusTypes.Count != viewModel.StatusTypes.Count)
             {
-                criteria.Add(Restrictions.Like("p.Status", viewModel.PipeMillStatus.Value));
+                var statuses = new List<PipeMillStatus>();
+                foreach (var item in viewModel.CheckedStatusTypes)
+                {
+                    statuses.Add(item.Value);
+                }
+                criteria.Add(Restrictions.InG<PipeMillStatus>("p.Status",statuses));
             }
+
+            if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
+            {
+                criteria.Add(Restrictions.Eq("p.IsActive", true));
+            }
+            else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
+            {
+                criteria.Add(Restrictions.Eq("p.IsActive", false));
+            }
+
             viewModel.Pipes = repo.GetByCriteria(criteria);
         }
+
 
         public bool CanExecute()
         {

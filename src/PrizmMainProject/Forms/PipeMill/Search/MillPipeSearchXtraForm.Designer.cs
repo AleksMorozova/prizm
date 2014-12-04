@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -52,7 +52,8 @@
             this.internalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeRepositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.pipeMillStatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeMillStatus = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.pipeActivity = new DevExpress.XtraEditors.ComboBoxEdit();
             this.PipeSearchLayout = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -66,6 +67,7 @@
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.PipeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeActivityLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -87,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
@@ -100,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSizeLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivityLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).BeginInit();
@@ -111,7 +115,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -128,6 +132,7 @@
             this.PipeSearchLayoutControl.Controls.Add(this.pipeNumber);
             this.PipeSearchLayoutControl.Controls.Add(this.pipesSearchResult);
             this.PipeSearchLayoutControl.Controls.Add(this.pipeMillStatus);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeActivity);
             this.PipeSearchLayoutControl.Location = new System.Drawing.Point(1, 4);
             this.PipeSearchLayoutControl.Name = "PipeSearchLayoutControl";
             this.PipeSearchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(92, 342, 250, 350);
@@ -143,7 +148,10 @@
             this.pipeSize.Properties.AllowMultiSelect = true;
             this.pipeSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeSize.Properties.DropDownRows = 10;
+            this.pipeSize.Properties.DropDownRows = 15;
+            this.pipeSize.Properties.PopupFormMinSize = new System.Drawing.Size(350, 0);
+            this.pipeSize.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
+            this.pipeSize.Properties.SelectAllItemCaption = "(Выбрать все)";
             this.pipeSize.Size = new System.Drawing.Size(172, 20);
             this.pipeSize.StyleController = this.PipeSearchLayoutControl;
             this.pipeSize.TabIndex = 41;
@@ -152,9 +160,9 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(644, 61);
+            this.searchButton.Location = new System.Drawing.Point(807, 61);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(86, 22);
+            this.searchButton.Size = new System.Drawing.Size(67, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
             this.searchButton.TabIndex = 40;
             this.searchButton.Text = "&Поиск";
@@ -339,7 +347,7 @@
             // 
             this.pipeRepositoryButtonEdit.AutoHeight = false;
             this.pipeRepositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pipeRepositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pipeRepositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.pipeRepositoryButtonEdit.Name = "pipeRepositoryButtonEdit";
             this.pipeRepositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.pipeRepositoryButtonEdit.Click += new System.EventHandler(this.pipeRepositoryButtonEdit_Click);
@@ -350,11 +358,23 @@
             this.pipeMillStatus.Name = "pipeMillStatus";
             this.pipeMillStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeMillStatus.Properties.PopupSizeable = true;
-            this.pipeMillStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.pipeMillStatus.Properties.SelectAllItemCaption = "(Выбрать все)";
             this.pipeMillStatus.Size = new System.Drawing.Size(174, 20);
             this.pipeMillStatus.StyleController = this.PipeSearchLayoutControl;
             this.pipeMillStatus.TabIndex = 35;
+            this.pipeMillStatus.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.pipeMillStatus_CloseUp);
+            // 
+            // pipeActivity
+            // 
+            this.pipeActivity.EditValue = "";
+            this.pipeActivity.Location = new System.Drawing.Point(641, 62);
+            this.pipeActivity.Name = "pipeActivity";
+            this.pipeActivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeActivity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.pipeActivity.Size = new System.Drawing.Size(147, 20);
+            this.pipeActivity.StyleController = this.PipeSearchLayoutControl;
+            this.pipeActivity.TabIndex = 42;
             // 
             // PipeSearchLayout
             // 
@@ -385,7 +405,8 @@
             this.searchGroupEmptySpace,
             this.searchButtonLayout,
             this.searchButtonEmptySpace,
-            this.PipeSizeLayoutControl});
+            this.PipeSizeLayoutControl,
+            this.pipeActivityLayoutControl});
             this.searchLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchLayoutGroup.Name = "searchLayoutGroup";
             this.searchLayoutGroup.Size = new System.Drawing.Size(1190, 143);
@@ -420,9 +441,9 @@
             // 
             this.searchGroupTopEmptySpace.AllowHotTrack = false;
             this.searchGroupTopEmptySpace.CustomizationFormText = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(714, 0);
+            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(858, 0);
             this.searchGroupTopEmptySpace.Name = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(450, 46);
+            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(306, 46);
             this.searchGroupTopEmptySpace.Text = "searchGroupTopEmptySpace";
             this.searchGroupTopEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -466,9 +487,9 @@
             // 
             this.searchGroupButtomEmptySpace.AllowHotTrack = false;
             this.searchGroupButtomEmptySpace.CustomizationFormText = "searchGroupButtomEmptySpace";
-            this.searchGroupButtomEmptySpace.Location = new System.Drawing.Point(614, 46);
+            this.searchGroupButtomEmptySpace.Location = new System.Drawing.Point(777, 46);
             this.searchGroupButtomEmptySpace.Name = "searchGroupButtomEmptySpace";
-            this.searchGroupButtomEmptySpace.Size = new System.Drawing.Size(550, 44);
+            this.searchGroupButtomEmptySpace.Size = new System.Drawing.Size(387, 44);
             this.searchGroupButtomEmptySpace.Text = "searchGroupButtomEmptySpace";
             this.searchGroupButtomEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -476,9 +497,9 @@
             // 
             this.searchGroupEmptySpace.AllowHotTrack = false;
             this.searchGroupEmptySpace.CustomizationFormText = "searchGroupEmptySpace";
-            this.searchGroupEmptySpace.Location = new System.Drawing.Point(604, 0);
+            this.searchGroupEmptySpace.Location = new System.Drawing.Point(604, 45);
             this.searchGroupEmptySpace.Name = "searchGroupEmptySpace";
-            this.searchGroupEmptySpace.Size = new System.Drawing.Size(10, 90);
+            this.searchGroupEmptySpace.Size = new System.Drawing.Size(173, 45);
             this.searchGroupEmptySpace.Text = "searchGroupEmptySpace";
             this.searchGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -486,9 +507,9 @@
             // 
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(614, 15);
+            this.searchButtonLayout.Location = new System.Drawing.Point(777, 15);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(100, 31);
+            this.searchButtonLayout.Size = new System.Drawing.Size(81, 31);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -499,9 +520,9 @@
             // 
             this.searchButtonEmptySpace.AllowHotTrack = false;
             this.searchButtonEmptySpace.CustomizationFormText = "searchButtonEmptySpace";
-            this.searchButtonEmptySpace.Location = new System.Drawing.Point(614, 0);
+            this.searchButtonEmptySpace.Location = new System.Drawing.Point(777, 0);
             this.searchButtonEmptySpace.Name = "searchButtonEmptySpace";
-            this.searchButtonEmptySpace.Size = new System.Drawing.Size(100, 15);
+            this.searchButtonEmptySpace.Size = new System.Drawing.Size(81, 15);
             this.searchButtonEmptySpace.Text = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -516,6 +537,18 @@
             this.PipeSizeLayoutControl.Text = "Типоразмер трубы";
             this.PipeSizeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.PipeSizeLayoutControl.TextSize = new System.Drawing.Size(147, 13);
+            // 
+            // pipeActivityLayoutControl
+            // 
+            this.pipeActivityLayoutControl.Control = this.pipeActivity;
+            this.pipeActivityLayoutControl.CustomizationFormText = "Состояние трубы";
+            this.pipeActivityLayoutControl.Location = new System.Drawing.Point(604, 0);
+            this.pipeActivityLayoutControl.Name = "pipeActivityLayoutControl";
+            this.pipeActivityLayoutControl.Size = new System.Drawing.Size(173, 45);
+            this.pipeActivityLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 10, 0, 5);
+            this.pipeActivityLayoutControl.Text = "Состояние трубы";
+            this.pipeActivityLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeActivityLayoutControl.TextSize = new System.Drawing.Size(147, 13);
             // 
             // searchResultLayoutGroup
             // 
@@ -579,6 +612,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
@@ -592,6 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSizeLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivityLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).EndInit();
@@ -638,9 +673,11 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit pipeRepositoryButtonEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryLookUpEditStatus;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryGridLookUpEditViewStatus;
-        private DevExpress.XtraEditors.ComboBoxEdit pipeMillStatus;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeSize;
         private DevExpress.XtraLayout.LayoutControlItem PipeSizeLayoutControl;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit pipeMillStatus;
+        private DevExpress.XtraLayout.LayoutControlItem pipeActivityLayoutControl;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeActivity;
 
 
     }

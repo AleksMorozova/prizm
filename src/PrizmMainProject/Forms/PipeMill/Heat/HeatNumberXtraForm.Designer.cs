@@ -186,6 +186,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(358, 105);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HeatNumberXtraForm";
             this.Text = "Завод - добавление плавки";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

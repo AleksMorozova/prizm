@@ -1,20 +1,13 @@
-using System;
-using System.ComponentModel;
-
-using Ninject.Parameters;
-using Ninject;
-
-using DevExpress.XtraEditors;
-
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.MainChildForm;
-
-using PrizmMain.DummyData;
-using System.Windows.Forms;
 using Domain.Entity.Mill;
-using System.Collections.Generic;
-using PrizmMain.Properties;
 using Domain.Entity.Setup;
+using Ninject.Parameters;
+using PrizmMain.Common;
+using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.PipeMill.NewEdit;
+using PrizmMain.Properties;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -35,25 +28,26 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             foreach (var s in viewModel.PipeTypes)
             {
-                pipeSize.Properties.Items.Add(s);
+                pipeSize.Properties.Items.Add(s,true);
             }
             foreach (var s in viewModel.StatusTypes)
             {
-                pipeMillStatus.Properties.Items.Add(s);
+                pipeMillStatus.Properties.Items.Add(s,true);
             }
+            pipeActivity.Properties.Items.AddRange(viewModel.ActivityArray);
 
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
-            pipeMillStatus.DataBindings
-                .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");      
+            pipeActivity.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "Activity");
 
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
             repositoryLookUpEditStatus.DataSource = statusTypeDict;
+
 
         }
 
@@ -72,7 +66,6 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
         {
-
             int selectedPipe = pipesSearchResultView.GetFocusedDataSourceRowIndex();
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
@@ -126,5 +119,17 @@ namespace PrizmMain.Forms.PipeMill.Search
             }
         }
 
+        private void pipeMillStatus_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            viewModel.CheckedStatusTypes.Clear();
+
+            for (int i = 0; i < pipeMillStatus.Properties.Items.Count; i++)
+            {
+                if (pipeMillStatus.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    viewModel.CheckedStatusTypes.Add(pipeMillStatus.Properties.Items[i].Value as EnumWrapper<PipeMillStatus>);
+                }
+            }
+        }
     }
 }
