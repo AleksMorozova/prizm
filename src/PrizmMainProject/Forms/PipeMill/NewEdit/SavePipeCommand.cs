@@ -85,6 +85,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             bool condition = viewModel.Heat != null &&
                 viewModel.PipeMillSizeType != null &&
+                viewModel.PipeStatus != null &&
                 viewModel.PipePurchaseOrder != null &&
                 !string.IsNullOrEmpty(viewModel.Number) &&
                 viewModel.ProductionDate != DateTime.MinValue;
