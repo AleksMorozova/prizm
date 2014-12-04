@@ -115,7 +115,6 @@
             this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSize = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -130,8 +129,8 @@
             this.purchaseOrder = new DevExpress.XtraEditors.ComboBoxEdit();
             this.heatNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeCreationDate = new DevExpress.XtraEditors.DateEdit();
-            this.millStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
+            this.millStatus = new DevExpress.XtraEditors.TextEdit();
             this.generalLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSizeLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -234,8 +233,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).BeginInit();
@@ -1060,8 +1059,7 @@
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
             this.controlDateGridColumn,
-            this.inspectionCodeGridColumn,
-            this.categoryGridColumn});
+            this.inspectionCodeGridColumn});
             this.inspectionsGridView.GridControl = this.inspections;
             this.inspectionsGridView.Name = "inspectionsGridView";
             this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -1079,7 +1077,7 @@
             this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 260;
+            this.inspectionNameGridColumn.Width = 274;
             // 
             // expectedResultGridColumn
             // 
@@ -1089,8 +1087,8 @@
             this.expectedResultGridColumn.OptionsColumn.AllowEdit = false;
             this.expectedResultGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.expectedResultGridColumn.Visible = true;
-            this.expectedResultGridColumn.VisibleIndex = 3;
-            this.expectedResultGridColumn.Width = 140;
+            this.expectedResultGridColumn.VisibleIndex = 2;
+            this.expectedResultGridColumn.Width = 141;
             // 
             // valueGridColumn
             // 
@@ -1099,8 +1097,8 @@
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
-            this.valueGridColumn.VisibleIndex = 4;
-            this.valueGridColumn.Width = 140;
+            this.valueGridColumn.VisibleIndex = 3;
+            this.valueGridColumn.Width = 135;
             // 
             // testResultValue
             // 
@@ -1114,8 +1112,8 @@
             this.inspectionResultGridColumn.FieldName = "Status";
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.Visible = true;
-            this.inspectionResultGridColumn.VisibleIndex = 5;
-            this.inspectionResultGridColumn.Width = 120;
+            this.inspectionResultGridColumn.VisibleIndex = 4;
+            this.inspectionResultGridColumn.Width = 150;
             // 
             // ResultStatusLookUpEdit
             // 
@@ -1136,8 +1134,8 @@
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
-            this.inspectorsGridColumn.VisibleIndex = 6;
-            this.inspectorsGridColumn.Width = 211;
+            this.inspectorsGridColumn.VisibleIndex = 5;
+            this.inspectorsGridColumn.Width = 272;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -1155,8 +1153,8 @@
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
-            this.controlDateGridColumn.VisibleIndex = 7;
-            this.controlDateGridColumn.Width = 131;
+            this.controlDateGridColumn.VisibleIndex = 6;
+            this.controlDateGridColumn.Width = 148;
             // 
             // inspectionCodeGridColumn
             // 
@@ -1166,7 +1164,7 @@
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 60;
+            this.inspectionCodeGridColumn.Width = 62;
             // 
             // inspectionCodeLookUpEdit
             // 
@@ -1183,16 +1181,6 @@
             this.inspectionCodeLookUpEdit.NullText = "";
             this.inspectionCodeLookUpEdit.ValueMember = "Code";
             this.inspectionCodeLookUpEdit.EditValueChanged += new System.EventHandler(this.inspectionCodeLookUpEdit_EditValueChanged);
-            // 
-            // categoryGridColumn
-            // 
-            this.categoryGridColumn.Caption = "Категория";
-            this.categoryGridColumn.FieldName = "Operation.Category.Name";
-            this.categoryGridColumn.Name = "categoryGridColumn";
-            this.categoryGridColumn.OptionsColumn.AllowEdit = false;
-            this.categoryGridColumn.Visible = true;
-            this.categoryGridColumn.VisibleIndex = 2;
-            this.categoryGridColumn.Width = 120;
             // 
             // inspectionsLayoutGroup
             // 
@@ -1251,9 +1239,9 @@
             this.generalPipeLayout.Controls.Add(this.pipe);
             this.generalPipeLayout.Controls.Add(this.heatNumber);
             this.generalPipeLayout.Controls.Add(this.pipeCreationDate);
-            this.generalPipeLayout.Controls.Add(this.millStatus);
             this.generalPipeLayout.Controls.Add(this.pipeNumber);
             this.generalPipeLayout.Controls.Add(this.pipeSize);
+            this.generalPipeLayout.Controls.Add(this.millStatus);
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
             this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 272, 250, 350);
@@ -1377,20 +1365,6 @@
             this.pipeCreationDate.TabIndex = 3;
             this.pipeCreationDate.EditValueChanged += new System.EventHandler(this.pipeCreationDate_EditValueChanged);
             // 
-            // millStatus
-            // 
-            this.millStatus.Location = new System.Drawing.Point(1156, 27);
-            this.millStatus.Name = "millStatus";
-            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
-            this.millStatus.Properties.Appearance.Options.UseBackColor = true;
-            this.millStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.millStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.millStatus.Size = new System.Drawing.Size(99, 20);
-            this.millStatus.StyleController = this.generalPipeLayout;
-            this.millStatus.TabIndex = 4;
-            this.millStatus.SelectedIndexChanged += new System.EventHandler(this.millStatus_SelectedIndexChanged);
-            // 
             // pipeNumber
             // 
             this.pipeNumber.Location = new System.Drawing.Point(14, 27);
@@ -1401,6 +1375,17 @@
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
             this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
+            // 
+            // millStatus
+            // 
+            this.millStatus.Location = new System.Drawing.Point(1156, 27);
+            this.millStatus.Name = "millStatus";
+            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.millStatus.Properties.Appearance.Options.UseBackColor = true;
+            this.millStatus.Properties.ReadOnly = true;
+            this.millStatus.Size = new System.Drawing.Size(99, 20);
+            this.millStatus.StyleController = this.generalPipeLayout;
+            this.millStatus.TabIndex = 4;
             // 
             // generalLayoutGroup
             // 
@@ -1738,8 +1723,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeCreationDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSizeLayout)).EndInit();
@@ -1770,7 +1755,6 @@
         private DevExpress.XtraTab.XtraTabControl pipe;
         private DevExpress.XtraTab.XtraTabPage generalParametersPage;
         private DevExpress.XtraEditors.ComboBoxEdit pipeSize;
-        private DevExpress.XtraEditors.ComboBoxEdit millStatus;
         private DevExpress.XtraEditors.TextEdit pipeNumber;
         private DevExpress.XtraEditors.DateEdit pipeCreationDate;
         private DevExpress.XtraLayout.LayoutControl generalPipeLayout;
@@ -1889,7 +1873,7 @@
         private DevExpress.XtraEditors.TextEdit purchaseOrderDate;
         private DevExpress.XtraLayout.LayoutControlItem purchaseOrderDateLayoutControl;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit inspectionCodeLookUpEdit;
-        private DevExpress.XtraGrid.Columns.GridColumn categoryGridColumn;
+        private DevExpress.XtraEditors.TextEdit millStatus;
 
     }
 }
