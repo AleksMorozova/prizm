@@ -286,12 +286,12 @@
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
             this.weldingHistory.DataSource = this.weldBindingSource;
-            this.weldingHistory.Location = new System.Drawing.Point(427, 215);
+            this.weldingHistory.Location = new System.Drawing.Point(429, 217);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
             this.weldingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPopupWelders});
-            this.weldingHistory.Size = new System.Drawing.Size(777, 179);
+            this.weldingHistory.Size = new System.Drawing.Size(773, 175);
             this.weldingHistory.TabIndex = 40;
             this.weldingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.weldingHistoryGridView,
@@ -389,19 +389,19 @@
             // 
             // plateThickness
             // 
-            this.plateThickness.Location = new System.Drawing.Point(471, 65);
+            this.plateThickness.Location = new System.Drawing.Point(471, 58);
             this.plateThickness.Name = "plateThickness";
             this.plateThickness.Properties.Mask.EditMask = "d";
             this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.plateThickness.Size = new System.Drawing.Size(149, 20);
+            this.plateThickness.Size = new System.Drawing.Size(156, 20);
             this.plateThickness.StyleController = this.pipeGeneralParametersLayout;
             this.plateThickness.TabIndex = 58;
             // 
             // plateNumber
             // 
-            this.plateNumber.Location = new System.Drawing.Point(280, 65);
+            this.plateNumber.Location = new System.Drawing.Point(273, 58);
             this.plateNumber.Name = "plateNumber";
-            this.plateNumber.Size = new System.Drawing.Size(167, 20);
+            this.plateNumber.Size = new System.Drawing.Size(174, 20);
             this.plateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.plateNumber.TabIndex = 25;
             // 
@@ -416,19 +416,19 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(24, 286);
+            this.certificateNumber.Location = new System.Drawing.Point(29, 286);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Properties.ReadOnly = true;
-            this.certificateNumber.Size = new System.Drawing.Size(355, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(350, 20);
             this.certificateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.certificateNumber.TabIndex = 55;
             // 
             // destanation
             // 
-            this.destanation.Location = new System.Drawing.Point(24, 335);
+            this.destanation.Location = new System.Drawing.Point(29, 335);
             this.destanation.Name = "destanation";
             this.destanation.Properties.ReadOnly = true;
-            this.destanation.Size = new System.Drawing.Size(355, 20);
+            this.destanation.Size = new System.Drawing.Size(350, 20);
             this.destanation.StyleController = this.pipeGeneralParametersLayout;
             this.destanation.TabIndex = 54;
             // 
@@ -548,10 +548,10 @@
             // plateManufacturer
             // 
             this.plateManufacturer.EditValue = "Нижнеднепровский трубопрокатный завод";
-            this.plateManufacturer.Location = new System.Drawing.Point(280, 114);
+            this.plateManufacturer.Location = new System.Drawing.Point(273, 107);
             this.plateManufacturer.Name = "plateManufacturer";
             this.plateManufacturer.Properties.ReadOnly = true;
-            this.plateManufacturer.Size = new System.Drawing.Size(340, 20);
+            this.plateManufacturer.Size = new System.Drawing.Size(354, 20);
             this.plateManufacturer.StyleController = this.pipeGeneralParametersLayout;
             this.plateManufacturer.TabIndex = 57;
             // 
@@ -587,7 +587,7 @@
             this.geometricParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.geometricParametersLayoutGroup.Size = new System.Drawing.Size(229, 167);
             this.geometricParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 14);
-            this.geometricParametersLayoutGroup.Text = "Размеры";
+            this.geometricParametersLayoutGroup.Text = "Фактический размер";
             // 
             // lengthLayout
             // 
@@ -675,7 +675,7 @@
             this.certificateLayout.Location = new System.Drawing.Point(0, 49);
             this.certificateLayout.Name = "certificateLayout";
             this.certificateLayout.Size = new System.Drawing.Size(374, 49);
-            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
+            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.certificateLayout.Text = "Номер сертификата";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -687,7 +687,7 @@
             this.destinationLayout.Location = new System.Drawing.Point(0, 98);
             this.destinationLayout.Name = "destinationLayout";
             this.destinationLayout.Size = new System.Drawing.Size(374, 81);
-            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 10, 4, 5);
+            this.destinationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.destinationLayout.Text = "Получатель";
             this.destinationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.destinationLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -747,7 +747,6 @@
             this.weldingHistoryLayout.ImageToTextDistance = 0;
             this.weldingHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.weldingHistoryLayout.Name = "weldingHistoryLayout";
-            this.weldingHistoryLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.weldingHistoryLayout.Size = new System.Drawing.Size(777, 179);
             this.weldingHistoryLayout.Text = "Сварщики";
             this.weldingHistoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -764,6 +763,7 @@
             this.plateThicknessLayout});
             this.plateLayout.Location = new System.Drawing.Point(229, 0);
             this.plateLayout.Name = "plateLayout";
+            this.plateLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.plateLayout.Size = new System.Drawing.Size(414, 167);
             this.plateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 14);
             this.plateLayout.Text = "Параметры листа";
@@ -774,7 +774,7 @@
             this.plateManufacturerLayout.CustomizationFormText = "Производитель листа";
             this.plateManufacturerLayout.Location = new System.Drawing.Point(0, 49);
             this.plateManufacturerLayout.Name = "plateManufacturerLayout";
-            this.plateManufacturerLayout.Size = new System.Drawing.Size(364, 65);
+            this.plateManufacturerLayout.Size = new System.Drawing.Size(378, 79);
             this.plateManufacturerLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.plateManufacturerLayout.Text = "Производитель";
             this.plateManufacturerLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -786,7 +786,7 @@
             this.plateNumberLayout.CustomizationFormText = "Номер листа";
             this.plateNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.plateNumberLayout.Name = "plateNumberLayout";
-            this.plateNumberLayout.Size = new System.Drawing.Size(191, 49);
+            this.plateNumberLayout.Size = new System.Drawing.Size(198, 49);
             this.plateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.plateNumberLayout.Text = "Номер";
             this.plateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -796,9 +796,9 @@
             // 
             this.plateThicknessLayout.Control = this.plateThickness;
             this.plateThicknessLayout.CustomizationFormText = "Толщина ";
-            this.plateThicknessLayout.Location = new System.Drawing.Point(191, 0);
+            this.plateThicknessLayout.Location = new System.Drawing.Point(198, 0);
             this.plateThicknessLayout.Name = "plateThicknessLayout";
-            this.plateThicknessLayout.Size = new System.Drawing.Size(173, 49);
+            this.plateThicknessLayout.Size = new System.Drawing.Size(180, 49);
             this.plateThicknessLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
             this.plateThicknessLayout.Text = "Толщина ";
             this.plateThicknessLayout.TextLocation = DevExpress.Utils.Locations.Top;
