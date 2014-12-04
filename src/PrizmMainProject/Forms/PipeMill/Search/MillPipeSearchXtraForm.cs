@@ -1,23 +1,13 @@
-using System;
-using System.ComponentModel;
-using System.Linq;
-
-using Ninject.Parameters;
-using Ninject;
-
-using DevExpress.XtraEditors;
-
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.MainChildForm;
-
-using PrizmMain.DummyData;
-using System.Windows.Forms;
 using Domain.Entity.Mill;
-using System.Collections.Generic;
-using PrizmMain.Properties;
 using Domain.Entity.Setup;
+using Ninject.Parameters;
 using PrizmMain.Common;
-using DevExpress.XtraEditors.Controls;
+using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.PipeMill.NewEdit;
+using PrizmMain.Properties;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
