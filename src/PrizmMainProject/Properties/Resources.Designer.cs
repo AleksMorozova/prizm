@@ -593,7 +593,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Дата не может быть пустой или в будущей.
+        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
         /// </summary>
         internal static string TestResultIncorrectDate {
             get {
