@@ -752,6 +752,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
          public bool CheckStatus()
          {
+             bool resultValue;
              List<string> testsResults = orderTestResult();
 
              if (Pipe.Status == PipeMillStatus.Stocked)
@@ -760,26 +761,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                  {
                      if (testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
                      {
-                         return false;
+                         resultValue = false;
                      }
                      else
                      {
                          Pipe.Status = PipeMillStatus.Stocked;
-                         return true;
+                         resultValue = true;
                      }
                  }
                  else 
                  {
                      ChangePipeStatus(testsResults);
-                     return true;
+                     resultValue = true;
                  }
              }
 
              else
              {
                  ChangePipeStatus(testsResults);
-                 return true;
+                 resultValue = true;
              }
+
+             return resultValue;
          }
 
          /// <summary>

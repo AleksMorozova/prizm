@@ -576,7 +576,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                  currentTestResult.IsActive = true;
                  currentTestResult.Pipe = viewModel.Pipe;
                  currentTestResult.Order = viewModel.PipeTestResults.Max(test=>test.Order)+1;
-                 //currentTestResult.Operation.Order = viewModel.Pipe.PipeTestResult.Max(test => test.Operation.Order) + 1; ;
                  viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
              }
         }
