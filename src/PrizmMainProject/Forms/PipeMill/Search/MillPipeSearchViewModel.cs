@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.PipeMill.Search
     using PrizmMain.Common;
     using Data.DAL.Setup;
     using Domain.Entity.Setup;
+using PrizmMain.Properties;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
@@ -36,7 +37,10 @@ namespace PrizmMain.Forms.PipeMill.Search
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
 
-        private string pipeNumber;
+        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
+
+
+        private string pipeNumber; 
 
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
@@ -52,9 +56,25 @@ namespace PrizmMain.Forms.PipeMill.Search
             checkedPipeTypes = repoMill.RepoPipeType.GetAll();
 
             LoadPipeMillStatuses();
+
+            Activity = ActivityArray[0];
         }
 
         #region Properties
+        private string activity;
+        public string Activity
+        {
+            get { return activity; }
+            set
+            {
+                if (value != activity)
+                {
+                    activity = value;
+                    RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
         public IList<Pipe> Pipes
         {
             get

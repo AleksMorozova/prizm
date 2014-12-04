@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 using Ninject.Parameters;
 using Ninject;
@@ -16,6 +17,7 @@ using System.Collections.Generic;
 using PrizmMain.Properties;
 using Domain.Entity.Setup;
 using PrizmMain.Common;
+using DevExpress.XtraEditors.Controls;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
@@ -42,13 +44,15 @@ namespace PrizmMain.Forms.PipeMill.Search
             {
                 pipeMillStatus.Properties.Items.Add(s,true);
             }
+            pipeActivity.Properties.Items.AddRange(viewModel.ActivityArray);
 
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             //pipeMillStatus.DataBindings
-             //   .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");      
+             //   .Add("EditValue", MillPipeSearchBindingSource, "PipeMillStatus");  
+            pipeActivity.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "Activity");
 
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
@@ -139,6 +143,5 @@ namespace PrizmMain.Forms.PipeMill.Search
                 }
             }
         }
-
     }
 }

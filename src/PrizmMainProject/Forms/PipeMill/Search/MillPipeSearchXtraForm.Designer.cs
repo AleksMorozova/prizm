@@ -34,7 +34,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.pipeActivity = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
@@ -55,6 +54,7 @@
             this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeRepositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.pipeMillStatus = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.pipeActivity = new DevExpress.XtraEditors.ComboBoxEdit();
             this.PipeSearchLayout = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -76,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).BeginInit();
@@ -91,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
@@ -125,7 +125,6 @@
             this.PipeSearchLayoutControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PipeSearchLayoutControl.Controls.Add(this.pipeActivity);
             this.PipeSearchLayoutControl.Controls.Add(this.pipeSize);
             this.PipeSearchLayoutControl.Controls.Add(this.searchButton);
             this.PipeSearchLayoutControl.Controls.Add(this.externalCoatingDate);
@@ -134,6 +133,7 @@
             this.PipeSearchLayoutControl.Controls.Add(this.pipeNumber);
             this.PipeSearchLayoutControl.Controls.Add(this.pipesSearchResult);
             this.PipeSearchLayoutControl.Controls.Add(this.pipeMillStatus);
+            this.PipeSearchLayoutControl.Controls.Add(this.pipeActivity);
             this.PipeSearchLayoutControl.Location = new System.Drawing.Point(1, 4);
             this.PipeSearchLayoutControl.Name = "PipeSearchLayoutControl";
             this.PipeSearchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(92, 342, 250, 350);
@@ -141,20 +141,6 @@
             this.PipeSearchLayoutControl.Size = new System.Drawing.Size(1210, 461);
             this.PipeSearchLayoutControl.TabIndex = 51;
             this.PipeSearchLayoutControl.Text = "layoutControl";
-            // 
-            // pipeActivity
-            // 
-            this.pipeActivity.EditValue = ", ";
-            this.pipeActivity.Location = new System.Drawing.Point(641, 62);
-            this.pipeActivity.Name = "pipeActivity";
-            this.pipeActivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeActivity.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Активные", System.Windows.Forms.CheckState.Checked),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Деактивированные", System.Windows.Forms.CheckState.Checked)});
-            this.pipeActivity.Size = new System.Drawing.Size(147, 20);
-            this.pipeActivity.StyleController = this.PipeSearchLayoutControl;
-            this.pipeActivity.TabIndex = 42;
             // 
             // pipeSize
             // 
@@ -378,6 +364,18 @@
             this.pipeMillStatus.TabIndex = 35;
             this.pipeMillStatus.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.pipeMillStatus_CloseUp);
             // 
+            // pipeActivity
+            // 
+            this.pipeActivity.EditValue = "";
+            this.pipeActivity.Location = new System.Drawing.Point(641, 62);
+            this.pipeActivity.Name = "pipeActivity";
+            this.pipeActivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeActivity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.pipeActivity.Size = new System.Drawing.Size(147, 20);
+            this.pipeActivity.StyleController = this.PipeSearchLayoutControl;
+            this.pipeActivity.TabIndex = 42;
+            // 
             // PipeSearchLayout
             // 
             this.PipeSearchLayout.CustomizationFormText = "PipeSearchLayout";
@@ -600,7 +598,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();
             this.PipeSearchLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).EndInit();
@@ -615,6 +612,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
@@ -678,8 +676,8 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeSize;
         private DevExpress.XtraLayout.LayoutControlItem PipeSizeLayoutControl;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeMillStatus;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit pipeActivity;
         private DevExpress.XtraLayout.LayoutControlItem pipeActivityLayoutControl;
+        private DevExpress.XtraEditors.ComboBoxEdit pipeActivity;
 
 
     }
