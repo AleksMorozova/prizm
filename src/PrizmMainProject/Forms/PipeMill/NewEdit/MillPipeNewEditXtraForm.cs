@@ -52,7 +52,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
-            millStatus.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
         }
 
@@ -117,10 +116,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
-            }
-            foreach (var s in viewModel.StatusTypes)
-            {
-                millStatus.Properties.Items.Add(s);
             }
             #endregion
 
@@ -338,13 +333,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
-        }
-
-        private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }

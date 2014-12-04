@@ -782,6 +782,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              }
          }
 
+         /// <summary>
+         /// Change Pipe status according to pipe test results
+         /// </summary>
          public void ChangePipeStatus(List<string> testsResults)
          {
              if (testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
@@ -794,6 +797,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              }
          }
 
+         /// <summary>
+         /// Returns list of ordered Pipe test results
+         /// </summary>
          public List<string> orderTestResult()
          {
              List<string> testsResults = new List<string>();

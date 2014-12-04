@@ -68,7 +68,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 }
                 else 
                 {
-                    notify.ShowNotify("Can't save","Saving failed");
+                    notify.ShowInfo(Resources.DLG_AddFailedControlOperation, Resources.DLG_PIPE_SAVED_HEADER);
                 }
             }
         }
