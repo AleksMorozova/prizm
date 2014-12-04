@@ -602,6 +602,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
+        /// </summary>
+        internal static string TestResultIncorrectDate {
+            get {
+                return ResourceManager.GetString("TestResultIncorrectDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Значение обязательно.
         /// </summary>
         internal static string VALUE_REQUIRED {
