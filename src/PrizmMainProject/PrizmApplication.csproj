@@ -250,6 +250,7 @@
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
     <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
@@ -483,6 +484,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Spool\SpoolsXtraForm.resx">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
