@@ -38,6 +38,7 @@
             this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.destination = new DevExpress.XtraEditors.TextEdit();
             this.newRailcarButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.shipButton = new DevExpress.XtraEditors.SimpleButton();
@@ -62,17 +63,17 @@
             this.shipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.destination = new DevExpress.XtraEditors.TextEdit();
+            this.emptySpaceRailcarItem = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlNewRailcarButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
@@ -91,12 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceRailcarItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -195,6 +195,14 @@
             this.generalLayout.Size = new System.Drawing.Size(1275, 510);
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";
+            // 
+            // destination
+            // 
+            this.destination.Location = new System.Drawing.Point(369, 27);
+            this.destination.Name = "destination";
+            this.destination.Size = new System.Drawing.Size(216, 20);
+            this.destination.StyleController = this.generalLayout;
+            this.destination.TabIndex = 23;
             // 
             // newRailcarButton
             // 
@@ -345,8 +353,8 @@
             this.shipButtonLayout,
             this.buttonsEmptySpace,
             this.saveButtonLayout,
-            this.emptySpaceItem1,
-            this.layoutControlItem2,
+            this.emptySpaceRailcarItem,
+            this.layoutControlNewRailcarButton,
             this.layoutControlDestination});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "Root";
@@ -493,46 +501,28 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // emptySpaceRailcarItem
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(993, 475);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(27, 31);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceRailcarItem.AllowHotTrack = false;
+            this.emptySpaceRailcarItem.CustomizationFormText = "emptySpaceRailcarItem";
+            this.emptySpaceRailcarItem.Location = new System.Drawing.Point(993, 475);
+            this.emptySpaceRailcarItem.Name = "emptySpaceRailcarItem";
+            this.emptySpaceRailcarItem.Size = new System.Drawing.Size(27, 31);
+            this.emptySpaceRailcarItem.Text = "emptySpaceRailcarItem";
+            this.emptySpaceRailcarItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem2
+            // layoutControlNewRailcarButton
             // 
-            this.layoutControlItem2.Control = this.newRailcarButton;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(1020, 475);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(109, 31);
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 445);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1247, 1);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 20);
-            this.layoutControlItem1.TextToControlDistance = 5;
-            // 
-            // destination
-            // 
-            this.destination.Location = new System.Drawing.Point(369, 27);
-            this.destination.Name = "destination";
-            this.destination.Size = new System.Drawing.Size(216, 20);
-            this.destination.StyleController = this.generalLayout;
-            this.destination.TabIndex = 23;
+            this.layoutControlNewRailcarButton.Control = this.newRailcarButton;
+            this.layoutControlNewRailcarButton.CustomizationFormText = "layoutControlNewRailcarButton";
+            this.layoutControlNewRailcarButton.Location = new System.Drawing.Point(1020, 475);
+            this.layoutControlNewRailcarButton.Name = "layoutControlNewRailcarButton";
+            this.layoutControlNewRailcarButton.Size = new System.Drawing.Size(109, 31);
+            this.layoutControlNewRailcarButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.layoutControlNewRailcarButton.Text = "layoutControlNewRailcarButton";
+            this.layoutControlNewRailcarButton.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlNewRailcarButton.TextToControlDistance = 0;
+            this.layoutControlNewRailcarButton.TextVisible = false;
             // 
             // layoutControlDestination
             // 
@@ -545,6 +535,16 @@
             this.layoutControlDestination.Text = "&Получатель";
             this.layoutControlDestination.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlDestination.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // layoutControlItemRailcar
+            // 
+            this.layoutControlItemRailcar.CustomizationFormText = "layoutControlItemRailcar";
+            this.layoutControlItemRailcar.Location = new System.Drawing.Point(0, 445);
+            this.layoutControlItemRailcar.Name = "layoutControlItem1";
+            this.layoutControlItemRailcar.Size = new System.Drawing.Size(1247, 1);
+            this.layoutControlItemRailcar.Text = "layoutControlItemRailcar";
+            this.layoutControlItemRailcar.TextSize = new System.Drawing.Size(50, 20);
+            this.layoutControlItemRailcar.TextToControlDistance = 5;
             // 
             // RailcarNewEditXtraForm
             // 
@@ -563,6 +563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
@@ -581,12 +582,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceRailcarItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,10 +620,10 @@
         private DevExpress.XtraLayout.LayoutControlItem unshipButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem shipButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemRailcar;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceRailcarItem;
         private DevExpress.XtraEditors.SimpleButton newRailcarButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlNewRailcarButton;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryGridLookUpEditStatus;
         private DevExpress.XtraEditors.GridLookUpEdit pipeNumberLookUp;
         private DevExpress.XtraGrid.Views.Grid.GridView pipeListLookUpView;
