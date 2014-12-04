@@ -752,7 +752,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
          public bool CheckStatus()
          {
-             bool resultValue;
+             bool resultValue = true;
+
              List<string> testsResults = orderTestResult();
 
              if (Pipe.Status == PipeMillStatus.Stocked)
