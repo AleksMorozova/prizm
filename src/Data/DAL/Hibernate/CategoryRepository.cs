@@ -9,7 +9,7 @@ using Data.DAL.Mill;
 
 namespace Data.DAL.Hibernate
 {
-    public class CategoryRepository: AbstractHibernateRepository<Guid,Domain.Entity.Mill.Category>, IСategoryRepository
+    public class CategoryRepository: AbstractHibernateRepository<Guid,Domain.Entity.Mill.Category>, ICategoryRepository
     {
         [Inject]
         public CategoryRepository(ISession session)

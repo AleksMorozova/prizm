@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReportsXtraForm));
             this.previewReportDocument = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalReportLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.cheneralReportTypes = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.generalReportTypes = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
             this.startDate = new DevExpress.XtraEditors.DateEdit();
             this.reportPeriodLabel = new DevExpress.XtraEditors.LabelControl();
@@ -56,10 +55,10 @@
             this.cheneralReportTypesEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.previewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.millReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.millReportsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).BeginInit();
             this.generalReportLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalReportTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -107,7 +106,7 @@
             // 
             // generalReportLayout
             // 
-            this.generalReportLayout.Controls.Add(this.cheneralReportTypes);
+            this.generalReportLayout.Controls.Add(this.generalReportTypes);
             this.generalReportLayout.Controls.Add(this.endDate);
             this.generalReportLayout.Controls.Add(this.startDate);
             this.generalReportLayout.Controls.Add(this.reportPeriodLabel);
@@ -124,21 +123,15 @@
             this.generalReportLayout.TabIndex = 79;
             this.generalReportLayout.Text = "layoutControl1";
             // 
-            // cheneralReportTypes
+            // generalReportTypes
             // 
-            this.cheneralReportTypes.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "листы в производстве", System.Windows.Forms.CheckState.Indeterminate),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "трубы с ремонтом сварки"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятые трубы без покрытия"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "постоянный брак"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "временный брак"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "принятые трубы")});
-            this.cheneralReportTypes.Location = new System.Drawing.Point(384, 59);
-            this.cheneralReportTypes.MultiColumn = true;
-            this.cheneralReportTypes.Name = "cheneralReportTypes";
-            this.cheneralReportTypes.Size = new System.Drawing.Size(350, 82);
-            this.cheneralReportTypes.StyleController = this.generalReportLayout;
-            this.cheneralReportTypes.TabIndex = 83;
+            this.generalReportTypes.Location = new System.Drawing.Point(384, 59);
+            this.generalReportTypes.MultiColumn = true;
+            this.generalReportTypes.Name = "generalReportTypes";
+            this.generalReportTypes.Size = new System.Drawing.Size(350, 82);
+            this.generalReportTypes.StyleController = this.generalReportLayout;
+            this.generalReportTypes.TabIndex = 83;
+            this.generalReportTypes.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.generalReportTypes_ItemCheck);
             // 
             // endDate
             // 
@@ -315,7 +308,7 @@
             // 
             // cheneralReportTypesLayout
             // 
-            this.cheneralReportTypesLayout.Control = this.cheneralReportTypes;
+            this.cheneralReportTypesLayout.Control = this.generalReportTypes;
             this.cheneralReportTypesLayout.CustomizationFormText = "Включить";
             this.cheneralReportTypesLayout.Location = new System.Drawing.Point(360, 0);
             this.cheneralReportTypesLayout.Name = "cheneralReportTypesLayout";
@@ -422,7 +415,7 @@
             this.Load += new System.EventHandler(this.MillReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).EndInit();
             this.generalReportLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cheneralReportTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalReportTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDate.Properties.CalendarTimeProperties)).EndInit();
@@ -468,7 +461,7 @@
         private DevExpress.XtraLayout.LayoutControlItem reportPeriodLayout;
         private DevExpress.XtraLayout.LayoutControlItem startDateLayout;
         private DevExpress.XtraLayout.LayoutControlItem finalDateLayout;
-        private DevExpress.XtraEditors.CheckedListBoxControl cheneralReportTypes;
+        private DevExpress.XtraEditors.CheckedListBoxControl generalReportTypes;
         private DevExpress.XtraLayout.LayoutControlItem cheneralReportTypesLayout;
         private DevExpress.XtraLayout.LayoutControlGroup createReportaLyoutGroup;
         private DevExpress.XtraLayout.LayoutControlGroup previewLayoutGroup;

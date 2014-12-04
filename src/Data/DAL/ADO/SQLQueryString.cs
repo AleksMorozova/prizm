@@ -8,7 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
-        public const string GetAllActivePipesByDate = @"select Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
+        public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.wallThickness as wallThickness, Pipe.diameter as diameter, 
                Pipe.weight as weight, Pipe.mill as mill, Pipe.pipeMillStatus as pipeMillStatus, Pipe.number
                as number, Pipe.isActive as isActive, Pipe.typeId as typeId, Pipe.plateId
                as plateId, Pipe.purchaseOrderId as purchaseOrderId, Pipe.length as length,
@@ -18,14 +18,15 @@ namespace Data.DAL.ADO
                as testResultId, PipeTestResult.pipeId as pipeId, PipeTestResult.pipeTestId
                as pipeTestId, PipeTestResult.date as PipeTestResult_date, PipeTestResult.status
                as PipeTestResult_status, PipeTestResult.value as PipeTestResult_value,
-               PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date,
-               TestResult.date as date, TestResult.value as value, TestResult.status as status
+               PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date 
           from  Pipe Pipe
           left join Plate Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat Heat on (Heat.id = Plate.heatId)
           left  join PipeTestResult PipeTestResult on (PipeTestResult.pipeId = Pipe.id)
           left  join PurchaseOrder PurchaseOrder on (PurchaseOrder.id = Pipe.purchaseOrderId)
-          left  join TestResult TestResult on (TestResult.id = PipeTestResult.testResultId) WHERE productionDate BETWEEN @startDate and @finalDate and Pipe.isActive=1";
+          left  join PipeTest PipeTest on (PipeTestResult.pipeTestId =  PipeTest.id )
+          WHERE productionDate >=  @startDate  and productionDate <= @finalDate and Pipe.isActive=1";
+
     }
 }

@@ -18,7 +18,7 @@ namespace PrizmMain.Forms.Settings
       IProjectRepository ProjectRepo { get; }
       IPlateManufacturerRepository PlateManufacturerRepo { get; }
 
-      IСategoryRepository СategoryRepo { get; }
+      ICategoryRepository СategoryRepo { get; }
 
       void Commit();
       void BeginTransaction();

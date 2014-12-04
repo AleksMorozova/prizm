@@ -20,7 +20,7 @@ namespace PrizmMain.Forms.Settings
       readonly IProjectRepository projectRepo;
       readonly IPlateManufacturerRepository manufacturerRepo;
       readonly IInspectorRepository inspectorRepo;
-      readonly IСategoryRepository categoryRepo;
+      readonly ICategoryRepository categoryRepo;
       readonly ISession session;
 
       [Inject]
@@ -42,7 +42,7 @@ namespace PrizmMain.Forms.Settings
          session.Dispose();
       }
 
-      public IСategoryRepository СategoryRepo 
+      public ICategoryRepository СategoryRepo 
       {
           get
           {

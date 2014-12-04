@@ -11,6 +11,8 @@ using DevExpress.XtraReports.Parameters;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using Domain.Entity.Mill;
+using System.Text;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
@@ -29,6 +31,9 @@ namespace PrizmMain.Forms.Reports.Mill
             startDate.DataBindings.Add("EditValue", millReportsBindingSource, "StartDate");
             endDate.DataBindings.Add("EditValue", millReportsBindingSource, "EndDate");
             previewReportDocument.DataBindings.Add("DocumentSource", millReportsBindingSource, "PreviewSource");
+            generalReportTypes.DataSource = viewModel.InspectionCategories;
+            generalReportTypes.DisplayMember = "Name";
+            generalReportTypes.ValueMember = "Id";
         }
 
         private void BindCommands()
@@ -44,6 +49,22 @@ namespace PrizmMain.Forms.Reports.Mill
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
+        }
+
+        private void generalReportTypes_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            List<Guid> checkedItems = new List<Guid>();
+            StringBuilder ids = new StringBuilder();
+            foreach (var item in generalReportTypes.CheckedItems)
+            {
+                var category = item as Category;
+                if (category != null)
+                    checkedItems.Add(category.Id);
+                    //ids.Append("N'" + category.Id + "',");
+            }
+          //  ids.Remove(ids.Length - 1, 1);
+            viewModel.SearchIds = checkedItems;
+                //ids.ToString();
         }
     }
 }

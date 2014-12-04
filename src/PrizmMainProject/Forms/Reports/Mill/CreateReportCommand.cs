@@ -38,7 +38,7 @@ namespace PrizmMain.Forms.Reports.Mill
             }
             try 
             {
-                data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate);
+                data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds);
                 MillReportsXtraReport report = new MillReportsXtraReport();
                 report.DataSource = data;  
                 report.CreateDocument();

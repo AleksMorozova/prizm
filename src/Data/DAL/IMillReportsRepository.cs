@@ -10,7 +10,7 @@ namespace Data.DAL
 {
     public interface IMillReportsRepository
     {
-        DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate);
+        DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories);
 
     }
 }
