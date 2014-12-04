@@ -45,7 +45,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             BindCommands();
             BindToViewModel();
-            IsModified = viewModel.Railcar.IsNew();
+            IsModified = false;
         }
 
         private void BindToViewModel()
