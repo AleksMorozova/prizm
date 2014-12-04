@@ -1,6 +1,7 @@
 ﻿using Data.DAL;
 using Data.DAL.Mill;
 using Data.DAL.Setup;
+using Domain.Entity;
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
@@ -40,6 +41,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             var pipe = new Pipe();
 
             repoPipe.Setup(x => x.GetActiveByNumber(pipe)).Returns(new List<Pipe>());
+            repoProject.Setup(x => x.GetSingle()).Returns(new Project());
 
             Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
             millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
