@@ -96,63 +96,39 @@ namespace PrizmMain.Forms.Settings
 
        private void BindToViewModel()
         {
+            #region Data Source
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
+
+            inspectorBindingSource.DataSource = viewModel.Inspectors;
+            inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
-            #region Data Source
-            pipeMillSizeTypeBindingSource
-                .DataSource = viewModel;
+            gridControlWelders.DataSource = viewModel.Welders;
 
-            categoriesGrid
-                .DataSource = viewModel.CategoryTypes;
+            gridControlInspectors.DataSource = inspectorBindingSource;
+            gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
 
-            inspectorCertificateBindingSource
-                .DataSource = inspectorBindingSource;
+            plateManufacturersList.DataSource = viewModel.PlateManufacturers;
 
-            inspectorBindingSource
-                .DataSource = viewModel.Inspectors;
+            controlTypeItems.DataSource = viewModel.ControlType;
+            resultTypeItems.DataSource = viewModel.ResultType;
 
-            gridControlWelders
-                .DataSource = viewModel.Welders;
+            inspectionOperation.DataSource = viewModel.PipeTests;
 
-            gridControlInspectors
-                .DataSource = inspectorBindingSource;
-
-            gridControlInspectorsCertificates
-                .DataSource = inspectorCertificateBindingSource;
-
-            plateManufacturersList
-                .DataSource = viewModel.PlateManufacturers;
-
-            controlTypeItems
-                .DataSource = viewModel.ControlType;
-
-            resultTypeItems
-                .DataSource = viewModel.ResultType;
-
-            inspectionOperation
-                .DataSource = viewModel.PipeTests;
-
-            repositoryItemsСategory
-                .DataSource = viewModel.CategoryTypes;
+            repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
+            categoriesGrid.DataSource = viewModel.CategoryTypes;
             #endregion
 
             #region Data Bindings
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
 
-            pipesSizeList.DataBindings
-                .Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+            client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
 
-            client.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+            millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
 
-            millName.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
+            pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
-            pipeNumberMask.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
-
-            externalDocumentSize.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
-
+            externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
             #endregion
         }
        
