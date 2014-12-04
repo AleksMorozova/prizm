@@ -1380,7 +1380,7 @@
             // 
             this.millStatus.Location = new System.Drawing.Point(1156, 27);
             this.millStatus.Name = "millStatus";
-            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.millStatus.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.millStatus.Properties.Appearance.Options.UseBackColor = true;
             this.millStatus.Properties.ReadOnly = true;
             this.millStatus.Size = new System.Drawing.Size(99, 20);
