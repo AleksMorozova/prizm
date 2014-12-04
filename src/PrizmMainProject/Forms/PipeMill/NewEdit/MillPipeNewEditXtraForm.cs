@@ -611,10 +611,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void CheckRegex()
         {
-            if (viewModel.Regex != null && viewModel.Regex != String.Empty)
+            if (viewModel.Project.MillPipeNumberMaskRegexp != null &&
+                viewModel.Project.MillPipeNumberMaskRegexp != String.Empty)
             {
                 pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                pipeNumber.Properties.Mask.EditMask = viewModel.Regex;
+                pipeNumber.Properties.Mask.EditMask = viewModel.Project.MillPipeNumberMaskRegexp;
             }
         }
 

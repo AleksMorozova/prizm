@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private string mill;
         private readonly IMillRepository repoMill;
 
         private IList<Domain.Entity.Mill.Heat> heats;
@@ -37,18 +38,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
         private readonly GetPipeCommand getPipeCommand;
-        private readonly GetRegexCommand getRegexCommand;
+        private readonly GetProjectCommand getProjectCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
+        public Project Project { get; set; }
 
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-        public string Regex;
+        
                 
         public bool CanDeactivatePipe { get; set; }
 
@@ -83,14 +85,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             getPipeCommand =
                 ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
 
-            getRegexCommand =
-                ViewModelSource.Create(() => new GetRegexCommand(this, repoMill.RepoProject));
+            getProjectCommand =
+                ViewModelSource.Create(() => new GetProjectCommand(this, repoMill.RepoProject));
             #endregion
+
+            this.GetProjectCommand.Execute();
+            this.mill = Project.MillName;
 
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
-                getRegexCommand.Execute();
             }
             else
             {
@@ -612,10 +616,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return pipeDeactivationCommand; }
         }
 
-
-        public ICommand GetRegexCommand
+        public ICommand GetProjectCommand
         {
-            get { return getRegexCommand; }
+            get { return getProjectCommand; }
         }
         #endregion
 
@@ -641,6 +644,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
             this.CanDeactivatePipe = false;
+            this.Pipe.Mill = mill;
         }
 
         public void Dispose()
