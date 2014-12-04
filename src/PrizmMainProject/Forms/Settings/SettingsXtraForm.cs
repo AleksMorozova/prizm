@@ -91,47 +91,69 @@ namespace PrizmMain.Forms.Settings
 
             gridViewWelders.BestFitColumns();
             gridViewInspectors.BestFitColumns();
-
-
         }
 
 
        private void BindToViewModel()
         {
-            pipeMillSizeTypeBindingSource.DataSource = viewModel;
-            inspectorBindingSource.DataSource = viewModel.Inspectors;
-            inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
-            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+            #region Data Source
+            pipeMillSizeTypeBindingSource
+                .DataSource = viewModel;
 
-            inspectionOperation.DataSource = viewModel.PipeTests;
+            categoriesGrid
+                .DataSource = viewModel.CategoryTypes;
 
-            gridControlWelders.DataSource = viewModel.Welders;
-            gridControlInspectors.DataSource = inspectorBindingSource;
-            gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
+            inspectorCertificateBindingSource
+                .DataSource = inspectorBindingSource;
 
-            controlTypeItems.DataSource = viewModel.ControlType;
-            resultTypeItems.DataSource = viewModel.ResultType;
+            inspectorBindingSource
+                .DataSource = viewModel.Inspectors;
 
+            gridControlWelders
+                .DataSource = viewModel.Welders;
 
-            // TODO: remove after fill data adding
-            //====================================================================================
-            var category = new List<Domain.Entity.Mill.Category>();
-            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-1", IsActive = true });
-            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-3" });
-            category.Add(new Domain.Entity.Mill.Category() { Name = "naame-2", IsActive = true });
-            categoriesGrid.DataSource = category;
-            //====================================================================================
+            gridControlInspectors
+                .DataSource = inspectorBindingSource;
 
-            //repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
-            repositoryItemsСategory.DataSource = category;
+            gridControlInspectorsCertificates
+                .DataSource = inspectorCertificateBindingSource;
 
-            client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
-            millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
-            pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
-            externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
-            plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
+            plateManufacturersList
+                .DataSource = viewModel.PlateManufacturers;
+
+            controlTypeItems
+                .DataSource = viewModel.ControlType;
+
+            resultTypeItems
+                .DataSource = viewModel.ResultType;
+
+            inspectionOperation
+                .DataSource = viewModel.PipeTests;
+
+            repositoryItemsСategory
+                .DataSource = viewModel.CategoryTypes;
+            #endregion
+
+            #region Data Bindings
+
+            pipesSizeList.DataBindings
+                .Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+
+            client.DataBindings
+                .Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+
+            millName.DataBindings
+                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
+
+            pipeNumberMask.DataBindings
+                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
+
+            externalDocumentSize.DataBindings
+                .Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+
+            #endregion
         }
        
         private void BindCommands()

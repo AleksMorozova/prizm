@@ -33,7 +33,6 @@ namespace PrizmMain.Forms.Settings
          this.projectRepo = new ProjectRepository(session);
          this.manufacturerRepo = new PlateManufacturerRepository(session);
          this.inspectorRepo = new InspectorRepository(session);
-
          this.categoryRepo = new CategoryRepository(session);
       }
 

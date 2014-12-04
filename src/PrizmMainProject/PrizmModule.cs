@@ -23,6 +23,7 @@ using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.PipeMill.Purchase;
 using Data.DAL.ADO;
 
 namespace PrizmMain
@@ -80,6 +81,7 @@ namespace PrizmMain
 
             #region ViewModel
             Bind<HeatViewModel>().ToSelf();
+            Bind<PurchaseOrderViewModel>().ToSelf();
             Bind<RailcarViewModel>().ToSelf();
             Bind<MillPipeSearchViewModel>().ToSelf();
             Bind<MillPipeNewEditViewModel>().ToSelf();
@@ -105,6 +107,7 @@ namespace PrizmMain
             Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
+            Bind<PurchaseOrderXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

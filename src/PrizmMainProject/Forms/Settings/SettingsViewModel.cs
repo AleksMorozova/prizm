@@ -104,9 +104,7 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-
-        public BindingList<Category> CategoryTypes 
-        { get; set; }
+        public BindingList<Category> CategoryTypes { get; set; }
 
 
         #region Current Project Settings
