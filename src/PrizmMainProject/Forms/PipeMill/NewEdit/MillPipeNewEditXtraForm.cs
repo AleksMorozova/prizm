@@ -21,6 +21,7 @@ using System.Collections;
 using System.Drawing;
 
 using PrizmMain.Common;
+using DevExpress.XtraGrid.Columns;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -662,6 +663,28 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             Domain.Entity.Setup.PipeMillSizeType currentPipeType
                 = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
+        }
+
+        private void inspectionsGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            PipeTestResultStatus result = (PipeTestResultStatus)gv.GetRowCellValue(e.RowHandle, inspectionResultGridColumn);
+            DateTime? date = (DateTime?)gv.GetRowCellValue(e.RowHandle, controlDateGridColumn);
+            switch (result)
+            {
+                case PipeTestResultStatus.Passed:
+                case PipeTestResultStatus.Failed:
+                    if (date == null || date > DateTime.Now)
+                    {
+                        gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
+                        e.Valid = false;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
