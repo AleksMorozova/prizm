@@ -259,6 +259,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(472, 173);
             this.Controls.Add(this.masterLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HeatXtraForm";
             this.Text = "Завод - плавка";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HeatXtraForm_FormClosed);

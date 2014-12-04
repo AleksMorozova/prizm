@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
 using PrizmMain.Common;
+using DevExpress.XtraLayout.Customization;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -95,23 +96,40 @@ namespace PrizmMain.Forms.Settings
 
        private void BindToViewModel()
         {
+            #region Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
-            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
-            inspectionOperation.DataSource = viewModel.PipeTests;
             gridControlWelders.DataSource = viewModel.Welders;
+
             gridControlInspectors.DataSource = inspectorBindingSource;
             gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
+
+            plateManufacturersList.DataSource = viewModel.PlateManufacturers;
+
             controlTypeItems.DataSource = viewModel.ControlType;
             resultTypeItems.DataSource = viewModel.ResultType;
+
+            inspectionOperation.DataSource = viewModel.PipeTests;
+
+            repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
+            categoriesGrid.DataSource = viewModel.CategoryTypes;
+            #endregion
+
+            #region Data Bindings
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+
             millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
+
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
+
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
-            plateManufacturersList.DataSource =  viewModel.PlateManufacturers;
+            #endregion
         }
        
         private void BindCommands()

@@ -4,6 +4,7 @@ using Data.DAL.Setup;
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
+using PrizmMain.Documents;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.PipeMill.NewEdit;
@@ -21,6 +22,8 @@ namespace UnitTests.Forms.PipeMill.NewEdit
         [Test]
         public void TestMillPipeNewEdit()
         {
+            var modifiableView = new Mock<IModifiable>();
+
             var repoPipe = new Mock<IPipeRepository>();
             var notify = new Mock<IUserNotify>();
             var repoPlate = new Mock<IPlateRepository>();
@@ -33,6 +36,10 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             var repoPipeTest = new Mock<IPipeTestRepository>();
             var repoInspector = new Mock<IInspectorRepository>();
             var repoProject = new Mock<IProjectRepository>();
+
+            var pipe = new Pipe();
+
+            repoPipe.Setup(x => x.GetActiveByNumber(pipe)).Returns(new List<Pipe>());
 
             Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
             millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
@@ -47,6 +54,8 @@ namespace UnitTests.Forms.PipeMill.NewEdit
             millRepos.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
             millRepos.SetupGet(_ => _.RepoProject).Returns(repoProject.Object);
 
+            modifiableView.SetupGet(x => x.IsModified).Returns(false);
+
 
 
             var viewModel = new MillPipeNewEditViewModel(
@@ -54,7 +63,8 @@ namespace UnitTests.Forms.PipeMill.NewEdit
                 Guid.Empty, 
                 notify.Object);
 
-          
+            viewModel.Pipe = pipe;
+            viewModel.ModifiableView = modifiableView.Object;
 
             var command = new NewSavePipeCommand(
                 viewModel, 

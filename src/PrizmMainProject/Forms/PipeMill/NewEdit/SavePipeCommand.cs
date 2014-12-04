@@ -76,7 +76,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&
+            bool condition = viewModel.Heat != null &&
                 viewModel.PipeMillSizeType != null &&
                 viewModel.PipeStatus != null &&
                 viewModel.PipePurchaseOrder != null &&
