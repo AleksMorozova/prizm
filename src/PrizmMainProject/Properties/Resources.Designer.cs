@@ -511,6 +511,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Активные.
+        /// </summary>
+        internal static string PipeStatusComboActive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все.
+        /// </summary>
+        internal static string PipeStatusComboAll {
+            get {
+                return ResourceManager.GetString("PipeStatusComboAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивированные.
+        /// </summary>
+        internal static string PipeStatusComboUnactive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboUnactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PRIZM.
         /// </summary>
         internal static string PRIZM {

@@ -289,4 +289,13 @@
   <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
     <value>Номер наряд-заказа обязателен</value>
   </data>
+  <data name="PipeStatusComboActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="PipeStatusComboAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="PipeStatusComboUnactive" xml:space="preserve">
+    <value>Деактивированные</value>
+  </data>
 </root>
