@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private string mill;
         private readonly IMillRepository repoMill;
 
         private IList<Domain.Entity.Mill.Heat> heats;
@@ -37,18 +38,19 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private readonly ExtractPurchaseOrderCommand extractPurchaseOrderCommand;
         private readonly ExtractPipeTypeCommand extractPipeTypeCommand;
         private readonly GetPipeCommand getPipeCommand;
-        private readonly GetRegexCommand getRegexCommand;
+        private readonly GetProjectCommand getProjectCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
+        public Project Project { get; set; }
 
         public IList<Welder> Welders { get; set; }
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-        public string Regex;
+        
                 
         public bool CanDeactivatePipe { get; set; }
 
@@ -83,14 +85,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             getPipeCommand =
                 ViewModelSource.Create(() => new GetPipeCommand(this, repoMill));
 
-            getRegexCommand =
-                ViewModelSource.Create(() => new GetRegexCommand(this, repoMill.RepoProject));
+            getProjectCommand =
+                ViewModelSource.Create(() => new GetProjectCommand(this, repoMill.RepoProject));
             #endregion
+
+            this.GetProjectCommand.Execute();
+            this.mill = Project.MillName;
 
             if (pipeId == Guid.Empty)
             {
                 NewPipe();
-                getRegexCommand.Execute();
             }
             else
             {
@@ -612,10 +616,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             get { return pipeDeactivationCommand; }
         }
 
-
-        public ICommand GetRegexCommand
+        public ICommand GetProjectCommand
         {
-            get { return getRegexCommand; }
+            get { return getProjectCommand; }
         }
         #endregion
 
@@ -641,6 +644,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
             this.CanDeactivatePipe = false;
+            this.Pipe.Mill = mill;
         }
 
         public void Dispose()
@@ -706,6 +710,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     Inspectors = new BindingList<Domain.Entity.Inspector>()
                 };
                 requiredTestResults.Add(requiredResult);
+                requiredResult.Order++;
             }
             return requiredTestResults;
         }
@@ -747,6 +752,104 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                modifiableView = value;
             }
+         }
+
+         public bool CheckStatus()
+         {
+             bool resultValue = true;
+
+             List<string> testsResults = orderTestResult();
+
+             if (Pipe.Status == PipeMillStatus.Stocked)
+             {
+                 if (Pipe.Railcar != null)
+                 {
+                     if (testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
+                     {
+                         resultValue = false;
+                     }
+                     else
+                     {
+                         Pipe.Status = PipeMillStatus.Stocked;
+                         resultValue = true;
+                     }
+                 }
+                 else 
+                 {
+                     ChangePipeStatus(testsResults);
+                     resultValue = true;
+                 }
+             }
+
+             else
+             {
+                 ChangePipeStatus(testsResults);
+                 resultValue = true;
+             }
+
+             return resultValue;
+         }
+
+         /// <summary>
+         /// Change Pipe status according to pipe test results
+         /// </summary>
+         public void ChangePipeStatus(List<string> testsResults)
+         {
+             if (testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
+             {
+                 Pipe.Status = PipeMillStatus.Produced;
+             }
+             else
+             {
+                 Pipe.Status = PipeMillStatus.Stocked;
+             }
+         }
+
+         /// <summary>
+         /// Returns list of ordered Pipe test results
+         /// </summary>
+         public List<string> orderTestResult()
+         {
+             List<string> testsResults = new List<string>();
+
+             // order by operation name
+             var query = Pipe.PipeTestResult.GroupBy(test => test.Operation.Name, (name, results) => new
+             {
+                 Key = name, // operation name
+                 Date = results.Max(t => t.Date) // max date in group
+             });
+
+             foreach (var result in query)
+             {
+                 var lastOperation =
+                     from p in Pipe.PipeTestResult
+                     where p.Date == result.Date && p.Operation.Name == result.Key
+                     select p;
+
+                 if (lastOperation.Count() >= 2)
+                 {
+                     int maxOrder = lastOperation.Max(o => o.Order);
+
+                     var lastOperation2 =
+                         from p in lastOperation
+                         where p.Order == maxOrder
+                         select p;
+
+                     foreach (var t in lastOperation2)
+                     {
+                         testsResults.Add(t.Status.ToString());
+                     }
+                 }
+                 else
+                 {
+                     foreach (var t in lastOperation)
+                     {
+                         testsResults.Add(t.Status.ToString());
+                     }
+                 }
+             }
+
+             return testsResults;
          }
     }
 }
