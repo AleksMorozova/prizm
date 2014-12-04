@@ -38,11 +38,12 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             if (viewModel.CheckedStatusTypes != null && viewModel.CheckedStatusTypes.Count != viewModel.StatusTypes.Count)
             {
-                var statuses = new List<string>();
+                var statuses = new List<PipeMillStatus>();
                 foreach (var item in viewModel.CheckedStatusTypes)
                 {
-                    criteria.Add(Restrictions.Like("p.Status", item));
+                    statuses.Add(item.Value);
                 }
+                criteria.Add(Restrictions.InG<PipeMillStatus>("p.Status",statuses));
             }
 
             viewModel.Pipes = repo.GetByCriteria(criteria);

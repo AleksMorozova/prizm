@@ -135,8 +135,7 @@ namespace PrizmMain.Forms.PipeMill.Search
             {
                 if (pipeMillStatus.Properties.Items[i].CheckState == CheckState.Checked)
                 {
-                    viewModel.CheckedStatusTypes.Add((PipeMillStatus)Enum.Parse(
-                        typeof(PipeMillStatus), pipeMillStatus.Properties.Items[i].Description as string));
+                    viewModel.CheckedStatusTypes.Add(pipeMillStatus.Properties.Items[i].Value as EnumWrapper<PipeMillStatus>);
                 }
             }
         }

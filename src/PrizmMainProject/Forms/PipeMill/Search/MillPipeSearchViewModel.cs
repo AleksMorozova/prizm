@@ -31,7 +31,7 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
-        public IList<PipeMillStatus> CheckedStatusTypes;
+        public IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
@@ -156,14 +156,14 @@ namespace PrizmMain.Forms.PipeMill.Search
         private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
-            CheckedStatusTypes = new List<PipeMillStatus>();
+            CheckedStatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
                 if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Domain.Entity.Mill.PipeMillStatus.Undefined))
                 {
                     StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
-                    CheckedStatusTypes.Add((PipeMillStatus)Enum.Parse(typeof(PipeMillStatus), statusTypeName));
+                    CheckedStatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                 }
             }
         }
