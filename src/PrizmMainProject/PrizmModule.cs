@@ -71,7 +71,7 @@ namespace PrizmMain
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
             Bind<IProjectRepository>().To<ProjectRepository>();
-
+            Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<IMillReportsRepository>().To<MillReportsRepository>();
 
             // TODO: remove TemporaryContext after binding to real context.
