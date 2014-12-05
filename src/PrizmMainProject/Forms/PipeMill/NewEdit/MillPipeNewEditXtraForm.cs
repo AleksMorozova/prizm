@@ -73,7 +73,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void ControlsDeactivation(Control control)
         {
-            if (viewModel.IsNotActive)
+            if (viewModel.IsNotActive || viewModel.Pipe.Status == PipeMillStatus.Shipped)
             {
                 foreach (Control c in control.Controls)
                 {
@@ -673,6 +673,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             PipeTestResultStatus result = (PipeTestResultStatus)gv.GetRowCellValue(e.RowHandle, inspectionResultGridColumn);
             DateTime? date = (DateTime?)gv.GetRowCellValue(e.RowHandle, controlDateGridColumn);
+            var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
+            if (string.IsNullOrWhiteSpace(op))
+            {
+                gv.SetColumnError(inspectionCodeGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+
             switch (result)
             {
                 case PipeTestResultStatus.Passed:
