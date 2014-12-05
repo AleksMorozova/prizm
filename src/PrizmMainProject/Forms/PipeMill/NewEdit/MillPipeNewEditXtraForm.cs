@@ -71,7 +71,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void ControlsDeactivation(Control control)
         {
-            if (viewModel.IsNotActive)
+            if (viewModel.IsNotActive || viewModel.Pipe.Status == PipeMillStatus.Shipped)
             {
                 foreach (Control c in control.Controls)
                 {
