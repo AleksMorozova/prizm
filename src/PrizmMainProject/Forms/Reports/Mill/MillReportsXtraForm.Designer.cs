@@ -95,13 +95,13 @@
             this.previewReportDocument.IsMetric = false;
             this.previewReportDocument.Location = new System.Drawing.Point(29, 201);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(1013, 203);
+            this.previewReportDocument.Size = new System.Drawing.Size(1063, 203);
             this.previewReportDocument.TabIndex = 78;
             // 
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(929, 94);
+            this.previewButton.Location = new System.Drawing.Point(979, 94);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(113, 22);
             this.previewButton.StyleController = this.generalReportLayout;
@@ -130,7 +130,7 @@
             // 
             // statuses
             // 
-            this.statuses.Location = new System.Drawing.Point(645, 59);
+            this.statuses.Location = new System.Drawing.Point(695, 59);
             this.statuses.Name = "statuses";
             this.statuses.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.statuses.Size = new System.Drawing.Size(273, 82);
@@ -140,7 +140,7 @@
             // 
             // testCategories
             // 
-            this.testCategories.Location = new System.Drawing.Point(368, 59);
+            this.testCategories.Location = new System.Drawing.Point(418, 59);
             this.testCategories.MultiColumn = true;
             this.testCategories.Name = "testCategories";
             this.testCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -152,13 +152,13 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(274, 60);
+            this.endDate.Location = new System.Drawing.Point(299, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.endDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDate.Size = new System.Drawing.Size(75, 20);
+            this.endDate.Size = new System.Drawing.Size(100, 20);
             this.endDate.StyleController = this.generalReportLayout;
             this.endDate.TabIndex = 82;
             // 
@@ -171,7 +171,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.startDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.startDate.Size = new System.Drawing.Size(75, 20);
+            this.startDate.Size = new System.Drawing.Size(100, 20);
             this.startDate.StyleController = this.generalReportLayout;
             this.startDate.TabIndex = 81;
             // 
@@ -200,7 +200,7 @@
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(929, 58);
+            this.createReportButton.Location = new System.Drawing.Point(979, 58);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(113, 22);
             this.createReportButton.StyleController = this.generalReportLayout;
@@ -217,7 +217,7 @@
             this.previewLayoutGroup});
             this.generalReportLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalReportLayoutGroup.Name = "Root";
-            this.generalReportLayoutGroup.Size = new System.Drawing.Size(1071, 433);
+            this.generalReportLayoutGroup.Size = new System.Drawing.Size(1121, 433);
             this.generalReportLayoutGroup.Text = "Root";
             this.generalReportLayoutGroup.TextVisible = false;
             // 
@@ -241,7 +241,7 @@
             this.emptySpaceItem1});
             this.createReportaLyoutGroup.Location = new System.Drawing.Point(0, 0);
             this.createReportaLyoutGroup.Name = "createReportaLyoutGroup";
-            this.createReportaLyoutGroup.Size = new System.Drawing.Size(1051, 145);
+            this.createReportaLyoutGroup.Size = new System.Drawing.Size(1101, 145);
             this.createReportaLyoutGroup.Text = "Сформировать отчёт";
             // 
             // startDateLayout
@@ -249,10 +249,10 @@
             this.startDateLayout.Control = this.startDate;
             this.startDateLayout.CustomizationFormText = "С";
             this.startDateLayout.Location = new System.Drawing.Point(126, 17);
-            this.startDateLayout.MaxSize = new System.Drawing.Size(101, 0);
-            this.startDateLayout.MinSize = new System.Drawing.Size(101, 24);
+            this.startDateLayout.MaxSize = new System.Drawing.Size(126, 0);
+            this.startDateLayout.MinSize = new System.Drawing.Size(126, 24);
             this.startDateLayout.Name = "startDateLayout";
-            this.startDateLayout.Size = new System.Drawing.Size(101, 24);
+            this.startDateLayout.Size = new System.Drawing.Size(126, 24);
             this.startDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.startDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.startDateLayout.Text = "С";
@@ -264,11 +264,11 @@
             // 
             this.finalDateLayout.Control = this.endDate;
             this.finalDateLayout.CustomizationFormText = "По";
-            this.finalDateLayout.Location = new System.Drawing.Point(227, 17);
-            this.finalDateLayout.MaxSize = new System.Drawing.Size(117, 24);
-            this.finalDateLayout.MinSize = new System.Drawing.Size(117, 24);
+            this.finalDateLayout.Location = new System.Drawing.Point(252, 17);
+            this.finalDateLayout.MaxSize = new System.Drawing.Size(142, 24);
+            this.finalDateLayout.MinSize = new System.Drawing.Size(142, 24);
             this.finalDateLayout.Name = "finalDateLayout";
-            this.finalDateLayout.Size = new System.Drawing.Size(117, 24);
+            this.finalDateLayout.Size = new System.Drawing.Size(142, 24);
             this.finalDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.finalDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 0);
             this.finalDateLayout.Text = "По";
@@ -280,7 +280,7 @@
             // 
             this.createReportButtonLayout.Control = this.createReportButton;
             this.createReportButtonLayout.CustomizationFormText = "createReportButtonLayout";
-            this.createReportButtonLayout.Location = new System.Drawing.Point(898, 10);
+            this.createReportButtonLayout.Location = new System.Drawing.Point(948, 10);
             this.createReportButtonLayout.MaxSize = new System.Drawing.Size(129, 36);
             this.createReportButtonLayout.MinSize = new System.Drawing.Size(129, 36);
             this.createReportButtonLayout.Name = "createReportButtonLayout";
@@ -296,7 +296,7 @@
             // 
             this.previewButtonLayout.Control = this.previewButton;
             this.previewButtonLayout.CustomizationFormText = "previewButtonLayout";
-            this.previewButtonLayout.Location = new System.Drawing.Point(898, 46);
+            this.previewButtonLayout.Location = new System.Drawing.Point(948, 46);
             this.previewButtonLayout.MaxSize = new System.Drawing.Size(129, 36);
             this.previewButtonLayout.MinSize = new System.Drawing.Size(129, 36);
             this.previewButtonLayout.Name = "previewButtonLayout";
@@ -340,7 +340,7 @@
             // 
             this.testCategoriesLayout.Control = this.testCategories;
             this.testCategoriesLayout.CustomizationFormText = "Фильтровать по категориям";
-            this.testCategoriesLayout.Location = new System.Drawing.Point(344, 0);
+            this.testCategoriesLayout.Location = new System.Drawing.Point(394, 0);
             this.testCategoriesLayout.MaxSize = new System.Drawing.Size(0, 102);
             this.testCategoriesLayout.MinSize = new System.Drawing.Size(277, 102);
             this.testCategoriesLayout.Name = "testCategoriesLayout";
@@ -354,7 +354,7 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(898, 92);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(948, 92);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
             this.buttonsEmptySpace.Size = new System.Drawing.Size(129, 10);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
@@ -364,7 +364,7 @@
             // 
             this.previewButtonEmptySpace.AllowHotTrack = false;
             this.previewButtonEmptySpace.CustomizationFormText = "previewButtonEmptySpace";
-            this.previewButtonEmptySpace.Location = new System.Drawing.Point(898, 82);
+            this.previewButtonEmptySpace.Location = new System.Drawing.Point(948, 82);
             this.previewButtonEmptySpace.Name = "previewButtonEmptySpace";
             this.previewButtonEmptySpace.Size = new System.Drawing.Size(129, 10);
             this.previewButtonEmptySpace.Text = "previewButtonEmptySpace";
@@ -374,7 +374,7 @@
             // 
             this.createReportButtonEmptySpaceI.AllowHotTrack = false;
             this.createReportButtonEmptySpaceI.CustomizationFormText = "createReportButtonEmptySpaceI";
-            this.createReportButtonEmptySpaceI.Location = new System.Drawing.Point(898, 0);
+            this.createReportButtonEmptySpaceI.Location = new System.Drawing.Point(948, 0);
             this.createReportButtonEmptySpaceI.Name = "createReportButtonEmptySpaceI";
             this.createReportButtonEmptySpaceI.Size = new System.Drawing.Size(129, 10);
             this.createReportButtonEmptySpaceI.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 2);
@@ -400,7 +400,7 @@
             this.reportPeriodEmptySpace.CustomizationFormText = "reportPeriodEmptySpace";
             this.reportPeriodEmptySpace.Location = new System.Drawing.Point(192, 0);
             this.reportPeriodEmptySpace.Name = "reportPeriodEmptySpace";
-            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(152, 17);
+            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(202, 17);
             this.reportPeriodEmptySpace.Text = "reportPeriodEmptySpace";
             this.reportPeriodEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -408,7 +408,7 @@
             // 
             this.statusesLayout.Control = this.statuses;
             this.statusesLayout.CustomizationFormText = "Фильтровать по результатам контрольных операций";
-            this.statusesLayout.Location = new System.Drawing.Point(621, 0);
+            this.statusesLayout.Location = new System.Drawing.Point(671, 0);
             this.statusesLayout.MaxSize = new System.Drawing.Size(277, 0);
             this.statusesLayout.MinSize = new System.Drawing.Size(277, 20);
             this.statusesLayout.Name = "statusesLayout";
@@ -425,7 +425,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(126, 41);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(218, 61);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(268, 61);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -436,7 +436,7 @@
             this.previewLayout});
             this.previewLayoutGroup.Location = new System.Drawing.Point(0, 145);
             this.previewLayoutGroup.Name = "previewLayoutGroup";
-            this.previewLayoutGroup.Size = new System.Drawing.Size(1051, 268);
+            this.previewLayoutGroup.Size = new System.Drawing.Size(1101, 268);
             this.previewLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             this.previewLayoutGroup.Text = "Предворительный просмотр отчёта";
             // 
@@ -446,7 +446,7 @@
             this.previewLayout.CustomizationFormText = "previewLayout";
             this.previewLayout.Location = new System.Drawing.Point(0, 0);
             this.previewLayout.Name = "previewLayout";
-            this.previewLayout.Size = new System.Drawing.Size(1027, 217);
+            this.previewLayout.Size = new System.Drawing.Size(1077, 217);
             this.previewLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.previewLayout.Text = "previewLayout";
             this.previewLayout.TextSize = new System.Drawing.Size(0, 0);
