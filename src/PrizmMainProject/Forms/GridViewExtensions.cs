@@ -15,15 +15,18 @@ namespace PrizmMain.Forms
       {
          if (e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
          {
-            object item = view.GetRow(view.FocusedRowHandle);
-            if (!(item is T))
-               throw new AggregateException("Incorrect type of object bound to grid.");
+             object item = view.GetRow(view.FocusedRowHandle);
+             if (item != null)
+             {
+                 if (!(item is T))
+                     throw new AggregateException("Incorrect type of object bound to grid.");
 
-            T entity = item as T;
-            if (isNewCondition(entity) && AskDeleteItem())
-            {
-               list.Remove(entity);
-            }
+                 T entity = item as T;
+                 if (isNewCondition(entity) && AskDeleteItem())
+                 {
+                     list.Remove(entity);
+                 }
+             }
          }
       }
 
