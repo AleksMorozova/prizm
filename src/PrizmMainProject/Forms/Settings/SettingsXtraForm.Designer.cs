@@ -165,10 +165,10 @@
             this.inspectorFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorMNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorCertificateTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemInspectors = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorCertificatesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -441,7 +441,7 @@
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 40;
+            this.inspectionCodeGridColumn.Width = 42;
             // 
             // codeRepositoryTextEdit
             // 
@@ -456,7 +456,7 @@
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 170;
+            this.inspectionNameGridColumn.Width = 182;
             // 
             // controlNameRepositoryTextEdit
             // 
@@ -471,7 +471,7 @@
             this.testSubjectGridColumn.Name = "testSubjectGridColumn";
             this.testSubjectGridColumn.Visible = true;
             this.testSubjectGridColumn.VisibleIndex = 3;
-            this.testSubjectGridColumn.Width = 120;
+            this.testSubjectGridColumn.Width = 112;
             // 
             // subjectRepositoryItemEdit
             // 
@@ -486,7 +486,7 @@
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 4;
-            this.controlTypeGridColumn.Width = 120;
+            this.controlTypeGridColumn.Width = 107;
             // 
             // controlTypeItems
             // 
@@ -509,7 +509,7 @@
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 5;
-            this.resultTypeGridColumn.Width = 100;
+            this.resultTypeGridColumn.Width = 101;
             // 
             // resultTypeItems
             // 
@@ -528,11 +528,12 @@
             // 
             this.boolExpectedGridColumn.Caption = "Контрольное значение";
             this.boolExpectedGridColumn.FieldName = "BoolExpected";
+            this.boolExpectedGridColumn.MaxWidth = 50;
             this.boolExpectedGridColumn.Name = "boolExpectedGridColumn";
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
             this.boolExpectedGridColumn.VisibleIndex = 6;
-            this.boolExpectedGridColumn.Width = 70;
+            this.boolExpectedGridColumn.Width = 50;
             // 
             // minExpectedGridColumn
             // 
@@ -541,27 +542,27 @@
             this.minExpectedGridColumn.Name = "minExpectedGridColumn";
             this.minExpectedGridColumn.Visible = true;
             this.minExpectedGridColumn.VisibleIndex = 7;
-            this.minExpectedGridColumn.Width = 50;
+            this.minExpectedGridColumn.Width = 61;
             // 
             // maxExpectedGridColumn
             // 
             this.maxExpectedGridColumn.Caption = "max";
             this.maxExpectedGridColumn.FieldName = "MaxExpected";
             this.maxExpectedGridColumn.Name = "maxExpectedGridColumn";
-            this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
             this.maxExpectedGridColumn.VisibleIndex = 8;
-            this.maxExpectedGridColumn.Width = 50;
+            this.maxExpectedGridColumn.Width = 61;
             // 
             // isRequiredGridColumn
             // 
             this.isRequiredGridColumn.Caption = "Обязательна для отгрузки";
             this.isRequiredGridColumn.ColumnEdit = this.isRequired;
             this.isRequiredGridColumn.FieldName = "IsRequired";
+            this.isRequiredGridColumn.MaxWidth = 50;
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
             this.isRequiredGridColumn.VisibleIndex = 9;
-            this.isRequiredGridColumn.Width = 40;
+            this.isRequiredGridColumn.Width = 46;
             // 
             // isRequired
             // 
@@ -572,10 +573,11 @@
             // 
             this.testIsActiveGridColumn.Caption = "Активная";
             this.testIsActiveGridColumn.FieldName = "IsActive";
+            this.testIsActiveGridColumn.MaxWidth = 50;
             this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
             this.testIsActiveGridColumn.Visible = true;
             this.testIsActiveGridColumn.VisibleIndex = 10;
-            this.testIsActiveGridColumn.Width = 48;
+            this.testIsActiveGridColumn.Width = 50;
             // 
             // categoryColumn
             // 
@@ -585,7 +587,7 @@
             this.categoryColumn.Name = "categoryColumn";
             this.categoryColumn.Visible = true;
             this.categoryColumn.VisibleIndex = 2;
-            this.categoryColumn.Width = 100;
+            this.categoryColumn.Width = 96;
             // 
             // repositoryItemsСategory
             // 
@@ -1705,9 +1707,9 @@
             this.colInspectorLastName,
             this.colInspectorFirstName,
             this.colInspectorMiddleName,
-            this.colInspectorCertificate,
+            this.colInspectorActive,
             this.colInspectorCertExp,
-            this.colInspectorActive});
+            this.colInspectorCertificate});
             this.gridViewInspectors.GridControl = this.gridControlInspectors;
             this.gridViewInspectors.Name = "gridViewInspectors";
             this.gridViewInspectors.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -1725,7 +1727,7 @@
             this.colInspectorLastName.Name = "colInspectorLastName";
             this.colInspectorLastName.Visible = true;
             this.colInspectorLastName.VisibleIndex = 0;
-            this.colInspectorLastName.Width = 249;
+            this.colInspectorLastName.Width = 250;
             // 
             // inspectorLNRepositoryTextEdit
             // 
@@ -1740,7 +1742,7 @@
             this.colInspectorFirstName.Name = "colInspectorFirstName";
             this.colInspectorFirstName.Visible = true;
             this.colInspectorFirstName.VisibleIndex = 1;
-            this.colInspectorFirstName.Width = 249;
+            this.colInspectorFirstName.Width = 250;
             // 
             // inspectorFNRepositoryTextEdit
             // 
@@ -1755,12 +1757,29 @@
             this.colInspectorMiddleName.Name = "colInspectorMiddleName";
             this.colInspectorMiddleName.Visible = true;
             this.colInspectorMiddleName.VisibleIndex = 2;
-            this.colInspectorMiddleName.Width = 200;
+            this.colInspectorMiddleName.Width = 250;
             // 
             // inspectorMNRepositoryTextEdit
             // 
             this.inspectorMNRepositoryTextEdit.AutoHeight = false;
             this.inspectorMNRepositoryTextEdit.Name = "inspectorMNRepositoryTextEdit";
+            // 
+            // colInspectorActive
+            // 
+            this.colInspectorActive.Caption = "Активен";
+            this.colInspectorActive.FieldName = "Active";
+            this.colInspectorActive.MaxWidth = 115;
+            this.colInspectorActive.Name = "colInspectorActive";
+            this.colInspectorActive.Visible = true;
+            this.colInspectorActive.VisibleIndex = 3;
+            this.colInspectorActive.Width = 50;
+            // 
+            // colInspectorCertExp
+            // 
+            this.colInspectorCertExp.Caption = "Дата аттестации";
+            this.colInspectorCertExp.FieldName = "CertificateExpiration";
+            this.colInspectorCertExp.Name = "colInspectorCertExp";
+            this.colInspectorCertExp.Width = 100;
             // 
             // colInspectorCertificate
             // 
@@ -1768,28 +1787,12 @@
             this.colInspectorCertificate.ColumnEdit = this.inspectorCertificateTextEdit;
             this.colInspectorCertificate.FieldName = "Certificate";
             this.colInspectorCertificate.Name = "colInspectorCertificate";
-            this.colInspectorCertificate.Width = 332;
+            this.colInspectorCertificate.Width = 200;
             // 
             // inspectorCertificateTextEdit
             // 
             this.inspectorCertificateTextEdit.AutoHeight = false;
             this.inspectorCertificateTextEdit.Name = "inspectorCertificateTextEdit";
-            // 
-            // colInspectorCertExp
-            // 
-            this.colInspectorCertExp.Caption = "Дата аттестации";
-            this.colInspectorCertExp.FieldName = "CertificateExpiration";
-            this.colInspectorCertExp.Name = "colInspectorCertExp";
-            // 
-            // colInspectorActive
-            // 
-            this.colInspectorActive.Caption = "Активен";
-            this.colInspectorActive.FieldName = "Active";
-            this.colInspectorActive.MaxWidth = 50;
-            this.colInspectorActive.Name = "colInspectorActive";
-            this.colInspectorActive.Visible = true;
-            this.colInspectorActive.VisibleIndex = 3;
-            this.colInspectorActive.Width = 50;
             // 
             // layoutControlGroup1
             // 

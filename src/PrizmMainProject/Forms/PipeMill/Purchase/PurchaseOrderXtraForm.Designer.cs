@@ -233,6 +233,7 @@
             this.Controls.Add(this.purchaseOrderLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseOrderXtraForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Наряд-заказ";
             this.Load += new System.EventHandler(this.PurchaseOrderXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).EndInit();
