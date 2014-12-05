@@ -50,6 +50,9 @@
     <Compile Include="Entity\Mill\PipeTestResultStatusWrapper.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\ItemExtensions.cs" />
+    <Compile Include="Entity\Security\Permission.cs" />
+    <Compile Include="Entity\Security\Role.cs" />
+    <Compile Include="Entity\Security\User.cs" />
     <Compile Include="Entity\Mill\ReportType.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
@@ -82,8 +85,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entity\Setup\Project.cs" />
-    <Compile Include="Entity\Setup\Role.cs" />
-    <Compile Include="Entity\Setup\User.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\Setup\WorkstationType.cs" />
     <Compile Include="Entity\TestResult.cs" />
