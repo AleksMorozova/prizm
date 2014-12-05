@@ -322,11 +322,22 @@ namespace PrizmMain.Forms.Settings
         {
         }
 
+        private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            Domain.Entity.Mill.Category category
+                = v.GetRow(e.RowHandle) as Domain.Entity.Mill.Category;
 
+            category.IsActive = true;
+        }
 
-
-
-
+        private void categoryGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<Domain.Entity.Mill.Category>(
+                e,
+                viewModel.CategoryTypes,
+                (_) => _.IsNew());
+        }
     }
-
 }

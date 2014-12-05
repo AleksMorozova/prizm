@@ -671,12 +671,12 @@
             // categoriesGrid
             // 
             this.categoriesGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            this.categoriesGrid.Location = new System.Drawing.Point(551, 339);
+            this.categoriesGrid.Location = new System.Drawing.Point(566, 242);
             this.categoriesGrid.MainView = this.categoryGridView;
             this.categoriesGrid.Name = "categoriesGrid";
             this.categoriesGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryIsActiveCheckEdit});
-            this.categoriesGrid.Size = new System.Drawing.Size(296, 120);
+            this.categoriesGrid.Size = new System.Drawing.Size(296, 96);
             this.categoriesGrid.TabIndex = 17;
             this.categoriesGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.categoryGridView});
@@ -688,7 +688,11 @@
             this.isActiveColumn});
             this.categoryGridView.GridControl = this.categoriesGrid;
             this.categoryGridView.Name = "categoryGridView";
+            this.categoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.categoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.categoryGridView.OptionsView.ShowGroupPanel = false;
+            this.categoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.categoryGridView_InitNewRow);
+            this.categoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.categoryGridView_KeyDown);
             // 
             // categoryNameColumn
             // 
@@ -717,7 +721,7 @@
             this.pipeNumberMaskRulesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(284, 373);
+            this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(299, 276);
             this.pipeNumberMaskRulesLabel.Name = "pipeNumberMaskRulesLabel";
             this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(251, 52);
             this.pipeNumberMaskRulesLabel.StyleController = this.generalProjectLayout;
@@ -727,7 +731,7 @@
             // 
             // pipeNumberMask
             // 
-            this.pipeNumberMask.Location = new System.Drawing.Point(284, 339);
+            this.pipeNumberMask.Location = new System.Drawing.Point(299, 242);
             this.pipeNumberMask.Name = "pipeNumberMask";
             this.pipeNumberMask.Size = new System.Drawing.Size(251, 20);
             this.pipeNumberMask.StyleController = this.generalProjectLayout;
@@ -745,7 +749,7 @@
             // 
             // millName
             // 
-            this.millName.Location = new System.Drawing.Point(17, 339);
+            this.millName.Location = new System.Drawing.Point(32, 242);
             this.millName.Name = "millName";
             this.millName.Size = new System.Drawing.Size(251, 20);
             this.millName.StyleController = this.generalProjectLayout;
@@ -784,7 +788,7 @@
             this.plateManufacturersList.Name = "plateManufacturersList";
             this.plateManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.manufacturerRepositoryTextEdit});
-            this.plateManufacturersList.Size = new System.Drawing.Size(838, 175);
+            this.plateManufacturersList.Size = new System.Drawing.Size(838, 44);
             this.plateManufacturersList.TabIndex = 10;
             this.plateManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateManufacturersListView});
@@ -838,7 +842,7 @@
             this.projectTitleEmptySpace});
             this.generalProjectParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalProjectParametersLayoutGroup.Name = "generalProjectParametersLayoutGroup";
-            this.generalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 311);
+            this.generalProjectParametersLayoutGroup.Size = new System.Drawing.Size(883, 180);
             this.generalProjectParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 5, 7);
             this.generalProjectParametersLayoutGroup.Text = "Общие параметры";
             // 
@@ -848,7 +852,7 @@
             this.plateManufacturersLayout.CustomizationFormText = "производители листов";
             this.plateManufacturersLayout.Location = new System.Drawing.Point(0, 50);
             this.plateManufacturersLayout.Name = "plateManufacturersLayout";
-            this.plateManufacturersLayout.Size = new System.Drawing.Size(856, 210);
+            this.plateManufacturersLayout.Size = new System.Drawing.Size(856, 79);
             this.plateManufacturersLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 10, 5);
             this.plateManufacturersLayout.Text = "Производители листов";
             this.plateManufacturersLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -927,7 +931,6 @@
             // 
             this.millLayoutGroup.CustomizationFormText = "Завод";
             this.millLayoutGroup.ExpandButtonVisible = true;
-            this.millLayoutGroup.Expanded = false;
             this.millLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.millNameLayout,
             this.clientEmptySpace,
@@ -936,9 +939,9 @@
             this.emptySpaceUnderRules,
             this.pipeNumberMaskLayout,
             this.pipeNumberMaskRulesLabelLayout});
-            this.millLayoutGroup.Location = new System.Drawing.Point(0, 311);
+            this.millLayoutGroup.Location = new System.Drawing.Point(0, 180);
             this.millLayoutGroup.Name = "millLayoutGroup";
-            this.millLayoutGroup.Size = new System.Drawing.Size(883, 36);
+            this.millLayoutGroup.Size = new System.Drawing.Size(883, 167);
             this.millLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 5, 7);
             this.millLayoutGroup.Text = "Завод";
             // 
@@ -963,7 +966,7 @@
             this.clientEmptySpace.CustomizationFormText = "clientEmptySpace";
             this.clientEmptySpace.Location = new System.Drawing.Point(846, 0);
             this.clientEmptySpace.Name = "clientEmptySpace";
-            this.clientEmptySpace.Size = new System.Drawing.Size(10, 140);
+            this.clientEmptySpace.Size = new System.Drawing.Size(10, 116);
             this.clientEmptySpace.Text = "clientEmptySpace";
             this.clientEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -973,7 +976,7 @@
             this.categoryLayoutControl.CustomizationFormText = "Группы контрольных операций";
             this.categoryLayoutControl.Location = new System.Drawing.Point(534, 0);
             this.categoryLayoutControl.Name = "categoryLayoutControl";
-            this.categoryLayoutControl.Size = new System.Drawing.Size(312, 140);
+            this.categoryLayoutControl.Size = new System.Drawing.Size(312, 116);
             this.categoryLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 0);
             this.categoryLayoutControl.Text = "Группы контрольных операций";
             this.categoryLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
@@ -985,7 +988,7 @@
             this.emptySpaceUnderManufacturer.CustomizationFormText = "emptySpaceUnderManufacturer";
             this.emptySpaceUnderManufacturer.Location = new System.Drawing.Point(0, 50);
             this.emptySpaceUnderManufacturer.Name = "emptySpaceUnderManufacturer";
-            this.emptySpaceUnderManufacturer.Size = new System.Drawing.Size(267, 90);
+            this.emptySpaceUnderManufacturer.Size = new System.Drawing.Size(267, 66);
             this.emptySpaceUnderManufacturer.Text = "emptySpaceUnderManufacturer";
             this.emptySpaceUnderManufacturer.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -995,7 +998,7 @@
             this.emptySpaceUnderRules.CustomizationFormText = "emptySpaceUnderRules";
             this.emptySpaceUnderRules.Location = new System.Drawing.Point(267, 106);
             this.emptySpaceUnderRules.Name = "emptySpaceUnderRules";
-            this.emptySpaceUnderRules.Size = new System.Drawing.Size(267, 34);
+            this.emptySpaceUnderRules.Size = new System.Drawing.Size(267, 10);
             this.emptySpaceUnderRules.Text = "emptySpaceUnderRules";
             this.emptySpaceUnderRules.TextSize = new System.Drawing.Size(0, 0);
             // 
