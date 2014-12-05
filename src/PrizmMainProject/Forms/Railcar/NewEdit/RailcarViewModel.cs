@@ -52,6 +52,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             
         }
 
+        
+
         public List<Pipe> AllPipes
         {
             get { return allPipes; }
@@ -72,19 +74,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        public string Certificate
-        {
-            get { return Railcar.Certificate; }
-            set
-            {
-                if (value != Railcar.Certificate)
-                {
-                    Railcar.Certificate = value;
-                    RaisePropertyChanged("Certificate");
-                }
-            }
-        }
-
         public string Destination
         {
             get { return Railcar.Destination; }
@@ -94,6 +83,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.Destination = value;
                     RaisePropertyChanged("Destination");
+                }
+            }
+        }
+
+        public string Certificate
+        {
+            get { return Railcar.Certificate; }
+            set
+            {
+                if (value != Railcar.Certificate)
+                {
+                    Railcar.Certificate = value;
+                    RaisePropertyChanged("Certificate");
                 }
             }
         }
@@ -237,8 +239,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
         }
-
-
 
         public Documents.IModifiable ModifiableView
         {

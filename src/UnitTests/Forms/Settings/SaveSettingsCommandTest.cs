@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Domain.Entity;
 using Domain.Entity.Mill;
 using PrizmMain.Forms;
+using PrizmMain.Documents;
 
 
 namespace UnitTests.Forms.Settings
@@ -24,12 +25,18 @@ namespace UnitTests.Forms.Settings
         public void TestSaveSettings()
         {
             var notify = new Mock<IUserNotify>();
+
+            var modifiableView = new Mock<IModifiable>();
+
             var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
             var repoPipeTests = new Mock<IPipeTestRepository>();
             var repoWelders = new Mock<IWelderRepository>();
             var repoInspectors = new Mock<IInspectorRepository>();
             var repoManufacturers = new Mock<IPlateManufacturerRepository>();
             var repoProjectSetting = new Mock<IProjectRepository>();
+
+            var repoCategory = new Mock<ICategoryRepository>();
+            
             var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
@@ -41,6 +48,9 @@ namespace UnitTests.Forms.Settings
             repoManufacturers.Setup(_ => _.GetAll()).Returns(new List<PlateManufacturer>() { testManufacturer });
             repoProjectSetting.Setup(_ => _.GetSingle()).Returns(testProjectSetting);
             repoInspectors.Setup(_ => _.GetAll()).Returns(new List<Inspector>() { testInspector });
+
+            repoCategory.Setup(x => x.GetAll()).Returns(new List<Category>() { new Category() });
+
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
             settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
@@ -48,9 +58,15 @@ namespace UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.PlateManufacturerRepo).Returns(repoManufacturers.Object);
             settingsRepos.SetupGet(_ => _.ProjectRepo).Returns(repoProjectSetting.Object);
             settingsRepos.SetupGet(_ => _.InspectorRepo).Returns(repoInspectors.Object);
+            settingsRepos.SetupGet(x => x.СategoryRepo).Returns(repoCategory.Object);
+
+            modifiableView.SetupGet(x => x.IsModified).Returns(false);
+
 
             var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
+
             viewModel.LoadData();
+            viewModel.ModifiableView = modifiableView.Object;
 
             var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
 

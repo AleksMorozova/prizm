@@ -22,6 +22,7 @@ using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
 using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -96,63 +97,39 @@ namespace PrizmMain.Forms.Settings
 
        private void BindToViewModel()
         {
+            #region Data Source
+            pipeMillSizeTypeBindingSource.DataSource = viewModel;
+
+            inspectorBindingSource.DataSource = viewModel.Inspectors;
+            inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
             inspectorCertificateBindingSource.DataMember = "Certificates";
 
-            #region Data Source
-            pipeMillSizeTypeBindingSource
-                .DataSource = viewModel;
+            gridControlWelders.DataSource = viewModel.Welders;
 
-            categoriesGrid
-                .DataSource = viewModel.CategoryTypes;
+            gridControlInspectors.DataSource = inspectorBindingSource;
+            gridControlInspectorsCertificates.DataSource = inspectorCertificateBindingSource;
 
-            inspectorCertificateBindingSource
-                .DataSource = inspectorBindingSource;
+            plateManufacturersList.DataSource = viewModel.PlateManufacturers;
 
-            inspectorBindingSource
-                .DataSource = viewModel.Inspectors;
+            controlTypeItems.DataSource = viewModel.ControlType;
+            resultTypeItems.DataSource = viewModel.ResultType;
 
-            gridControlWelders
-                .DataSource = viewModel.Welders;
+            inspectionOperation.DataSource = viewModel.PipeTests;
 
-            gridControlInspectors
-                .DataSource = inspectorBindingSource;
-
-            gridControlInspectorsCertificates
-                .DataSource = inspectorCertificateBindingSource;
-
-            plateManufacturersList
-                .DataSource = viewModel.PlateManufacturers;
-
-            controlTypeItems
-                .DataSource = viewModel.ControlType;
-
-            resultTypeItems
-                .DataSource = viewModel.ResultType;
-
-            inspectionOperation
-                .DataSource = viewModel.PipeTests;
-
-            repositoryItemsСategory
-                .DataSource = viewModel.CategoryTypes;
+            repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
+            categoriesGrid.DataSource = viewModel.CategoryTypes;
             #endregion
 
             #region Data Bindings
+            pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
 
-            pipesSizeList.DataBindings
-                .Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
+            client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
 
-            client.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
+            millName.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
 
-            millName.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillName");
+            pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
-            pipeNumberMask.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
-
-            externalDocumentSize.DataBindings
-                .Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
-
+            externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
             #endregion
         }
        
@@ -273,6 +250,24 @@ namespace PrizmMain.Forms.Settings
            view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
         }
 
+        private void inspectionView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PipeTest>(e, viewModel.PipeTests, (_) => _.IsNew());
+        }
+
+        private void pipesSizeListGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PipeMillSizeType>(e, viewModel.PipeMillSizeType, (_) => _.IsNew());
+        }
+
+        private void plateManufacturersList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PlateManufacturer>(e, viewModel.PlateManufacturers, (_) => _.IsNew());
+        }
+
         private void inspectorCertificateGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
@@ -326,6 +321,10 @@ namespace PrizmMain.Forms.Settings
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
         }
+
+
+
+
 
 
     }

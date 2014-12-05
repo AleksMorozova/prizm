@@ -291,11 +291,23 @@
   </data>
   <data name="ByCategories" xml:space="preserve">
     <value>По категориям</value>
+  <data name="PipeStatusComboActive" xml:space="preserve">
+    <value>Активные</value>
   </data>
   <data name="ByProducing" xml:space="preserve">
     <value>В производстве</value>
+  <data name="PipeStatusComboAll" xml:space="preserve">
+    <value>Все</value>
   </data>
   <data name="ByShipped" xml:space="preserve">
     <value>По отгруженным</value>
+  <data name="PipeStatusComboUnactive" xml:space="preserve">
+    <value>Деактивированные</value>
+  </data>
+<data name="TestResultIncorrectDate" xml:space="preserve">
+    <value>Дата не может быть пустой или будущей</value>
+  </data>
+  <data name="DLG_AddFailedControlOperation" xml:space="preserve">
+    <value>Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. </value>
   </data>
 </root>

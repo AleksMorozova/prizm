@@ -187,6 +187,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. .
+        /// </summary>
+        internal static string DLG_AddFailedControlOperation {
+            get {
+                return ResourceManager.GetString("DLG_AddFailedControlOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером..
         /// </summary>
         internal static string DLG_CHANGE_PIPESIZE_ON_EDITPIPE {
@@ -538,6 +547,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Активные.
+        /// </summary>
+        internal static string PipeStatusComboActive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все.
+        /// </summary>
+        internal static string PipeStatusComboAll {
+            get {
+                return ResourceManager.GetString("PipeStatusComboAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивированные.
+        /// </summary>
+        internal static string PipeStatusComboUnactive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboUnactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PRIZM.
         /// </summary>
         internal static string PRIZM {
@@ -589,6 +625,15 @@ namespace PrizmMain.Properties {
         internal static string Stocked {
             get {
                 return ResourceManager.GetString("Stocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
+        /// </summary>
+        internal static string TestResultIncorrectDate {
+            get {
+                return ResourceManager.GetString("TestResultIncorrectDate", resourceCulture);
             }
         }
         
