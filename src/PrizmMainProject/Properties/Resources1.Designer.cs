@@ -684,15 +684,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Значение не соответствует маске.
-        /// </summary>
-        internal static string VALUE_DOESNT_MATCH_MASK {
-            get {
-                return ResourceManager.GetString("VALUE_DOESNT_MATCH_MASK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Значение обязательно.
         /// </summary>
         internal static string VALUE_REQUIRED {

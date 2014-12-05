@@ -218,8 +218,8 @@ namespace PrizmMain.Forms.Settings
                         switch (ch)
                         { 
                             case '#': convertedToRegex = @"\d";break;
-                            case '@': convertedToRegex = @"\p{Lu}"; break;
-                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
+                            case '@': convertedToRegex = @"\p{L}"; break;
+                            case '%': convertedToRegex = @"(\d|\p{L})"; break;
                             case '&': convertedToRegex = @"\w"; break;
                             default: convertedToRegex = ch.ToString(); break;
 
