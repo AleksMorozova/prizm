@@ -22,6 +22,7 @@ using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
 using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
+using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -249,6 +250,24 @@ namespace PrizmMain.Forms.Settings
            view.RemoveSelectedItem<InspectorViewType>(e, viewModel.Inspectors, (_) => _.Inspector.IsNew());
         }
 
+        private void inspectionView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PipeTest>(e, viewModel.PipeTests, (_) => _.IsNew());
+        }
+
+        private void pipesSizeListGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PipeMillSizeType>(e, viewModel.PipeMillSizeType, (_) => _.IsNew());
+        }
+
+        private void plateManufacturersList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<PlateManufacturer>(e, viewModel.PlateManufacturers, (_) => _.IsNew());
+        }
+
         private void inspectorCertificateGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
@@ -302,6 +321,10 @@ namespace PrizmMain.Forms.Settings
         private void gridViewInspectors_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
         }
+
+
+
+
 
 
     }
