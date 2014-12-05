@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using Domain.Entity;
 using Domain.Entity.Mill;
 using PrizmMain.Forms;
+using Data.DAL.Security;
+using Domain.Entity.Security;
+using PrizmMain.Documents;
 
 
 namespace UnitTests.Forms.Settings
@@ -30,17 +33,30 @@ namespace UnitTests.Forms.Settings
             var repoInspectors = new Mock<IInspectorRepository>();
             var repoManufacturers = new Mock<IPlateManufacturerRepository>();
             var repoProjectSetting = new Mock<IProjectRepository>();
+            var repoUsers = new Mock<IUserRepository>();
+            var repoRoles = new Mock<IRoleRepository>();
+            var repoPerms = new Mock<IPermissionRepository>();
+            var repoCateg = new Mock<ICategoryRepository>();
             var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
             var testManufacturer = new PlateManufacturer();
             var testInspector = new Inspector();
+            var testUser = new User();
+            var testRole = new Role();
+            var testPerm = new Permission();
+            var modifiableView = new Mock<IModifiable>();
 
             repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
             repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
             repoManufacturers.Setup(_ => _.GetAll()).Returns(new List<PlateManufacturer>() { testManufacturer });
             repoProjectSetting.Setup(_ => _.GetSingle()).Returns(testProjectSetting);
             repoInspectors.Setup(_ => _.GetAll()).Returns(new List<Inspector>() { testInspector });
+            repoUsers.Setup(_ => _.GetAll()).Returns(new List<User>() { testUser });
+            repoRoles.Setup(_ => _.GetAll()).Returns(new List<Role>() { testRole });
+            repoCateg.Setup(_ => _.GetAll()).Returns(new List<Category>());
+            repoPerms.Setup(_ => _.GetAll()).Returns(new List<Permission>() { testPerm });
+            
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
             settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
@@ -48,8 +64,13 @@ namespace UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.PlateManufacturerRepo).Returns(repoManufacturers.Object);
             settingsRepos.SetupGet(_ => _.ProjectRepo).Returns(repoProjectSetting.Object);
             settingsRepos.SetupGet(_ => _.InspectorRepo).Returns(repoInspectors.Object);
+            settingsRepos.SetupGet(_ => _.UserRepo).Returns(repoUsers.Object);
+            settingsRepos.SetupGet(_ => _.RoleRepo).Returns(repoRoles.Object);
+            settingsRepos.SetupGet(_ => _.PermissionRepo).Returns(repoPerms.Object);
+            settingsRepos.SetupGet(_ => _.СategoryRepo).Returns(repoCateg.Object);
 
             var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
+            viewModel.ModifiableView = modifiableView.Object;
             viewModel.LoadData();
 
             var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
@@ -68,6 +89,10 @@ namespace UnitTests.Forms.Settings
             repoProjectSetting.Verify(_ => _.Evict(testProjectSetting), Times.Once());
             repoInspectors.Verify(_ => _.SaveOrUpdate(testInspector), Times.Once());
             repoInspectors.Verify(_ => _.Evict(testInspector), Times.Once());
+            repoUsers.Verify(_ => _.SaveOrUpdate(testUser), Times.Once);
+            repoUsers.Verify(_ => _.Evict(testUser), Times.Once);
+            repoRoles.Verify(_ => _.SaveOrUpdate(testRole), Times.Once);
+            repoRoles.Verify(_ => _.Evict(testRole), Times.Once);
         }
     }
 }

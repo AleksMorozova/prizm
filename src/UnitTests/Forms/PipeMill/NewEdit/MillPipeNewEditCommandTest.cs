@@ -4,6 +4,7 @@ using Data.DAL.Setup;
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
+using PrizmMain.Documents;
 using PrizmMain.Forms;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.PipeMill.NewEdit;
@@ -53,7 +54,7 @@ namespace UnitTests.Forms.PipeMill.NewEdit
                 millRepos.Object,
                 Guid.Empty, 
                 notify.Object);
-
+            viewModel.ModifiableView = new Mock<IModifiable>().Object;
           
 
             var command = new NewSavePipeCommand(

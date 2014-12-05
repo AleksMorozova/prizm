@@ -2,6 +2,7 @@
 using Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
+using PrizmMain.Documents;
 using PrizmMain.Forms;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.Railcar.NewEdit;
@@ -24,6 +25,7 @@ namespace UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var viewModel = new RailcarViewModel(repos.Object, "", notify.Object);
+            viewModel.ModifiableView = new Mock<IModifiable>().Object;
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.Railcar.Pipes.Add(new Pipe());
             var command = new SaveRailcarCommand(viewModel, repos.Object, notify.Object);

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PrizmMain.Properties;
 using PrizmMain.Documents;
+using Domain.Entity.Security;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -37,17 +38,53 @@ namespace PrizmMain.Forms.Settings
             SaveMillSizeTypes();
             SavePlateManufacturers();
             repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
+            SaveRoles();
+            SaveUsers();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
             EvictInspectors();
             EvictPlateManufacturers();
+            EvictRoles();
+            EvictUsers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
                 Resources.DLG_SETUP_SAVED,
                 Resources.DLG_SETUP_SAVED_HEADER);
+        }
+
+        private void EvictUsers()
+        {
+           if (viewModel.Users != null)
+           {
+              viewModel.Users.ForEach<User>(_ => repos.UserRepo.Evict(_));
+           }
+        }
+
+        private void SaveUsers()
+        {
+           if (viewModel.Users != null)
+           {
+              viewModel.Users.ForEach<User>(_ => repos.UserRepo.SaveOrUpdate(_));
+           }
+        }
+
+        private void EvictRoles()
+        {
+           if (viewModel.Roles != null)
+           {
+              viewModel.Roles.ForEach<Role>(_ => repos.RoleRepo.Evict(_));
+           }
+        }
+
+        private void SaveRoles()
+        {
+           if (viewModel.Roles != null)
+           {
+              viewModel.Roles.ForEach<Role>(_ => repos.RoleRepo.SaveOrUpdate(_));
+           }
         }
 
         private void EvictWelders()
