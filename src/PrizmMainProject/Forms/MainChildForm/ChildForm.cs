@@ -11,11 +11,26 @@ namespace PrizmMain.Forms.MainChildForm
     public class ChildForm : XtraForm, IModifiable
     {
         private bool isModified = false;
+        private string originalText = string.Empty;
+        protected string headerNumberPart = string.Empty;
 
-        private void InitializeComponent()
+        /// <summary>
+        /// If this is first-time Text change, remember original text
+        /// </summary>
+        /// <param name="e">to pass to base class</param>
+        protected override void OnTextChanged(System.EventArgs e)
         {
+            if (string.IsNullOrEmpty(originalText))
+            {
+                originalText = this.Text;
+            }
+            base.OnTextChanged(e);
         }
 
+        /// <summary>
+        /// Before closing.
+        /// </summary>
+        /// <param name="e">used for decision whether to close form or not</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (this.IsModified)
@@ -36,6 +51,9 @@ namespace PrizmMain.Forms.MainChildForm
             base.OnFormClosing(e);
         }
 
+        /// <summary>
+        /// modified state of document
+        /// </summary>
         public virtual bool IsModified 
         { 
            get
@@ -45,29 +63,24 @@ namespace PrizmMain.Forms.MainChildForm
            set
            {
               isModified = value;
-              CorrectCaption();
+              SetCaption();
               Modified(isModified);
            }
         }
 
-        private void CorrectCaption()
+        /// <summary>
+        /// Set new caption according to current state of document
+        /// </summary>
+        private void SetCaption()
         {
-           if (IsModified)
-           {
-              if (!Text.EndsWith("*"))
-              {
-                 Text = string.Format("{0}*", Text);
-              }
-           }
-           else
-           {
-              if (Text.EndsWith("*"))
-              {
-                 Text = Text.Substring(0, Text.Length - 1);
-              }
-           }
+            Text = string.Format("{0}{1}{2}", originalText,
+                !string.IsNullOrEmpty(headerNumberPart) ? ": " + headerNumberPart : string.Empty,  
+                IsModified ? "*" : string.Empty);
         }
 
+        /// <summary>
+        /// Derived classes should set SaveCommand, to let it be automatically performed at child form closing.
+        /// </summary>
         protected ICommand SaveCommand
         {
            get;
@@ -76,7 +89,10 @@ namespace PrizmMain.Forms.MainChildForm
 
         public event System.Action<bool> Modified = delegate { };
 
-        public PrizmApplicationXtraForm MdiParent 
+        /// <summary>
+        /// override (hide) MdiParent to have automatic right type of main application form.
+        /// </summary>
+        public new PrizmApplicationXtraForm MdiParent 
         { 
             get 
             { 
