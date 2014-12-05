@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entity.Mill;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,7 +11,7 @@ namespace Data.DAL
 {
     public interface IMillReportsRepository
     {
-        DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories);
+        DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses);
 
     }
 }

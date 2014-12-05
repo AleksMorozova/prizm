@@ -50,6 +50,7 @@
     <Compile Include="Entity\Mill\PipeTestResultStatusWrapper.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\ItemExtensions.cs" />
+    <Compile Include="Entity\Mill\ReportType.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />

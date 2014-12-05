@@ -289,4 +289,13 @@
   <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
     <value>Номер наряд-заказа обязателен</value>
   </data>
+  <data name="ByCategories" xml:space="preserve">
+    <value>По категориям</value>
+  </data>
+  <data name="ByProducing" xml:space="preserve">
+    <value>В производстве</value>
+  </data>
+  <data name="ByShipped" xml:space="preserve">
+    <value>По отгруженным</value>
+  </data>
 </root>

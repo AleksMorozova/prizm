@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.DAL.Mill;
+using PrizmMain.Properties;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
@@ -27,6 +29,10 @@ namespace PrizmMain.Forms.Reports.Mill
         public object previewSource;
         private BindingList<Category> inspectionCategories;
         public List<Guid> SearchIds = new List<Guid>();
+        public List<string> SearchStatuses= new List <string>();
+        public BindingList<EnumWrapper<ReportType>> ReportTypes = new BindingList<EnumWrapper<ReportType>>();
+        private BindingList<EnumWrapper<PipeTestResultStatus>> statuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
+        private ReportType selectedReportType = ReportType.ByCategories;
 
         [Inject]
         public MillReportsViewModel(IMillReportsRepository repo, IUserNotify notify, ICategoryRepository repoCategory)
@@ -37,6 +43,21 @@ namespace PrizmMain.Forms.Reports.Mill
             createCommand = ViewModelSource.Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));
             previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
             GetAllCategories();
+            LoadAllReportTypes();
+            LoadAllStatuses();
+        }
+
+        private void LoadAllReportTypes()
+        {
+            foreach (string reportType in Enum.GetNames(typeof(ReportType)))
+            {
+
+                ReportTypes.Add(new EnumWrapper<ReportType>()
+                {
+                    Name = reportType
+                }
+                );
+            }
         }
 
         public object PreviewSource
@@ -89,9 +110,9 @@ namespace PrizmMain.Forms.Reports.Mill
 
         public ICommand CreateCommand
         {
-            get 
+            get
             {
-                return createCommand; 
+                return createCommand;
             }
         }
 
@@ -109,11 +130,48 @@ namespace PrizmMain.Forms.Reports.Mill
 
         public BindingList<Category> InspectionCategories
         {
-            get 
-            { 
-                return inspectionCategories; 
+            get
+            {
+                return inspectionCategories;
             }
         }
 
+        public ReportType SelectedReportType
+        {
+            get
+            {
+                return selectedReportType;
+            }
+            set
+            {
+                if (value != selectedReportType)
+                {
+                    selectedReportType = value;
+                    RaisePropertyChanged("SelectedReportType");
+                }
+            }
+
+        }
+
+        public BindingList<EnumWrapper<PipeTestResultStatus>> Statuses
+        {
+            get
+            {
+                return statuses;
+            }
+        }
+
+        private void LoadAllStatuses()
+        {
+            foreach (string status in Enum.GetNames(typeof(PipeTestResultStatus)))
+            {
+                if (status != Enum.GetName(typeof(PipeTestResultStatus), Domain.Entity.Mill.PipeTestResultStatus.Undef))
+                statuses.Add(new EnumWrapper<PipeTestResultStatus>()
+                {
+                    Name = status
+                }
+                );
+            }
+        }
     }
 }

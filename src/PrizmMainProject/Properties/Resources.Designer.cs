@@ -133,6 +133,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По категориям.
+        /// </summary>
+        internal static string ByCategories {
+            get {
+                return ResourceManager.GetString("ByCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to В производстве.
+        /// </summary>
+        internal static string ByProducing {
+            get {
+                return ResourceManager.GetString("ByProducing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По отгруженным.
+        /// </summary>
+        internal static string ByShipped {
+            get {
+                return ResourceManager.GetString("ByShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внешнее.
         /// </summary>
         internal static string COAT_EXTERNAL {
