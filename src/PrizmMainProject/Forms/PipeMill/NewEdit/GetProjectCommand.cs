@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    public class GetRegexCommand : ICommand
+    public class GetProjectCommand : ICommand
     {
         readonly IProjectRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
 
-        public GetRegexCommand(MillPipeNewEditViewModel viewModel, IProjectRepository repo)
+        public GetProjectCommand(MillPipeNewEditViewModel viewModel, IProjectRepository repo)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -24,7 +24,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.Regex= (repo.GetSingle() == null) ? null : repo.GetSingle().MillPipeNumberMaskRegexp;
+            viewModel.Project = repo.GetSingle();
         }
 
         public bool CanExecute()

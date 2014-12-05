@@ -140,6 +140,32 @@ namespace PrizmMain.Properties {
                 return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
             }
         }
+    
+        ///   Looks up a localized string similar to По категориям.
+        /// </summary>
+        internal static string ByCategories {
+            get {
+                return ResourceManager.GetString("ByCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to В производстве.
+        /// </summary>
+        internal static string ByProducing {
+            get {
+                return ResourceManager.GetString("ByProducing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По отгруженным.
+        /// </summary>
+        internal static string ByShipped {
+            get {
+                return ResourceManager.GetString("ByShipped", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Внешнее.
@@ -165,6 +191,15 @@ namespace PrizmMain.Properties {
         internal static string DATA_EXPIRED {
             get {
                 return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. .
+        /// </summary>
+        internal static string DLG_AddFailedControlOperation {
+            get {
+                return ResourceManager.GetString("DLG_AddFailedControlOperation", resourceCulture);
             }
         }
         
@@ -558,6 +593,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Активные.
+        /// </summary>
+        internal static string PipeStatusComboActive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все.
+        /// </summary>
+        internal static string PipeStatusComboAll {
+            get {
+                return ResourceManager.GetString("PipeStatusComboAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивированные.
+        /// </summary>
+        internal static string PipeStatusComboUnactive {
+            get {
+                return ResourceManager.GetString("PipeStatusComboUnactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PRIZM.
         /// </summary>
         internal static string PRIZM {
@@ -609,6 +671,15 @@ namespace PrizmMain.Properties {
         internal static string Stocked {
             get {
                 return ResourceManager.GetString("Stocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
+        /// </summary>
+        internal static string TestResultIncorrectDate {
+            get {
+                return ResourceManager.GetString("TestResultIncorrectDate", resourceCulture);
             }
         }
         

@@ -55,7 +55,7 @@ namespace PrizmMain
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
             Bind<IProjectRepository>().To<ProjectRepository>();
-
+            Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<IMillReportsRepository>().To<MillReportsRepository>();
             Bind<IUserRepository>().To<UserRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();

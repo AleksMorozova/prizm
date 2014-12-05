@@ -21,6 +21,7 @@ using System.Collections;
 using System.Drawing;
 
 using PrizmMain.Common;
+using DevExpress.XtraGrid.Columns;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -52,7 +53,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
-            millStatus.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
         }
 
@@ -66,8 +66,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
             CheckRegex();
-            if (!viewModel.Pipe.IsNew())
-               IsModified = false;
+            IsModified = false;
         }
 
         private void ControlsDeactivation(Control control)
@@ -117,10 +116,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
-            }
-            foreach (var s in viewModel.StatusTypes)
-            {
-                millStatus.Properties.Items.Add(s);
             }
             #endregion
 
@@ -338,13 +333,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.Number = pipeNumber.Text;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
-        }
-
-        private void millStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            viewModel.PipeStatus = millStatus.SelectedItem as EnumWrapper<PipeMillStatus>;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
@@ -585,10 +573,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
              GridView view = sender as GridView;
              if (view.IsValidRowHandle(e.RowHandle))
              { 
-              currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
-              currentTestResult.IsActive = true;
-              currentTestResult.Pipe = viewModel.Pipe;
-              viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                 currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
+                 currentTestResult.IsActive = true;
+                 currentTestResult.Pipe = viewModel.Pipe;
+                 currentTestResult.Order = viewModel.PipeTestResults.Max(test=>test.Order)+1;
+                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
              }
         }
 
@@ -611,10 +600,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void CheckRegex()
         {
-            if (viewModel.Regex != null && viewModel.Regex != String.Empty)
+            if (viewModel.Project.MillPipeNumberMaskRegexp != null &&
+                viewModel.Project.MillPipeNumberMaskRegexp != String.Empty)
             {
                 pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                pipeNumber.Properties.Mask.EditMask = viewModel.Regex;
+                pipeNumber.Properties.Mask.EditMask = viewModel.Project.MillPipeNumberMaskRegexp;
             }
         }
 
@@ -673,6 +663,35 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             Domain.Entity.Setup.PipeMillSizeType currentPipeType
                 = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
+        }
+
+        private void inspectionsGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            PipeTestResultStatus result = (PipeTestResultStatus)gv.GetRowCellValue(e.RowHandle, inspectionResultGridColumn);
+            DateTime? date = (DateTime?)gv.GetRowCellValue(e.RowHandle, controlDateGridColumn);
+            var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
+            if (string.IsNullOrWhiteSpace(op))
+            {
+                gv.SetColumnError(inspectionCodeGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+
+            switch (result)
+            {
+                case PipeTestResultStatus.Passed:
+                case PipeTestResultStatus.Failed:
+                    if (date == null || date > DateTime.Now)
+                    {
+                        gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
+                        e.Valid = false;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

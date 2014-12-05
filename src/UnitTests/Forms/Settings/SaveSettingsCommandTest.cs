@@ -27,6 +27,7 @@ namespace UnitTests.Forms.Settings
         public void TestSaveSettings()
         {
             var notify = new Mock<IUserNotify>();
+
             var repoPipeSize = new Mock<IMillPipeSizeTypeRepository>();
             var repoPipeTests = new Mock<IPipeTestRepository>();
             var repoWelders = new Mock<IWelderRepository>();
@@ -36,7 +37,8 @@ namespace UnitTests.Forms.Settings
             var repoUsers = new Mock<IUserRepository>();
             var repoRoles = new Mock<IRoleRepository>();
             var repoPerms = new Mock<IPermissionRepository>();
-            var repoCateg = new Mock<ICategoryRepository>();
+            var repoCategory = new Mock<ICategoryRepository>();
+            
             var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
@@ -54,9 +56,10 @@ namespace UnitTests.Forms.Settings
             repoInspectors.Setup(_ => _.GetAll()).Returns(new List<Inspector>() { testInspector });
             repoUsers.Setup(_ => _.GetAll()).Returns(new List<User>() { testUser });
             repoRoles.Setup(_ => _.GetAll()).Returns(new List<Role>() { testRole });
-            repoCateg.Setup(_ => _.GetAll()).Returns(new List<Category>());
             repoPerms.Setup(_ => _.GetAll()).Returns(new List<Permission>() { testPerm });
             
+            repoCategory.Setup(x => x.GetAll()).Returns(new List<Category>() { new Category() });
+
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
             settingsRepos.SetupGet(_ => _.PipeTestRepo).Returns(repoPipeTests.Object);
@@ -67,11 +70,12 @@ namespace UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.UserRepo).Returns(repoUsers.Object);
             settingsRepos.SetupGet(_ => _.RoleRepo).Returns(repoRoles.Object);
             settingsRepos.SetupGet(_ => _.PermissionRepo).Returns(repoPerms.Object);
-            settingsRepos.SetupGet(_ => _.СategoryRepo).Returns(repoCateg.Object);
+            settingsRepos.SetupGet(x => x.СategoryRepo).Returns(repoCategory.Object);
 
             var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
             viewModel.ModifiableView = modifiableView.Object;
             viewModel.LoadData();
+            viewModel.ModifiableView = modifiableView.Object;
 
             var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
 

@@ -53,6 +53,7 @@
     <Compile Include="Entity\Security\Permission.cs" />
     <Compile Include="Entity\Security\Role.cs" />
     <Compile Include="Entity\Security\User.cs" />
+    <Compile Include="Entity\Mill\ReportType.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
