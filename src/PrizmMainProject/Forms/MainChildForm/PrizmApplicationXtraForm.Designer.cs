@@ -425,13 +425,6 @@
             this.barButtonItemRoles.Name = "barButtonItemRoles";
             this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
             // 
-            // barButtonItemSettingsDictionaries
-            // 
-            this.barButtonItemSettingsDictionaries.Caption = "Сло&вари";
-            this.barButtonItemSettingsDictionaries.Id = 5;
-            this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
-            this.barButtonItemSettingsDictionaries.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsDictionaries_ItemClick);
-            // 
             // barButtonItemSettingsWelders
             // 
             this.barButtonItemSettingsWelders.Caption = "&Сварщики";
