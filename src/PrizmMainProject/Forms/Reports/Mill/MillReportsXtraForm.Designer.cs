@@ -93,7 +93,7 @@
             this.previewReportDocument.AutoScroll = true;
             this.previewReportDocument.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.previewReportDocument.IsMetric = false;
-            this.previewReportDocument.Location = new System.Drawing.Point(29, 201);
+            this.previewReportDocument.Location = new System.Drawing.Point(-152, 201);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(1063, 203);
             this.previewReportDocument.TabIndex = 78;
@@ -101,7 +101,7 @@
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(979, 94);
+            this.previewButton.Location = new System.Drawing.Point(798, 94);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(113, 22);
             this.previewButton.StyleController = this.generalReportLayout;
@@ -130,21 +130,21 @@
             // 
             // statuses
             // 
-            this.statuses.Location = new System.Drawing.Point(695, 59);
+            this.statuses.Location = new System.Drawing.Point(514, 59);
             this.statuses.Name = "statuses";
             this.statuses.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.statuses.Size = new System.Drawing.Size(273, 82);
+            this.statuses.Size = new System.Drawing.Size(265, 82);
             this.statuses.StyleController = this.generalReportLayout;
             this.statuses.TabIndex = 84;
             this.statuses.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.statuses_ItemCheck);
             // 
             // testCategories
             // 
-            this.testCategories.Location = new System.Drawing.Point(418, 59);
+            this.testCategories.Location = new System.Drawing.Point(237, 59);
             this.testCategories.MultiColumn = true;
             this.testCategories.Name = "testCategories";
             this.testCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.testCategories.Size = new System.Drawing.Size(273, 82);
+            this.testCategories.Size = new System.Drawing.Size(258, 82);
             this.testCategories.StyleController = this.generalReportLayout;
             this.testCategories.TabIndex = 83;
             this.testCategories.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.generalReportTypes_ItemCheck);
@@ -152,7 +152,7 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(299, 60);
+            this.endDate.Location = new System.Drawing.Point(118, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -165,7 +165,7 @@
             // startDate
             // 
             this.startDate.EditValue = null;
-            this.startDate.Location = new System.Drawing.Point(172, 60);
+            this.startDate.Location = new System.Drawing.Point(-9, 60);
             this.startDate.Name = "startDate";
             this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -177,7 +177,7 @@
             // 
             // reportPeriodLabel
             // 
-            this.reportPeriodLabel.Location = new System.Drawing.Point(160, 43);
+            this.reportPeriodLabel.Location = new System.Drawing.Point(-21, 43);
             this.reportPeriodLabel.Name = "reportPeriodLabel";
             this.reportPeriodLabel.Size = new System.Drawing.Size(52, 13);
             this.reportPeriodLabel.StyleController = this.generalReportLayout;
@@ -187,7 +187,7 @@
             // reportTypes
             // 
             this.reportTypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.reportTypes.Location = new System.Drawing.Point(26, 59);
+            this.reportTypes.Location = new System.Drawing.Point(-155, 59);
             this.reportTypes.Name = "reportTypes";
             this.reportTypes.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.reportTypes.Properties.Appearance.Options.UseBackColor = true;
@@ -200,7 +200,7 @@
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(979, 58);
+            this.createReportButton.Location = new System.Drawing.Point(798, 58);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(113, 22);
             this.createReportButton.StyleController = this.generalReportLayout;
@@ -215,7 +215,7 @@
             this.generalReportLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.createReportaLyoutGroup,
             this.previewLayoutGroup});
-            this.generalReportLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.generalReportLayoutGroup.Location = new System.Drawing.Point(-181, 0);
             this.generalReportLayoutGroup.Name = "Root";
             this.generalReportLayoutGroup.Size = new System.Drawing.Size(1121, 433);
             this.generalReportLayoutGroup.Text = "Root";
@@ -346,6 +346,7 @@
             this.testCategoriesLayout.Name = "testCategoriesLayout";
             this.testCategoriesLayout.Size = new System.Drawing.Size(277, 102);
             this.testCategoriesLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.testCategoriesLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
             this.testCategoriesLayout.Text = "Фильтровать по категориям";
             this.testCategoriesLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.testCategoriesLayout.TextSize = new System.Drawing.Size(273, 13);
@@ -414,6 +415,7 @@
             this.statusesLayout.Name = "statusesLayout";
             this.statusesLayout.Size = new System.Drawing.Size(277, 102);
             this.statusesLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.statusesLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 8, 0, 0);
             this.statusesLayout.Text = "Фильтровать по результатам контрольных операций";
             this.statusesLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.statusesLayout.TextSize = new System.Drawing.Size(273, 13);
