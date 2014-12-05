@@ -334,6 +334,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
         {
+            this.headerNumberPart = pipeNumber.Text;  // BEFORE set to viewModel
             viewModel.Number = pipeNumber.Text;
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
@@ -607,6 +608,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
                 pipeNumber.Properties.Mask.EditMask = viewModel.Project.MillPipeNumberMaskRegexp;
+                pipeNumber.Properties.Mask.ShowPlaceHolders = false;
             }
         }
 
