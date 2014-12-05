@@ -255,19 +255,14 @@ namespace PrizmMain.Forms.MainChildForm
             CreateSettingsChildForm(page: 4);
         }
 
-        private void barButtonItemSettingsDictionaries_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateSettingsChildForm(page: 5);
-        }
-
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 6);
+           CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 7);
+           CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
