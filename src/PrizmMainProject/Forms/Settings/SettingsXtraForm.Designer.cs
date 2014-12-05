@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,15 +132,6 @@
             this.roleButtonDivideEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.roleEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.roleLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dictionariesPage = new DevExpress.XtraTab.XtraTabPage();
-            this.dictionaryLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.dictionaries = new DevExpress.XtraGrid.GridControl();
-            this.dictionaryView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dictionaryNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.dictonaryLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.dictionaryGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.weldersPage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlWelders = new DevExpress.XtraGrid.GridControl();
@@ -271,14 +261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonDivideEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).BeginInit();
-            this.dictionariesPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryLayout)).BeginInit();
-            this.dictionaryLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictonaryLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryGridLayout)).BeginInit();
             this.weldersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -382,7 +364,6 @@
             this.pipelinePage,
             this.usersPage,
             this.rolesPage,
-            this.dictionariesPage,
             this.weldersPage,
             this.inspectorsPage});
             // 
@@ -460,7 +441,7 @@
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 46;
+            this.inspectionCodeGridColumn.Width = 40;
             // 
             // codeRepositoryTextEdit
             // 
@@ -475,7 +456,7 @@
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 166;
+            this.inspectionNameGridColumn.Width = 170;
             // 
             // controlNameRepositoryTextEdit
             // 
@@ -489,8 +470,8 @@
             this.testSubjectGridColumn.FieldName = "TestSubject";
             this.testSubjectGridColumn.Name = "testSubjectGridColumn";
             this.testSubjectGridColumn.Visible = true;
-            this.testSubjectGridColumn.VisibleIndex = 2;
-            this.testSubjectGridColumn.Width = 166;
+            this.testSubjectGridColumn.VisibleIndex = 3;
+            this.testSubjectGridColumn.Width = 120;
             // 
             // subjectRepositoryItemEdit
             // 
@@ -504,8 +485,8 @@
             this.controlTypeGridColumn.FieldName = "ControlType";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
-            this.controlTypeGridColumn.VisibleIndex = 3;
-            this.controlTypeGridColumn.Width = 92;
+            this.controlTypeGridColumn.VisibleIndex = 4;
+            this.controlTypeGridColumn.Width = 120;
             // 
             // controlTypeItems
             // 
@@ -527,8 +508,8 @@
             this.resultTypeGridColumn.FieldName = "ResultType";
             this.resultTypeGridColumn.Name = "resultTypeGridColumn";
             this.resultTypeGridColumn.Visible = true;
-            this.resultTypeGridColumn.VisibleIndex = 4;
-            this.resultTypeGridColumn.Width = 73;
+            this.resultTypeGridColumn.VisibleIndex = 5;
+            this.resultTypeGridColumn.Width = 100;
             // 
             // resultTypeItems
             // 
@@ -550,8 +531,8 @@
             this.boolExpectedGridColumn.Name = "boolExpectedGridColumn";
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
-            this.boolExpectedGridColumn.VisibleIndex = 5;
-            this.boolExpectedGridColumn.Width = 36;
+            this.boolExpectedGridColumn.VisibleIndex = 6;
+            this.boolExpectedGridColumn.Width = 70;
             // 
             // minExpectedGridColumn
             // 
@@ -559,8 +540,8 @@
             this.minExpectedGridColumn.FieldName = "MinExpected";
             this.minExpectedGridColumn.Name = "minExpectedGridColumn";
             this.minExpectedGridColumn.Visible = true;
-            this.minExpectedGridColumn.VisibleIndex = 6;
-            this.minExpectedGridColumn.Width = 56;
+            this.minExpectedGridColumn.VisibleIndex = 7;
+            this.minExpectedGridColumn.Width = 50;
             // 
             // maxExpectedGridColumn
             // 
@@ -569,8 +550,8 @@
             this.maxExpectedGridColumn.Name = "maxExpectedGridColumn";
             this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
-            this.maxExpectedGridColumn.VisibleIndex = 7;
-            this.maxExpectedGridColumn.Width = 49;
+            this.maxExpectedGridColumn.VisibleIndex = 8;
+            this.maxExpectedGridColumn.Width = 50;
             // 
             // isRequiredGridColumn
             // 
@@ -579,8 +560,8 @@
             this.isRequiredGridColumn.FieldName = "IsRequired";
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
-            this.isRequiredGridColumn.VisibleIndex = 8;
-            this.isRequiredGridColumn.Width = 56;
+            this.isRequiredGridColumn.VisibleIndex = 9;
+            this.isRequiredGridColumn.Width = 40;
             // 
             // isRequired
             // 
@@ -593,8 +574,8 @@
             this.testIsActiveGridColumn.FieldName = "IsActive";
             this.testIsActiveGridColumn.Name = "testIsActiveGridColumn";
             this.testIsActiveGridColumn.Visible = true;
-            this.testIsActiveGridColumn.VisibleIndex = 9;
-            this.testIsActiveGridColumn.Width = 43;
+            this.testIsActiveGridColumn.VisibleIndex = 10;
+            this.testIsActiveGridColumn.Width = 48;
             // 
             // categoryColumn
             // 
@@ -603,8 +584,8 @@
             this.categoryColumn.FieldName = "Category";
             this.categoryColumn.Name = "categoryColumn";
             this.categoryColumn.Visible = true;
-            this.categoryColumn.VisibleIndex = 10;
-            this.categoryColumn.Width = 125;
+            this.categoryColumn.VisibleIndex = 2;
+            this.categoryColumn.Width = 100;
             // 
             // repositoryItemsСategory
             // 
@@ -1050,6 +1031,7 @@
             // pipelinePage
             // 
             this.pipelinePage.Name = "pipelinePage";
+            this.pipelinePage.PageVisible = false;
             this.pipelinePage.Size = new System.Drawing.Size(1241, 463);
             this.pipelinePage.Text = "Тру&бопровод";
             // 
@@ -1453,96 +1435,6 @@
             this.roleLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.roleLayoutControl.TextSize = new System.Drawing.Size(24, 13);
             // 
-            // dictionariesPage
-            // 
-            this.dictionariesPage.Controls.Add(this.dictionaryLayout);
-            this.dictionariesPage.Name = "dictionariesPage";
-            this.dictionariesPage.Size = new System.Drawing.Size(1241, 463);
-            this.dictionariesPage.Text = "Словар&и";
-            // 
-            // dictionaryLayout
-            // 
-            this.dictionaryLayout.Controls.Add(this.dictionaries);
-            this.dictionaryLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dictionaryLayout.Location = new System.Drawing.Point(0, 0);
-            this.dictionaryLayout.Name = "dictionaryLayout";
-            this.dictionaryLayout.Root = this.dictonaryLayoutGroup;
-            this.dictionaryLayout.Size = new System.Drawing.Size(1241, 463);
-            this.dictionaryLayout.TabIndex = 1;
-            this.dictionaryLayout.Text = "layoutControl1";
-            // 
-            // dictionaries
-            // 
-            this.dictionaries.Location = new System.Drawing.Point(12, 12);
-            this.dictionaries.MainView = this.dictionaryView;
-            this.dictionaries.Name = "dictionaries";
-            this.dictionaries.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.editItem});
-            this.dictionaries.Size = new System.Drawing.Size(1217, 439);
-            this.dictionaries.TabIndex = 0;
-            this.dictionaries.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dictionaryView});
-            // 
-            // dictionaryView
-            // 
-            this.dictionaryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dictionaryNameGridColumn,
-            this.editDictionary});
-            this.dictionaryView.GridControl = this.dictionaries;
-            this.dictionaryView.Name = "dictionaryView";
-            this.dictionaryView.OptionsView.ShowGroupPanel = false;
-            // 
-            // dictionaryNameGridColumn
-            // 
-            this.dictionaryNameGridColumn.Caption = "Словари";
-            this.dictionaryNameGridColumn.FieldName = "DictionaryName";
-            this.dictionaryNameGridColumn.Name = "dictionaryNameGridColumn";
-            this.dictionaryNameGridColumn.Visible = true;
-            this.dictionaryNameGridColumn.VisibleIndex = 0;
-            this.dictionaryNameGridColumn.Width = 864;
-            // 
-            // editDictionary
-            // 
-            this.editDictionary.ColumnEdit = this.editItem;
-            this.editDictionary.Name = "editDictionary";
-            this.editDictionary.Visible = true;
-            this.editDictionary.VisibleIndex = 1;
-            this.editDictionary.Width = 52;
-            // 
-            // editItem
-            // 
-            this.editItem.AutoHeight = false;
-            this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("editItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.editItem.Name = "editItem";
-            this.editItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.editItem.Click += new System.EventHandler(this.editItem_Click);
-            // 
-            // dictonaryLayoutGroup
-            // 
-            this.dictonaryLayoutGroup.CustomizationFormText = "dictonaryLayoutGroup";
-            this.dictonaryLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.dictonaryLayoutGroup.GroupBordersVisible = false;
-            this.dictonaryLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.dictionaryGridLayout});
-            this.dictonaryLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.dictonaryLayoutGroup.Name = "dictonaryLayoutGroup";
-            this.dictonaryLayoutGroup.Size = new System.Drawing.Size(1241, 463);
-            this.dictonaryLayoutGroup.Text = "dictonaryLayoutGroup";
-            this.dictonaryLayoutGroup.TextVisible = false;
-            // 
-            // dictionaryGridLayout
-            // 
-            this.dictionaryGridLayout.Control = this.dictionaries;
-            this.dictionaryGridLayout.CustomizationFormText = "dictionaryGridLayout";
-            this.dictionaryGridLayout.Location = new System.Drawing.Point(0, 0);
-            this.dictionaryGridLayout.Name = "dictionaryGridLayout";
-            this.dictionaryGridLayout.Size = new System.Drawing.Size(1221, 443);
-            this.dictionaryGridLayout.Text = "dictionaryGridLayout";
-            this.dictionaryGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.dictionaryGridLayout.TextToControlDistance = 0;
-            this.dictionaryGridLayout.TextVisible = false;
-            // 
             // weldersPage
             // 
             this.weldersPage.Controls.Add(this.layoutControl1);
@@ -1565,6 +1457,7 @@
             // 
             // gridControlWelders
             // 
+            this.gridControlWelders.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControlWelders.Location = new System.Drawing.Point(12, 12);
             this.gridControlWelders.MainView = this.gridViewWelders;
             this.gridControlWelders.Name = "gridControlWelders";
@@ -1832,7 +1725,7 @@
             this.colInspectorLastName.Name = "colInspectorLastName";
             this.colInspectorLastName.Visible = true;
             this.colInspectorLastName.VisibleIndex = 0;
-            this.colInspectorLastName.Width = 199;
+            this.colInspectorLastName.Width = 249;
             // 
             // inspectorLNRepositoryTextEdit
             // 
@@ -1847,7 +1740,7 @@
             this.colInspectorFirstName.Name = "colInspectorFirstName";
             this.colInspectorFirstName.Visible = true;
             this.colInspectorFirstName.VisibleIndex = 1;
-            this.colInspectorFirstName.Width = 199;
+            this.colInspectorFirstName.Width = 249;
             // 
             // inspectorFNRepositoryTextEdit
             // 
@@ -1862,7 +1755,7 @@
             this.colInspectorMiddleName.Name = "colInspectorMiddleName";
             this.colInspectorMiddleName.Visible = true;
             this.colInspectorMiddleName.VisibleIndex = 2;
-            this.colInspectorMiddleName.Width = 199;
+            this.colInspectorMiddleName.Width = 200;
             // 
             // inspectorMNRepositoryTextEdit
             // 
@@ -1896,7 +1789,7 @@
             this.colInspectorActive.Name = "colInspectorActive";
             this.colInspectorActive.Visible = true;
             this.colInspectorActive.VisibleIndex = 3;
-            this.colInspectorActive.Width = 40;
+            this.colInspectorActive.Width = 50;
             // 
             // layoutControlGroup1
             // 
@@ -2135,14 +2028,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleButtonDivideEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).EndInit();
-            this.dictionariesPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryLayout)).EndInit();
-            this.dictionaryLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaries)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictonaryLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dictionaryGridLayout)).EndInit();
             this.weldersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -2190,10 +2075,6 @@
         private DevExpress.XtraTab.XtraTabPage pipePage;
         private DevExpress.XtraTab.XtraTabPage pipelinePage;
         private DevExpress.XtraTab.XtraTabPage usersPage;
-        private DevExpress.XtraTab.XtraTabPage dictionariesPage;
-        private DevExpress.XtraGrid.GridControl dictionaries;
-        private DevExpress.XtraGrid.Views.Grid.GridView dictionaryView;
-        private DevExpress.XtraGrid.Columns.GridColumn dictionaryNameGridColumn;
         public DevExpress.XtraTab.XtraTabControl settings;
         private DevExpress.XtraTab.XtraTabPage projectPage;
         private DevExpress.XtraGrid.GridControl plateManufacturersList;
@@ -2205,8 +2086,6 @@
         private DevExpress.XtraTab.XtraTabPage rolesPage;
         private DevExpress.XtraEditors.SimpleButton roleEditButton;
         private DevExpress.XtraEditors.SimpleButton roleAddButton;
-        private DevExpress.XtraGrid.Columns.GridColumn editDictionary;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit editItem;
         private System.Windows.Forms.BindingSource userBindingSource;
         private DevExpress.XtraGrid.GridControl roles;
         private System.Windows.Forms.BindingSource roleBindingSource;
@@ -2300,9 +2179,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit controlTypeItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultTypeItems;
-        private DevExpress.XtraLayout.LayoutControl dictionaryLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup dictonaryLayoutGroup;
-        private DevExpress.XtraLayout.LayoutControlItem dictionaryGridLayout;
         private DevExpress.XtraLayout.EmptySpaceItem roleEmptySpace;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupWerlders;
