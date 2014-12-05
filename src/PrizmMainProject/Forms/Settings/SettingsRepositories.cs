@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.DAL.Security;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -22,9 +21,6 @@ namespace PrizmMain.Forms.Settings
       readonly IPlateManufacturerRepository manufacturerRepo;
       readonly IInspectorRepository inspectorRepo;
       readonly ICategoryRepository categoryRepo;
-      readonly IUserRepository userRepo;
-      readonly IRoleRepository roleRepo;
-      readonly IPermissionRepository permissionRepo;
       readonly ISession session;
 
       [Inject]
@@ -38,9 +34,6 @@ namespace PrizmMain.Forms.Settings
          this.manufacturerRepo = new PlateManufacturerRepository(session);
          this.inspectorRepo = new InspectorRepository(session);
          this.categoryRepo = new CategoryRepository(session);
-         this.userRepo = new UserRepository(session);
-         this.roleRepo = new RoleRepository(session);
-         this.permissionRepo = new PermissionRepository(session);
       }
 
       public void Dispose()
@@ -95,31 +88,6 @@ namespace PrizmMain.Forms.Settings
       {
          session.BeginTransaction();
       }
-
-
-
-      public IRoleRepository RoleRepo
-      {
-         get
-         {
-            return roleRepo;
-         }
-      }
-
-      public IUserRepository UserRepo
-      {
-         get
-         {
-            return userRepo;
-         }
-      }
-
-      public IPermissionRepository PermissionRepo
-      {
-         get
-         {
-            return permissionRepo;
-         }
-      }
+      
    }
 }

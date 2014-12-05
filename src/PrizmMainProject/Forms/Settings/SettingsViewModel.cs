@@ -17,7 +17,6 @@ using System.Text;
 using System.Threading.Tasks;
 using PrizmMain.Properties;
 using PrizmMain.Documents;
-using Domain.Entity.Security;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -29,9 +28,6 @@ namespace PrizmMain.Forms.Settings
         public BindingList<InspectorViewType> Inspectors { get; set; }
         public BindingList<PipeTestControlTypeWrapper> ControlType { get; set; }
         public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
-        public BindingList<Role> Roles { get; set; }
-        public BindingList<Permission> Permissions { get; set; }
-        public BindingList<User> Users { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly ExtractCategoriesCommand extractCategoriesCommand;
@@ -62,9 +58,6 @@ namespace PrizmMain.Forms.Settings
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
-           GetAllPermissions();
-           GetAllRoles();
-           GetAllUsers();
            GetProjectSettings();
            GetAllManufacturers();
            ControlType = new BindingList<PipeTestControlTypeWrapper>();
@@ -90,42 +83,6 @@ namespace PrizmMain.Forms.Settings
                    Text = Resources.ResourceManager.GetString("InspectionResultType_" + resultTypeName)
                }
                );
-           }
-        }
-
-        private void GetAllUsers()
-        {
-           if (Users == null)
-              Users = new BindingList<User>();
-
-           IList<User> users = repos.UserRepo.GetAll();
-           foreach (var u in users)
-           {
-              Users.Add(u);
-           }
-        }
-
-        private void GetAllPermissions()
-        {
-           if (Permissions == null)
-              Permissions = new BindingList<Permission>();
-
-           IList<Permission> perms = repos.PermissionRepo.GetAll();
-           foreach (var p in perms)
-           {
-              Permissions.Add(p);
-           }
-        }
-
-        private void GetAllRoles()
-        {
-           if (Roles == null)
-              Roles = new BindingList<Role>();
-
-           IList<Role> roles = repos.RoleRepo.GetAll();
-           foreach (var r in roles)
-           {
-              Roles.Add(r);
            }
         }
 
@@ -218,8 +175,8 @@ namespace PrizmMain.Forms.Settings
                         switch (ch)
                         { 
                             case '#': convertedToRegex = @"\d";break;
-                            case '@': convertedToRegex = @"\p{Lu}"; break;
-                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
+                            case '@': convertedToRegex = @"\p{L}"; break;
+                            case '%': convertedToRegex = @"(\d|\p{L})"; break;
                             case '&': convertedToRegex = @"\w"; break;
                             default: convertedToRegex = ch.ToString(); break;
 
@@ -362,53 +319,6 @@ namespace PrizmMain.Forms.Settings
               modifiable = value;
            }
         }
-
-
-        public bool RoleHasPermission(Role role, Permission perm)
-        {
-           return (from p in role.Permissions where p.Id == perm.Id select p).Count() > 0;
-        }
-
-        public void RemovePermissionFromRole(Role role, Permission p)
-        {
-           var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
-           if (rolePerm != null)
-           {
-              role.Permissions.Remove(rolePerm);
-           }
-
-        }
-
-        public void AddPermissionToRole(Role role, Permission p)
-        {
-           var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
-           if (rolePerm == null)
-           {
-              role.Permissions.Add(p);
-           }
-        }
-
-        public void AddRoleToUser(Role role, User user)
-        {
-           var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
-           if (userRole == null)
-           {
-              user.Roles.Add(role);
-           }
-        }
-
-        public void RemoveRoleFromUser(Role role, User user)
-        {
-           var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
-           if (userRole != null)
-           {
-              user.Roles.Remove(userRole);
-           }
-        }
-
-        internal bool UserHasRole(User user, Role role)
-        {
-           return (from r in user.Roles where r.Id == role.Id select r).Count() > 0;
-        }
+        
     }
 }
