@@ -291,16 +291,19 @@
   </data>
   <data name="ByCategories" xml:space="preserve">
     <value>По категориям</value>
+  </data>
   <data name="PipeStatusComboActive" xml:space="preserve">
     <value>Активные</value>
   </data>
   <data name="ByProducing" xml:space="preserve">
     <value>В производстве</value>
+  </data>
   <data name="PipeStatusComboAll" xml:space="preserve">
     <value>Все</value>
   </data>
   <data name="ByShipped" xml:space="preserve">
     <value>По отгруженным</value>
+  </data> 
   <data name="PipeStatusComboUnactive" xml:space="preserve">
     <value>Деактивированные</value>
   </data>
