@@ -25,16 +25,32 @@ using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.PipeMill.Purchase;
 using Data.DAL.ADO;
-using Data.DAL.Security;
-using PrizmMain.Security;
 
 namespace PrizmMain
 {
     public class PrizmModule : NinjectModule
     {
-        
+        private class TemporaryContext : PrizmMain.Security.ISecurityContext
+        {
+            // TODO: this is stub instead of real context.
+            // Remove after binding to real context.
+            public bool HasAccess(Security.Privileges privilege)
+            {
+                //throw new System.NotImplementedException();
+                return true;
+            }
+
+            public Domain.Entity.PersonName GetLoggedPerson()
+            {               
+                return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
+            }
+        }
         public override void Load()
         {
+            //TODO: Review if it can be changed
+            TemporaryContext temporaryContext = new TemporaryContext();
+            HibernateUtil.CurrentUser = temporaryContext.GetLoggedPerson();
+            
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession(true));
 
@@ -57,12 +73,9 @@ namespace PrizmMain
             Bind<IProjectRepository>().To<ProjectRepository>();
             Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<IMillReportsRepository>().To<MillReportsRepository>();
-            Bind<IUserRepository>().To<UserRepository>();
-            Bind<IRoleRepository>().To<RoleRepository>();
-            Bind<IPermissionRepository>().To<PermissionRepository>();
 
             // TODO: remove TemporaryContext after binding to real context.
-            Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
+            Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
 
             #endregion
 
