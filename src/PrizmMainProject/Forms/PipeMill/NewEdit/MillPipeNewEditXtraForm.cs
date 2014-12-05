@@ -22,6 +22,7 @@ using System.Drawing;
 
 using PrizmMain.Common;
 using DevExpress.XtraGrid.Columns;
+using System.Text.RegularExpressions;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -65,7 +66,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
-            CheckRegex();
+            ApplyMask();
+            pipeNumber.Validating += pipeNumber_Validating;
             IsModified = false;
         }
 
@@ -598,7 +600,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        private void CheckRegex()
+        private void ApplyMask()
         {
             if (viewModel.Project.MillPipeNumberMaskRegexp != null &&
                 viewModel.Project.MillPipeNumberMaskRegexp != String.Empty)
@@ -686,5 +688,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     break;
             }
         }
+
+        private void pipeNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            {
+                pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+                e.Cancel = true;
+            }
+        }
+
     }
 }
