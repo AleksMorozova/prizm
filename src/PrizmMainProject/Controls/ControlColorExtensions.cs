@@ -10,18 +10,12 @@ namespace PrizmMain.Common
 {
     static class ControlColorExtensions
     {
-        private static Color requiredFieldColor = Color.LightYellow;
-        private static Color defaultFieldColor = Color.White;
+        private static readonly Color requiredFieldColor = Color.LightYellow;
+        private static readonly Color defaultFieldColor = Color.White;
 
         private static void SwitchRequired(this TextEdit edit)
         {
             edit.BackColor = String.IsNullOrEmpty(edit.Text) ? requiredFieldColor : defaultFieldColor;
-        }
-
-
-        public static void SetRequiredCombo(this ComboBoxEdit cEdit)
-        {
-            cEdit.SelectedIndexChanged += new System.EventHandler(ControlColorExtensions.OnSelectedIndexChanged);
         }
 
         private static void OnSelectedIndexChanged(object sender, EventArgs e)
@@ -32,11 +26,6 @@ namespace PrizmMain.Common
             }
         }
 
-        public static void SetRequiredText(this TextEdit edit)
-        {
-            edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnTextChanged);
-        }
-
         private static void OnTextChanged(object sender, EventArgs e)
         {
             if (sender is TextEdit)
@@ -44,5 +33,25 @@ namespace PrizmMain.Common
                 ((TextEdit)sender).SwitchRequired();
             }
         }
+
+        /// <summary>
+        /// set combo control color as 'required' for the form completion
+        /// </summary>
+        /// <param name="cEdit"></param>
+        public static void SetRequiredCombo(this ComboBoxEdit cEdit)
+        {
+            cEdit.SelectedIndexChanged += new System.EventHandler(ControlColorExtensions.OnSelectedIndexChanged);
+        }
+
+        /// <summary>
+        /// set text edit control color as 'required' for the form completion
+        /// </summary>
+        /// <param name="edit"></param>
+        public static void SetRequiredText(this TextEdit edit)
+        {
+            edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnTextChanged);
+        }
+
+
     }
 }

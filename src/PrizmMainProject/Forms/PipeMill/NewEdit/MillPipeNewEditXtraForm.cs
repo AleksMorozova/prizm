@@ -66,7 +66,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             ControlsDeactivation(this);
-            ApplyMask();
+
+            pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
             pipeNumber.Validating += pipeNumber_Validating;
             IsModified = false;
         }
@@ -601,16 +602,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        private void ApplyMask()
-        {
-            if (viewModel.Project.MillPipeNumberMaskRegexp != null &&
-                viewModel.Project.MillPipeNumberMaskRegexp != String.Empty)
-            {
-                pipeNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                pipeNumber.Properties.Mask.EditMask = viewModel.Project.MillPipeNumberMaskRegexp;
-                pipeNumber.Properties.Mask.ShowPlaceHolders = false;
-            }
-        }
 
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
