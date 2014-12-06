@@ -162,7 +162,8 @@
   <ItemGroup>
     <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Common\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Common\LengthLimit.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
