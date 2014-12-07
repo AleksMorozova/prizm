@@ -58,7 +58,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeCreationDate.SetRequiredText();
             #endregion //--- Colouring of required controls ---
 
-            #region --- Read-only controls ---
+            #region --- Read-only controls and edit mode ---
             SetExceptionReadOnly(deactivate);
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);

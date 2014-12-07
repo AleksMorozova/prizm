@@ -11,11 +11,10 @@ namespace PrizmMain.Common
     static class ControlColorExtensions
     {
         private static readonly Color requiredFieldColor = Color.LightYellow;
-        private static readonly Color defaultFieldColor = Color.White;
 
         private static void SwitchRequired(this TextEdit edit)
         {
-            edit.BackColor = String.IsNullOrEmpty(edit.Text) ? requiredFieldColor : defaultFieldColor;
+            edit.BackColor = String.IsNullOrEmpty(edit.Text) ? requiredFieldColor : Color.Empty;
         }
 
         private static void OnSelectedIndexChanged(object sender, EventArgs e)
