@@ -50,11 +50,27 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
 
+            #region --- Colouring of required controls ---
             pipeNumber.SetRequiredText();
             pipeSize.SetRequiredCombo();
             heatNumber.SetRequiredCombo();
             purchaseOrder.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
+            #endregion //--- Colouring of required controls ---
+
+            #region --- Read-only controls ---
+            SetExceptionReadOnly(deactivate);
+            SetAlwaysReadOnly(plateManufacturer);
+            SetAlwaysReadOnly(purchaseOrderDate);
+            SetAlwaysReadOnly(railcarNumber);
+            SetAlwaysReadOnly(shippedDate);
+            SetAlwaysReadOnly(certificateNumber);
+            SetAlwaysReadOnly(destination);
+            SetAlwaysReadOnly(chemicalComposition);
+            SetAlwaysReadOnly(steelGrade);
+            SetAlwaysReadOnly(tensileTests);
+            IsEditMode = true;
+            #endregion //--- Read-only controls ---
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -65,45 +81,13 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            ControlsDeactivation(this);
+
+            IsEditMode = !viewModel.IsNotActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
             pipeNumber.Validating += pipeNumber_Validating;
+
             IsModified = false;
-        }
-
-        private void ControlsDeactivation(Control control)
-        {
-            if (viewModel.IsNotActive || viewModel.Pipe.Status == PipeMillStatus.Shipped)
-            {
-                foreach (Control c in control.Controls)
-                {
-                    if (c is TextEdit)
-                    {
-                        ((TextEdit)c).Properties.ReadOnly = true;
-                    }
-
-                    if (c is SimpleButton && c.Name != "attachmentsButton")
-                    {
-                        ((SimpleButton)c).Enabled = false;
-                    }
-
-                    if (c is DevExpress.XtraGrid.GridControl)
-                    {
-                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
-                        {
-                            ((GridView)v).OptionsBehavior.Editable = false;
-                        }
-                    }
-
-                    if (c is DevExpress.XtraEditors.CheckEdit)
-                    {
-                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = false;
-                    }
-
-                    ControlsDeactivation(c);
-                }
-            }
         }
 
         private void BindToViewModel()
@@ -176,7 +160,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
-            destanation.DataBindings
+            destination.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             plateNumber.DataBindings
@@ -598,7 +582,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             if (viewModel.IsNotActive)
             {
                 viewModel.PipeDeactivationCommand.Execute();
-                ControlsDeactivation(this);
+                IsEditMode = false;
             }
         }
 

@@ -57,6 +57,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                         repo.Commit();
                         repo.RepoPipe.Evict(viewModel.Pipe);
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.CanDeactivatePipe = viewModel.PipeDeactivationCommand.CanExecute();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
                             Resources.DLG_PIPE_SAVED_HEADER);
@@ -87,7 +88,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 viewModel.PipeMillSizeType != null &&
                 viewModel.PipePurchaseOrder != null &&
                 !string.IsNullOrEmpty(viewModel.Number) &&
-                viewModel.ProductionDate != DateTime.MinValue;
+                viewModel.ProductionDate != DateTime.MinValue &&
+                viewModel.ModifiableView.IsEditMode;
 
             return condition;
         }

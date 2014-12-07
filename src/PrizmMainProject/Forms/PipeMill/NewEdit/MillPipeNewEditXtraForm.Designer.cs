@@ -46,7 +46,7 @@
             this.plateNumber = new DevExpress.XtraEditors.TextEdit();
             this.shippedDate = new DevExpress.XtraEditors.TextEdit();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
-            this.destanation = new DevExpress.XtraEditors.TextEdit();
+            this.destination = new DevExpress.XtraEditors.TextEdit();
             this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
             this.coatingHistory = new DevExpress.XtraGrid.GridControl();
             this.coatDataSource = new System.Windows.Forms.BindingSource();
@@ -167,7 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destanation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).BeginInit();
@@ -369,7 +369,7 @@
             this.pipeGeneralParametersLayout.Controls.Add(this.plateNumber);
             this.pipeGeneralParametersLayout.Controls.Add(this.shippedDate);
             this.pipeGeneralParametersLayout.Controls.Add(this.certificateNumber);
-            this.pipeGeneralParametersLayout.Controls.Add(this.destanation);
+            this.pipeGeneralParametersLayout.Controls.Add(this.destination);
             this.pipeGeneralParametersLayout.Controls.Add(this.railcarNumber);
             this.pipeGeneralParametersLayout.Controls.Add(this.coatingHistory);
             this.pipeGeneralParametersLayout.Controls.Add(this.weldingHistory);
@@ -423,14 +423,14 @@
             this.certificateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.certificateNumber.TabIndex = 55;
             // 
-            // destanation
+            // destination
             // 
-            this.destanation.Location = new System.Drawing.Point(29, 335);
-            this.destanation.Name = "destanation";
-            this.destanation.Properties.ReadOnly = true;
-            this.destanation.Size = new System.Drawing.Size(350, 20);
-            this.destanation.StyleController = this.pipeGeneralParametersLayout;
-            this.destanation.TabIndex = 54;
+            this.destination.Location = new System.Drawing.Point(29, 335);
+            this.destination.Name = "destination";
+            this.destination.Properties.ReadOnly = true;
+            this.destination.Size = new System.Drawing.Size(350, 20);
+            this.destination.StyleController = this.pipeGeneralParametersLayout;
+            this.destination.TabIndex = 54;
             // 
             // railcarNumber
             // 
@@ -682,7 +682,7 @@
             // 
             // destinationLayout
             // 
-            this.destinationLayout.Control = this.destanation;
+            this.destinationLayout.Control = this.destination;
             this.destinationLayout.CustomizationFormText = "Получатель";
             this.destinationLayout.Location = new System.Drawing.Point(0, 98);
             this.destinationLayout.Name = "destinationLayout";
@@ -1670,7 +1670,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destanation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).EndInit();
@@ -1811,7 +1811,7 @@
         private DevExpress.XtraTab.XtraTabPage inspectionPage;
         private DevExpress.XtraEditors.TextEdit shippedDate;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
-        private DevExpress.XtraEditors.TextEdit destanation;
+        private DevExpress.XtraEditors.TextEdit destination;
         private DevExpress.XtraEditors.TextEdit railcarNumber;
         private DevExpress.XtraLayout.LayoutControlGroup shipmentParametersLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
