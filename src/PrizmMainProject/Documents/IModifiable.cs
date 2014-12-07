@@ -9,5 +9,7 @@ namespace PrizmMain.Documents
     {
         bool IsModified { get; set; }
         event Action<bool> Modified;
+
+        bool IsEditMode { get; set; }
     }
 }

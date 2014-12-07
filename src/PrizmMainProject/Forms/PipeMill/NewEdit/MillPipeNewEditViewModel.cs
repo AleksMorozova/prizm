@@ -50,9 +50,23 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-        
-                
-        public bool CanDeactivatePipe { get; set; }
+
+        private bool canDeactivatePipe = false;
+        public bool CanDeactivatePipe
+        {
+            get
+            {
+                return canDeactivatePipe;
+            }
+            set
+            {
+                if (value != canDeactivatePipe)
+                {
+                    canDeactivatePipe = value;
+                    RaisePropertyChanged("CanDeactivatePipe");
+                }
+            }
+        }
 
         public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
