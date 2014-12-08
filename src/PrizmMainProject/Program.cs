@@ -8,6 +8,10 @@ using Data.DAL.Hibernate;
 
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Properties;
+using PrizmMain.Forms.Common;
+using PrizmMain.Security;
+using Data.DAL.Security;
+using Domain.Entity.Security;
 
 namespace PrizmMain
 {
@@ -32,9 +36,15 @@ namespace PrizmMain
                 // Ninject
                 Kernel = new StandardKernel(new PrizmModule());
 
-
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+
+                while (!Login())
+                {
+                   MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                   
+                
                 Application.Run(new PrizmApplicationXtraForm());
             }
             catch (Exception ex)
@@ -49,6 +59,41 @@ namespace PrizmMain
                     MessageBox.Show(error);
                 }
             }
+        }
+
+        static bool Login()
+        {
+           LoginForm dlg = new LoginForm();
+           if (dlg.ShowDialog() == DialogResult.OK)
+           {
+              string login = dlg.Login;
+              string password = dlg.Password;
+
+              User user = new User() { IsActive = false, Login = "system" };
+
+              IUserRepository userRepo = Kernel.Get<IUserRepository>();
+              user = userRepo.FindByLogin(login);
+
+              if (!user.IsActive)
+                 return false;
+
+              string hash = PasswordEncryptor.EncryptPassword(password);
+
+              if (user.PasswordHash != hash)
+                 return false;
+              
+              ISecurityContext ctx = Kernel.Get<ISecurityContext>();
+              ctx.LoggedUser = user;
+
+              HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
+              return true;
+           }
+           else
+           {
+              System.Environment.Exit(0);
+           }
+
+           return false;
         }
     }
 }
