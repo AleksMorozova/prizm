@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
@@ -17,8 +18,14 @@ namespace PrizmMain.Forms.PipeMill.Heat
         public HeatNumberXtraForm()
         {
             InitializeComponent();
+            SetControlsTextLength();
         }
 
         public string Number { get { return number.Text; } }
+
+        private void SetControlsTextLength()
+        {
+            number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
+        }
     }
 }

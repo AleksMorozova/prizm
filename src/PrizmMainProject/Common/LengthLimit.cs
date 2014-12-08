@@ -16,6 +16,8 @@ namespace PrizmMain.Common
         public const int MaxInspectorMiddleName = 30;
         public const int MaxInspectorCertificate = 30;
 
+        public const int MaxCategoryName = 20;
+
         public const int MaxPipeMill = 250;
         public const int MaxPipeMillStatus = 20;
         public const int MaxPipeNumber = 20;

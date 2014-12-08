@@ -294,6 +294,14 @@ namespace PrizmMain.Forms.Settings
             inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
             inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
             inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeMillSizeType;
+            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
+            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
+            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+            controlTypeItems.MaxLength = LengthLimit.MaxPipeTestControlType;
+            resultTypeItems.MaxLength = LengthLimit.MaxPipetestResultType;
+            categoryRepositoryTextEdit.MaxLength = LengthLimit.MaxCategoryName;
+
         }
 
         private void gridControlInspectors_Click(object sender, EventArgs e)
