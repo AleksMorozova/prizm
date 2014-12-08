@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
 using PrizmMain.Commands;
@@ -62,8 +63,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            return true;
+            return !string.IsNullOrWhiteSpace(viewModel.Number);
         }
         public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
     }
 }

@@ -64,7 +64,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            return (!viewModel.Railcar.IsShipped);
+            return (!viewModel.Railcar.IsShipped && !string.IsNullOrWhiteSpace(viewModel.Number));
         }
         public virtual bool IsExecutable { get; set; }
 

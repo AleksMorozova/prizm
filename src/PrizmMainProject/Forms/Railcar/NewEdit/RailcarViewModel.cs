@@ -70,6 +70,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.Number = value;
                     RaisePropertyChanged("Number");
+                    ShipCommand.IsExecutable ^= true;
+                    UnshipCommand.IsExecutable ^= true;
+                    SaveCommand.IsExecutable ^= true;
                 }
             }
         }
