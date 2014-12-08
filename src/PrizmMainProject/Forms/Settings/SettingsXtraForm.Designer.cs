@@ -67,6 +67,7 @@
             this.categoriesGrid = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.categoryNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.categoryRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.isActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryIsActiveCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.pipeNumberMaskRulesLabel = new DevExpress.XtraEditors.LabelControl();
@@ -210,6 +211,7 @@
             this.generalProjectLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryIsActiveCheckEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitle.Properties)).BeginInit();
@@ -675,9 +677,10 @@
             this.categoriesGrid.MainView = this.categoryGridView;
             this.categoriesGrid.Name = "categoriesGrid";
             this.categoriesGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryIsActiveCheckEdit});
+            this.repositoryIsActiveCheckEdit,
+            this.categoryRepositoryTextEdit});
             this.categoriesGrid.Size = new System.Drawing.Size(296, 96);
-            this.categoriesGrid.TabIndex = 17;
+            this.categoriesGrid.TabIndex = 7;
             this.categoriesGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.categoryGridView});
             // 
@@ -697,10 +700,16 @@
             // categoryNameColumn
             // 
             this.categoryNameColumn.Caption = "Название";
+            this.categoryNameColumn.ColumnEdit = this.categoryRepositoryTextEdit;
             this.categoryNameColumn.FieldName = "Name";
             this.categoryNameColumn.Name = "categoryNameColumn";
             this.categoryNameColumn.Visible = true;
             this.categoryNameColumn.VisibleIndex = 0;
+            // 
+            // categoryRepositoryTextEdit
+            // 
+            this.categoryRepositoryTextEdit.AutoHeight = false;
+            this.categoryRepositoryTextEdit.Name = "categoryRepositoryTextEdit";
             // 
             // isActiveColumn
             // 
@@ -735,7 +744,7 @@
             this.pipeNumberMask.Name = "pipeNumberMask";
             this.pipeNumberMask.Size = new System.Drawing.Size(251, 20);
             this.pipeNumberMask.StyleController = this.generalProjectLayout;
-            this.pipeNumberMask.TabIndex = 15;
+            this.pipeNumberMask.TabIndex = 6;
             // 
             // projectTitle
             // 
@@ -745,7 +754,7 @@
             this.projectTitle.Properties.ReadOnly = true;
             this.projectTitle.Size = new System.Drawing.Size(251, 20);
             this.projectTitle.StyleController = this.generalProjectLayout;
-            this.projectTitle.TabIndex = 14;
+            this.projectTitle.TabIndex = 1;
             // 
             // millName
             // 
@@ -753,7 +762,7 @@
             this.millName.Name = "millName";
             this.millName.Size = new System.Drawing.Size(251, 20);
             this.millName.StyleController = this.generalProjectLayout;
-            this.millName.TabIndex = 13;
+            this.millName.TabIndex = 5;
             // 
             // externalDocumentSize
             // 
@@ -767,7 +776,7 @@
             this.externalDocumentSize.Properties.Mask.ShowPlaceHolders = false;
             this.externalDocumentSize.Size = new System.Drawing.Size(251, 20);
             this.externalDocumentSize.StyleController = this.generalProjectLayout;
-            this.externalDocumentSize.TabIndex = 3;
+            this.externalDocumentSize.TabIndex = 9;
             // 
             // client
             // 
@@ -775,7 +784,7 @@
             this.client.Name = "client";
             this.client.Size = new System.Drawing.Size(251, 20);
             this.client.StyleController = this.generalProjectLayout;
-            this.client.TabIndex = 12;
+            this.client.TabIndex = 2;
             // 
             // plateManufacturersList
             // 
@@ -789,7 +798,7 @@
             this.plateManufacturersList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.manufacturerRepositoryTextEdit});
             this.plateManufacturersList.Size = new System.Drawing.Size(838, 44);
-            this.plateManufacturersList.TabIndex = 10;
+            this.plateManufacturersList.TabIndex = 3;
             this.plateManufacturersList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.plateManufacturersListView});
             // 
@@ -1983,6 +1992,7 @@
             this.generalProjectLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryIsActiveCheckEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitle.Properties)).EndInit();
@@ -2232,5 +2242,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemsСategory;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderManufacturer;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderRules;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit categoryRepositoryTextEdit;
     }
 }
