@@ -26,6 +26,7 @@ namespace UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var viewModel = new RailcarViewModel(repos.Object, "", notify.Object);
+            viewModel.ModifiableView = new Mock<IModifiable>().Object;
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.ModifiableView = view.Object;
             viewModel.Railcar.Pipes.Add(new Pipe());
