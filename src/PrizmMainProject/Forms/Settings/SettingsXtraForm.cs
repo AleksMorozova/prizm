@@ -201,7 +201,7 @@ namespace PrizmMain.Forms.Settings
         void ValidateCertificate(GridView view, GridColumn certNameColumn, GridColumn expDateColumn, ValidateRowEventArgs e)
         {
             string certName = (string)view.GetRowCellValue(e.RowHandle, certNameColumn);
-            DateTime certExpDate = (DateTime)view.GetRowCellValue(e.RowHandle, expDateColumn);
+            DateTime? certExpDate = (DateTime?)view.GetRowCellValue(e.RowHandle, expDateColumn);
 
             view.ClearColumnErrors();
 
@@ -272,7 +272,7 @@ namespace PrizmMain.Forms.Settings
         {
             GridView view = sender as GridView;
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
-            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.Certificate.IsNew());
+            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
         }
 
         private void SetControlsTextLength()
