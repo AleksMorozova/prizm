@@ -27,6 +27,8 @@ namespace PrizmMain.Forms.Railcar.Search
             InitializeComponent();
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
+            this.certificateNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
         }
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
