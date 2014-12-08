@@ -1335,6 +1335,7 @@
             this.attachmentsButton.StyleController = this.generalPipeLayout;
             this.attachmentsButton.TabIndex = 25;
             this.attachmentsButton.Text = "В&ложения";
+            this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
             // purchaseOrder
             // 
