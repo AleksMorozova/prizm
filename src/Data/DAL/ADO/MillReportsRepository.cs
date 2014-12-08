@@ -104,6 +104,7 @@ namespace Data.DAL.ADO
                     using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
                     {
                         connection.Open();
+                        connection.ConnectionString = SQLQueryString.GetAllPipesFromInspection;
                         adapter.TableMappings.Add("Table", "Pipe");
                         command.Connection = connection;
 
