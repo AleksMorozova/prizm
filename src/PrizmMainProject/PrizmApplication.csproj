@@ -206,6 +206,7 @@
     <Compile Include="Forms\Common\SaveDialog.Designer.cs">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
@@ -517,6 +518,7 @@
     <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

@@ -34,7 +34,6 @@ namespace PrizmMain.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
-
         }
 
         private void BindToViewModel()

@@ -30,6 +30,7 @@ namespace PrizmMain.Forms.PipeMill
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("id", id));
+            number.SetAsIdentifier();
         }
 
         private void PurchaseOrderXtraForm_Load(object sender, EventArgs e)
