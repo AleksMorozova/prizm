@@ -60,6 +60,7 @@
             this.PKNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.distanceFromPKLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.PKEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.loweringEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.jointParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.loweringDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -67,7 +68,6 @@
             this.secondJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
             this.deactivated = new DevExpress.XtraEditors.CheckEdit();
-            this.loweringEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -95,13 +95,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.PKNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPKLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -461,6 +461,16 @@
             this.PKEmptySpace.Text = "PKEmptySpace";
             this.PKEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // loweringEmptySpace
+            // 
+            this.loweringEmptySpace.AllowHotTrack = false;
+            this.loweringEmptySpace.CustomizationFormText = "loweringEmptySpace";
+            this.loweringEmptySpace.Location = new System.Drawing.Point(319, 57);
+            this.loweringEmptySpace.Name = "loweringEmptySpace";
+            this.loweringEmptySpace.Size = new System.Drawing.Size(149, 47);
+            this.loweringEmptySpace.Text = "loweringEmptySpace";
+            this.loweringEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // jointParametersLayoutGroup
             // 
             this.jointParametersLayoutGroup.CustomizationFormText = "Параметры стыка";
@@ -541,6 +551,7 @@
             this.extraFiles.Size = new System.Drawing.Size(100, 23);
             this.extraFiles.TabIndex = 16;
             this.extraFiles.Text = "В&ложения";
+            this.extraFiles.Click += new System.EventHandler(this.extraFiles_Click);
             // 
             // deactivated
             // 
@@ -550,16 +561,6 @@
             this.deactivated.Properties.Caption = "Стык деактивирован";
             this.deactivated.Size = new System.Drawing.Size(152, 19);
             this.deactivated.TabIndex = 17;
-            // 
-            // loweringEmptySpace
-            // 
-            this.loweringEmptySpace.AllowHotTrack = false;
-            this.loweringEmptySpace.CustomizationFormText = "loweringEmptySpace";
-            this.loweringEmptySpace.Location = new System.Drawing.Point(319, 57);
-            this.loweringEmptySpace.Name = "loweringEmptySpace";
-            this.loweringEmptySpace.Size = new System.Drawing.Size(149, 47);
-            this.loweringEmptySpace.Text = "loweringEmptySpace";
-            this.loweringEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // JointNewEditXtraForm
             // 
@@ -603,13 +604,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.PKNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPKLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
