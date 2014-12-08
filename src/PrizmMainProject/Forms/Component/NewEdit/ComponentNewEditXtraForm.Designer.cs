@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
             this.newEditPipeLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.inspectorNameComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.addInspectorButton = new DevExpress.XtraEditors.SimpleButton();
             this.inspectionHistoryGrid = new DevExpress.XtraGrid.GridControl();
             this.inspectionHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,7 +39,6 @@
             this.resultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.type = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.rejectedReason = new DevExpress.XtraEditors.TextEdit();
             this.componentParameters = new DevExpress.XtraGrid.GridControl();
             this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +46,8 @@
             this.resultRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.inspectionDate = new DevExpress.XtraEditors.DateEdit();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
+            this.inspectorNameComboBox = new DevExpress.XtraEditors.PopupContainerEdit();
+            this.rejectedReason = new DevExpress.XtraEditors.MemoEdit();
             this.componentNewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.InspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionHistoryGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -66,17 +66,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorNameComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorNameComboBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridLayout)).BeginInit();
@@ -104,32 +104,22 @@
             // 
             // newEditPipeLayout
             // 
-            this.newEditPipeLayout.Controls.Add(this.inspectorNameComboBox);
             this.newEditPipeLayout.Controls.Add(this.addInspectorButton);
             this.newEditPipeLayout.Controls.Add(this.inspectionHistoryGrid);
             this.newEditPipeLayout.Controls.Add(this.type);
-            this.newEditPipeLayout.Controls.Add(this.rejectedReason);
             this.newEditPipeLayout.Controls.Add(this.componentParameters);
             this.newEditPipeLayout.Controls.Add(this.resultRadioGroup);
             this.newEditPipeLayout.Controls.Add(this.inspectionDate);
             this.newEditPipeLayout.Controls.Add(this.certificateNumber);
             this.newEditPipeLayout.Controls.Add(this.componentNumber);
+            this.newEditPipeLayout.Controls.Add(this.inspectorNameComboBox);
+            this.newEditPipeLayout.Controls.Add(this.rejectedReason);
             this.newEditPipeLayout.Location = new System.Drawing.Point(12, 12);
             this.newEditPipeLayout.Name = "newEditPipeLayout";
             this.newEditPipeLayout.Root = this.componentNewLayoutGroup;
             this.newEditPipeLayout.Size = new System.Drawing.Size(985, 380);
             this.newEditPipeLayout.TabIndex = 8;
             this.newEditPipeLayout.Text = "layoutControl1";
-            // 
-            // inspectorNameComboBox
-            // 
-            this.inspectorNameComboBox.Location = new System.Drawing.Point(591, 71);
-            this.inspectorNameComboBox.Name = "inspectorNameComboBox";
-            this.inspectorNameComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspectorNameComboBox.Size = new System.Drawing.Size(350, 20);
-            this.inspectorNameComboBox.StyleController = this.newEditPipeLayout;
-            this.inspectorNameComboBox.TabIndex = 11;
             // 
             // addInspectorButton
             // 
@@ -203,14 +193,6 @@
             this.type.StyleController = this.newEditPipeLayout;
             this.type.TabIndex = 6;
             // 
-            // rejectedReason
-            // 
-            this.rejectedReason.Location = new System.Drawing.Point(591, 125);
-            this.rejectedReason.Name = "rejectedReason";
-            this.rejectedReason.Size = new System.Drawing.Size(350, 20);
-            this.rejectedReason.StyleController = this.newEditPipeLayout;
-            this.rejectedReason.TabIndex = 7;
-            // 
             // componentParameters
             // 
             this.componentParameters.Cursor = System.Windows.Forms.Cursors.Default;
@@ -281,6 +263,25 @@
             this.certificateNumber.StyleController = this.newEditPipeLayout;
             this.certificateNumber.TabIndex = 2;
             // 
+            // inspectorNameComboBox
+            // 
+            this.inspectorNameComboBox.Location = new System.Drawing.Point(591, 71);
+            this.inspectorNameComboBox.Name = "inspectorNameComboBox";
+            this.inspectorNameComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectorNameComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.inspectorNameComboBox.Size = new System.Drawing.Size(350, 20);
+            this.inspectorNameComboBox.StyleController = this.newEditPipeLayout;
+            this.inspectorNameComboBox.TabIndex = 11;
+            // 
+            // rejectedReason
+            // 
+            this.rejectedReason.Location = new System.Drawing.Point(591, 125);
+            this.rejectedReason.Name = "rejectedReason";
+            this.rejectedReason.Size = new System.Drawing.Size(350, 49);
+            this.rejectedReason.StyleController = this.newEditPipeLayout;
+            this.rejectedReason.TabIndex = 7;
+            // 
             // componentNewLayoutGroup
             // 
             this.componentNewLayoutGroup.CustomizationFormText = "componentNewLayoutGroup";
@@ -343,7 +344,7 @@
             this.reasonLayout.Control = this.rejectedReason;
             this.reasonLayout.CustomizationFormText = "Reason";
             this.reasonLayout.Location = new System.Drawing.Point(164, 54);
-            this.reasonLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.reasonLayout.MinSize = new System.Drawing.Size(50, 25);
             this.reasonLayout.Name = "reasonLayout";
             this.reasonLayout.Size = new System.Drawing.Size(384, 83);
             this.reasonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
@@ -496,17 +497,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).EndInit();
             this.newEditPipeLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorNameComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorNameComboBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rejectedReason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridLayout)).EndInit();
@@ -536,7 +537,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn wallThicknessGridColumn;
         private DevExpress.XtraEditors.ComboBoxEdit type;
         private DevExpress.XtraEditors.DateEdit inspectionDate;
-        private DevExpress.XtraEditors.TextEdit rejectedReason;
         private DevExpress.XtraEditors.RadioGroup resultRadioGroup;
         private DevExpress.XtraLayout.LayoutControl newEditPipeLayout;
         private DevExpress.XtraLayout.LayoutControlGroup componentNewLayoutGroup;
@@ -550,7 +550,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem underTypeEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem resultLayout;
         private DevExpress.XtraLayout.LayoutControlItem reasonLayout;
-        private DevExpress.XtraEditors.ComboBoxEdit inspectorNameComboBox;
         private DevExpress.XtraEditors.SimpleButton addInspectorButton;
         private DevExpress.XtraGrid.GridControl inspectionHistoryGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView inspectionHistoryGridView;
@@ -562,5 +561,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
         private DevExpress.XtraGrid.Columns.GridColumn resultColumn;
         private DevExpress.XtraGrid.Columns.GridColumn reasonColumn;
+        private DevExpress.XtraEditors.PopupContainerEdit inspectorNameComboBox;
+        private DevExpress.XtraEditors.MemoEdit rejectedReason;
     }
 }
