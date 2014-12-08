@@ -195,13 +195,18 @@ namespace PrizmMain.Forms.Settings
 
         private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
+
+            if (inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
+            {
+                ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);    
+            }
+            
         } 
 
         void ValidateCertificate(GridView view, GridColumn certNameColumn, GridColumn expDateColumn, ValidateRowEventArgs e)
         {
             string certName = (string)view.GetRowCellValue(e.RowHandle, certNameColumn);
-            DateTime certExpDate = (DateTime)view.GetRowCellValue(e.RowHandle, expDateColumn);
+            DateTime? certExpDate = (DateTime?)view.GetRowCellValue(e.RowHandle, expDateColumn);
 
             view.ClearColumnErrors();
 
@@ -220,6 +225,7 @@ namespace PrizmMain.Forms.Settings
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
         {
+
            string firstName = (string)view.GetRowCellValue(e.RowHandle, firstNameColumn);
            string lastName = (string)view.GetRowCellValue(e.RowHandle, lastNameColumn);
 
@@ -272,7 +278,8 @@ namespace PrizmMain.Forms.Settings
         {
             GridView view = sender as GridView;
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
-            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.Certificate.IsNew());
+            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
+            inspectorCertificateGridView.RefreshData();
         }
 
         private void SetControlsTextLength()
