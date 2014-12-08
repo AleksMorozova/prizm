@@ -160,9 +160,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Common\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Common\LengthLimit.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
@@ -304,12 +304,6 @@
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.Designer.cs">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,9 +426,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.resx">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
