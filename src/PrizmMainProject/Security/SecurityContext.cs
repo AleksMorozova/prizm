@@ -19,7 +19,7 @@ namespace PrizmMain.Security
 
       public Domain.Entity.PersonName GetLoggedPerson()
       {
-         return LoggedUser.Name;
+         return loggedUser.Name;
       }
 
       bool RoleHasPermission(Role r, Privileges privilege)
@@ -28,10 +28,11 @@ namespace PrizmMain.Security
       }
 
 
+      private User loggedUser;
       public User LoggedUser
       {
-         get;
-         set;
+          get { return loggedUser; }
+          set { loggedUser = value; }
       }
    }
 }

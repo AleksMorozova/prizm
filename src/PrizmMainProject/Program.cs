@@ -69,10 +69,12 @@ namespace PrizmMain
               string login = dlg.Login;
               string password = dlg.Password;
 
-              IUserRepository userRepo = Kernel.Get<IUserRepository>();
-              User user = userRepo.FindByLogin(login);
+              User user = new User() { IsActive = false, Login = "system" };
 
-              if (user == null)
+              IUserRepository userRepo = Kernel.Get<IUserRepository>();
+              user = userRepo.FindByLogin(login);
+
+              if (!user.IsActive)
                  return false;
 
               string hash = PasswordEncryptor.EncryptPassword(password);

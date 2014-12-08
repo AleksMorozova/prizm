@@ -683,7 +683,7 @@
          this.categoriesGrid.MainView = this.categoryGridView;
          this.categoriesGrid.Name = "categoriesGrid";
          this.categoriesGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryIsActiveCheckEdit,
+            this.repositoryIsActiveCheckEdit});
          this.categoriesGrid.Size = new System.Drawing.Size(296, 120);
          this.categoriesGrid.TabIndex = 17;
             this.categoriesGrid.TabIndex = 7;
@@ -2056,8 +2056,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).EndInit();
          this.ResumeLayout(false);
-
         }
+
+        
 
         #endregion
 
