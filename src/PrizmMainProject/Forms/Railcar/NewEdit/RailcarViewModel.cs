@@ -127,6 +127,20 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
+        public bool IsShipped
+        {
+            get { return Railcar.IsShipped; }
+            set
+            {
+                if (value != Railcar.IsShipped)
+                {
+                    Railcar.IsShipped = value;
+                    RaisePropertyChanged("IsShipped");
+                    modifiableView.IsEditMode = !value;
+                }
+            }
+        }
+
         public IList<Pipe> Pipes
         {
             get { return Railcar.Pipes; }

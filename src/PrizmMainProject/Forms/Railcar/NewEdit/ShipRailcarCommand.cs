@@ -54,17 +54,18 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                     {
                         pipe.Status = PipeMillStatus.Shipped;
                     }
-                viewModel.Railcar.IsShipped = true;
+                    viewModel.IsShipped = true;
                     viewModel.SaveCommand.Execute();
                     notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
                     viewModel.ShipCommand.IsExecutable ^= true;
                     viewModel.UnshipCommand.IsExecutable ^= true;
+                    viewModel.SaveCommand.IsExecutable ^= true;
             }
         }
 
         public bool CanExecute()
         {
-            return (!viewModel.Railcar.IsShipped && !string.IsNullOrWhiteSpace(viewModel.Number));
+            return (!viewModel.Railcar.IsShipped && !string.IsNullOrWhiteSpace(viewModel.Number) && viewModel.Pipes.Count != 0);
         }
         public virtual bool IsExecutable { get; set; }
 

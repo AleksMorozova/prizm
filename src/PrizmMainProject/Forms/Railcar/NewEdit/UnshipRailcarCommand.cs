@@ -42,11 +42,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                         pipe.Status = PipeMillStatus.Stocked;
                     }
                     viewModel.Railcar.ShippingDate = DateTime.MinValue;
-                    viewModel.Railcar.IsShipped = false;
+                    viewModel.IsShipped = false;
                     notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                     viewModel.SaveCommand.Execute();
                     viewModel.ShipCommand.IsExecutable ^= true;
                     viewModel.UnshipCommand.IsExecutable ^= true;
+                    viewModel.SaveCommand.IsExecutable ^= true;
             }
         }
         public bool CanExecute()

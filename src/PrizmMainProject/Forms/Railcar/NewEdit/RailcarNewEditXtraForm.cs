@@ -33,6 +33,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             this.railcarNumber.SetRequiredText();
             SetControlsTextLength();
+
         }
 
         public RailcarNewEditXtraForm()
@@ -46,6 +47,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
+            IsEditMode = !viewModel.IsShipped;
         }
 
         private void BindToViewModel()
