@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.DAL.Security;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -17,6 +18,9 @@ namespace PrizmMain.Forms.Settings
       IInspectorRepository InspectorRepo { get; }
       IProjectRepository ProjectRepo { get; }
       IPlateManufacturerRepository PlateManufacturerRepo { get; }
+      IRoleRepository RoleRepo { get; }
+      IUserRepository UserRepo { get; }
+      IPermissionRepository PermissionRepo { get; }
 
       ICategoryRepository СategoryRepo { get; }
 
