@@ -61,7 +61,6 @@
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
@@ -77,6 +76,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
@@ -163,7 +163,7 @@
             this.barButtonItemSettingsInspectors,
             this.barButtonItemHeat});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 57;
+            this.barManager1.MaxItemId = 58;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -408,7 +408,6 @@
             this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
-            this.barButtonItemSettingsPipeline.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemSettingsUsers
@@ -541,6 +540,11 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            // 
+            // barButtonItemSettingsDictionaries
+            // 
+            this.barButtonItemSettingsDictionaries.Id = 57;
+            this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
             // 
             // barButtonItemNewProject
             // 

@@ -12,12 +12,12 @@ namespace Data.DAL.Mapping
     {
         public JointOperationMap() 
         {
-            Map(_ => _.Name, "name");
+            Map(_ => _.Name, "Name");
             Map(_ => _.IsRequired, "isRequired");
             Map(_ => _.IsTest, "isTest");
-            Map(_ => _.TestHasAcepted, "testHasAcepted");
+            Map(_ => _.TestHasAccepted, "testHasAccepted");
             Map(_ => _.TestHasToRepair, "testHasToRepair");
-            Map(_ => _.TestHasToWithdrow, "testHasToWithdrow");
+            Map(_ => _.TestHasToWithdraw, "testHasToWithdraw");
             Map(_ => _.TestResultRequired, "testResultRequired");
         }
     }
