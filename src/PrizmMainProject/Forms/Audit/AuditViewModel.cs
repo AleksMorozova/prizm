@@ -86,8 +86,10 @@ namespace PrizmMain.Forms.Audit
 
                     foreach (DataRow record in value.Rows)
                     {
-                        string resourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName"));
-                        record.SetField("tableName", resourceValue);
+                        string tableResourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName"));
+                        string fieldResourceValue = Resources.ResourceManager.GetString(record.Field<string>("fieldName"));
+                        record.SetField("tableName", tableResourceValue);
+                        record.SetField("fieldName", fieldResourceValue);
                     }
                     auditResults = value;
                     RaisePropertyChanged("AuditResults");

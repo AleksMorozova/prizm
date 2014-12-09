@@ -142,6 +142,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Булевый ожидаемый результат.
+        /// </summary>
+        internal static string BoolExpected {
+            get {
+                return ResourceManager.GetString("BoolExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to По категориям.
         /// </summary>
         internal static string ByCategories {
@@ -178,11 +187,29 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сертификат.
+        /// </summary>
+        internal static string Certificate {
+            get {
+                return ResourceManager.GetString("Certificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Химический состав.
         /// </summary>
         internal static string ChemicalComposition {
             get {
                 return ResourceManager.GetString("ChemicalComposition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Клиент.
+        /// </summary>
+        internal static string Client {
+            get {
+                return ResourceManager.GetString("Client", resourceCulture);
             }
         }
         
@@ -214,11 +241,56 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Код.
+        /// </summary>
+        internal static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип контроля.
+        /// </summary>
+        internal static string ControlType {
+            get {
+                return ResourceManager.GetString("ControlType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Срок действия истек.
         /// </summary>
         internal static string DATA_EXPIRED {
             get {
                 return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Направление.
+        /// </summary>
+        internal static string Destination {
+            get {
+                return ResourceManager.GetString("Destination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Диаметр.
+        /// </summary>
+        internal static string Diameter {
+            get {
+                return ResourceManager.GetString("Diameter", resourceCulture);
             }
         }
         
@@ -430,6 +502,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ограничение размера документа.
+        /// </summary>
+        internal static string DocumentSizeLimit {
+            get {
+                return ResourceManager.GetString("DocumentSizeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не пройден.
         /// </summary>
         internal static string Failed {
@@ -439,11 +520,29 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Разряд.
+        /// </summary>
+        internal static string Grade {
+            get {
+                return ResourceManager.GetString("Grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Плавка.
         /// </summary>
         internal static string Heat {
             get {
                 return ResourceManager.GetString("Heat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уникальный идентификатор.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
             }
         }
         
@@ -583,11 +682,101 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Активен.
+        /// </summary>
+        internal static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обязательный.
+        /// </summary>
+        internal static string IsRequired {
+            get {
+                return ResourceManager.GetString("IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отправлен.
+        /// </summary>
+        internal static string IsShipped {
+            get {
+                return ResourceManager.GetString("IsShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string Length {
+            get {
+                return ResourceManager.GetString("Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Максимальный ожидаемый результат.
+        /// </summary>
+        internal static string MaxExpected {
+            get {
+                return ResourceManager.GetString("MaxExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Завод.
         /// </summary>
         internal static string Mill {
             get {
                 return ResourceManager.GetString("Mill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название завода.
+        /// </summary>
+        internal static string MillName {
+            get {
+                return ResourceManager.GetString("MillName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Маска номера трубы.
+        /// </summary>
+        internal static string MillPipeNumberMask {
+            get {
+                return ResourceManager.GetString("MillPipeNumberMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Маска номера трубы (служебная).
+        /// </summary>
+        internal static string MillPipeNumberMaskRegexp {
+            get {
+                return ResourceManager.GetString("MillPipeNumberMaskRegexp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Минимальный ожидаемый результат.
+        /// </summary>
+        internal static string MinExpected {
+            get {
+                return ResourceManager.GetString("MinExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имя.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -606,6 +795,33 @@ namespace PrizmMain.Properties {
         internal static string NewOrderCombo {
             get {
                 return ResourceManager.GetString("NewOrderCombo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string Number {
+            get {
+                return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная операция.
+        /// </summary>
+        internal static string Operation {
+            get {
+                return ResourceManager.GetString("Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Порядок.
+        /// </summary>
+        internal static string Order {
+            get {
+                return ResourceManager.GetString("Order", resourceCulture);
             }
         }
         
@@ -729,6 +945,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Типоразмер трубы.
+        /// </summary>
+        internal static string pipeType {
+            get {
+                return ResourceManager.GetString("pipeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Лист.
         /// </summary>
         internal static string Plate {
@@ -761,6 +986,15 @@ namespace PrizmMain.Properties {
         internal static string Produced {
             get {
                 return ResourceManager.GetString("Produced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата производства.
+        /// </summary>
+        internal static string ProductionDate {
+            get {
+                return ResourceManager.GetString("ProductionDate", resourceCulture);
             }
         }
         
@@ -802,6 +1036,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Тип результата.
+        /// </summary>
+        internal static string ResultType {
+            get {
+                return ResourceManager.GetString("ResultType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Роли пользователя.
         /// </summary>
         internal static string Role {
@@ -829,6 +1072,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата отправки.
+        /// </summary>
+        internal static string ShippingDate {
+            get {
+                return ResourceManager.GetString("ShippingDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Клеймо.
+        /// </summary>
+        internal static string Stamp {
+            get {
+                return ResourceManager.GetString("Stamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        internal static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to На складе.
         /// </summary>
         internal static string Stocked {
@@ -838,11 +1108,47 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Строковый ожидаемый результат.
+        /// </summary>
+        internal static string StringExpected {
+            get {
+                return ResourceManager.GetString("StringExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
         /// </summary>
         internal static string TestResultIncorrectDate {
             get {
                 return ResourceManager.GetString("TestResultIncorrectDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Объект инспекции.
+        /// </summary>
+        internal static string TestSubject {
+            get {
+                return ResourceManager.GetString("TestSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина.
+        /// </summary>
+        internal static string Thickness {
+            get {
+                return ResourceManager.GetString("Thickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        internal static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
@@ -874,6 +1180,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Толщина стенки.
+        /// </summary>
+        internal static string WallThickness {
+            get {
+                return ResourceManager.GetString("WallThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string Weight {
+            get {
+                return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сварка.
         /// </summary>
         internal static string Weld {
@@ -888,6 +1212,24 @@ namespace PrizmMain.Properties {
         internal static string Welder {
             get {
                 return ResourceManager.GetString("Welder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип рабочего места.
+        /// </summary>
+        internal static string WorkstationType {
+            get {
+                return ResourceManager.GetString("WorkstationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Срок истечения.
+        /// </summary>
+        internal static string ЕxpirationDate {
+            get {
+                return ResourceManager.GetString("ЕxpirationDate", resourceCulture);
             }
         }
     }

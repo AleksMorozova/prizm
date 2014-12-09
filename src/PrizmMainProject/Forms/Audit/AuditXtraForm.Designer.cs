@@ -153,6 +153,7 @@
             this.userGridColumn.Name = "userGridColumn";
             this.userGridColumn.Visible = true;
             this.userGridColumn.VisibleIndex = 0;
+            this.userGridColumn.Width = 125;
             // 
             // dateGridColumn
             // 
@@ -163,6 +164,7 @@
             this.dateGridColumn.Name = "dateGridColumn";
             this.dateGridColumn.Visible = true;
             this.dateGridColumn.VisibleIndex = 1;
+            this.dateGridColumn.Width = 70;
             // 
             // entityGridColumn
             // 
@@ -171,6 +173,7 @@
             this.entityGridColumn.Name = "entityGridColumn";
             this.entityGridColumn.Visible = true;
             this.entityGridColumn.VisibleIndex = 2;
+            this.entityGridColumn.Width = 137;
             // 
             // oldValueGridColumn
             // 
@@ -178,7 +181,8 @@
             this.oldValueGridColumn.FieldName = "oldValue";
             this.oldValueGridColumn.Name = "oldValueGridColumn";
             this.oldValueGridColumn.Visible = true;
-            this.oldValueGridColumn.VisibleIndex = 3;
+            this.oldValueGridColumn.VisibleIndex = 4;
+            this.oldValueGridColumn.Width = 137;
             // 
             // newValueGridColumn
             // 
@@ -186,7 +190,8 @@
             this.newValueGridColumn.FieldName = "newValue";
             this.newValueGridColumn.Name = "newValueGridColumn";
             this.newValueGridColumn.Visible = true;
-            this.newValueGridColumn.VisibleIndex = 4;
+            this.newValueGridColumn.VisibleIndex = 5;
+            this.newValueGridColumn.Width = 148;
             // 
             // fieldGridColumn
             // 
@@ -194,7 +199,8 @@
             this.fieldGridColumn.FieldName = "fieldName";
             this.fieldGridColumn.Name = "fieldGridColumn";
             this.fieldGridColumn.Visible = true;
-            this.fieldGridColumn.VisibleIndex = 5;
+            this.fieldGridColumn.VisibleIndex = 3;
+            this.fieldGridColumn.Width = 137;
             // 
             // endDate
             // 
