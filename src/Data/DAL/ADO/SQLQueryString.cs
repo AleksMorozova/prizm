@@ -28,7 +28,6 @@ namespace Data.DAL.ADO
 	            WHERE pipeMillStatus = 'Shipped' 
 	            AND Pipe.isActive = 1
                 AND productionDate >=  @startDate  and productionDate <= @finalDate";
-       
         public const string GetAllProduced =
             @"SELECT Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
             FROM Pipe 
@@ -39,15 +38,5 @@ namespace Data.DAL.ADO
 	            WHERE pipeMillStatus = 'Produced' 
 	            AND Pipe.isActive = 1
                 AND productionDate >=  @startDate  and productionDate <= @finalDate";
-
-
-        public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, wallThickness as wallThickness, length as length, Heat.number as Heat_number
-          from  Pipe Pipe
-          left join Plate on (Plate.id = Pipe.plateId)
-          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
-          left  join Heat on (Heat.id = Plate.heatId)
-          left  join PipeTestResult on (PipeTestResult.pipeId = Pipe.id)
-          inner  join PipeTest on (PipeTestResult.pipeTestId =  PipeTest.id )
-          WHERE productionDate >=  @startDate and productionDate <= @finalDate";
     }
 }
