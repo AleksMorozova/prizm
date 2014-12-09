@@ -64,6 +64,7 @@
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
     <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Hibernate\PermissionRepository.cs" />
     <Compile Include="DAL\Hibernate\PhysicalParametersRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="DAL\Hibernate\ProjectRepository.cs" />
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
+    <Compile Include="DAL\Hibernate\RoleRepository.cs" />
+    <Compile Include="DAL\Hibernate\UserRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
+    <Compile Include="DAL\Mapping\PermissionMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
     <Compile Include="DAL\Mapping\PipelinePieceMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
@@ -99,6 +103,8 @@
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
+    <Compile Include="DAL\Mapping\RoleMap.cs" />
+    <Compile Include="DAL\Mapping\UserMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
     <Compile Include="DAL\Mill\IChemicalCompositionRepository.cs" />
@@ -115,6 +121,9 @@
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
     <Compile Include="DAL\Mill\ICategoryRepository.cs" />
     <Compile Include="DAL\RepositoryException.cs" />
+    <Compile Include="DAL\Security\IPermissionRepository.cs" />
+    <Compile Include="DAL\Security\IRoleRepository.cs" />
+    <Compile Include="DAL\Security\IUserRepository.cs" />
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,6 +12,7 @@ using Domain.Entity.Mill;
 using PrizmMain.Forms.PipeMill.Purchase;
 using Ninject;
 using Ninject.Parameters;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.PipeMill
 {
@@ -27,6 +28,7 @@ namespace PrizmMain.Forms.PipeMill
         public PurchaseOrderXtraForm(Guid id)
         {
             InitializeComponent();
+            SetControlsTextLength();
             viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("id", id));
         }
 
@@ -55,6 +57,11 @@ namespace PrizmMain.Forms.PipeMill
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SetControlsTextLength()
+        {
+            number.Properties.MaxLength = LengthLimit.MaxPurchaseOrderNumber;
         }
     }
 }

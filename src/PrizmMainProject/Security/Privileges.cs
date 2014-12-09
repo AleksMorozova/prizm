@@ -8,6 +8,7 @@ namespace PrizmMain.Security
 {
     public enum Privileges
     {
-
+       ReadSettings,
+       WriteSettings
     }
 }

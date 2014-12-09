@@ -205,9 +205,9 @@
             // searchComponentryButton
             // 
             this.searchComponentryButton.Image = ((System.Drawing.Image)(resources.GetObject("searchComponentryButton.Image")));
-            this.searchComponentryButton.Location = new System.Drawing.Point(582, 63);
+            this.searchComponentryButton.Location = new System.Drawing.Point(588, 63);
             this.searchComponentryButton.Name = "searchComponentryButton";
-            this.searchComponentryButton.Size = new System.Drawing.Size(89, 21);
+            this.searchComponentryButton.Size = new System.Drawing.Size(83, 21);
             this.searchComponentryButton.StyleController = this.searchComponentLayout;
             this.searchComponentryButton.TabIndex = 3;
             this.searchComponentryButton.Text = "&Поиск";
@@ -231,25 +231,25 @@
             // 
             this.componentNumber.Location = new System.Drawing.Point(30, 64);
             this.componentNumber.Name = "componentNumber";
-            this.componentNumber.Size = new System.Drawing.Size(186, 20);
+            this.componentNumber.Size = new System.Drawing.Size(179, 20);
             this.componentNumber.StyleController = this.searchComponentLayout;
             this.componentNumber.TabIndex = 0;
             // 
             // componentType
             // 
-            this.componentType.Location = new System.Drawing.Point(230, 64);
+            this.componentType.Location = new System.Drawing.Point(237, 64);
             this.componentType.Name = "componentType";
             this.componentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.componentType.Size = new System.Drawing.Size(136, 20);
+            this.componentType.Size = new System.Drawing.Size(123, 20);
             this.componentType.StyleController = this.searchComponentLayout;
             this.componentType.TabIndex = 1;
             // 
             // certificate
             // 
-            this.certificate.Location = new System.Drawing.Point(380, 64);
+            this.certificate.Location = new System.Drawing.Point(388, 64);
             this.certificate.Name = "certificate";
-            this.certificate.Size = new System.Drawing.Size(186, 20);
+            this.certificate.Size = new System.Drawing.Size(172, 20);
             this.certificate.StyleController = this.searchComponentLayout;
             this.certificate.TabIndex = 2;
             // 
@@ -315,7 +315,7 @@
             this.componentNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.componentNumberLayout.Name = "componentNumberLayout";
             this.componentNumberLayout.Size = new System.Drawing.Size(200, 45);
-            this.componentNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.componentNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
             this.componentNumberLayout.Text = "Номер комплектующего";
             this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentNumberLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -326,8 +326,8 @@
             this.componentTypeLayout.CustomizationFormText = "Тип";
             this.componentTypeLayout.Location = new System.Drawing.Point(200, 0);
             this.componentTypeLayout.Name = "componentTypeLayout";
-            this.componentTypeLayout.Size = new System.Drawing.Size(150, 45);
-            this.componentTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.componentTypeLayout.Size = new System.Drawing.Size(151, 45);
+            this.componentTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.componentTypeLayout.Text = "Тип";
             this.componentTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentTypeLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -336,10 +336,10 @@
             // 
             this.certificateLayout.Control = this.certificate;
             this.certificateLayout.CustomizationFormText = "Сертификат";
-            this.certificateLayout.Location = new System.Drawing.Point(350, 0);
+            this.certificateLayout.Location = new System.Drawing.Point(351, 0);
             this.certificateLayout.Name = "certificateLayout";
             this.certificateLayout.Size = new System.Drawing.Size(200, 45);
-            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.certificateLayout.Text = "Сертификат";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLayout.TextSize = new System.Drawing.Size(123, 13);
@@ -348,9 +348,9 @@
             // 
             this.underButtonEmptySpace.AllowHotTrack = false;
             this.underButtonEmptySpace.CustomizationFormText = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Location = new System.Drawing.Point(650, 0);
+            this.underButtonEmptySpace.Location = new System.Drawing.Point(651, 0);
             this.underButtonEmptySpace.Name = "underButtonEmptySpace";
-            this.underButtonEmptySpace.Size = new System.Drawing.Size(244, 45);
+            this.underButtonEmptySpace.Size = new System.Drawing.Size(243, 45);
             this.underButtonEmptySpace.Text = "underButtonEmptySpace";
             this.underButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -358,13 +358,13 @@
             // 
             this.searchButtonLayout.Control = this.searchComponentryButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(550, 0);
+            this.searchButtonLayout.Location = new System.Drawing.Point(551, 0);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(111, 40);
             this.searchButtonLayout.MinSize = new System.Drawing.Size(100, 40);
             this.searchButtonLayout.Name = "searchButtonLayout";
             this.searchButtonLayout.Size = new System.Drawing.Size(100, 45);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 15, 0);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 1, 15, 0);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextToControlDistance = 0;

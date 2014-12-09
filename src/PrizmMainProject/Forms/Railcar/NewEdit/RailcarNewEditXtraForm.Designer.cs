@@ -38,6 +38,7 @@
             this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.destination = new DevExpress.XtraEditors.TextEdit();
             this.newRailcarButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -66,6 +67,7 @@
             this.emptySpaceRailcarItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlNewRailcarButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
+            this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
@@ -95,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceRailcarItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).BeginInit();
             this.SuspendLayout();
@@ -165,15 +168,16 @@
             // 
             this.unshipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.unshipButton.Image = ((System.Drawing.Image)(resources.GetObject("unshipButton.Image")));
-            this.unshipButton.Location = new System.Drawing.Point(899, 479);
+            this.unshipButton.Location = new System.Drawing.Point(930, 479);
             this.unshipButton.Name = "unshipButton";
-            this.unshipButton.Size = new System.Drawing.Size(105, 22);
+            this.unshipButton.Size = new System.Drawing.Size(95, 22);
             this.unshipButton.StyleController = this.generalLayout;
             this.unshipButton.TabIndex = 15;
             this.unshipButton.Text = "От&клонить";
             // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.attachmentsButton);
             this.generalLayout.Controls.Add(this.destination);
             this.generalLayout.Controls.Add(this.newRailcarButton);
             this.generalLayout.Controls.Add(this.saveButton);
@@ -196,6 +200,17 @@
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";
             // 
+            // attachmentsButton
+            // 
+            this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
+            this.attachmentsButton.Location = new System.Drawing.Point(20, 479);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Size = new System.Drawing.Size(95, 22);
+            this.attachmentsButton.StyleController = this.generalLayout;
+            this.attachmentsButton.TabIndex = 24;
+            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // destination
             // 
             this.destination.Location = new System.Drawing.Point(369, 27);
@@ -207,9 +222,9 @@
             // newRailcarButton
             // 
             this.newRailcarButton.Image = ((System.Drawing.Image)(resources.GetObject("newRailcarButton.Image")));
-            this.newRailcarButton.Location = new System.Drawing.Point(1045, 479);
+            this.newRailcarButton.Location = new System.Drawing.Point(1052, 479);
             this.newRailcarButton.Name = "newRailcarButton";
-            this.newRailcarButton.Size = new System.Drawing.Size(95, 22);
+            this.newRailcarButton.Size = new System.Drawing.Size(90, 22);
             this.newRailcarButton.StyleController = this.generalLayout;
             this.newRailcarButton.TabIndex = 22;
             this.newRailcarButton.Text = "Создать";
@@ -219,9 +234,9 @@
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(1154, 479);
+            this.saveButton.Location = new System.Drawing.Point(1156, 479);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(94, 22);
+            this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalLayout;
             this.saveButton.TabIndex = 16;
             this.saveButton.Text = "Со&хранить";
@@ -230,7 +245,7 @@
             // 
             this.shipButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.shipButton.Image = ((System.Drawing.Image)(resources.GetObject("shipButton.Image")));
-            this.shipButton.Location = new System.Drawing.Point(794, 479);
+            this.shipButton.Location = new System.Drawing.Point(825, 479);
             this.shipButton.Name = "shipButton";
             this.shipButton.Size = new System.Drawing.Size(91, 22);
             this.shipButton.StyleController = this.generalLayout;
@@ -355,7 +370,8 @@
             this.saveButtonLayout,
             this.emptySpaceRailcarItem,
             this.layoutControlNewRailcarButton,
-            this.layoutControlDestination});
+            this.layoutControlDestination,
+            this.attachmentsButtonLayout});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "Root";
             this.railcarLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -456,9 +472,9 @@
             // 
             this.unshipButtonLayout.Control = this.unshipButton;
             this.unshipButtonLayout.CustomizationFormText = "unshipButtonLayout";
-            this.unshipButtonLayout.Location = new System.Drawing.Point(874, 475);
+            this.unshipButtonLayout.Location = new System.Drawing.Point(905, 475);
             this.unshipButtonLayout.Name = "unshipButtonLayout";
-            this.unshipButtonLayout.Size = new System.Drawing.Size(119, 31);
+            this.unshipButtonLayout.Size = new System.Drawing.Size(109, 31);
             this.unshipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.unshipButtonLayout.Text = "unshipButtonLayout";
             this.unshipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -469,7 +485,7 @@
             // 
             this.shipButtonLayout.Control = this.shipButton;
             this.shipButtonLayout.CustomizationFormText = "shipButtonLayout";
-            this.shipButtonLayout.Location = new System.Drawing.Point(769, 475);
+            this.shipButtonLayout.Location = new System.Drawing.Point(800, 475);
             this.shipButtonLayout.Name = "shipButtonLayout";
             this.shipButtonLayout.Size = new System.Drawing.Size(105, 31);
             this.shipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
@@ -482,9 +498,9 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 475);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(99, 475);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(769, 31);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(701, 31);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -492,9 +508,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1129, 475);
+            this.saveButtonLayout.Location = new System.Drawing.Point(1131, 475);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(118, 31);
+            this.saveButtonLayout.Size = new System.Drawing.Size(116, 31);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -505,9 +521,9 @@
             // 
             this.emptySpaceRailcarItem.AllowHotTrack = false;
             this.emptySpaceRailcarItem.CustomizationFormText = "emptySpaceRailcarItem";
-            this.emptySpaceRailcarItem.Location = new System.Drawing.Point(993, 475);
+            this.emptySpaceRailcarItem.Location = new System.Drawing.Point(1014, 475);
             this.emptySpaceRailcarItem.Name = "emptySpaceRailcarItem";
-            this.emptySpaceRailcarItem.Size = new System.Drawing.Size(27, 31);
+            this.emptySpaceRailcarItem.Size = new System.Drawing.Size(13, 31);
             this.emptySpaceRailcarItem.Text = "emptySpaceRailcarItem";
             this.emptySpaceRailcarItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -515,9 +531,9 @@
             // 
             this.layoutControlNewRailcarButton.Control = this.newRailcarButton;
             this.layoutControlNewRailcarButton.CustomizationFormText = "layoutControlNewRailcarButton";
-            this.layoutControlNewRailcarButton.Location = new System.Drawing.Point(1020, 475);
+            this.layoutControlNewRailcarButton.Location = new System.Drawing.Point(1027, 475);
             this.layoutControlNewRailcarButton.Name = "layoutControlNewRailcarButton";
-            this.layoutControlNewRailcarButton.Size = new System.Drawing.Size(109, 31);
+            this.layoutControlNewRailcarButton.Size = new System.Drawing.Size(104, 31);
             this.layoutControlNewRailcarButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.layoutControlNewRailcarButton.Text = "layoutControlNewRailcarButton";
             this.layoutControlNewRailcarButton.TextSize = new System.Drawing.Size(0, 0);
@@ -535,6 +551,19 @@
             this.layoutControlDestination.Text = "&Получатель";
             this.layoutControlDestination.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlDestination.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // attachmentsButtonLayout
+            // 
+            this.attachmentsButtonLayout.Control = this.attachmentsButton;
+            this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
+            this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 475);
+            this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(99, 31);
+            this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 5);
+            this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
+            this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.attachmentsButtonLayout.TextToControlDistance = 0;
+            this.attachmentsButtonLayout.TextVisible = false;
             // 
             // layoutControlItemRailcar
             // 
@@ -585,6 +614,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceRailcarItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).EndInit();
             this.ResumeLayout(false);
@@ -631,5 +661,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn pipeSizeType;
         private DevExpress.XtraEditors.TextEdit destination;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlDestination;
+        private DevExpress.XtraEditors.SimpleButton attachmentsButton;
+        private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
     }
 }

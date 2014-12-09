@@ -5,6 +5,7 @@ using DevExpress.XtraEditors;
 using PrizmMain.DummyData;
 
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
@@ -21,10 +22,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
             var pipeList = new BindingList<string> {"123", "556", "344"};
             var componentList = new BindingList<string> {"567", "865", "677"};
             controls.DataSource = JointsDummy.GetAllControlTypes();
-            inspectorName.Text = "Иванов Иван";
-            controlDate.Text = "10/10/2014";
-            result.Text = "Принят";
-            controlType.Text = "Изоляция стыка";
+        }
+
+        private void extraFiles_Click(object sender, System.EventArgs e)
+        {
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
         }
     }
 }

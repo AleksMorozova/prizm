@@ -23,6 +23,7 @@ using System.Drawing;
 using PrizmMain.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
+using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -486,6 +487,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
             steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
+            ResultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
+            testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             //TODO: limit fields for Plate and heat parameters tab
         }
 
@@ -680,6 +683,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
                 e.Cancel = true;
             }
+        }
+
+        private void attachmentsButton_Click(object sender, EventArgs e)
+        {
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
         }
     }
 }
