@@ -331,4 +331,181 @@
   <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
     <value>Значение не соответствует маске</value>
   </data>
+  <data name="Pipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="Plate" xml:space="preserve">
+    <value>Лист</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="ChemicalComposition" xml:space="preserve">
+    <value>Химический состав</value>
+  </data>
+  <data name="Coat" xml:space="preserve">
+    <value>Покрытие</value>
+  </data>
+  <data name="Heat" xml:space="preserve">
+    <value>Плавка</value>
+  </data>
+  <data name="Inspector" xml:space="preserve">
+    <value>Инспектор</value>
+  </data>
+  <data name="InspectorCertificate" xml:space="preserve">
+    <value>Сертификат инспектора</value>
+  </data>
+  <data name="Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
+  <data name="PhysicalParameters" xml:space="preserve">
+    <value>Физические параметры</value>
+  </data>
+  <data name="PipeMillSizeType" xml:space="preserve">
+    <value>Типоразмер трубы</value>
+  </data>
+  <data name="PipeTest" xml:space="preserve">
+    <value>Контольная операция трубы</value>
+  </data>
+  <data name="PipeTestResult" xml:space="preserve">
+    <value>Результат контольной операции трубы</value>
+  </data>
+  <data name="PlateManufacturer" xml:space="preserve">
+    <value>Производитель листа</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Настройки проекта</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Наряд-заказ</value>
+  </data>
+  <data name="Railcar" xml:space="preserve">
+    <value>Вагон</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роли пользователя</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Weld" xml:space="preserve">
+    <value>Сварка</value>
+  </data>
+  <data name="Welder" xml:space="preserve">
+    <value>Сварщик</value>
+  </data>
+  <data name="BoolExpected" xml:space="preserve">
+    <value>Булевый ожидаемый результат</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Сертификат</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Клиент</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="ControlType" xml:space="preserve">
+    <value>Тип контроля</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="Diameter" xml:space="preserve">
+    <value>Диаметр</value>
+  </data>
+  <data name="DocumentSizeLimit" xml:space="preserve">
+    <value>Ограничение размера документа</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Разряд</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Уникальный идентификатор</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Активен</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Обязательный</value>
+  </data>
+  <data name="IsShipped" xml:space="preserve">
+    <value>Отправлен</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="MaxExpected" xml:space="preserve">
+    <value>Максимальный ожидаемый результат</value>
+  </data>
+  <data name="MillName" xml:space="preserve">
+    <value>Название завода</value>
+  </data>
+  <data name="MillPipeNumberMask" xml:space="preserve">
+    <value>Маска номера трубы</value>
+  </data>
+  <data name="MillPipeNumberMaskRegexp" xml:space="preserve">
+    <value>Маска номера трубы (служебная)</value>
+  </data>
+  <data name="MinExpected" xml:space="preserve">
+    <value>Минимальный ожидаемый результат</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Контрольная операция</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Порядок</value>
+  </data>
+  <data name="pipeType" xml:space="preserve">
+    <value>Типоразмер трубы</value>
+  </data>
+  <data name="ProductionDate" xml:space="preserve">
+    <value>Дата производства</value>
+  </data>
+  <data name="ResultType" xml:space="preserve">
+    <value>Тип результата</value>
+  </data>
+  <data name="ShippingDate" xml:space="preserve">
+    <value>Дата отправки</value>
+  </data>
+  <data name="Stamp" xml:space="preserve">
+    <value>Клеймо</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="StringExpected" xml:space="preserve">
+    <value>Строковый ожидаемый результат</value>
+  </data>
+  <data name="TestSubject" xml:space="preserve">
+    <value>Объект инспекции</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="WallThickness" xml:space="preserve">
+    <value>Толщина стенки</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="WorkstationType" xml:space="preserve">
+    <value>Тип рабочего места</value>
+  </data>
+  <data name="ЕxpirationDate" xml:space="preserve">
+    <value>Срок истечения</value>
+  </data>
 </root>

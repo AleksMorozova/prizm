@@ -17,6 +17,7 @@ using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
 
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.Audit;
 
 namespace UnitTests
 {
@@ -42,6 +43,7 @@ namespace UnitTests
             Assert.IsTrue(typeof(SpoolsXtraForm).IsSubclassOf(typeof(ChildForm)), "SpoolsXtraForm does not inherit from ChildForm!");
             Assert.IsTrue(typeof(ComponentSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "ComponentSearchXtraForm does not inherit from ChildForm!");
             Assert.IsTrue(typeof(InspectionPipeSearchEditXtraForm).IsSubclassOf(typeof(ChildForm)), "InspectionPipeSearchEditXtraForm does not inherit from ChildForm!");
+            Assert.IsTrue(typeof(AuditXtraForm).IsSubclassOf(typeof(ChildForm)), "AuditXtraForm does not inherit from ChildForm!");
         }
     }
 

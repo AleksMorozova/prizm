@@ -26,6 +26,7 @@ using PrizmMain.Forms.Spool;
 using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Audit;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -289,6 +290,11 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
 
+        private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(AuditXtraForm));
+        }
+
         private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
         {
             //CreateChildForm(typeof(HeatXtraForm));
@@ -402,11 +408,6 @@ namespace PrizmMain.Forms.MainChildForm
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
             viewModel.GetOrCreateProject();
         }
-
-
-
-
-
 
      
     }
