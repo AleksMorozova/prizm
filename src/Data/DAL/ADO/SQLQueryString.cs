@@ -62,6 +62,7 @@ WHEN 'Domain.Entity.Project' THEN N'Настройки проекта'
 WHEN 'Domain.Entity.Setup.Role' THEN N'Роли пользователя'
 WHEN 'Domain.Entity.Setup.User' THEN N'Пользователь'
 WHEN 'Domain.Entity.Setup.Welder' THEN N'Сварщик'
+WHEN 'Domain.Entity.Setup.PipeTest' THEN N'Контольная операция трубы'
 ELSE tableName
 END,
 fieldName
