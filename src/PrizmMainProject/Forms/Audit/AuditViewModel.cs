@@ -4,6 +4,7 @@ using DevExpress.Mvvm.POCO;
 using Domain.Entity;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -82,6 +83,12 @@ namespace PrizmMain.Forms.Audit
             {
                 if (value != auditResults)
                 {
+
+                    foreach (DataRow record in value.Rows)
+                    {
+                        string resourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName"));
+                        record.SetField("tableName", resourceValue);
+                    }
                     auditResults = value;
                     RaisePropertyChanged("AuditResults");
                 }

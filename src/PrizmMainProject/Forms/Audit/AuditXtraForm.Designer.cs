@@ -167,7 +167,7 @@
             // entityGridColumn
             // 
             this.entityGridColumn.Caption = "Изменяемый объект";
-            this.entityGridColumn.FieldName = "entity";
+            this.entityGridColumn.FieldName = "tableName";
             this.entityGridColumn.Name = "entityGridColumn";
             this.entityGridColumn.Visible = true;
             this.entityGridColumn.VisibleIndex = 2;

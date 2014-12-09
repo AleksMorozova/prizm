@@ -331,4 +331,67 @@
   <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
     <value>Значение не соответствует маске</value>
   </data>
+  <data name="Pipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="Plate" xml:space="preserve">
+    <value>Лист</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="ChemicalComposition" xml:space="preserve">
+    <value>Химический состав</value>
+  </data>
+  <data name="Coat" xml:space="preserve">
+    <value>Покрытие</value>
+  </data>
+  <data name="Heat" xml:space="preserve">
+    <value>Плавка</value>
+  </data>
+  <data name="Inspector" xml:space="preserve">
+    <value>Инспектор</value>
+  </data>
+  <data name="InspectorCertificate" xml:space="preserve">
+    <value>Сертификат инспектора</value>
+  </data>
+  <data name="Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
+  <data name="PhysicalParameters" xml:space="preserve">
+    <value>Физические параметры</value>
+  </data>
+  <data name="PipeMillSizeType" xml:space="preserve">
+    <value>Типоразмер трубы</value>
+  </data>
+  <data name="PipeTest" xml:space="preserve">
+    <value>Контольная операция трубы</value>
+  </data>
+  <data name="PipeTestResult" xml:space="preserve">
+    <value>Результат контольной операции трубы</value>
+  </data>
+  <data name="PlateManufacturer" xml:space="preserve">
+    <value>Производитель листа</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Настройки проекта</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Наряд-заказ</value>
+  </data>
+  <data name="Railcar" xml:space="preserve">
+    <value>Вагон</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роли пользователя</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Weld" xml:space="preserve">
+    <value>Сварка</value>
+  </data>
+  <data name="Welder" xml:space="preserve">
+    <value>Сварщик</value>
+  </data>
 </root>
