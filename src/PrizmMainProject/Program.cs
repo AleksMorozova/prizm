@@ -38,16 +38,10 @@ namespace PrizmMain
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
-                #if DEBUG
-                    Console.WriteLine("Mode = Debug");
-                #else
                 while (!Login())
                 {
                     MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                #endif
-
 
                 Application.Run(new PrizmApplicationXtraForm());
             }
@@ -75,8 +69,8 @@ namespace PrizmMain
               string password = dlg.Password;
 
                #if DEBUG
-              login = "admin";
-              password = "admin";
+               login = "admin";
+               password = "admin";
                #endif
 
               User user = new User() { IsActive = false, Login = "system" };
