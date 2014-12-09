@@ -104,14 +104,11 @@ namespace Data.DAL.ADO
                     using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
                     {
                         connection.Open();
-                        connection.ConnectionString = SQLQueryString.GetAllPipesFromInspection;
                         adapter.TableMappings.Add("Table", "Pipe");
                         command.Connection = connection;
-
-                        //input search criteria value
+                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);
-
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
                     }
