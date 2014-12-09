@@ -72,6 +72,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(tensileTests);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
+
+            #region --- Set Properties.CharacterCasing to Upper ---
+            pipeNumber.SetAsIdentifier();
+            plateNumber.SetAsIdentifier();
+            certificateNumber.SetAsIdentifier();
+            #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }

@@ -34,6 +34,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             this.railcarNumber.SetRequiredText();
             SetControlsTextLength();
+            this.certificateNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
+
         }
 
         public RailcarNewEditXtraForm()
@@ -47,6 +50,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
+            IsEditMode = !viewModel.IsShipped;
         }
 
         private void BindToViewModel()
@@ -121,6 +125,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
         }
+
         private void ButtonRefresh()
         {
             viewModel.ShipCommand.IsExecutable ^= true;
@@ -140,5 +145,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
             attachments.ShowDialog();
         }
+
+
     }
 }

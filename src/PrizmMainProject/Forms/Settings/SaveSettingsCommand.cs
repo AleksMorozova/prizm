@@ -40,6 +40,7 @@ namespace PrizmMain.Forms.Settings
             repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
             SaveRoles();
             SaveUsers();
+            SaveCategories();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -48,6 +49,7 @@ namespace PrizmMain.Forms.Settings
             EvictRoles();
             EvictUsers();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+            EvictCategories();
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
@@ -155,6 +157,25 @@ namespace PrizmMain.Forms.Settings
                 repos.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
             }
         }
+
+        
+        private void EvictCategories()
+        {
+            foreach (var category in viewModel.CategoryTypes)
+            {
+                repos.СategoryRepo.Evict(category);
+            }
+        }
+
+
+        void SaveCategories()
+        {
+            foreach (var category in viewModel.CategoryTypes)
+            {
+                repos.СategoryRepo.SaveOrUpdate(category);
+            }
+        }
+
         public virtual bool IsExecutable { get; set; }
     }
 }
