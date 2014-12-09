@@ -58,6 +58,7 @@
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Setup\InspectorCertificate.cs" />
+    <Compile Include="Entity\Setup\JointOperation.cs" />
     <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
