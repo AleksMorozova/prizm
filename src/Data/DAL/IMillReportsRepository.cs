@@ -12,6 +12,6 @@ namespace Data.DAL
     public interface IMillReportsRepository
     {
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses);
-
+        DataTable GetAuditResults(DateTime startDate, DateTime finalDate, string user);
     }
 }

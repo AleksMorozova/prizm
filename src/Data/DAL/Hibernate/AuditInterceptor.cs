@@ -137,6 +137,8 @@ namespace Data.DAL.Hibernate
                             break;
                         default: break;
                     }
+                    if (state[i].ToString().StartsWith("System.Collections.Generic") || state[i].ToString().StartsWith("System.ComponentModel.BindingList"))
+                        continue;
                     NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                 }
             }
