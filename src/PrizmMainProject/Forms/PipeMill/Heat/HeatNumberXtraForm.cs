@@ -26,6 +26,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
         private void SetControlsTextLength()
         {
             number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
+            number.SetAsIdentifier();
         }
     }
 }

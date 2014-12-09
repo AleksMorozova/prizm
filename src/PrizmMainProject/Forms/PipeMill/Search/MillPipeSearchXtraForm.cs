@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.PipeMill.Search
         public MillPipeSearchXtraForm()
         {
             InitializeComponent();
+            pipeNumber.SetAsIdentifier();
         }
 
         private void BindToViewModel()
