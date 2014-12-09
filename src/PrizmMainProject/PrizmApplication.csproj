@@ -206,6 +206,7 @@
     <Compile Include="Forms\Common\SaveDialog.Designer.cs">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />

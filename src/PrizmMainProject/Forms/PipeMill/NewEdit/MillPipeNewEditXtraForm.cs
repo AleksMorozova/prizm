@@ -23,6 +23,7 @@ using System.Drawing;
 using PrizmMain.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
+using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
@@ -71,6 +72,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(tensileTests);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
+
+            #region --- Set Properties.CharacterCasing to Upper ---
+            pipeNumber.SetAsIdentifier();
+            plateNumber.SetAsIdentifier();
+            certificateNumber.SetAsIdentifier();
+            #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -682,6 +689,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
                 e.Cancel = true;
             }
+        }
+
+        private void attachmentsButton_Click(object sender, EventArgs e)
+        {
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
         }
     }
 }

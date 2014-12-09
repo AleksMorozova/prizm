@@ -12,6 +12,7 @@ using PrizmMain.Forms.MainChildForm;
 using System.Collections.Generic;
 using PrizmMain.Properties;
 using PrizmMain.Common;
+using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
@@ -33,6 +34,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
             this.railcarNumber.SetRequiredText();
             SetControlsTextLength();
+            this.certificateNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
 
         }
 
@@ -135,6 +138,12 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             pipeNumberLookUp.Refresh();
             pipeListLookUpView.RefreshData();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
         }
 
 
