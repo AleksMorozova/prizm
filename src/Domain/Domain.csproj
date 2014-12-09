@@ -41,8 +41,6 @@
   <ItemGroup>
     <Compile Include="Entity\AuditLog.cs" />
     <Compile Include="Entity\Certificate.cs" />
-    <Compile Include="Entity\Inspection\InspectionStatus.cs" />
-    <Compile Include="Entity\Inspection\InspectionTestResult.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
     <Compile Include="Entity\Mill\Category.cs" />
