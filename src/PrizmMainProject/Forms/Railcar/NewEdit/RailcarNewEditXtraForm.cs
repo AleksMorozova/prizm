@@ -122,6 +122,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
         }
+
         private void ButtonRefresh()
         {
             viewModel.ShipCommand.IsExecutable ^= true;
@@ -135,5 +136,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             pipeNumberLookUp.Refresh();
             pipeListLookUpView.RefreshData();
         }
+
+
     }
 }

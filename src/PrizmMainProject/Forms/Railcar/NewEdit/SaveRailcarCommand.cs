@@ -36,29 +36,29 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
-            
-                if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
-                {
-                    viewModel.Railcar.ShippingDate = null;
-                }
-                try
-                {
-                    foreach (var pipe in viewModel.Railcar.Pipes)
-                    {
-                        pipe.Railcar = viewModel.Railcar;
-                    }
 
-                    repos.BeginTransaction();
-                    repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
-                    repos.Commit();
-                    repos.RailcarRepo.Evict(viewModel.Railcar);
-                    viewModel.ModifiableView.IsModified = false;
-                    notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
-                }
-                catch (RepositoryException ex)
+            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            {
+                viewModel.Railcar.ShippingDate = null;
+            }
+            try
+            {
+                foreach (var pipe in viewModel.Railcar.Pipes)
                 {
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    pipe.Railcar = viewModel.Railcar;
                 }
+
+                repos.BeginTransaction();
+                repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+                repos.Commit();
+                repos.RailcarRepo.Evict(viewModel.Railcar);
+                viewModel.ModifiableView.IsModified = false;
+                notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
         }
 
         public bool CanExecute()
