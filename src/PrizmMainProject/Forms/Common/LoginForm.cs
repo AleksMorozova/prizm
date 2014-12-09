@@ -27,5 +27,13 @@ namespace PrizmMain.Forms.Common
       {
          get { return txtPassword.Text; }
       }
+
+      private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+      {
+          if (e.KeyData == Keys.Enter)
+          {
+              this.DialogResult = btnLogin.DialogResult;
+          }
+      }
    }
 }
