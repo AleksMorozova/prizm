@@ -33,15 +33,12 @@
             this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.inspectionLabel = new DevExpress.XtraEditors.LabelControl();
             this.millLabel = new DevExpress.XtraEditors.LabelControl();
-            this.addInspectorButton = new DevExpress.XtraEditors.SimpleButton();
-            this.inspectionDate = new DevExpress.XtraEditors.DateEdit();
             this.inspectionHistoryGrid = new DevExpress.XtraGrid.GridControl();
             this.inspectionHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionResultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionResult = new DevExpress.XtraEditors.RadioGroup();
             this.millHeatNumber = new DevExpress.XtraEditors.TextEdit();
             this.millDiameter = new DevExpress.XtraEditors.TextEdit();
             this.inspectionDiameter = new DevExpress.XtraEditors.TextEdit();
@@ -53,19 +50,10 @@
             this.inspectionThickness = new DevExpress.XtraEditors.TextEdit();
             this.inspectionLength = new DevExpress.XtraEditors.TextEdit();
             this.millLength = new DevExpress.XtraEditors.TextEdit();
-            this.holdReason = new DevExpress.XtraEditors.MemoEdit();
-            this.inspectorsComboBox = new DevExpress.XtraEditors.PopupContainerEdit();
             this.searchPipeLayout = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.resultRadioGroupLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.holdReasonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectionDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.addInspectorBtnLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leftBtnEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.searchParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.pipeNumberEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -81,14 +69,12 @@
             this.inspectionHeatNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.millLableLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionLableLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeNumberEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchPipeLayoutControl)).BeginInit();
             this.searchPipeLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionResult.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millHeatNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDiameter.Properties)).BeginInit();
@@ -99,19 +85,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.holdReason.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPipeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroupLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.holdReasonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addInspectorBtnLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBtnEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).BeginInit();
@@ -127,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHeatNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLableLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLableLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // searchPipeLayoutControl
@@ -134,10 +112,7 @@
             this.searchPipeLayoutControl.Controls.Add(this.pipeNumber);
             this.searchPipeLayoutControl.Controls.Add(this.inspectionLabel);
             this.searchPipeLayoutControl.Controls.Add(this.millLabel);
-            this.searchPipeLayoutControl.Controls.Add(this.addInspectorButton);
-            this.searchPipeLayoutControl.Controls.Add(this.inspectionDate);
             this.searchPipeLayoutControl.Controls.Add(this.inspectionHistoryGrid);
-            this.searchPipeLayoutControl.Controls.Add(this.inspectionResult);
             this.searchPipeLayoutControl.Controls.Add(this.millHeatNumber);
             this.searchPipeLayoutControl.Controls.Add(this.millDiameter);
             this.searchPipeLayoutControl.Controls.Add(this.inspectionDiameter);
@@ -149,13 +124,12 @@
             this.searchPipeLayoutControl.Controls.Add(this.inspectionThickness);
             this.searchPipeLayoutControl.Controls.Add(this.inspectionLength);
             this.searchPipeLayoutControl.Controls.Add(this.millLength);
-            this.searchPipeLayoutControl.Controls.Add(this.holdReason);
-            this.searchPipeLayoutControl.Controls.Add(this.inspectorsComboBox);
+            this.searchPipeLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchPipeLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.searchPipeLayoutControl.Name = "searchPipeLayoutControl";
             this.searchPipeLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(387, 310, 477, 538);
             this.searchPipeLayoutControl.Root = this.searchPipeLayout;
-            this.searchPipeLayoutControl.Size = new System.Drawing.Size(913, 515);
+            this.searchPipeLayoutControl.Size = new System.Drawing.Size(974, 515);
             this.searchPipeLayoutControl.TabIndex = 44;
             this.searchPipeLayoutControl.Text = "layoutControl1";
             // 
@@ -163,7 +137,7 @@
             // 
             this.pipeNumber.Location = new System.Drawing.Point(30, 64);
             this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Size = new System.Drawing.Size(266, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(287, 20);
             this.pipeNumber.StyleController = this.searchPipeLayoutControl;
             this.pipeNumber.TabIndex = 50;
             // 
@@ -185,36 +159,13 @@
             this.millLabel.TabIndex = 48;
             this.millLabel.Text = "Завод:";
             // 
-            // addInspectorButton
-            // 
-            this.addInspectorButton.Image = ((System.Drawing.Image)(resources.GetObject("addInspectorButton.Image")));
-            this.addInspectorButton.Location = new System.Drawing.Point(794, 283);
-            this.addInspectorButton.Name = "addInspectorButton";
-            this.addInspectorButton.Size = new System.Drawing.Size(75, 22);
-            this.addInspectorButton.StyleController = this.searchPipeLayoutControl;
-            this.addInspectorButton.TabIndex = 47;
-            this.addInspectorButton.Text = "&Добавить";
-            // 
-            // inspectionDate
-            // 
-            this.inspectionDate.EditValue = null;
-            this.inspectionDate.Location = new System.Drawing.Point(322, 158);
-            this.inspectionDate.Name = "inspectionDate";
-            this.inspectionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspectionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspectionDate.Size = new System.Drawing.Size(164, 20);
-            this.inspectionDate.StyleController = this.searchPipeLayoutControl;
-            this.inspectionDate.TabIndex = 45;
-            // 
             // inspectionHistoryGrid
             // 
             this.inspectionHistoryGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspectionHistoryGrid.Location = new System.Drawing.Point(322, 323);
+            this.inspectionHistoryGrid.Location = new System.Drawing.Point(324, 138);
             this.inspectionHistoryGrid.MainView = this.inspectionHistoryGridView;
             this.inspectionHistoryGrid.Name = "inspectionHistoryGrid";
-            this.inspectionHistoryGrid.Size = new System.Drawing.Size(547, 156);
+            this.inspectionHistoryGrid.Size = new System.Drawing.Size(618, 345);
             this.inspectionHistoryGrid.TabIndex = 45;
             this.inspectionHistoryGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
@@ -262,20 +213,6 @@
             this.reasonColumn.VisibleIndex = 3;
             this.reasonColumn.Width = 171;
             // 
-            // inspectionResult
-            // 
-            this.inspectionResult.Location = new System.Drawing.Point(322, 212);
-            this.inspectionResult.Name = "inspectionResult";
-            this.inspectionResult.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.inspectionResult.Properties.Appearance.Options.UseBackColor = true;
-            this.inspectionResult.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "годен"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "ремонт"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "брак")});
-            this.inspectionResult.Size = new System.Drawing.Size(164, 93);
-            this.inspectionResult.StyleController = this.searchPipeLayoutControl;
-            this.inspectionResult.TabIndex = 43;
-            // 
             // millHeatNumber
             // 
             this.millHeatNumber.Location = new System.Drawing.Point(30, 405);
@@ -322,9 +259,9 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(794, 61);
+            this.searchButton.Location = new System.Drawing.Point(862, 61);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.Size = new System.Drawing.Size(90, 23);
             this.searchButton.StyleController = this.searchPipeLayoutControl;
             this.searchButton.TabIndex = 36;
             this.searchButton.Text = "&Поиск";
@@ -371,25 +308,6 @@
             this.millLength.StyleController = this.searchPipeLayoutControl;
             this.millLength.TabIndex = 13;
             // 
-            // holdReason
-            // 
-            this.holdReason.Location = new System.Drawing.Point(520, 212);
-            this.holdReason.Name = "holdReason";
-            this.holdReason.Size = new System.Drawing.Size(349, 53);
-            this.holdReason.StyleController = this.searchPipeLayoutControl;
-            this.holdReason.TabIndex = 3;
-            // 
-            // inspectorsComboBox
-            // 
-            this.inspectorsComboBox.Location = new System.Drawing.Point(520, 158);
-            this.inspectorsComboBox.Name = "inspectorsComboBox";
-            this.inspectorsComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspectorsComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.inspectorsComboBox.Size = new System.Drawing.Size(349, 20);
-            this.inspectorsComboBox.StyleController = this.searchPipeLayoutControl;
-            this.inspectorsComboBox.TabIndex = 46;
-            // 
             // searchPipeLayout
             // 
             this.searchPipeLayout.CustomizationFormText = "searchPipeLayout";
@@ -401,7 +319,7 @@
             this.pipeParametersLayout});
             this.searchPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.searchPipeLayout.Name = "searchPipeLayout";
-            this.searchPipeLayout.Size = new System.Drawing.Size(913, 515);
+            this.searchPipeLayout.Size = new System.Drawing.Size(974, 515);
             this.searchPipeLayout.Text = "searchPipeLayout";
             this.searchPipeLayout.TextVisible = false;
             // 
@@ -409,108 +327,25 @@
             // 
             this.inspectionLayoutGroup.CustomizationFormText = "Входной контроль";
             this.inspectionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.resultRadioGroupLayout,
-            this.holdReasonLayout,
-            this.inspectionHistoryLayout,
-            this.inspectorLayout,
-            this.inspectionDateLayout,
-            this.addInspectorBtnLayout,
-            this.leftBtnEmptySpace});
+            this.inspectionHistoryLayout});
             this.inspectionLayoutGroup.Location = new System.Drawing.Point(292, 87);
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
-            this.inspectionLayoutGroup.Size = new System.Drawing.Size(601, 408);
-            this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 7, 7, 7);
+            this.inspectionLayoutGroup.Size = new System.Drawing.Size(662, 408);
+            this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
             this.inspectionLayoutGroup.Text = "Входной контроль";
-            // 
-            // resultRadioGroupLayout
-            // 
-            this.resultRadioGroupLayout.Control = this.inspectionResult;
-            this.resultRadioGroupLayout.CustomizationFormText = "Результат";
-            this.resultRadioGroupLayout.Location = new System.Drawing.Point(0, 54);
-            this.resultRadioGroupLayout.Name = "resultRadioGroupLayout";
-            this.resultRadioGroupLayout.Size = new System.Drawing.Size(188, 127);
-            this.resultRadioGroupLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 7, 7);
-            this.resultRadioGroupLayout.Text = "Результат";
-            this.resultRadioGroupLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.resultRadioGroupLayout.TextSize = new System.Drawing.Size(102, 13);
-            // 
-            // holdReasonLayout
-            // 
-            this.holdReasonLayout.Control = this.holdReason;
-            this.holdReasonLayout.CustomizationFormText = "Причина";
-            this.holdReasonLayout.Location = new System.Drawing.Point(188, 54);
-            this.holdReasonLayout.MinSize = new System.Drawing.Size(50, 25);
-            this.holdReasonLayout.Name = "holdReasonLayout";
-            this.holdReasonLayout.Size = new System.Drawing.Size(383, 87);
-            this.holdReasonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.holdReasonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.holdReasonLayout.Text = "Причина";
-            this.holdReasonLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.holdReasonLayout.TextSize = new System.Drawing.Size(102, 13);
             // 
             // inspectionHistoryLayout
             // 
             this.inspectionHistoryLayout.Control = this.inspectionHistoryGrid;
             this.inspectionHistoryLayout.CustomizationFormText = "inspectionHistoryLayout";
-            this.inspectionHistoryLayout.Location = new System.Drawing.Point(0, 181);
+            this.inspectionHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionHistoryLayout.Name = "inspectionHistoryLayout";
-            this.inspectionHistoryLayout.Size = new System.Drawing.Size(571, 174);
-            this.inspectionHistoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 7, 7);
+            this.inspectionHistoryLayout.Size = new System.Drawing.Size(622, 349);
             this.inspectionHistoryLayout.Text = "inspectionHistoryLayout";
             this.inspectionHistoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionHistoryLayout.TextToControlDistance = 0;
             this.inspectionHistoryLayout.TextVisible = false;
-            // 
-            // inspectorLayout
-            // 
-            this.inspectorLayout.Control = this.inspectorsComboBox;
-            this.inspectorLayout.CustomizationFormText = "Инспектор";
-            this.inspectorLayout.Location = new System.Drawing.Point(188, 0);
-            this.inspectorLayout.Name = "inspectorLayout";
-            this.inspectorLayout.Size = new System.Drawing.Size(383, 54);
-            this.inspectorLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.inspectorLayout.Text = "Инспектор";
-            this.inspectorLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectorLayout.TextSize = new System.Drawing.Size(102, 13);
-            // 
-            // inspectionDateLayout
-            // 
-            this.inspectionDateLayout.Control = this.inspectionDate;
-            this.inspectionDateLayout.CustomizationFormText = "Дата инспекции";
-            this.inspectionDateLayout.Location = new System.Drawing.Point(0, 0);
-            this.inspectionDateLayout.Name = "inspectionDateLayout";
-            this.inspectionDateLayout.Size = new System.Drawing.Size(188, 54);
-            this.inspectionDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 7, 7);
-            this.inspectionDateLayout.Text = "Дата инспекции";
-            this.inspectionDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectionDateLayout.TextSize = new System.Drawing.Size(102, 13);
-            // 
-            // addInspectorBtnLayout
-            // 
-            this.addInspectorBtnLayout.Control = this.addInspectorButton;
-            this.addInspectorBtnLayout.CustomizationFormText = "addInspectorBtnLayout";
-            this.addInspectorBtnLayout.Location = new System.Drawing.Point(462, 141);
-            this.addInspectorBtnLayout.MaxSize = new System.Drawing.Size(109, 40);
-            this.addInspectorBtnLayout.MinSize = new System.Drawing.Size(109, 40);
-            this.addInspectorBtnLayout.Name = "addInspectorBtnLayout";
-            this.addInspectorBtnLayout.Size = new System.Drawing.Size(109, 40);
-            this.addInspectorBtnLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.addInspectorBtnLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.addInspectorBtnLayout.Text = "addInspectorBtnLayout";
-            this.addInspectorBtnLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.addInspectorBtnLayout.TextToControlDistance = 0;
-            this.addInspectorBtnLayout.TextVisible = false;
-            // 
-            // leftBtnEmptySpace
-            // 
-            this.leftBtnEmptySpace.AllowHotTrack = false;
-            this.leftBtnEmptySpace.CustomizationFormText = "leftBtnEmptySpace";
-            this.leftBtnEmptySpace.Location = new System.Drawing.Point(188, 141);
-            this.leftBtnEmptySpace.Name = "leftBtnEmptySpace";
-            this.leftBtnEmptySpace.Size = new System.Drawing.Size(274, 40);
-            this.leftBtnEmptySpace.Text = "leftBtnEmptySpace";
-            this.leftBtnEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchParametersLayoutGroup
             // 
@@ -521,31 +356,21 @@
             this.pipeNumberLayout});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
-            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(893, 87);
-            this.searchParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 7, 7, 0);
+            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(954, 87);
+            this.searchParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 0, 7, 0);
             this.searchParametersLayoutGroup.Text = "Параметры поиска трубы";
-            // 
-            // pipeNumberEmptySpace
-            // 
-            this.pipeNumberEmptySpace.AllowHotTrack = false;
-            this.pipeNumberEmptySpace.CustomizationFormText = "pipeNumberEmptySpace";
-            this.pipeNumberEmptySpace.Location = new System.Drawing.Point(275, 0);
-            this.pipeNumberEmptySpace.Name = "pipeNumberEmptySpace";
-            this.pipeNumberEmptySpace.Size = new System.Drawing.Size(479, 41);
-            this.pipeNumberEmptySpace.Text = "pipeNumberEmptySpace";
-            this.pipeNumberEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchButtonLayout
             // 
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(754, 0);
+            this.searchButtonLayout.Location = new System.Drawing.Point(822, 0);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(109, 41);
             this.searchButtonLayout.MinSize = new System.Drawing.Size(109, 41);
             this.searchButtonLayout.Name = "searchButtonLayout";
             this.searchButtonLayout.Size = new System.Drawing.Size(109, 41);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 13, 1);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 13, 1);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextToControlDistance = 0;
@@ -557,7 +382,7 @@
             this.pipeNumberLayout.CustomizationFormText = "Номер трубы";
             this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(275, 41);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(296, 41);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             this.pipeNumberLayout.Text = "Номер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -731,6 +556,16 @@
             this.inspectionLableLayout.TextToControlDistance = 0;
             this.inspectionLableLayout.TextVisible = false;
             // 
+            // pipeNumberEmptySpace
+            // 
+            this.pipeNumberEmptySpace.AllowHotTrack = false;
+            this.pipeNumberEmptySpace.CustomizationFormText = "pipeNumberEmptySpace";
+            this.pipeNumberEmptySpace.Location = new System.Drawing.Point(296, 0);
+            this.pipeNumberEmptySpace.Name = "pipeNumberEmptySpace";
+            this.pipeNumberEmptySpace.Size = new System.Drawing.Size(526, 41);
+            this.pipeNumberEmptySpace.Text = "pipeNumberEmptySpace";
+            this.pipeNumberEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // InspectionPipeSearchEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -743,11 +578,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchPipeLayoutControl)).EndInit();
             this.searchPipeLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionResult.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millHeatNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDiameter.Properties)).EndInit();
@@ -758,19 +590,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.holdReason.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPipeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultRadioGroupLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.holdReasonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addInspectorBtnLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBtnEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchParametersLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayout)).EndInit();
@@ -786,6 +609,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHeatNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLableLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLableLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -814,23 +638,14 @@
         private DevExpress.XtraLayout.LayoutControlGroup searchParametersLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionLayoutGroup;
-        private DevExpress.XtraLayout.LayoutControlItem holdReasonLayout;
-        private DevExpress.XtraEditors.RadioGroup inspectionResult;
-        private DevExpress.XtraLayout.LayoutControlItem resultRadioGroupLayout;
         private DevExpress.XtraLayout.LayoutControlItem millLengthLayout;
         private DevExpress.XtraLayout.LayoutControlItem millThicknessLayout;
         private DevExpress.XtraLayout.LayoutControlItem millDiameterLayout;
         private DevExpress.XtraLayout.LayoutControlItem millWeightLayout;
         private DevExpress.XtraLayout.LayoutControlItem millHeatNumberLayout;
-        private DevExpress.XtraEditors.SimpleButton addInspectorButton;
-        private DevExpress.XtraEditors.DateEdit inspectionDate;
         private DevExpress.XtraGrid.GridControl inspectionHistoryGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView inspectionHistoryGridView;
         private DevExpress.XtraLayout.LayoutControlItem inspectionHistoryLayout;
-        private DevExpress.XtraLayout.LayoutControlItem inspectorLayout;
-        private DevExpress.XtraLayout.LayoutControlItem inspectionDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem addInspectorBtnLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem leftBtnEmptySpace;
         private DevExpress.XtraEditors.LabelControl inspectionLabel;
         private DevExpress.XtraEditors.LabelControl millLabel;
         private DevExpress.XtraLayout.LayoutControlItem millLableLayout;
@@ -839,10 +654,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorColumn;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionResultColumn;
         private DevExpress.XtraGrid.Columns.GridColumn reasonColumn;
-        private DevExpress.XtraLayout.EmptySpaceItem pipeNumberEmptySpace;
-        private DevExpress.XtraEditors.MemoEdit holdReason;
-        private DevExpress.XtraEditors.PopupContainerEdit inspectorsComboBox;
         private DevExpress.XtraEditors.TextEdit pipeNumber;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem pipeNumberEmptySpace;
     }
 }
