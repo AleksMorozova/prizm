@@ -70,6 +70,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.Number = value;
                     RaisePropertyChanged("Number");
+                    ShipCommand.IsExecutable ^= true;
+                    UnshipCommand.IsExecutable ^= true;
+                    SaveCommand.IsExecutable ^= true;
                 }
             }
         }
@@ -120,6 +123,20 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.ShippingDate = value;
                     RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+
+        public bool IsShipped
+        {
+            get { return Railcar.IsShipped; }
+            set
+            {
+                if (value != Railcar.IsShipped)
+                {
+                    Railcar.IsShipped = value;
+                    RaisePropertyChanged("IsShipped");
+                    modifiableView.IsEditMode = !value;
                 }
             }
         }

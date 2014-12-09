@@ -70,8 +70,14 @@ namespace PrizmMain
            LoginForm dlg = new LoginForm();
            if (dlg.ShowDialog() == DialogResult.OK)
            {
+
               string login = dlg.Login;
               string password = dlg.Password;
+
+               #if DEBUG
+              login = "admin";
+              password = "admin";
+               #endif
 
               User user = new User() { IsActive = false, Login = "system" };
 
