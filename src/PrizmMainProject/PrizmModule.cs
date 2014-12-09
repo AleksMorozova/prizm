@@ -74,7 +74,6 @@ namespace PrizmMain
             Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
-            Bind<InspectionReportsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             #endregion
