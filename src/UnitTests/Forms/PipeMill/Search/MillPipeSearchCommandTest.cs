@@ -12,6 +12,7 @@ using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.PipeMill;
 using NHibernate.Criterion;
+using Domain.Entity.Setup;
 
 namespace UnitTests.Forms.PipeMill.Search
 {
@@ -60,6 +61,9 @@ namespace UnitTests.Forms.PipeMill.Search
 
 
             var viewModel = new MillPipeSearchViewModel(millRepos.Object);
+            viewModel.PipeNumber = "Test Number";
+            viewModel.CheckedPipeTypes = new List<PipeMillSizeType>();
+
 
             var command = new MillPipeSearchCommand(viewModel, repoPipe.Object);
 

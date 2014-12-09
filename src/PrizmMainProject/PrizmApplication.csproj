@@ -160,9 +160,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Common\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Common\LengthLimit.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
@@ -186,7 +186,20 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
+    <Compile Include="Forms\Audit\AuditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
+      <DependentUpon>AuditXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\Common\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +264,17 @@
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\PasswordChangeDialog.Designer.cs">
+      <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
@@ -303,12 +327,6 @@
     </Compile>
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.Designer.cs">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
       <SubType>Form</SubType>
@@ -404,6 +422,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Privileges.cs" />
+    <Compile Include="Security\SecurityContext.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -411,6 +430,9 @@
     <EmbeddedResource Include="Controls\WeldersSelectionControl.resx">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\SaveDialog.resx">
       <DependentUpon>SaveDialog.cs</DependentUpon>
@@ -432,9 +454,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.resx">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
@@ -482,6 +501,9 @@
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\PasswordChangeDialog.resx">
+      <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -495,17 +517,11 @@
     <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
@@ -683,6 +699,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

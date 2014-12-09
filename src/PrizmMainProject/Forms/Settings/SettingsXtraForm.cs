@@ -10,7 +10,6 @@ using Ninject.Parameters;
 
 using Domain.Entity.Setup;
 
-using PrizmMain.DummyData;
 using PrizmMain.Forms.Settings.Dictionary;
 using PrizmMain.Forms.Settings.UserRole.Role;
 using PrizmMain.Forms.Settings.UserRole.User;
@@ -22,6 +21,7 @@ using Domain.Entity;
 using PrizmMain.Forms.Settings.ViewTypes;
 using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
+using Domain.Entity.Security;
 using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.Settings
@@ -92,10 +92,12 @@ namespace PrizmMain.Forms.Settings
 
             gridViewWelders.BestFitColumns();
             gridViewInspectors.BestFitColumns();
+
+            RefreshUserRoles(0);
+            RefreshRolePermissions(0);
         }
 
-
-       private void BindToViewModel()
+        private void BindToViewModel()
         {
             #region Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
@@ -118,6 +120,16 @@ namespace PrizmMain.Forms.Settings
 
             repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
             categoriesGrid.DataSource = viewModel.CategoryTypes;
+
+            rolesBindingSource.DataSource = viewModel.Roles;
+            rolesBindingSource.ListChanged += (s, e) => IsModified = true;
+
+            permissionsBindingSource.DataSource = viewModel.Permissions;
+
+            usersBindingSource.DataSource = viewModel.Users;
+
+            gridControlRoles.DataSource = rolesBindingSource;
+
             #endregion
 
             #region Data Bindings
@@ -195,13 +207,18 @@ namespace PrizmMain.Forms.Settings
 
         private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
+
+            if (inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
+            {
+                ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);    
+            }
+            
         } 
 
         void ValidateCertificate(GridView view, GridColumn certNameColumn, GridColumn expDateColumn, ValidateRowEventArgs e)
         {
             string certName = (string)view.GetRowCellValue(e.RowHandle, certNameColumn);
-            DateTime certExpDate = (DateTime)view.GetRowCellValue(e.RowHandle, expDateColumn);
+            DateTime? certExpDate = (DateTime?)view.GetRowCellValue(e.RowHandle, expDateColumn);
 
             view.ClearColumnErrors();
 
@@ -220,6 +237,7 @@ namespace PrizmMain.Forms.Settings
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
         {
+
            string firstName = (string)view.GetRowCellValue(e.RowHandle, firstNameColumn);
            string lastName = (string)view.GetRowCellValue(e.RowHandle, lastNameColumn);
 
@@ -272,7 +290,8 @@ namespace PrizmMain.Forms.Settings
         {
             GridView view = sender as GridView;
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
-            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.Certificate.IsNew());
+            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
+            inspectorCertificateGridView.RefreshData();
         }
 
         private void SetControlsTextLength()
@@ -294,6 +313,14 @@ namespace PrizmMain.Forms.Settings
             inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
             inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
             inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeMillSizeType;
+            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
+            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
+            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+            controlTypeItems.MaxLength = LengthLimit.MaxPipeTestControlType;
+            resultTypeItems.MaxLength = LengthLimit.MaxPipetestResultType;
+            categoryRepositoryTextEdit.MaxLength = LengthLimit.MaxCategoryName;
+
         }
 
         private void gridControlInspectors_Click(object sender, EventArgs e)
@@ -322,10 +349,218 @@ namespace PrizmMain.Forms.Settings
         {
         }
 
+private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            Domain.Entity.Mill.Category category
+                = v.GetRow(e.RowHandle) as Domain.Entity.Mill.Category;
 
+            category.IsActive = true;
+        }
 
+        private void categoryGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<Domain.Entity.Mill.Category>(
+                e,
+                viewModel.CategoryTypes,
+                (_) => _.IsNew());
+        }
 
+        private void gridViewRole_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            var view = sender as GridView;
 
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                Role role = view.GetRow(e.RowHandle) as Role;
+
+            }
+        }
+
+        private void gridViewRole_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            var view = sender as GridView;
+            view.ClearColumnErrors();
+            Role role = e.Row as Role;
+            if (role != null)
+            {
+                if (String.IsNullOrEmpty(role.Name))
+                {
+                    e.Valid = false;
+                    view.SetColumnError(colRoleSetupName, Resources.VALUE_REQUIRED);
+                }
+            }
+        }
+
+        private void gridViewRole_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        void RefreshRolePermissions(int rowIndex)
+        {
+            var view = gridViewRole;
+
+            if (view.IsValidRowHandle(rowIndex))
+            {
+                gridViewPermissions.ClearSelection();
+                var role = view.GetRow(rowIndex) as Role;
+                if (role != null)
+                {
+                    for (int rowHandle = 0; rowHandle < gridViewPermissions.RowCount; rowHandle++)
+                    {
+                        var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
+                        if (viewModel.RoleHasPermission(role, perm))
+                        {
+                            gridViewPermissions.SelectRow(rowHandle);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void gridViewRole_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            RefreshRolePermissions(e.FocusedRowHandle);
+        }
+
+        private void gridViewPermissions_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            var view = sender as GridView;
+            var role = gridViewRole.GetFocusedRow() as Role;
+
+            if (role == null)
+                return;
+
+            Permission p = view.GetRow(e.ControllerRow) as Permission;
+
+            switch (e.Action)
+            {
+                case CollectionChangeAction.Add:
+                    viewModel.AddPermissionToRole(role, p);
+                    IsModified = true;
+                    break;
+                case CollectionChangeAction.Remove:
+                    viewModel.RemovePermissionFromRole(role, p);
+                    IsModified = true;
+                    break;
+            }
+        }
+
+        private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            var view = sender as GridView;
+
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                view.ClearColumnErrors();
+                User user = view.GetRow(e.RowHandle) as User;
+                if (String.IsNullOrEmpty(user.Login))
+                {
+                    view.SetColumnError(colLogin, Resources.VALUE_REQUIRED);
+                    e.Valid = false;
+                    return;
+                }
+                if (String.IsNullOrEmpty(user.PasswordHash))
+                {
+                    view.SetColumnError(colUserPass, Resources.VALUE_REQUIRED);
+                    e.Valid = false;
+                    return;
+                }
+            }
+        }
+
+        private void gridViewUsers_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void gridViewUsers_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            var view = sender as GridView;
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                User user = view.GetRow(e.RowHandle) as User;
+                if (user != null)
+                {
+                    user.IsActive = true;
+                }
+            }
+        }
+
+        private void repositoryItemButtonUserPass_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var view = gridViewUsers;
+            if (view.IsValidRowHandle(view.FocusedRowHandle))
+            {
+                User user = view.GetRow(view.FocusedRowHandle) as User;
+                PasswordChangeDialog dlg = new PasswordChangeDialog();
+                if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                {
+                    user.PasswordHash = dlg.NewPasswordHash;
+                    IsModified = true;
+                }
+            }
+        }
+
+        private void gridViewUsers_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            var view = sender as GridView;
+            view.RemoveSelectedItem(e, viewModel.Users, (_) => _.IsNew());
+        }
+
+        private void gridViewRoles_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            var view = sender as GridView;
+            var user = gridViewUsers.GetRow(gridViewUsers.FocusedRowHandle) as User;
+
+            if (user != null)
+            {
+                var role = view.GetRow(e.ControllerRow) as Role;
+                if (role != null)
+                {
+                    switch (e.Action)
+                    {
+                        case CollectionChangeAction.Add:
+                            viewModel.AddRoleToUser(role, user);
+                            IsModified = true;
+                            break;
+                        case CollectionChangeAction.Remove:
+                            viewModel.RemoveRoleFromUser(role, user);
+                            IsModified = true;
+                            break;
+                    }
+                }
+            }
+        }
+
+        void RefreshUserRoles(int currentRow)
+        {
+            var view = gridViewUsers;
+
+            if (view.IsValidRowHandle(currentRow))
+            {
+                gridViewRoles.ClearSelection();
+                var user = view.GetRow(currentRow) as User;
+                if (user != null)
+                {
+                    for (int rowHandle = 0; rowHandle < gridViewRoles.RowCount; rowHandle++)
+                    {
+                        var role = gridViewRoles.GetRow(rowHandle) as Role;
+                        if (role != null && viewModel.UserHasRole(user, role))
+                        {
+                            gridViewRoles.SelectRow(rowHandle);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void gridViewUsers_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            RefreshUserRoles(e.FocusedRowHandle);
+        }
 
     }
 
