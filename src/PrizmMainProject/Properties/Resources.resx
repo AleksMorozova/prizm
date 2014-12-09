@@ -331,4 +331,16 @@
   <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
     <value>Значение не соответствует маске</value>
   </data>
+  <data name="Construction" xml:space="preserve">
+    <value>Строительство</value>
+  </data>
+  <data name="Inspection" xml:space="preserve">
+    <value>Входной контроль</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Главный</value>
+  </data>
+  <data name="Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
 </root>

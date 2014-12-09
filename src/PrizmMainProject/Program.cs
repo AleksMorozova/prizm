@@ -39,12 +39,16 @@ namespace PrizmMain
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
+                #if DEBUG
+                    Console.WriteLine("Mode = Debug");
+                #else
                 while (!Login())
                 {
-                   MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                   
-                
+                #endif
+
+
                 Application.Run(new PrizmApplicationXtraForm());
             }
             catch (Exception ex)

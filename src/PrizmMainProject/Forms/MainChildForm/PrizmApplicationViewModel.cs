@@ -7,10 +7,14 @@ using System.Text;
 using Ninject;
 using Domain.Entity;
 
+using Domain.Entity.Setup;
+using PrizmMain.Common;
+
 namespace PrizmMain.Forms.MainChildForm
 {
     public class PrizmApplicationViewModel : ViewModelBase, IDisposable
     {
+        private EnumWrapper<WorkstationType> workstationName;
         readonly IProjectRepository repo;
         public Project ProjectSettings;
 
@@ -39,6 +43,22 @@ namespace PrizmMain.Forms.MainChildForm
             }
             ProjectSettings = repo.GetSingle();
         }
+
+
+        public EnumWrapper<WorkstationType> WorkstationType
+        {
+            get
+            {
+                return
+                   workstationName ??
+                    new EnumWrapper<WorkstationType>() { Value = ProjectSettings.WorkstationType };
+            }
+            set
+            {
+                workstationName = value;
+            }
+        }
+
 
         public void Dispose()
         {

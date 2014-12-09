@@ -262,7 +262,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HeatXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Завод - плавка";
+            this.Text = "Плавка";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HeatXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.HeatXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).EndInit();

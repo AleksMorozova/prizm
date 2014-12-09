@@ -246,6 +246,7 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Project](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NOT NULL,
+	[title] [nvarchar] (20) NULL,
 	[client] [nvarchar](100) NULL,
 	[millName] [nvarchar](100) NULL,
 	[documentSizeLimit] [int] NULL,

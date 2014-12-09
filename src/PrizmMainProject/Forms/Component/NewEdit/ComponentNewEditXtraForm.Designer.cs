@@ -536,7 +536,7 @@
             this.Controls.Add(this.newEditPipeLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentNewEditXtraForm";
-            this.Text = "Входной контроль - комлектующее изделие";
+            this.Text = " Комлектующее изделие";
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).EndInit();
             this.newEditPipeLayout.ResumeLayout(false);
