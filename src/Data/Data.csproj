@@ -87,6 +87,8 @@
     <Compile Include="DAL\Mapping\CategoryMap.cs" />
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
+    <Compile Include="DAL\Mapping\ComponentMap.cs" />
+    <Compile Include="DAL\Mapping\ConnectorMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mapping\RoleMap.cs" />
+    <Compile Include="DAL\Mapping\SpoolMap.cs" />
     <Compile Include="DAL\Mapping\UserMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
@@ -139,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\Construction\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

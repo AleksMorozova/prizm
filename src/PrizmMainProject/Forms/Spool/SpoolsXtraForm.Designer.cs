@@ -274,7 +274,7 @@
             this.Controls.Add(this.mainLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
-            this.Text = "Строительство - создание катушки";
+            this.Text = "Создание катушки";
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
