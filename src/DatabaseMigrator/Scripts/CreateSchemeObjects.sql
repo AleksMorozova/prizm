@@ -188,24 +188,6 @@ CREATE TABLE [dbo].[PipeTestResult](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-SET ANSI_PADDING OFF
-/****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[PipeTestResult](
-	[id] [uniqueidentifier] NOT NULL,
-	[pipelinePieceId] [uniqueidentifier] NULL,
-	[date] [date] NULL,
-	[order][int] NULL,
-	[status] [nvarchar] (25) NULL,
-	[value] [nvarchar] (20) NULL,
-	[isActive] [bit] NULL,
- CONSTRAINT [PK_InspectionTestResult] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
 /****** Object:  Table [dbo].[Plate]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
