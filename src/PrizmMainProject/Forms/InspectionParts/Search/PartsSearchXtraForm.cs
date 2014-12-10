@@ -28,12 +28,11 @@ namespace PrizmMain.Forms.InspectionParts.Search
             viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
             BindCommands();
             BindToViewModel();
-
             
             type.Properties.Items.Add(PartType.Pipe, Resources.PartTypePipe,CheckState.Checked,true);
             type.Properties.Items.Add(PartType.Spool, Resources.PartTypeSpool, CheckState.Checked, true);
             type.Properties.Items.Add(PartType.Component, Resources.PartTypeComponent, CheckState.Checked, true);
-
+            RefreshTypes();
         }
 
         private void BindToViewModel()
@@ -45,6 +44,25 @@ namespace PrizmMain.Forms.InspectionParts.Search
         private void BindCommands()
         {
             searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+        }
+
+        private void type_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            RefreshTypes();
+        }
+
+        private void RefreshTypes()
+        {
+            BindingList<PartType> selectedTypes = new BindingList<PartType>();
+            for(int i = 0; i < type.Properties.Items.Count; i++)
+            {
+                if(type.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    selectedTypes.Add((PartType)type.Properties.Items[i].Value);
+                }
+            }
+            viewModel.Types.Clear();
+            viewModel.Types = selectedTypes;
         }
     }
 }

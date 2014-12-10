@@ -3,6 +3,7 @@ using DevExpress.Mvvm.POCO;
 using NHibernate;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Forms.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
     {
         PartsSearchCommand searchCommand;
         ISession session;
+        
 
         [Inject]
         public PartsSearchViewModel(ISession session)
@@ -34,6 +36,20 @@ namespace PrizmMain.Forms.InspectionParts.Search
                 {
                     parts = value;
                     RaisePropertyChanged("Parts");
+                }
+            }
+        }
+
+        private BindingList<PartType> types = new BindingList<PartType>();
+        public BindingList<PartType> Types
+        {
+            get { return types; }
+            set
+            {
+                if(value != types)
+                {
+                    types = value;
+                    RaisePropertyChanged("Types");
                 }
             }
         }

@@ -99,6 +99,7 @@
             this.type.Size = new System.Drawing.Size(226, 20);
             this.type.StyleController = this.mainLayoutControl;
             this.type.TabIndex = 6;
+            this.type.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.type_CloseUp);
             // 
             // parts
             // 
