@@ -16,6 +16,7 @@ using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarNewEditXtraForm : ChildForm
     {
         private RailcarViewModel viewModel;

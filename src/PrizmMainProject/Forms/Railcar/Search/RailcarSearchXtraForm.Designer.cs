@@ -428,7 +428,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "Завод - поиск вагонов";
+            this.Text = "Поиск вагонов";
             this.Activated += new System.EventHandler(this.RailcarSearchXtraForm_Activated);
             this.Load += new System.EventHandler(this.RailcarSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();

@@ -41,8 +41,17 @@
   <ItemGroup>
     <Compile Include="Entity\AuditLog.cs" />
     <Compile Include="Entity\Certificate.cs" />
+    <Compile Include="Entity\Construction\Connector.cs" />
+    <Compile Include="Entity\Construction\PieceConstructionStatus.cs" />
+    <Compile Include="Entity\Construction\PieceInspectionStatus.cs" />
+    <Compile Include="Entity\Construction\Spool.cs" />
+    <Compile Include="Entity\Construction\Component.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
+    <Compile Include="Entity\Construction\JointActionResult.cs" />
+    <Compile Include="Entity\Construction\JointStatus.cs" />
+    <Compile Include="Entity\Construction\JointTestResult.cs" />
+    <Compile Include="Entity\Construction\JointTestResultStatus.cs" />
     <Compile Include="Entity\Mill\Category.cs" />
     <Compile Include="Entity\Mill\Coat.cs" />
     <Compile Include="Entity\Mill\CoatingType.cs" />
@@ -58,6 +67,7 @@
     <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Setup\InspectorCertificate.cs" />
+    <Compile Include="Entity\Setup\JointOperation.cs" />
     <Compile Include="Entity\Setup\PipeMillSizeType.cs" />
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
@@ -68,10 +78,9 @@
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
     <Compile Include="Entity\Mill\PurchaseOrder.cs" />
     <Compile Include="Entity\Mill\Pipe.cs" />
-    <Compile Include="Entity\Joint\ConstructionWelding.cs" />
-    <Compile Include="Entity\Joint\GPS.cs" />
-    <Compile Include="Entity\Joint\Joint.cs" />
-    <Compile Include="Entity\Joint\JointInspection.cs" />
+    <Compile Include="Entity\Construction\ConstructionWelding.cs" />
+    <Compile Include="Entity\Construction\Joint.cs" />
+    <Compile Include="Entity\Construction\JointInspection.cs" />
     <Compile Include="Entity\Mill\TensileTest.cs" />
     <Compile Include="Entity\Mill\Weld.cs" />
     <Compile Include="Entity\PersonName.cs" />

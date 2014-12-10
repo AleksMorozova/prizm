@@ -18,6 +18,7 @@ using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillReportsXtraForm : ChildForm
     {
         private MillReportsViewModel viewModel;

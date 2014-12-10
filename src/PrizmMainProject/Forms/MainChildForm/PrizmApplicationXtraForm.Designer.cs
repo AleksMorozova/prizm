@@ -408,7 +408,6 @@
             this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
-            this.barButtonItemSettingsPipeline.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemSettingsUsers
@@ -633,7 +632,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
-            this.Text = "PRIZMA";
+            this.Text = "[PRIZMA]";
             this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();

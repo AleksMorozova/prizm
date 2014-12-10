@@ -1,6 +1,7 @@
 ﻿using System;
 using Domain.Entity.Setup;
 using System.Collections.Generic;
+using Domain.Entity.Construction;
 
 namespace Domain.Entity.Mill
 {
@@ -10,11 +11,11 @@ namespace Domain.Entity.Mill
         {
             this.Welds = new List<Weld>();
             this.Coats = new List<Coat>();
+            this.Spools = new List<Spool>();
             this.PipeTestResult = new List<PipeTestResult>();
 
             this.Plate = new Plate() { Pipe = this };
         }
-
 
         public virtual Plate Plate { get; set; }
 
@@ -35,6 +36,8 @@ namespace Domain.Entity.Mill
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
         public virtual IList<Coat> Coats { get; set; }
+
+        public virtual IList<Spool> Spools { get; set; }
 
         public virtual PipeMillStatus Status { get; set; }
     }
