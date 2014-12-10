@@ -709,15 +709,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Завод.
-        /// </summary>
-        internal static string Mill {
-            get {
-                return ResourceManager.GetString("Mill", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Активен.
         /// </summary>
         internal static string IsActive {

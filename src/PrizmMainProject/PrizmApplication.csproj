@@ -188,9 +188,7 @@
     <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
     <Compile Include="Forms\Audit\AuditViewModel.cs" />
-    <Compile Include="Forms\Audit\AuditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Audit\AuditXtraForm.cs" />
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
