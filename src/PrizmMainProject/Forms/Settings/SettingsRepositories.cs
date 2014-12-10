@@ -22,6 +22,7 @@ namespace PrizmMain.Forms.Settings
       readonly IPlateManufacturerRepository manufacturerRepo;
       readonly IInspectorRepository inspectorRepo;
       readonly ICategoryRepository categoryRepo;
+      readonly IJointOperationRepository jointRepo;
       readonly IUserRepository userRepo;
       readonly IRoleRepository roleRepo;
       readonly IPermissionRepository permissionRepo;
@@ -38,6 +39,7 @@ namespace PrizmMain.Forms.Settings
          this.manufacturerRepo = new PlateManufacturerRepository(session);
          this.inspectorRepo = new InspectorRepository(session);
          this.categoryRepo = new CategoryRepository(session);
+         this.jointRepo = new JointOperationRepository(session);
          this.userRepo = new UserRepository(session);
          this.roleRepo = new RoleRepository(session);
          this.permissionRepo = new PermissionRepository(session);
@@ -121,5 +123,11 @@ namespace PrizmMain.Forms.Settings
             return permissionRepo;
          }
       }
+
+      public IJointOperationRepository JointRepo
+      {
+          get { return jointRepo; }
+      }
+
    }
 }

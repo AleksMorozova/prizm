@@ -51,6 +51,7 @@ namespace PrizmMain
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
             Bind<IMillRepository>().To<MillRepository>();
+            Bind<IJointOperationRepository>().To<JointOperationRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();

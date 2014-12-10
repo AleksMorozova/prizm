@@ -407,7 +407,6 @@
             this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
-            this.barButtonItemSettingsPipeline.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemSettingsUsers

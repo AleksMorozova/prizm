@@ -41,6 +41,7 @@ namespace PrizmMain.Forms.Settings
             SaveRoles();
             SaveUsers();
             SaveCategories();
+            SaveJointOperations();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -48,6 +49,7 @@ namespace PrizmMain.Forms.Settings
             EvictPlateManufacturers();
             EvictRoles();
             EvictUsers();
+            EvictJointOperations();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
             EvictCategories();
             viewModel.ModifiableView.IsModified = false;
@@ -105,6 +107,14 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        private void EvictJointOperations()
+        {
+            foreach (JointOperation o in viewModel.JointOperations)
+            {
+                repos.JointRepo.Evict(o);
+            }
+        }
+
         private void EvictPlateManufacturers()
         {
             foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
@@ -125,6 +135,15 @@ namespace PrizmMain.Forms.Settings
                 repos.PipeSizeTypeRepo.SaveOrUpdate(t);
             }
         }
+
+        void SaveJointOperations()
+        {
+            foreach (JointOperation o in viewModel.JointOperations)
+            {
+                repos.JointRepo.SaveOrUpdate(o);
+            }
+        }
+
 
         void SaveWelders()
         {
