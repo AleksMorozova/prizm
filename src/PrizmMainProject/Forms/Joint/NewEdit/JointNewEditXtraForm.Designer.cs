@@ -576,7 +576,7 @@
             this.MinimizeBox = false;
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
-            this.Text = "Строительство - стык";
+            this.Text = "Стык";
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);

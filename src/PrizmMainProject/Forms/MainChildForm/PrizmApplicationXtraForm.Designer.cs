@@ -632,7 +632,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
-            this.Text = "PRIZMA";
+            this.Text = "[PRIZMA]";
             this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
