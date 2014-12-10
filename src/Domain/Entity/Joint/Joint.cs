@@ -3,18 +3,25 @@ using System.Collections.Generic;
 
 namespace Domain.Entity.Joint
 {
-    public class Joint : PipelinePiece
+    public class Joint : Item
     {
         public Joint()
         {
-            this.Weldings = new List<ConstructionWelding>();
-            this.Inspections = new List<JointInspection>();
+            this.PipelinePieces = new List<PipelinePiece>(2);
+            this.JointTestResults = new List<JointTestResult>();
+            this.JointActionResults = new List<JointActionResult>();
         }
 
-        public DateTime LoweringDate { get; set; }
-        //public KilometerPost DistansFromKilomiterPost { get; set; }
+        public virtual int NumberKP { get; set; }
+        public virtual float DistanceFromKP { get; set; }
+        public virtual DateTime LoweringDate { get; set; }
+        public virtual JointStatus JointStatus { get; set; }
+        public virtual float GpsLatitude { get; set; }
+        public virtual float GpsLongitude { get; set; }
+        public virtual float GpsHeight { get; set; }
+        public virtual IList<PipelinePiece> PipelinePieces { get; set; }
+        public virtual IList<JointTestResult> JointTestResults { get; set; }
+        public virtual IList<JointActionResult> JointActionResults { get; set; } 
 
-        public ICollection<ConstructionWelding> Weldings { get; set; }
-        public ICollection<JointInspection> Inspections { get; set; }
     }
 }

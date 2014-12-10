@@ -211,6 +211,10 @@
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
+    <Compile Include="Forms\Joint\ConstructionRepository.cs" />
+    <Compile Include="Forms\Joint\IConstructionRepository.cs" />
+    <Compile Include="Forms\Joint\NewEdit\JointNewEditViewModel.cs" />
+    <Compile Include="Forms\Joint\NewEdit\SaveJointCommand.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
