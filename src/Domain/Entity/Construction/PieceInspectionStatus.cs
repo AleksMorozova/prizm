@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Inspection
+namespace Domain.Entity.Construction
 {
-    public enum InspectionStatus
+    public enum PieceInspectionStatus
     {
-        Accepted = 1,
+        Pending = 1,
         Hold = 2,
         Rejected = 3,
-        Pending = 4,
+        Accepted = 4,
 
-        Undef = 0
+        Undefined = 0
     }
 }

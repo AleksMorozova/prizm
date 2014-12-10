@@ -40,6 +40,7 @@ namespace PrizmMain.Forms.Settings
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
         #region Role Setting
@@ -130,9 +131,13 @@ namespace PrizmMain.Forms.Settings
 
             gridControlRoles.DataSource = rolesBindingSource;
 
+            jointOperationsBindingSource.DataSource = viewModel.JointOperations;
             #endregion
 
             #region Data Bindings
+
+            jointOperations.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "JointOperations");
+
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
 
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");

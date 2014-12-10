@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -71,7 +72,7 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -593,7 +594,7 @@
             this.Controls.Add(this.PipeSearchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeSearchXtraForm";
-            this.Text = "Завод - поиск труб";
+            this.Text = "Поиск труб";
             this.Load += new System.EventHandler(this.MillPipeSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();

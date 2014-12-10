@@ -12,6 +12,7 @@ namespace Data.DAL.Mapping
     {
         public ProjectMap()
         {
+            Map(_ => _.Title).Column("title");
             Map(_ => _.Client).Column("client");
             Map(_ => _.MillName).Column("millName");
             Map(_ => _.DocumentSizeLimit).Column("documentSizeLimit");
