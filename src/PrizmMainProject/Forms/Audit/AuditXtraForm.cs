@@ -12,6 +12,7 @@ using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Audit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class AuditXtraForm : ChildForm
     {
         private AuditViewModel viewModel;

@@ -27,6 +27,7 @@ using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
 

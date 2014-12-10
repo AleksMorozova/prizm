@@ -6,6 +6,7 @@ using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ConstructionReportsXtraForm : ChildForm
     {
         public ConstructionReportsXtraForm()

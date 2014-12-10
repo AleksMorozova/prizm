@@ -18,6 +18,7 @@ using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarSearchXtraForm : ChildForm
     {
         private RailcarSearchViewModel viewModel;
