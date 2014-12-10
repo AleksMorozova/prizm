@@ -8,11 +8,10 @@ using PrizmMain.Documents;
 using PrizmMain.Properties;
 using PrizmMain.Forms.Common;
 using PrizmMain.Commands;
-using System.Windows.Forms;
 
 namespace PrizmMain.Forms.MainChildForm
 {
-     [System.ComponentModel.DesignerCategory("")] 
+    // [System.ComponentModel.DesignerCategory("")] 
     public class ChildForm : XtraForm, IModifiable
     {
         #region --- Modified and header ---

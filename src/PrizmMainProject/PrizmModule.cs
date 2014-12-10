@@ -28,6 +28,8 @@ using Data.DAL.ADO;
 using Data.DAL.Security;
 using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
+using PrizmMain.Forms.Joint;
+using Data.DAL.Construction;
 
 namespace PrizmMain
 {
@@ -62,6 +64,8 @@ namespace PrizmMain
             Bind<IUserRepository>().To<UserRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();
             Bind<IPermissionRepository>().To<PermissionRepository>();
+            Bind<IConstructionRepository>().To<ConstructionRepository>();
+            Bind<IJointRepository>().To<JointRepository>();
 
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
@@ -78,6 +82,7 @@ namespace PrizmMain
             Bind<SettingsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
+            Bind<JointNewEditViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
