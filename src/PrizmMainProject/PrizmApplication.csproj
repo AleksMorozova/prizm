@@ -210,14 +210,22 @@
     </Compile>
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs" />
+    <Compile Include="Forms\InspectionParts\Search\Part.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
       <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
-    <Compile Include="Forms\MainChildForm\ChildForm.cs" />
+    <Compile Include="Forms\MainChildForm\ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,7 +395,9 @@
     <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.Designer.cs">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs" />
+    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
@@ -403,7 +413,9 @@
     <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.Designer.cs">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\SettingsXtraForm.cs" />
+    <Compile Include="Forms\Settings\SettingsXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </Compile>

@@ -14,9 +14,29 @@ namespace PrizmMain.Forms.InspectionParts.Search
 {
     public partial class PartsSearchXtraForm : ChildForm
     {
+        private PartsSearchViewModel viewModel;
+
         public PartsSearchXtraForm()
         {
             InitializeComponent();
+        }
+
+        private void PartsSearchXtraForm_Load(object sender, EventArgs e)
+        {
+            viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
+            BindCommands();
+            BindToViewModel();
+        }
+
+        private void BindToViewModel()
+        {
+            bindingSource.DataSource = viewModel;
+            parts.DataBindings.Add("DataSource", bindingSource, "Parts");
+        }
+
+        private void BindCommands()
+        {
+      
         }
     }
 }

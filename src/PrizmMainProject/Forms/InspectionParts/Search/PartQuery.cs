@@ -10,7 +10,12 @@ namespace PrizmMain.Forms.InspectionParts.Search
 {
     public class PartQuery : IResultTransformer
     {
-        public static readonly string Sql = "";
+        public static readonly string Sql = @"
+SELECT 
+    id, number, 'pipe' 
+FROM
+    Pipe
+";
         public static readonly PartQuery Transformer = new PartQuery();
 
         private PartQuery()
@@ -25,11 +30,11 @@ namespace PrizmMain.Forms.InspectionParts.Search
 
         public object TransformTuple(object[] tuple, string[] aliases)
         {
-            return new Part
+            return new Part()
             {
                 Id = (Guid)tuple[0],
-                Number = (string)tuple[0],
-                Type = (string)tuple[1]
+                Number = (string)tuple[1],
+                Type = (string)tuple[2]
             };
         }
 

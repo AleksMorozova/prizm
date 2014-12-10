@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsSearchXtraForm));
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.search = new DevExpress.XtraEditors.SimpleButton();
             this.type = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.parts = new DevExpress.XtraGrid.GridControl();
             this.partsView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.numberCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.typeCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraEditors.TextEdit();
             this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.gridlayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -42,6 +46,7 @@
             this.typeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.searchBtnLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
@@ -55,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBtnLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
@@ -105,6 +111,10 @@
             // 
             // partsView
             // 
+            this.partsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idCol,
+            this.numberCol,
+            this.typeCol});
             this.partsView.GridControl = this.parts;
             this.partsView.Name = "partsView";
             this.partsView.OptionsCustomization.AllowFilter = false;
@@ -112,6 +122,30 @@
             this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.partsView.OptionsView.ShowGroupPanel = false;
+            // 
+            // idCol
+            // 
+            this.idCol.Caption = "#";
+            this.idCol.FieldName = "Id";
+            this.idCol.Name = "idCol";
+            this.idCol.Visible = true;
+            this.idCol.VisibleIndex = 2;
+            // 
+            // numberCol
+            // 
+            this.numberCol.Caption = "Номер";
+            this.numberCol.FieldName = "Number";
+            this.numberCol.Name = "numberCol";
+            this.numberCol.Visible = true;
+            this.numberCol.VisibleIndex = 0;
+            // 
+            // typeCol
+            // 
+            this.typeCol.Caption = "Тип";
+            this.typeCol.FieldName = "Type";
+            this.typeCol.Name = "typeCol";
+            this.typeCol.Visible = true;
+            this.typeCol.VisibleIndex = 1;
             // 
             // number
             // 
@@ -207,6 +241,10 @@
             this.searchBtnLayoutControl.TextToControlDistance = 0;
             this.searchBtnLayoutControl.TextVisible = false;
             // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
+            // 
             // PartsSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +253,7 @@
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "PartsSearchXtraForm";
             this.Text = "Входной контроль - поиск компонентов";
+            this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
@@ -228,6 +267,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBtnLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,5 +287,9 @@
         private DevExpress.XtraLayout.LayoutControlItem typeLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem searchBtnLayoutControl;
+        private DevExpress.XtraGrid.Columns.GridColumn idCol;
+        private DevExpress.XtraGrid.Columns.GridColumn numberCol;
+        private DevExpress.XtraGrid.Columns.GridColumn typeCol;
+        private System.Windows.Forms.BindingSource bindingSource;
     }
 }
