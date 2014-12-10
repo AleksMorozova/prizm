@@ -39,6 +39,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
         {
             bindingSource.DataSource = viewModel;
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
+            number.DataBindings.Add("Editvalue", bindingSource, "Number");
         }
 
         private void BindCommands()

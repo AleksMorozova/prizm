@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using NHibernate;
+using NHibernate.Type;
 using Ninject;
 using PrizmMain.Commands;
 using System;
@@ -29,9 +30,10 @@ namespace PrizmMain.Forms.InspectionParts.Search
         {
             BindingList<Part> parts = new BindingList<Part>();
 
-            var qparts = session.CreateSQLQuery(PartQuery.Sql)
-                .SetResultTransformer(PartQuery.Transformer)
-                .List<Part>();
+            var query = session.CreateSQLQuery(PartQuery.BuildSql(viewModel.Types, viewModel.Number))
+                .SetResultTransformer(PartQuery.Transformer);
+
+            var qparts = query.List<Part>();
 
             foreach(var item in qparts)
             {

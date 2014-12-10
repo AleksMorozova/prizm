@@ -26,6 +26,20 @@ namespace PrizmMain.Forms.InspectionParts.Search
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
         }
 
+        private string number = string.Empty;
+        public string Number
+        {
+            get { return number; }
+            set
+            {
+                if(value != number)
+                {
+                    number = value;
+                    RaisePropertyChanged("Number");
+                }
+            }
+        }
+
         private BindingList<Part> parts = new BindingList<Part>();
         public BindingList<Part> Parts 
         {
