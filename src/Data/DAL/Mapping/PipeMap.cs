@@ -17,9 +17,6 @@ namespace Data.DAL.Mapping
             Map(_ => _.Diameter).Column("diameter");
             Map(_ => _.ProductionDate).Column("productionDate");
             Map(_ => _.Status).Column("pipeMillStatus");
-
-            Map(_ => _.InspectionStatus).Column("inspectionStatus");
-            Map(_ => _.ConstructionStatus).Column("constructionStatus");
             #endregion
 
             #region --- References ---

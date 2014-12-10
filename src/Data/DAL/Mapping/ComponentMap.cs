@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Mapping
 {
-    public class ComponentMap: ClassMap<Component>
+    public class ComponentMap : SubclassMap<Component>
     {
         public ComponentMap()
         {

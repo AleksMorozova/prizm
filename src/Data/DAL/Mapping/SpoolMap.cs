@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Mapping
 {
-    public class SpoolMap: ClassMap<Spool>
+    public class SpoolMap: SubclassMap<Spool>
     {
         public SpoolMap()
         {

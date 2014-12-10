@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Mapping
 {
-    public class ConnectorMap: ClassMap<Connector>
+    public class ConnectorMap : SubclassMap<Connector>
     {
         public ConnectorMap()
         {
