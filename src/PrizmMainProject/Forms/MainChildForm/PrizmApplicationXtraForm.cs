@@ -27,6 +27,7 @@ using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Audit;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -272,7 +273,7 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(PartsSearchXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)

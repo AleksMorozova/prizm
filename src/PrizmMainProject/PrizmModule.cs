@@ -28,6 +28,7 @@ using Data.DAL.ADO;
 using Data.DAL.Security;
 using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain
 {
@@ -77,6 +78,7 @@ namespace PrizmMain
             Bind<SettingsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
+            Bind<PartsSearchViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -97,6 +99,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
+            Bind<PartsSearchXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
