@@ -8,6 +8,7 @@ using PrizmMain.Documents;
 using PrizmMain.Properties;
 using PrizmMain.Forms.Common;
 using PrizmMain.Commands;
+using System.Windows.Forms;
 
 namespace PrizmMain.Forms.MainChildForm
 {

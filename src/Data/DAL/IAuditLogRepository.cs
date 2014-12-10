@@ -9,5 +9,6 @@ namespace Data.DAL
 {
     public interface IAuditLogRepository : IRepository<Guid, AuditLog>
     {
+        IEnumerable<string> GetAllUsers();
     }
 }

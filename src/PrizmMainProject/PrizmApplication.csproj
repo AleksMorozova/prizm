@@ -186,9 +186,9 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
-    <Compile Include="Forms\Audit\AuditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
+    <Compile Include="Forms\Audit\AuditViewModel.cs" />
+    <Compile Include="Forms\Audit\AuditXtraForm.cs" />
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
@@ -211,22 +211,16 @@
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
+    <Compile Include="Forms\MainChildForm\ChildForm.cs" />
+    <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs" />
     <Compile Include="Forms\Joint\ConstructionRepository.cs" />
     <Compile Include="Forms\Joint\IConstructionRepository.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointNewEditViewModel.cs" />
     <Compile Include="Forms\Joint\NewEdit\SaveJointCommand.cs" />
-    <Compile Include="Forms\MainChildForm\ChildForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.cs" />
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
@@ -286,9 +280,7 @@
     <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
-    <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.Designer.cs">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </Compile>
@@ -298,9 +290,7 @@
     <Compile Include="Forms\ExternalFile\ExternalFilesXtraForm.Designer.cs">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.Designer.cs">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </Compile>
@@ -327,51 +317,35 @@
     <Compile Include="Forms\Settings\ViewTypes\InspectorViewType.cs" />
     <Compile Include="Forms\Settings\ViewTypes\PersonSetupViewType.cs" />
     <Compile Include="Forms\Settings\ViewTypes\WelderViewType.cs" />
-    <Compile Include="Forms\Spool\SpoolsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Spool\SpoolsXtraForm.cs" />
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs" />
     <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.Designer.cs">
       <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.cs" />
     <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.Designer.cs">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Joint\NewEdit\JointNewEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointNewEditXtraForm.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointNewEditXtraForm.Designer.cs">
       <DependentUpon>JointNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Joint\Search\JointSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Joint\Search\JointSearchXtraForm.cs" />
     <Compile Include="Forms\Joint\Search\JointSearchXtraForm.Designer.cs">
       <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Mill\MillReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Reports\Mill\MillReportsXtraForm.cs" />
     <Compile Include="Forms\Reports\Mill\MillReportsXtraForm.Designer.cs">
       <DependentUpon>MillReportsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.Designer.cs">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.Designer.cs">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </Compile>
@@ -381,21 +355,15 @@
     <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.cs" />
     <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.Designer.cs">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.cs" />
     <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.Designer.cs">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </Compile>
@@ -405,9 +373,7 @@
     <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.Designer.cs">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\SettingsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\Settings\SettingsXtraForm.cs" />
     <Compile Include="Forms\Settings\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
     </Compile>
@@ -438,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Audit\AuditXtraForm.resx">
+      <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\SaveDialog.resx">
       <DependentUpon>SaveDialog.cs</DependentUpon>
@@ -530,6 +499,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
@@ -557,122 +527,122 @@
   <ItemGroup>
     <PublishFile Include="DevExpress.Data.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Office.v14.1.Core">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Printing.v14.1.Core">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.RichEdit.v14.1.Core">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Sparkline.v14.1.Core">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Utils.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraBars.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraEditors.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraGrid.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraLayout.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraPrinting.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraTreeList.v14.1">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

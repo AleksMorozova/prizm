@@ -26,6 +26,7 @@ using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.PipeMill.Purchase;
 using Data.DAL.ADO;
 using Data.DAL.Security;
+using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
@@ -52,6 +53,7 @@ namespace PrizmMain
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
             Bind<IMillRepository>().To<MillRepository>();
+            Bind<IJointOperationRepository>().To<JointOperationRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
@@ -100,6 +102,7 @@ namespace PrizmMain
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();
+            Bind<AuditXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

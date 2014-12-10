@@ -12,10 +12,11 @@ namespace Data.DAL.Mapping
     {
         public PipelinePieceMap()
         {
-
             Map(x => x.Number).Column("number");
             Map(x => x.Length).Column("length");
 
+            Map(x => x.InspectionStatus).Column("inspectionStatus");
+            Map(x => x.ConstructionStatus).Column("constructionStatus");
         }
     }
 }

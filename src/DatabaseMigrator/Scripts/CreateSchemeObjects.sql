@@ -10,12 +10,6 @@ CREATE TABLE [dbo].[ChemicalComposition](
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
-
-
-
-
-
 /****** Object:  Table [dbo].[Category]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -34,6 +28,77 @@ CREATE TABLE [dbo].[Category](
 
 SET ANSI_PADDING OFF
 
+
+
+
+/****** Object:  Table [dbo].[Connector]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[Connector](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[diameter] [int] NULL,
+	[wallThickness] [int] NULL,
+	[isUsed] [bit] NULL,
+	[componentId] [uniqueidentifier] NULL,
+
+ CONSTRAINT [PK_Connector] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+/****** Object:  Table [dbo].[Component]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[Component](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[certificate] [nvarchar](20) NULL,
+	[length] [int] NULL,
+	[number] [nvarchar](20) NULL,
+	[isActive] [bit] NULL,
+	[inspectionStatus] [nvarchar](15) NULL,
+	[constructionStatus] [nvarchar](15) NULL,
+
+ CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+
+
+
+/****** Object:  Table [dbo].[Spool]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[Spool](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[inspectionStatus] [nvarchar](15) NULL,
+	[constructionStatus] [nvarchar](15) NULL,
+	[length] [int] NULL,
+	[number] [nvarchar](20) NULL,
+
+	[pipeNumber] [nvarchar](20) NULL,
+
+	[pipeId] [uniqueidentifier] NULL,
+
+ CONSTRAINT [PK_Spool] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
 
 
 
@@ -169,6 +234,28 @@ CREATE TABLE [dbo].[PipeTest](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
+/****** Object:  Table [dbo].[JointOperation]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[JointOperation](
+	[id] [uniqueidentifier] NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[isRequired] [bit] NULL,
+	[isTest] [bit] NULL,
+	[testHasAccepted] [bit] NULL,
+	[testHasToRepair] [bit] NULL,
+	[testHasToWithdraw] [bit] NULL,
+	[testResultRequired] [bit] NULL,
+	[isActive] [bit] NULL,
+ CONSTRAINT [PK_JointOperation] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+SET ANSI_PADDING OFF
 /****** Object:  Table [dbo].[PipeTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -246,6 +333,7 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Project](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NOT NULL,
+	[title] [nvarchar] (20) NULL,
 	[client] [nvarchar](100) NULL,
 	[millName] [nvarchar](100) NULL,
 	[documentSizeLimit] [int] NULL,
@@ -349,10 +437,22 @@ CREATE TABLE [dbo].[Welder](
 SET ANSI_PADDING OFF
 
 
+/* ------ Connector CONSTRAINT ------ */
+ALTER TABLE [dbo].[Connector]  WITH CHECK ADD  CONSTRAINT [FK_Connector_Component] FOREIGN KEY([componentId])
+REFERENCES [dbo].[Component] ([id])
+ALTER TABLE [dbo].[Connector] CHECK CONSTRAINT [FK_Connector_Component]
+
+/* ------ Spool CONSTRAINT ------ */
+ALTER TABLE [dbo].[Spool]  WITH CHECK ADD  CONSTRAINT [FK_Spool_Pipe] FOREIGN KEY([pipeId])
+REFERENCES [dbo].[Pipe] ([id])
+ALTER TABLE [dbo].[Spool] CHECK CONSTRAINT [FK_Spool_Pipe]
+
+
+
+
 ALTER TABLE [dbo].[PipeTest]  WITH CHECK ADD  CONSTRAINT [FK_PipeTest_Category] FOREIGN KEY([categoryId])
 REFERENCES [dbo].[Category] ([id])
 ALTER TABLE [dbo].[PipeTest] CHECK CONSTRAINT [FK_PipeTest_Category]
-
 
 ALTER TABLE [dbo].[Heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
 REFERENCES [dbo].[ChemicalComposition] ([id])
