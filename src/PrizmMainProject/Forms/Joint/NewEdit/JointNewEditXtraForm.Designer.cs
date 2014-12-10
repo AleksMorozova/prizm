@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
+            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.distanceFromPK = new DevExpress.XtraEditors.TextEdit();
             this.PKNumber = new DevExpress.XtraEditors.TextEdit();
             this.PKLabel = new DevExpress.XtraEditors.LabelControl();
@@ -66,11 +69,15 @@
             this.loweringDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.secondJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
-            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
+            this.extraFilesLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).BeginInit();
@@ -101,7 +108,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -109,15 +120,15 @@
             this.jointNumber.Location = new System.Drawing.Point(34, 69);
             this.jointNumber.Margin = new System.Windows.Forms.Padding(0);
             this.jointNumber.Name = "jointNumber";
-            this.jointNumber.Size = new System.Drawing.Size(166, 20);
+            this.jointNumber.Size = new System.Drawing.Size(239, 20);
             this.jointNumber.StyleController = this.newJointLayoutControl;
             this.jointNumber.TabIndex = 11;
             // 
             // newJointLayoutControl
             // 
-            this.newJointLayoutControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.newJointLayoutControl.Controls.Add(this.saveButton);
+            this.newJointLayoutControl.Controls.Add(this.extraFiles);
+            this.newJointLayoutControl.Controls.Add(this.deactivated);
             this.newJointLayoutControl.Controls.Add(this.distanceFromPK);
             this.newJointLayoutControl.Controls.Add(this.PKNumber);
             this.newJointLayoutControl.Controls.Add(this.PKLabel);
@@ -130,34 +141,71 @@
             this.newJointLayoutControl.Controls.Add(this.firstJointElement);
             this.newJointLayoutControl.Controls.Add(this.loweringDate);
             this.newJointLayoutControl.Controls.Add(this.jointNumber);
+            this.newJointLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newJointLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.newJointLayoutControl.Name = "newJointLayoutControl";
-            this.newJointLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(340, 238, 250, 350);
+            this.newJointLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 238, 250, 350);
             this.newJointLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.newJointLayoutControl.Root = this.newJointLayoutGroup;
-            this.newJointLayoutControl.Size = new System.Drawing.Size(940, 436);
+            this.newJointLayoutControl.Size = new System.Drawing.Size(1275, 550);
             this.newJointLayoutControl.TabIndex = 15;
             this.newJointLayoutControl.Text = "layoutControl1";
             // 
+            // saveButton
+            // 
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(1156, 506);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(97, 22);
+            this.saveButton.StyleController = this.newJointLayoutControl;
+            this.saveButton.TabIndex = 18;
+            this.saveButton.Text = "Со&хранить";
+            // 
+            // extraFiles
+            // 
+            this.extraFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.extraFiles.Image = ((System.Drawing.Image)(resources.GetObject("extraFiles.Image")));
+            this.extraFiles.Location = new System.Drawing.Point(22, 506);
+            this.extraFiles.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
+            this.extraFiles.MinimumSize = new System.Drawing.Size(100, 20);
+            this.extraFiles.Name = "extraFiles";
+            this.extraFiles.Size = new System.Drawing.Size(100, 22);
+            this.extraFiles.StyleController = this.newJointLayoutControl;
+            this.extraFiles.TabIndex = 16;
+            this.extraFiles.Text = "В&ложения";
+            this.extraFiles.Click += new System.EventHandler(this.extraFiles_Click);
+            // 
+            // deactivated
+            // 
+            this.deactivated.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deactivated.Location = new System.Drawing.Point(151, 506);
+            this.deactivated.Name = "deactivated";
+            this.deactivated.Properties.Caption = "Стык деактивирован";
+            this.deactivated.Size = new System.Drawing.Size(131, 19);
+            this.deactivated.StyleController = this.newJointLayoutControl;
+            this.deactivated.TabIndex = 17;
+            // 
             // distanceFromPK
             // 
-            this.distanceFromPK.Location = new System.Drawing.Point(613, 126);
+            this.distanceFromPK.Location = new System.Drawing.Point(823, 126);
             this.distanceFromPK.Name = "distanceFromPK";
-            this.distanceFromPK.Size = new System.Drawing.Size(129, 20);
+            this.distanceFromPK.Size = new System.Drawing.Size(191, 20);
             this.distanceFromPK.StyleController = this.newJointLayoutControl;
             this.distanceFromPK.TabIndex = 27;
             // 
             // PKNumber
             // 
-            this.PKNumber.Location = new System.Drawing.Point(465, 126);
+            this.PKNumber.Location = new System.Drawing.Point(613, 126);
             this.PKNumber.Name = "PKNumber";
-            this.PKNumber.Size = new System.Drawing.Size(129, 20);
+            this.PKNumber.Properties.Mask.EditMask = "d";
+            this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.PKNumber.Size = new System.Drawing.Size(191, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
             this.PKNumber.TabIndex = 26;
             // 
             // PKLabel
             // 
-            this.PKLabel.Location = new System.Drawing.Point(442, 131);
+            this.PKLabel.Location = new System.Drawing.Point(590, 131);
             this.PKLabel.Name = "PKLabel";
             this.PKLabel.Size = new System.Drawing.Size(12, 13);
             this.PKLabel.StyleController = this.newJointLayoutControl;
@@ -166,7 +214,7 @@
             // 
             // GPSLabel
             // 
-            this.GPSLabel.Location = new System.Drawing.Point(442, 72);
+            this.GPSLabel.Location = new System.Drawing.Point(590, 72);
             this.GPSLabel.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.GPSLabel.Name = "GPSLabel";
             this.GPSLabel.Size = new System.Drawing.Size(19, 13);
@@ -176,30 +224,30 @@
             // 
             // seaLevel
             // 
-            this.seaLevel.Location = new System.Drawing.Point(761, 69);
+            this.seaLevel.Location = new System.Drawing.Point(1033, 69);
             this.seaLevel.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
             this.seaLevel.MinimumSize = new System.Drawing.Size(100, 20);
             this.seaLevel.Name = "seaLevel";
-            this.seaLevel.Size = new System.Drawing.Size(130, 20);
+            this.seaLevel.Size = new System.Drawing.Size(193, 20);
             this.seaLevel.StyleController = this.newJointLayoutControl;
             this.seaLevel.TabIndex = 14;
             // 
             // GPSLat
             // 
-            this.GPSLat.Location = new System.Drawing.Point(465, 69);
+            this.GPSLat.Location = new System.Drawing.Point(613, 69);
             this.GPSLat.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLat.Name = "GPSLat";
-            this.GPSLat.Size = new System.Drawing.Size(129, 20);
+            this.GPSLat.Size = new System.Drawing.Size(191, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
             this.GPSLat.TabIndex = 9;
             // 
             // GPSLong
             // 
-            this.GPSLong.Location = new System.Drawing.Point(613, 69);
+            this.GPSLong.Location = new System.Drawing.Point(823, 69);
             this.GPSLong.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.GPSLong.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLong.Name = "GPSLong";
-            this.GPSLong.Size = new System.Drawing.Size(129, 20);
+            this.GPSLong.Size = new System.Drawing.Size(191, 20);
             this.GPSLong.StyleController = this.newJointLayoutControl;
             this.GPSLong.TabIndex = 10;
             // 
@@ -213,7 +261,7 @@
             this.controls.MainView = this.controlsView;
             this.controls.Margin = new System.Windows.Forms.Padding(15);
             this.controls.Name = "controls";
-            this.controls.Size = new System.Drawing.Size(872, 191);
+            this.controls.Size = new System.Drawing.Size(1207, 268);
             this.controls.TabIndex = 24;
             this.controls.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.controlsView,
@@ -266,12 +314,12 @@
             // 
             // secondJointElement
             // 
-            this.secondJointElement.Location = new System.Drawing.Point(219, 121);
+            this.secondJointElement.Location = new System.Drawing.Point(292, 121);
             this.secondJointElement.Name = "secondJointElement";
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.secondJointElement.Properties.NullText = "Введите номер";
-            this.secondJointElement.Size = new System.Drawing.Size(167, 20);
+            this.secondJointElement.Size = new System.Drawing.Size(242, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
             this.secondJointElement.TabIndex = 16;
             // 
@@ -282,38 +330,42 @@
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.firstJointElement.Properties.NullText = "Введите номер";
-            this.firstJointElement.Size = new System.Drawing.Size(166, 20);
+            this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 15;
             // 
             // loweringDate
             // 
             this.loweringDate.EditValue = null;
-            this.loweringDate.Location = new System.Drawing.Point(219, 69);
+            this.loweringDate.Location = new System.Drawing.Point(292, 69);
             this.loweringDate.Name = "loweringDate";
             this.loweringDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.loweringDate.Size = new System.Drawing.Size(167, 20);
+            this.loweringDate.Size = new System.Drawing.Size(242, 20);
             this.loweringDate.StyleController = this.newJointLayoutControl;
             this.loweringDate.TabIndex = 12;
             // 
             // newJointLayoutGroup
             // 
-            this.newJointLayoutGroup.CustomizationFormText = "newJointLayoutGroup";
+            this.newJointLayoutGroup.CustomizationFormText = "Root";
             this.newJointLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.newJointLayoutGroup.GroupBordersVisible = false;
             this.newJointLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectionLayoutGroup,
             this.loweringLayoutGroup,
-            this.jointParametersLayoutGroup});
+            this.jointParametersLayoutGroup,
+            this.extraFilesLayout,
+            this.deactivatedLayout,
+            this.saveButtonLayout,
+            this.saveButtonEmptySpace});
             this.newJointLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.newJointLayoutGroup.Name = "newJointLayoutGroup";
+            this.newJointLayoutGroup.Name = "Root";
             this.newJointLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.newJointLayoutGroup.Size = new System.Drawing.Size(940, 436);
+            this.newJointLayoutGroup.Size = new System.Drawing.Size(1275, 550);
             this.newJointLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
-            this.newJointLayoutGroup.Text = "newJointLayoutGroup";
+            this.newJointLayoutGroup.Text = "Root";
             this.newJointLayoutGroup.TextVisible = false;
             // 
             // inspectionLayoutGroup
@@ -323,8 +375,8 @@
             this.inspectionsLayout});
             this.inspectionLayoutGroup.Location = new System.Drawing.Point(0, 147);
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
-            this.inspectionLayoutGroup.Size = new System.Drawing.Size(900, 249);
-            this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 2);
+            this.inspectionLayoutGroup.Size = new System.Drawing.Size(1235, 337);
+            this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
             this.inspectionLayoutGroup.Text = "Контрольные операции";
             // 
             // inspectionsLayout
@@ -333,7 +385,7 @@
             this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
             this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionsLayout.Name = "inspectionsLayout";
-            this.inspectionsLayout.Size = new System.Drawing.Size(876, 195);
+            this.inspectionsLayout.Size = new System.Drawing.Size(1211, 272);
             this.inspectionsLayout.Text = "inspectionsLayout";
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionsLayout.TextToControlDistance = 0;
@@ -352,9 +404,9 @@
             this.distanceFromPKLayout,
             this.PKEmptySpace,
             this.loweringEmptySpace});
-            this.loweringLayoutGroup.Location = new System.Drawing.Point(395, 0);
+            this.loweringLayoutGroup.Location = new System.Drawing.Point(543, 0);
             this.loweringLayoutGroup.Name = "loweringLayoutGroup";
-            this.loweringLayoutGroup.Size = new System.Drawing.Size(505, 147);
+            this.loweringLayoutGroup.Size = new System.Drawing.Size(692, 147);
             this.loweringLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 2, 2, 2);
             this.loweringLayoutGroup.Text = "Параметры укладки";
             // 
@@ -365,7 +417,7 @@
             this.GPSLatLayout.Location = new System.Drawing.Point(23, 0);
             this.GPSLatLayout.MinSize = new System.Drawing.Size(119, 40);
             this.GPSLatLayout.Name = "GPSLatLayout";
-            this.GPSLatLayout.Size = new System.Drawing.Size(148, 57);
+            this.GPSLatLayout.Size = new System.Drawing.Size(210, 57);
             this.GPSLatLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLatLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.GPSLatLayout.Text = "Широта";
@@ -376,10 +428,10 @@
             // 
             this.GPSLongLayout.Control = this.GPSLong;
             this.GPSLongLayout.CustomizationFormText = "Äîëãîòà";
-            this.GPSLongLayout.Location = new System.Drawing.Point(171, 0);
+            this.GPSLongLayout.Location = new System.Drawing.Point(233, 0);
             this.GPSLongLayout.MinSize = new System.Drawing.Size(134, 40);
             this.GPSLongLayout.Name = "GPSLongLayout";
-            this.GPSLongLayout.Size = new System.Drawing.Size(148, 57);
+            this.GPSLongLayout.Size = new System.Drawing.Size(210, 57);
             this.GPSLongLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLongLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.GPSLongLayout.Text = "Долгота";
@@ -390,11 +442,11 @@
             // 
             this.elevationLayout.Control = this.seaLevel;
             this.elevationLayout.CustomizationFormText = "Âûñîòà";
-            this.elevationLayout.Location = new System.Drawing.Point(319, 0);
+            this.elevationLayout.Location = new System.Drawing.Point(443, 0);
             this.elevationLayout.MaxSize = new System.Drawing.Size(0, 57);
             this.elevationLayout.MinSize = new System.Drawing.Size(136, 57);
             this.elevationLayout.Name = "elevationLayout";
-            this.elevationLayout.Size = new System.Drawing.Size(149, 57);
+            this.elevationLayout.Size = new System.Drawing.Size(212, 57);
             this.elevationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
             this.elevationLayout.Text = "Высота";
@@ -433,7 +485,7 @@
             this.PKNumberLayout.CustomizationFormText = "Номер пикета";
             this.PKNumberLayout.Location = new System.Drawing.Point(23, 57);
             this.PKNumberLayout.Name = "PKNumberLayout";
-            this.PKNumberLayout.Size = new System.Drawing.Size(148, 47);
+            this.PKNumberLayout.Size = new System.Drawing.Size(210, 47);
             this.PKNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.PKNumberLayout.Text = "Номер пикета";
             this.PKNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -443,9 +495,9 @@
             // 
             this.distanceFromPKLayout.Control = this.distanceFromPK;
             this.distanceFromPKLayout.CustomizationFormText = "Расстояние от пикета";
-            this.distanceFromPKLayout.Location = new System.Drawing.Point(171, 57);
+            this.distanceFromPKLayout.Location = new System.Drawing.Point(233, 57);
             this.distanceFromPKLayout.Name = "distanceFromPKLayout";
-            this.distanceFromPKLayout.Size = new System.Drawing.Size(148, 47);
+            this.distanceFromPKLayout.Size = new System.Drawing.Size(210, 47);
             this.distanceFromPKLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.distanceFromPKLayout.Text = "Расстояние от пикета";
             this.distanceFromPKLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -465,9 +517,9 @@
             // 
             this.loweringEmptySpace.AllowHotTrack = false;
             this.loweringEmptySpace.CustomizationFormText = "loweringEmptySpace";
-            this.loweringEmptySpace.Location = new System.Drawing.Point(319, 57);
+            this.loweringEmptySpace.Location = new System.Drawing.Point(443, 57);
             this.loweringEmptySpace.Name = "loweringEmptySpace";
-            this.loweringEmptySpace.Size = new System.Drawing.Size(149, 47);
+            this.loweringEmptySpace.Size = new System.Drawing.Size(212, 47);
             this.loweringEmptySpace.Text = "loweringEmptySpace";
             this.loweringEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -481,7 +533,7 @@
             this.secondJointElementLayout});
             this.jointParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.jointParametersLayoutGroup.Name = "jointParametersLayoutGroup";
-            this.jointParametersLayoutGroup.Size = new System.Drawing.Size(395, 147);
+            this.jointParametersLayoutGroup.Size = new System.Drawing.Size(543, 147);
             this.jointParametersLayoutGroup.Text = "Параметры стыка";
             // 
             // jointNumberLayout
@@ -491,7 +543,7 @@
             this.jointNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.jointNumberLayout.MinSize = new System.Drawing.Size(100, 47);
             this.jointNumberLayout.Name = "jointNumberLayout";
-            this.jointNumberLayout.Size = new System.Drawing.Size(185, 52);
+            this.jointNumberLayout.Size = new System.Drawing.Size(258, 52);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.jointNumberLayout.Text = "Номер стыка";
@@ -502,10 +554,10 @@
             // 
             this.loweringDateLayout.Control = this.loweringDate;
             this.loweringDateLayout.CustomizationFormText = "Äàòà óêëàäêè";
-            this.loweringDateLayout.Location = new System.Drawing.Point(185, 0);
+            this.loweringDateLayout.Location = new System.Drawing.Point(258, 0);
             this.loweringDateLayout.MinSize = new System.Drawing.Size(134, 47);
             this.loweringDateLayout.Name = "loweringDateLayout";
-            this.loweringDateLayout.Size = new System.Drawing.Size(186, 52);
+            this.loweringDateLayout.Size = new System.Drawing.Size(261, 52);
             this.loweringDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.loweringDateLayout.Text = "Дата укладки";
@@ -519,7 +571,7 @@
             this.firstJointElementLayout.Location = new System.Drawing.Point(0, 52);
             this.firstJointElementLayout.MinSize = new System.Drawing.Size(169, 47);
             this.firstJointElementLayout.Name = "firstJointElementLayout";
-            this.firstJointElementLayout.Size = new System.Drawing.Size(185, 52);
+            this.firstJointElementLayout.Size = new System.Drawing.Size(258, 52);
             this.firstJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.firstJointElementLayout.Text = "Первый элемент стыка";
@@ -530,56 +582,89 @@
             // 
             this.secondJointElementLayout.Control = this.secondJointElement;
             this.secondJointElementLayout.CustomizationFormText = "Âòîðîé ñòûêóåìûé ýëåìåíò";
-            this.secondJointElementLayout.Location = new System.Drawing.Point(185, 52);
+            this.secondJointElementLayout.Location = new System.Drawing.Point(258, 52);
             this.secondJointElementLayout.MinSize = new System.Drawing.Size(169, 47);
             this.secondJointElementLayout.Name = "secondJointElementLayout";
-            this.secondJointElementLayout.Size = new System.Drawing.Size(186, 52);
+            this.secondJointElementLayout.Size = new System.Drawing.Size(261, 52);
             this.secondJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.secondJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.secondJointElementLayout.Text = "Второй элемент стыка";
             this.secondJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.secondJointElementLayout.TextSize = new System.Drawing.Size(117, 13);
             // 
-            // extraFiles
+            // extraFilesLayout
             // 
-            this.extraFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.extraFiles.Image = ((System.Drawing.Image)(resources.GetObject("extraFiles.Image")));
-            this.extraFiles.Location = new System.Drawing.Point(22, 424);
-            this.extraFiles.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
-            this.extraFiles.MinimumSize = new System.Drawing.Size(100, 20);
-            this.extraFiles.Name = "extraFiles";
-            this.extraFiles.Size = new System.Drawing.Size(100, 23);
-            this.extraFiles.TabIndex = 16;
-            this.extraFiles.Text = "В&ложения";
-            this.extraFiles.Click += new System.EventHandler(this.extraFiles_Click);
+            this.extraFilesLayout.Control = this.extraFiles;
+            this.extraFilesLayout.CustomizationFormText = "extraFilesLayout";
+            this.extraFilesLayout.Location = new System.Drawing.Point(0, 484);
+            this.extraFilesLayout.MinSize = new System.Drawing.Size(104, 26);
+            this.extraFilesLayout.Name = "extraFilesLayout";
+            this.extraFilesLayout.Size = new System.Drawing.Size(104, 26);
+            this.extraFilesLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.extraFilesLayout.Text = "extraFilesLayout";
+            this.extraFilesLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.extraFilesLayout.TextToControlDistance = 0;
+            this.extraFilesLayout.TextVisible = false;
             // 
-            // deactivated
+            // deactivatedLayout
             // 
-            this.deactivated.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deactivated.Location = new System.Drawing.Point(154, 426);
-            this.deactivated.Name = "deactivated";
-            this.deactivated.Properties.Caption = "Стык деактивирован";
-            this.deactivated.Size = new System.Drawing.Size(152, 19);
-            this.deactivated.TabIndex = 17;
+            this.deactivatedLayout.Control = this.deactivated;
+            this.deactivatedLayout.CustomizationFormText = "deactivatedLayout";
+            this.deactivatedLayout.Location = new System.Drawing.Point(104, 484);
+            this.deactivatedLayout.MaxSize = new System.Drawing.Size(175, 23);
+            this.deactivatedLayout.MinSize = new System.Drawing.Size(175, 23);
+            this.deactivatedLayout.Name = "deactivatedLayout";
+            this.deactivatedLayout.Size = new System.Drawing.Size(175, 26);
+            this.deactivatedLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.deactivatedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
+            this.deactivatedLayout.Text = "deactivatedLayout";
+            this.deactivatedLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.deactivatedLayout.TextToControlDistance = 0;
+            this.deactivatedLayout.TextVisible = false;
+            // 
+            // saveButtonLayout
+            // 
+            this.saveButtonLayout.Control = this.saveButton;
+            this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
+            this.saveButtonLayout.Location = new System.Drawing.Point(1119, 484);
+            this.saveButtonLayout.MaxSize = new System.Drawing.Size(116, 26);
+            this.saveButtonLayout.MinSize = new System.Drawing.Size(116, 26);
+            this.saveButtonLayout.Name = "saveButtonLayout";
+            this.saveButtonLayout.Size = new System.Drawing.Size(116, 26);
+            this.saveButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
+            this.saveButtonLayout.Text = "saveButtonLayout";
+            this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveButtonLayout.TextToControlDistance = 0;
+            this.saveButtonLayout.TextVisible = false;
+            // 
+            // saveButtonEmptySpace
+            // 
+            this.saveButtonEmptySpace.AllowHotTrack = false;
+            this.saveButtonEmptySpace.CustomizationFormText = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.Location = new System.Drawing.Point(279, 484);
+            this.saveButtonEmptySpace.Name = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.Size = new System.Drawing.Size(840, 26);
+            this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
+            this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // JointNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(940, 467);
-            this.Controls.Add(this.deactivated);
-            this.Controls.Add(this.extraFiles);
+            this.ClientSize = new System.Drawing.Size(1275, 550);
             this.Controls.Add(this.newJointLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
-            this.Text = "Строительство - стык";
+            this.Text = "Стык";
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).EndInit();
@@ -610,7 +695,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -656,6 +745,12 @@
         private DevExpress.XtraLayout.LayoutControlItem distanceFromPKLayout;
         private DevExpress.XtraLayout.EmptySpaceItem PKEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem loweringEmptySpace;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraLayout.LayoutControlItem extraFilesLayout;
+        private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
+        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem saveButtonEmptySpace;
+        private System.Windows.Forms.BindingSource jointNewEditBindingSoure;
 
     }
 }

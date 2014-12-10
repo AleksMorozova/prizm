@@ -241,6 +241,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Строительство.
+        /// </summary>
+        internal static string Construction {
+            get {
+                return ResourceManager.GetString("Construction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Код.
         /// </summary>
         internal static string Code {
@@ -610,6 +619,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Входной контроль.
+        /// </summary>
+        internal static string Inspection {
+            get {
+                return ResourceManager.GetString("Inspection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обязательный.
         /// </summary>
         internal static string InspectionControlType_Hold {
@@ -696,6 +714,15 @@ namespace PrizmMain.Properties {
         internal static string InvalidOldPassword {
             get {
                 return ResourceManager.GetString("InvalidOldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Главный.
+        /// </summary>
+        internal static string Master {
+            get {
+                return ResourceManager.GetString("Master", resourceCulture);
             }
         }
         

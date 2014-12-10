@@ -9,6 +9,7 @@ using Domain.Entity.Construction;
 
 namespace PrizmMain.Forms.Component.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ComponentNewEditXtraForm : ChildForm
     {
         private ComponentNewEditViewModel viewModel;

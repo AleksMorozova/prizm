@@ -181,6 +181,7 @@
             this.inspectionHistoryGrid.Location = new System.Drawing.Point(422, 48);
             this.inspectionHistoryGrid.MainView = this.inspectionHistoryGridView;
             this.inspectionHistoryGrid.Name = "inspectionHistoryGrid";
+
             this.inspectionHistoryGrid.Size = new System.Drawing.Size(558, 254);
             this.inspectionHistoryGrid.TabIndex = 9;
             this.inspectionHistoryGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -369,12 +370,15 @@
             this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
             // 
+
             // underTypeEmptySpace
             // 
             this.underTypeEmptySpace.AllowHotTrack = false;
             this.underTypeEmptySpace.CustomizationFormText = "underTypeEmptySpace";
+
             this.underTypeEmptySpace.Location = new System.Drawing.Point(224, 54);
             this.underTypeEmptySpace.Name = "underTypeEmptySpace";
+
             this.underTypeEmptySpace.Size = new System.Drawing.Size(135, 54);
             this.underTypeEmptySpace.Text = "underTypeEmptySpace";
             this.underTypeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -483,7 +487,7 @@
             this.Controls.Add(this.newEditPipeLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentNewEditXtraForm";
-            this.Text = "Входной контроль - комлектующее изделие";
+            this.Text = " Комлектующее изделие";
             this.Load += new System.EventHandler(this.ComponentNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).EndInit();

@@ -13,6 +13,6 @@ namespace Domain.Entity
         public virtual PieceConstructionStatus ConstructionStatus { get; set; }
         public virtual PieceInspectionStatus InspectionStatus { get; set; }
 
-        public virtual IList<Domain.Entity.Joint.Joint> Joints { get; set; }
+        public virtual IList<Joint> Joints { get; set; }
     }
 }

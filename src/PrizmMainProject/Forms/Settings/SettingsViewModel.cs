@@ -32,6 +32,8 @@ namespace PrizmMain.Forms.Settings
         public BindingList<Role> Roles { get; set; }
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
+        public IList<JointOperation> JointOperations { get; set; }
+
 
         readonly SaveSettingsCommand saveCommand;
         readonly ExtractCategoriesCommand extractCategoriesCommand;
@@ -67,6 +69,7 @@ namespace PrizmMain.Forms.Settings
            GetAllUsers();
            GetProjectSettings();
            GetAllManufacturers();
+           GetAllJointOperations();
            ControlType = new BindingList<PipeTestControlTypeWrapper>();
            ResultType = new BindingList<PipeTestResultTypeWrapper>();
 
@@ -267,6 +270,12 @@ namespace PrizmMain.Forms.Settings
         {
             var allSizeType = repos.PipeSizeTypeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
+        }
+
+        void GetAllJointOperations()
+        {
+            var foundOperations = repos.JointRepo.GetAll().ToList();
+            JointOperations = new BindingList<JointOperation>(foundOperations);
         }
 
         void GetAllWelders()

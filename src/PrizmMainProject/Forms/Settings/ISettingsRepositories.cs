@@ -21,7 +21,7 @@ namespace PrizmMain.Forms.Settings
       IRoleRepository RoleRepo { get; }
       IUserRepository UserRepo { get; }
       IPermissionRepository PermissionRepo { get; }
-
+      IJointOperationRepository JointRepo { get; }
       ICategoryRepository СategoryRepo { get; }
 
       void Commit();
