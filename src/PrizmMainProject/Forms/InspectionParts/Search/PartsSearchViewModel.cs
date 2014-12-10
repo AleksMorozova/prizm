@@ -1,6 +1,8 @@
 ﻿using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
 using NHibernate;
 using Ninject;
+using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,23 +14,14 @@ namespace PrizmMain.Forms.InspectionParts.Search
 {
     public class PartsSearchViewModel : ViewModelBase, IDisposable
     {
+        PartsSearchCommand searchCommand;
         ISession session;
-        
 
         [Inject]
         public PartsSearchViewModel(ISession session)
         {
             this.session = session;
-
-            var qparts = session.CreateSQLQuery(PartQuery.Sql)
-                .SetResultTransformer(PartQuery.Transformer)
-                .List<Part>();
-
-            foreach(var item in qparts)
-            {
-                parts.Add(item);
-            }
-
+            searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
         }
 
         private BindingList<Part> parts = new BindingList<Part>();
@@ -45,11 +38,16 @@ namespace PrizmMain.Forms.InspectionParts.Search
             }
         }
 
+        public ICommand SearchCommand
+        {
+            get { return searchCommand; }
+        }
+
         #region IDisposable Members
 
         public void Dispose()
         {
-            session.Dispose();
+
         }
 
         #endregion

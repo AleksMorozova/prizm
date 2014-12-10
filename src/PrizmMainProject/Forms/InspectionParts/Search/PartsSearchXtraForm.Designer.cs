@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsSearchXtraForm));
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.search = new DevExpress.XtraEditors.SimpleButton();
+            this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.type = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.parts = new DevExpress.XtraGrid.GridControl();
             this.partsView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -65,7 +65,7 @@
             // 
             // mainLayoutControl
             // 
-            this.mainLayoutControl.Controls.Add(this.search);
+            this.mainLayoutControl.Controls.Add(this.searchButton);
             this.mainLayoutControl.Controls.Add(this.type);
             this.mainLayoutControl.Controls.Add(this.parts);
             this.mainLayoutControl.Controls.Add(this.number);
@@ -78,15 +78,15 @@
             this.mainLayoutControl.TabIndex = 0;
             this.mainLayoutControl.Text = "layoutControl1";
             // 
-            // search
+            // searchButton
             // 
-            this.search.Image = ((System.Drawing.Image)(resources.GetObject("search.Image")));
-            this.search.Location = new System.Drawing.Point(540, 63);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(81, 22);
-            this.search.StyleController = this.mainLayoutControl;
-            this.search.TabIndex = 7;
-            this.search.Text = "Поиск";
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
+            this.searchButton.Location = new System.Drawing.Point(540, 63);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(81, 22);
+            this.searchButton.StyleController = this.mainLayoutControl;
+            this.searchButton.TabIndex = 7;
+            this.searchButton.Text = "Поиск";
             // 
             // type
             // 
@@ -230,7 +230,7 @@
             // 
             // searchBtnLayoutControl
             // 
-            this.searchBtnLayoutControl.Control = this.search;
+            this.searchBtnLayoutControl.Control = this.searchButton;
             this.searchBtnLayoutControl.CustomizationFormText = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.Location = new System.Drawing.Point(500, 0);
             this.searchBtnLayoutControl.Name = "searchBtnLayoutControl";
@@ -276,7 +276,7 @@
 
         private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup rootLayoutControlGroup;
-        private DevExpress.XtraEditors.SimpleButton search;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraEditors.CheckedComboBoxEdit type;
         private DevExpress.XtraGrid.GridControl parts;
         private DevExpress.XtraGrid.Views.Grid.GridView partsView;

@@ -36,7 +36,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
 
         private void BindCommands()
         {
-      
+            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
         }
     }
 }
