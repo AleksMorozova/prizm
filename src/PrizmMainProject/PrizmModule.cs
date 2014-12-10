@@ -26,6 +26,7 @@ using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.PipeMill.Purchase;
 using Data.DAL.ADO;
 using Data.DAL.Security;
+using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
 
 namespace PrizmMain
@@ -95,6 +96,7 @@ namespace PrizmMain
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();
+            Bind<AuditXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
