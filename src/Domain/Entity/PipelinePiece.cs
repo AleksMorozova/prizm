@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Domain.Entity.Construction;
+using System;
+using System.Collections.Generic;
+
 namespace Domain.Entity
 {
     // TODO: PipelinePiece 
@@ -7,5 +10,9 @@ namespace Domain.Entity
         public virtual string Number { get; set; }
         public virtual int Length { get; set; }
 
+        public virtual PieceConstructionStatus ConstructionStatus { get; set; }
+        public virtual PieceInspectionStatus InspectionStatus { get; set; }
+
+        public virtual IList<Domain.Entity.Joint.Joint> Joints { get; set; }
     }
 }
