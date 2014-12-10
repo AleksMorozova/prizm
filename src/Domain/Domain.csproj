@@ -43,10 +43,10 @@
     <Compile Include="Entity\Certificate.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Joint\JointActionResult.cs" />
-    <Compile Include="Entity\Joint\JointStatus.cs" />
-    <Compile Include="Entity\Joint\JointTestResult.cs" />
-    <Compile Include="Entity\Joint\JointTestResultStatus.cs" />
+    <Compile Include="Entity\Construction\JointActionResult.cs" />
+    <Compile Include="Entity\Construction\JointStatus.cs" />
+    <Compile Include="Entity\Construction\JointTestResult.cs" />
+    <Compile Include="Entity\Construction\JointTestResultStatus.cs" />
     <Compile Include="Entity\Mill\Category.cs" />
     <Compile Include="Entity\Mill\Coat.cs" />
     <Compile Include="Entity\Mill\CoatingType.cs" />
@@ -72,9 +72,9 @@
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
     <Compile Include="Entity\Mill\PurchaseOrder.cs" />
     <Compile Include="Entity\Mill\Pipe.cs" />
-    <Compile Include="Entity\Joint\ConstructionWelding.cs" />
-    <Compile Include="Entity\Joint\Joint.cs" />
-    <Compile Include="Entity\Joint\JointInspection.cs" />
+    <Compile Include="Entity\Construction\ConstructionWelding.cs" />
+    <Compile Include="Entity\Construction\Joint.cs" />
+    <Compile Include="Entity\Construction\JointInspection.cs" />
     <Compile Include="Entity\Mill\TensileTest.cs" />
     <Compile Include="Entity\Mill\Weld.cs" />
     <Compile Include="Entity\PersonName.cs" />

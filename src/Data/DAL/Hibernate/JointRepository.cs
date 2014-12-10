@@ -1,5 +1,5 @@
 ﻿using Data.DAL.Construction;
-using Domain.Entity.Joint;
+using Domain.Entity.Construction;
 using NHibernate;
 using Ninject;
 using System;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Joint
+namespace Domain.Entity.Construction
 {
     public class Joint : Item
     {
@@ -12,6 +12,7 @@ namespace Domain.Entity.Joint
             this.JointActionResults = new List<JointActionResult>();
         }
 
+        public virtual string Number { get; set; }
         public virtual int NumberKP { get; set; }
         public virtual float DistanceFromKP { get; set; }
         public virtual DateTime LoweringDate { get; set; }

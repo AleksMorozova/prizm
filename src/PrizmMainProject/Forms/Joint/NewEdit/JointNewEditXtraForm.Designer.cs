@@ -73,6 +73,7 @@
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -111,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -195,6 +197,8 @@
             // 
             this.PKNumber.Location = new System.Drawing.Point(613, 126);
             this.PKNumber.Name = "PKNumber";
+            this.PKNumber.Properties.Mask.EditMask = "d";
+            this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.PKNumber.Size = new System.Drawing.Size(191, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
             this.PKNumber.TabIndex = 26;
@@ -695,6 +699,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -745,6 +750,7 @@
         private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem saveButtonEmptySpace;
+        private System.Windows.Forms.BindingSource jointNewEditBindingSoure;
 
     }
 }
