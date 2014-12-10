@@ -208,6 +208,12 @@
     <Compile Include="Forms\Common\SaveDialog.Designer.cs">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Component\ComponentRepositories.cs" />
+    <Compile Include="Forms\Component\IComponentRepositories.cs" />
+    <Compile Include="Forms\Component\NewEdit\ComponentDeactivationCommand.cs" />
+    <Compile Include="Forms\Component\NewEdit\ComponentNewEditViewModel.cs" />
+    <Compile Include="Forms\Component\NewEdit\NewSaveComponentCommand.cs" />
+    <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\ISupportModifiableView.cs" />

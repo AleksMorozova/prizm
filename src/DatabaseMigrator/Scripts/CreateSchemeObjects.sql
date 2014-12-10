@@ -30,6 +30,27 @@ SET ANSI_PADDING OFF
 
 
 
+/****** Object:  Table [dbo].[ComponentType]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[ComponentType](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[name] [nvarchar](20) NULL,
+	[connectorsCount] [int] NULL,
+
+ CONSTRAINT [PK_ComponentType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+
+
+
 
 /****** Object:  Table [dbo].[Connector]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -64,6 +85,8 @@ CREATE TABLE [dbo].[Component](
 	[isActive] [bit] NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
+
+	[componentTypeId] [uniqueidentifier] NULL,
 
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
@@ -413,6 +436,12 @@ CREATE TABLE [dbo].[Welder](
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
 
+
+
+/* ------ Component Type CONSTRAINT ------ */
+ALTER TABLE [dbo].[Component]  WITH CHECK ADD  CONSTRAINT [FK_Component_ComponentType] FOREIGN KEY([componentTypeId])
+REFERENCES [dbo].[ComponentType] ([id])
+ALTER TABLE [dbo].[Component] CHECK CONSTRAINT [FK_Component_ComponentType]
 
 /* ------ Connector CONSTRAINT ------ */
 ALTER TABLE [dbo].[Connector]  WITH CHECK ADD  CONSTRAINT [FK_Connector_Component] FOREIGN KEY([componentId])

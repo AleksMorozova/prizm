@@ -322,6 +322,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #.
+        /// </summary>
+        internal static string DLG_COMPONENT_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение комплектующего изделия.
+        /// </summary>
+        internal static string DLG_COMPONENT_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         internal static string DLG_ERROR_HEADER {
