@@ -142,9 +142,9 @@ namespace Data.DAL.ADO
                         connection.Open();
                         adapter.TableMappings.Add("Table", "Pipe");
                         command.Connection = connection;
-                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
                     }
@@ -153,7 +153,7 @@ namespace Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetPipesByStatus", ex);
+                throw new RepositoryException("GetPipesFromInspection", ex);
             }
             finally
             {

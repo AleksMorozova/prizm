@@ -45,12 +45,14 @@ FROM AuditLog
                 WHERE auditDate >= @startDate and auditDate <= @finalDate
                 AND [user] LIKE @user";
 
-        public const string GetAllPipesFromInspection = @"select InspectionTestResult.[order], Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
-          from  InspectionTestResult InspectionTestResult 
-		  inner join Pipe on (Pipe.id = InspectionTestResult.pipelinePieceId)
+        public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
+          from  InspectionTestResult InspectionTestResult
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[pipelinePieceId])
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
-          WHERE date >=  @startDate and productionDate <= @finalDate";
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+
     }
 }
+            
