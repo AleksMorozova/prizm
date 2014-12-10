@@ -159,7 +159,7 @@
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel12.SizeF = new System.Drawing.SizeF(638F, 33F);
             this.xrLabel12.StyleName = "Title";
-            this.xrLabel12.Text = "Incoming inspection";
+            this.xrLabel12.Text = "Входной контроль";
             // 
             // xrLabel2
             // 
@@ -244,7 +244,7 @@
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 20F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(415.1368F, 20F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
@@ -265,7 +265,7 @@
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(638F, 33F);
             this.xrLabel11.StyleName = "Title";
-            this.xrLabel11.Text = "Incoming inspection";
+            this.xrLabel11.Text = "Отчет по принятым трубам";
             // 
             // Title
             // 
