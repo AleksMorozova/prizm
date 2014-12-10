@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionReportsXtraForm));
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
@@ -47,6 +48,7 @@
             this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.previewReportLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectionReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -64,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewReportLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionReportsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayout
@@ -290,6 +293,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionReportsXtraForm";
             this.Text = "Отчет";
+            this.Load += new System.EventHandler(this.InspectionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).EndInit();
@@ -307,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewReportLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionReportsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +336,6 @@
         private DevExpress.XtraLayout.LayoutControlItem createButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem DateEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem labelEmptySpaceItem;
+        private System.Windows.Forms.BindingSource inspectionReportsBindingSource;
     }
 }

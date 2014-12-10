@@ -374,7 +374,7 @@ SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[InspectionTestResult](
 	[id] [uniqueidentifier] NOT NULL,
 	[pipelinePieceId] [uniqueidentifier] NULL,
-	[date] [date] NULL,
+	[inspectionDate] [date] NULL,
 	[order][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (20) NULL,
