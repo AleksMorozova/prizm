@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.Common;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
@@ -26,6 +28,12 @@ namespace PrizmMain.Forms.InspectionParts.Search
             viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
             BindCommands();
             BindToViewModel();
+
+            
+            type.Properties.Items.Add(PartType.Pipe, Resources.PartTypePipe,CheckState.Checked,true);
+            type.Properties.Items.Add(PartType.Spool, Resources.PartTypeSpool, CheckState.Checked, true);
+            type.Properties.Items.Add(PartType.Component, Resources.PartTypeComponent, CheckState.Checked, true);
+
         }
 
         private void BindToViewModel()

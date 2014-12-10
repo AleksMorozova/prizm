@@ -90,10 +90,12 @@
             // 
             // type
             // 
+            this.type.EditValue = "";
             this.type.Location = new System.Drawing.Point(280, 64);
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.type.Properties.SelectAllItemCaption = "(Выбрать все)";
             this.type.Size = new System.Drawing.Size(226, 20);
             this.type.StyleController = this.mainLayoutControl;
             this.type.TabIndex = 6;
@@ -117,6 +119,7 @@
             this.typeCol});
             this.partsView.GridControl = this.parts;
             this.partsView.Name = "partsView";
+            this.partsView.OptionsBehavior.Editable = false;
             this.partsView.OptionsCustomization.AllowFilter = false;
             this.partsView.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.partsView.OptionsView.ShowAutoFilterRow = true;
@@ -128,14 +131,13 @@
             this.idCol.Caption = "#";
             this.idCol.FieldName = "Id";
             this.idCol.Name = "idCol";
-            this.idCol.Visible = true;
-            this.idCol.VisibleIndex = 2;
             // 
             // numberCol
             // 
             this.numberCol.Caption = "Номер";
             this.numberCol.FieldName = "Number";
             this.numberCol.Name = "numberCol";
+            this.numberCol.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.numberCol.Visible = true;
             this.numberCol.VisibleIndex = 0;
             // 
@@ -144,6 +146,7 @@
             this.typeCol.Caption = "Тип";
             this.typeCol.FieldName = "Type";
             this.typeCol.Name = "typeCol";
+            this.typeCol.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.typeCol.Visible = true;
             this.typeCol.VisibleIndex = 1;
             // 

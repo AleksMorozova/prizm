@@ -508,4 +508,13 @@
   <data name="ЕxpirationDate" xml:space="preserve">
     <value>Срок истечения</value>
   </data>
+  <data name="PartTypeComponent" xml:space="preserve">
+    <value>Компонент</value>
+  </data>
+  <data name="PartTypePipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="PartTypeSpool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
 </root>

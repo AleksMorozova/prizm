@@ -201,6 +201,7 @@
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>

@@ -826,6 +826,33 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Компонент.
+        /// </summary>
+        internal static string PartTypeComponent {
+            get {
+                return ResourceManager.GetString("PartTypeComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба.
+        /// </summary>
+        internal static string PartTypePipe {
+            get {
+                return ResourceManager.GetString("PartTypePipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка.
+        /// </summary>
+        internal static string PartTypeSpool {
+            get {
+                return ResourceManager.GetString("PartTypeSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Пройден.
         /// </summary>
         internal static string Passed {
