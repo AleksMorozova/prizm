@@ -8,7 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
-        public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
+        public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
           from  Pipe Pipe
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
@@ -38,8 +38,13 @@ namespace Data.DAL.ADO
             LEFT  JOIN Heat ON (Heat.id = Plate.heatId)
 	            WHERE pipeMillStatus = 'Produced' 
 	            AND Pipe.isActive = 1
-                AND productionDate >=  @startDate  and productionDate <= @finalDate";
+                AND productionDate >=  @startDate and productionDate <= @finalDate";
 
+        public const string GetAudit =
+            @"SELECT [user], auditDate, oldValue, newValue, tableName, fieldName
+FROM AuditLog 
+                WHERE auditDate >= @startDate and auditDate <= @finalDate
+                AND [user] LIKE @user";
 
         public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, wallThickness as wallThickness, length as length, Heat.number as Heat_number
           from  Pipe Pipe

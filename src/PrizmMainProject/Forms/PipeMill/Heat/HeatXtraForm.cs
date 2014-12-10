@@ -26,6 +26,8 @@ namespace PrizmMain.Forms.PipeMill.Heat
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
+
+            number.SetAsIdentifier();
         }
 
         private void HeatXtraForm_Load(object sender, EventArgs e)

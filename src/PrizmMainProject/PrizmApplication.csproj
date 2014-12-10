@@ -186,6 +186,8 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
+    <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
+    <Compile Include="Forms\Audit\AuditViewModel.cs" />
     <Compile Include="Forms\Audit\AuditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +208,7 @@
     <Compile Include="Forms\Common\SaveDialog.Designer.cs">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
@@ -443,6 +446,9 @@
     <EmbeddedResource Include="Forms\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Audit\AuditXtraForm.resx">
+      <DependentUpon>AuditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\SaveDialog.resx">
       <DependentUpon>SaveDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -537,6 +543,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />

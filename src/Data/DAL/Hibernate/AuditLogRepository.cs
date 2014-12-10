@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using Ninject;
 using Domain.Entity;
+using NHibernate.Criterion;
 
 namespace Data.DAL.Hibernate
 {
@@ -14,7 +15,11 @@ namespace Data.DAL.Hibernate
         [Inject]
         public AuditLogRepository(ISession session)
             : base(session)
+        {            
+        }
+        public IEnumerable<string> GetAllUsers()
         {
+            return (from b in session.QueryOver<AuditLog>() select b.User).List<string>().Distinct();
         }
     }
 }
