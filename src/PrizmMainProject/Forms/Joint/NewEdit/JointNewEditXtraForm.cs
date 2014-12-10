@@ -9,6 +9,7 @@ using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class JointNewEditXtraForm : ChildForm
     {
         public JointNewEditXtraForm()

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeSearchXtraForm : ChildForm
     {
         private MillPipeSearchViewModel viewModel;
