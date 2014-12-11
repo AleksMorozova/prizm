@@ -517,6 +517,12 @@
   <data name="ЕxpirationDate" xml:space="preserve">
     <value>Срок истечения</value>
   </data>
+  <data name="DLG_COMPONENT_SAVED" xml:space="preserve">
+    <value>Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение комплектующего изделия</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>Комплектующие</value>
   </data>

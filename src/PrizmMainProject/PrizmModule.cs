@@ -28,6 +28,7 @@ using Data.DAL.ADO;
 using Data.DAL.Security;
 using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
+using PrizmMain.Forms.Component;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
 using PrizmMain.Forms.InspectionParts.Search;
@@ -67,6 +68,11 @@ namespace PrizmMain
             Bind<IPermissionRepository>().To<PermissionRepository>();
             Bind<IConstructionRepository>().To<ConstructionRepository>();
             Bind<IJointRepository>().To<JointRepository>();
+
+            Bind<IComponentRepositories>().To<ComponentRepositories>();
+            Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
+            Bind<IComponentRepository>().To<ComponentRepository>();
+            
 
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
