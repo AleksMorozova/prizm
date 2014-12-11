@@ -10,6 +10,7 @@ using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class JointNewEditXtraForm : ChildForm
     {
         JointNewEditViewModel viewModel;

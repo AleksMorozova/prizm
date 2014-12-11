@@ -9,6 +9,7 @@ using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Component.Search
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ComponentSearchXtraForm : ChildForm
     {
         private List<ComponentDataDemo> MyComponent;
