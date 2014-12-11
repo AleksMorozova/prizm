@@ -201,6 +201,7 @@
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
@@ -216,6 +217,16 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\InspectionParts\Search\Part.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
@@ -463,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionParts\Search\PartsSearchXtraForm.resx">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatNumberXtraForm.resx">
       <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>

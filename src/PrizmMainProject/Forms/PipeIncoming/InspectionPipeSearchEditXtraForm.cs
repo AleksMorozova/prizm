@@ -6,7 +6,7 @@ namespace PrizmMain.Forms.PipeIncoming
 {
     public partial class InspectionPipeSearchEditXtraForm : ChildForm
     {
-        [System.ComponentModel.DesignerCategory("Form")] 
+        //[System.ComponentModel.DesignerCategory("Form")] 
         public InspectionPipeSearchEditXtraForm()
         {
             InitializeComponent();
