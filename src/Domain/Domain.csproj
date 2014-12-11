@@ -43,6 +43,7 @@
     <Compile Include="Entity\Certificate.cs" />
     <Compile Include="Entity\Construction\ComponentType.cs" />
     <Compile Include="Entity\Construction\Connector.cs" />
+    <Compile Include="Entity\Construction\InspectionTestResult.cs" />
     <Compile Include="Entity\Construction\PieceConstructionStatus.cs" />
     <Compile Include="Entity\Construction\PieceInspectionStatus.cs" />
     <Compile Include="Entity\Construction\Spool.cs" />

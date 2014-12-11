@@ -16,6 +16,11 @@ namespace Data.DAL.Mapping
 
             HasMany<Connector>(x => x.Connectors).KeyColumn("componentId").Cascade.SaveUpdate();
 
+            HasMany<InspectionTestResult>(x => x.InspectionTestResults)
+                .KeyColumn("pipelinePieceId")
+                .Cascade.SaveUpdate()
+                .Not.LazyLoad();
+
             References<ComponentType>(x => x.Type).Column("componentTypeId");
         }
     }

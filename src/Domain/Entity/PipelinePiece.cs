@@ -11,8 +11,11 @@ namespace Domain.Entity
         public virtual int Length { get; set; }
 
         public virtual PieceConstructionStatus ConstructionStatus { get; set; }
-        public virtual PieceInspectionStatus InspectionStatus { get; set; }
+
+        public virtual PieceInspectionStatus InspectionStatus { get; set; } //???
 
         public virtual IList<Joint> Joints { get; set; }
+
+        public virtual IList<InspectionTestResult> InspectionTestResults { get; set; }
     }
 }

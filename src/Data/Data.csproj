@@ -101,6 +101,7 @@
     <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
     <Compile Include="DAL\Mapping\ConnectorMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
@@ -155,8 +156,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-
-
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
