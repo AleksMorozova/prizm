@@ -217,8 +217,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             this.Component = new Domain.Entity.Construction.Component();
 
-            this.Component.InspectionStatus = PieceInspectionStatus.Pending;
-            this.Component.ConstructionStatus = PieceConstructionStatus.Pending;
+            this.Component.InspectionStatus = PartInspectionStatus.Pending;
+            this.Component.ConstructionStatus = PartConstructionStatus.Pending;
             this.Component.IsActive = true;
             this.Number = string.Empty;
             this.Certificate = string.Empty;

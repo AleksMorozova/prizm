@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public class Component : PipelinePiece
+    public class Component : Part
     {
         public Component()
         {

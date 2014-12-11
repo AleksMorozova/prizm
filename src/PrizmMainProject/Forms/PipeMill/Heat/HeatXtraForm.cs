@@ -11,8 +11,7 @@ using PrizmMain.Common;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class HeatXtraForm : ChildForm
+    public partial class HeatXtraForm : XtraForm
     {
 
         private HeatViewModel viewModel;
