@@ -71,6 +71,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(chemicalComposition);
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(tensileTests);
+            SetAlwaysReadOnly(weight);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
 
