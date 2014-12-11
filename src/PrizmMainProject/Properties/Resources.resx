@@ -517,10 +517,22 @@
   <data name="ЕxpirationDate" xml:space="preserve">
     <value>Срок истечения</value>
   </data>
+  <data name="DLG_COMPONENT_SAVED" xml:space="preserve">
+    <value>Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение комплектующего изделия</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Комплектующие</value>
+  </data>
+  <data name="Spool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
+    </data>
   <data name="DLG_JOINT_SAVED" xml:space="preserve">
     <value>Стык успешно сохранен в базе. Стык  #</value>
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
-  </data>
 </root>

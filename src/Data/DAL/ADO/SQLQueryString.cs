@@ -54,5 +54,15 @@ FROM AuditLog
             SELECT c.id, c.number, N'Компонент' as type, con.diameter, con.wallThickness, c.length FROM component c 
             INNER JOIN connector con ON c.id = con.componentId WHERE c.isActive = 1
             ORDER BY number";
+            
+        public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
+          from  InspectionTestResult InspectionTestResult
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[pipelinePieceId])
+          left join Plate on (Plate.id = Pipe.plateId)
+          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+          left  join Heat on (Heat.id = Plate.heatId)
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+    
     }
 }
+            

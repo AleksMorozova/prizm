@@ -250,6 +250,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Комплектующие.
+        /// </summary>
+        internal static string Component {
+            get {
+                return ResourceManager.GetString("Component", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строительство.
         /// </summary>
         internal static string Construction {
@@ -327,6 +336,24 @@ namespace PrizmMain.Properties {
         internal static string DLG_CHANGE_PIPESIZE_ON_NEWPIPE {
             get {
                 return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_NEWPIPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #.
+        /// </summary>
+        internal static string DLG_COMPONENT_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение комплектующего изделия.
+        /// </summary>
+        internal static string DLG_COMPONENT_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_SAVED_HEADER", resourceCulture);
             }
         }
         
@@ -763,6 +790,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Главный.
+        /// </summary>
+        internal static string Master {
+            get {
+                return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Максимальный ожидаемый результат.
         /// </summary>
         internal static string MaxExpected {
@@ -1122,6 +1158,15 @@ namespace PrizmMain.Properties {
         internal static string ShippingDate {
             get {
                 return ResourceManager.GetString("ShippingDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка.
+        /// </summary>
+        internal static string Spool {
+            get {
+                return ResourceManager.GetString("Spool", resourceCulture);
             }
         }
         
