@@ -70,6 +70,7 @@
          // 
          // txtLogin
          // 
+         this.txtLogin.EnterMoveNextControl = true;
          this.txtLogin.Location = new System.Drawing.Point(165, 30);
          this.txtLogin.Name = "txtLogin";
          this.txtLogin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -79,6 +80,7 @@
          // 
          // txtPassword
          // 
+         this.txtPassword.EnterMoveNextControl = true;
          this.txtPassword.Location = new System.Drawing.Point(165, 78);
          this.txtPassword.Name = "txtPassword";
          this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -86,6 +88,7 @@
          this.txtPassword.Properties.PasswordChar = '*';
          this.txtPassword.Size = new System.Drawing.Size(325, 24);
          this.txtPassword.TabIndex = 4;
+         this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
          // 
          // btnLogin
          // 
