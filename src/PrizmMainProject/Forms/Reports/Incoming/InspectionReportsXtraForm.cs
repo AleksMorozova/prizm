@@ -5,6 +5,7 @@ using System;
 
 namespace PrizmMain.Forms.Reports.Incoming
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class InspectionReportsXtraForm : ChildForm
     {
         private InspectionReportsViewModel viewModel;

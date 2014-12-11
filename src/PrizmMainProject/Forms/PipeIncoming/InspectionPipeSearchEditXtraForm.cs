@@ -4,6 +4,7 @@ using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.PipeIncoming
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class InspectionPipeSearchEditXtraForm : ChildForm
     {
         public InspectionPipeSearchEditXtraForm()

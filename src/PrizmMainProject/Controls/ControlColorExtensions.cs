@@ -51,6 +51,5 @@ namespace PrizmMain.Common
             edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnTextChanged);
         }
 
-
     }
 }
