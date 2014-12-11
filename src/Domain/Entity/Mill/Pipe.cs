@@ -49,7 +49,7 @@ namespace Domain.Entity.Mill
         public const float Ro = 0.00000785F;
 
         /// <summary>
-        ///  Density of carbon steel
+        ///  Calculate pipe weight
         /// </summary>
         /// <param name="WallThickness"> Pipe WallThickness</param>
         ///  <param name="Diameter"> Pipe Diameter</param>
