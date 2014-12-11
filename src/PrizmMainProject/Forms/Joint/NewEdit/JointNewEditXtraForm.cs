@@ -7,6 +7,7 @@ using Ninject;
 using Ninject.Parameters;
 using DevExpress.XtraEditors.Controls;
 using PrizmMain.Properties;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
@@ -14,6 +15,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
     public partial class JointNewEditXtraForm : ChildForm
     {
         JointNewEditViewModel viewModel;
+
 
         public JointNewEditXtraForm(Guid jointId)
         {
@@ -61,6 +63,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             pipelinePiecesBindingSource.DataSource = viewModel.Pieces;
             SetLookup(firstJointElement);
             SetLookup(secondJointElement);
+            jointOperationLookUpEdit.DataSource = viewModel.Operations;
 
         }
 
@@ -97,6 +100,15 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             viewModel.Number = jointNumber.Text;
             viewModel.SaveJointCommand.IsExecutable ^= true;
+        }
+
+        private void controlsView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+
+            }
         }
 
     }

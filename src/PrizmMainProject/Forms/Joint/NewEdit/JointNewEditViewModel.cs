@@ -1,10 +1,13 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity.Construction;
+using Domain.Entity.Setup;
 using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Documents;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -19,10 +22,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private readonly Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
         private readonly SaveJointCommand saveJointCommand;
+        private readonly ExtractOperationsCommand extractOperationsCommand;
         private IModifiable modifiableView;
         public Guid JointId { get; set; }
         public construction.Joint Joint { get; set; }
         public DataTable Pieces;
+        public BindingList<JointOperation> Operations;
 
 
         [Inject]
@@ -35,8 +40,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
             saveJointCommand =
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
+            extractOperationsCommand =
+                ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
 
             Pieces = adoRepo.GetPipelineElements();
+            extractOperationsCommand.Execute();
             if (jointId == Guid.Empty)
             {
                 NewJoint();
@@ -65,10 +73,17 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
         }
 
+        #region Commands
         public ICommand SaveJointCommand
         {
             get { return saveJointCommand; }
         }
+
+        public ICommand ExtractOperationsCommand
+        {
+            get { return extractOperationsCommand; }
+        }
+        #endregion
 
         # region Joint
         public bool IsNotActive
@@ -193,6 +208,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             this.Joint = new construction.Joint();
             this.Joint.IsActive = true;
+            this.Joint.Status = JointStatus.Welded;
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
         }
