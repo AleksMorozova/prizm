@@ -42,7 +42,6 @@
             this.login.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.login.EnterMoveNextControl = true;
             this.login.Location = new System.Drawing.Point(64, 20);
             this.login.Margin = new System.Windows.Forms.Padding(11);
             this.login.Name = "login";
@@ -66,7 +65,6 @@
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.password.EnterMoveNextControl = true;
             this.password.Location = new System.Drawing.Point(64, 58);
             this.password.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.password.Name = "password";
