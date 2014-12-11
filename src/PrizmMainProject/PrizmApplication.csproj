@@ -213,9 +213,7 @@
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
-    <Compile Include="Forms\MainChildForm\ChildForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\MainChildForm\ChildForm.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
