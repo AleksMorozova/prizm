@@ -221,7 +221,9 @@
     <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
       <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </Compile>
