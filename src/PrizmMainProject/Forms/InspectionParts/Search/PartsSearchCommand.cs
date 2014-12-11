@@ -3,6 +3,7 @@ using NHibernate;
 using NHibernate.Type;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
             {
                 parts.Add(item);
             }
+
             viewModel.Parts = parts;
         }
 

@@ -145,7 +145,7 @@
             // typeCol
             // 
             this.typeCol.Caption = "Тип";
-            this.typeCol.FieldName = "Type";
+            this.typeCol.FieldName = "Type.Text";
             this.typeCol.Name = "typeCol";
             this.typeCol.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.typeCol.Visible = true;

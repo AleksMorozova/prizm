@@ -1,4 +1,6 @@
 ﻿using NHibernate.Transform;
+using PrizmMain.Common;
+using PrizmMain.Forms.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
             {
                 Id = (Guid)tuple[0],
                 Number = (string)tuple[1],
-                Type = (string)tuple[2]
+                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[2].ToString()) }
             };
         }
 
@@ -53,16 +55,16 @@ namespace PrizmMain.Forms.InspectionParts.Search
             {
                 switch(item)
                 {
-                    case PrizmMain.Forms.Common.PartType.Undefined:
+                    case PartType.Undefined:
                         break;
-                    case PrizmMain.Forms.Common.PartType.Pipe:
-                        queries.Add(string.Format(" SELECT id, number, 'pipe' FROM pipe {0}",number));
+                    case PartType.Pipe:
+                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM pipe {1}",PartType.Pipe,number));
                         break;
-                    case PrizmMain.Forms.Common.PartType.Spool:
-                        queries.Add(string.Format(" SELECT id, number, 'spool' FROM Spool {0}",number));
+                    case PartType.Spool:
+                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Spool {1}",PartType.Spool, number));
                         break;
-                    case PrizmMain.Forms.Common.PartType.Component:
-                        queries.Add(string.Format(" SELECT id, number, 'component' FROM Component {0}", number));
+                    case PartType.Component:
+                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Component {1}",PartType.Component, number));
                         break;
                     default:
                         break;

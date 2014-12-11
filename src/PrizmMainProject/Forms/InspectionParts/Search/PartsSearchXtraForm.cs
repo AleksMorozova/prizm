@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.Common;
 using PrizmMain.Properties;
+using DevExpress.XtraGrid.Views.Grid;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
