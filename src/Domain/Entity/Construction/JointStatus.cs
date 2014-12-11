@@ -12,6 +12,7 @@ namespace Domain.Entity.Construction
         AtControl = 1,
         AtIsolation = 2,
         Lowered = 3,
-        Filled = 4
+        Filled = 4,
+        Welded = 5
     }
 }
