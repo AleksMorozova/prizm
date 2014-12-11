@@ -26,6 +26,7 @@ using Domain.Entity.Mill;
 
 namespace PrizmMain.Forms.Settings
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class SettingsXtraForm : ChildForm
     {
         private SettingsViewModel viewModel;
