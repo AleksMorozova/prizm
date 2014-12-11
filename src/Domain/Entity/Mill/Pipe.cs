@@ -43,10 +43,18 @@ namespace Domain.Entity.Mill
 
         public virtual PipeMillStatus Status { get; set; }
 
-        //density of carbon steel
+        /// <summary>
+        ///  Density of carbon steel
+        /// </summary>
         public const float Ro = 0.00000785F;
 
-        public static float ChangePipeWeigh(int WallThickness, int Diameter, int Length )
+        /// <summary>
+        ///  Density of carbon steel
+        /// </summary>
+        /// <param name="WallThickness"> Pipe WallThickness</param>
+        ///  <param name="Diameter"> Pipe Diameter</param>
+        ///  <param name="Length"> Pipe Length</param>
+        public static float ChangePipeWeight(int WallThickness, int Diameter, int Length )
         {
             return (float)(Math.PI * Ro * WallThickness * (Diameter - WallThickness) * Length);
         }

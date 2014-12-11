@@ -307,9 +307,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (recalculateWeight == true) 
+                if (recalculateWeight) 
                 {
-                    Pipe.Weight = Pipe.ChangePipeWeigh(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                    Pipe.Weight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                 }
                 return Pipe.Weight; 
             }
@@ -876,10 +876,5 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
              return testsResults;
          }
-
-         //public void ChangePipeWeigh() 
-         //{
-         //    Pipe.Weight = (float)(Math.PI * Pipe.Ro * Pipe.WallThickness * (Pipe.Diameter - Pipe.WallThickness) * Pipe.Length);
-         //}
     }
 }
