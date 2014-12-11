@@ -790,15 +790,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Главный.
-        /// </summary>
-        internal static string Master {
-            get {
-                return ResourceManager.GetString("Master", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Максимальный ожидаемый результат.
         /// </summary>
         internal static string MaxExpected {
