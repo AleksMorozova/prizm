@@ -11,6 +11,7 @@ namespace Domain.Entity.Construction
         public Component()
         {
             this.Connectors = new List<Connector>();
+            this.InspectionTestResults = new List<InspectionTestResult>();
         }
 
         public virtual string Certificate { get; set; }

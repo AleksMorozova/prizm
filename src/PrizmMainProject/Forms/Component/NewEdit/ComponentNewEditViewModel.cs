@@ -166,6 +166,25 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
+        public BindingList<InspectionTestResult> InspectionTestResults
+        {
+            get
+            {
+                return
+                    (Component.InspectionTestResults is BindingList<InspectionTestResult>
+                    ? (BindingList<InspectionTestResult>) Component.InspectionTestResults
+                    : new BindingList<InspectionTestResult>(Component.InspectionTestResults));
+            }
+            set
+            {
+                if (value != Component.InspectionTestResults)
+                {
+                    Component.InspectionTestResults = value;
+                    RaisePropertyChanged("InspectionTestResults");
+                }
+            }
+        }
+
         public bool IsNotActive
         {
             get { return Component.IsNotActive; }

@@ -12,7 +12,7 @@ namespace Data.DAL.Mapping
     {
         public InspectionTestResultMap()
         {
-            Map(x => x.Date).Column("date");
+            Map(x => x.Date).Column("inspectionDate");
             Map(x => x.Value).Column("value");
             Map(x => x.Status).Column("status");
             Map(x => x.Order).Column("[order]");
