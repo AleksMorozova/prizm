@@ -86,7 +86,6 @@
          this.txtPassword.Properties.PasswordChar = '*';
          this.txtPassword.Size = new System.Drawing.Size(325, 24);
          this.txtPassword.TabIndex = 4;
-         this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
          // 
          // btnLogin
          // 
@@ -98,7 +97,6 @@
          this.btnLogin.Size = new System.Drawing.Size(152, 31);
          this.btnLogin.TabIndex = 5;
          this.btnLogin.Text = "Вход";
-         this.btnLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
          // 
          // btnExit
          // 
