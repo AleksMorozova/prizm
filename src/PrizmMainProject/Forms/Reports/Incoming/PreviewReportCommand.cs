@@ -1,4 +1,6 @@
 ﻿using Data.DAL;
+using Data.DAL.ADO;
+using DevExpress.DataAccess.Sql;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
@@ -36,8 +38,13 @@ namespace PrizmMain.Forms.Reports.Incoming
             try
             {
                 data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
+                CustomSqlQuery query = new CustomSqlQuery();
+                query.Name = "selectedQuery";
+                query.Sql = SQLQueryString.GetAllPipesFromInspection;
+
                 IncomingReportsXtraReport report = new IncomingReportsXtraReport();
                 report.DataSource = data;
+                report.DataMember = "selectedQuery";
                 report.CreateDocument();
                 viewModel.PreviewSource = report;
             }
