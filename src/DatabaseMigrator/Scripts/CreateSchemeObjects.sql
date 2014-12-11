@@ -181,7 +181,7 @@ CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
 	[wallThickness] [int] NULL,
 	[diameter] [int] NULL,
-	[weight] [int] NULL,
+	[weight] [real] NULL,
 	[mill] [nvarchar](250) NULL,
 	[pipeMillStatus] [nvarchar](20) NULL,
 	[typeId] [uniqueidentifier] NULL,
@@ -631,6 +631,23 @@ CREATE TABLE [dbo].[Role_Permission] (
   CONSTRAINT ROLE_PERM_ROLE_FK FOREIGN KEY([roleId]) REFERENCES [dbo].[Role]([id]),
   CONSTRAINT ROLE_PERM_PERM_FK FOREIGN KEY([permissionId]) REFERENCES [dbo].[Permission]([id]),
 );
+
+CREATE TABLE [dbo].[Joint](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[number] [nvarchar](20) NULL,
+	[numberKP] [int] NULL,
+	[distanceFromKP] [float] NULL,
+	[loweringDate] [date] NULL,
+	[status] [nvarchar](20) NULL,
+	[gpsLatitude] [float] NULL,
+	[gpsLongitude] [float] NULL,
+	[gpsHeight] [float] NULL,
+ CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
 GO
 

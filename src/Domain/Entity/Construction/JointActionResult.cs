@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entity.Setup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ namespace Domain.Entity.Construction
         public virtual bool isCompleted { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual Joint Joint { get; set; }
-        //TODO: uncomment after merge
-        //public virtual JointOperation Operation { get; set; }
+        public virtual JointOperation Operation { get; set; }
     }
 }
