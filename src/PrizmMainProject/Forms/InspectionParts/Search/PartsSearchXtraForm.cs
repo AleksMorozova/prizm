@@ -30,10 +30,14 @@ namespace PrizmMain.Forms.InspectionParts.Search
             viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
             BindCommands();
             BindToViewModel();
-            
-            type.Properties.Items.Add(PartType.Pipe, Resources.PartTypePipe,CheckState.Checked,true);
-            type.Properties.Items.Add(PartType.Spool, Resources.PartTypeSpool, CheckState.Checked, true);
-            type.Properties.Items.Add(PartType.Component, Resources.PartTypeComponent, CheckState.Checked, true);
+
+            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
+            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
+            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
+
+            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text,CheckState.Checked,true);
+            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
+            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
         }
 
