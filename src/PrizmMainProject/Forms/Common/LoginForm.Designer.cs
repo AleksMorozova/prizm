@@ -70,7 +70,6 @@
          // 
          // txtLogin
          // 
-         this.txtLogin.EnterMoveNextControl = true;
          this.txtLogin.Location = new System.Drawing.Point(165, 30);
          this.txtLogin.Name = "txtLogin";
          this.txtLogin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -80,7 +79,6 @@
          // 
          // txtPassword
          // 
-         this.txtPassword.EnterMoveNextControl = true;
          this.txtPassword.Location = new System.Drawing.Point(165, 78);
          this.txtPassword.Name = "txtPassword";
          this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -113,6 +111,7 @@
          // 
          // LoginForm
          // 
+         this.AcceptButton = this.btnLogin;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.CancelButton = this.btnExit;
