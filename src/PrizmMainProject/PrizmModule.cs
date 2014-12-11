@@ -30,6 +30,7 @@ using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain
 {
@@ -83,6 +84,7 @@ namespace PrizmMain
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             Bind<JointNewEditViewModel>().ToSelf();
+            Bind<PartsSearchViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -103,6 +105,7 @@ namespace PrizmMain
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
+            Bind<PartsSearchXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
