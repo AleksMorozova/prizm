@@ -22,5 +22,23 @@ namespace PrizmMain.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Master")]
+        public string WorkstationType {
+            get {
+                return ((string)(this["WorkstationType"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Master")]
+        public string ProjectName {
+            get {
+                return ((string)(this["ProjectName"]));
+            }
+        }
     }
 }
