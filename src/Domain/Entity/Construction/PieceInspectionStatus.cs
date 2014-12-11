@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public enum PieceInspectionStatus
+    public enum PartInspectionStatus
     {
         Pending = 1,
         Hold = 2,

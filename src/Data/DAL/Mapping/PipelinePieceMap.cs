@@ -8,9 +8,9 @@ using FluentNHibernate.Mapping;
 
 namespace Data.DAL.Mapping
 {
-    public class PipelinePieceMap : SubclassMap<PipelinePiece>
+    public class PartMap : SubclassMap<Part>
     {
-        public PipelinePieceMap()
+        public PartMap()
         {
             Map(x => x.Number).Column("number");
             Map(x => x.Length).Column("length");

@@ -5,7 +5,7 @@ using Domain.Entity.Construction;
 
 namespace Domain.Entity.Mill
 {
-    public class Pipe : PipelinePiece
+    public class Pipe : Part
     {
         public Pipe()
         {

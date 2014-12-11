@@ -1,6 +1,6 @@
 ﻿namespace PrizmMain.Forms.InspectionParts.Search
 {
-    partial class PartsSearchXtraForm
+    partial class PartSearchXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsSearchXtraForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartSearchXtraForm));
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.type = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -249,13 +249,13 @@
             // 
             this.bindingSource.AllowNew = false;
             // 
-            // PartsSearchXtraForm
+            // PartSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1259, 511);
             this.Controls.Add(this.mainLayoutControl);
-            this.Name = "PartsSearchXtraForm";
+            this.Name = "PartSearchXtraForm";
             this.Text = "Входной контроль - поиск компонентов";
             this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
