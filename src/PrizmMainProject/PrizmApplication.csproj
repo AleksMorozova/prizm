@@ -201,6 +201,7 @@
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
@@ -216,6 +217,16 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\InspectionParts\Search\Part.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
@@ -272,6 +283,15 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
+    <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
@@ -455,6 +475,9 @@
     <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionParts\Search\PartsSearchXtraForm.resx">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatNumberXtraForm.resx">
       <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -487,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
