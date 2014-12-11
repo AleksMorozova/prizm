@@ -127,6 +127,39 @@ namespace Data.DAL.ADO
             return auditDataTable;
         }
 
+        public DataTable GetPipelineElements()
+        { 
+         CreateConnection();
+            DataTable resultsTable = new DataTable();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = SQLQueryString.GetPipelinePieces;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(resultsTable);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetAuditResults", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return resultsTable;
+        }
+
         public SqlConnection CreateConnection()
         {
             if (connection == null)

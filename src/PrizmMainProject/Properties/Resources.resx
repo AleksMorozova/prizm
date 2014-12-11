@@ -367,9 +367,6 @@
   <data name="InspectorCertificate" xml:space="preserve">
     <value>Сертификат инспектора</value>
   </data>
-  <data name="Mill" xml:space="preserve">
-    <value>Завод</value>
-  </data>
   <data name="PhysicalParameters" xml:space="preserve">
     <value>Физические параметры</value>
   </data>
@@ -519,5 +516,11 @@
   </data>
   <data name="ЕxpirationDate" xml:space="preserve">
     <value>Срок истечения</value>
+  </data>
+  <data name="DLG_JOINT_SAVED" xml:space="preserve">
+    <value>Стык успешно сохранен в базе. Стык  #</value>
+  </data>
+  <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение стыка</value>
   </data>
 </root>

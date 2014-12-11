@@ -10,6 +10,7 @@ namespace PrizmMain.Forms.Joint
     public interface IConstructionRepository : IDisposable
     {
         IJointRepository RepoJoint { get; }
+        IJointActionResultRepository RepoJointActionResult { get; }
 
         void Commit();
         void BeginTransaction();

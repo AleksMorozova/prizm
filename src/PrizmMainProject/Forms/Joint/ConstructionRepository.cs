@@ -13,6 +13,7 @@ namespace PrizmMain.Forms.Joint
     public class ConstructionRepository : IConstructionRepository
     {
         private readonly IJointRepository repoJoint;
+        private readonly IJointActionResultRepository repoJointActionResult;
 
         private readonly ISession session;
 
@@ -40,6 +41,11 @@ namespace PrizmMain.Forms.Joint
         public IJointRepository RepoJoint
         {
             get { return repoJoint; }
+        }
+
+        public IJointActionResultRepository RepoJointActionResult
+        {
+            get { return repoJointActionResult; }
         }
     }
 }

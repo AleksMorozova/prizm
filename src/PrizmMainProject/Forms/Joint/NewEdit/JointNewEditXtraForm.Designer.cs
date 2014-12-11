@@ -74,6 +74,7 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -113,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -120,9 +122,12 @@
             this.jointNumber.Location = new System.Drawing.Point(34, 69);
             this.jointNumber.Margin = new System.Windows.Forms.Padding(0);
             this.jointNumber.Name = "jointNumber";
+            this.jointNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.jointNumber.Properties.Appearance.Options.UseBackColor = true;
             this.jointNumber.Size = new System.Drawing.Size(239, 20);
             this.jointNumber.StyleController = this.newJointLayoutControl;
             this.jointNumber.TabIndex = 11;
+            this.jointNumber.EditValueChanged += new System.EventHandler(this.jointNumber_EditValueChanged);
             // 
             // newJointLayoutControl
             // 
@@ -276,11 +281,13 @@
             this.inspectorsGridColumn});
             this.controlsView.GridControl = this.controls;
             this.controlsView.Name = "controlsView";
+            this.controlsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.controlsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.controlsView.OptionsView.ShowGroupPanel = false;
             // 
             // controlTypeGridColumn
             // 
-            this.controlTypeGridColumn.Caption = "Control type";
+            this.controlTypeGridColumn.Caption = "Тип операции";
             this.controlTypeGridColumn.FieldName = "Type";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
@@ -316,9 +323,13 @@
             // 
             this.secondJointElement.Location = new System.Drawing.Point(292, 121);
             this.secondJointElement.Name = "secondJointElement";
+            this.secondJointElement.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.secondJointElement.Properties.Appearance.Options.UseBackColor = true;
+            this.secondJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.secondJointElement.Properties.NullText = "Введите номер";
+            this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
             this.secondJointElement.TabIndex = 16;
@@ -327,9 +338,15 @@
             // 
             this.firstJointElement.Location = new System.Drawing.Point(34, 121);
             this.firstJointElement.Name = "firstJointElement";
+            this.firstJointElement.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.firstJointElement.Properties.Appearance.Options.UseBackColor = true;
+            this.firstJointElement.Properties.AutoSearchColumnIndex = 1;
+            this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.firstJointElement.Properties.NullText = "Введите номер";
+            this.firstJointElement.Properties.SortColumnIndex = 1;
+            this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 15;
@@ -661,6 +678,7 @@
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
             this.Text = "Стык";
+            this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);
@@ -700,6 +718,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -751,6 +770,7 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem saveButtonEmptySpace;
         private System.Windows.Forms.BindingSource jointNewEditBindingSoure;
+        private System.Windows.Forms.BindingSource pipelinePiecesBindingSource;
 
     }
 }
