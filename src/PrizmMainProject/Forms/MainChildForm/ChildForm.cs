@@ -11,7 +11,7 @@ using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.MainChildForm
 {
-     [System.ComponentModel.DesignerCategory("")] 
+    [System.ComponentModel.DesignerCategory("")] 
     public class ChildForm : XtraForm, IModifiable
     {
         #region --- Modified and header ---
