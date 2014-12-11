@@ -300,7 +300,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public int Weight
+        public float Weight
         {
             get { return Pipe.Weight; }
             set

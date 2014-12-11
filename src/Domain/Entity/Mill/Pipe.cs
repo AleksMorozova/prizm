@@ -23,15 +23,15 @@ namespace Domain.Entity.Mill
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
 
-        public virtual int Weight
+        public virtual float Weight
         {
             get
             {
-                return (int)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
+                return (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
             }
             set
             {
-                weight = (int)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
+                weight = (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
             }
         }
 
@@ -53,8 +53,9 @@ namespace Domain.Entity.Mill
 
         public virtual PipeMillStatus Status { get; set; }
 
-        private int weight;
+        private float weight;
 
-        public const int Ro = 7850;
+        public const float Ro = 0.00000785F;
+
     }
 }

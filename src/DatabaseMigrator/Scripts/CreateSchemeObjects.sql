@@ -168,7 +168,7 @@ CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
 	[wallThickness] [int] NULL,
 	[diameter] [int] NULL,
-	[weight] [int] NULL,
+	[weight] [real] NULL,
 	[mill] [nvarchar](250) NULL,
 	[pipeMillStatus] [nvarchar](20) NULL,
 	[typeId] [uniqueidentifier] NULL,
