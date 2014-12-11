@@ -127,6 +127,45 @@ namespace Data.DAL.ADO
             return auditDataTable;
         }
 
+        public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
+
         public SqlConnection CreateConnection()
         {
             if (connection == null)

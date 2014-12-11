@@ -272,6 +272,15 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
+    <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
@@ -487,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
