@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.repairOperations = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
             this.deactivated = new DevExpress.XtraEditors.CheckEdit();
@@ -41,7 +43,7 @@
             this.seaLevel = new DevExpress.XtraEditors.TextEdit();
             this.GPSLat = new DevExpress.XtraEditors.TextEdit();
             this.GPSLong = new DevExpress.XtraEditors.TextEdit();
-            this.controls = new DevExpress.XtraGrid.GridControl();
+            this.controlOperations = new DevExpress.XtraGrid.GridControl();
             this.controlsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointOperationLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -55,7 +57,8 @@
             this.loweringDate = new DevExpress.XtraEditors.DateEdit();
             this.newJointLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.controlOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repairOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.loweringLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.GPSLatLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.GPSLongLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -79,13 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controls)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit)).BeginInit();
@@ -97,7 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLongLayout)).BeginInit();
@@ -134,6 +140,7 @@
             // 
             // newJointLayoutControl
             // 
+            this.newJointLayoutControl.Controls.Add(this.repairOperations);
             this.newJointLayoutControl.Controls.Add(this.saveButton);
             this.newJointLayoutControl.Controls.Add(this.extraFiles);
             this.newJointLayoutControl.Controls.Add(this.deactivated);
@@ -144,7 +151,7 @@
             this.newJointLayoutControl.Controls.Add(this.seaLevel);
             this.newJointLayoutControl.Controls.Add(this.GPSLat);
             this.newJointLayoutControl.Controls.Add(this.GPSLong);
-            this.newJointLayoutControl.Controls.Add(this.controls);
+            this.newJointLayoutControl.Controls.Add(this.controlOperations);
             this.newJointLayoutControl.Controls.Add(this.secondJointElement);
             this.newJointLayoutControl.Controls.Add(this.firstJointElement);
             this.newJointLayoutControl.Controls.Add(this.loweringDate);
@@ -158,6 +165,23 @@
             this.newJointLayoutControl.Size = new System.Drawing.Size(1275, 550);
             this.newJointLayoutControl.TabIndex = 15;
             this.newJointLayoutControl.Text = "layoutControl1";
+            // 
+            // repairOperations
+            // 
+            this.repairOperations.Cursor = System.Windows.Forms.Cursors.Default;
+            this.repairOperations.Location = new System.Drawing.Point(633, 218);
+            this.repairOperations.MainView = this.gridView1;
+            this.repairOperations.Name = "repairOperations";
+            this.repairOperations.Size = new System.Drawing.Size(608, 261);
+            this.repairOperations.TabIndex = 28;
+            this.repairOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.repairOperations;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // saveButton
             // 
@@ -259,22 +283,22 @@
             this.GPSLong.StyleController = this.newJointLayoutControl;
             this.GPSLong.TabIndex = 10;
             // 
-            // controls
+            // controlOperations
             // 
-            this.controls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.controlOperations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.controls.Cursor = System.Windows.Forms.Cursors.Default;
-            this.controls.Location = new System.Drawing.Point(34, 202);
-            this.controls.MainView = this.controlsView;
-            this.controls.Margin = new System.Windows.Forms.Padding(15);
-            this.controls.Name = "controls";
-            this.controls.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.controlOperations.Cursor = System.Windows.Forms.Cursors.Default;
+            this.controlOperations.Location = new System.Drawing.Point(34, 218);
+            this.controlOperations.MainView = this.controlsView;
+            this.controlOperations.Margin = new System.Windows.Forms.Padding(15);
+            this.controlOperations.Name = "controlOperations";
+            this.controlOperations.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.jointOperationLookUpEdit,
             this.operationDateEdit});
-            this.controls.Size = new System.Drawing.Size(1207, 277);
-            this.controls.TabIndex = 24;
-            this.controls.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.controlOperations.Size = new System.Drawing.Size(565, 261);
+            this.controlOperations.TabIndex = 24;
+            this.controlOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.controlsView,
             this.inspectionsGridView});
             // 
@@ -285,7 +309,7 @@
             this.resultGridColumn,
             this.controlDateGridColumn,
             this.inspectorsGridColumn});
-            this.controlsView.GridControl = this.controls;
+            this.controlsView.GridControl = this.controlOperations;
             this.controlsView.Name = "controlsView";
             this.controlsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.controlsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -346,7 +370,7 @@
             // 
             // inspectionsGridView
             // 
-            this.inspectionsGridView.GridControl = this.controls;
+            this.inspectionsGridView.GridControl = this.controlOperations;
             this.inspectionsGridView.Name = "inspectionsGridView";
             // 
             // secondJointElement
@@ -419,24 +443,37 @@
             // 
             this.inspectionLayoutGroup.CustomizationFormText = "Данные контроля";
             this.inspectionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.inspectionsLayout});
+            this.controlOperationsLayout,
+            this.repairOperationLayout});
             this.inspectionLayoutGroup.Location = new System.Drawing.Point(0, 138);
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
             this.inspectionLayoutGroup.Size = new System.Drawing.Size(1235, 346);
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
-            this.inspectionLayoutGroup.Text = "Контрольные операции";
+            this.inspectionLayoutGroup.Text = "Контрольнo - ремонтные операции";
             // 
-            // inspectionsLayout
+            // controlOperationsLayout
             // 
-            this.inspectionsLayout.Control = this.controls;
-            this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
-            this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
-            this.inspectionsLayout.Name = "inspectionsLayout";
-            this.inspectionsLayout.Size = new System.Drawing.Size(1211, 281);
-            this.inspectionsLayout.Text = "inspectionsLayout";
-            this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionsLayout.TextToControlDistance = 0;
-            this.inspectionsLayout.TextVisible = false;
+            this.controlOperationsLayout.Control = this.controlOperations;
+            this.controlOperationsLayout.CustomizationFormText = "Контрольные операции";
+            this.controlOperationsLayout.Location = new System.Drawing.Point(0, 0);
+            this.controlOperationsLayout.Name = "controlOperationsLayout";
+            this.controlOperationsLayout.Size = new System.Drawing.Size(584, 281);
+            this.controlOperationsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
+            this.controlOperationsLayout.Text = "Контрольные операции";
+            this.controlOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.controlOperationsLayout.TextSize = new System.Drawing.Size(120, 13);
+            // 
+            // repairOperationLayout
+            // 
+            this.repairOperationLayout.Control = this.repairOperations;
+            this.repairOperationLayout.CustomizationFormText = "Ремонтные операции";
+            this.repairOperationLayout.Location = new System.Drawing.Point(584, 0);
+            this.repairOperationLayout.Name = "repairOperationLayout";
+            this.repairOperationLayout.Size = new System.Drawing.Size(627, 281);
+            this.repairOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
+            this.repairOperationLayout.Text = "Ремонтные операции";
+            this.repairOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.repairOperationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // loweringLayoutGroup
             // 
@@ -468,7 +505,7 @@
             this.GPSLatLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.GPSLatLayout.Text = "Широта";
             this.GPSLatLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLatLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.GPSLatLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // GPSLongLayout
             // 
@@ -482,7 +519,7 @@
             this.GPSLongLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.GPSLongLayout.Text = "Долгота";
             this.GPSLongLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.GPSLongLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.GPSLongLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // elevationLayout
             // 
@@ -496,7 +533,7 @@
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.elevationLayout.Text = "Высота";
             this.elevationLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.elevationLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.elevationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // PKNumberLayout
             // 
@@ -508,7 +545,7 @@
             this.PKNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.PKNumberLayout.Text = "Номер пикета";
             this.PKNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.PKNumberLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.PKNumberLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // distanceFromPKLayout
             // 
@@ -520,7 +557,7 @@
             this.distanceFromPKLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.distanceFromPKLayout.Text = "Расстояние от пикета";
             this.distanceFromPKLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.distanceFromPKLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.distanceFromPKLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // loweringEmptySpace
             // 
@@ -583,7 +620,7 @@
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.jointNumberLayout.Text = "Номер стыка";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.jointNumberLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.jointNumberLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // loweringDateLayout
             // 
@@ -597,7 +634,7 @@
             this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.loweringDateLayout.Text = "Дата укладки";
             this.loweringDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.loweringDateLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.loweringDateLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // firstJointElementLayout
             // 
@@ -611,7 +648,7 @@
             this.firstJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.firstJointElementLayout.Text = "Первый элемент стыка";
             this.firstJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.firstJointElementLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.firstJointElementLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // secondJointElementLayout
             // 
@@ -625,7 +662,7 @@
             this.secondJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.secondJointElementLayout.Text = "Второй элемент стыка";
             this.secondJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.secondJointElementLayout.TextSize = new System.Drawing.Size(117, 13);
+            this.secondJointElementLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // extraFilesLayout
             // 
@@ -700,13 +737,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seaLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controls)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit.CalendarTimeProperties)).EndInit();
@@ -718,7 +757,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLongLayout)).EndInit();
@@ -759,12 +799,12 @@
         private DevExpress.XtraEditors.TextEdit seaLevel;
         private DevExpress.XtraEditors.TextEdit GPSLat;
         private DevExpress.XtraEditors.TextEdit GPSLong;
-        private DevExpress.XtraGrid.GridControl controls;
+        private DevExpress.XtraGrid.GridControl controlOperations;
         private DevExpress.XtraGrid.Views.Grid.GridView controlsView;
         private DevExpress.XtraGrid.Columns.GridColumn controlTypeGridColumn;
         private DevExpress.XtraGrid.Views.Grid.GridView inspectionsGridView;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionLayoutGroup;
-        private DevExpress.XtraLayout.LayoutControlItem inspectionsLayout;
+        private DevExpress.XtraLayout.LayoutControlItem controlOperationsLayout;
         private DevExpress.XtraLayout.LayoutControlGroup loweringLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem GPSLatLayout;
         private DevExpress.XtraLayout.LayoutControlItem GPSLongLayout;
@@ -792,6 +832,9 @@
         private System.Windows.Forms.BindingSource pipelinePiecesBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit jointOperationLookUpEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit operationDateEdit;
+        private DevExpress.XtraGrid.GridControl repairOperations;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControlItem repairOperationLayout;
 
     }
 }

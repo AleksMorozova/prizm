@@ -46,12 +46,12 @@ FROM AuditLog
                 AND [user] LIKE @user";
 
         public const string GetPipelinePieces =
-            @"SELECT id, number, N'Труба' as type, diameter, wallThickness, length FROM pipe WHERE isActive = 1
+            @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length FROM pipe WHERE isActive = 1
             UNION ALL
-            SELECT s.id, s.number, N'Катушка' as type, p.diameter, p.wallThickness, p.length FROM spool s 
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id WHERE s.isActive = 1
             UNION ALL
-            SELECT c.id, c.number, N'Компонент' as type, con.diameter, con.wallThickness, c.length FROM component c 
+            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length FROM component c 
             INNER JOIN connector con ON c.id = con.componentId WHERE c.isActive = 1
             ORDER BY number";
             

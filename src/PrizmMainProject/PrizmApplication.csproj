@@ -221,9 +221,7 @@
     <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
       <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </Compile>
@@ -360,7 +358,9 @@
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs" />
+    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.Designer.cs">
       <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>

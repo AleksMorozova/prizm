@@ -5,6 +5,7 @@ using Domain.Entity.Setup;
 using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Documents;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private IModifiable modifiableView;
         public Guid JointId { get; set; }
         public construction.Joint Joint { get; set; }
-        public DataTable Pieces;
+        private DataTable pieces;
         public BindingList<JointOperation> Operations;
 
 
@@ -203,6 +204,27 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
         }
         #endregion 
+
+        public DataTable Pieces
+        {
+            get 
+            { 
+                return pieces;
+            }
+            set 
+            {
+                if (value != pieces)
+                {
+                    foreach (DataRow record in value.Rows)
+                    {
+                        string typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
+                        record.SetField("type", typeResourceValue);
+                        pieces = value;
+                        RaisePropertyChanged("Pieces");
+                    }
+                }
+            }
+        }
 
         private void NewJoint()
         {
