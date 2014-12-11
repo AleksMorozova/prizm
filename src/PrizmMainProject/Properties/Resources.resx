@@ -529,4 +529,10 @@
   <data name="Spool" xml:space="preserve">
     <value>Катушка</value>
   </data>
+  <data name="DLG_JOINT_SAVED" xml:space="preserve">
+    <value>Стык успешно сохранен в базе. Стык  #</value>
+  </data>
+  <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение стыка</value>
+        </data>
 </root>

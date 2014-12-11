@@ -106,6 +106,7 @@
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\JointMap.cs" />
     <Compile Include="DAL\Mapping\JointOperationMap.cs" />
+    <Compile Include="DAL\Mapping\JointTestResultMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PermissionMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
@@ -155,8 +156,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-
-
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

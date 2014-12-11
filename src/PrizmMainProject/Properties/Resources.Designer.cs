@@ -367,6 +367,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
+        /// </summary>
+        internal static string DLG_JOINT_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение стыка.
+        /// </summary>
+        internal static string DLG_JOINT_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер наряд-заказа обязателен.
         /// </summary>
         internal static string DLG_ORDER_NUMBER_REQUIRED {
