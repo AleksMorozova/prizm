@@ -50,6 +50,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
+        bool recalculateWeight = false;
 
         private bool canDeactivatePipe = false;
         public bool CanDeactivatePipe
@@ -282,6 +283,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.Diameter)
                 {
                     Pipe.Diameter = value;
+                    recalculateWeight = true;
                     RaisePropertyChanged("Diameter");
                 }
             }
@@ -295,6 +297,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.Length)
                 {
                     Pipe.Length = value;
+                    recalculateWeight = true; 
                     RaisePropertyChanged("Length");
                 }
             }
@@ -302,7 +305,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public float Weight
         {
-            get { return Pipe.Weight; }
+            get
+            {
+                if (recalculateWeight == true) 
+                {
+                    Pipe.Weight = Pipe.ChangePipeWeigh(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                }
+                return Pipe.Weight; 
+            }
             set
             {
                 if (value != Pipe.Weight)
@@ -321,6 +331,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.WallThickness)
                 {
                     Pipe.WallThickness = value;
+                    recalculateWeight = true;
                     RaisePropertyChanged("WallThickness");
                 }
             }
@@ -865,5 +876,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
              return testsResults;
          }
+
+         //public void ChangePipeWeigh() 
+         //{
+         //    Pipe.Weight = (float)(Math.PI * Pipe.Ro * Pipe.WallThickness * (Pipe.Diameter - Pipe.WallThickness) * Pipe.Length);
+         //}
     }
 }
