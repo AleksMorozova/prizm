@@ -23,33 +23,23 @@ using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Railcar;
 using PrizmMain.Forms.PipeMill;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Forms.PipeMill.Purchase;
 using Data.DAL.ADO;
+using Data.DAL.Security;
+using PrizmMain.Forms.Audit;
+using PrizmMain.Security;
+using PrizmMain.Forms.Component;
+using PrizmMain.Forms.Joint;
+using Data.DAL.Construction;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain
 {
     public class PrizmModule : NinjectModule
     {
-        private class TemporaryContext : PrizmMain.Security.ISecurityContext
-        {
-            // TODO: this is stub instead of real context.
-            // Remove after binding to real context.
-            public bool HasAccess(Security.Privileges privilege)
-            {
-                //throw new System.NotImplementedException();
-                return true;
-            }
-
-            public Domain.Entity.PersonName GetLoggedPerson()
-            {               
-                return new Domain.Entity.PersonName { FirstName = "Ivan", LastName = "Ivanov", MiddleName = "Ivanovich" };
-            }
-        }
+        
         public override void Load()
         {
-            //TODO: Review if it can be changed
-            TemporaryContext temporaryContext = new TemporaryContext();
-            HibernateUtil.CurrentUser = temporaryContext.GetLoggedPerson();
-            
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession(true));
 
@@ -65,27 +55,42 @@ namespace PrizmMain
             Bind<IMillPipeSizeTypeRepository>().To<MillPipeSizeTypeRepository>();
             Bind<IPipeTestRepository>().To<PipeTestRepository>();
             Bind<IMillRepository>().To<MillRepository>();
+            Bind<IJointOperationRepository>().To<JointOperationRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
             Bind<IRailcarRepositories>().To<RailcarRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
-
-
+            Bind<IProjectRepository>().To<ProjectRepository>();
+            Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<IMillReportsRepository>().To<MillReportsRepository>();
+            Bind<IUserRepository>().To<UserRepository>();
+            Bind<IRoleRepository>().To<RoleRepository>();
+            Bind<IPermissionRepository>().To<PermissionRepository>();
+            Bind<IConstructionRepository>().To<ConstructionRepository>();
+            Bind<IJointRepository>().To<JointRepository>();
+
+            Bind<IComponentRepositories>().To<ComponentRepositories>();
+            Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
+            Bind<IComponentRepository>().To<ComponentRepository>();
+            
 
             // TODO: remove TemporaryContext after binding to real context.
-            Bind<PrizmMain.Security.ISecurityContext>().To<TemporaryContext>();
+            Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
             #endregion
 
             #region ViewModel
             Bind<HeatViewModel>().ToSelf();
+            Bind<PurchaseOrderViewModel>().ToSelf();
             Bind<RailcarViewModel>().ToSelf();
             Bind<MillPipeSearchViewModel>().ToSelf();
             Bind<MillPipeNewEditViewModel>().ToSelf();
             Bind<RailcarSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
+            Bind<PrizmApplicationViewModel>().ToSelf();
+            Bind<JointNewEditViewModel>().ToSelf();
+            Bind<PartsSearchViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -104,6 +109,9 @@ namespace PrizmMain
             Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
+            Bind<PurchaseOrderXtraForm>().ToSelf();
+            Bind<AuditXtraForm>().ToSelf();
+            Bind<PartsSearchXtraForm>().ToSelf();
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

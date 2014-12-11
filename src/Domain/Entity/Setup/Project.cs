@@ -1,11 +1,15 @@
-﻿namespace Domain.Entity
+﻿using Domain.Entity.Setup;
+namespace Domain.Entity
 {
     // FIX: remove??
     public class Project : Item
     {
-        //public virtual string Title { get; set; }
-        public virtual /*PersonName*/string Client { get; set; }
-        public virtual /*PersonName*/string Designer { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string Client { get; set; }
+        public virtual string MillName { get; set; }
         public virtual int DocumentSizeLimit { get; set; }
+        public virtual WorkstationType WorkstationType { get; set; }
+        public virtual string MillPipeNumberMask { get; set; }
+        public virtual string MillPipeNumberMaskRegexp { get; set; }
     }
 }

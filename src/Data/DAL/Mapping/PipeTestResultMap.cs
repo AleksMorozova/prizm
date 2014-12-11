@@ -15,14 +15,17 @@ namespace Data.DAL.Mapping
             Map(x => x.Date).Column("date");
             Map(x => x.Value).Column("value");
             Map(x => x.Status).Column("status");
+            Map(x => x.Order).Column("[order]");
 
             References<PipeTest>(_ => _.Operation).Column("pipeTestId");
+
             References<Pipe>(_ => _.Pipe).Column("pipeId");
+
             HasManyToMany(_ => _.Inspectors)
                     .Table("[TestResult_Inspector]")
                     .ParentKeyColumn("resultId")
                     .ChildKeyColumn("inspectorId")
-                    .Cascade.SaveUpdate();
+                    .Cascade.SaveUpdate().Not.LazyLoad();
         }
     }
 }

@@ -7,14 +7,16 @@ using Ninject;
 using Ninject.Parameters;
 
 using Domain.Entity.Mill;
-
+using Domain.Entity;
 using PrizmMain.Forms.MainChildForm;
 using System.Collections.Generic;
 using PrizmMain.Properties;
 using PrizmMain.Common;
+using PrizmMain.Forms.ExternalFile;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarNewEditXtraForm : ChildForm
     {
         private RailcarViewModel viewModel;
@@ -25,12 +27,17 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("railcarNumber", railcarNumber));
+            viewModel.ModifiableView = this;
+            viewModel.PropertyChanged += (s, e) => IsModified = true;
 
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
 
             this.railcarNumber.SetRequiredText();
             SetControlsTextLength();
+            this.certificateNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
+
         }
 
         public RailcarNewEditXtraForm()
@@ -43,6 +50,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             BindCommands();
             BindToViewModel();
+            IsModified = false;
+            IsEditMode = !viewModel.IsShipped;
         }
 
         private void BindToViewModel()
@@ -60,6 +69,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+            SaveCommand = viewModel.SaveCommand;
             shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
             unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
 
@@ -116,6 +126,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
         }
+
         private void ButtonRefresh()
         {
             viewModel.ShipCommand.IsExecutable ^= true;
@@ -129,5 +140,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             pipeNumberLookUp.Refresh();
             pipeListLookUpView.RefreshData();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
+        }
+
+
     }
 }

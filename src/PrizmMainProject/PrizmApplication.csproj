@@ -160,9 +160,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\IADOCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Common\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlColorExtensions.cs" />
+    <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
     <Compile Include="Common\LengthLimit.cs" />
     <Compile Include="Controls\InspectorSelectionControl.cs">
@@ -186,16 +186,58 @@
     <Compile Include="DummyData\RolesDummy.cs" />
     <Compile Include="DummyData\UsersDummy.cs" />
     <Compile Include="DummyData\WeldersDummy.cs" />
-    <Compile Include="Forms\BindingListExtensions.cs" />
-    <Compile Include="Forms\GridViewExtensions.cs" />
-    <Compile Include="Forms\IUserNotify.cs" />
-    <Compile Include="Forms\IViewModel.cs" />
-    <Compile Include="Forms\MainChildForm\ChildForm.cs">
+    <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
+    <Compile Include="Forms\Audit\AuditViewModel.cs" />
+    <Compile Include="Forms\Audit\AuditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
+      <DependentUpon>AuditXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\Common\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\PartType.cs" />
+    <Compile Include="Forms\Common\PasswordEncryptor.cs" />
+    <Compile Include="Forms\Common\SaveDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\SaveDialog.Designer.cs">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Component\ComponentRepositories.cs" />
+    <Compile Include="Forms\Component\IComponentRepositories.cs" />
+    <Compile Include="Forms\Component\NewEdit\ComponentDeactivationCommand.cs" />
+    <Compile Include="Forms\Component\NewEdit\ComponentNewEditViewModel.cs" />
+    <Compile Include="Forms\Component\NewEdit\NewSaveComponentCommand.cs" />
+    <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
+    <Compile Include="Forms\ControlMaskExtensions.cs" />
+    <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\InspectionParts\Search\Part.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ISupportModifiableView.cs" />
+    <Compile Include="Forms\IUserNotify.cs" />
+    <Compile Include="Forms\IViewModel.cs" />
+    <Compile Include="Forms\MainChildForm\ChildForm.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Joint\ConstructionRepository.cs" />
+    <Compile Include="Forms\Joint\IConstructionRepository.cs" />
+    <Compile Include="Forms\Joint\NewEdit\JointNewEditViewModel.cs" />
+    <Compile Include="Forms\Joint\NewEdit\SaveJointCommand.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </Compile>
@@ -205,6 +247,7 @@
     <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\PrizmApplicationViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +260,7 @@
     <Compile Include="Forms\PipeMill\Heat\SaveHeatCommand.cs" />
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\GetProjectCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
@@ -228,17 +272,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Forms\PipeMill\NewEdit\SavePipeCommand.cs" />
-    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.cs">
+    <Compile Include="Forms\PipeMill\Purchase\PurchaseOrderViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeMill\PurchaseOrderXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.Designer.cs">
       <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PipeMill\Purchase\SaveOrderCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
+    <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\PasswordChangeDialog.Designer.cs">
+      <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
     <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
@@ -292,15 +359,7 @@
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.Designer.cs">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs" />
     <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.Designer.cs">
       <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>
@@ -392,6 +451,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Privileges.cs" />
+    <Compile Include="Security\SecurityContext.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -400,11 +460,23 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Audit\AuditXtraForm.resx">
+      <DependentUpon>AuditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\SaveDialog.resx">
+      <DependentUpon>SaveDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
       <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InspectionParts\Search\PartsSearchXtraForm.resx">
+      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatNumberXtraForm.resx">
       <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
@@ -412,14 +484,11 @@
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeMill\PurchaseOrderXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.resx">
       <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CopyPipe\CopyPipeSettingsXtraForm.resx">
-      <DependentUpon>CopyPipeSettingsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
@@ -442,6 +511,9 @@
     <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
       <DependentUpon>LoginXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
+      <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +522,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\NewEdit\MillPipeNewEditXtraForm.resx">
       <DependentUpon>MillPipeNewEditXtraForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.resx">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
@@ -466,8 +539,12 @@
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\PasswordChangeDialog.resx">
+      <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\SettingsXtraForm.resx">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Spool\SpoolsXtraForm.resx">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
@@ -481,16 +558,12 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
@@ -664,7 +737,15 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

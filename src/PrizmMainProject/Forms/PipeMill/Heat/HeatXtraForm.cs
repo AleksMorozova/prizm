@@ -7,9 +7,11 @@ using PrizmMain.Forms.MainChildForm;
 using System.Linq;
 using System.Collections.Generic;
 using Domain.Entity.Mill;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class HeatXtraForm : ChildForm
     {
 
@@ -23,7 +25,10 @@ namespace PrizmMain.Forms.PipeMill.Heat
         public HeatXtraForm(string heatNumber)
         {
             InitializeComponent();
+            SetControlsTextLength();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
+
+            number.SetAsIdentifier();
         }
 
         private void HeatXtraForm_Load(object sender, EventArgs e)
@@ -85,6 +90,12 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             viewModel.CreateHeat();
             RefreshControls();
+        }
+
+        private void SetControlsTextLength()
+        {
+            number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
+            steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
         }
     }
 }

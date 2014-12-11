@@ -12,9 +12,13 @@ namespace Data.DAL.Mapping
     {
         public ProjectMap()
         {
-            Map(x => x.Client).Column("client");
-            Map(x => x.Designer).Column("designer");
-            Map(x => x.DocumentSizeLimit).Column("documentSizeLimit");      
+            Map(_ => _.Title).Column("title");
+            Map(_ => _.Client).Column("client");
+            Map(_ => _.MillName).Column("millName");
+            Map(_ => _.DocumentSizeLimit).Column("documentSizeLimit");
+            Map(_ => _.WorkstationType).Column("workstationType");
+            Map(_ => _.MillPipeNumberMask).Column("millPipeNumberMask");
+            Map(_ => _.MillPipeNumberMaskRegexp).Column("millPipeNumberMaskRegexp");
         }
     }
 }

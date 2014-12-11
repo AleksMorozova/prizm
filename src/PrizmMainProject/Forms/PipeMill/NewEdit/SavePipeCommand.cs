@@ -47,16 +47,29 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
             else
             {
-                try
+                if (viewModel.CheckStatus())
                 {
-                    repo.BeginTransaction();
-                    repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-                    repo.Commit();
-                    repo.RepoPipe.Evict(viewModel.Pipe);
+                    try
+                    {
+
+                        repo.BeginTransaction();
+                        repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
+                        repo.Commit();
+                        repo.RepoPipe.Evict(viewModel.Pipe);
+                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.CanDeactivatePipe = viewModel.PipeDeactivationCommand.CanExecute();
+                        notify.ShowNotify(
+                            string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
+                            Resources.DLG_PIPE_SAVED_HEADER);
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                catch (RepositoryException ex)
+                else 
                 {
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    notify.ShowInfo(Resources.DLG_AddFailedControlOperation, Resources.DLG_PIPE_SAVED_HEADER);
                 }
             }
         }
@@ -71,12 +84,12 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrEmpty(viewModel.Heat.Number) &&
+            bool condition = viewModel.Heat != null &&
                 viewModel.PipeMillSizeType != null &&
-                viewModel.PipeStatus != null &&
                 viewModel.PipePurchaseOrder != null &&
                 !string.IsNullOrEmpty(viewModel.Number) &&
-                viewModel.ProductionDate != DateTime.MinValue;
+                viewModel.ProductionDate != DateTime.MinValue &&
+                viewModel.ModifiableView.IsEditMode;
 
             return condition;
         }

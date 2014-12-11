@@ -26,6 +26,8 @@ using PrizmMain.Forms.Spool;
 using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Audit;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -33,6 +35,7 @@ namespace PrizmMain.Forms.MainChildForm
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
+        private PrizmApplicationViewModel viewModel;
 
         public PrizmApplicationXtraForm()
         {
@@ -42,8 +45,7 @@ namespace PrizmMain.Forms.MainChildForm
             // should be deleted after demo test
             //==========================================================
             languageBarListItem.ShowChecks = true;
-            languageBarListItem.Strings.Add("English (customizable)");
-            languageBarListItem.Strings.Add("English (US)");
+            languageBarListItem.Strings.Add("English");
             languageBarListItem.Strings.Add("Русский");
             languageBarListItem.Strings.Add("Chinese (中國)");
             languageBarListItem.DataIndex = 2;
@@ -54,8 +56,8 @@ namespace PrizmMain.Forms.MainChildForm
         /// Checks if given form type is single. Expected type name of the form derived from ChildForm and used as a child window.
         /// Single means to have only one opened child window if this type at a time.
         /// </summary>
-        /// <param name="formTypeName"></param>
-        /// <returns></returns>
+        /// <param name="formTypeName">string representation of form type name, for example "SettingsXtraForm"</param>
+        /// <returns>true if form is "single" in terms of this application</returns>
         private bool IsSingle(string formTypeName)
         {
             bool isSingle = false;
@@ -74,9 +76,9 @@ namespace PrizmMain.Forms.MainChildForm
         /// <summary>
         /// Creates and returns an instance of child form of given form type. Given 
         /// </summary>
-        /// <param name="formType"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
+        /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
+        /// <param name="parameters">additional parameters for new child form</param>
+        /// <returns>reference to newly created child form</returns>
         private ChildForm CreateReturnChildForm(System.Type formType, params IParameter[] parameters)
         {
             ChildForm newlyCreatedForm = null;
@@ -254,19 +256,14 @@ namespace PrizmMain.Forms.MainChildForm
             CreateSettingsChildForm(page: 4);
         }
 
-        private void barButtonItemSettingsDictionaries_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateSettingsChildForm(page: 5);
-        }
-
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 6);
+           CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 7);
+           CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -276,7 +273,7 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(PartsSearchXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
@@ -294,6 +291,11 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
         }
 
+        private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(AuditXtraForm));
+        }
+
         private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
         {
             //CreateChildForm(typeof(HeatXtraForm));
@@ -304,26 +306,49 @@ namespace PrizmMain.Forms.MainChildForm
 
 
         #region IUserNotify
+        /// <summary>
+        /// Error message that requires user confirmation (OK)
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="header"></param>
         public void ShowError(string text, string header)
         {
             XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        /// <summary>
+        /// Warning message that requires user confirmation (OK)
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
         public void ShowWarning(string text, string header)
         {
             XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
+        /// <summary>
+        /// Informational message that requires user confirmation (OK)
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
         public void ShowInfo(string text, string header)
         {
             XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        /// <summary>
+        /// Message that requires user confirmation or denial (yes/no)
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
+        /// <returns>true if yes, false if no</returns>
         public bool ShowYesNo(string text, string header)
         {
             return (DialogResult.Yes == XtraMessageBox.Show(text, header, MessageBoxButtons.YesNo, MessageBoxIcon.Question));
         }
-
+        /// <summary>
+        /// Message that requires user confirmation, denial or operation cancellation (yes/no/cancel)
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
+        /// <returns>1 if yes, 0 if no, -1 if cancel</returns>
         public int ShowYesNoCancel(string text, string header)
         {
             DialogResult dlg = XtraMessageBox.Show(text, header, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -344,20 +369,33 @@ namespace PrizmMain.Forms.MainChildForm
             }
             return result;
         }
-
+        /// <summary>
+        /// Message about success, that doesn't require user confirmation.
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
         public void ShowSuccess(string text, string header)
         {
             AlertInfo ai = new AlertInfo(header,text);
             //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
-
+        /// <summary>
+        /// Message about failure, that doesn't require user confirmation.
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
         public void ShowFailure(string text, string header)
         {
             AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader +" "+ header, text);
             //TODO: add image and custom buttons if necessity
             alertControl.Show(this, ai);
         }
+        /// <summary>
+        /// Informational message, that doesn't require user confirmation.
+        /// </summary>
+        /// <param name="text">message body</param>
+        /// <param name="header">message header</param>
         public void ShowNotify(string text, string header)
         {
             AlertInfo ai = new AlertInfo(header, text);
@@ -366,10 +404,17 @@ namespace PrizmMain.Forms.MainChildForm
         }
         #endregion
 
+        private void PrizmApplicationXtraForm_Load(object sender, EventArgs e)
+        {
+            viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
+            viewModel.GetOrCreateProject();
 
-
-
-
+            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
+            if (!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
+            {
+                this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
+            }
+        }
 
      
     }

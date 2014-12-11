@@ -1,4 +1,5 @@
-﻿using Domain.Entity.Setup;
+﻿using Domain.Entity.Mill;
+using Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace Data.DAL.Mapping
             Map(_ => _.MaxExpected, "maxExpected");
             Map(_ => _.BoolExpected, "boolExpected");
             Map(_ => _.IsRequired, "isRequired");
+
+            References<Category>(x => x.Category).Column("categoryId").Cascade.All();
 
             References(_ => _.pipeType).Column("pipeMillSizeTypeId");
             HasMany(_ => _.PipeTestResults).KeyColumn("pipeTestId").Inverse();

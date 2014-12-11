@@ -11,10 +11,11 @@ using DevExpress.XtraEditors;
 using PrizmMain.Properties;
 using System.Windows.Forms;
 using Data.DAL;
+using PrizmMain.Documents;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
-    public class RailcarViewModel : ViewModelBase, IDisposable
+    public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private readonly IRailcarRepositories repos;
         private readonly IUserNotify notify;
@@ -22,6 +23,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         private readonly ShipRailcarCommand shipCommand;
         private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
+        IModifiable modifiableView;
 
         [Inject]
         public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
@@ -50,6 +52,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             
         }
 
+        
+
         public List<Pipe> AllPipes
         {
             get { return allPipes; }
@@ -66,19 +70,9 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.Number = value;
                     RaisePropertyChanged("Number");
-                }
-            }
-        }
-
-        public string Certificate
-        {
-            get { return Railcar.Certificate; }
-            set
-            {
-                if (value != Railcar.Certificate)
-                {
-                    Railcar.Certificate = value;
-                    RaisePropertyChanged("Certificate");
+                    ShipCommand.IsExecutable ^= true;
+                    UnshipCommand.IsExecutable ^= true;
+                    SaveCommand.IsExecutable ^= true;
                 }
             }
         }
@@ -92,6 +86,19 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.Destination = value;
                     RaisePropertyChanged("Destination");
+                }
+            }
+        }
+
+        public string Certificate
+        {
+            get { return Railcar.Certificate; }
+            set
+            {
+                if (value != Railcar.Certificate)
+                {
+                    Railcar.Certificate = value;
+                    RaisePropertyChanged("Certificate");
                 }
             }
         }
@@ -116,6 +123,20 @@ namespace PrizmMain.Forms.Railcar.NewEdit
                 {
                     Railcar.ShippingDate = value;
                     RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+
+        public bool IsShipped
+        {
+            get { return Railcar.IsShipped; }
+            set
+            {
+                if (value != Railcar.IsShipped)
+                {
+                    Railcar.IsShipped = value;
+                    RaisePropertyChanged("IsShipped");
+                    modifiableView.IsEditMode = !value;
                 }
             }
         }
@@ -153,6 +174,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         public void Dispose()
         {
             repos.Dispose();
+            ModifiableView = null;
         }
 
         public void AddPipe(Guid id)
@@ -235,6 +257,16 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
         }
 
-        
+        public Documents.IModifiable ModifiableView
+        {
+           get
+           {
+              return modifiableView;
+           }
+           set
+           {
+              modifiableView = value;
+           }
+        }
     }
 }

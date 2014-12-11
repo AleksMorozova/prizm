@@ -18,6 +18,7 @@ using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarSearchXtraForm : ChildForm
     {
         private RailcarSearchViewModel viewModel;
@@ -27,6 +28,8 @@ namespace PrizmMain.Forms.Railcar.Search
             InitializeComponent();
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
+            this.certificateNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
         }
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
@@ -34,7 +37,6 @@ namespace PrizmMain.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
-
         }
 
         private void BindToViewModel()
