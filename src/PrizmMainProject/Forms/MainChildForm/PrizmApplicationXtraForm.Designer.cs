@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -44,13 +43,11 @@
             this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemComponentry = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemInspectionFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemInspectionFindEditParts = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemInspectionFindComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemConstruction = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemConstructionFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemConstructionFindEditComponentry = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemConstructionFindEditParts = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
@@ -84,10 +81,10 @@
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -130,19 +127,17 @@
             this.barSubItemApplication,
             this.barButtonItemNewProject,
             this.barButtonItemNewComponent,
-            this.barButtonItemInspectionFindComponentry,
             this.barButtonItemCustomReport,
             this.barButtonItemRailcar,
             this.barSubItemConstruction,
-            this.barButtonItemConstructionFindEditPipes,
-            this.barButtonItemConstructionFindEditComponentry,
+            this.barButtonItemConstructionFindEditParts,
             this.barButtonItemSetingsProject,
             this.barButtonItemChangeCurrentProject,
             this.barButtonItemExit,
             this.barButtonItemNewJoint,
             this.barButtonItemFindEditJoints,
             this.barButtonItemConstructionReports,
-            this.barButtonItemInspectionFindEditPipes,
+            this.barButtonItemInspectionFindEditParts,
             this.barButtonItemInspectionReports,
             this.barButtonItemNewRailcar,
             this.barButtonItemFindEditShipRailcars,
@@ -163,7 +158,7 @@
             this.barButtonItemSettingsInspectors,
             this.barButtonItemHeat});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 58;
+            this.barManager1.MaxItemId = 59;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -282,18 +277,17 @@
             this.barSubItemComponentry.Caption = "&Входной контроль";
             this.barSubItemComponentry.Id = 13;
             this.barSubItemComponentry.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindEditPipes),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindEditParts),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionFindComponentry),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true)});
             this.barSubItemComponentry.Name = "barSubItemComponentry";
             // 
-            // barButtonItemInspectionFindEditPipes
+            // barButtonItemInspectionFindEditParts
             // 
-            this.barButtonItemInspectionFindEditPipes.Caption = "Поиск &компонентов";
-            this.barButtonItemInspectionFindEditPipes.Id = 35;
-            this.barButtonItemInspectionFindEditPipes.Name = "barButtonItemInspectionFindEditPipes";
-            this.barButtonItemInspectionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindEditPipes_ItemClick);
+            this.barButtonItemInspectionFindEditParts.Caption = "Поиск &компонентов";
+            this.barButtonItemInspectionFindEditParts.Id = 35;
+            this.barButtonItemInspectionFindEditParts.Name = "barButtonItemInspectionFindEditParts";
+            this.barButtonItemInspectionFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindEditPipes_ItemClick);
             // 
             // barButtonItemNewComponent
             // 
@@ -302,13 +296,6 @@
             this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
             this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
             this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
-            // 
-            // barButtonItemInspectionFindComponentry
-            // 
-            this.barButtonItemInspectionFindComponentry.Caption = "&Поиск комплектующих";
-            this.barButtonItemInspectionFindComponentry.Id = 21;
-            this.barButtonItemInspectionFindComponentry.Name = "barButtonItemInspectionFindComponentry";
-            this.barButtonItemInspectionFindComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindComponentry_ItemClick);
             // 
             // barButtonItemInspectionReports
             // 
@@ -322,27 +309,19 @@
             this.barSubItemConstruction.Caption = "&Строительство";
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditPipes),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditComponentry, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditParts, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports, true)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
-            // barButtonItemConstructionFindEditPipes
+            // barButtonItemConstructionFindEditParts
             // 
-            this.barButtonItemConstructionFindEditPipes.Caption = "Поиск &труб";
-            this.barButtonItemConstructionFindEditPipes.Id = 27;
-            this.barButtonItemConstructionFindEditPipes.Name = "barButtonItemConstructionFindEditPipes";
-            this.barButtonItemConstructionFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditPipes_ItemClick);
-            // 
-            // barButtonItemConstructionFindEditComponentry
-            // 
-            this.barButtonItemConstructionFindEditComponentry.Caption = "Поиск &комплектующих";
-            this.barButtonItemConstructionFindEditComponentry.Id = 28;
-            this.barButtonItemConstructionFindEditComponentry.Name = "barButtonItemConstructionFindEditComponentry";
-            this.barButtonItemConstructionFindEditComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditComponentry_ItemClick);
+            this.barButtonItemConstructionFindEditParts.Caption = "Поиск &компонентов";
+            this.barButtonItemConstructionFindEditParts.Id = 28;
+            this.barButtonItemConstructionFindEditParts.Name = "barButtonItemConstructionFindEditParts";
+            this.barButtonItemConstructionFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditParts_ItemClick);
             // 
             // barButtonItemNewJoint
             // 
@@ -518,28 +497,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1276, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(1276, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 598);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 600);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 580);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Location = new System.Drawing.Point(1276, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 580);
             // 
             // barButtonItemSettingsDictionaries
             // 
@@ -632,7 +611,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
-            this.Text = "[PRIZMA]";
+            this.Text = "[PRISM v.2]";
             this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
@@ -667,16 +646,14 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewPipe;
         private DevExpress.XtraBars.BarButtonItem barButtonItemMillFindEditPipes;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewComponent;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemCustomReport;
         private DevExpress.XtraBars.BarButtonItem barButtonItemRailcar;
         private DevExpress.XtraBars.BarSubItem barSubItemConstruction;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditPipes;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditComponentry;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditParts;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSetingsProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemChangeCurrentProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindEditPipes;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindEditParts;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditJoints;
         private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionReports;

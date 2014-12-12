@@ -13,21 +13,24 @@ using PrizmMain.Forms.Common;
 using PrizmMain.Properties;
 using DevExpress.XtraGrid.Views.Grid;
 using PrizmMain.Common;
+using PrizmMain.Forms.Component.NewEdit;
+using Ninject.Parameters;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
-    public partial class PartsSearchXtraForm : ChildForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class PartSearchXtraForm : ChildForm
     {
-        private PartsSearchViewModel viewModel;
+        private PartSearchViewModel viewModel;
 
-        public PartsSearchXtraForm()
+        public PartSearchXtraForm()
         {
             InitializeComponent();
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
         {
-            viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
+            viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
 
@@ -70,6 +73,36 @@ namespace PrizmMain.Forms.InspectionParts.Search
             }
             viewModel.Types.Clear();
             viewModel.Types = selectedTypes;
+        }
+
+        private void partsView_DoubleClick(object sender, EventArgs e)
+        {
+            int selectedPart = partsView.GetFocusedDataSourceRowIndex();
+
+            var parent = this.MdiParent as PrizmApplicationXtraForm;
+
+            if (viewModel.Parts[selectedPart].Type.Value == PartType.Component)
+            {
+                parent.CreateChildForm(
+                        typeof(ComponentNewEditXtraForm),
+                        new ConstructorArgument(
+                            "componentId",
+                            viewModel.Parts[selectedPart].Id));
+            }
+            else if (viewModel.Parts[selectedPart].Type.Value == PartType.Pipe)
+            {
+            }
+            else if (viewModel.Parts[selectedPart].Type.Value == PartType.Spool)
+            {
+            }
+        }
+
+        private void partsView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                partsView_DoubleClick(sender, e);
+            }
         }
     }
 }

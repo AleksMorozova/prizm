@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Serializable_Entity.Mill
+namespace Domain.SerializableEntity.Mill
 {
     [Serializable]
-    class SerializablePlate
+    class SerializableHeat
     {
         public Guid Id { get; set; }
-        public string PlateNumber { get; set; }
+        public string HeatNumber { get; set; }
     }
 }

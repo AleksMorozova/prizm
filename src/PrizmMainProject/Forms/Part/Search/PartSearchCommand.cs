@@ -15,11 +15,11 @@ namespace PrizmMain.Forms.InspectionParts.Search
 {
     public class PartsSearchCommand : ICommand
     {
-        PartsSearchViewModel viewModel;
+        PartSearchViewModel viewModel;
         ISession session;
 
         [Inject]
-        public PartsSearchCommand(PartsSearchViewModel vm, ISession sess)
+        public PartsSearchCommand(PartSearchViewModel vm, ISession sess)
         {
             viewModel = vm;
             session = sess;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public class Spool : PipelinePiece
+    public class Spool : Part
     {
         public virtual string PipeNumber { get; set; }
         public virtual Pipe Pipe { get; set; }

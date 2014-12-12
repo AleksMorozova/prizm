@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public enum JointStatus
+    public enum PartInspectionStatus
     {
-        Undefined = 0,
-        AtControl = 1,
-        AtIsolation = 2,
-        Lowered = 3,
-        Filled = 4,
-        Welded = 5
+        Pending = 1,
+        Hold = 2,
+        Rejected = 3,
+        Accepted = 4,
+
+        Undefined = 0
     }
 }

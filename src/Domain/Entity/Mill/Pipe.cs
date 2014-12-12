@@ -5,7 +5,7 @@ using Domain.Entity.Construction;
 
 namespace Domain.Entity.Mill
 {
-    public class Pipe : PipelinePiece
+    public class Pipe : Part
     {
         public Pipe()
         {
@@ -22,7 +22,9 @@ namespace Domain.Entity.Mill
         public virtual string Mill { get; set; }
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
-        public virtual int Weight { get; set; }
+
+        public virtual float Weight { get; set; }
+
         public virtual DateTime ProductionDate { get; set; }
 
         public virtual PipeMillSizeType Type { get; set; }
@@ -40,5 +42,22 @@ namespace Domain.Entity.Mill
         public virtual IList<Spool> Spools { get; set; }
 
         public virtual PipeMillStatus Status { get; set; }
+
+        /// <summary>
+        ///  Density of carbon steel
+        /// </summary>
+        public const float Ro = 0.00000785F;
+
+        /// <summary>
+        ///  Calculate pipe weight
+        /// </summary>
+        /// <param name="WallThickness"> Pipe WallThickness</param>
+        ///  <param name="Diameter"> Pipe Diameter</param>
+        ///  <param name="Length"> Pipe Length</param>
+        public static float ChangePipeWeight(int WallThickness, int Diameter, int Length )
+        {
+            return (float)(Math.PI * Ro * WallThickness * (Diameter - WallThickness) * Length);
+        }
+
     }
 }
