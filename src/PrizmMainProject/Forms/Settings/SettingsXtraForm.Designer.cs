@@ -109,6 +109,7 @@
             this.testHasToRepairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testHasToWithdrawGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testResultRequiredGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isActiveJointOperationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointOperationsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
@@ -1108,10 +1109,12 @@
             this.testHasAcceptedGridColumn,
             this.testHasToRepairGridColumn,
             this.testHasToWithdrawGridColumn,
-            this.testResultRequiredGridColumn});
+            this.testResultRequiredGridColumn,
+            this.isActiveJointOperationGridColumn});
             this.jointsOperationsGridView.GridControl = this.jointOperations;
             this.jointsOperationsGridView.Name = "jointsOperationsGridView";
             this.jointsOperationsGridView.OptionsView.ShowGroupPanel = false;
+            this.jointsOperationsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.jointsOperationsGridView_InitNewRow);
             // 
             // nameGridColumn
             // 
@@ -1131,18 +1134,18 @@
             this.isRequiredForJointGridColumn.Name = "isRequiredForJointGridColumn";
             this.isRequiredForJointGridColumn.Visible = true;
             this.isRequiredForJointGridColumn.VisibleIndex = 1;
-            this.isRequiredForJointGridColumn.Width = 149;
+            this.isRequiredForJointGridColumn.Width = 131;
             // 
             // isTestGridColumn
             // 
             this.isTestGridColumn.AppearanceHeader.Options.UseTextOptions = true;
             this.isTestGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.isTestGridColumn.Caption = "Ремонтная операция";
+            this.isTestGridColumn.Caption = "Контрольная операция";
             this.isTestGridColumn.FieldName = "IsTest";
             this.isTestGridColumn.Name = "isTestGridColumn";
             this.isTestGridColumn.Visible = true;
             this.isTestGridColumn.VisibleIndex = 2;
-            this.isTestGridColumn.Width = 149;
+            this.isTestGridColumn.Width = 131;
             // 
             // testHasAcceptedGridColumn
             // 
@@ -1153,7 +1156,7 @@
             this.testHasAcceptedGridColumn.Name = "testHasAcceptedGridColumn";
             this.testHasAcceptedGridColumn.Visible = true;
             this.testHasAcceptedGridColumn.VisibleIndex = 3;
-            this.testHasAcceptedGridColumn.Width = 149;
+            this.testHasAcceptedGridColumn.Width = 131;
             // 
             // testHasToRepairGridColumn
             // 
@@ -1164,7 +1167,7 @@
             this.testHasToRepairGridColumn.Name = "testHasToRepairGridColumn";
             this.testHasToRepairGridColumn.Visible = true;
             this.testHasToRepairGridColumn.VisibleIndex = 4;
-            this.testHasToRepairGridColumn.Width = 149;
+            this.testHasToRepairGridColumn.Width = 131;
             // 
             // testHasToWithdrawGridColumn
             // 
@@ -1175,7 +1178,7 @@
             this.testHasToWithdrawGridColumn.Name = "testHasToWithdrawGridColumn";
             this.testHasToWithdrawGridColumn.Visible = true;
             this.testHasToWithdrawGridColumn.VisibleIndex = 5;
-            this.testHasToWithdrawGridColumn.Width = 149;
+            this.testHasToWithdrawGridColumn.Width = 131;
             // 
             // testResultRequiredGridColumn
             // 
@@ -1186,7 +1189,18 @@
             this.testResultRequiredGridColumn.Name = "testResultRequiredGridColumn";
             this.testResultRequiredGridColumn.Visible = true;
             this.testResultRequiredGridColumn.VisibleIndex = 6;
-            this.testResultRequiredGridColumn.Width = 154;
+            this.testResultRequiredGridColumn.Width = 131;
+            // 
+            // isActiveJointOperationGridColumn
+            // 
+            this.isActiveJointOperationGridColumn.AppearanceHeader.Options.UseTextOptions = true;
+            this.isActiveJointOperationGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.isActiveJointOperationGridColumn.Caption = "Активна";
+            this.isActiveJointOperationGridColumn.FieldName = "IsActive";
+            this.isActiveJointOperationGridColumn.Name = "isActiveJointOperationGridColumn";
+            this.isActiveJointOperationGridColumn.Visible = true;
+            this.isActiveJointOperationGridColumn.VisibleIndex = 7;
+            this.isActiveJointOperationGridColumn.Width = 131;
             // 
             // jointOperationsLayoutGroup
             // 
@@ -2403,5 +2417,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn testHasToRepairGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testHasToWithdrawGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testResultRequiredGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn isActiveJointOperationGridColumn;
     }
 }

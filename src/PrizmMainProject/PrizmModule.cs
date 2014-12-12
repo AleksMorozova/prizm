@@ -88,6 +88,7 @@ namespace PrizmMain
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             Bind<JointNewEditViewModel>().ToSelf();
+	        Bind<JointSearchViewModel>().ToSelf();
             Bind<PartSearchViewModel>().ToSelf();
             #endregion
 
@@ -108,6 +109,10 @@ namespace PrizmMain
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
             Bind<PartSearchXtraForm>().ToSelf();
+            #endregion
+
+            #region Commands
+            Bind<JointSearchCommand>().ToSelf(); 
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

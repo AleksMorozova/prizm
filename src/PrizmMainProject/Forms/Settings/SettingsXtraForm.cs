@@ -564,6 +564,13 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             RefreshUserRoles(e.FocusedRowHandle);
         }
 
+        private void jointsOperationsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
+            jointOperation.IsActive = true;
+        }
+
     }
 
 }
