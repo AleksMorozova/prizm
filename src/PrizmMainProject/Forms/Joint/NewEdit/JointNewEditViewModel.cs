@@ -56,7 +56,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
             else
             {
-                throw new NotImplementedException();
+                this.Joint = repoConstruction.RepoJoint.Get(jointId);
             }
         }
 
