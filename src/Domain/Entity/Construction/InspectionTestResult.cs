@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public class InspectionTestResult : TestResult<PieceInspectionStatus>
+    public class InspectionTestResult : TestResult<PartInspectionStatus>
     {
 
     }
