@@ -111,7 +111,7 @@
             this.searchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(344, 245, 250, 350);
             this.searchLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.searchLayoutControl.Root = this.generalLayoutGroup;
-            this.searchLayoutControl.Size = new System.Drawing.Size(936, 448);
+            this.searchLayoutControl.Size = new System.Drawing.Size(1271, 546);
             this.searchLayoutControl.TabIndex = 59;
             this.searchLayoutControl.Text = "layoutControl1";
             // 
@@ -125,7 +125,7 @@
             this.gridControlSerchResult.MainView = this.resultView;
             this.gridControlSerchResult.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.gridControlSerchResult.Name = "gridControlSerchResult";
-            this.gridControlSerchResult.Size = new System.Drawing.Size(908, 301);
+            this.gridControlSerchResult.Size = new System.Drawing.Size(1243, 399);
             this.gridControlSerchResult.TabIndex = 33;
             this.gridControlSerchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.resultView});
@@ -181,9 +181,9 @@
             // 
             // weldingDateLabel
             // 
-            this.weldingDateLabel.Location = new System.Drawing.Point(353, 58);
+            this.weldingDateLabel.Location = new System.Drawing.Point(612, 58);
             this.weldingDateLabel.Name = "weldingDateLabel";
-            this.weldingDateLabel.Size = new System.Drawing.Size(64, 13);
+            this.weldingDateLabel.Size = new System.Drawing.Size(79, 18);
             this.weldingDateLabel.StyleController = this.searchLayoutControl;
             this.weldingDateLabel.TabIndex = 65;
             this.weldingDateLabel.Text = "Дата сварки";
@@ -191,41 +191,41 @@
             // weldingDateTo
             // 
             this.weldingDateTo.EditValue = null;
-            this.weldingDateTo.Location = new System.Drawing.Point(565, 54);
+            this.weldingDateTo.Location = new System.Drawing.Point(844, 54);
             this.weldingDateTo.Name = "weldingDateTo";
             this.weldingDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.weldingDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDateTo.Size = new System.Drawing.Size(106, 20);
+            this.weldingDateTo.Size = new System.Drawing.Size(109, 20);
             this.weldingDateTo.StyleController = this.searchLayoutControl;
             this.weldingDateTo.TabIndex = 4;
             // 
             // pegNumber
             // 
-            this.pegNumber.Location = new System.Drawing.Point(699, 54);
+            this.pegNumber.Location = new System.Drawing.Point(981, 54);
             this.pegNumber.Name = "pegNumber";
-            this.pegNumber.Size = new System.Drawing.Size(91, 20);
+            this.pegNumber.Size = new System.Drawing.Size(144, 20);
             this.pegNumber.StyleController = this.searchLayoutControl;
             this.pegNumber.TabIndex = 5;
             // 
             // weldingDateFrom
             // 
             this.weldingDateFrom.EditValue = null;
-            this.weldingDateFrom.Location = new System.Drawing.Point(433, 54);
+            this.weldingDateFrom.Location = new System.Drawing.Point(707, 54);
             this.weldingDateFrom.Name = "weldingDateFrom";
             this.weldingDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.weldingDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.weldingDateFrom.Size = new System.Drawing.Size(104, 20);
+            this.weldingDateFrom.Size = new System.Drawing.Size(109, 20);
             this.weldingDateFrom.StyleController = this.searchLayoutControl;
             this.weldingDateFrom.TabIndex = 3;
             // 
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(821, 53);
+            this.searchButton.Location = new System.Drawing.Point(1156, 53);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(100, 21);
             this.searchButton.StyleController = this.searchLayoutControl;
@@ -238,17 +238,17 @@
             this.jointNumber.Location = new System.Drawing.Point(20, 54);
             this.jointNumber.Margin = new System.Windows.Forms.Padding(15);
             this.jointNumber.Name = "jointNumber";
-            this.jointNumber.Size = new System.Drawing.Size(121, 20);
+            this.jointNumber.Size = new System.Drawing.Size(257, 20);
             this.jointNumber.StyleController = this.searchLayoutControl;
             this.jointNumber.TabIndex = 1;
             // 
             // controlState
             // 
-            this.controlState.Location = new System.Drawing.Point(169, 54);
+            this.controlState.Location = new System.Drawing.Point(305, 54);
             this.controlState.Name = "controlState";
             this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.controlState.Size = new System.Drawing.Size(156, 20);
+            this.controlState.Size = new System.Drawing.Size(279, 20);
             this.controlState.StyleController = this.searchLayoutControl;
             this.controlState.TabIndex = 2;
             this.controlState.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.controlState_CloseUp);
@@ -264,7 +264,7 @@
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.generalLayoutGroup.Size = new System.Drawing.Size(936, 448);
+            this.generalLayoutGroup.Size = new System.Drawing.Size(1271, 546);
             this.generalLayoutGroup.Text = "generalLayoutGroup";
             this.generalLayoutGroup.TextVisible = false;
             // 
@@ -275,7 +275,7 @@
             this.searchResultLayout});
             this.searchResultLayoutGroup.Location = new System.Drawing.Point(0, 100);
             this.searchResultLayoutGroup.Name = "searchResultLayoutGroup";
-            this.searchResultLayoutGroup.Size = new System.Drawing.Size(936, 348);
+            this.searchResultLayoutGroup.Size = new System.Drawing.Size(1271, 446);
             this.searchResultLayoutGroup.Text = "Результаты поиска";
             // 
             // searchResultLayout
@@ -284,7 +284,7 @@
             this.searchResultLayout.CustomizationFormText = "searchResultLayout";
             this.searchResultLayout.Location = new System.Drawing.Point(0, 0);
             this.searchResultLayout.Name = "searchResultLayout";
-            this.searchResultLayout.Size = new System.Drawing.Size(912, 305);
+            this.searchResultLayout.Size = new System.Drawing.Size(1247, 403);
             this.searchResultLayout.Text = "searchResultLayout";
             this.searchResultLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchResultLayout.TextToControlDistance = 0;
@@ -303,7 +303,7 @@
             this.searchButtonLayout});
             this.searchLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchLayoutGroup.Name = "searchLayoutGroup";
-            this.searchLayoutGroup.Size = new System.Drawing.Size(936, 100);
+            this.searchLayoutGroup.Size = new System.Drawing.Size(1271, 100);
             this.searchLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
             this.searchLayoutGroup.Text = "Параметры поиска";
             // 
@@ -311,10 +311,10 @@
             // 
             this.KMlayout.Control = this.pegNumber;
             this.KMlayout.CustomizationFormText = "Íîìåð ïèêåòà";
-            this.KMlayout.Location = new System.Drawing.Point(672, 0);
+            this.KMlayout.Location = new System.Drawing.Point(954, 0);
             this.KMlayout.MinSize = new System.Drawing.Size(119, 47);
             this.KMlayout.Name = "KMlayout";
-            this.KMlayout.Size = new System.Drawing.Size(119, 47);
+            this.KMlayout.Size = new System.Drawing.Size(172, 47);
             this.KMlayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.KMlayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 7);
             this.KMlayout.Text = "Номер пикета";
@@ -328,7 +328,7 @@
             this.jointNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.jointNumberLayout.MinSize = new System.Drawing.Size(119, 47);
             this.jointNumberLayout.Name = "jointNumberLayout";
-            this.jointNumberLayout.Size = new System.Drawing.Size(142, 47);
+            this.jointNumberLayout.Size = new System.Drawing.Size(278, 47);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
             this.jointNumberLayout.Text = "Номер стыка";
@@ -339,10 +339,11 @@
             // 
             this.weldingDateFromLayout.Control = this.weldingDateFrom;
             this.weldingDateFromLayout.CustomizationFormText = "ñ";
-            this.weldingDateFromLayout.Location = new System.Drawing.Point(406, 0);
-            this.weldingDateFromLayout.MinSize = new System.Drawing.Size(119, 47);
+            this.weldingDateFromLayout.Location = new System.Drawing.Point(680, 0);
+            this.weldingDateFromLayout.MaxSize = new System.Drawing.Size(137, 47);
+            this.weldingDateFromLayout.MinSize = new System.Drawing.Size(137, 47);
             this.weldingDateFromLayout.Name = "weldingDateFromLayout";
-            this.weldingDateFromLayout.Size = new System.Drawing.Size(132, 47);
+            this.weldingDateFromLayout.Size = new System.Drawing.Size(137, 47);
             this.weldingDateFromLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.weldingDateFromLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.weldingDateFromLayout.Text = "с";
@@ -353,10 +354,11 @@
             // 
             this.weldingDateToLayout.Control = this.weldingDateTo;
             this.weldingDateToLayout.CustomizationFormText = "ïî";
-            this.weldingDateToLayout.Location = new System.Drawing.Point(538, 0);
-            this.weldingDateToLayout.MinSize = new System.Drawing.Size(134, 47);
+            this.weldingDateToLayout.Location = new System.Drawing.Point(817, 0);
+            this.weldingDateToLayout.MaxSize = new System.Drawing.Size(137, 47);
+            this.weldingDateToLayout.MinSize = new System.Drawing.Size(137, 47);
             this.weldingDateToLayout.Name = "weldingDateToLayout";
-            this.weldingDateToLayout.Size = new System.Drawing.Size(134, 47);
+            this.weldingDateToLayout.Size = new System.Drawing.Size(137, 47);
             this.weldingDateToLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.weldingDateToLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.weldingDateToLayout.Text = "по";
@@ -367,9 +369,11 @@
             // 
             this.eldingDateLabelLayout.Control = this.weldingDateLabel;
             this.eldingDateLabelLayout.CustomizationFormText = "eldingDateLabelLayout";
-            this.eldingDateLabelLayout.Location = new System.Drawing.Point(326, 0);
+            this.eldingDateLabelLayout.Location = new System.Drawing.Point(585, 0);
+            this.eldingDateLabelLayout.MinSize = new System.Drawing.Size(80, 42);
             this.eldingDateLabelLayout.Name = "eldingDateLabelLayout";
-            this.eldingDateLabelLayout.Size = new System.Drawing.Size(80, 47);
+            this.eldingDateLabelLayout.Size = new System.Drawing.Size(95, 47);
+            this.eldingDateLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.eldingDateLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 0, 20, 5);
             this.eldingDateLabelLayout.Text = "eldingDateLabelLayout";
             this.eldingDateLabelLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -380,10 +384,10 @@
             // 
             this.controlStateLayout.Control = this.controlState;
             this.controlStateLayout.CustomizationFormText = "Ñòàòóñ";
-            this.controlStateLayout.Location = new System.Drawing.Point(142, 0);
+            this.controlStateLayout.Location = new System.Drawing.Point(278, 0);
             this.controlStateLayout.MinSize = new System.Drawing.Size(50, 25);
             this.controlStateLayout.Name = "controlStateLayout";
-            this.controlStateLayout.Size = new System.Drawing.Size(184, 47);
+            this.controlStateLayout.Size = new System.Drawing.Size(307, 47);
             this.controlStateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.controlStateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.controlStateLayout.Text = "Статус";
@@ -394,7 +398,7 @@
             // 
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(791, 0);
+            this.searchButtonLayout.Location = new System.Drawing.Point(1126, 0);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(119, 0);
             this.searchButtonLayout.MinSize = new System.Drawing.Size(119, 47);
             this.searchButtonLayout.Name = "searchButtonLayout";
@@ -418,7 +422,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 452);
+            this.ClientSize = new System.Drawing.Size(1275, 550);
             this.Controls.Add(this.searchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JointSearchXtraForm";

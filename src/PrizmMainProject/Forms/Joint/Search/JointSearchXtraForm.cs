@@ -20,6 +20,11 @@ namespace PrizmMain.Forms.Joint.Search
         {
             viewModel = vm;
             InitializeComponent();
+            weldingDateFrom.Properties.NullDate = DateTime.MinValue;
+            weldingDateFrom.Properties.NullText = string.Empty;
+            weldingDateTo.Properties.NullDate = DateTime.MinValue;
+            weldingDateTo.Properties.NullText = string.Empty;
+
         }
 
         private void JointSearchXtraForm_Load(object sender, System.EventArgs e)
