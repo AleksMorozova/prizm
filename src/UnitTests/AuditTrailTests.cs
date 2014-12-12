@@ -25,7 +25,7 @@ namespace UnitTests
             string [] propertyNames = new string [1] {"testProperty"};
             var iType = new Mock<NHibernate.Type.IType>();
             NHibernate.Type.IType [] types =  new  NHibernate.Type.IType [1] {iType.Object};    
-            PipelinePiece p =  new PipelinePiece();
+            Part p =  new Part();
             interceptor.OnSave (p, 1, state, propertyNames, types);
             auditRepo.Verify(_ => _.Save(It.IsAny<AuditLog>()), Times.Once());
         }
@@ -42,7 +42,7 @@ namespace UnitTests
             string[] propertyNames = new string[1] { "testProperty" };
             var iType = new Mock<NHibernate.Type.IType>();
             NHibernate.Type.IType[] types = new NHibernate.Type.IType[1] { iType.Object };
-            PipelinePiece p = new PipelinePiece();
+            Part p = new Part();
             interceptor.OnFlushDirty(p, 1, currentState, previousState, propertyNames, types);
             auditRepo.Verify(_ => _.Save(It.IsAny<AuditLog>()), Times.Once());
 

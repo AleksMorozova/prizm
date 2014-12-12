@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Serializable_Entity.Mill
+namespace Domain.SerializableEntity.Mill
 {
     [Serializable]
     class SerializableRailcar

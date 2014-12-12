@@ -529,6 +529,7 @@
   <data name="Spool" xml:space="preserve">
     <value>Катушка</value>
   </data>
+
   <data name="DLG_JOINT_SAVED" xml:space="preserve">
     <value>Стык успешно сохранен в базе. Стык  #</value>
   </data>
@@ -549,5 +550,17 @@
   </data>
   <data name="Welded" xml:space="preserve">
     <value>Сварен</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Задержано</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидает контроль</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
   </data>
 </root>

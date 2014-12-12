@@ -201,7 +201,7 @@
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Common\PartType.cs" />
+    <Compile Include="Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
@@ -217,13 +217,15 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
-    <Compile Include="Forms\InspectionParts\Search\Part.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
-      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\Part\Search\Part.cs" />
+    <Compile Include="Forms\Part\Search\PartQuery.cs" />
+    <Compile Include="Forms\Part\Search\PartSearchCommand.cs" />
+    <Compile Include="Forms\Part\Search\PartSearchViewModel.cs" />
+    <Compile Include="Forms\Part\Search\PartSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Part\Search\PartSearchXtraForm.Designer.cs">
+      <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
     <Compile Include="Forms\IUserNotify.cs" />
@@ -241,12 +243,6 @@
     <Compile Include="Forms\Joint\NewEdit\SaveJointCommand.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.Designer.cs">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Component\Search\ComponentSearchXtraForm.Designer.cs">
-      <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\PrizmApplicationViewModel.cs" />
     <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
@@ -284,6 +280,21 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
+    <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
+    <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\TestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\TestReport.Designer.cs">
+      <DependentUpon>TestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.Designer.cs">
+      <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
@@ -331,12 +342,6 @@
     <Compile Include="Forms\PipeMill\Heat\HeatXtraForm.Designer.cs">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login\LoginXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Login\LoginXtraForm.Designer.cs">
-      <DependentUpon>LoginXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -359,12 +364,6 @@
     </Compile>
     <Compile Include="Forms\Spool\SpoolsXtraForm.Designer.cs">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.Designer.cs">
-      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Incoming\InspectionReportsXtraForm.cs">
       <SubType>Form</SubType>
@@ -479,12 +478,9 @@
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Component\Search\ComponentSearchXtraForm.resx">
-      <DependentUpon>ComponentSearchXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Part\Search\PartSearchXtraForm.resx">
+      <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InspectionParts\Search\PartsSearchXtraForm.resx">
-      <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatNumberXtraForm.resx">
       <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
@@ -498,15 +494,18 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\TestReport.resx">
+      <DependentUpon>TestReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
+      <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExternalFile\ExternalFilesXtraForm.resx">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeIncoming\InspectionPipeSearchEditXtraForm.resx">
-      <DependentUpon>InspectionPipeSearchEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Incoming\InspectionReportsXtraForm.resx">
       <DependentUpon>InspectionReportsXtraForm.cs</DependentUpon>
@@ -517,10 +516,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\Search\JointSearchXtraForm.resx">
       <DependentUpon>JointSearchXtraForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login\LoginXtraForm.resx">
-      <DependentUpon>LoginXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">

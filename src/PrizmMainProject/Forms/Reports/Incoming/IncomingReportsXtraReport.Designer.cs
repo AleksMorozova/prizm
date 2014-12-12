@@ -76,7 +76,7 @@
             // 
             this.pipeNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.number")});
-            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.pipeNumber.SizeF = new System.Drawing.SizeF(179.2191F, 26F);
@@ -331,7 +331,7 @@
             this.pageFooter,
             this.reportHeader,
             this.PageHeader});
-            this.DataMember = "CustomSqlQuery";
+            this.DataMember = "Pipe";
             this.DataSource = this.sqlDataSourceForReport;
             this.Margins = new System.Drawing.Printing.Margins(66, 36, 51, 62);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

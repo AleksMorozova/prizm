@@ -2,10 +2,8 @@
 using NUnit.Framework;
 
 using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
@@ -13,8 +11,10 @@ using PrizmMain.Forms.Railcar.Search;
 using PrizmMain.Forms.Reports.Construction;
 using PrizmMain.Forms.Reports.Incoming;
 using PrizmMain.Forms.Reports.Mill;
+using PrizmMain.Forms.Reports.Custom;
 using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
+using PrizmMain.Forms.InspectionParts.Search;
 
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.Audit;
@@ -25,21 +25,19 @@ namespace UnitTests
     public class MainChildDocumentsTest
     {
         [TestCase(typeof(MillPipeNewEditXtraForm))]
-        [TestCase(typeof(RailcarNewEditXtraForm))]
         [TestCase(typeof(MillPipeSearchXtraForm))]
+        [TestCase(typeof(RailcarNewEditXtraForm))]
+        [TestCase(typeof(RailcarSearchXtraForm))]
         [TestCase(typeof(MillReportsXtraForm))]
-        [TestCase(typeof(ComponentNewEditXtraForm))]
+        [TestCase(typeof(PartSearchXtraForm))]
         [TestCase(typeof(InspectionReportsXtraForm))]
-        [TestCase(typeof(ComponentSearchXtraForm))]
+        [TestCase(typeof(ComponentNewEditXtraForm))]
+        [TestCase(typeof(CustomReportsXtraForm))]
         [TestCase(typeof(JointNewEditXtraForm))]
         [TestCase(typeof(JointSearchXtraForm))]
         [TestCase(typeof(ConstructionReportsXtraForm))]
         [TestCase(typeof(SettingsXtraForm))]
-        [TestCase(typeof(RailcarSearchXtraForm))]
-        [TestCase(typeof(InspectionPipeSearchEditXtraForm))]
         [TestCase(typeof(SpoolsXtraForm))]
-        [TestCase(typeof(ComponentSearchXtraForm))]
-        [TestCase(typeof(InspectionPipeSearchEditXtraForm))]
         [TestCase(typeof(AuditXtraForm))]
         public void TestChildFormSuccessor(System.Type type)
         {

@@ -39,12 +39,8 @@ namespace PrizmMain.Forms.Reports.Incoming
             try
             {
                 data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
-                CustomSqlQuery query = new CustomSqlQuery();
-                query.Name = "selectedQuery";
-                query.Sql = SQLQueryString.GetAllPipesFromInspection;
                 IncomingReportsXtraReport report = new IncomingReportsXtraReport();
                 report.DataSource = data;
-                report.DataMember = "selectedQuery";
                 report.CreateDocument();
                 var tool = new ReportPrintTool(report);
                 tool.AutoShowParametersPanel = false;
