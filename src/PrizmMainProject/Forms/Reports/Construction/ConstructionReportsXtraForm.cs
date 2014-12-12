@@ -51,6 +51,20 @@ namespace PrizmMain.Forms.Reports.Construction
             previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
         }
 
+        private void RefreshTypes()
+        {
+            BindingList<PartType> selectedTypes = new BindingList<PartType>();
+            for (int i = 0; i < type.Properties.Items.Count; i++)
+            {
+                if (type.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    selectedTypes.Add((PartType)type.Properties.Items[i].Value);
+                }
+            }
+            viewModel.Types.Clear();
+            viewModel.Types = selectedTypes;
+        }
+
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
@@ -64,6 +78,7 @@ namespace PrizmMain.Forms.Reports.Construction
             type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+            RefreshTypes();
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,6 +102,15 @@ namespace PrizmMain.Forms.Reports.Construction
                 endLayout.ContentVisible = true;
                 countPointsLayout.ContentVisible = true;
                 typeLayout.ContentVisible = false;
+            }
+
+            BindingList<PartType> selectedTypes = new BindingList<PartType>();
+            for (int i = 0; i < type.Properties.Items.Count; i++)
+            {
+                if (type.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    selectedTypes.Add((PartType)type.Properties.Items[i].Value);
+                }
             }
         }
     }

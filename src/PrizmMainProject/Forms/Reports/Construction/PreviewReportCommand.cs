@@ -3,6 +3,7 @@ using DevExpress.XtraReports.UI;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace PrizmMain.Forms.Reports.Construction
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
         DataSet data;
+        BindingList<string> selectedTypes;
 
         public PreviewReportCommand(ConstructionReportViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
@@ -28,7 +30,7 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             try
             {
-                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK);
+                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, selectedTypes);
                 viewModel.report.DataSource = data;
                 viewModel.report.CreateDocument();
                 viewModel.PreviewSource = viewModel.report;

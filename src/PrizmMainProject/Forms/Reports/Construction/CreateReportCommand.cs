@@ -1,8 +1,10 @@
 ﻿using Data.DAL;
 using DevExpress.XtraReports.UI;
 using PrizmMain.Commands;
+using PrizmMain.Forms.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,6 +18,7 @@ namespace PrizmMain.Forms.Reports.Construction
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
         DataSet data;
+        BindingList<string> selectedTypes;
 
         public CreateReportCommand(ConstructionReportViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
@@ -28,7 +31,12 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             try
             {
-                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK);
+                //foreach (string s in Enum.GetName(typeof(PartType)))
+                //{
+                    
+                //    //selectedTypes.Add(Enum.GetName(typeof(s)));
+                //}
+                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, selectedTypes);
                 viewModel.report.DataSource = data;
                 viewModel.report.CreateDocument();
                 var tool = new ReportPrintTool(viewModel.report);

@@ -25,6 +25,7 @@ namespace PrizmMain.Forms.Reports.Construction
         public int startPK;
         public int endPK;
         public object previewSource;
+        public BindingList <PartType> selectedTypes;
         public XtraReport report;
 
         [Inject]

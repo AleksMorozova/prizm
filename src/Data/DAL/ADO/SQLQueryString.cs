@@ -63,7 +63,7 @@ FROM AuditLog
           left  join Heat on (Heat.id = Plate.heatId)
                 WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
 
-        public const string GetAllUsedProducts = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
+        public const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
 		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
@@ -71,9 +71,9 @@ FROM AuditLog
 select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
-		  union 
-select Spool.number as number, Joint.part1Type as type, Joint.numberKP
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part1Id]) 
 		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
@@ -81,13 +81,13 @@ select Spool.number as number, Joint.part1Type as type, Joint.numberKP
 select Spool.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
-		  union all
-select Component.number as number, Joint.part1Type as type, Joint.numberKP
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part1Id]) 
 		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
-		  union all
+		  union
 select Component.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part2Id])

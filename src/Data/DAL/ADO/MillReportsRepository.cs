@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Ninject;
 using Domain.Entity.Mill;
-
+using System.ComponentModel;
 
 namespace Data.DAL.ADO
 {
@@ -166,7 +166,7 @@ namespace Data.DAL.ADO
             return pipeDataSet;
         }
 
-        public DataSet GetUsedProducts(int startPK, int endPK)
+        public DataSet GetUsedProducts(int startPK, int endPK, BindingList<string> selectedTypes)
         {
             CreateConnection();
             DataSet pipeDataSet = new DataSet();
@@ -183,7 +183,15 @@ namespace Data.DAL.ADO
                         command.Connection = connection;
                         command.Parameters.AddWithValue("@startPK", startPK);
                         command.Parameters.AddWithValue("@endPK", endPK);
-                        command.CommandText = SQLQueryString.GetAllUsedProducts;
+                        StringBuilder GetAllUsedProducts = new StringBuilder();
+                        GetAllUsedProducts.Append(" ");
+                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
+                        GetAllUsedProducts.Append(" ");
+                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
+                        GetAllUsedProducts.Append(" ");
+                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
+                        string queryString = GetAllUsedProducts.ToString();
+                        command.CommandText = queryString;
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
                     }
@@ -192,7 +200,7 @@ namespace Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetPipesFromInspection", ex);
+                throw new RepositoryException("Get Used Products", ex);
             }
             finally
             {
