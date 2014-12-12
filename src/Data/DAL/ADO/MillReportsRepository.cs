@@ -166,7 +166,46 @@ namespace Data.DAL.ADO
             return pipeDataSet;
         }
 
-               public DataTable GetPipelineElements()
+        public DataSet GetUsedProducts(int startPK, int endPK)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Joint");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startPK", startPK);
+                        command.Parameters.AddWithValue("@endPK", endPK);
+                        command.CommandText = SQLQueryString.GetAllUsedProducts;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
+
+        public DataTable GetPipelineElements()
         { 
          CreateConnection();
             DataTable resultsTable = new DataTable();

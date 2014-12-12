@@ -41,6 +41,8 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             bindingSource.DataSource = viewModel;
             previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
+            start.DataBindings.Add("EditValue", bindingSource, "StartPK");
+            end.DataBindings.Add("EditValue", bindingSource, "EndPK");
         }
 
         private void BindCommands()

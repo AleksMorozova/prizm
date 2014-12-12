@@ -36,7 +36,7 @@
             this.countPoints = new DevExpress.XtraEditors.RadioGroup();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
-            this.final = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.end = new DevExpress.XtraEditors.ComboBoxEdit();
             this.start = new DevExpress.XtraEditors.ComboBoxEdit();
             this.previewReportDocument = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.type = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -60,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countPoints.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.final.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
@@ -101,7 +101,7 @@
             this.generalLayout.Controls.Add(this.reportType);
             this.generalLayout.Controls.Add(this.createReportButton);
             this.generalLayout.Controls.Add(this.previewButton);
-            this.generalLayout.Controls.Add(this.final);
+            this.generalLayout.Controls.Add(this.end);
             this.generalLayout.Controls.Add(this.start);
             this.generalLayout.Controls.Add(this.previewReportDocument);
             this.generalLayout.Controls.Add(this.type);
@@ -155,15 +155,15 @@
             this.previewButton.TabIndex = 65;
             this.previewButton.Text = "&Предпросмотр";
             // 
-            // final
+            // end
             // 
-            this.final.Location = new System.Drawing.Point(426, 60);
-            this.final.Name = "final";
-            this.final.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.end.Location = new System.Drawing.Point(426, 60);
+            this.end.Name = "end";
+            this.end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.final.Size = new System.Drawing.Size(118, 20);
-            this.final.StyleController = this.generalLayout;
-            this.final.TabIndex = 62;
+            this.end.Size = new System.Drawing.Size(118, 20);
+            this.end.StyleController = this.generalLayout;
+            this.end.TabIndex = 62;
             // 
             // start
             // 
@@ -266,7 +266,7 @@
             // 
             // endLayout
             // 
-            this.endLayout.Control = this.final;
+            this.endLayout.Control = this.end;
             this.endLayout.CustomizationFormText = "По";
             this.endLayout.Location = new System.Drawing.Point(384, 17);
             this.endLayout.Name = "endLayout";
@@ -400,7 +400,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.countPoints.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.final.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
@@ -426,7 +426,7 @@
         #endregion
 
         private DevExpress.XtraEditors.ComboBoxEdit reportType;
-        private DevExpress.XtraEditors.ComboBoxEdit final;
+        private DevExpress.XtraEditors.ComboBoxEdit end;
         private DevExpress.XtraEditors.ComboBoxEdit start;
         private DevExpress.XtraEditors.SimpleButton previewButton;
         private DevExpress.XtraEditors.SimpleButton createReportButton;

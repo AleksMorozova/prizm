@@ -28,8 +28,7 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             try
             {
-                // TODO: create data Set for report
-                data = repo.GetPipesFromInspection(DateTime.Now, DateTime.Now);
+                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK);
                 viewModel.report.DataSource = data;
                 viewModel.report.CreateDocument();
                 viewModel.PreviewSource = viewModel.report;

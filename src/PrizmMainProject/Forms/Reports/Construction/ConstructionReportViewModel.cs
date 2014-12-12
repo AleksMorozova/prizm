@@ -22,6 +22,8 @@ namespace PrizmMain.Forms.Reports.Construction
         private readonly IUserNotify notify;
         readonly CreateReportCommand createCommand;
         readonly PreviewReportCommand previewCommand;
+        public int startPK;
+        public int endPK;
         public object previewSource;
         public XtraReport report;
 
@@ -60,6 +62,38 @@ namespace PrizmMain.Forms.Reports.Construction
                 }
             }
         }
+        public int StartPK
+        {
+            get
+            {
+                return startPK;
+            }
+            set
+            {
+                if (value != startPK)
+                {
+                    startPK = value;
+                    RaisePropertyChanged("StartPK");
+                }
+            }
+        }
+
+        public int EndPK
+        {
+            get
+            {
+                return endPK;
+            }
+            set
+            {
+                if (value != endPK)
+                {
+                    endPK = value;
+                    RaisePropertyChanged("EndPK");
+                }
+            }
+        }
+
 
         public object PreviewSource
         {
