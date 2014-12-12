@@ -13,10 +13,12 @@ namespace PrizmMain.Forms.Joint.Search
     public class JointSearchCommand : ICommand
     {
         IJointRepository repo;
+        JointSearchViewModel viewModel;
 
         [Inject]
-        public JointSearchCommand(IJointRepository repo)
+        public JointSearchCommand(JointSearchViewModel vm,IJointRepository repo)
         {
+            viewModel = vm;
             this.repo = repo;
         }
 
@@ -24,7 +26,7 @@ namespace PrizmMain.Forms.Joint.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            throw new NotImplementedException();
+           
         }
 
         public bool CanExecute()

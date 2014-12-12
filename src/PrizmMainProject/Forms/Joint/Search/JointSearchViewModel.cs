@@ -1,7 +1,10 @@
-﻿using DevExpress.Mvvm;
+﻿using Data.DAL.Construction;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
 using Domain.Entity.Construction;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +19,9 @@ namespace PrizmMain.Forms.Joint.Search
         private readonly JointSearchCommand searchCommand;
 
         [Inject]
-        public JointSearchViewModel(JointSearchCommand command)
+        public JointSearchViewModel(IJointRepository repo)
         {
-            searchCommand = command;
+            searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
         }
 
         #region BindingFields

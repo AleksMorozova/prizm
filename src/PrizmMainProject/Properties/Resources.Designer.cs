@@ -133,6 +133,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Контроль.
+        /// </summary>
+        internal static string AtControl {
+            get {
+                return ResourceManager.GetString("AtControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изоляция.
+        /// </summary>
+        internal static string AtIsolation {
+            get {
+                return ResourceManager.GetString("AtIsolation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
         /// </summary>
         internal static string AuthenticationFailed {
@@ -574,6 +592,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Засыпан.
+        /// </summary>
+        internal static string Filled {
+            get {
+                return ResourceManager.GetString("Filled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {
@@ -777,6 +804,15 @@ namespace PrizmMain.Properties {
         internal static string Length {
             get {
                 return ResourceManager.GetString("Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Опущен.
+        /// </summary>
+        internal static string Lowered {
+            get {
+                return ResourceManager.GetString("Lowered", resourceCulture);
             }
         }
         
@@ -1284,6 +1320,15 @@ namespace PrizmMain.Properties {
         internal static string Weld {
             get {
                 return ResourceManager.GetString("Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сварен.
+        /// </summary>
+        internal static string Welded {
+            get {
+                return ResourceManager.GetString("Welded", resourceCulture);
             }
         }
         

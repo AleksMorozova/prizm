@@ -16,6 +16,7 @@ using PrizmMain.Common;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class PartsSearchXtraForm : ChildForm
     {
         private PartsSearchViewModel viewModel;

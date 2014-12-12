@@ -57,8 +57,8 @@
             this.eldingDateLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
             this.searchLayoutControl.SuspendLayout();
@@ -251,6 +251,7 @@
             this.controlState.Size = new System.Drawing.Size(156, 20);
             this.controlState.StyleController = this.searchLayoutControl;
             this.controlState.TabIndex = 2;
+            this.controlState.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.controlState_CloseUp);
             // 
             // generalLayoutGroup
             // 
