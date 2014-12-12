@@ -15,8 +15,8 @@ namespace Data.DAL.Mapping
             Map(_ => _.Number).Column("number");
             Map(_ => _.NumberKP).Column("numberKP");
             Map(_ => _.DistanceFromKP).Column("distanceFromKP");
-            Map(_ => _.LoweringDate).Column("distanceFromKP");
-            Map(_ => _.JointStatus).Column("jointStatus");
+            Map(_ => _.LoweringDate).Column("loweringDate");
+            Map(_ => _.Status).Column("status");
             Map(_ => _.GpsHeight).Column("gpsHeight");
             Map(_ => _.GpsLatitude).Column("gpsLatitude");
             Map(_ => _.GpsLongitude).Column("gpsLongitude");

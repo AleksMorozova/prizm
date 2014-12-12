@@ -61,6 +61,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string Accepted {
+            get {
+                return ResourceManager.GetString("Accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -367,6 +376,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
+        /// </summary>
+        internal static string DLG_JOINT_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение стыка.
+        /// </summary>
+        internal static string DLG_JOINT_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер наряд-заказа обязателен.
         /// </summary>
         internal static string DLG_ORDER_NUMBER_REQUIRED {
@@ -570,6 +597,15 @@ namespace PrizmMain.Properties {
         internal static string Heat {
             get {
                 return ResourceManager.GetString("Heat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Задержано.
+        /// </summary>
+        internal static string Hold {
+            get {
+                return ResourceManager.GetString("Hold", resourceCulture);
             }
         }
         
@@ -918,6 +954,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ожидает контроль.
+        /// </summary>
+        internal static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Физические параметры.
         /// </summary>
         internal static string PhysicalParameters {
@@ -1086,6 +1131,15 @@ namespace PrizmMain.Properties {
         internal static string Railcar {
             get {
                 return ResourceManager.GetString("Railcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отклонено.
+        /// </summary>
+        internal static string Rejected {
+            get {
+                return ResourceManager.GetString("Rejected", resourceCulture);
             }
         }
         
