@@ -745,7 +745,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             int count = 0; 
             foreach (PipeTestResult test in pipeTestResults)
             {
-                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
+                if ((test.Status == PipeTestResultStatus.Failed) || 
+                    (test.Status == PipeTestResultStatus.Passed))
                 {
                     count++;
                 }

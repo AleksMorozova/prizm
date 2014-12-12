@@ -57,6 +57,8 @@ namespace PrizmMain.Forms.Component.NewEdit
             BindCommands();
             BindToViewModel();
 
+            viewModel.PropertyChanged += (s, eve) => IsModified = true;
+
             IsEditMode = !viewModel.IsNotActive;
 
             IsModified = false;
@@ -122,10 +124,13 @@ namespace PrizmMain.Forms.Component.NewEdit
             
             newSaveComponentButton
                 .BindCommand(() => viewModel.NewSaveCommand.Execute(), viewModel.NewSaveCommand);
+
+            SaveCommand = viewModel.SaveCommand;
         }
 
         private void componentNumber_EditValueChanged(object sender, EventArgs e)
         {
+            this.headerNumberPart = componentNumber.Text;
             viewModel.Number = componentNumber.Text;
             viewModel.SaveCommand.IsExecutable ^= true;
             viewModel.NewSaveCommand.IsExecutable ^= true;
