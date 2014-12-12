@@ -341,7 +341,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
-
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
            GridView view = sender as GridView;
@@ -596,7 +595,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 IsEditMode = false;
             }
         }
-
 
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed

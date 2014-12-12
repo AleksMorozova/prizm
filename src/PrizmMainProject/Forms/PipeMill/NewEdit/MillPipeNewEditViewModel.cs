@@ -754,7 +754,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-         private void LoadPipeMillStatuses()
+        private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
@@ -767,17 +767,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-         public Documents.IModifiable ModifiableView
-         {
+        public Documents.IModifiable ModifiableView
+        {
             get
             {
-               return modifiableView;
+                return modifiableView;
             }
             set
             {
-               modifiableView = value;
+                modifiableView = value;
             }
-         }
+        }
 
          public bool CheckStatus()
          {

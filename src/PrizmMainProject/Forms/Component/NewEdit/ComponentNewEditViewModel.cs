@@ -55,7 +55,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             else
             {
                 this.Component = repos.ComponentRepo.Get(componentId);
-                this.CanDeactivateComponent = true; //DeactivationCommand.CanExecute();
+                this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
 

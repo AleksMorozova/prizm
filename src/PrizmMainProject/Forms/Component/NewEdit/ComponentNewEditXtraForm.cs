@@ -56,6 +56,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             BindCommands();
             BindToViewModel();
 
+            IsEditMode = !viewModel.IsNotActive;
 
             IsModified = false;
         }
