@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.controlState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.searchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlSerchResult = new DevExpress.XtraGrid.GridControl();
             this.resultView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -46,6 +45,7 @@
             this.weldingDateFrom = new DevExpress.XtraEditors.DateEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
+            this.controlState = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.generalLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchResultLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,7 +60,6 @@
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
             this.searchLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).BeginInit();
@@ -71,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayout)).BeginInit();
@@ -93,16 +93,6 @@
             this.extraJointButton.LookAndFeel.SkinName = "Office 2013";
             this.extraJointButton.Name = "extraJointButton";
             this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
-            // controlState
-            // 
-            this.controlState.Location = new System.Drawing.Point(169, 54);
-            this.controlState.Name = "controlState";
-            this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.controlState.Size = new System.Drawing.Size(156, 20);
-            this.controlState.StyleController = this.searchLayoutControl;
-            this.controlState.TabIndex = 2;
             // 
             // searchLayoutControl
             // 
@@ -252,6 +242,16 @@
             this.jointNumber.StyleController = this.searchLayoutControl;
             this.jointNumber.TabIndex = 1;
             // 
+            // controlState
+            // 
+            this.controlState.Location = new System.Drawing.Point(169, 54);
+            this.controlState.Name = "controlState";
+            this.controlState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlState.Size = new System.Drawing.Size(156, 20);
+            this.controlState.StyleController = this.searchLayoutControl;
+            this.controlState.TabIndex = 2;
+            // 
             // generalLayoutGroup
             // 
             this.generalLayoutGroup.CustomizationFormText = "Root";
@@ -380,7 +380,7 @@
             this.controlStateLayout.Control = this.controlState;
             this.controlStateLayout.CustomizationFormText = "Ñòàòóñ";
             this.controlStateLayout.Location = new System.Drawing.Point(142, 0);
-            this.controlStateLayout.MinSize = new System.Drawing.Size(184, 47);
+            this.controlStateLayout.MinSize = new System.Drawing.Size(50, 25);
             this.controlStateLayout.Name = "controlStateLayout";
             this.controlStateLayout.Size = new System.Drawing.Size(184, 47);
             this.controlStateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
@@ -425,7 +425,6 @@
             this.Text = "Поиск стыков";
             this.Load += new System.EventHandler(this.JointSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).EndInit();
             this.searchLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSerchResult)).EndInit();
@@ -436,6 +435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayout)).EndInit();
@@ -454,7 +454,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.ComboBoxEdit controlState;
         private DevExpress.XtraEditors.LabelControl statusLabel;
         private DevExpress.XtraGrid.GridControl gridControlSerchResult;
         private DevExpress.XtraGrid.Views.Grid.GridView resultView;
@@ -482,6 +481,7 @@
         private DevExpress.XtraLayout.LayoutControlItem searchResultLayout;
         private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
         private System.Windows.Forms.BindingSource bindingSource;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit controlState;
 
     }
 }
