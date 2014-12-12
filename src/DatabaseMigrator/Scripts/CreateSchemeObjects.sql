@@ -396,7 +396,7 @@ SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[InspectionTestResult](
 	[id] [uniqueidentifier] NOT NULL,
-	[pipelinePieceId] [uniqueidentifier] NULL,
+	[partId] [uniqueidentifier] NULL,
 	[inspectionDate] [date] NULL,
 	[order][int] NULL,
 	[status] [nvarchar] (25) NULL,

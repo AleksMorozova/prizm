@@ -47,7 +47,7 @@ FROM AuditLog
 
         public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
           from  InspectionTestResult InspectionTestResult
-		  inner join Pipe on (Pipe.id = InspectionTestResult.[pipelinePieceId])
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
