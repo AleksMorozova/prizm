@@ -643,6 +643,10 @@ CREATE TABLE [dbo].[Joint](
 	[gpsLatitude] [float] NULL,
 	[gpsLongitude] [float] NULL,
 	[gpsHeight] [float] NULL,
+	[part1Id] [uniqueidentifier] NULL,
+	[part1Type] [nvarchar](20) NULL,
+	[part2Id] [uniqueidentifier] NULL,
+	[part2Type] [nvarchar](20) NULL,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
