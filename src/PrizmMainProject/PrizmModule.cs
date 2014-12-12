@@ -88,8 +88,8 @@ namespace PrizmMain
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             Bind<JointNewEditViewModel>().ToSelf();
-	    Bind<JointSearchViewModel>().ToSelf();
-            Bind<PartsSearchViewModel>().ToSelf();
+	        Bind<JointSearchViewModel>().ToSelf();
+            Bind<PartSearchViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
