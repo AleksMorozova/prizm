@@ -3,30 +3,89 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Common;
+using System.Windows.Forms;
+using PrizmMain.Forms.Common;
+using System.ComponentModel;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ConstructionReportsXtraForm : ChildForm
     {
+        private ConstructionReportViewModel viewModel;
+
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
+
+            reportType.Properties.Items.Add("Использованные изделия");
+            reportType.Properties.Items.Add("Протяженность трубопровода");
+            reportType.Properties.Items.Add("Трассовка");
+
             var item1 = new RadioGroupItem(0, "Стык");
             var item2 = new RadioGroupItem(1, "Пикет");
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;
+
+            countPointsLayout.ContentVisible = false;
+            typeLayout.ContentVisible = false;
+            reportPeriodLabelLayout.ContentVisible = false;
+            startLayout.ContentVisible = false;
+            endLayout.ContentVisible = false;
+
+        }
+
+        private void BindToViewModel()
+        {
+            bindingSource.DataSource = viewModel;
+            previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
+        }
+
+        private void BindCommands()
+        {
+            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
+            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
         }
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
-            reportType.Properties.Items.Add("Использованные изделия");
-            reportType.Properties.Items.Add("Трассовка");
-            reportType.Properties.Items.Add("Протяженность трубопровода");
-            type.Properties.Items.Add("Все");
-            type.Properties.Items.Add("Трубы");
-            type.Properties.Items.Add("Комплектующие изделия");
+            viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
+            BindToViewModel();
+            BindCommands();
+
+            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
+            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
+            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
+
+            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
+            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
+            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+        }
+
+        private void reportType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (reportType.SelectedItem == "Использованные изделия")
+            {
+                viewModel.report = new UsedProductsXtraReport();
+                reportPeriodLabel.Text = "Пикеты";
+                reportPeriodLabelLayout.ContentVisible = true;
+                startLayout.ContentVisible = true;
+                endLayout.ContentVisible = true;
+                countPointsLayout.ContentVisible = false;
+                typeLayout.ContentVisible = true;
+            }
+            else
+            {
+                viewModel.report = new testReport();
+                reportPeriodLabel.Text = "Точки отсчета";
+                reportPeriodLabelLayout.ContentVisible = true;
+                startLayout.ContentVisible = true;
+                endLayout.ContentVisible = true;
+                countPointsLayout.ContentVisible = true;
+                typeLayout.ContentVisible = false;
+            }
         }
     }
 }
