@@ -8,6 +8,13 @@ using Ninject.Parameters;
 using DevExpress.XtraEditors.Controls;
 using PrizmMain.Properties;
 using DevExpress.XtraGrid.Views.Grid;
+using Domain.Entity.Construction;
+using Domain.Entity.Setup;
+using PrizmMain.Controls;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using Domain.Entity;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
@@ -15,7 +22,10 @@ namespace PrizmMain.Forms.Joint.NewEdit
     public partial class JointNewEditXtraForm : ChildForm
     {
         JointNewEditViewModel viewModel;
-
+        private JointTestResult currentJointTestResult;
+        private JointActionResult currentJointActionResult;
+        InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
+        BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
 
         public JointNewEditXtraForm(Guid jointId)
         {
@@ -60,11 +70,25 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 .Add("EditValue", jointNewEditBindingSoure, "NumberKP");
             distanceFromPK.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "DistanceFromKP");
+            controlOperations.DataBindings
+               .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
+            repairOperations.DataBindings
+               .Add("DataSource", jointNewEditBindingSoure, "JointActionResults");
+
             pipelinePiecesBindingSource.DataSource = viewModel.Pieces;
             SetLookup(firstJointElement);
             SetLookup(secondJointElement);
-            jointOperationLookUpEdit.DataSource = viewModel.Operations;
+            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
+            RepairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
 
+            inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
+            inspectorSelectionControl.DataSource = inspectorsDataSource;
+            var inspectorsPopup = new PopupContainerControl();
+            inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            inspectorSelectionControl.Dock = DockStyle.Fill;
+            inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
         }
 
         /// <summary>
@@ -102,14 +126,99 @@ namespace PrizmMain.Forms.Joint.NewEdit
             viewModel.SaveJointCommand.IsExecutable ^= true;
         }
 
-        private void controlsView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView view = sender as GridView;
             if (view.IsValidRowHandle(e.RowHandle))
             {
-
+                currentJointTestResult = view.GetRow(e.RowHandle) as JointTestResult;
+                currentJointTestResult.IsActive = true;
+                currentJointTestResult.Joint = viewModel.Joint;
+                viewModel.Joint.JointTestResults = viewModel.JointTestResults;
             }
         }
+
+        private void ControlOperationLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit q = sender as LookUpEdit;
+            object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
+            JointOperation selectedOperation = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
+            if (selectedOperation != null)
+                currentJointTestResult.Operation = selectedOperation;
+        }
+
+        private void repairOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                currentJointActionResult = view.GetRow(e.RowHandle) as JointActionResult;
+                currentJointActionResult.IsActive = true;
+                currentJointActionResult.Joint = viewModel.Joint;
+                viewModel.Joint.JointActionResults = viewModel.JointActionResults;
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CloseUp(object sender, CloseUpEventArgs e)
+        {
+            if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
+            {
+                IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
+                JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
+                if (jointTestResult == null)
+                    return;
+
+                jointTestResult.Inspectors.Clear();
+                foreach (Inspector i in selectedInspectors)
+                {
+                    jointTestResult.Inspectors.Add(i);
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            controlOperationsView.ClearSelection();
+            if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
+            {
+                JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
+                if (jointTestResult == null)
+                    return;
+
+                inspectorSelectionControl.SelectInspectors(jointTestResult.Inspectors);
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+            {
+                e.DisplayText = string.Empty;
+            }
+            if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
+            {
+                JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
+                if (jointTestResult != null)
+                {
+                    availabeResults.Clear();
+                    if (jointTestResult.Operation.TestHasAccepted) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Accepted });
+                    if (jointTestResult.Operation.TestHasToRepair) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Repair });
+                    if (jointTestResult.Operation.TestHasToWithdraw) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Withdraw });
+                    resultStatusLookUpEdit.DataSource = availabeResults;
+                }
+            }
+        }
+
 
     }
 }

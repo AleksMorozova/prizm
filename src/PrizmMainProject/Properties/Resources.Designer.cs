@@ -61,6 +61,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string Accepted {
+            get {
+                return ResourceManager.GetString("Accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -1108,6 +1117,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонт.
+        /// </summary>
+        internal static string Repair {
+            get {
+                return ResourceManager.GetString("Repair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип результата.
         /// </summary>
         internal static string ResultType {
@@ -1293,6 +1311,15 @@ namespace PrizmMain.Properties {
         internal static string Welder {
             get {
                 return ResourceManager.GetString("Welder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка.
+        /// </summary>
+        internal static string Withdraw {
+            get {
+                return ResourceManager.GetString("Withdraw", resourceCulture);
             }
         }
         

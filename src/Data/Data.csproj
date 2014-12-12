@@ -104,6 +104,7 @@
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
+    <Compile Include="DAL\Mapping\JointActionResultMap.cs" />
     <Compile Include="DAL\Mapping\JointMap.cs" />
     <Compile Include="DAL\Mapping\JointOperationMap.cs" />
     <Compile Include="DAL\Mapping\JointTestResultMap.cs" />

@@ -534,5 +534,14 @@
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
-        </data>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
+  </data>
 </root>

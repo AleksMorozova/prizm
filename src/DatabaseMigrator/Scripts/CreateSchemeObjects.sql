@@ -649,5 +649,36 @@ CREATE TABLE [dbo].[Joint](
 
 GO
 
+CREATE TABLE [dbo].[JointTestResult](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[date] [date] NULL,
+	[value] [nvarchar](20) NULL,
+	[status] [nvarchar](25) NULL,
+	[order] [int] NULL,
+	[jointOperationId] [uniqueidentifier] NOT NULL,
+	[jointId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_Joint] FOREIGN KEY([jointId])
+REFERENCES [dbo].[Joint] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_Joint]
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_JointOperation] FOREIGN KEY([jointOperationId])
+REFERENCES [dbo].[JointOperation] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_JointOperation]
+GO
+
 
 
