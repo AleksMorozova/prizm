@@ -62,7 +62,29 @@ FROM AuditLog
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
                 WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
-    
+        public const string GetAllUsedProducts = @"select Pipe.number as number, Joint.part1Type as type
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part1Id])
+		  union 
+select Pipe.number as number, Joint.part2Type as type
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part2Id])
+		  union
+select Spool.number as number, Joint.part1Type as type
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part1Id])
+		  union 
+select Spool.number as number, Joint.part2Type as type
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part2Id])
+		  union
+select Component.number as number, Joint.part1Type as type
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part1Id])
+		  union 
+select Component.number as number, Joint.part2Type as type
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part2Id])";
     }
 }
             
