@@ -229,6 +229,8 @@
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\Joint\NewEdit\ExtractOperationsCommand.cs" />
+    <Compile Include="Forms\Joint\Search\JointSearchCommand.cs" />
+    <Compile Include="Forms\Joint\Search\JointSearchViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>

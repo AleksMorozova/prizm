@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -57,6 +58,7 @@
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -80,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eldingDateLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlStateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // extraJointButton
@@ -420,6 +423,7 @@
             this.Name = "JointSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "Поиск стыков";
+            this.Load += new System.EventHandler(this.JointSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).EndInit();
@@ -443,6 +447,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eldingDateLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlStateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,6 +481,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup searchResultLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem searchResultLayout;
         private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
+        private System.Windows.Forms.BindingSource bindingSource;
 
     }
 }

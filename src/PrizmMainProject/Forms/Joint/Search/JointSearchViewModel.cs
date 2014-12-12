@@ -16,9 +16,9 @@ namespace PrizmMain.Forms.Joint.Search
         private readonly JointSearchCommand searchCommand;
 
         [Inject]
-        public JointSearchViewModel(JointSearchCommand searchCommand)
+        public JointSearchViewModel(JointSearchCommand command)
         {
-
+            searchCommand = command;
         }
 
         #region BindingFields
