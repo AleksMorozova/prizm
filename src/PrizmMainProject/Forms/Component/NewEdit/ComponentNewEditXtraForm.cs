@@ -20,8 +20,6 @@ namespace PrizmMain.Forms.Component.NewEdit
     {
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
-        private Dictionary<PieceInspectionStatus, string> inspectionStatusDict 
-            = new Dictionary<PieceInspectionStatus, string>();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
 
@@ -35,6 +33,7 @@ namespace PrizmMain.Forms.Component.NewEdit
                .Get<ComponentNewEditViewModel>(new ConstructorArgument("componentId", componentId));
 
             viewModel.ModifiableView = this;
+            IsEditMode = true;
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();

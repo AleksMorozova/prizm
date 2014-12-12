@@ -19,6 +19,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
 
+        private bool canDeactivateComponent;
+
         private BindingList<ComponentType> componentTypes;
 
         private SaveComponentCommand saveCommand;
@@ -60,7 +62,23 @@ namespace PrizmMain.Forms.Component.NewEdit
         }
 
         public Domain.Entity.Construction.Component Component { get; set; }
-        public bool CanDeactivateComponent { get; set; }
+
+        public bool CanDeactivateComponent
+        {
+            get
+            {
+                return canDeactivateComponent;
+            }
+            set
+            {
+                if (value != canDeactivateComponent)
+                {
+                    canDeactivateComponent = value;
+                    RaisePropertyChanged("CanDeactivateComponent");
+                }
+            }
+        }
+
         public IList<Inspector> Inspectors { get; set; }
 
         public BindingList<ComponentType> ComponentTypes

@@ -473,7 +473,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             heatNumber.SelectedIndex = -1;
         }
 
-
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
             var order = purchaseOrder.EditValue as PurchaseOrder;
@@ -556,7 +555,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
-       
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit q = sender as LookUpEdit;
