@@ -1,4 +1,5 @@
 ﻿using Data.DAL.Construction;
+using Data.DAL.Mill;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PrizmMain.Forms.Component
     {
         IComponentRepository ComponentRepo { get; }
         IComponentTypeRepository ComponentTypeRepo { get; }
+        IInspectorRepository RepoInspector { get; }
 
         void Commit();
         void BeginTransaction();
