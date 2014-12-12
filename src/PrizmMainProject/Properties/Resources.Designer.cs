@@ -277,6 +277,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Статус на строительстве.
+        /// </summary>
+        internal static string ConstructionStatus {
+            get {
+                return ResourceManager.GetString("ConstructionStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип контроля.
         /// </summary>
         internal static string ControlType {
@@ -732,6 +741,15 @@ namespace PrizmMain.Properties {
         internal static string InspectionResultType_String {
             get {
                 return ResourceManager.GetString("InspectionResultType_String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус на входном контроле.
+        /// </summary>
+        internal static string InspectionStatus {
+            get {
+                return ResourceManager.GetString("InspectionStatus", resourceCulture);
             }
         }
         
