@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
-    public class PartsSearchViewModel : ViewModelBase, IDisposable
+    public class PartSearchViewModel : ViewModelBase, IDisposable
     {
         PartsSearchCommand searchCommand;
         ISession session;
         
 
         [Inject]
-        public PartsSearchViewModel(ISession session)
+        public PartSearchViewModel(ISession session)
         {
             this.session = session;
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
