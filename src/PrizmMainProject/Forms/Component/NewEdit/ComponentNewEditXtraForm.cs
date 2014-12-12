@@ -6,6 +6,9 @@ using PrizmMain.Forms.MainChildForm;
 using System;
 using PrizmMain.Common;
 using Domain.Entity.Construction;
+using DevExpress.XtraGrid.Views.Grid;
+using System.Collections.Generic;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Component.NewEdit
 {
@@ -13,6 +16,8 @@ namespace PrizmMain.Forms.Component.NewEdit
     public partial class ComponentNewEditXtraForm : ChildForm
     {
         private ComponentNewEditViewModel viewModel;
+        private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
+            = new Dictionary<PartInspectionStatus, string>();
 
         public ComponentNewEditXtraForm() : this(Guid.Empty) { }
 
@@ -53,6 +58,7 @@ namespace PrizmMain.Forms.Component.NewEdit
                 type.Properties.Items.Add(t);
             }
 
+            #region   ---- Data Bindings ----
             componentNumber.DataBindings
                 .Add("EditValue", componentBindingSource, "Number");
 
@@ -70,6 +76,18 @@ namespace PrizmMain.Forms.Component.NewEdit
 
             componentDeactivated.DataBindings
                 .Add("Enabled", componentBindingSource, "CanDeactivateComponent");
+
+            inspectionHistoryGrid.DataBindings
+                .Add("DataSource", componentBindingSource, "InspectionTestResults");
+            #endregion
+
+            inspectionStatusDict.Clear();
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            repositoryInspectionStatus.DataSource = inspectionStatusDict;
+            
         }
 
         private void BindCommands()
@@ -106,5 +124,36 @@ namespace PrizmMain.Forms.Component.NewEdit
                 IsEditMode = false;
             }
         }
+
+        private void inspectionHistoryGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            InspectionTestResult inspectionTestResult
+                = v.GetRow(e.RowHandle) as InspectionTestResult;
+
+            inspectionTestResult.IsActive = true;
+            inspectionTestResult.Status = PartInspectionStatus.Pending;
+        }
+
+        private void repositoryInspectionStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value is PartInspectionStatus)
+            {
+                e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
+            }
+        }
+
+        private void repositoryInspectionStatus_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lookup = sender as LookUpEdit;
+
+            if (!(lookup.EditValue is PartInspectionStatus))
+            {
+                KeyValuePair<PartInspectionStatus, string> val 
+                    = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
+                lookup.EditValue = val.Key;
+            }
+        }
+
     }
 }

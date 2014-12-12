@@ -166,6 +166,25 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
+        public BindingList<InspectionTestResult> InspectionTestResults
+        {
+            get
+            {
+                return
+                    (Component.InspectionTestResults is BindingList<InspectionTestResult>
+                    ? (BindingList<InspectionTestResult>) Component.InspectionTestResults
+                    : new BindingList<InspectionTestResult>(Component.InspectionTestResults));
+            }
+            set
+            {
+                if (value != Component.InspectionTestResults)
+                {
+                    Component.InspectionTestResults = value;
+                    RaisePropertyChanged("InspectionTestResults");
+                }
+            }
+        }
+
         public bool IsNotActive
         {
             get { return Component.IsNotActive; }
@@ -198,8 +217,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             this.Component = new Domain.Entity.Construction.Component();
 
-            this.Component.InspectionStatus = PieceInspectionStatus.Pending;
-            this.Component.ConstructionStatus = PieceConstructionStatus.Pending;
+            this.Component.InspectionStatus = PartInspectionStatus.Pending;
+            this.Component.ConstructionStatus = PartConstructionStatus.Pending;
             this.Component.IsActive = true;
             this.Number = string.Empty;
             this.Certificate = string.Empty;

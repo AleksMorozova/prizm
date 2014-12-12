@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public enum PieceConstructionStatus
+    public class InspectionTestResult : TestResult<PartInspectionStatus>
     {
-        Pending = 1,
-        AlongTrench = 2,
-        Welded = 3,
-        Lowered = 4,
-        Filled = 5,
 
-        Undefined = 0
     }
 }

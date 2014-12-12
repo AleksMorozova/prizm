@@ -49,9 +49,6 @@ CREATE TABLE [dbo].[ComponentType](
 
 SET ANSI_PADDING OFF
 
-
-
-
 /****** Object:  Table [dbo].[Connector]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -96,8 +93,6 @@ CREATE TABLE [dbo].[Component](
 
 SET ANSI_PADDING OFF
 
-
-
 /****** Object:  Table [dbo].[Spool]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -122,11 +117,6 @@ CREATE TABLE [dbo].[Spool](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-
-
-
-
-
 /****** Object:  Table [dbo].[Heat]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -191,7 +181,7 @@ CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
 	[wallThickness] [int] NULL,
 	[diameter] [int] NULL,
-	[weight] [int] NULL,
+	[weight] [real] NULL,
 	[mill] [nvarchar](250) NULL,
 	[pipeMillStatus] [nvarchar](20) NULL,
 	[typeId] [uniqueidentifier] NULL,
@@ -391,17 +381,26 @@ CREATE TABLE [dbo].[Railcar](
 
 
 SET ANSI_PADDING OFF
+
+
+
+
 /****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
 CREATE TABLE [dbo].[InspectionTestResult](
+	
 	[id] [uniqueidentifier] NOT NULL,
-	[pipelinePieceId] [uniqueidentifier] NULL,
+	[isActive] [bit] NULL,
+	[partId] [uniqueidentifier] NULL,
+
+
 	[inspectionDate] [date] NULL,
+
 	[order][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (20) NULL,
-	[isActive] [bit] NULL,
 
  CONSTRAINT [PK_InspectionTestResult] PRIMARY KEY CLUSTERED 
 (
@@ -409,8 +408,11 @@ CREATE TABLE [dbo].[InspectionTestResult](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-
 SET ANSI_PADDING OFF
+
+
+
+
 /****** Object:  Table [dbo].[TestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON

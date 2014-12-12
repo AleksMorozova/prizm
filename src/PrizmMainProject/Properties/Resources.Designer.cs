@@ -601,6 +601,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Задержано.
+        /// </summary>
+        internal static string Hold {
+            get {
+                return ResourceManager.GetString("Hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Уникальный идентификатор.
         /// </summary>
         internal static string Id {
@@ -945,6 +954,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ожидает контроль.
+        /// </summary>
+        internal static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Физические параметры.
         /// </summary>
         internal static string PhysicalParameters {
@@ -1113,6 +1131,15 @@ namespace PrizmMain.Properties {
         internal static string Railcar {
             get {
                 return ResourceManager.GetString("Railcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отклонено.
+        /// </summary>
+        internal static string Rejected {
+            get {
+                return ResourceManager.GetString("Rejected", resourceCulture);
             }
         }
         

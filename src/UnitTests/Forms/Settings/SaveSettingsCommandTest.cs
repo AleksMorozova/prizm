@@ -38,7 +38,8 @@ namespace UnitTests.Forms.Settings
             var repoRoles = new Mock<IRoleRepository>();
             var repoPerms = new Mock<IPermissionRepository>();
             var repoCategory = new Mock<ICategoryRepository>();
-            
+            var repoJointOperation = new Mock<IJointOperationRepository>();
+
             var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
@@ -48,6 +49,7 @@ namespace UnitTests.Forms.Settings
             var testRole = new Role();
             var testPerm = new Permission();
             var modifiableView = new Mock<IModifiable>();
+            var jointOperations = new JointOperation();
 
             repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
             repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
@@ -57,7 +59,7 @@ namespace UnitTests.Forms.Settings
             repoUsers.Setup(_ => _.GetAll()).Returns(new List<User>() { testUser });
             repoRoles.Setup(_ => _.GetAll()).Returns(new List<Role>() { testRole });
             repoPerms.Setup(_ => _.GetAll()).Returns(new List<Permission>() { testPerm });
-            
+            repoJointOperation.Setup(_ => _.GetAll()).Returns(new List<JointOperation>() { jointOperations });
             repoCategory.Setup(x => x.GetAll()).Returns(new List<Category>() { new Category() });
 
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
@@ -70,6 +72,7 @@ namespace UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.UserRepo).Returns(repoUsers.Object);
             settingsRepos.SetupGet(_ => _.RoleRepo).Returns(repoRoles.Object);
             settingsRepos.SetupGet(_ => _.PermissionRepo).Returns(repoPerms.Object);
+            settingsRepos.SetupGet(_ => _.JointRepo).Returns(repoJointOperation.Object);
             settingsRepos.SetupGet(x => x.СategoryRepo).Returns(repoCategory.Object);
 
             var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);

@@ -78,7 +78,7 @@ namespace PrizmMain
               IUserRepository userRepo = Kernel.Get<IUserRepository>();
               user = userRepo.FindByLogin(login);
 
-              if (!user.IsActive)
+              if (user == null || !user.IsActive)
                  return false;
 
               string hash = PasswordEncryptor.EncryptPassword(password);
