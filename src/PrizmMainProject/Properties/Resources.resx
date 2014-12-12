@@ -535,7 +535,22 @@
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
-        </data>
+  </data>
+  <data name="AtControl" xml:space="preserve">
+    <value>Контроль</value>
+  </data>
+  <data name="AtIsolation" xml:space="preserve">
+    <value>Изоляция</value>
+  </data>
+  <data name="Filled" xml:space="preserve">
+    <value>Засыпан</value>
+  </data>
+  <data name="Lowered" xml:space="preserve">
+    <value>Укладка</value>
+  </data>
+  <data name="Welded" xml:space="preserve">
+    <value>Сварен</value>
+  </data>
   <data name="Accepted" xml:space="preserve">
     <value>Принято</value>
   </data>
