@@ -37,8 +37,11 @@
             this.resultView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.jointNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.joinStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.jointWeldingDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.numberKPCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.loweringDateCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gpsLatCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gpsLongCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gpsHeightCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingDateLabel = new DevExpress.XtraEditors.LabelControl();
             this.weldingDateTo = new DevExpress.XtraEditors.DateEdit();
             this.pegNumber = new DevExpress.XtraEditors.TextEdit();
@@ -135,8 +138,11 @@
             this.resultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.jointNumberGridColumn,
             this.joinStatusGridColumn,
-            this.jointWeldingDateColumn,
-            this.repairGridColumn});
+            this.numberKPCol,
+            this.loweringDateCol,
+            this.gpsLatCol,
+            this.gpsLongCol,
+            this.gpsHeightCol});
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
             this.resultView.OptionsBehavior.Editable = false;
@@ -146,7 +152,7 @@
             // jointNumberGridColumn
             // 
             this.jointNumberGridColumn.Caption = "Номер стыка";
-            this.jointNumberGridColumn.FieldName = "ID";
+            this.jointNumberGridColumn.FieldName = "Number";
             this.jointNumberGridColumn.Name = "jointNumberGridColumn";
             this.jointNumberGridColumn.Visible = true;
             this.jointNumberGridColumn.VisibleIndex = 0;
@@ -161,23 +167,45 @@
             this.joinStatusGridColumn.VisibleIndex = 1;
             this.joinStatusGridColumn.Width = 250;
             // 
-            // jointWeldingDateColumn
+            // numberKPCol
             // 
-            this.jointWeldingDateColumn.Caption = "Дата сварки";
-            this.jointWeldingDateColumn.FieldName = "ControlDate";
-            this.jointWeldingDateColumn.Name = "jointWeldingDateColumn";
-            this.jointWeldingDateColumn.Visible = true;
-            this.jointWeldingDateColumn.VisibleIndex = 2;
-            this.jointWeldingDateColumn.Width = 150;
+            this.numberKPCol.Caption = "Номер пикета";
+            this.numberKPCol.FieldName = "NumberKP";
+            this.numberKPCol.Name = "numberKPCol";
+            this.numberKPCol.Visible = true;
+            this.numberKPCol.VisibleIndex = 2;
             // 
-            // repairGridColumn
+            // loweringDateCol
             // 
-            this.repairGridColumn.Caption = "Повторная сварка";
-            this.repairGridColumn.FieldName = "Repair";
-            this.repairGridColumn.Name = "repairGridColumn";
-            this.repairGridColumn.Visible = true;
-            this.repairGridColumn.VisibleIndex = 3;
-            this.repairGridColumn.Width = 150;
+            this.loweringDateCol.Caption = "Дата укладки";
+            this.loweringDateCol.FieldName = "LoweringDate";
+            this.loweringDateCol.Name = "loweringDateCol";
+            this.loweringDateCol.Visible = true;
+            this.loweringDateCol.VisibleIndex = 3;
+            // 
+            // gpsLatCol
+            // 
+            this.gpsLatCol.Caption = "Широта";
+            this.gpsLatCol.FieldName = "GpsLatitude";
+            this.gpsLatCol.Name = "gpsLatCol";
+            this.gpsLatCol.Visible = true;
+            this.gpsLatCol.VisibleIndex = 4;
+            // 
+            // gpsLongCol
+            // 
+            this.gpsLongCol.Caption = "Долгота";
+            this.gpsLongCol.FieldName = "GpsLongitude";
+            this.gpsLongCol.Name = "gpsLongCol";
+            this.gpsLongCol.Visible = true;
+            this.gpsLongCol.VisibleIndex = 5;
+            // 
+            // gpsHeightCol
+            // 
+            this.gpsHeightCol.Caption = "Высота";
+            this.gpsHeightCol.FieldName = "GpsHeight";
+            this.gpsHeightCol.Name = "gpsHeightCol";
+            this.gpsHeightCol.Visible = true;
+            this.gpsHeightCol.VisibleIndex = 6;
             // 
             // weldingDateLabel
             // 
@@ -464,7 +492,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView resultView;
         private DevExpress.XtraGrid.Columns.GridColumn jointNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn joinStatusGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn repairGridColumn;
         private DevExpress.XtraEditors.TextEdit pegNumber;
         private DevExpress.XtraLayout.LayoutControl searchLayoutControl;
         private DevExpress.XtraEditors.TextEdit jointNumber;
@@ -476,7 +503,6 @@
         private DevExpress.XtraLayout.LayoutControlItem KMlayout;
         private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraLayout.LayoutControlItem searchButtonLayout;
-        private DevExpress.XtraGrid.Columns.GridColumn jointWeldingDateColumn;
         private DevExpress.XtraEditors.LabelControl weldingDateLabel;
         private DevExpress.XtraEditors.DateEdit weldingDateTo;
         private DevExpress.XtraLayout.LayoutControlItem weldingDateToLayout;
@@ -487,6 +513,11 @@
         private DevExpress.XtraLayout.LayoutControlGroup searchLayoutGroup;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraEditors.CheckedComboBoxEdit controlState;
+        private DevExpress.XtraGrid.Columns.GridColumn numberKPCol;
+        private DevExpress.XtraGrid.Columns.GridColumn loweringDateCol;
+        private DevExpress.XtraGrid.Columns.GridColumn gpsLatCol;
+        private DevExpress.XtraGrid.Columns.GridColumn gpsLongCol;
+        private DevExpress.XtraGrid.Columns.GridColumn gpsHeightCol;
 
     }
 }

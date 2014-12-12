@@ -51,6 +51,7 @@ namespace PrizmMain.Forms.Joint.Search
             pegNumber.DataBindings.Add("EditValue", bindingSource, "PegNumber");
             weldingDateFrom.DataBindings.Add("EditValue", bindingSource, "FromDate");
             weldingDateTo.DataBindings.Add("EditValue", bindingSource, "ToDate");
+            gridControlSerchResult.DataBindings.Add("DataSource", bindingSource, "Joints");
         }
 
         private void BindCommands()

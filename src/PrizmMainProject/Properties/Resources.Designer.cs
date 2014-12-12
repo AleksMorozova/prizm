@@ -808,7 +808,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Опущен.
+        ///   Looks up a localized string similar to Укладка.
         /// </summary>
         internal static string Lowered {
             get {

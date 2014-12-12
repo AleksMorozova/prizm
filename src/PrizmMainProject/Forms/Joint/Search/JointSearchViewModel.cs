@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Construction = Domain.Entity.Construction;
 
 namespace PrizmMain.Forms.Joint.Search
 {
@@ -91,6 +92,20 @@ namespace PrizmMain.Forms.Joint.Search
                 {
                     statuses = value;
                     RaisePropertyChanged("Statuses");
+                }
+            }
+        }
+
+        private BindingList<Construction.Joint> joints = new BindingList<Construction.Joint>();
+        public BindingList<Construction.Joint> Joints
+        {
+            get { return joints; }
+            set
+            {
+                if(value != joints)
+                {
+                    joints = value;
+                    RaisePropertyChanged("Joints");
                 }
             }
         }

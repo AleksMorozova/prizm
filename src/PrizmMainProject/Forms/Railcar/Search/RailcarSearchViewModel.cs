@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PrizmMain.Forms.Railcar.Search
 {
     public class RailcarSearchViewModel : ViewModelBase, IDisposable
@@ -98,6 +99,9 @@ namespace PrizmMain.Forms.Railcar.Search
                 }
             }
         }
+
+        
+
         #endregion
         public ICommand SearchCommand
         {

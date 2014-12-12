@@ -26,7 +26,12 @@ namespace PrizmMain.Forms.Joint.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-           
+            var list = repo.GetAll();
+            viewModel.Joints.Clear();
+            foreach(var item in list)
+            {
+                viewModel.Joints.Add(item);
+            }
         }
 
         public bool CanExecute()
