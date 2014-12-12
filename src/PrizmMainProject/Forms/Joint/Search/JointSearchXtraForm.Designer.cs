@@ -35,8 +35,10 @@
             this.searchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlSerchResult = new DevExpress.XtraGrid.GridControl();
             this.resultView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.joinStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.statusLocalizedCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.numberKPCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.loweringDateCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gpsLatCol = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -136,8 +138,10 @@
             // resultView
             // 
             this.resultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idCol,
             this.jointNumberGridColumn,
             this.joinStatusGridColumn,
+            this.statusLocalizedCol,
             this.numberKPCol,
             this.loweringDateCol,
             this.gpsLatCol,
@@ -148,6 +152,14 @@
             this.resultView.OptionsBehavior.Editable = false;
             this.resultView.OptionsView.ShowGroupPanel = false;
             this.resultView.OptionsView.ShowIndicator = false;
+            this.resultView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.resultView_CustomUnboundColumnData);
+            this.resultView.DoubleClick += new System.EventHandler(this.resultView_DoubleClick);
+            // 
+            // idCol
+            // 
+            this.idCol.Caption = "#";
+            this.idCol.FieldName = "Id";
+            this.idCol.Name = "idCol";
             // 
             // jointNumberGridColumn
             // 
@@ -163,9 +175,16 @@
             this.joinStatusGridColumn.Caption = "Статус";
             this.joinStatusGridColumn.FieldName = "Status";
             this.joinStatusGridColumn.Name = "joinStatusGridColumn";
-            this.joinStatusGridColumn.Visible = true;
-            this.joinStatusGridColumn.VisibleIndex = 1;
             this.joinStatusGridColumn.Width = 250;
+            // 
+            // statusLocalizedCol
+            // 
+            this.statusLocalizedCol.Caption = "Статус";
+            this.statusLocalizedCol.FieldName = "statusLocalizedCol";
+            this.statusLocalizedCol.Name = "statusLocalizedCol";
+            this.statusLocalizedCol.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            this.statusLocalizedCol.Visible = true;
+            this.statusLocalizedCol.VisibleIndex = 1;
             // 
             // numberKPCol
             // 
@@ -518,6 +537,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gpsLatCol;
         private DevExpress.XtraGrid.Columns.GridColumn gpsLongCol;
         private DevExpress.XtraGrid.Columns.GridColumn gpsHeightCol;
+        private DevExpress.XtraGrid.Columns.GridColumn idCol;
+        private DevExpress.XtraGrid.Columns.GridColumn statusLocalizedCol;
 
     }
 }

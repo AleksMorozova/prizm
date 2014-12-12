@@ -1,8 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entity.Construction;
 using Ninject;
+using Ninject.Parameters;
 using PrizmMain.Common;
 using PrizmMain.DummyData;
+using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.MainChildForm;
 using System;
 using System.ComponentModel;
@@ -77,6 +81,35 @@ namespace PrizmMain.Forms.Joint.Search
             }
             viewModel.Statuses.Clear();
             viewModel.Statuses = checkedStatuses;
+        }
+
+        private void resultView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if(e.Column.FieldName == "statusLocalizedCol" && e.IsGetData)
+            {
+                e.Value = LocalizeStatus(view, e.ListSourceRowIndex);
+            }
+        }
+
+        private string LocalizeStatus(GridView view, int p)
+        {
+            JointStatus status = (JointStatus)view.GetListSourceRowCellValue(p, "Status");
+            var wrp = new EnumWrapper<JointStatus>() { Value = status };
+            return wrp.Text;
+        }
+
+        private void resultView_DoubleClick(object sender, EventArgs e)
+        {
+            GridView view = (GridView)sender;
+            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
+
+            if(info.InRow || info.InRowCell)
+            {
+                var id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
+                parent.CreateChildForm(typeof(JointNewEditXtraForm), new ConstructorArgument("jointId", id));
+            }
         }
     }
 }
