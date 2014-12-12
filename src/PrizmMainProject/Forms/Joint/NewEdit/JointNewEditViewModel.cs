@@ -51,8 +51,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 NewJoint();
             }
             else
-            { 
-            
+            {
+                this.Joint = repoConstruction.RepoJoint.Get(jointId);
             }
         }
 
