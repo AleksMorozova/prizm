@@ -21,16 +21,23 @@ namespace Data.DAL.Hibernate
         {
             try
             {
-                return session.QueryOver<JointOperation>().Where(n => ((n.IsTest ==true) && (n.IsActive == true))).List<JointOperation>();
+                return session.QueryOver<JointOperation>().Where(n => ((n.Type == JointOperationType.Test) && (n.IsActive == true))).List<JointOperation>();
             }
             catch (GenericADOException ex)
             {
-                throw new RepositoryException("GetStored", ex);
+                throw new RepositoryException("GetControlOperations", ex);
             }
         }
         public IList<JointOperation> GetRepairOperations()
         {
-            return session.QueryOver<JointOperation>().Where(n => ((n.IsTest == false) && (n.IsActive == true))).List<JointOperation>();
+            try
+            {
+                return session.QueryOver<JointOperation>().Where(n => ((n.Type != JointOperationType.Test) && (n.IsActive == true))).List<JointOperation>();
+            }
+            catch (GenericADOException e)
+            {
+                throw new RepositoryException("GetRepairOperations", e);
+            }
         }
     }
 }

@@ -255,7 +255,7 @@ CREATE TABLE [dbo].[JointOperation](
 	[id] [uniqueidentifier] NOT NULL,
 	[name] [nvarchar](50) NULL,
 	[isRequired] [bit] NULL,
-	[isTest] [bit] NULL,
+	[type] [nvarchar](20)  NULL,
 	[testHasAccepted] [bit] NULL,
 	[testHasToRepair] [bit] NULL,
 	[testHasToWithdraw] [bit] NULL,
