@@ -35,12 +35,6 @@
             DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo2 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
             DevExpress.DataAccess.Sql.RelationInfo relationInfo3 = new DevExpress.DataAccess.Sql.RelationInfo();
             DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo3 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo4 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo4 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo5 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo5 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo6 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo6 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
             DevExpress.DataAccess.Sql.TableInfo tableInfo1 = new DevExpress.DataAccess.Sql.TableInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo1 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo2 = new DevExpress.DataAccess.Sql.ColumnInfo();
@@ -70,270 +64,206 @@
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo24 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo25 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo26 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo4 = new DevExpress.DataAccess.Sql.TableInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo27 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo28 = new DevExpress.DataAccess.Sql.ColumnInfo();
+            DevExpress.DataAccess.Sql.TableInfo tableInfo4 = new DevExpress.DataAccess.Sql.TableInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo29 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo30 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo31 = new DevExpress.DataAccess.Sql.ColumnInfo();
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo32 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo5 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo33 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo34 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo35 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo36 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo37 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo38 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo39 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo40 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo6 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo41 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo42 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo43 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo7 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo44 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo45 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo46 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo47 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo48 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo49 = new DevExpress.DataAccess.Sql.ColumnInfo();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReportsXtraReport));
-            DevExpress.DataAccess.Sql.TableQuery tableQuery2 = new DevExpress.DataAccess.Sql.TableQuery();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo7 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo7 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo8 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo8 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.RelationInfo relationInfo9 = new DevExpress.DataAccess.Sql.RelationInfo();
-            DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo9 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo8 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo50 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo51 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo52 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo53 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo54 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo55 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo56 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo57 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo58 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo59 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo60 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo61 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo62 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo63 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo64 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo65 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo9 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo66 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo67 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo68 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo69 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo70 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo71 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo10 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo72 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo73 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo74 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo75 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo76 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo77 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.TableInfo tableInfo11 = new DevExpress.DataAccess.Sql.TableInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo78 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo79 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo80 = new DevExpress.DataAccess.Sql.ColumnInfo();
-            DevExpress.DataAccess.Sql.ColumnInfo columnInfo81 = new DevExpress.DataAccess.Sql.ColumnInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrCheckBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
+            this.heatNumber = new DevExpress.XtraReports.UI.XRLabel();
+            this.type = new DevExpress.XtraReports.UI.XRLabel();
+            this.wallThickness = new DevExpress.XtraReports.UI.XRLabel();
+            this.weight = new DevExpress.XtraReports.UI.XRLabel();
+            this.purchaseOrderDate = new DevExpress.XtraReports.UI.XRLabel();
+            this.purchaseOrderNumber = new DevExpress.XtraReports.UI.XRLabel();
+            this.number = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipeStatus = new DevExpress.XtraReports.UI.XRLabel();
+            this.plateNumber = new DevExpress.XtraReports.UI.XRLabel();
+            this.length = new DevExpress.XtraReports.UI.XRLabel();
+            this.diameter = new DevExpress.XtraReports.UI.XRLabel();
+            this.active = new DevExpress.XtraReports.UI.XRCheckBox();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
-            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel92 = new DevExpress.XtraReports.UI.XRLabel();
+            this.wallThicknessLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.typeLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.weightLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.purchaseOrderDateLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.purchaseOrderNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.plateNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.statusLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.numberLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.lengthLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.activeLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.diameterLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.datePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.reportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.reportHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.heatNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
+            this.GroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.StatusParameter = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel1,
-            this.xrLabel21,
-            this.xrLabel22,
-            this.xrLabel23,
-            this.xrLabel24,
-            this.xrLabel25,
-            this.xrLabel29,
-            this.xrLabel28,
-            this.xrLabel27,
-            this.xrLabel31,
-            this.xrLabel32,
-            this.xrCheckBox1});
+            this.heatNumber,
+            this.type,
+            this.wallThickness,
+            this.weight,
+            this.purchaseOrderDate,
+            this.purchaseOrderNumber,
+            this.number,
+            this.pipeStatus,
+            this.plateNumber,
+            this.length,
+            this.diameter,
+            this.active});
             this.Detail.HeightF = 24.125F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel1
+            // heatNumber
             // 
-            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.heatNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Heat_number")});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(846.2289F, 0F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(73.95831F, 22.04166F);
-            this.xrLabel1.Text = "xrLabel1";
+            this.heatNumber.LocationFloat = new DevExpress.Utils.PointFloat(852.1213F, 0F);
+            this.heatNumber.Name = "heatNumber";
+            this.heatNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.heatNumber.SizeF = new System.Drawing.SizeF(73.95831F, 22.04166F);
+            this.heatNumber.Text = "heatNumber";
             // 
-            // xrLabel21
+            // type
             // 
-            this.xrLabel21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.type.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.type")});
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(89.67304F, 0F);
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.SizeF = new System.Drawing.SizeF(150.4989F, 22.04167F);
-            this.xrLabel21.StyleName = "DataField";
-            this.xrLabel21.Text = "xrLabel21";
+            this.type.LocationFloat = new DevExpress.Utils.PointFloat(89.67304F, 0F);
+            this.type.Name = "type";
+            this.type.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.type.SizeF = new System.Drawing.SizeF(150.4989F, 22.04167F);
+            this.type.StyleName = "DataField";
+            this.type.Text = "type";
             // 
-            // xrLabel22
+            // wallThickness
             // 
-            this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.wallThickness.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.wallThickness")});
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 0F);
-            this.xrLabel22.Name = "xrLabel22";
-            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(72.46927F, 22.04166F);
-            this.xrLabel22.StyleName = "DataField";
-            this.xrLabel22.Text = "xrLabel22";
+            this.wallThickness.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 0F);
+            this.wallThickness.Name = "wallThickness";
+            this.wallThickness.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.wallThickness.SizeF = new System.Drawing.SizeF(72.46927F, 22.04166F);
+            this.wallThickness.StyleName = "DataField";
+            this.wallThickness.Text = "wallThickness";
             // 
-            // xrLabel23
+            // weight
             // 
-            this.xrLabel23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.weight.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.weight")});
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 0F);
-            this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(54.31158F, 22.04166F);
-            this.xrLabel23.StyleName = "DataField";
-            this.xrLabel23.Text = "xrLabel23";
+            this.weight.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 0F);
+            this.weight.Name = "weight";
+            this.weight.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.weight.SizeF = new System.Drawing.SizeF(54.31158F, 22.04166F);
+            this.weight.StyleName = "DataField";
+            this.weight.Text = "weight";
             // 
-            // xrLabel24
+            // purchaseOrderDate
             // 
-            this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.purchaseOrderDate.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_date", "{0:M/d/yyyy}")});
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 0F);
-            this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(70.34799F, 22.04166F);
-            this.xrLabel24.StyleName = "DataField";
-            this.xrLabel24.Text = "xrLabel24";
+            this.purchaseOrderDate.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 0F);
+            this.purchaseOrderDate.Name = "purchaseOrderDate";
+            this.purchaseOrderDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.purchaseOrderDate.SizeF = new System.Drawing.SizeF(70.34799F, 22.04166F);
+            this.purchaseOrderDate.StyleName = "DataField";
+            this.purchaseOrderDate.Text = "purchaseOrderDate";
             // 
-            // xrLabel25
+            // purchaseOrderNumber
             // 
-            this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.purchaseOrderNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.PurchaseOrder_number")});
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(393.0453F, 0F);
-            this.xrLabel25.Name = "xrLabel25";
-            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(101.3637F, 22.04166F);
-            this.xrLabel25.StyleName = "DataField";
-            this.xrLabel25.Text = "xrLabel25";
+            this.purchaseOrderNumber.LocationFloat = new DevExpress.Utils.PointFloat(393.0453F, 0F);
+            this.purchaseOrderNumber.Name = "purchaseOrderNumber";
+            this.purchaseOrderNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.purchaseOrderNumber.SizeF = new System.Drawing.SizeF(101.3637F, 22.04166F);
+            this.purchaseOrderNumber.StyleName = "DataField";
+            this.purchaseOrderNumber.Text = "purchaseOrderNumber";
             // 
-            // xrLabel29
+            // number
             // 
-            this.xrLabel29.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.number.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.number")});
-            this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
-            this.xrLabel29.Name = "xrLabel29";
-            this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel29.SizeF = new System.Drawing.SizeF(83.673F, 22.04166F);
-            this.xrLabel29.StyleName = "DataField";
-            this.xrLabel29.Text = "xrLabel29";
+            this.number.LocationFloat = new DevExpress.Utils.PointFloat(6F, 0F);
+            this.number.Name = "number";
+            this.number.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.number.SizeF = new System.Drawing.SizeF(83.673F, 22.04166F);
+            this.number.StyleName = "DataField";
+            this.number.Text = "number";
             // 
-            // xrLabel28
+            // pipeStatus
             // 
-            this.xrLabel28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.pipeStatus.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.pipeMillStatus")});
-            this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 0F);
-            this.xrLabel28.Name = "xrLabel28";
-            this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel28.SizeF = new System.Drawing.SizeF(61.69193F, 22.04166F);
-            this.xrLabel28.StyleName = "DataField";
-            this.xrLabel28.Text = "xrLabel28";
+            this.pipeStatus.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 0F);
+            this.pipeStatus.Name = "pipeStatus";
+            this.pipeStatus.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipeStatus.SizeF = new System.Drawing.SizeF(61.69193F, 22.04166F);
+            this.pipeStatus.StyleName = "DataField";
+            this.pipeStatus.Text = "pipeStatus";
             // 
-            // xrLabel27
+            // plateNumber
             // 
-            this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.plateNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.Plate_number")});
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(757.5826F, 0F);
-            this.xrLabel27.Name = "xrLabel27";
-            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel27.SizeF = new System.Drawing.SizeF(70.93787F, 22.04166F);
-            this.xrLabel27.StyleName = "DataField";
-            this.xrLabel27.Text = "xrLabel27";
+            this.plateNumber.LocationFloat = new DevExpress.Utils.PointFloat(757.5827F, 0F);
+            this.plateNumber.Name = "plateNumber";
+            this.plateNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.plateNumber.SizeF = new System.Drawing.SizeF(70.93787F, 22.04166F);
+            this.plateNumber.StyleName = "DataField";
+            this.plateNumber.Text = "plateNumber";
             // 
-            // xrLabel31
+            // length
             // 
-            this.xrLabel31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.length.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.length")});
-            this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(632.6485F, 9.536743E-06F);
-            this.xrLabel31.Name = "xrLabel31";
-            this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel31.SizeF = new System.Drawing.SizeF(46.40631F, 22.04166F);
-            this.xrLabel31.StyleName = "DataField";
-            this.xrLabel31.Text = "xrLabel31";
+            this.length.LocationFloat = new DevExpress.Utils.PointFloat(621.1899F, 0F);
+            this.length.Name = "length";
+            this.length.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.length.SizeF = new System.Drawing.SizeF(46.40631F, 22.04166F);
+            this.length.StyleName = "DataField";
+            this.length.Text = "length";
             // 
-            // xrLabel32
+            // diameter
             // 
-            this.xrLabel32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.diameter.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.diameter")});
-            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(679.0548F, 0F);
-            this.xrLabel32.Name = "xrLabel32";
-            this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel32.SizeF = new System.Drawing.SizeF(67.98236F, 22.04167F);
-            this.xrLabel32.StyleName = "DataField";
-            this.xrLabel32.Text = "xrLabel32";
+            this.diameter.LocationFloat = new DevExpress.Utils.PointFloat(689.6002F, 0F);
+            this.diameter.Name = "diameter";
+            this.diameter.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.diameter.SizeF = new System.Drawing.SizeF(67.98236F, 22.04167F);
+            this.diameter.StyleName = "DataField";
+            this.diameter.Text = "diameter";
             // 
-            // xrCheckBox1
+            // active
             // 
-            this.xrCheckBox1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.active.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Pipe.isActive")});
-            this.xrCheckBox1.LocationFloat = new DevExpress.Utils.PointFloat(928.5175F, 0F);
-            this.xrCheckBox1.Name = "xrCheckBox1";
-            this.xrCheckBox1.SizeF = new System.Drawing.SizeF(55.48248F, 22.04167F);
-            this.xrCheckBox1.StyleName = "DataField";
+            this.active.LocationFloat = new DevExpress.Utils.PointFloat(959.5175F, 0F);
+            this.active.Name = "active";
+            this.active.SizeF = new System.Drawing.SizeF(55.48248F, 22.04167F);
+            this.active.StyleName = "DataField";
             // 
             // TopMargin
             // 
@@ -349,360 +279,171 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // sqlDataSource1
+            // wallThicknessLabel
             // 
-            tableQuery1.Name = "Pipe";
-            relationColumnInfo1.NestedKeyColumn = "id";
-            relationColumnInfo1.ParentKeyColumn = "railcarId";
-            relationInfo1.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo1});
-            relationInfo1.NestedTable = "Railcar";
-            relationInfo1.ParentTable = "Pipe";
-            relationColumnInfo2.NestedKeyColumn = "id";
-            relationColumnInfo2.ParentKeyColumn = "purchaseOrderId";
-            relationInfo2.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo2});
-            relationInfo2.NestedTable = "PurchaseOrder";
-            relationInfo2.ParentTable = "Pipe";
-            relationColumnInfo3.NestedKeyColumn = "id";
-            relationColumnInfo3.ParentKeyColumn = "plateId";
-            relationInfo3.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo3});
-            relationInfo3.NestedTable = "Plate";
-            relationInfo3.ParentTable = "Pipe";
-            relationColumnInfo4.NestedKeyColumn = "pipeId";
-            relationColumnInfo4.ParentKeyColumn = "id";
-            relationInfo4.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo4});
-            relationInfo4.NestedTable = "PipeTestResult";
-            relationInfo4.ParentTable = "Pipe";
-            relationColumnInfo5.NestedKeyColumn = "id";
-            relationColumnInfo5.ParentKeyColumn = "typeId";
-            relationInfo5.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo5});
-            relationInfo5.NestedTable = "PipeMillSizeType";
-            relationInfo5.ParentTable = "Pipe";
-            relationColumnInfo6.NestedKeyColumn = "id";
-            relationColumnInfo6.ParentKeyColumn = "heatId";
-            relationInfo6.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo6});
-            relationInfo6.NestedTable = "Heat";
-            relationInfo6.ParentTable = "Plate";
-            tableQuery1.Relations.AddRange(new DevExpress.DataAccess.Sql.RelationInfo[] {
-            relationInfo1,
-            relationInfo2,
-            relationInfo3,
-            relationInfo4,
-            relationInfo5,
-            relationInfo6});
-            tableInfo1.Name = "Pipe";
-            columnInfo1.Name = "id";
-            columnInfo2.Name = "wallThickness";
-            columnInfo3.Name = "diameter";
-            columnInfo4.Name = "weight";
-            columnInfo5.Name = "mill";
-            columnInfo6.Name = "pipeMillStatus";
-            columnInfo7.Name = "number";
-            columnInfo8.Name = "isActive";
-            columnInfo9.Name = "inspectionStatus";
-            columnInfo10.Name = "constructionStatus";
-            columnInfo11.Name = "typeId";
-            columnInfo12.Name = "plateId";
-            columnInfo13.Name = "purchaseOrderId";
-            columnInfo14.Name = "railcarId";
-            columnInfo15.Name = "chemicalCompositionId";
-            columnInfo16.Name = "length";
-            tableInfo1.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo1,
-            columnInfo2,
-            columnInfo3,
-            columnInfo4,
-            columnInfo5,
-            columnInfo6,
-            columnInfo7,
-            columnInfo8,
-            columnInfo9,
-            columnInfo10,
-            columnInfo11,
-            columnInfo12,
-            columnInfo13,
-            columnInfo14,
-            columnInfo15,
-            columnInfo16});
-            tableInfo2.Name = "Railcar";
-            columnInfo17.Alias = "Railcar_id";
-            columnInfo17.Name = "id";
-            columnInfo18.Alias = "Railcar_number";
-            columnInfo18.Name = "number";
-            columnInfo19.Name = "certificate";
-            columnInfo20.Name = "destination";
-            columnInfo21.Name = "shippingDate";
-            columnInfo22.Alias = "Railcar_isActive";
-            columnInfo22.Name = "isActive";
-            tableInfo2.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo17,
-            columnInfo18,
-            columnInfo19,
-            columnInfo20,
-            columnInfo21,
-            columnInfo22});
-            tableInfo3.Name = "PurchaseOrder";
-            columnInfo23.Alias = "PurchaseOrder_id";
-            columnInfo23.Name = "id";
-            columnInfo24.Alias = "PurchaseOrder_number";
-            columnInfo24.Name = "number";
-            columnInfo25.Alias = "PurchaseOrder_date";
-            columnInfo25.Name = "date";
-            columnInfo26.Alias = "PurchaseOrder_isActive";
-            columnInfo26.Name = "isActive";
-            tableInfo3.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo23,
-            columnInfo24,
-            columnInfo25,
-            columnInfo26});
-            tableInfo4.Name = "Plate";
-            columnInfo27.Alias = "Plate_id";
-            columnInfo27.Name = "id";
-            columnInfo28.Alias = "Plate_number";
-            columnInfo28.Name = "number";
-            columnInfo29.Name = "thickness";
-            columnInfo30.Alias = "Plate_chemicalCompositionId";
-            columnInfo30.Name = "chemicalCompositionId";
-            columnInfo31.Name = "heatId";
-            columnInfo32.Alias = "Plate_isActive";
-            columnInfo32.Name = "isActive";
-            tableInfo4.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo27,
-            columnInfo28,
-            columnInfo29,
-            columnInfo30,
-            columnInfo31,
-            columnInfo32});
-            tableInfo5.Name = "PipeTestResult";
-            columnInfo33.Alias = "PipeTestResult_id";
-            columnInfo33.Name = "id";
-            columnInfo34.Name = "testResultId";
-            columnInfo35.Name = "pipeId";
-            columnInfo36.Name = "pipeTestId";
-            columnInfo37.Name = "date";
-            columnInfo38.Name = "status";
-            columnInfo39.Name = "value";
-            columnInfo40.Alias = "PipeTestResult_isActive";
-            columnInfo40.Name = "isActive";
-            tableInfo5.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo33,
-            columnInfo34,
-            columnInfo35,
-            columnInfo36,
-            columnInfo37,
-            columnInfo38,
-            columnInfo39,
-            columnInfo40});
-            tableInfo6.Name = "PipeMillSizeType";
-            columnInfo41.Alias = "PipeMillSizeType_id";
-            columnInfo41.Name = "id";
-            columnInfo42.Name = "type";
-            columnInfo43.Alias = "PipeMillSizeType_isActive";
-            columnInfo43.Name = "isActive";
-            tableInfo6.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo41,
-            columnInfo42,
-            columnInfo43});
-            tableInfo7.Name = "Heat";
-            columnInfo44.Alias = "Heat_id";
-            columnInfo44.Name = "id";
-            columnInfo45.Alias = "Heat_number";
-            columnInfo45.Name = "number";
-            columnInfo46.Name = "steelGrade";
-            columnInfo47.Name = "plateManufacturer";
-            columnInfo48.Alias = "Heat_chemicalCompositionId";
-            columnInfo48.Name = "chemicalCompositionId";
-            columnInfo49.Alias = "Heat_isActive";
-            columnInfo49.Name = "isActive";
-            tableInfo7.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo44,
-            columnInfo45,
-            columnInfo46,
-            columnInfo47,
-            columnInfo48,
-            columnInfo49});
-            tableQuery1.Tables.AddRange(new DevExpress.DataAccess.Sql.TableInfo[] {
-            tableInfo1,
-            tableInfo2,
-            tableInfo3,
-            tableInfo4,
-            tableInfo5,
-            tableInfo6,
-            tableInfo7});
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            tableQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            this.wallThicknessLabel.ForeColor = System.Drawing.Color.Black;
+            this.wallThicknessLabel.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 10.00001F);
+            this.wallThicknessLabel.Name = "wallThicknessLabel";
+            this.wallThicknessLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.wallThicknessLabel.SizeF = new System.Drawing.SizeF(72.46924F, 28.70834F);
+            this.wallThicknessLabel.StyleName = "FieldCaption";
+            this.wallThicknessLabel.StylePriority.UseForeColor = false;
+            this.wallThicknessLabel.Text = "Толщина";
             // 
-            // xrLabel2
+            // typeLabel
             // 
-            this.xrLabel2.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(494.409F, 10.00001F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(72.46924F, 28.70834F);
-            this.xrLabel2.StyleName = "FieldCaption";
-            this.xrLabel2.StylePriority.UseForeColor = false;
-            this.xrLabel2.Text = "thickness";
+            this.typeLabel.ForeColor = System.Drawing.Color.Black;
+            this.typeLabel.LocationFloat = new DevExpress.Utils.PointFloat(89.67298F, 10F);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.typeLabel.SizeF = new System.Drawing.SizeF(150.499F, 28.70834F);
+            this.typeLabel.StyleName = "FieldCaption";
+            this.typeLabel.StylePriority.UseForeColor = false;
+            this.typeLabel.Text = "Тип трубы";
             // 
-            // xrLabel3
+            // weightLabel
             // 
-            this.xrLabel3.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(89.67298F, 10F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(150.499F, 28.70834F);
-            this.xrLabel3.StyleName = "FieldCaption";
-            this.xrLabel3.StylePriority.UseForeColor = false;
-            this.xrLabel3.Text = "type";
+            this.weightLabel.ForeColor = System.Drawing.Color.Black;
+            this.weightLabel.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 10.00001F);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.weightLabel.SizeF = new System.Drawing.SizeF(54.31171F, 28.70834F);
+            this.weightLabel.StyleName = "FieldCaption";
+            this.weightLabel.StylePriority.UseForeColor = false;
+            this.weightLabel.Text = "Вес";
             // 
-            // xrLabel5
+            // purchaseOrderDateLabel
             // 
-            this.xrLabel5.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(566.8782F, 10.00001F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(54.31171F, 28.70834F);
-            this.xrLabel5.StyleName = "FieldCaption";
-            this.xrLabel5.StylePriority.UseForeColor = false;
-            this.xrLabel5.Text = "weight";
+            this.purchaseOrderDateLabel.ForeColor = System.Drawing.Color.Black;
+            this.purchaseOrderDateLabel.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 10.00001F);
+            this.purchaseOrderDateLabel.Name = "purchaseOrderDateLabel";
+            this.purchaseOrderDateLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.purchaseOrderDateLabel.SizeF = new System.Drawing.SizeF(70.34799F, 28.70834F);
+            this.purchaseOrderDateLabel.StyleName = "FieldCaption";
+            this.purchaseOrderDateLabel.StylePriority.UseForeColor = false;
+            this.purchaseOrderDateLabel.Text = "Дата";
             // 
-            // xrLabel6
+            // purchaseOrderNumberLabel
             // 
-            this.xrLabel6.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(322.6973F, 10.00001F);
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(70.34799F, 28.70834F);
-            this.xrLabel6.StyleName = "FieldCaption";
-            this.xrLabel6.StylePriority.UseForeColor = false;
-            this.xrLabel6.Text = "PO date";
+            this.purchaseOrderNumberLabel.ForeColor = System.Drawing.Color.Black;
+            this.purchaseOrderNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(393.0453F, 10.00001F);
+            this.purchaseOrderNumberLabel.Name = "purchaseOrderNumberLabel";
+            this.purchaseOrderNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.purchaseOrderNumberLabel.SizeF = new System.Drawing.SizeF(101.3637F, 28.70834F);
+            this.purchaseOrderNumberLabel.StyleName = "FieldCaption";
+            this.purchaseOrderNumberLabel.StylePriority.UseForeColor = false;
+            this.purchaseOrderNumberLabel.Text = "Номер";
             // 
-            // xrLabel7
+            // plateNumberLabel
             // 
-            this.xrLabel7.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(393.0453F, 10.00001F);
-            this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(101.3637F, 28.70834F);
-            this.xrLabel7.StyleName = "FieldCaption";
-            this.xrLabel7.StylePriority.UseForeColor = false;
-            this.xrLabel7.Text = "PO № ";
+            this.plateNumberLabel.ForeColor = System.Drawing.Color.Black;
+            this.plateNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(757.5827F, 10.00001F);
+            this.plateNumberLabel.Name = "plateNumberLabel";
+            this.plateNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.plateNumberLabel.SizeF = new System.Drawing.SizeF(94.53857F, 28.70834F);
+            this.plateNumberLabel.StyleName = "FieldCaption";
+            this.plateNumberLabel.StylePriority.UseForeColor = false;
+            this.plateNumberLabel.Text = "Номер листа";
             // 
-            // xrLabel9
+            // statusLabel
             // 
-            this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(757.5827F, 10.00001F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
-            this.xrLabel9.StyleName = "FieldCaption";
-            this.xrLabel9.StylePriority.UseForeColor = false;
-            this.xrLabel9.Text = "Plate";
+            this.statusLabel.ForeColor = System.Drawing.Color.Black;
+            this.statusLabel.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 10F);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.statusLabel.SizeF = new System.Drawing.SizeF(61.69189F, 28.70834F);
+            this.statusLabel.StyleName = "FieldCaption";
+            this.statusLabel.StylePriority.UseForeColor = false;
+            this.statusLabel.Text = "Статус";
             // 
-            // xrLabel10
+            // numberLabel
             // 
-            this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(240.172F, 10F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(61.69189F, 28.70834F);
-            this.xrLabel10.StyleName = "FieldCaption";
-            this.xrLabel10.StylePriority.UseForeColor = false;
-            this.xrLabel10.Text = "Status";
+            this.numberLabel.ForeColor = System.Drawing.Color.Black;
+            this.numberLabel.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 10.00001F);
+            this.numberLabel.Name = "numberLabel";
+            this.numberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.numberLabel.SizeF = new System.Drawing.SizeF(83.67307F, 28.70834F);
+            this.numberLabel.StyleName = "FieldCaption";
+            this.numberLabel.StylePriority.UseForeColor = false;
+            this.numberLabel.Text = "Номер";
             // 
-            // xrLabel11
+            // lengthLabel
             // 
-            this.xrLabel11.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(5.999947F, 10F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(83.67307F, 28.70834F);
-            this.xrLabel11.StyleName = "FieldCaption";
-            this.xrLabel11.StylePriority.UseForeColor = false;
-            this.xrLabel11.Text = "number";
+            this.lengthLabel.ForeColor = System.Drawing.Color.Black;
+            this.lengthLabel.LocationFloat = new DevExpress.Utils.PointFloat(621.1899F, 10.00001F);
+            this.lengthLabel.Name = "lengthLabel";
+            this.lengthLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lengthLabel.SizeF = new System.Drawing.SizeF(68.41034F, 28.70834F);
+            this.lengthLabel.StyleName = "FieldCaption";
+            this.lengthLabel.StylePriority.UseForeColor = false;
+            this.lengthLabel.Text = "Длина";
             // 
-            // xrLabel13
+            // activeLabel
             // 
-            this.xrLabel13.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(632.6483F, 10.00001F);
-            this.xrLabel13.Name = "xrLabel13";
-            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel13.SizeF = new System.Drawing.SizeF(46.40631F, 28.70834F);
-            this.xrLabel13.StyleName = "FieldCaption";
-            this.xrLabel13.StylePriority.UseForeColor = false;
-            this.xrLabel13.Text = "length";
+            this.activeLabel.ForeColor = System.Drawing.Color.Black;
+            this.activeLabel.LocationFloat = new DevExpress.Utils.PointFloat(959.5175F, 10.00001F);
+            this.activeLabel.Name = "activeLabel";
+            this.activeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.activeLabel.SizeF = new System.Drawing.SizeF(55.48254F, 28.70834F);
+            this.activeLabel.StyleName = "FieldCaption";
+            this.activeLabel.StylePriority.UseForeColor = false;
+            this.activeLabel.Text = "Active";
             // 
-            // xrLabel14
+            // diameterLabel
             // 
-            this.xrLabel14.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(928.5175F, 10.00001F);
-            this.xrLabel14.Name = "xrLabel14";
-            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(55.48254F, 28.70834F);
-            this.xrLabel14.StyleName = "FieldCaption";
-            this.xrLabel14.StylePriority.UseForeColor = false;
-            this.xrLabel14.Text = "Active";
+            this.diameterLabel.ForeColor = System.Drawing.Color.Black;
+            this.diameterLabel.LocationFloat = new DevExpress.Utils.PointFloat(689.6002F, 10.00001F);
+            this.diameterLabel.Name = "diameterLabel";
+            this.diameterLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.diameterLabel.SizeF = new System.Drawing.SizeF(67.98248F, 28.70834F);
+            this.diameterLabel.StyleName = "FieldCaption";
+            this.diameterLabel.StylePriority.UseForeColor = false;
+            this.diameterLabel.Text = "Диаметр";
             // 
-            // xrLabel15
+            // pageFooter
             // 
-            this.xrLabel15.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(679.0547F, 10.00001F);
-            this.xrLabel15.Name = "xrLabel15";
-            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(67.98248F, 28.70834F);
-            this.xrLabel15.StyleName = "FieldCaption";
-            this.xrLabel15.StylePriority.UseForeColor = false;
-            this.xrLabel15.Text = "diameter";
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.datePageInfo,
+            this.numberOfPageInfo});
+            this.pageFooter.HeightF = 52.9583F;
+            this.pageFooter.Name = "pageFooter";
             // 
-            // pageFooterBand1
+            // datePageInfo
             // 
-            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrPageInfo1,
-            this.xrPageInfo2});
-            this.pageFooterBand1.HeightF = 52.9583F;
-            this.pageFooterBand1.Name = "pageFooterBand1";
+            this.datePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(6F, 19.9583F);
+            this.datePageInfo.Name = "datePageInfo";
+            this.datePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.datePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.datePageInfo.SizeF = new System.Drawing.SizeF(438F, 23F);
+            this.datePageInfo.StyleName = "PageInfo";
             // 
-            // xrPageInfo1
+            // numberOfPageInfo
             // 
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 19.9583F);
-            this.xrPageInfo1.Name = "xrPageInfo1";
-            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(438F, 23F);
-            this.xrPageInfo1.StyleName = "PageInfo";
+            this.numberOfPageInfo.Format = "Page {0} of {1}";
+            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(546.0001F, 19.95831F);
+            this.numberOfPageInfo.Name = "numberOfPageInfo";
+            this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(438F, 23F);
+            this.numberOfPageInfo.StyleName = "PageInfo";
+            this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
-            // xrPageInfo2
+            // reportHeader
             // 
-            this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(546F, 19.95831F);
-            this.xrPageInfo2.Name = "xrPageInfo2";
-            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(438F, 23F);
-            this.xrPageInfo2.StyleName = "PageInfo";
-            this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.reportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.reportHeaderLabel});
+            this.reportHeader.HeightF = 49.95832F;
+            this.reportHeader.Name = "reportHeader";
             // 
-            // reportHeaderBand1
+            // reportHeaderLabel
             // 
-            this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel92});
-            this.reportHeaderBand1.HeightF = 49.95832F;
-            this.reportHeaderBand1.Name = "reportHeaderBand1";
-            // 
-            // xrLabel92
-            // 
-            this.xrLabel92.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel92.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
-            this.xrLabel92.Name = "xrLabel92";
-            this.xrLabel92.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel92.SizeF = new System.Drawing.SizeF(888F, 33F);
-            this.xrLabel92.StyleName = "Title";
-            this.xrLabel92.StylePriority.UseForeColor = false;
-            this.xrLabel92.Text = "Mill report";
+            this.reportHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.reportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.reportHeaderLabel.Name = "reportHeaderLabel";
+            this.reportHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(888F, 33F);
+            this.reportHeaderLabel.StyleName = "Title";
+            this.reportHeaderLabel.StylePriority.UseForeColor = false;
+            this.reportHeaderLabel.Text = "Отчет на заводе";
             // 
             // Title
             // 
@@ -748,185 +489,185 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel8});
+            this.pageHeaderLabel});
             this.PageHeader.HeightF = 72.29166F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
             // 
-            // xrLabel8
+            // pageHeaderLabel
             // 
-            this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
-            this.xrLabel8.Name = "xrLabel8";
-            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(905.7083F, 33F);
-            this.xrLabel8.StyleName = "Title";
-            this.xrLabel8.StylePriority.UseForeColor = false;
-            this.xrLabel8.Text = "Mill report";
+            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.pageHeaderLabel.Name = "pageHeaderLabel";
+            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(905.7083F, 33F);
+            this.pageHeaderLabel.StyleName = "Title";
+            this.pageHeaderLabel.StylePriority.UseForeColor = false;
+            this.pageHeaderLabel.Text = "Отчет на заводе";
             // 
-            // xrLabel4
+            // heatNumberLabel
             // 
-            this.xrLabel4.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(846.2289F, 10.00001F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(70.93781F, 28.70834F);
-            this.xrLabel4.StyleName = "FieldCaption";
-            this.xrLabel4.StylePriority.UseForeColor = false;
-            this.xrLabel4.Text = "Heat";
+            this.heatNumberLabel.ForeColor = System.Drawing.Color.Black;
+            this.heatNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(852.1213F, 10.00001F);
+            this.heatNumberLabel.Name = "heatNumberLabel";
+            this.heatNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.heatNumberLabel.SizeF = new System.Drawing.SizeF(107.3962F, 28.70834F);
+            this.heatNumberLabel.StyleName = "FieldCaption";
+            this.heatNumberLabel.StylePriority.UseForeColor = false;
+            this.heatNumberLabel.Text = "Номер плавки";
             // 
-            // sqlDataSource2
+            // sqlDataSourceForReport
             // 
-            tableQuery2.Name = "Pipe";
-            relationColumnInfo7.NestedKeyColumn = "id";
-            relationColumnInfo7.ParentKeyColumn = "plateId";
-            relationInfo7.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo7});
-            relationInfo7.NestedTable = "Plate";
-            relationInfo7.ParentTable = "Pipe";
-            relationColumnInfo8.NestedKeyColumn = "id";
-            relationColumnInfo8.ParentKeyColumn = "heatId";
-            relationInfo8.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo8});
-            relationInfo8.NestedTable = "Heat";
-            relationInfo8.ParentTable = "Plate";
-            relationColumnInfo9.NestedKeyColumn = "id";
-            relationColumnInfo9.ParentKeyColumn = "purchaseOrderId";
-            relationInfo9.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
-            relationColumnInfo9});
-            relationInfo9.NestedTable = "PurchaseOrder";
-            relationInfo9.ParentTable = "Pipe";
-            tableQuery2.Relations.AddRange(new DevExpress.DataAccess.Sql.RelationInfo[] {
-            relationInfo7,
-            relationInfo8,
-            relationInfo9});
-            tableInfo8.Name = "Pipe";
-            columnInfo50.Name = "id";
-            columnInfo51.Name = "wallThickness";
-            columnInfo52.Name = "diameter";
-            columnInfo53.Name = "weight";
-            columnInfo54.Name = "mill";
-            columnInfo55.Name = "pipeMillStatus";
-            columnInfo56.Name = "number";
-            columnInfo57.Name = "isActive";
-            columnInfo58.Name = "inspectionStatus";
-            columnInfo59.Name = "constructionStatus";
-            columnInfo60.Name = "typeId";
-            columnInfo61.Name = "plateId";
-            columnInfo62.Name = "purchaseOrderId";
-            columnInfo63.Name = "railcarId";
-            columnInfo64.Name = "chemicalCompositionId";
-            columnInfo65.Name = "length";
-            tableInfo8.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo50,
-            columnInfo51,
-            columnInfo52,
-            columnInfo53,
-            columnInfo54,
-            columnInfo55,
-            columnInfo56,
-            columnInfo57,
-            columnInfo58,
-            columnInfo59,
-            columnInfo60,
-            columnInfo61,
-            columnInfo62,
-            columnInfo63,
-            columnInfo64,
-            columnInfo65});
-            tableInfo9.Name = "Plate";
-            columnInfo66.Alias = "Plate_id";
-            columnInfo66.Name = "id";
-            columnInfo67.Alias = "Plate_number";
-            columnInfo67.Name = "number";
-            columnInfo68.Name = "thickness";
-            columnInfo69.Alias = "Plate_chemicalCompositionId";
-            columnInfo69.Name = "chemicalCompositionId";
-            columnInfo70.Name = "heatId";
-            columnInfo71.Alias = "Plate_isActive";
-            columnInfo71.Name = "isActive";
-            tableInfo9.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo66,
-            columnInfo67,
-            columnInfo68,
-            columnInfo69,
-            columnInfo70,
-            columnInfo71});
-            tableInfo10.Name = "Heat";
-            columnInfo72.Alias = "Heat_id";
-            columnInfo72.Name = "id";
-            columnInfo73.Alias = "Heat_number";
-            columnInfo73.Name = "number";
-            columnInfo74.Name = "steelGrade";
-            columnInfo75.Name = "plateManufacturer";
-            columnInfo76.Alias = "Heat_chemicalCompositionId";
-            columnInfo76.Name = "chemicalCompositionId";
-            columnInfo77.Alias = "Heat_isActive";
-            columnInfo77.Name = "isActive";
-            tableInfo10.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo72,
-            columnInfo73,
-            columnInfo74,
-            columnInfo75,
-            columnInfo76,
-            columnInfo77});
-            tableInfo11.Name = "PurchaseOrder";
-            columnInfo78.Alias = "PurchaseOrder_id";
-            columnInfo78.Name = "id";
-            columnInfo79.Alias = "PurchaseOrder_number";
-            columnInfo79.Name = "number";
-            columnInfo80.Name = "date";
-            columnInfo81.Alias = "PurchaseOrder_isActive";
-            columnInfo81.Name = "isActive";
-            tableInfo11.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
-            columnInfo78,
-            columnInfo79,
-            columnInfo80,
-            columnInfo81});
-            tableQuery2.Tables.AddRange(new DevExpress.DataAccess.Sql.TableInfo[] {
-            tableInfo8,
-            tableInfo9,
-            tableInfo10,
-            tableInfo11});
-            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            tableQuery2});
-            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            tableQuery1.Name = "Pipe";
+            relationColumnInfo1.NestedKeyColumn = "id";
+            relationColumnInfo1.ParentKeyColumn = "plateId";
+            relationInfo1.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo1});
+            relationInfo1.NestedTable = "Plate";
+            relationInfo1.ParentTable = "Pipe";
+            relationColumnInfo2.NestedKeyColumn = "id";
+            relationColumnInfo2.ParentKeyColumn = "heatId";
+            relationInfo2.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo2});
+            relationInfo2.NestedTable = "Heat";
+            relationInfo2.ParentTable = "Plate";
+            relationColumnInfo3.NestedKeyColumn = "id";
+            relationColumnInfo3.ParentKeyColumn = "purchaseOrderId";
+            relationInfo3.KeyColumns.AddRange(new DevExpress.DataAccess.Sql.RelationColumnInfo[] {
+            relationColumnInfo3});
+            relationInfo3.NestedTable = "PurchaseOrder";
+            relationInfo3.ParentTable = "Pipe";
+            tableQuery1.Relations.AddRange(new DevExpress.DataAccess.Sql.RelationInfo[] {
+            relationInfo1,
+            relationInfo2,
+            relationInfo3});
+            tableInfo1.Name = "Pipe";
+            columnInfo1.Name = "id";
+            columnInfo2.Name = "wallThickness";
+            columnInfo3.Name = "diameter";
+            columnInfo4.Name = "weight";
+            columnInfo5.Name = "mill";
+            columnInfo6.Name = "pipeMillStatus";
+            columnInfo7.Name = "number";
+            columnInfo8.Name = "isActive";
+            columnInfo9.Name = "inspectionStatus";
+            columnInfo10.Name = "constructionStatus";
+            columnInfo11.Name = "typeId";
+            columnInfo12.Name = "plateId";
+            columnInfo13.Name = "purchaseOrderId";
+            columnInfo14.Name = "railcarId";
+            columnInfo15.Name = "chemicalCompositionId";
+            columnInfo16.Name = "length";
+            tableInfo1.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo1,
+            columnInfo2,
+            columnInfo3,
+            columnInfo4,
+            columnInfo5,
+            columnInfo6,
+            columnInfo7,
+            columnInfo8,
+            columnInfo9,
+            columnInfo10,
+            columnInfo11,
+            columnInfo12,
+            columnInfo13,
+            columnInfo14,
+            columnInfo15,
+            columnInfo16});
+            tableInfo2.Name = "Plate";
+            columnInfo17.Alias = "Plate_id";
+            columnInfo17.Name = "id";
+            columnInfo18.Alias = "Plate_number";
+            columnInfo18.Name = "number";
+            columnInfo19.Name = "thickness";
+            columnInfo20.Alias = "Plate_chemicalCompositionId";
+            columnInfo20.Name = "chemicalCompositionId";
+            columnInfo21.Name = "heatId";
+            columnInfo22.Alias = "Plate_isActive";
+            columnInfo22.Name = "isActive";
+            tableInfo2.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo17,
+            columnInfo18,
+            columnInfo19,
+            columnInfo20,
+            columnInfo21,
+            columnInfo22});
+            tableInfo3.Name = "Heat";
+            columnInfo23.Alias = "Heat_id";
+            columnInfo23.Name = "id";
+            columnInfo24.Alias = "Heat_number";
+            columnInfo24.Name = "number";
+            columnInfo25.Name = "steelGrade";
+            columnInfo26.Name = "plateManufacturer";
+            columnInfo27.Alias = "Heat_chemicalCompositionId";
+            columnInfo27.Name = "chemicalCompositionId";
+            columnInfo28.Alias = "Heat_isActive";
+            columnInfo28.Name = "isActive";
+            tableInfo3.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo23,
+            columnInfo24,
+            columnInfo25,
+            columnInfo26,
+            columnInfo27,
+            columnInfo28});
+            tableInfo4.Name = "PurchaseOrder";
+            columnInfo29.Alias = "PurchaseOrder_id";
+            columnInfo29.Name = "id";
+            columnInfo30.Alias = "PurchaseOrder_number";
+            columnInfo30.Name = "number";
+            columnInfo31.Name = "date";
+            columnInfo32.Alias = "PurchaseOrder_isActive";
+            columnInfo32.Name = "isActive";
+            tableInfo4.SelectedColumns.AddRange(new DevExpress.DataAccess.Sql.ColumnInfo[] {
+            columnInfo29,
+            columnInfo30,
+            columnInfo31,
+            columnInfo32});
+            tableQuery1.Tables.AddRange(new DevExpress.DataAccess.Sql.TableInfo[] {
+            tableInfo1,
+            tableInfo2,
+            tableInfo3,
+            tableInfo4});
+            this.sqlDataSourceForReport.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            tableQuery1});
+            this.sqlDataSourceForReport.ResultSchemaSerializable = resources.GetString("sqlDataSourceForReport.ResultSchemaSerializable");
             // 
-            // GroupHeader1
+            // GroupHeader
             // 
-            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel14,
-            this.xrLabel9,
-            this.xrLabel2,
-            this.xrLabel5,
-            this.xrLabel15,
-            this.xrLabel13,
-            this.xrLabel7,
-            this.xrLabel11,
-            this.xrLabel6,
-            this.xrLabel10,
-            this.xrLabel3,
-            this.xrLabel4});
-            this.GroupHeader1.HeightF = 40F;
-            this.GroupHeader1.Name = "GroupHeader1";
+            this.GroupHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.activeLabel,
+            this.plateNumberLabel,
+            this.wallThicknessLabel,
+            this.weightLabel,
+            this.diameterLabel,
+            this.lengthLabel,
+            this.purchaseOrderNumberLabel,
+            this.numberLabel,
+            this.purchaseOrderDateLabel,
+            this.statusLabel,
+            this.typeLabel,
+            this.heatNumberLabel});
+            this.GroupHeader.HeightF = 40F;
+            this.GroupHeader.Name = "GroupHeader";
             // 
             // StatusParameter
             // 
             this.StatusParameter.Description = "StatusParameter";
             this.StatusParameter.Name = "StatusParameter";
             // 
-            // MillReport
+            // MillReportsXtraReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
             this.TopMargin,
             this.BottomMargin,
-            this.pageFooterBand1,
-            this.reportHeaderBand1,
+            this.pageFooter,
+            this.reportHeader,
             this.PageHeader,
-            this.GroupHeader1});
+            this.GroupHeader});
             this.DataMember = "Pipe";
-            this.DataSource = this.sqlDataSource2;
+            this.DataSource = this.sqlDataSourceForReport;
             this.FilterString = "StartsWith([pipeMillStatus], ?StatusParameter)";
             this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(59, 26, 51, 64);
@@ -949,44 +690,43 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel21;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel22;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel23;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel24;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel25;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel27;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel28;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel29;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel31;
-        private DevExpress.XtraReports.UI.XRCheckBox xrCheckBox1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel32;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel9;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel15;
-        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
-        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
-        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
-        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel92;
+        private DevExpress.XtraReports.UI.XRLabel type;
+        private DevExpress.XtraReports.UI.XRLabel wallThickness;
+        private DevExpress.XtraReports.UI.XRLabel weight;
+        private DevExpress.XtraReports.UI.XRLabel purchaseOrderDate;
+        private DevExpress.XtraReports.UI.XRLabel purchaseOrderNumber;
+        private DevExpress.XtraReports.UI.XRLabel plateNumber;
+        private DevExpress.XtraReports.UI.XRLabel pipeStatus;
+        private DevExpress.XtraReports.UI.XRLabel number;
+        private DevExpress.XtraReports.UI.XRLabel length;
+        private DevExpress.XtraReports.UI.XRCheckBox active;
+        private DevExpress.XtraReports.UI.XRLabel diameter;
+        private DevExpress.XtraReports.UI.XRLabel wallThicknessLabel;
+        private DevExpress.XtraReports.UI.XRLabel typeLabel;
+        private DevExpress.XtraReports.UI.XRLabel weightLabel;
+        private DevExpress.XtraReports.UI.XRLabel purchaseOrderDateLabel;
+        private DevExpress.XtraReports.UI.XRLabel purchaseOrderNumberLabel;
+        private DevExpress.XtraReports.UI.XRLabel plateNumberLabel;
+        private DevExpress.XtraReports.UI.XRLabel statusLabel;
+        private DevExpress.XtraReports.UI.XRLabel numberLabel;
+        private DevExpress.XtraReports.UI.XRLabel lengthLabel;
+        private DevExpress.XtraReports.UI.XRLabel activeLabel;
+        private DevExpress.XtraReports.UI.XRLabel diameterLabel;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
+        private DevExpress.XtraReports.UI.XRPageInfo datePageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
+        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeader;
+        private DevExpress.XtraReports.UI.XRLabel reportHeaderLabel;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle DataField;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
-        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel heatNumber;
+        private DevExpress.XtraReports.UI.XRLabel heatNumberLabel;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSourceForReport;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader;
+        private DevExpress.XtraReports.UI.XRLabel pageHeaderLabel;
         private DevExpress.XtraReports.Parameters.Parameter StatusParameter;
     }
 }

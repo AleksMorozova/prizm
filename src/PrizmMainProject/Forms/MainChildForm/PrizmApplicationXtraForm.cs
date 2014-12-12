@@ -9,10 +9,8 @@ using Ninject.Parameters;
 using Ninject;
 
 using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
@@ -27,6 +25,7 @@ using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Audit;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -210,11 +209,6 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(InspectionReportsXtraForm));
         }
 
-        private void barButtonItemInspectionFindComponentry_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateChildForm(typeof(ComponentSearchXtraForm));
-        }
-
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(JointNewEditXtraForm));
@@ -272,7 +266,7 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(PartSearchXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
@@ -280,14 +274,9 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(SpoolsXtraForm));
         }
 
-        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemConstructionFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(ComponentSearchXtraForm));
-        }
-
-        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(PartSearchXtraForm));
         }
 
         private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
@@ -409,11 +398,13 @@ namespace PrizmMain.Forms.MainChildForm
             viewModel.GetOrCreateProject();
 
             this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
+
             if (!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
         }
+
 
      
     }

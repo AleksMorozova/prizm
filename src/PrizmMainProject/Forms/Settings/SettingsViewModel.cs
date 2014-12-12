@@ -384,6 +384,7 @@ namespace PrizmMain.Forms.Settings
            if (rolePerm != null)
            {
               role.Permissions.Remove(rolePerm);
+              ModifiableView.IsModified = true;
            }
 
         }
@@ -394,6 +395,7 @@ namespace PrizmMain.Forms.Settings
            if (rolePerm == null)
            {
               role.Permissions.Add(p);
+              ModifiableView.IsModified = true;
            }
         }
 
@@ -403,6 +405,7 @@ namespace PrizmMain.Forms.Settings
            if (userRole == null)
            {
               user.Roles.Add(role);
+              ModifiableView.IsModified = true;
            }
         }
 
@@ -412,6 +415,7 @@ namespace PrizmMain.Forms.Settings
            if (userRole != null)
            {
               user.Roles.Remove(userRole);
+              ModifiableView.IsModified = true;
            }
         }
 

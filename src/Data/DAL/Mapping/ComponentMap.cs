@@ -14,7 +14,15 @@ namespace Data.DAL.Mapping
         {
             Map(_ => _.Certificate).Column("certificate");
 
-            HasMany<Connector>(x => x.Connectors).KeyColumn("componentId");
+            References<ComponentType>(x => x.Type).Column("componentTypeId");
+
+            HasMany<Connector>(x => x.Connectors)
+                .KeyColumn("componentId")
+                .Cascade.SaveUpdate();
+
+            HasMany<InspectionTestResult>(x => x.InspectionTestResults)
+                .KeyColumn("pipelinePieceId")
+                .Cascade.SaveUpdate();
         }
     }
 }

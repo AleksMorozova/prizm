@@ -367,9 +367,6 @@
   <data name="InspectorCertificate" xml:space="preserve">
     <value>Сертификат инспектора</value>
   </data>
-  <data name="Mill" xml:space="preserve">
-    <value>Завод</value>
-  </data>
   <data name="PhysicalParameters" xml:space="preserve">
     <value>Физические параметры</value>
   </data>
@@ -519,5 +516,51 @@
   </data>
   <data name="ЕxpirationDate" xml:space="preserve">
     <value>Срок истечения</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED" xml:space="preserve">
+    <value>Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение комплектующего изделия</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Комплектующие</value>
+  </data>
+  <data name="Spool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
+
+  <data name="DLG_JOINT_SAVED" xml:space="preserve">
+    <value>Стык успешно сохранен в базе. Стык  #</value>
+  </data>
+  <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение стыка</value>
+  </data>
+  <data name="AtControl" xml:space="preserve">
+    <value>Контроль</value>
+  </data>
+  <data name="AtIsolation" xml:space="preserve">
+    <value>Изоляция</value>
+  </data>
+  <data name="Filled" xml:space="preserve">
+    <value>Засыпан</value>
+  </data>
+  <data name="Lowered" xml:space="preserve">
+    <value>Укладка</value>
+  </data>
+  <data name="Welded" xml:space="preserve">
+    <value>Сварен</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Задержано</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидает контроль</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
   </data>
 </root>

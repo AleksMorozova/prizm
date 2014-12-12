@@ -445,11 +445,9 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             {
                 case CollectionChangeAction.Add:
                     viewModel.AddPermissionToRole(role, p);
-                    IsModified = true;
                     break;
                 case CollectionChangeAction.Remove:
                     viewModel.RemovePermissionFromRole(role, p);
-                    IsModified = true;
                     break;
             }
         }
@@ -530,11 +528,9 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
                     {
                         case CollectionChangeAction.Add:
                             viewModel.AddRoleToUser(role, user);
-                            IsModified = true;
                             break;
                         case CollectionChangeAction.Remove:
                             viewModel.RemoveRoleFromUser(role, user);
-                            IsModified = true;
                             break;
                     }
                 }
@@ -566,6 +562,13 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         private void gridViewUsers_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             RefreshUserRoles(e.FocusedRowHandle);
+        }
+
+        private void jointsOperationsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
+            jointOperation.IsActive = true;
         }
 
     }
