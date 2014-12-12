@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
-    public class ConstructionReportViewModel : ViewModelBase, IDisposable
+    public class ConstructionReportViewModel : ViewModelBase
     {
         private readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
@@ -90,15 +90,5 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             get { return previewCommand; }
         }
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-
-        }
-
-        #endregion
-
     }
 }
