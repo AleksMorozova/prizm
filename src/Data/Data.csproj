@@ -101,6 +101,7 @@
     <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
     <Compile Include="DAL\Mapping\ConnectorMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PermissionMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
-    <Compile Include="DAL\Mapping\PipelinePieceMap.cs" />
+    <Compile Include="DAL\Mapping\PartMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
     <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
     <Compile Include="DAL\Mapping\PipeTestMap.cs" />
