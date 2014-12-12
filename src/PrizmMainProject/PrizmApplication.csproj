@@ -221,9 +221,7 @@
     <Compile Include="Forms\InspectionParts\Search\PartQuery.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchCommand.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchViewModel.cs" />
-    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.cs" />
     <Compile Include="Forms\InspectionParts\Search\PartsSearchXtraForm.Designer.cs">
       <DependentUpon>PartsSearchXtraForm.cs</DependentUpon>
     </Compile>
@@ -231,9 +229,7 @@
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\Joint\NewEdit\ExtractOperationsCommand.cs" />
-    <Compile Include="Forms\MainChildForm\ChildForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\MainChildForm\ChildForm.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +283,20 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
+    <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\TestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\TestReport.Designer.cs">
+      <DependentUpon>TestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.Designer.cs">
+      <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
@@ -500,6 +510,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\TestReport.resx">
+      <DependentUpon>TestReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
+      <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>

@@ -45,11 +45,11 @@
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.createReportaLyoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.reportTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.reportPeriodLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.reportPeriodEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.countPointsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -68,11 +68,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createReportaLyoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countPointsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -83,14 +83,16 @@
             // 
             // reportType
             // 
-            this.reportType.EditValue = "Использованные изделия";
+            this.reportType.EditValue = "";
             this.reportType.Location = new System.Drawing.Point(24, 59);
             this.reportType.Name = "reportType";
             this.reportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.reportType.Size = new System.Drawing.Size(135, 20);
+            this.reportType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.reportType.Size = new System.Drawing.Size(231, 20);
             this.reportType.StyleController = this.generalLayout;
             this.reportType.TabIndex = 68;
+            this.reportType.SelectedIndexChanged += new System.EventHandler(this.reportType_SelectedIndexChanged);
             // 
             // generalLayout
             // 
@@ -114,31 +116,31 @@
             // 
             // reportPeriodLabel
             // 
-            this.reportPeriodLabel.Location = new System.Drawing.Point(183, 43);
+            this.reportPeriodLabel.Location = new System.Drawing.Point(279, 43);
             this.reportPeriodLabel.Name = "reportPeriodLabel";
-            this.reportPeriodLabel.Size = new System.Drawing.Size(43, 13);
+            this.reportPeriodLabel.Size = new System.Drawing.Size(39, 13);
             this.reportPeriodLabel.StyleController = this.generalLayout;
             this.reportPeriodLabel.TabIndex = 70;
-            this.reportPeriodLabel.Text = "Пикеты:";
+            this.reportPeriodLabel.Text = "Пикеты";
             // 
             // countPoints
             // 
-            this.countPoints.Location = new System.Drawing.Point(183, 100);
+            this.countPoints.Location = new System.Drawing.Point(279, 100);
             this.countPoints.Name = "countPoints";
             this.countPoints.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.countPoints.Properties.Appearance.Options.UseBackColor = true;
             this.countPoints.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.countPoints.Properties.Columns = 2;
-            this.countPoints.Size = new System.Drawing.Size(184, 22);
+            this.countPoints.Size = new System.Drawing.Size(125, 22);
             this.countPoints.StyleController = this.generalLayout;
             this.countPoints.TabIndex = 69;
             // 
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(446, 58);
+            this.createReportButton.Location = new System.Drawing.Point(563, 58);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(151, 22);
+            this.createReportButton.Size = new System.Drawing.Size(120, 22);
             this.createReportButton.StyleController = this.generalLayout;
             this.createReportButton.TabIndex = 64;
             this.createReportButton.Text = "Соз&дать отчет";
@@ -146,30 +148,30 @@
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(446, 99);
+            this.previewButton.Location = new System.Drawing.Point(563, 99);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(151, 22);
+            this.previewButton.Size = new System.Drawing.Size(120, 22);
             this.previewButton.StyleController = this.generalLayout;
             this.previewButton.TabIndex = 65;
             this.previewButton.Text = "&Предпросмотр";
             // 
             // final
             // 
-            this.final.Location = new System.Drawing.Point(319, 60);
+            this.final.Location = new System.Drawing.Point(426, 60);
             this.final.Name = "final";
             this.final.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.final.Size = new System.Drawing.Size(108, 20);
+            this.final.Size = new System.Drawing.Size(118, 20);
             this.final.StyleController = this.generalLayout;
             this.final.TabIndex = 62;
             // 
             // start
             // 
-            this.start.Location = new System.Drawing.Point(195, 60);
+            this.start.Location = new System.Drawing.Point(291, 60);
             this.start.Name = "start";
             this.start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.start.Size = new System.Drawing.Size(102, 20);
+            this.start.Size = new System.Drawing.Size(113, 20);
             this.start.StyleController = this.generalLayout;
             this.start.TabIndex = 61;
             // 
@@ -190,8 +192,7 @@
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.type.Properties.SelectAllItemCaption = "(Выбрать все)";
-            this.type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.type.Size = new System.Drawing.Size(135, 20);
+            this.type.Size = new System.Drawing.Size(231, 20);
             this.type.StyleController = this.generalLayout;
             this.type.TabIndex = 63;
             // 
@@ -236,11 +237,11 @@
             this.createReportaLyoutGroup.CustomizationFormText = "Сформировать отчёт";
             this.createReportaLyoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.typeLayout,
-            this.endDateLayout,
+            this.endLayout,
             this.reportTypeLayout,
             this.reportPeriodLabelLayout,
             this.reportPeriodEmptySpace,
-            this.startDateLayout,
+            this.startLayout,
             this.countPointsLayout,
             this.buttonsEmptySpace,
             this.emptySpaceItem1,
@@ -257,23 +258,23 @@
             this.typeLayout.CustomizationFormText = "Тип изделия";
             this.typeLayout.Location = new System.Drawing.Point(0, 40);
             this.typeLayout.Name = "typeLayout";
-            this.typeLayout.Size = new System.Drawing.Size(149, 43);
+            this.typeLayout.Size = new System.Drawing.Size(245, 43);
             this.typeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
             this.typeLayout.Text = "Тип изделия";
             this.typeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.typeLayout.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // endDateLayout
+            // endLayout
             // 
-            this.endDateLayout.Control = this.final;
-            this.endDateLayout.CustomizationFormText = "По";
-            this.endDateLayout.Location = new System.Drawing.Point(277, 17);
-            this.endDateLayout.Name = "endDateLayout";
-            this.endDateLayout.Size = new System.Drawing.Size(130, 24);
-            this.endDateLayout.Text = "По";
-            this.endDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.endDateLayout.TextSize = new System.Drawing.Size(13, 13);
-            this.endDateLayout.TextToControlDistance = 5;
+            this.endLayout.Control = this.final;
+            this.endLayout.CustomizationFormText = "По";
+            this.endLayout.Location = new System.Drawing.Point(384, 17);
+            this.endLayout.Name = "endLayout";
+            this.endLayout.Size = new System.Drawing.Size(140, 24);
+            this.endLayout.Text = "По";
+            this.endLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.endLayout.TextSize = new System.Drawing.Size(13, 13);
+            this.endLayout.TextToControlDistance = 5;
             // 
             // reportTypeLayout
             // 
@@ -281,7 +282,7 @@
             this.reportTypeLayout.CustomizationFormText = "Тип отчета";
             this.reportTypeLayout.Location = new System.Drawing.Point(0, 0);
             this.reportTypeLayout.Name = "reportTypeLayout";
-            this.reportTypeLayout.Size = new System.Drawing.Size(149, 40);
+            this.reportTypeLayout.Size = new System.Drawing.Size(245, 40);
             this.reportTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
             this.reportTypeLayout.Text = "Тип отчета";
             this.reportTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -291,9 +292,9 @@
             // 
             this.reportPeriodLabelLayout.Control = this.reportPeriodLabel;
             this.reportPeriodLabelLayout.CustomizationFormText = "reportPeriodLabelLayout";
-            this.reportPeriodLabelLayout.Location = new System.Drawing.Point(149, 0);
+            this.reportPeriodLabelLayout.Location = new System.Drawing.Point(245, 0);
             this.reportPeriodLabelLayout.Name = "reportPeriodLabelLayout";
-            this.reportPeriodLabelLayout.Size = new System.Drawing.Size(57, 17);
+            this.reportPeriodLabelLayout.Size = new System.Drawing.Size(53, 17);
             this.reportPeriodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.reportPeriodLabelLayout.Text = "reportPeriodLabelLayout";
             this.reportPeriodLabelLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -304,32 +305,32 @@
             // 
             this.reportPeriodEmptySpace.AllowHotTrack = false;
             this.reportPeriodEmptySpace.CustomizationFormText = "reportPeriodEmptySpace";
-            this.reportPeriodEmptySpace.Location = new System.Drawing.Point(206, 0);
+            this.reportPeriodEmptySpace.Location = new System.Drawing.Point(298, 0);
             this.reportPeriodEmptySpace.Name = "reportPeriodEmptySpace";
-            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(201, 17);
+            this.reportPeriodEmptySpace.Size = new System.Drawing.Size(226, 17);
             this.reportPeriodEmptySpace.Text = "reportPeriodEmptySpace";
             this.reportPeriodEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // startDateLayout
+            // startLayout
             // 
-            this.startDateLayout.Control = this.start;
-            this.startDateLayout.CustomizationFormText = "С";
-            this.startDateLayout.Location = new System.Drawing.Point(149, 17);
-            this.startDateLayout.Name = "startDateLayout";
-            this.startDateLayout.Size = new System.Drawing.Size(128, 24);
-            this.startDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
-            this.startDateLayout.Text = "С";
-            this.startDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.startDateLayout.TextSize = new System.Drawing.Size(7, 13);
-            this.startDateLayout.TextToControlDistance = 5;
+            this.startLayout.Control = this.start;
+            this.startLayout.CustomizationFormText = "С";
+            this.startLayout.Location = new System.Drawing.Point(245, 17);
+            this.startLayout.Name = "startLayout";
+            this.startLayout.Size = new System.Drawing.Size(139, 24);
+            this.startLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
+            this.startLayout.Text = "С";
+            this.startLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.startLayout.TextSize = new System.Drawing.Size(7, 13);
+            this.startLayout.TextToControlDistance = 5;
             // 
             // countPointsLayout
             // 
             this.countPointsLayout.Control = this.countPoints;
             this.countPointsLayout.CustomizationFormText = "Точки отсчета:";
-            this.countPointsLayout.Location = new System.Drawing.Point(149, 41);
+            this.countPointsLayout.Location = new System.Drawing.Point(245, 41);
             this.countPointsLayout.Name = "countPointsLayout";
-            this.countPointsLayout.Size = new System.Drawing.Size(198, 42);
+            this.countPointsLayout.Size = new System.Drawing.Size(139, 42);
             this.countPointsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.countPointsLayout.Text = "Точки отсчета:";
             this.countPointsLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -339,9 +340,9 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(592, 0);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(678, 0);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(304, 83);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(218, 83);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -349,9 +350,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(347, 41);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(384, 41);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(60, 42);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(140, 42);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -359,9 +360,9 @@
             // 
             this.previewButtonLayout.Control = this.previewButton;
             this.previewButtonLayout.CustomizationFormText = "previewButtonLayout";
-            this.previewButtonLayout.Location = new System.Drawing.Point(407, 41);
+            this.previewButtonLayout.Location = new System.Drawing.Point(524, 41);
             this.previewButtonLayout.Name = "previewButtonLayout";
-            this.previewButtonLayout.Size = new System.Drawing.Size(185, 42);
+            this.previewButtonLayout.Size = new System.Drawing.Size(154, 42);
             this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 1);
             this.previewButtonLayout.Text = "previewButtonLayout";
             this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -372,9 +373,9 @@
             // 
             this.createButtonLayout.Control = this.createReportButton;
             this.createButtonLayout.CustomizationFormText = "createButtonLayout";
-            this.createButtonLayout.Location = new System.Drawing.Point(407, 0);
+            this.createButtonLayout.Location = new System.Drawing.Point(524, 0);
             this.createButtonLayout.Name = "createButtonLayout";
-            this.createButtonLayout.Size = new System.Drawing.Size(185, 41);
+            this.createButtonLayout.Size = new System.Drawing.Size(154, 41);
             this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 0);
             this.createButtonLayout.Text = "createButtonLayout";
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -407,11 +408,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createReportaLyoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countPointsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -437,8 +438,8 @@
         private DevExpress.XtraLayout.LayoutControlItem previewLayout;
         private DevExpress.XtraLayout.LayoutControlGroup createReportaLyoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem typeLayout;
-        private DevExpress.XtraLayout.LayoutControlItem startDateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem endDateLayout;
+        private DevExpress.XtraLayout.LayoutControlItem startLayout;
+        private DevExpress.XtraLayout.LayoutControlItem endLayout;
         private DevExpress.XtraLayout.LayoutControlItem reportTypeLayout;
         private DevExpress.XtraLayout.LayoutControlItem previewButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem createButtonLayout;

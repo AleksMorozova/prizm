@@ -19,21 +19,41 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             InitializeComponent();
 
+            reportType.Properties.Items.Add("Использованные изделия");
+            reportType.Properties.Items.Add("Протяженность трубопровода");
+            reportType.Properties.Items.Add("Трассовка");
+
             var item1 = new RadioGroupItem(0, "Стык");
             var item2 = new RadioGroupItem(1, "Пикет");
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;
+
+            countPointsLayout.ContentVisible = false;
+            typeLayout.ContentVisible = false;
+            reportPeriodLabelLayout.ContentVisible = false;
+            startLayout.ContentVisible = false;
+            endLayout.ContentVisible = false;
+
         }
 
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
+            previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
+        }
+
+        private void BindCommands()
+        {
+            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
+            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
         }
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
+            viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
             BindToViewModel();
+            BindCommands();
 
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
@@ -42,22 +62,30 @@ namespace PrizmMain.Forms.Reports.Construction
             type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
-
-            //RefreshTypes();
         }
 
-        //private void RefreshTypes()
-        //{
-        //    BindingList<PartType> selectedTypes = new BindingList<PartType>();
-        //    for (int i = 0; i < type.Properties.Items.Count; i++)
-        //    {
-        //        if (type.Properties.Items[i].CheckState == CheckState.Checked)
-        //        {
-        //            selectedTypes.Add((PartType)type.Properties.Items[i].Value);
-        //        }
-        //    }
-        //    viewModel.Types.Clear();
-        //    viewModel.Types = selectedTypes;
-        //}
+        private void reportType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (reportType.SelectedItem == "Использованные изделия")
+            {
+                viewModel.report = new UsedProductsXtraReport();
+                reportPeriodLabel.Text = "Пикеты";
+                reportPeriodLabelLayout.ContentVisible = true;
+                startLayout.ContentVisible = true;
+                endLayout.ContentVisible = true;
+                countPointsLayout.ContentVisible = false;
+                typeLayout.ContentVisible = true;
+            }
+            else
+            {
+                viewModel.report = new testReport();
+                reportPeriodLabel.Text = "Точки отсчета";
+                reportPeriodLabelLayout.ContentVisible = true;
+                startLayout.ContentVisible = true;
+                endLayout.ContentVisible = true;
+                countPointsLayout.ContentVisible = true;
+                typeLayout.ContentVisible = false;
+            }
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using DevExpress.Mvvm;
+﻿using Data.DAL;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
+using DevExpress.XtraReports.UI;
 using NHibernate;
 using Ninject;
 using PrizmMain.Commands;
@@ -15,14 +18,20 @@ namespace PrizmMain.Forms.Reports.Construction
 {
     public class ConstructionReportViewModel : ViewModelBase, IDisposable
     {
-        //PartsSearchCommand searchCommand;
-        ISession session;
-        
+        private readonly IMillReportsRepository repo;
+        private readonly IUserNotify notify;
+        readonly CreateReportCommand createCommand;
+        readonly PreviewReportCommand previewCommand;
+        public object previewSource;
+        public XtraReport report;
+
         [Inject]
-        public ConstructionReportViewModel(ISession session)
+        public ConstructionReportViewModel(IMillReportsRepository repo, IUserNotify notify)
         {
-            this.session = session;
-            //searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
+            this.repo = repo;
+            this.notify = notify;
+            createCommand = ViewModelSource.Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));
+            previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
         }
         private BindingList<Part> parts = new BindingList<Part>();
         public BindingList<Part> Parts
@@ -52,10 +61,35 @@ namespace PrizmMain.Forms.Reports.Construction
             }
         }
 
-        //public ICommand SearchCommand
-        //{
-        //    get; //{ return searchCommand; }
-        //}
+        public object PreviewSource
+        {
+            get
+            {
+                return previewSource;
+            }
+            set
+            {
+                if (value != previewSource)
+                {
+                    previewSource = value;
+                    RaisePropertyChanged("PreviewSource");
+                }
+            }
+        }
+
+
+        public ICommand CreateCommand
+        {
+            get
+            {
+                return createCommand;
+            }
+        }
+
+        public ICommand PreviewCommand
+        {
+            get { return previewCommand; }
+        }
 
         #region IDisposable Members
 
