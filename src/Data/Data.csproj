@@ -101,6 +101,7 @@
     <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
     <Compile Include="DAL\Mapping\ConnectorMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />

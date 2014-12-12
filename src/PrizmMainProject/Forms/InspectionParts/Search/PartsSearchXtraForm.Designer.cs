@@ -126,6 +126,8 @@
             this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.partsView.OptionsView.ShowGroupPanel = false;
+            this.partsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partsView_KeyDown);
+            this.partsView.DoubleClick += new System.EventHandler(this.partsView_DoubleClick);
             // 
             // idCol
             // 

@@ -14,5 +14,7 @@ namespace Domain.Entity
         public virtual PieceInspectionStatus InspectionStatus { get; set; }
 
         public virtual IList<Joint> Joints { get; set; }
+
+        public virtual IList<InspectionTestResult> InspectionTestResults { get; set; }
     }
 }
