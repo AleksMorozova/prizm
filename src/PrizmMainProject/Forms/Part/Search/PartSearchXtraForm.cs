@@ -18,19 +18,19 @@ using Ninject.Parameters;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class PartsSearchXtraForm : ChildForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class PartSearchXtraForm : ChildForm
     {
-        private PartsSearchViewModel viewModel;
+        private PartSearchViewModel viewModel;
 
-        public PartsSearchXtraForm()
+        public PartSearchXtraForm()
         {
             InitializeComponent();
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
         {
-            viewModel = (PartsSearchViewModel)Program.Kernel.GetService(typeof(PartsSearchViewModel));
+            viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
 

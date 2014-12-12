@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Domain.Entity
 {
-    // TODO: PipelinePiece 
-    public class PipelinePiece : Item
+    // TODO: Part 
+    public class Part : Item
     {
         public virtual string Number { get; set; }
         public virtual int Length { get; set; }
 
-        public virtual PieceConstructionStatus ConstructionStatus { get; set; }
-        public virtual PieceInspectionStatus InspectionStatus { get; set; }
+        public virtual PartConstructionStatus ConstructionStatus { get; set; }
+        public virtual PartInspectionStatus InspectionStatus { get; set; }
 
         public virtual IList<Joint> Joints { get; set; }
 

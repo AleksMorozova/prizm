@@ -22,6 +22,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PieceInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PieceInspectionStatus, string>();
+        private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
+            = new Dictionary<PartInspectionStatus, string>();
 
         public ComponentNewEditXtraForm() : this(Guid.Empty) { }
 
@@ -97,10 +99,10 @@ namespace PrizmMain.Forms.Component.NewEdit
             #endregion
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PieceInspectionStatus.Accepted, Resources.Accepted);
-            inspectionStatusDict.Add(PieceInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PieceInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PieceInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
             repositoryInspectionStatus.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -156,14 +158,14 @@ namespace PrizmMain.Forms.Component.NewEdit
                 = v.GetRow(e.RowHandle) as InspectionTestResult;
 
             inspectionTestResult.IsActive = true;
-            inspectionTestResult.Status = PieceInspectionStatus.Pending;
+            inspectionTestResult.Status = PartInspectionStatus.Pending;
         }
 
         private void repositoryInspectionStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PieceInspectionStatus)
+            if (e.Value is PartInspectionStatus)
             {
-                e.DisplayText = inspectionStatusDict[(PieceInspectionStatus)e.Value];
+                e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
             }
         }
 
@@ -171,10 +173,10 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             LookUpEdit lookup = sender as LookUpEdit;
 
-            if (!(lookup.EditValue is PieceInspectionStatus))
+            if (!(lookup.EditValue is PartInspectionStatus))
             {
-                KeyValuePair<PieceInspectionStatus, string> val 
-                    = (KeyValuePair<PieceInspectionStatus, string>)lookup.EditValue;
+                KeyValuePair<PartInspectionStatus, string> val 
+                    = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
                 lookup.EditValue = val.Key;
             }
         }

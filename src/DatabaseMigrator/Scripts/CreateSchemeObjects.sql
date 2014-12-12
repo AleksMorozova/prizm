@@ -393,8 +393,8 @@ CREATE TABLE [dbo].[InspectionTestResult](
 	
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
+	[partId] [uniqueidentifier] NULL,
 
-	[pipelinePieceId] [uniqueidentifier] NULL,
 
 	[inspectionDate] [date] NULL,
 

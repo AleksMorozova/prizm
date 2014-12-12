@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public enum PieceInspectionStatus
+    public enum PartConstructionStatus
     {
         Pending = 1,
-        Hold = 2,
-        Rejected = 3,
-        Accepted = 4,
+        AlongTrench = 2,
+        Welded = 3,
+        Lowered = 4,
+        Filled = 5,
 
         Undefined = 0
     }
