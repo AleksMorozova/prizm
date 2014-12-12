@@ -22,7 +22,7 @@ namespace Data.DAL.Mapping
             Map(_ => _.GpsLongitude).Column("gpsLongitude");
 
             HasMany<JointTestResult>(_ => _.JointTestResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
-            HasMany<JointActionResult>(_ => _.JointActionResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
+            HasMany<JointWeldResult>(_ => _.JointWeldResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
         }
     }
 }

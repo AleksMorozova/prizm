@@ -18,6 +18,7 @@ namespace PrizmMain.Forms.Joint
         private readonly IJointActionResultRepository repoJointActionResult;
         private readonly IJointOperationRepository repoJointOperation;
         private readonly IInspectorRepository repoInspector;
+        private readonly IWelderRepository repoWelder;
 
         private readonly ISession session;
 
@@ -29,6 +30,7 @@ namespace PrizmMain.Forms.Joint
             this.repoJointActionResult = new JointActionResultRepository(session);
             this.repoJointOperation = new JointOperationRepository(session);
             this.repoInspector = new InspectorRepository(session);
+            this.repoWelder = new WelderRepository(session);
         }
         public void Commit()
         {
@@ -63,6 +65,11 @@ namespace PrizmMain.Forms.Joint
         public IInspectorRepository RepoInspector
         {
             get { return repoInspector; }
+        }
+
+        public IWelderRepository RepoWelder
+        {
+            get { return repoWelder; }
         }
     }
 }

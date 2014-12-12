@@ -15,16 +15,18 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Common;
+using System.Data;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm
     {
         JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
-        private JointActionResult currentJointActionResult;
+        private JointWeldResult currentJointWeldResult;
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
+        WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
 
         public JointNewEditXtraForm(Guid jointId)
@@ -73,7 +75,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             controlOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
-               .Add("DataSource", jointNewEditBindingSoure, "JointActionResults");
+               .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
 
             pipelinePiecesBindingSource.DataSource = viewModel.Pieces;
             SetLookup(firstJointElement);
@@ -89,6 +91,15 @@ namespace PrizmMain.Forms.Joint.NewEdit
             inspectorSelectionControl.Dock = DockStyle.Fill;
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
+
+            weldersDataSource.DataSource = viewModel.Welders;
+            weldersDataSource.ListChanged += (s, eve) => IsModified = true;
+            weldersSelectionControl.DataSource = weldersDataSource;
+            var weldersPopup = new PopupContainerControl();
+            weldersPopup.Controls.Add(weldersSelectionControl);
+            weldersSelectionControl.Dock = DockStyle.Fill;
+            weldersPopupContainerEdit.PopupControl = weldersPopup;
+            weldersPopupContainerEdit.PopupControl.MaximumSize = weldersPopup.MaximumSize;
         }
 
         /// <summary>
@@ -147,31 +158,19 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 currentJointTestResult.Operation = selectedOperation;
         }
 
-        private void repairOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
-        {
-            GridView view = sender as GridView;
-            if (view.IsValidRowHandle(e.RowHandle))
-            {
-                currentJointActionResult = view.GetRow(e.RowHandle) as JointActionResult;
-                currentJointActionResult.IsActive = true;
-                currentJointActionResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointActionResults = viewModel.JointActionResults;
-            }
-        }
-
         private void inspectorsPopupContainerEdit_CloseUp(object sender, CloseUpEventArgs e)
         {
             if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if (jointTestResult == null)
-                    return;
-
-                jointTestResult.Inspectors.Clear();
-                foreach (Inspector i in selectedInspectors)
+                if (jointTestResult != null)
                 {
-                    jointTestResult.Inspectors.Add(i);
+                    jointTestResult.Inspectors.Clear();
+                    foreach (Inspector i in selectedInspectors)
+                    {
+                        jointTestResult.Inspectors.Add(i);
+                    }
                 }
             }
         }
@@ -182,10 +181,10 @@ namespace PrizmMain.Forms.Joint.NewEdit
             if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if (jointTestResult == null)
-                    return;
-
-                inspectorSelectionControl.SelectInspectors(jointTestResult.Inspectors);
+                if (jointTestResult != null)
+                {
+                    inspectorSelectionControl.SelectInspectors(jointTestResult.Inspectors);
+                }
             }
         }
 
@@ -193,7 +192,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             if (e.Value == null)
                 e.DisplayText = string.Empty;
-
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
             e.DisplayText = viewModel.FormatInspectorList(inspectors);
@@ -217,6 +215,69 @@ namespace PrizmMain.Forms.Joint.NewEdit
                     resultStatusLookUpEdit.DataSource = availabeResults;
                 }
             }
+        }
+
+        private void repairOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.IsValidRowHandle(e.RowHandle))
+            {
+                currentJointWeldResult = view.GetRow(e.RowHandle) as JointWeldResult;
+                currentJointWeldResult.IsActive = true;
+                currentJointWeldResult.Joint = viewModel.Joint;
+                viewModel.Joint.JointWeldResults = viewModel.JointWeldResults;
+            }
+        }
+
+        private void RepairOperationsLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit q = sender as LookUpEdit;
+            object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
+            JointOperation selectedOperation = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
+            if (selectedOperation != null)
+            {
+                currentJointWeldResult.Operation = selectedOperation;
+            }
+        }
+
+        private void weldersPopupContainerEdit_CloseUp(object sender, CloseUpEventArgs e)
+        {
+            if (repairOperationsView.IsValidRowHandle(repairOperationsView.FocusedRowHandle))
+            {
+                IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
+                JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+                if (jointWeldResult != null)
+                {
+                    jointWeldResult.Welders.Clear();
+                    foreach (Welder w in selectedWelders)
+                    {
+                        jointWeldResult.Welders.Add(w);
+                    }
+                }
+            }
+        }
+
+        private void weldersPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            repairOperationsView.ClearSelection();
+            if (repairOperationsView.IsValidRowHandle(repairOperationsView.FocusedRowHandle))
+            {
+                JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+                if (jointWeldResult != null)
+                {
+                    weldersSelectionControl.SelectWelders(jointWeldResult.Welders);
+                }
+            }
+        }
+
+        private void weldersPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+            IList<Welder> welders = e.Value as IList<Welder>;
+            e.DisplayText = viewModel.FormatWelderList(welders);
+
         }
 
 

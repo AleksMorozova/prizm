@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         public JointActionResultMap()
         {
             Map(_ => _.Date).Column("date");
-            Map(_ => _.isCompleted).Column("isCompleted");
+            Map(_ => _.IsCompleted).Column("isCompleted");
 
             References<JointOperation>(_ => _.Operation).Column("jointOperationId");
             References<Joint>(_ => _.Joint).Column("jointId");

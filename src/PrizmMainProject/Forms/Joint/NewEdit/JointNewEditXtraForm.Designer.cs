@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -41,6 +40,7 @@
             this.completedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CompletedCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.weldersPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
             this.deactivated = new DevExpress.XtraEditors.CheckEdit();
@@ -61,14 +61,15 @@
             this.operationDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
+            this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.secondJointElement = new DevExpress.XtraEditors.LookUpEdit();
             this.firstJointElement = new DevExpress.XtraEditors.LookUpEdit();
             this.loweringDate = new DevExpress.XtraEditors.DateEdit();
             this.newJointLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.controlOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.repairOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.controlOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.loweringLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.GPSLatLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.GPSLongLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -87,10 +88,10 @@
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -100,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).BeginInit();
@@ -120,8 +122,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLongLayout)).BeginInit();
@@ -143,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -194,7 +197,8 @@
             this.repairOperations.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.CompletedCheckEdit,
             this.RepairOperationsLookUpEdit,
-            this.repairDateEdit});
+            this.repairDateEdit,
+            this.weldersPopupContainerEdit});
             this.repairOperations.Size = new System.Drawing.Size(532, 261);
             this.repairOperations.TabIndex = 28;
             this.repairOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -218,6 +222,7 @@
             // 
             this.repairTypeGridColumn.Caption = "Тип операции";
             this.repairTypeGridColumn.ColumnEdit = this.RepairOperationsLookUpEdit;
+            this.repairTypeGridColumn.FieldName = "Operation.Name";
             this.repairTypeGridColumn.Name = "repairTypeGridColumn";
             this.repairTypeGridColumn.Visible = true;
             this.repairTypeGridColumn.VisibleIndex = 0;
@@ -234,11 +239,13 @@
             this.RepairOperationsLookUpEdit.Name = "RepairOperationsLookUpEdit";
             this.RepairOperationsLookUpEdit.NullText = "";
             this.RepairOperationsLookUpEdit.ValueMember = "Name";
+            this.RepairOperationsLookUpEdit.EditValueChanged += new System.EventHandler(this.RepairOperationsLookUpEdit_EditValueChanged);
             // 
             // repairDateGridColumn
             // 
             this.repairDateGridColumn.Caption = "Дата";
             this.repairDateGridColumn.ColumnEdit = this.repairDateEdit;
+            this.repairDateGridColumn.FieldName = "Date";
             this.repairDateGridColumn.Name = "repairDateGridColumn";
             this.repairDateGridColumn.Visible = true;
             this.repairDateGridColumn.VisibleIndex = 1;
@@ -257,6 +264,7 @@
             // 
             this.completedGridColumn.Caption = "Выполнено";
             this.completedGridColumn.ColumnEdit = this.CompletedCheckEdit;
+            this.completedGridColumn.FieldName = "IsCompleted";
             this.completedGridColumn.Name = "completedGridColumn";
             this.completedGridColumn.Visible = true;
             this.completedGridColumn.VisibleIndex = 2;
@@ -270,10 +278,22 @@
             // weldersGridColumn
             // 
             this.weldersGridColumn.Caption = "Сварщики";
+            this.weldersGridColumn.ColumnEdit = this.weldersPopupContainerEdit;
+            this.weldersGridColumn.FieldName = "Welders";
             this.weldersGridColumn.Name = "weldersGridColumn";
             this.weldersGridColumn.Visible = true;
             this.weldersGridColumn.VisibleIndex = 3;
             this.weldersGridColumn.Width = 299;
+            // 
+            // weldersPopupContainerEdit
+            // 
+            this.weldersPopupContainerEdit.AutoHeight = false;
+            this.weldersPopupContainerEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.weldersPopupContainerEdit.Name = "weldersPopupContainerEdit";
+            this.weldersPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.weldersPopupContainerEdit_CloseUp);
+            this.weldersPopupContainerEdit.Popup += new System.EventHandler(this.weldersPopupContainerEdit_Popup);
+            this.weldersPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.weldersPopupContainerEdit_CustomDisplayText);
             // 
             // saveButton
             // 
@@ -496,6 +516,14 @@
             this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
             this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
             // 
+            // valueGridColumn
+            // 
+            this.valueGridColumn.Caption = "Значение результата";
+            this.valueGridColumn.FieldName = "Value";
+            this.valueGridColumn.Name = "valueGridColumn";
+            this.valueGridColumn.Visible = true;
+            this.valueGridColumn.VisibleIndex = 4;
+            // 
             // inspectionsGridView
             // 
             this.inspectionsGridView.GridControl = this.controlOperations;
@@ -579,18 +607,6 @@
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
             this.inspectionLayoutGroup.Text = "Контрольнo - ремонтные операции";
             // 
-            // controlOperationsLayout
-            // 
-            this.controlOperationsLayout.Control = this.controlOperations;
-            this.controlOperationsLayout.CustomizationFormText = "Контрольные операции";
-            this.controlOperationsLayout.Location = new System.Drawing.Point(543, 0);
-            this.controlOperationsLayout.Name = "controlOperationsLayout";
-            this.controlOperationsLayout.Size = new System.Drawing.Size(668, 281);
-            this.controlOperationsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 0);
-            this.controlOperationsLayout.Text = "Контрольные операции";
-            this.controlOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.controlOperationsLayout.TextSize = new System.Drawing.Size(120, 13);
-            // 
             // repairOperationLayout
             // 
             this.repairOperationLayout.Control = this.repairOperations;
@@ -602,6 +618,18 @@
             this.repairOperationLayout.Text = "Ремонтные операции";
             this.repairOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.repairOperationLayout.TextSize = new System.Drawing.Size(120, 13);
+            // 
+            // controlOperationsLayout
+            // 
+            this.controlOperationsLayout.Control = this.controlOperations;
+            this.controlOperationsLayout.CustomizationFormText = "Контрольные операции";
+            this.controlOperationsLayout.Location = new System.Drawing.Point(543, 0);
+            this.controlOperationsLayout.Name = "controlOperationsLayout";
+            this.controlOperationsLayout.Size = new System.Drawing.Size(668, 281);
+            this.controlOperationsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 0);
+            this.controlOperationsLayout.Text = "Контрольные операции";
+            this.controlOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.controlOperationsLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // loweringLayoutGroup
             // 
@@ -848,14 +876,6 @@
             this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
             this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // valueGridColumn
-            // 
-            this.valueGridColumn.Caption = "Значение результата";
-            this.valueGridColumn.FieldName = "Value";
-            this.valueGridColumn.Name = "valueGridColumn";
-            this.valueGridColumn.Visible = true;
-            this.valueGridColumn.VisibleIndex = 4;
-            // 
             // JointNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -879,6 +899,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumber.Properties)).EndInit();
@@ -899,8 +920,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loweringDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.controlOperationsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loweringLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLatLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GPSLongLayout)).EndInit();
@@ -922,6 +943,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -989,6 +1011,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultStatusLookUpEdit;
         private DevExpress.XtraGrid.Columns.GridColumn valueGridColumn;
+        private System.Windows.Forms.BindingSource weldersDataSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit weldersPopupContainerEdit;
 
     }
 }

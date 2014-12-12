@@ -15,6 +15,7 @@ namespace PrizmMain.Forms.Joint
         IJointActionResultRepository RepoJointActionResult { get; }
         IJointOperationRepository RepoJointOperation { get; }
         IInspectorRepository RepoInspector { get; }
+        IWelderRepository RepoWelder { get; }
 
         void Commit();
         void BeginTransaction();
