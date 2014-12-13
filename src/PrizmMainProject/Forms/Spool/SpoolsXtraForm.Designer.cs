@@ -44,7 +44,7 @@
             this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
-            this.pipeNumber = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeSearchayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.upperSearchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -105,6 +105,7 @@
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "&Поиск";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // mainLayoutControl
             // 
@@ -238,8 +239,6 @@
             // 
             this.pipeNumber.Location = new System.Drawing.Point(31, 64);
             this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeNumber.Size = new System.Drawing.Size(212, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
@@ -530,7 +529,6 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton searchButton;
-        private DevExpress.XtraEditors.ComboBoxEdit pipeNumber;
         private DevExpress.XtraEditors.TextEdit pipeLength;
         private DevExpress.XtraEditors.TextEdit spoolNumber;
         private DevExpress.XtraEditors.SimpleButton cutButton;
@@ -564,5 +562,6 @@
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
+        private DevExpress.XtraEditors.TextEdit pipeNumber;
     }
 }

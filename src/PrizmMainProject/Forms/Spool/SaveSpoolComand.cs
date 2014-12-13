@@ -30,6 +30,7 @@ namespace PrizmMain.Forms.Spool
             repoSpool.SaveOrUpdate(viewModel.Spool);
             repoSpool.Commit();
             repoSpool.Evict(viewModel.Spool);
+            viewModel.ModifiableView.IsModified = false;
         }
 
 

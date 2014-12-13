@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using Domain.Entity.Mill;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
@@ -13,17 +14,20 @@ namespace PrizmMain.Forms.Spool
     {
         readonly IPipeRepository repo;
         readonly SpoolViewModel viewModel;
+        readonly IUserNotify notify;
 
-        public SpoolSearchCommand(SpoolViewModel viewModel, IPipeRepository repo)
+        public SpoolSearchCommand(SpoolViewModel viewModel, IPipeRepository repo,IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            viewModel.Pipe = repo.GetByNumber(viewModel.Spool.PipeNumber);
+            viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
+            viewModel.ModifiableView.IsModified = false;
         }
 
 

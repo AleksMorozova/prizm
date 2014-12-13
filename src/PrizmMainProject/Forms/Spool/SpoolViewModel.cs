@@ -2,12 +2,15 @@
 using Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity.Construction;
 using Domain.Entity.Mill;
 using Ninject;
 using PrizmMain.Commands;
+using PrizmMain.Documents;
 using PrizmMain.Forms.PipeMill;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +29,7 @@ namespace PrizmMain.Forms.Spool
         public int pipeLength;
         public int spoolLength;
         readonly IUserNotify notify;
-
-        //public Pipe Pipe { get; set; }
+        private IModifiable modifiableView;
         public Domain.Entity.Construction.Spool Spool { get; set; }
 
         [Inject]
@@ -38,7 +40,7 @@ namespace PrizmMain.Forms.Spool
             this.notify=notify;
 
             searchCommand = ViewModelSource.Create<SpoolSearchCommand>(
-              () => new SpoolSearchCommand(this, repoPipe));
+              () => new SpoolSearchCommand(this, repoPipe, notify));
 
             cutCommand = ViewModelSource.Create<CutSpoolCommand>(
              () => new CutSpoolCommand(this, repoPipe, repoSpool,notify));
@@ -47,8 +49,7 @@ namespace PrizmMain.Forms.Spool
             () => new SaveSpoolCommand(this, repoSpool, notify));
 
             Spool = new Domain.Entity.Construction.Spool();
-
-            Pipe = new Pipe();
+            Spool.Pipe = new Pipe();
         }
 
         public string SpoolNumber
@@ -66,13 +67,13 @@ namespace PrizmMain.Forms.Spool
 
         public string PipeNumber
         {
-            get { return Spool.PipeNumber; }
+            get { return Pipe.Number; }
             set
             {
-                if (value != Spool.PipeNumber)
+                if (value != Pipe.Number)
                 {
-                    Spool.PipeNumber = value;
-                    RaisePropertyChanged("PipeNumber");
+                    Pipe.Number = value;
+                    //RaisePropertyChanged("PipeNumber");
                 }
             }
         }
@@ -116,7 +117,7 @@ namespace PrizmMain.Forms.Spool
                 {
                     Spool.Length = value;
                     Pipe.Length = Pipe.Length - Spool.Length;
-                    Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter,Pipe.Length);
+                    Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("SpoolLength");
                 }
             }
@@ -135,17 +136,39 @@ namespace PrizmMain.Forms.Spool
             }
         }
 
+        public Documents.IModifiable ModifiableView
+        {
+            get
+            {
+                return modifiableView;
+            }
+            set
+            {
+                modifiableView = value;
+            }
+        }
+
+        public bool IsNotActive
+        {
+            get { return Spool.IsNotActive; }
+            set
+            {
+                if (value != Spool.IsNotActive)
+                {
+                    Spool.IsNotActive = value;
+                    RaisePropertyChanged("IsNotActive");
+                }
+            }
+        }
+
         public void Dispose()
         {
             repoPipe.Dispose();
             repoSpool.Dispose();
+            ModifiableView = null;
         }
 
-        internal Pipe GetPipeByNumber(string number)
-        {
-            return repoPipe.GetByNumber(number);
-        }
-
+        #region ---- Commands ----
         public ICommand SearchCommand
         {
             get { return searchCommand; }
@@ -160,5 +183,6 @@ namespace PrizmMain.Forms.Spool
         {
             get { return saveCommand; }
         }
+        #endregion
     }
 }
