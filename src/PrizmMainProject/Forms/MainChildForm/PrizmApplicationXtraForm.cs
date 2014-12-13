@@ -179,8 +179,7 @@ namespace PrizmMain.Forms.MainChildForm
             }
             else
             {
-                Type formType = typeof(SettingsXtraForm);
-                var forms = childForms[formType.Name];
+                var forms = childForms[typeof(SettingsXtraForm).Name];
 
                 if (forms.Count > 0)
                 {
