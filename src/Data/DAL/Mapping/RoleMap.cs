@@ -18,7 +18,7 @@ namespace Data.DAL.Mapping
          HasManyToMany<Permission>(_ => _.Permissions)
             .Table("Role_Permission")
             .ParentKeyColumn("roleId")
-            .ChildKeyColumn("permissionId");
+            .ChildKeyColumn("permissionId").Not.LazyLoad();
       }
    }
 }
