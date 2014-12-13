@@ -179,6 +179,7 @@ namespace PrizmMain.Forms.MainChildForm
             }
         }
 
+        #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(MillPipeNewEditXtraForm));
@@ -251,12 +252,12 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -290,7 +291,8 @@ namespace PrizmMain.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        }
+        } 
+        #endregion
 
 
         #region IUserNotify
