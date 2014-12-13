@@ -177,6 +177,18 @@ namespace PrizmMain.Forms.MainChildForm
                 }
                 ShowChildForm(form);
             }
+            else
+            {
+                Type formType = typeof(SettingsXtraForm);
+                var forms = childForms[formType.Name];
+
+                if (forms.Count > 0)
+                {
+                    SettingsXtraForm f = (SettingsXtraForm)forms[0];
+                    f.settings.SelectedTabPage = f.settings.TabPages[page];
+                    f.Activate();
+                }      
+            }
         }
 
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
