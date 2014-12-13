@@ -54,7 +54,6 @@ namespace PrizmMain.Forms.Spool
         private void cutButton_Click(object sender, System.EventArgs e)
         {
             Domain.Entity.Construction.Spool s = viewModel.Spool;
-            //Pipe p = viewModel.Pipe;
         }
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
@@ -63,9 +62,5 @@ namespace PrizmMain.Forms.Spool
             attachments.ShowDialog();
         }
 
-        private void searchButton_Click(object sender, System.EventArgs e)
-        {
-            Pipe p = viewModel.Spool.Pipe;
-        }
     }
 }

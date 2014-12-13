@@ -50,6 +50,8 @@ namespace PrizmMain.Forms.Spool
 
             Spool = new Domain.Entity.Construction.Spool();
             Spool.Pipe = new Pipe();
+            Pipe = new Pipe();
+            
         }
 
         public string SpoolNumber
@@ -65,15 +67,19 @@ namespace PrizmMain.Forms.Spool
             }
         }
 
+        // TODO: fixed if pipe number was wrong
         public string PipeNumber
         {
-            get { return Pipe.Number; }
+            get
+            {
+                return Pipe.Number;
+            }
             set
             {
                 if (value != Pipe.Number)
                 {
                     Pipe.Number = value;
-                    //RaisePropertyChanged("PipeNumber");
+                    RaisePropertyChanged("PipeNumber");
                 }
             }
         }
@@ -91,6 +97,7 @@ namespace PrizmMain.Forms.Spool
             }
         }
 
+        // TODO: fixed if pipe number was wrong
         public int PipeLength
         {
             get

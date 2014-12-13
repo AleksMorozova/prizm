@@ -98,14 +98,13 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(261, 62);
+            this.searchButton.Location = new System.Drawing.Point(221, 62);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 7);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(76, 22);
+            this.searchButton.Size = new System.Drawing.Size(116, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
-            this.searchButton.Text = "&Поиск";
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Text = "&Редактировать";
             // 
             // mainLayoutControl
             // 
@@ -239,7 +238,7 @@
             // 
             this.pipeNumber.Location = new System.Drawing.Point(31, 64);
             this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Size = new System.Drawing.Size(212, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
             // 
@@ -281,9 +280,9 @@
             // 
             this.upperSearchEmptySpace.AllowHotTrack = false;
             this.upperSearchEmptySpace.CustomizationFormText = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Location = new System.Drawing.Point(233, 0);
+            this.upperSearchEmptySpace.Location = new System.Drawing.Point(193, 0);
             this.upperSearchEmptySpace.Name = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Size = new System.Drawing.Size(100, 14);
+            this.upperSearchEmptySpace.Size = new System.Drawing.Size(140, 14);
             this.upperSearchEmptySpace.Text = "upperSearchEmptySpace";
             this.upperSearchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -291,9 +290,9 @@
             // 
             this.searchLayoutControlItem.Control = this.searchButton;
             this.searchLayoutControlItem.CustomizationFormText = "searchLayoutControlItem";
-            this.searchLayoutControlItem.Location = new System.Drawing.Point(233, 14);
+            this.searchLayoutControlItem.Location = new System.Drawing.Point(193, 14);
             this.searchLayoutControlItem.Name = "searchLayoutControlItem";
-            this.searchLayoutControlItem.Size = new System.Drawing.Size(100, 40);
+            this.searchLayoutControlItem.Size = new System.Drawing.Size(140, 40);
             this.searchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 13, 7, 7);
             this.searchLayoutControlItem.Text = "searchLayoutControlItem";
             this.searchLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -306,7 +305,7 @@
             this.pipeNumberLabel.CustomizationFormText = "Номер трубы";
             this.pipeNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLabel.Name = "pipeNumberLabel";
-            this.pipeNumberLabel.Size = new System.Drawing.Size(233, 54);
+            this.pipeNumberLabel.Size = new System.Drawing.Size(193, 54);
             this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 7, 7, 7);
             this.pipeNumberLabel.Text = "Номер трубы";
             this.pipeNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;

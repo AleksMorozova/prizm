@@ -38,7 +38,8 @@ namespace PrizmMain.Forms.Spool
             repoSpool.Commit();
             repoSpool.Evict(viewModel.Spool);
 
-            notify.ShowNotify("Катушка","Отрезана катушка");
+            //TODO: move to Resource file
+            notify.ShowNotify("Отрезана катушка заданной длины","Создание катушка");
         }
 
 
