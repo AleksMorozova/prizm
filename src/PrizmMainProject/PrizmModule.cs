@@ -70,7 +70,8 @@ namespace PrizmMain
             Bind<IComponentRepositories>().To<ComponentRepositories>();
             Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
             Bind<IComponentRepository>().To<ComponentRepository>();
-            
+            Bind<ISpoolRepository>().To<SpoolRepository>();
+
 
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
@@ -90,6 +91,7 @@ namespace PrizmMain
             Bind<JointNewEditViewModel>().ToSelf();
 	        Bind<JointSearchViewModel>().ToSelf();
             Bind<PartSearchViewModel>().ToSelf();
+            Bind<SpoolViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
