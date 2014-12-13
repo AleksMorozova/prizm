@@ -237,5 +237,12 @@ namespace PrizmMain.Forms.Component.NewEdit
             if (inspectionTestResult == null)
                 e.Cancel = true;
         }
+
+        private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<InspectionTestResult>( e, viewModel.InspectionTestResults, (_) => _.IsNew());
+            view.RefreshData();
+        }
     }
 }
