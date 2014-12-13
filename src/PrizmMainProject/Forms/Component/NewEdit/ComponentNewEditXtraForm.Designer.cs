@@ -43,6 +43,7 @@
             this.inspectionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryInspectionDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.inspectorColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.resultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryInspectionStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.reasonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,9 +59,8 @@
             this.componentNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.parametersGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.attachmentsButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.typeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.componentLengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceBetweenButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.newSaveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -68,6 +68,7 @@
             this.layoutControlDeactivation = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -78,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
@@ -89,9 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentLengthLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceBetweenButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newSaveLayoutControl)).BeginInit();
@@ -99,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDeactivation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             this.SuspendLayout();
             // 
             // componentNumber
@@ -135,6 +137,8 @@
             // 
             this.componentLength.Location = new System.Drawing.Point(226, 125);
             this.componentLength.Name = "componentLength";
+            this.componentLength.Properties.Mask.EditMask = "d";
+            this.componentLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.componentLength.Size = new System.Drawing.Size(143, 20);
             this.componentLength.StyleController = this.newEditPipeLayout;
             this.componentLength.TabIndex = 18;
@@ -199,8 +203,9 @@
             this.inspectionHistoryGrid.Name = "inspectionHistoryGrid";
             this.inspectionHistoryGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryInspectionDate,
-            this.repositoryInspectionStatus});
-            this.inspectionHistoryGrid.Size = new System.Drawing.Size(558, 255);
+            this.repositoryInspectionStatus,
+            this.inspectorsPopupContainerEdit});
+            this.inspectionHistoryGrid.Size = new System.Drawing.Size(558, 233);
             this.inspectionHistoryGrid.TabIndex = 9;
             this.inspectionHistoryGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
@@ -218,6 +223,7 @@
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
+            this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
             // 
             // inspectionDateColumn
             // 
@@ -227,7 +233,7 @@
             this.inspectionDateColumn.Name = "inspectionDateColumn";
             this.inspectionDateColumn.Visible = true;
             this.inspectionDateColumn.VisibleIndex = 0;
-            this.inspectionDateColumn.Width = 100;
+            this.inspectionDateColumn.Width = 98;
             // 
             // repositoryInspectionDate
             // 
@@ -241,9 +247,23 @@
             // inspectorColumn
             // 
             this.inspectorColumn.Caption = "Инспектор";
+            this.inspectorColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
+            this.inspectorColumn.FieldName = "Inspectors";
             this.inspectorColumn.Name = "inspectorColumn";
             this.inspectorColumn.Visible = true;
             this.inspectorColumn.VisibleIndex = 1;
+            this.inspectorColumn.Width = 217;
+            // 
+            // inspectorsPopupContainerEdit
+            // 
+            this.inspectorsPopupContainerEdit.AutoHeight = false;
+            this.inspectorsPopupContainerEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
+            this.inspectorsPopupContainerEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.inspectorsPopupContainerEdit_QueryPopUp);
+            this.inspectorsPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.inspectorsPopupContainerEdit_CloseUp);
+            this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
+            this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
             // 
             // resultColumn
             // 
@@ -253,7 +273,7 @@
             this.resultColumn.Name = "resultColumn";
             this.resultColumn.Visible = true;
             this.resultColumn.VisibleIndex = 2;
-            this.resultColumn.Width = 100;
+            this.resultColumn.Width = 90;
             // 
             // repositoryInspectionStatus
             // 
@@ -277,6 +297,7 @@
             this.reasonColumn.Name = "reasonColumn";
             this.reasonColumn.Visible = true;
             this.reasonColumn.VisibleIndex = 3;
+            this.reasonColumn.Width = 135;
             // 
             // componentParameters
             // 
@@ -284,7 +305,7 @@
             this.componentParameters.Location = new System.Drawing.Point(44, 163);
             this.componentParameters.MainView = this.componentParametersView;
             this.componentParameters.Name = "componentParameters";
-            this.componentParameters.Size = new System.Drawing.Size(325, 123);
+            this.componentParameters.Size = new System.Drawing.Size(325, 111);
             this.componentParameters.TabIndex = 4;
             this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.componentParametersView});
@@ -349,7 +370,7 @@
             this.inspectionHistoryGridLayout});
             this.InspectionLayoutGroup.Location = new System.Drawing.Point(393, 0);
             this.InspectionLayoutGroup.Name = "InspectionLayoutGroup";
-            this.InspectionLayoutGroup.Size = new System.Drawing.Size(596, 312);
+            this.InspectionLayoutGroup.Size = new System.Drawing.Size(596, 290);
             this.InspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
             this.InspectionLayoutGroup.Text = "Входной контроль";
             // 
@@ -359,7 +380,7 @@
             this.inspectionHistoryGridLayout.CustomizationFormText = "inspectionHistoryGridLayout";
             this.inspectionHistoryGridLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionHistoryGridLayout.Name = "inspectionHistoryGridLayout";
-            this.inspectionHistoryGridLayout.Size = new System.Drawing.Size(562, 259);
+            this.inspectionHistoryGridLayout.Size = new System.Drawing.Size(562, 237);
             this.inspectionHistoryGridLayout.Text = "inspectionHistoryGridLayout";
             this.inspectionHistoryGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionHistoryGridLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -373,12 +394,11 @@
             this.componentNumberLayout,
             this.certificateLayout,
             this.parametersGridLayout,
-            this.attachmentsButtonEmptySpace,
             this.typeLayoutControl,
-            this.layoutControlItem1});
+            this.componentLengthLayout});
             this.newComponentLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.newComponentLayoutGroup.Name = "newComponentLayoutGroup";
-            this.newComponentLayoutGroup.Size = new System.Drawing.Size(393, 312);
+            this.newComponentLayoutGroup.Size = new System.Drawing.Size(393, 290);
             this.newComponentLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
             this.newComponentLayoutGroup.Text = "Комплектующее изделие";
             // 
@@ -412,23 +432,13 @@
             this.parametersGridLayout.CustomizationFormText = "parametersGridLayout";
             this.parametersGridLayout.Location = new System.Drawing.Point(0, 108);
             this.parametersGridLayout.Name = "parametersGridLayout";
-            this.parametersGridLayout.Size = new System.Drawing.Size(359, 141);
+            this.parametersGridLayout.Size = new System.Drawing.Size(359, 129);
             this.parametersGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.parametersGridLayout.Text = "parametersGridLayout";
             this.parametersGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.parametersGridLayout.TextSize = new System.Drawing.Size(0, 0);
             this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
-            // 
-            // attachmentsButtonEmptySpace
-            // 
-            this.attachmentsButtonEmptySpace.AllowHotTrack = false;
-            this.attachmentsButtonEmptySpace.CustomizationFormText = "attachmentsButtonEmptySpace";
-            this.attachmentsButtonEmptySpace.Location = new System.Drawing.Point(0, 249);
-            this.attachmentsButtonEmptySpace.Name = "attachmentsButtonEmptySpace";
-            this.attachmentsButtonEmptySpace.Size = new System.Drawing.Size(359, 10);
-            this.attachmentsButtonEmptySpace.Text = "attachmentsButtonEmptySpace";
-            this.attachmentsButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // typeLayoutControl
             // 
@@ -442,17 +452,17 @@
             this.typeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.typeLayoutControl.TextSize = new System.Drawing.Size(143, 13);
             // 
-            // layoutControlItem1
+            // componentLengthLayout
             // 
-            this.layoutControlItem1.Control = this.componentLength;
-            this.layoutControlItem1.CustomizationFormText = "Длина комплектующего, мм";
-            this.layoutControlItem1.Location = new System.Drawing.Point(182, 54);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(177, 54);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.layoutControlItem1.Text = "Длина комплектующего, мм";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(143, 13);
+            this.componentLengthLayout.Control = this.componentLength;
+            this.componentLengthLayout.CustomizationFormText = "Длина комплектующего, мм";
+            this.componentLengthLayout.Location = new System.Drawing.Point(182, 54);
+            this.componentLengthLayout.Name = "componentLengthLayout";
+            this.componentLengthLayout.Size = new System.Drawing.Size(177, 54);
+            this.componentLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
+            this.componentLengthLayout.Text = "Длина комплектующего, мм";
+            this.componentLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.componentLengthLayout.TextSize = new System.Drawing.Size(143, 13);
             // 
             // emptySpaceBetweenButtons
             // 
@@ -520,9 +530,9 @@
             // 
             this.emptySpaceUnderButtons.AllowHotTrack = false;
             this.emptySpaceUnderButtons.CustomizationFormText = "emptySpaceUnderButtons";
-            this.emptySpaceUnderButtons.Location = new System.Drawing.Point(0, 312);
+            this.emptySpaceUnderButtons.Location = new System.Drawing.Point(0, 290);
             this.emptySpaceUnderButtons.Name = "emptySpaceUnderButtons";
-            this.emptySpaceUnderButtons.Size = new System.Drawing.Size(989, 113);
+            this.emptySpaceUnderButtons.Size = new System.Drawing.Size(989, 135);
             this.emptySpaceUnderButtons.Text = "emptySpaceUnderButtons";
             this.emptySpaceUnderButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -548,6 +558,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
@@ -559,9 +570,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.componentNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parametersGridLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentLengthLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceBetweenButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newSaveLayoutControl)).EndInit();
@@ -569,6 +579,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDeactivation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,7 +608,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn reasonColumn;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem attachmentsButtonEmptySpace;
         private DevExpress.XtraEditors.SimpleButton newSaveComponentButton;
         private DevExpress.XtraEditors.SimpleButton saveComponentButton;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceBetweenButtons;
@@ -612,6 +622,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectionDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryInspectionStatus;
         private DevExpress.XtraEditors.TextEdit componentLength;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem componentLengthLayout;
+        private System.Windows.Forms.BindingSource inspectorsDataSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
     }
 }
