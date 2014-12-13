@@ -9,5 +9,7 @@ namespace Data.DAL.Setup
 {
     public interface IJointOperationRepository : IRepository<Guid, JointOperation>
     {
+       IList<JointOperation> GetControlOperations();
+       IList<JointOperation> GetRepairOperations();  
     }
 }

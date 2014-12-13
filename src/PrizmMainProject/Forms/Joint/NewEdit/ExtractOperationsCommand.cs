@@ -24,9 +24,10 @@ namespace PrizmMain.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            var operations = repo.RepoJointOperation.GetAll();
-            if (operations != null)
-                viewModel.Operations = new BindingList<JointOperation>(operations);
+            var controlOperations = repo.RepoJointOperation.GetControlOperations();
+            viewModel.ControlOperations = new BindingList<JointOperation>(controlOperations);
+            var repairOperations = repo.RepoJointOperation.GetRepairOperations();
+            viewModel.RepairOperations = new BindingList<JointOperation>(repairOperations);
         }
 
         public bool CanExecute()

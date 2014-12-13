@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Construction;
 using Data.DAL.Hibernate;
+using Data.DAL.Mill;
 using NHibernate;
 using Ninject;
 using System;
@@ -15,6 +16,7 @@ namespace PrizmMain.Forms.Component
         ISession session;
         private readonly IComponentRepository componentRepo;
         private readonly IComponentTypeRepository componentTypeRepo;
+        private readonly IInspectorRepository repoInspector;
 
         [Inject]
         public ComponentRepositories(ISession session)
@@ -22,6 +24,7 @@ namespace PrizmMain.Forms.Component
             this.session = session;
             this.componentRepo = new ComponentRepository(session);
             this.componentTypeRepo = new ComponentTypeRepository(session);
+            this.repoInspector = new InspectorRepository(session);
         }
 
         public IComponentRepository ComponentRepo
@@ -32,6 +35,11 @@ namespace PrizmMain.Forms.Component
         public IComponentTypeRepository ComponentTypeRepo
         {
             get { return componentTypeRepo; }
+        }
+
+        public IInspectorRepository RepoInspector
+        {
+            get { return repoInspector; }
         }
 
         public void Commit()

@@ -70,6 +70,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонтная операция.
+        /// </summary>
+        internal static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -363,6 +372,44 @@ namespace PrizmMain.Properties {
         internal static string DLG_CHANGE_PIPESIZE_ON_NEWPIPE {
             get {
                 return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_NEWPIPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации комплектующего элемента. 
+        ///Параметры комплектующего элемента станут невозможны для редактирования. 
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string DLG_COMPONENT_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация комплектующего элемента.
+        /// </summary>
+        internal static string DLG_COMPONENT_DEACTIVATION_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует комплектующий элемент с номером:.
+        /// </summary>
+        internal static string DLG_COMPONENT_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера комплектующего элемента.
+        /// </summary>
+        internal static string DLG_COMPONENT_DUPLICATE_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE_HEDER", resourceCulture);
             }
         }
         
@@ -1180,6 +1227,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонт.
+        /// </summary>
+        internal static string Repair {
+            get {
+                return ResourceManager.GetString("Repair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип результата.
         /// </summary>
         internal static string ResultType {
@@ -1266,6 +1322,15 @@ namespace PrizmMain.Properties {
         internal static string StringExpected {
             get {
                 return ResourceManager.GetString("StringExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная операция.
+        /// </summary>
+        internal static string Test {
+            get {
+                return ResourceManager.GetString("Test", resourceCulture);
             }
         }
         
@@ -1374,6 +1439,15 @@ namespace PrizmMain.Properties {
         internal static string Welder {
             get {
                 return ResourceManager.GetString("Welder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка.
+        /// </summary>
+        internal static string Withdraw {
+            get {
+                return ResourceManager.GetString("Withdraw", resourceCulture);
             }
         }
         

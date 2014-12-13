@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity;
 using Domain.Entity.Construction;
 using Domain.Entity.Setup;
 using Ninject;
@@ -25,11 +26,15 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private readonly SaveJointCommand saveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private IModifiable modifiableView;
-        public Guid JointId { get; set; }
-        public construction.Joint Joint { get; set; }
         private DataTable pieces;
-        public BindingList<JointOperation> Operations;
-
+        private BindingList<JointTestResult> jointTestResults;
+        private BindingList<JointWeldResult> jointWeldResults;
+        public construction.Joint Joint { get; set; }
+        public Guid JointId { get; set; }
+        public BindingList<JointOperation> ControlOperations;
+        public BindingList<JointOperation> RepairOperations;
+        public IList<Inspector> Inspectors { get; set; }
+        public IList<Welder> Welders { get; set; }
 
         [Inject]
         public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Data.DAL.IMillReportsRepository adoRepo)
@@ -43,7 +48,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
-
+            Inspectors = repoConstruction.RepoInspector.GetAll();
+            Welders = repoConstruction.RepoWelder.GetAll();
             Pieces = adoRepo.GetPipelineElements();
             extractOperationsCommand.Execute();
             if (jointId == Guid.Empty)
@@ -60,6 +66,22 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
+        }
+
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
+        }
+
+        internal string FormatWelderList(IList<Welder> welders)
+        {
+            if (welders == null)
+                return String.Empty;
+
+            return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
         }
 
         public Documents.IModifiable ModifiableView
@@ -203,6 +225,32 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 }
             }
         }
+
+        public BindingList<JointTestResult> JointTestResults
+        {
+            get { return jointTestResults; }
+            set 
+            {
+                if (value != jointTestResults)
+                {
+                    jointTestResults = value;
+                    RaisePropertyChanged("JointTestResults");
+                }
+            }
+        }
+
+        public BindingList<JointWeldResult> JointWeldResults
+        {
+            get { return jointWeldResults; }
+            set
+            {
+                if (value != jointWeldResults)
+                {
+                    jointWeldResults = value;
+                    RaisePropertyChanged("JointWeldResults");
+                }
+            }
+        }
         #endregion 
 
         public DataTable Pieces
@@ -231,6 +279,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.Joint = new construction.Joint();
             this.Joint.IsActive = true;
             this.Joint.Status = JointStatus.Welded;
+            this.JointTestResults = new BindingList<JointTestResult>();
+            this.JointWeldResults = new BindingList<JointWeldResult>();
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
         }
