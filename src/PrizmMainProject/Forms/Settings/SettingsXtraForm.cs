@@ -501,12 +501,16 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             if (view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 User user = view.GetRow(view.FocusedRowHandle) as User;
-                PasswordChangeDialog dlg = new PasswordChangeDialog();
-                if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                if(user != null)
                 {
-                    user.PasswordHash = dlg.NewPasswordHash;
-                    IsModified = true;
+                    PasswordChangeDialog dlg = new PasswordChangeDialog();
+                    if(dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlg.NewPasswordHash;
+                        IsModified = true;
+                    }
                 }
+                
             }
         }
 
