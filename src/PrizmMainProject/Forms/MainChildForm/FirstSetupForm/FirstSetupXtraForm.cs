@@ -43,5 +43,26 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
             type.Properties.DisplayMember = "Text";
             type.Properties.ValueMember = "Value";
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            validationProvider.Validate();
+        }
+
+        private void type_EditValueChanged(object sender, EventArgs e)
+        {
+            var look = sender as LookUpEdit;
+
+            if(((WorkstationType)look.EditValue) == WorkstationType.Mill)
+            {
+                millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;  
+            }
+            else
+            {
+                millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
+        }
     }
 }
