@@ -30,6 +30,7 @@ using PrizmMain.Forms.Component;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
 using PrizmMain.Forms.InspectionParts.Search;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain
 {
@@ -90,6 +91,7 @@ namespace PrizmMain
             Bind<JointNewEditViewModel>().ToSelf();
 	        Bind<JointSearchViewModel>().ToSelf();
             Bind<PartSearchViewModel>().ToSelf();
+            Bind<FirstSetupViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -109,6 +111,7 @@ namespace PrizmMain
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
             Bind<PartSearchXtraForm>().ToSelf();
+            Bind<FirstSetupXtraForm>().ToSelf();
             #endregion
 
             #region Commands

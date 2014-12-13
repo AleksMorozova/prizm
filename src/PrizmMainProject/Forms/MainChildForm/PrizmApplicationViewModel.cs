@@ -9,6 +9,7 @@ using Domain.Entity;
 
 using Domain.Entity.Setup;
 using PrizmMain.Common;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -26,22 +27,31 @@ namespace PrizmMain.Forms.MainChildForm
 
         public void GetOrCreateProject()
         {
-            if (repo.GetSingle() == null)
+            //if (repo.GetSingle() == null)
+            if(true)
             {
-                ProjectSettings = new Project()
+                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
                 {
-                    Client = string.Empty,
-                    MillName = string.Empty,
-                    WorkstationType = Domain.Entity.Setup.WorkstationType.Mill,
-                    MillPipeNumberMask = string.Empty,
-                    IsActive = true
-                };
-                repo.BeginTransaction();
-                repo.Save(ProjectSettings);
-                repo.Commit();
-                repo.Evict(ProjectSettings);
+                    do
+                    {
+                        setupDialog.ShowDialog();
+                    } while(setupDialog.DialogResult != System.Windows.Forms.DialogResult.OK);
+                }
             }
-            ProjectSettings = repo.GetSingle();
+            //    ProjectSettings = new Project()
+            //    {
+            //        Client = string.Empty,
+            //        MillName = string.Empty,
+            //        WorkstationType = Domain.Entity.Setup.WorkstationType.Mill,
+            //        MillPipeNumberMask = string.Empty,
+            //        IsActive = true
+            //    };
+            //    repo.BeginTransaction();
+            //    repo.Save(ProjectSettings);
+            //    repo.Commit();
+            //    repo.Evict(ProjectSettings);
+            //}
+            //ProjectSettings = repo.GetSingle();
         }
 
 
