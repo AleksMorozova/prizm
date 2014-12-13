@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -59,6 +60,7 @@
             this.cutLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).BeginInit();
@@ -84,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -96,6 +99,7 @@
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "&Поиск";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // mainLayoutControl
             // 
@@ -183,6 +187,7 @@
             this.cutButton.StyleController = this.mainLayoutControl;
             this.cutButton.TabIndex = 43;
             this.cutButton.Text = "&Отрезать";
+            this.cutButton.Click += new System.EventHandler(this.cutButton_Click);
             // 
             // pipeLength
             // 
@@ -432,6 +437,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
             this.Text = "Создание катушки";
+            this.Load += new System.EventHandler(this.SpoolsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).EndInit();
@@ -457,6 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +500,6 @@
         private DevExpress.XtraEditors.TextEdit spoolLength;
         private DevExpress.XtraLayout.LayoutControlItem spoonlengthLabel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private System.Windows.Forms.BindingSource SpoolBindingSource;
     }
 }

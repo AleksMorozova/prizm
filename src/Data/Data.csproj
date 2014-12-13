@@ -60,6 +60,7 @@
     <Compile Include="DAL\Construction\IJointActionResultRepository.cs" />
     <Compile Include="DAL\Construction\IJointRepository.cs" />
     <Compile Include="DAL\Construction\IJointTestResultRepository.cs" />
+    <Compile Include="DAL\Construction\ISpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\RoleRepository.cs" />
+    <Compile Include="DAL\Hibernate\SpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\UserRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
