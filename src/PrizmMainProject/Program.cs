@@ -12,6 +12,8 @@ using PrizmMain.Forms.Common;
 using PrizmMain.Security;
 using Data.DAL.Security;
 using Domain.Entity.Security;
+using Data.DAL;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain
 {
@@ -38,6 +40,12 @@ namespace PrizmMain
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+
+
+                while(!CreateProject())
+                { }
+                
+                //Login
                 while (!Login())
                 {
                     MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,8 +77,11 @@ namespace PrizmMain
               string password = dlg.Password;
 
                #if DEBUG
-               login = "admin";
-               password = "admin";
+              if(string.IsNullOrWhiteSpace(dlg.Login) || string.IsNullOrWhiteSpace(dlg.Password))
+              {
+                  login = "admin";
+                  password = "admin";
+              }
                #endif
 
               User user = new User() { IsActive = false, Login = "system" };
@@ -98,6 +109,30 @@ namespace PrizmMain
            }
 
            return false;
+        }
+
+        static bool CreateProject()
+        {
+            bool result = false;
+            IProjectRepository repo = (IProjectRepository)Program.Kernel.Get(typeof(IProjectRepository));
+
+            if(repo.GetSingle() == null)
+            {
+                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
+                {
+                        setupDialog.ShowDialog();
+                        if(setupDialog.DialogResult == DialogResult.Cancel)
+                        {
+                            System.Environment.Exit(0);
+                        }
+                }
+            }
+            else
+            {
+                result = true;
+            }
+
+            return result;
         }
     }
 }

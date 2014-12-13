@@ -397,7 +397,6 @@ namespace PrizmMain.Forms.MainChildForm
         private void PrizmApplicationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
-            viewModel.GetOrCreateProject();
 
             this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
 

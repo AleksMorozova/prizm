@@ -51,7 +51,7 @@
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.type = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.rootLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.saveLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.delimiterEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -60,15 +60,15 @@
             this.titleLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.workstationLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.millLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.maskLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.fileLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.maskLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.adminLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lastNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.passLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.reEnterLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.middleNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.reEnterLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.passLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lastNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.validationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pass.Properties)).BeginInit();
@@ -84,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mill.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delimiterEmptySpaceItem)).BeginInit();
@@ -93,15 +93,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.titleLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workstationLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reEnterLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reEnterLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.passLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).BeginInit();
             this.SuspendLayout();
@@ -112,7 +112,7 @@
             this.pass.Name = "pass";
             this.pass.Size = new System.Drawing.Size(386, 20);
             this.pass.StyleController = this.layoutControl;
-            this.pass.TabIndex = 17;
+            this.pass.TabIndex = 13;
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule6.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.pass, conditionValidationRule6);
@@ -136,7 +136,7 @@
             this.layoutControl.Location = new System.Drawing.Point(0, 0);
             this.layoutControl.Name = "layoutControl";
             this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(416, 492, 361, 350);
-            this.layoutControl.Root = this.layoutControlGroup1;
+            this.layoutControl.Root = this.rootLayoutControlGroup;
             this.layoutControl.Size = new System.Drawing.Size(864, 511);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
@@ -164,7 +164,7 @@
             this.reEnterPass.Name = "reEnterPass";
             this.reEnterPass.Size = new System.Drawing.Size(386, 20);
             this.reEnterPass.StyleController = this.layoutControl;
-            this.reEnterPass.TabIndex = 16;
+            this.reEnterPass.TabIndex = 14;
             compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals;
             compareAgainstControlValidationRule1.Control = this.pass;
             compareAgainstControlValidationRule1.ErrorText = "Пароли не совпадают";
@@ -176,7 +176,7 @@
             this.middleName.Name = "middleName";
             this.middleName.Size = new System.Drawing.Size(386, 20);
             this.middleName.StyleController = this.layoutControl;
-            this.middleName.TabIndex = 15;
+            this.middleName.TabIndex = 17;
             // 
             // firstName
             // 
@@ -184,7 +184,7 @@
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(386, 20);
             this.firstName.StyleController = this.layoutControl;
-            this.firstName.TabIndex = 14;
+            this.firstName.TabIndex = 16;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.firstName, conditionValidationRule1);
@@ -195,7 +195,7 @@
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(386, 20);
             this.lastName.StyleController = this.layoutControl;
-            this.lastName.TabIndex = 13;
+            this.lastName.TabIndex = 15;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.lastName, conditionValidationRule2);
@@ -258,7 +258,7 @@
             this.cancelButton.Size = new System.Drawing.Size(122, 23);
             this.cancelButton.StyleController = this.layoutControl;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "Закрыть";
             // 
             // type
             // 
@@ -278,28 +278,28 @@
             this.validationProvider.SetValidationRule(this.type, conditionValidationRule5);
             this.type.EditValueChanged += new System.EventHandler(this.type_EditValueChanged);
             // 
-            // layoutControlGroup1
+            // rootLayoutControlGroup
             // 
-            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.rootLayoutControlGroup.CustomizationFormText = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.rootLayoutControlGroup.GroupBordersVisible = false;
+            this.rootLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.saveLayoutControlItem,
             this.cancelLayoutControlItem,
             this.delimiterEmptySpaceItem,
             this.buttonEmptySpaceItem,
             this.projectLayoutGroup,
             this.adminLayoutControlGroup});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(864, 511);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
-            this.layoutControlGroup1.TextVisible = false;
+            this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.Size = new System.Drawing.Size(864, 511);
+            this.rootLayoutControlGroup.Text = "rootLayoutControlGroup";
+            this.rootLayoutControlGroup.TextVisible = false;
             // 
             // saveLayoutControlItem
             // 
             this.saveLayoutControlItem.Control = this.saveButton;
-            this.saveLayoutControlItem.CustomizationFormText = "saveLayoutControlItem";
+            this.saveLayoutControlItem.CustomizationFormText = "layoutControlItem2";
             this.saveLayoutControlItem.Location = new System.Drawing.Point(583, 344);
             this.saveLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.saveLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
@@ -314,7 +314,7 @@
             // cancelLayoutControlItem
             // 
             this.cancelLayoutControlItem.Control = this.cancelButton;
-            this.cancelLayoutControlItem.CustomizationFormText = "cancelLayoutControlItem";
+            this.cancelLayoutControlItem.CustomizationFormText = "layoutControlItem3";
             this.cancelLayoutControlItem.Location = new System.Drawing.Point(718, 344);
             this.cancelLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.cancelLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
@@ -400,6 +400,18 @@
             this.millLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             this.millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
+            // fileLayoutControlItem
+            // 
+            this.fileLayoutControlItem.Control = this.fileSize;
+            this.fileLayoutControlItem.CustomizationFormText = "Максимальный размер файла (KB)";
+            this.fileLayoutControlItem.Location = new System.Drawing.Point(622, 0);
+            this.fileLayoutControlItem.Name = "fileLayoutControlItem";
+            this.fileLayoutControlItem.Size = new System.Drawing.Size(198, 50);
+            this.fileLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.fileLayoutControlItem.Text = "Максимальный размер файла (KB)";
+            this.fileLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.fileLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
+            // 
             // maskLayoutControlItem
             // 
             this.maskLayoutControlItem.Control = this.pipeMask;
@@ -412,18 +424,6 @@
             this.maskLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.maskLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             this.maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // fileLayoutControlItem
-            // 
-            this.fileLayoutControlItem.Control = this.fileSize;
-            this.fileLayoutControlItem.CustomizationFormText = "Максимальный размер файла (KB)";
-            this.fileLayoutControlItem.Location = new System.Drawing.Point(622, 0);
-            this.fileLayoutControlItem.Name = "fileLayoutControlItem";
-            this.fileLayoutControlItem.Size = new System.Drawing.Size(198, 50);
-            this.fileLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.fileLayoutControlItem.Text = "Максимальный размер файла (KB)";
-            this.fileLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.fileLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             // 
             // adminLayoutControlGroup
             // 
@@ -453,17 +453,29 @@
             this.loginLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.loginLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             // 
-            // lastNameLayoutControlItem
+            // passLayoutControlItem
             // 
-            this.lastNameLayoutControlItem.Control = this.lastName;
-            this.lastNameLayoutControlItem.CustomizationFormText = "Фамилия";
-            this.lastNameLayoutControlItem.Location = new System.Drawing.Point(410, 0);
-            this.lastNameLayoutControlItem.Name = "lastNameLayoutControlItem";
-            this.lastNameLayoutControlItem.Size = new System.Drawing.Size(410, 50);
-            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 5, 5);
-            this.lastNameLayoutControlItem.Text = "Фамилия";
-            this.lastNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lastNameLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
+            this.passLayoutControlItem.Control = this.pass;
+            this.passLayoutControlItem.CustomizationFormText = "Пароль";
+            this.passLayoutControlItem.Location = new System.Drawing.Point(0, 50);
+            this.passLayoutControlItem.Name = "passLayoutControlItem";
+            this.passLayoutControlItem.Size = new System.Drawing.Size(410, 50);
+            this.passLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 5, 5);
+            this.passLayoutControlItem.Text = "Пароль";
+            this.passLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.passLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
+            // 
+            // reEnterLayoutControlItem
+            // 
+            this.reEnterLayoutControlItem.Control = this.reEnterPass;
+            this.reEnterLayoutControlItem.CustomizationFormText = "Повторный пароль";
+            this.reEnterLayoutControlItem.Location = new System.Drawing.Point(0, 100);
+            this.reEnterLayoutControlItem.Name = "reEnterLayoutControlItem";
+            this.reEnterLayoutControlItem.Size = new System.Drawing.Size(410, 50);
+            this.reEnterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 5, 5);
+            this.reEnterLayoutControlItem.Text = "Повторный пароль";
+            this.reEnterLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.reEnterLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             // 
             // firstNameLayoutControlItem
             // 
@@ -489,34 +501,23 @@
             this.middleNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.middleNameLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             // 
-            // reEnterLayoutControlItem
+            // lastNameLayoutControlItem
             // 
-            this.reEnterLayoutControlItem.Control = this.reEnterPass;
-            this.reEnterLayoutControlItem.CustomizationFormText = "Повторный пароль";
-            this.reEnterLayoutControlItem.Location = new System.Drawing.Point(0, 100);
-            this.reEnterLayoutControlItem.Name = "reEnterLayoutControlItem";
-            this.reEnterLayoutControlItem.Size = new System.Drawing.Size(410, 50);
-            this.reEnterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 5, 5);
-            this.reEnterLayoutControlItem.Text = "Повторный пароль";
-            this.reEnterLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.reEnterLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
-            // 
-            // passLayoutControlItem
-            // 
-            this.passLayoutControlItem.Control = this.pass;
-            this.passLayoutControlItem.CustomizationFormText = "Пароль";
-            this.passLayoutControlItem.Location = new System.Drawing.Point(0, 50);
-            this.passLayoutControlItem.Name = "passLayoutControlItem";
-            this.passLayoutControlItem.Size = new System.Drawing.Size(410, 50);
-            this.passLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 5, 5);
-            this.passLayoutControlItem.Text = "Пароль";
-            this.passLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.passLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
+            this.lastNameLayoutControlItem.Control = this.lastName;
+            this.lastNameLayoutControlItem.CustomizationFormText = "Фамилия";
+            this.lastNameLayoutControlItem.Location = new System.Drawing.Point(410, 0);
+            this.lastNameLayoutControlItem.Name = "lastNameLayoutControlItem";
+            this.lastNameLayoutControlItem.Size = new System.Drawing.Size(410, 50);
+            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 5, 5);
+            this.lastNameLayoutControlItem.Text = "Фамилия";
+            this.lastNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lastNameLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
             // 
             // FirstSetupXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(864, 511);
             this.Controls.Add(this.layoutControl);
             this.Name = "FirstSetupXtraForm";
@@ -535,7 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mill.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delimiterEmptySpaceItem)).EndInit();
@@ -544,15 +545,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.titleLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workstationLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reEnterLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reEnterLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.passLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).EndInit();
             this.ResumeLayout(false);
@@ -562,7 +563,7 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup rootLayoutControlGroup;
         private DevExpress.XtraEditors.TextEdit projectName;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton cancelButton;

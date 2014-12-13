@@ -23,36 +23,10 @@ namespace PrizmMain.Forms.MainChildForm
         public PrizmApplicationViewModel(IProjectRepository repo)
         {
             this.repo = repo;
+            this.ProjectSettings = repo.GetSingle();
         }
 
-        public void GetOrCreateProject()
-        {
-            //if (repo.GetSingle() == null)
-            if(true)
-            {
-                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
-                {
-                    do
-                    {
-                        setupDialog.ShowDialog();
-                    } while(setupDialog.DialogResult != System.Windows.Forms.DialogResult.OK);
-                }
-            }
-            //    ProjectSettings = new Project()
-            //    {
-            //        Client = string.Empty,
-            //        MillName = string.Empty,
-            //        WorkstationType = Domain.Entity.Setup.WorkstationType.Mill,
-            //        MillPipeNumberMask = string.Empty,
-            //        IsActive = true
-            //    };
-            //    repo.BeginTransaction();
-            //    repo.Save(ProjectSettings);
-            //    repo.Commit();
-            //    repo.Evict(ProjectSettings);
-            //}
-            //ProjectSettings = repo.GetSingle();
-        }
+
 
 
         public EnumWrapper<WorkstationType> WorkstationType

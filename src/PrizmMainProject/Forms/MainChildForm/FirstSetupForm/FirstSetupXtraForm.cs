@@ -27,13 +27,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
 
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
-            BindCommands();
             BindToViewModel();
-        }
-
-        private void BindCommands()
-        {
-            //
         }
 
         private void BindToViewModel()
@@ -42,11 +36,30 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
             type.Properties.DataSource = viewModel.Types;
             type.Properties.DisplayMember = "Text";
             type.Properties.ValueMember = "Value";
+
+            projectName.DataBindings.Add("EditValue", bindingSource, "ProjectTitle");
+            type.DataBindings.Add("EditValue", bindingSource, "Type");
+            fileSize.DataBindings.Add("EditValue", bindingSource, "Size");
+            mill.DataBindings.Add("EditValue", bindingSource, "MillName");
+            pipeMask.DataBindings.Add("EditValue", bindingSource, "MillPipeNumberMask");
+            login.DataBindings.Add("EditValue", bindingSource, "Login");
+            pass.DataBindings.Add("EditValue", bindingSource, "Password");
+            lastName.DataBindings.Add("EditValue", bindingSource, "LastName");
+            firstName.DataBindings.Add("EditValue", bindingSource, "FirstName");
+            middleName.DataBindings.Add("EditValue", bindingSource, "MiddleName");
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            validationProvider.Validate();
+            viewModel.IsSaved = false;
+            if(validationProvider.Validate())
+            {
+                viewModel.SaveCommand.Execute();
+            }
+            if(viewModel.IsSaved)
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            }
         }
 
         private void type_EditValueChanged(object sender, EventArgs e)
