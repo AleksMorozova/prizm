@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Domain.Entity.Mill;
+using PrizmMain.Forms.ExternalFile;
 using PrizmMain.Forms.MainChildForm;
 
 namespace PrizmMain.Forms.Spool
@@ -36,6 +37,7 @@ namespace PrizmMain.Forms.Spool
         {
             searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
             cutButton.BindCommand(() => viewModel.CutCommand.Execute(), viewModel.CutCommand);
+            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
@@ -51,9 +53,10 @@ namespace PrizmMain.Forms.Spool
             Pipe p = viewModel.Pipe;
         }
 
-        private void searchButton_Click(object sender, System.EventArgs e)
+        private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            Pipe p = viewModel.Pipe;
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            attachments.ShowDialog();
         }
     }
 }

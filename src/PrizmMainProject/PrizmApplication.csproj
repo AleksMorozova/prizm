@@ -314,6 +314,7 @@
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
+    <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
     <Compile Include="Forms\Spool\SpoolSearchCommand.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

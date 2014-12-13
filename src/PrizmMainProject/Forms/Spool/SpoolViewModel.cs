@@ -20,6 +20,7 @@ namespace PrizmMain.Forms.Spool
         private readonly IPipeRepository repoPipe;
         readonly ICommand searchCommand;
         readonly ICommand cutCommand;
+        readonly ICommand saveCommand;
         public string pipeNumber;
         public string spoolNumber;
         public int pipeLength;
@@ -41,6 +42,9 @@ namespace PrizmMain.Forms.Spool
 
             cutCommand = ViewModelSource.Create<CutSpoolCommand>(
              () => new CutSpoolCommand(this, repoPipe, repoSpool,notify));
+
+            saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
+            () => new SaveSpoolCommand(this, repoSpool, notify));
 
             Spool = new Domain.Entity.Construction.Spool();
 
@@ -150,6 +154,11 @@ namespace PrizmMain.Forms.Spool
         public ICommand CutCommand
         {
             get { return cutCommand; }
+        }
+
+        public ICommand SaveCommand
+        {
+            get { return saveCommand; }
         }
     }
 }
