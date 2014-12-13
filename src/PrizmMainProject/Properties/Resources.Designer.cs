@@ -376,6 +376,44 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации комплектующего элемента. 
+        ///Параметры комплектующего элемента станут невозможны для редактирования. 
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string DLG_COMPONENT_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация комплектующего элемента.
+        /// </summary>
+        internal static string DLG_COMPONENT_DEACTIVATION_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует комплектующий элемент с номером:.
+        /// </summary>
+        internal static string DLG_COMPONENT_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера комплектующего элемента.
+        /// </summary>
+        internal static string DLG_COMPONENT_DUPLICATE_HEDER {
+            get {
+                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE_HEDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #.
         /// </summary>
         internal static string DLG_COMPONENT_SAVED {

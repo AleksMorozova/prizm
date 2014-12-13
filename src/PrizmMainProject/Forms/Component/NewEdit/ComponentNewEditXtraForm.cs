@@ -9,6 +9,9 @@ using Domain.Entity.Construction;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Collections.Generic;
 using PrizmMain.Properties;
+using PrizmMain.Controls;
+using System.Windows.Forms;
+using Domain.Entity;
 
 namespace PrizmMain.Forms.Component.NewEdit
 {
@@ -16,6 +19,7 @@ namespace PrizmMain.Forms.Component.NewEdit
     public partial class ComponentNewEditXtraForm : ChildForm
     {
         private ComponentNewEditViewModel viewModel;
+        private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
 
@@ -27,11 +31,19 @@ namespace PrizmMain.Forms.Component.NewEdit
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
                .Get<ComponentNewEditViewModel>(new ConstructorArgument("componentId", componentId));
+
             viewModel.ModifiableView = this;
+            IsEditMode = true;
 
+            #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();
-
             type.SetRequiredText();
+            #endregion //--- Colouring of required controls ---
+
+            #region --- Set Properties.CharacterCasing to Upper ---
+            componentNumber.SetAsIdentifier();
+            certificateNumber.SetAsIdentifier();
+            #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
@@ -45,6 +57,9 @@ namespace PrizmMain.Forms.Component.NewEdit
             BindCommands();
             BindToViewModel();
 
+            viewModel.PropertyChanged += (s, eve) => IsModified = true;
+
+            IsEditMode = !viewModel.IsNotActive;
 
             IsModified = false;
         }
@@ -79,6 +94,9 @@ namespace PrizmMain.Forms.Component.NewEdit
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
+
+            componentLength.DataBindings
+                .Add("EditValue", componentBindingSource, "Length");
             #endregion
 
             inspectionStatusDict.Clear();
@@ -87,6 +105,15 @@ namespace PrizmMain.Forms.Component.NewEdit
             inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
             inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
             repositoryInspectionStatus.DataSource = inspectionStatusDict;
+
+            inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
+            inspectorSelectionControl.DataSource = inspectorsDataSource;
+            var inspectorsPopup = new PopupContainerControl();
+            inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            inspectorSelectionControl.Dock = DockStyle.Fill;
+            inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
             
         }
 
@@ -97,10 +124,13 @@ namespace PrizmMain.Forms.Component.NewEdit
             
             newSaveComponentButton
                 .BindCommand(() => viewModel.NewSaveCommand.Execute(), viewModel.NewSaveCommand);
+
+            SaveCommand = viewModel.SaveCommand;
         }
 
         private void componentNumber_EditValueChanged(object sender, EventArgs e)
         {
+            this.headerNumberPart = componentNumber.Text;
             viewModel.Number = componentNumber.Text;
             viewModel.SaveCommand.IsExecutable ^= true;
             viewModel.NewSaveCommand.IsExecutable ^= true;
@@ -155,5 +185,64 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
+        private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            inspectionHistoryGridView.ClearSelection();
+            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            {
+                InspectionTestResult inspectionTestResult
+                    = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+                if (inspectionTestResult != null)
+                {
+                    inspectorSelectionControl.SelectInspectors(inspectionTestResult.Inspectors);
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            {
+                IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
+                InspectionTestResult inspectionTestResult 
+                    = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+                if (inspectionTestResult != null)
+                {
+                    inspectionTestResult.Inspectors.Clear();
+                    foreach (Inspector i in selectedInspectors)
+                    {
+                        inspectionTestResult.Inspectors.Add(i);
+                    }
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            InspectionTestResult inspectionTestResult 
+                = inspectionHistoryGridView
+                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+            if (inspectionTestResult == null)
+                e.Cancel = true;
+        }
+
+        private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<InspectionTestResult>( e, viewModel.InspectionTestResults, (_) => _.IsNew());
+            view.RefreshData();
+        }
     }
 }

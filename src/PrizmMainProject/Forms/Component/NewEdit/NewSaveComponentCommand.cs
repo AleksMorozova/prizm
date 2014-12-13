@@ -33,7 +33,11 @@ namespace PrizmMain.Forms.Component.NewEdit
         public void Execute()
         {
             viewModel.SaveCommand.Execute();
-            viewModel.NewComponent();
+
+            if (viewModel.Number != string.Empty)
+            {
+                viewModel.NewComponent();
+            }
         }
 
         public virtual bool IsExecutable { get; set; }

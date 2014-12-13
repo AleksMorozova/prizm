@@ -341,7 +341,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
-
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
            GridView view = sender as GridView;
@@ -474,7 +473,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             heatNumber.SelectedIndex = -1;
         }
 
-
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
             var order = purchaseOrder.EditValue as PurchaseOrder;
@@ -557,7 +555,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
-       
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit q = sender as LookUpEdit;
@@ -596,7 +593,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 IsEditMode = false;
             }
         }
-
 
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
