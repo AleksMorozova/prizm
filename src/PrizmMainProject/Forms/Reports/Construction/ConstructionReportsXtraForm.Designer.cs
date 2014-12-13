@@ -144,6 +144,7 @@
             this.createReportButton.StyleController = this.generalLayout;
             this.createReportButton.TabIndex = 64;
             this.createReportButton.Text = "Соз&дать отчет";
+            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
             // 
             // previewButton
             // 
@@ -154,6 +155,7 @@
             this.previewButton.StyleController = this.generalLayout;
             this.previewButton.TabIndex = 65;
             this.previewButton.Text = "&Предпросмотр";
+            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
             // end
             // 
@@ -161,6 +163,7 @@
             this.end.Name = "end";
             this.end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.end.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.end.Size = new System.Drawing.Size(118, 20);
             this.end.StyleController = this.generalLayout;
             this.end.TabIndex = 62;
@@ -171,6 +174,7 @@
             this.start.Name = "start";
             this.start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.start.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.start.Size = new System.Drawing.Size(113, 20);
             this.start.StyleController = this.generalLayout;
             this.start.TabIndex = 61;

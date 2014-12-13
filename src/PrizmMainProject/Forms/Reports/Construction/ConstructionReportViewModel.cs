@@ -27,6 +27,7 @@ namespace PrizmMain.Forms.Reports.Construction
         public object previewSource;
         public BindingList <PartType> selectedTypes;
         public XtraReport report;
+        public BindingList<int> AllKP { get; set; }
 
         [Inject]
         public ConstructionReportViewModel(IMillReportsRepository repo, IUserNotify notify)
@@ -35,6 +36,11 @@ namespace PrizmMain.Forms.Reports.Construction
             this.notify = notify;
             createCommand = ViewModelSource.Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));
             previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
+        }
+
+        public void LoadData()
+        {
+            AllKP = repo.GetAllKP();
         }
         private BindingList<Part> parts = new BindingList<Part>();
         public BindingList<Part> Parts
@@ -63,6 +69,7 @@ namespace PrizmMain.Forms.Reports.Construction
                 }
             }
         }
+
         public int StartPK
         {
             get
@@ -95,7 +102,6 @@ namespace PrizmMain.Forms.Reports.Construction
             }
         }
 
-
         public object PreviewSource
         {
             get
@@ -111,7 +117,6 @@ namespace PrizmMain.Forms.Reports.Construction
                 }
             }
         }
-
 
         public ICommand CreateCommand
         {

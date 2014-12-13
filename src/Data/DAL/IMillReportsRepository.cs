@@ -15,7 +15,9 @@ namespace Data.DAL
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses);
         DataTable GetAuditResults(DateTime startDate, DateTime finalDate, string user);
         DataTable GetPipelineElements();
-        DataSet GetUsedProducts(int startPK, int endPK, BindingList<string> selectedTypes);
+        DataSet GetUsedProducts(int startPK, int endPK, string queryString);
         DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate);
+
+        BindingList<int> GetAllKP();
     }
 }

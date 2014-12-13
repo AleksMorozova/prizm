@@ -1,4 +1,5 @@
 ﻿using Data.DAL;
+using Data.DAL.ADO;
 using DevExpress.XtraReports.UI;
 using PrizmMain.Commands;
 using PrizmMain.Forms.Common;
@@ -18,7 +19,6 @@ namespace PrizmMain.Forms.Reports.Construction
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
         DataSet data;
-        BindingList<string> selectedTypes;
 
         public CreateReportCommand(ConstructionReportViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
@@ -31,12 +31,32 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             try
             {
-                //foreach (string s in Enum.GetName(typeof(PartType)))
-                //{
-                    
-                //    //selectedTypes.Add(Enum.GetName(typeof(s)));
-                //}
-                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, selectedTypes);
+                StringBuilder GetAllUsedProducts = new StringBuilder();
+                GetAllUsedProducts.Append(" ");
+                foreach (var item in viewModel.Types)
+                {
+                    switch (item)
+                    {
+                        case PartType.Undefined:
+                            break;
+                        case PartType.Pipe:
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                        case PartType.Spool:
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                        case PartType.Component:
+                            GetAllUsedProducts.Append(" ");
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
                 viewModel.report.DataSource = data;
                 viewModel.report.CreateDocument();
                 var tool = new ReportPrintTool(viewModel.report);

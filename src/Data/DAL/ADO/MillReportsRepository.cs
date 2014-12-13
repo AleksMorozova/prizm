@@ -166,7 +166,7 @@ namespace Data.DAL.ADO
             return pipeDataSet;
         }
 
-        public DataSet GetUsedProducts(int startPK, int endPK, BindingList<string> selectedTypes)
+        public DataSet GetUsedProducts(int startPK, int endPK, string queryString)
         {
             CreateConnection();
             DataSet pipeDataSet = new DataSet();
@@ -183,14 +183,6 @@ namespace Data.DAL.ADO
                         command.Connection = connection;
                         command.Parameters.AddWithValue("@startPK", startPK);
                         command.Parameters.AddWithValue("@endPK", endPK);
-                        StringBuilder GetAllUsedProducts = new StringBuilder();
-                        GetAllUsedProducts.Append(" ");
-                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
-                        GetAllUsedProducts.Append(" ");
-                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
-                        GetAllUsedProducts.Append(" ");
-                        GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
-                        string queryString = GetAllUsedProducts.ToString();
                         command.CommandText = queryString;
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
@@ -255,6 +247,42 @@ namespace Data.DAL.ADO
             }
 
             return connection;
+        }
+
+        public BindingList<int> GetAllKP() 
+        {
+            CreateConnection();
+            BindingList<int> PKList = new BindingList<int>();
+         
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = SQLQueryString.GettAllKP;
+                    SqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {  
+                        PKList.Add((int)dr[0]);
+                    }
+                }
+
+              
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get Used Products", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return PKList;
         }
 
     }

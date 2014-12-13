@@ -8,6 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
+        public const string GettAllKP = @"Select distinct(numberKP) From Joint";
         public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
           from  Pipe Pipe
           left join Plate on (Plate.id = Pipe.plateId)
