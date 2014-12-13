@@ -148,6 +148,8 @@ namespace PrizmMain.Forms.Settings
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+
+            jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
         }
        

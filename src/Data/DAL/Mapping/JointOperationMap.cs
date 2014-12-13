@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         {
             Map(_ => _.Name, "Name");
             Map(_ => _.IsRequired, "isRequired");
-            Map(_ => _.IsTest, "isTest");
+            Map(_ => _.Type, "type");
             Map(_ => _.TestHasAccepted, "testHasAccepted");
             Map(_ => _.TestHasToRepair, "testHasToRepair");
             Map(_ => _.TestHasToWithdraw, "testHasToWithdraw");

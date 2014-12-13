@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using PrizmMain.Properties;
 using PrizmMain.Documents;
 using Domain.Entity.Security;
+using PrizmMain.Common;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -33,7 +34,7 @@ namespace PrizmMain.Forms.Settings
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
-
+        public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
 
         readonly SaveSettingsCommand saveCommand;
         readonly ExtractCategoriesCommand extractCategoriesCommand;
@@ -42,6 +43,7 @@ namespace PrizmMain.Forms.Settings
         readonly IUserNotify notify;
         private IList<PlateManufacturer> plateManufacturers;
         private IModifiable modifiable;
+
 
         [Inject]
         public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify)
@@ -70,6 +72,7 @@ namespace PrizmMain.Forms.Settings
            GetProjectSettings();
            GetAllManufacturers();
            GetAllJointOperations();
+           LoadJointOperationTypes();
            ControlType = new BindingList<PipeTestControlTypeWrapper>();
            ResultType = new BindingList<PipeTestResultTypeWrapper>();
 
@@ -151,7 +154,6 @@ namespace PrizmMain.Forms.Settings
         }
 
         public BindingList<Category> CategoryTypes { get; set; }
-
 
         #region Current Project Settings
 
@@ -422,6 +424,19 @@ namespace PrizmMain.Forms.Settings
         internal bool UserHasRole(User user, Role role)
         {
            return (from r in user.Roles where r.Id == role.Id select r).Count() > 0;
+        }
+
+        private void LoadJointOperationTypes()
+        {
+            JointOperationTypes = new List<EnumWrapper<JointOperationType>>();
+
+            foreach (string jointOperationTypeName in Enum.GetNames(typeof(JointOperationType)))
+            {
+                if (jointOperationTypeName != Enum.GetName(typeof(JointOperationType), JointOperationType.Undefined))
+                {
+                    JointOperationTypes.Add(new EnumWrapper<JointOperationType>() { Name = jointOperationTypeName });
+                }
+            }
         }
     }
 }

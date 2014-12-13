@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -40,7 +39,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.codeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -104,18 +103,19 @@
             this.jointsOperationsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.nameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isRequiredForJointGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.isTestGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TestTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testHasAcceptedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testHasToRepairGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testHasToWithdrawGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testResultRequiredGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isActiveJointOperationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.jointOperationTypeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.jointOperationsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,11 +135,11 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -188,8 +188,8 @@
             this.inspectorCertificatesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -199,10 +199,10 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -261,6 +261,7 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointsOperationsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).BeginInit();
             this.usersPage.SuspendLayout();
@@ -1096,6 +1097,8 @@
             this.jointOperations.Location = new System.Drawing.Point(12, 28);
             this.jointOperations.MainView = this.jointsOperationsGridView;
             this.jointOperations.Name = "jointOperations";
+            this.jointOperations.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.jointOperationTypeLookUpEdit});
             this.jointOperations.Size = new System.Drawing.Size(1217, 423);
             this.jointOperations.TabIndex = 0;
             this.jointOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1106,7 +1109,7 @@
             this.jointsOperationsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.nameGridColumn,
             this.isRequiredForJointGridColumn,
-            this.isTestGridColumn,
+            this.TestTypeColumn,
             this.testHasAcceptedGridColumn,
             this.testHasToRepairGridColumn,
             this.testHasToWithdrawGridColumn,
@@ -1137,16 +1140,17 @@
             this.isRequiredForJointGridColumn.VisibleIndex = 1;
             this.isRequiredForJointGridColumn.Width = 131;
             // 
-            // isTestGridColumn
+            // TestTypeColumn
             // 
-            this.isTestGridColumn.AppearanceHeader.Options.UseTextOptions = true;
-            this.isTestGridColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.isTestGridColumn.Caption = "Контрольная операция";
-            this.isTestGridColumn.FieldName = "IsTest";
-            this.isTestGridColumn.Name = "isTestGridColumn";
-            this.isTestGridColumn.Visible = true;
-            this.isTestGridColumn.VisibleIndex = 2;
-            this.isTestGridColumn.Width = 131;
+            this.TestTypeColumn.AppearanceHeader.Options.UseTextOptions = true;
+            this.TestTypeColumn.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TestTypeColumn.Caption = "Тип операции";
+            this.TestTypeColumn.ColumnEdit = this.jointOperationTypeLookUpEdit;
+            this.TestTypeColumn.FieldName = "Type";
+            this.TestTypeColumn.Name = "TestTypeColumn";
+            this.TestTypeColumn.Visible = true;
+            this.TestTypeColumn.VisibleIndex = 2;
+            this.TestTypeColumn.Width = 131;
             // 
             // testHasAcceptedGridColumn
             // 
@@ -1202,6 +1206,18 @@
             this.isActiveJointOperationGridColumn.Visible = true;
             this.isActiveJointOperationGridColumn.VisibleIndex = 7;
             this.isActiveJointOperationGridColumn.Width = 131;
+            // 
+            // jointOperationTypeLookUpEdit
+            // 
+            this.jointOperationTypeLookUpEdit.AutoHeight = false;
+            this.jointOperationTypeLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.jointOperationTypeLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Тип операции")});
+            this.jointOperationTypeLookUpEdit.DisplayMember = "Text";
+            this.jointOperationTypeLookUpEdit.Name = "jointOperationTypeLookUpEdit";
+            this.jointOperationTypeLookUpEdit.NullText = "";
+            this.jointOperationTypeLookUpEdit.ValueMember = "Value";
             // 
             // jointOperationsLayoutGroup
             // 
@@ -2170,6 +2186,7 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.jointOperations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointsOperationsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).EndInit();
             this.usersPage.ResumeLayout(false);
@@ -2413,11 +2430,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn nameGridColumn;
         private System.Windows.Forms.BindingSource jointOperationsBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn isRequiredForJointGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn isTestGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn TestTypeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testHasAcceptedGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testHasToRepairGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testHasToWithdrawGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn testResultRequiredGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn isActiveJointOperationGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit jointOperationTypeLookUpEdit;
     }
 }

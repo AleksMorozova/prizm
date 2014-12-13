@@ -70,6 +70,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонтная операция.
+        /// </summary>
+        internal static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -1180,6 +1189,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонт.
+        /// </summary>
+        internal static string Repair {
+            get {
+                return ResourceManager.GetString("Repair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип результата.
         /// </summary>
         internal static string ResultType {
@@ -1266,6 +1284,15 @@ namespace PrizmMain.Properties {
         internal static string StringExpected {
             get {
                 return ResourceManager.GetString("StringExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная операция.
+        /// </summary>
+        internal static string Test {
+            get {
+                return ResourceManager.GetString("Test", resourceCulture);
             }
         }
         
@@ -1374,6 +1401,15 @@ namespace PrizmMain.Properties {
         internal static string Welder {
             get {
                 return ResourceManager.GetString("Welder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка.
+        /// </summary>
+        internal static string Withdraw {
+            get {
+                return ResourceManager.GetString("Withdraw", resourceCulture);
             }
         }
         
