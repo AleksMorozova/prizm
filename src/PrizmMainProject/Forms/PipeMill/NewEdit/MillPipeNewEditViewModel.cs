@@ -745,7 +745,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             int count = 0; 
             foreach (PipeTestResult test in pipeTestResults)
             {
-                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
+                if ((test.Status == PipeTestResultStatus.Failed) || 
+                    (test.Status == PipeTestResultStatus.Passed))
                 {
                     count++;
                 }
@@ -754,7 +755,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-         private void LoadPipeMillStatuses()
+        private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
@@ -767,17 +768,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-         public Documents.IModifiable ModifiableView
-         {
+        public Documents.IModifiable ModifiableView
+        {
             get
             {
-               return modifiableView;
+                return modifiableView;
             }
             set
             {
-               modifiableView = value;
+                modifiableView = value;
             }
-         }
+        }
 
          public bool CheckStatus()
          {

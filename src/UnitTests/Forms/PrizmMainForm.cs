@@ -22,7 +22,7 @@ namespace UnitTests.Forms
             Project nullProject = null;
             var viewModel = new PrizmApplicationViewModel(projectRepo.Object);
             projectRepo.Setup(_ => _.GetSingle()).Returns(nullProject);
-            viewModel.GetOrCreateProject();
+            //viewModel.GetOrCreateProject();
             projectRepo.Verify(_ => _.BeginTransaction(), Times.Once());
             projectRepo.Verify(_ => _.Save(It.IsAny<Project>()), Times.Once());
             projectRepo.Verify(_ => _.Commit(), Times.Once());

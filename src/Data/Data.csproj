@@ -60,6 +60,7 @@
     <Compile Include="DAL\Construction\IJointActionResultRepository.cs" />
     <Compile Include="DAL\Construction\IJointRepository.cs" />
     <Compile Include="DAL\Construction\IJointTestResultRepository.cs" />
+    <Compile Include="DAL\Construction\ISpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\RoleRepository.cs" />
+    <Compile Include="DAL\Hibernate\SpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\UserRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
@@ -105,9 +107,11 @@
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
+    <Compile Include="DAL\Mapping\JointActionResultMap.cs" />
     <Compile Include="DAL\Mapping\JointMap.cs" />
     <Compile Include="DAL\Mapping\JointOperationMap.cs" />
     <Compile Include="DAL\Mapping\JointTestResultMap.cs" />
+    <Compile Include="DAL\Mapping\JointWeldResultMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PermissionMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />

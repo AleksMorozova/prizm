@@ -16,14 +16,18 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
-    public class ConstructionReportViewModel : ViewModelBase, IDisposable
+    public class ConstructionReportViewModel : ViewModelBase
     {
         private readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
         readonly CreateReportCommand createCommand;
         readonly PreviewReportCommand previewCommand;
+        public int startPK;
+        public int endPK;
         public object previewSource;
+        public BindingList <PartType> selectedTypes;
         public XtraReport report;
+        public BindingList<int> AllKP { get; set; }
 
         [Inject]
         public ConstructionReportViewModel(IMillReportsRepository repo, IUserNotify notify)
@@ -32,6 +36,11 @@ namespace PrizmMain.Forms.Reports.Construction
             this.notify = notify;
             createCommand = ViewModelSource.Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));
             previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
+        }
+
+        public void LoadData()
+        {
+            AllKP = repo.GetAllKP();
         }
         private BindingList<Part> parts = new BindingList<Part>();
         public BindingList<Part> Parts
@@ -61,6 +70,38 @@ namespace PrizmMain.Forms.Reports.Construction
             }
         }
 
+        public int StartPK
+        {
+            get
+            {
+                return startPK;
+            }
+            set
+            {
+                if (value != startPK)
+                {
+                    startPK = value;
+                    RaisePropertyChanged("StartPK");
+                }
+            }
+        }
+
+        public int EndPK
+        {
+            get
+            {
+                return endPK;
+            }
+            set
+            {
+                if (value != endPK)
+                {
+                    endPK = value;
+                    RaisePropertyChanged("EndPK");
+                }
+            }
+        }
+
         public object PreviewSource
         {
             get
@@ -77,7 +118,6 @@ namespace PrizmMain.Forms.Reports.Construction
             }
         }
 
-
         public ICommand CreateCommand
         {
             get
@@ -90,15 +130,5 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             get { return previewCommand; }
         }
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-
-        }
-
-        #endregion
-
     }
 }

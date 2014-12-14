@@ -9,7 +9,7 @@ namespace Domain.Entity.Construction
         {
             this.Parts = new List<Part>(2);
             this.JointTestResults = new List<JointTestResult>();
-            this.JointActionResults = new List<JointActionResult>();
+            this.JointWeldResults = new List<JointWeldResult>();
         }
 
         public virtual string Number { get; set; }
@@ -22,7 +22,7 @@ namespace Domain.Entity.Construction
         public virtual float GpsHeight { get; set; }
         public virtual IList<Part> Parts { get; set; }
         public virtual IList<JointTestResult> JointTestResults { get; set; }
-        public virtual IList<JointActionResult> JointActionResults { get; set; } 
+        public virtual IList<JointWeldResult> JointWeldResults { get; set; } 
 
     }
 }

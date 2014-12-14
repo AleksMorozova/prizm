@@ -534,6 +534,7 @@
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
+
   </data>
   <data name="AtControl" xml:space="preserve">
     <value>Контроль</value>
@@ -553,8 +554,14 @@
   <data name="Accepted" xml:space="preserve">
     <value>Принято</value>
   </data>
+  <data name="Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
   <data name="Hold" xml:space="preserve">
     <value>Задержано</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Ожидает контроль</value>
@@ -567,5 +574,25 @@
   </data>
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
+    </data>
+  <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации комплектующего элемента. 
+Параметры комплектующего элемента станут невозможны для редактирования. 
+Деактивировать комплектующий элемент?</value>
+  </data>
+  <data name="DLG_COMPONENT_DEACTIVATION_HEDER" xml:space="preserve">
+    <value>Деактивация комплектующего элемента</value>
+  </data>
+  <data name="DLG_COMPONENT_DUPLICATE" xml:space="preserve">
+    <value>Уже существует комплектующий элемент с номером:</value>
+  </data>
+  <data name="DLG_COMPONENT_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера комплектующего элемента</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Ремонтная операция</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Контрольная операция</value>
   </data>
 </root>
