@@ -21,7 +21,7 @@ namespace Data.DAL.Mapping
                 .Cascade.SaveUpdate();
 
             HasMany<InspectionTestResult>(x => x.InspectionTestResults)
-                .KeyColumn("pipelinePieceId")
+                .KeyColumn("partId")
                 .Cascade.SaveUpdate();
         }
     }

@@ -35,7 +35,7 @@ namespace PrizmMain.Forms.Spool
             else
             {
                 //TODO: input in Resource
-                notify.ShowFailure("Неверный номер трубы", "Введен неверный номер трубы.");
+                notify.ShowError("Неверный номер трубы", "Введен неверный номер трубы.");
             }
         }
 
