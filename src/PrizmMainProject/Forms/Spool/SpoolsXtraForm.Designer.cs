@@ -37,9 +37,13 @@
             this.inspectionHistory = new DevExpress.XtraGrid.GridControl();
             this.inspectionHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectionDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.reasonGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reasonTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.spoolLength = new DevExpress.XtraEditors.TextEdit();
             this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
@@ -69,6 +73,11 @@
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).BeginInit();
@@ -153,6 +162,11 @@
             this.inspectionHistory.Location = new System.Drawing.Point(382, 50);
             this.inspectionHistory.MainView = this.inspectionHistoryGridView;
             this.inspectionHistory.Name = "inspectionHistory";
+            this.inspectionHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.inspectionDateEdit,
+            this.resultLookUpEdit,
+            this.inspectorsPopupContainerEdit,
+            this.reasonTextEdit});
             this.inspectionHistory.Size = new System.Drawing.Size(528, 346);
             this.inspectionHistory.TabIndex = 44;
             this.inspectionHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -167,35 +181,69 @@
             this.reasonGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
+            this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             // 
             // inspectionDateGridColumn
             // 
             this.inspectionDateGridColumn.Caption = "Дата";
+            this.inspectionDateGridColumn.ColumnEdit = this.inspectionDateEdit;
             this.inspectionDateGridColumn.Name = "inspectionDateGridColumn";
             this.inspectionDateGridColumn.Visible = true;
             this.inspectionDateGridColumn.VisibleIndex = 0;
             // 
+            // inspectionDateEdit
+            // 
+            this.inspectionDateEdit.AutoHeight = false;
+            this.inspectionDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectionDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectionDateEdit.Name = "inspectionDateEdit";
+            // 
             // inspectionResultGridColumn
             // 
             this.inspectionResultGridColumn.Caption = "Результат";
+            this.inspectionResultGridColumn.ColumnEdit = this.resultLookUpEdit;
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.Visible = true;
             this.inspectionResultGridColumn.VisibleIndex = 1;
             // 
+            // resultLookUpEdit
+            // 
+            this.resultLookUpEdit.AutoHeight = false;
+            this.resultLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultLookUpEdit.Name = "resultLookUpEdit";
+            this.resultLookUpEdit.NullText = "";
+            // 
             // inspectorsGridColumn
             // 
             this.inspectorsGridColumn.Caption = "Инспектор";
+            this.inspectorsGridColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 2;
             // 
+            // inspectorsPopupContainerEdit
+            // 
+            this.inspectorsPopupContainerEdit.AutoHeight = false;
+            this.inspectorsPopupContainerEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
+            // 
             // reasonGridColumn
             // 
             this.reasonGridColumn.Caption = "Причина";
+            this.reasonGridColumn.ColumnEdit = this.reasonTextEdit;
             this.reasonGridColumn.Name = "reasonGridColumn";
             this.reasonGridColumn.Visible = true;
             this.reasonGridColumn.VisibleIndex = 3;
+            // 
+            // reasonTextEdit
+            // 
+            this.reasonTextEdit.AutoHeight = false;
+            this.reasonTextEdit.Name = "reasonTextEdit";
             // 
             // spoolLength
             // 
@@ -506,6 +554,11 @@
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).EndInit();
@@ -571,5 +624,9 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
         private DevExpress.XtraEditors.LookUpEdit pipeNumber;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit inspectionDateEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultLookUpEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit reasonTextEdit;
     }
 }

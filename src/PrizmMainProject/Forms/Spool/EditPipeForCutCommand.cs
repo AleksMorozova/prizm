@@ -26,8 +26,16 @@ namespace PrizmMain.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
-            viewModel.ModifiableView.IsModified = false;
+            if (repo.GetByNumber(viewModel.PipeNumber) != null)
+            {
+                viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
+                viewModel.ModifiableView.IsModified = false;
+            }
+
+            else 
+            {
+                notify.ShowFailure("wrong number","wrong number");
+            }
         }
 
 

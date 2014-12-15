@@ -2,6 +2,7 @@
 using Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity;
 using Domain.Entity.Construction;
 using Domain.Entity.Mill;
 using Ninject;
@@ -21,6 +22,7 @@ namespace PrizmMain.Forms.Spool
     {
         private readonly ISpoolRepository repoSpool;
         private readonly IPipeRepository repoPipe;
+        private readonly IInspectorRepository repoInspector;
         readonly ICommand searchCommand;
         readonly ICommand cutCommand;
         readonly ICommand saveCommand;
@@ -34,11 +36,13 @@ namespace PrizmMain.Forms.Spool
         public BindingList<Pipe> allPipes { get; set; }
 
         [Inject]
-        public SpoolViewModel(IPipeRepository repoPipe, ISpoolRepository repoSpool, IUserNotify notify)
+        public SpoolViewModel(IPipeRepository repoPipe, ISpoolRepository repoSpool, IInspectorRepository repoInspector, IUserNotify notify)
         {
             this.repoPipe = repoPipe;
             this.repoSpool = repoSpool;
+            this.repoInspector = repoInspector;
             this.notify=notify;
+            this.Inspectors = repoInspector.GetAll();
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
               () => new EditPipeForCutCommand(this, repoPipe, notify));
@@ -56,6 +60,7 @@ namespace PrizmMain.Forms.Spool
                 allPipes.Add(p);
             }
             Spool = new Domain.Entity.Construction.Spool();
+            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
             Spool.Pipe = new Pipe();
             Pipe = new Pipe();
             
@@ -105,13 +110,11 @@ namespace PrizmMain.Forms.Spool
                 if (value != Spool.Pipe)
                 {
                     Spool.Pipe = value;
-                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("PipeNumber");
                 }
             }
         }
 
-        // TODO: fixed if pipe number was wrong
         public int PipeLength
         {
             get
@@ -123,10 +126,7 @@ namespace PrizmMain.Forms.Spool
                 if (value != Pipe.Length)
                 {
                     Pipe.Length = value;                    
-                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("PipeLength");
-
-                    //RaisePropertyChanged("PipeWeight");
                 }
             }
         }
@@ -198,6 +198,37 @@ namespace PrizmMain.Forms.Spool
                     RaisePropertyChanged("IsNotActive");
                 }
             }
+        }
+
+        public IList<Inspector> Inspectors { get; set; }
+        public BindingList<InspectionTestResult> InspectionTestResults
+        {
+            get
+            {
+                return
+                    (Spool.InspectionTestResults is BindingList<InspectionTestResult>
+                    ? (BindingList<InspectionTestResult>)Spool.InspectionTestResults
+                    : new BindingList<InspectionTestResult>(Spool.InspectionTestResults));
+            }
+            set
+            {
+                if (value != Spool.InspectionTestResults)
+                {
+                    Spool.InspectionTestResults = value;
+                    RaisePropertyChanged("InspectionTestResults");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Customize displaying inspectors name in grid cell : show only last name
+        /// </summary>
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }
 
         public void Dispose()

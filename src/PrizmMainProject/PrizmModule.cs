@@ -73,7 +73,7 @@ namespace PrizmMain
             Bind<IComponentRepository>().To<ComponentRepository>();
             Bind<ISpoolRepository>().To<SpoolRepository>();
 
-
+            Bind<IInspectorRepository>().To<InspectorRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 

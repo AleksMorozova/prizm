@@ -1,7 +1,10 @@
 ﻿using DevExpress.XtraEditors;
+using Domain.Entity.Construction;
 using Domain.Entity.Mill;
 using PrizmMain.Forms.ExternalFile;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Properties;
+using System.Collections.Generic;
 
 namespace PrizmMain.Forms.Spool
 {
@@ -9,6 +12,8 @@ namespace PrizmMain.Forms.Spool
     public partial class SpoolsXtraForm : ChildForm
     {         
         private SpoolViewModel viewModel;
+        private Dictionary<PartInspectionStatus, string> inspectionStatusDict
+           = new Dictionary<PartInspectionStatus, string>();
 
         public SpoolsXtraForm()
         {
@@ -25,7 +30,7 @@ namespace PrizmMain.Forms.Spool
             pipeNumber.DataBindings
                 .Add("EditValue", SpoolBindingSource, "PipeNumber");
 
-           pipeLength.DataBindings
+            pipeLength.DataBindings
                 .Add("EditValue", SpoolBindingSource, "PipeLength");
 
             spoolNumber.DataBindings
@@ -35,6 +40,25 @@ namespace PrizmMain.Forms.Spool
                 .Add("EditValue", SpoolBindingSource, "SpoolLength");
 
             pipeNumber.Properties.DataSource = viewModel.allPipes;
+
+            inspectionHistory.DataBindings
+               .Add("DataSource", SpoolBindingSource, "InspectionTestResults");
+
+            inspectionStatusDict.Clear();
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            resultLookUpEdit.DataSource = inspectionStatusDict;
+
+            //inspectorsPopupContainerEdit.DataSource = viewModel.Inspectors;
+            //inspectorsPopupContainerEdit.ListChanged += (s, eve) => IsModified = true;
+            //inspectorSelectionControl.DataSource = inspectorsDataSource;
+            //var inspectorsPopup = new PopupContainerControl();
+            //inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            //inspectorSelectionControl.Dock = DockStyle.Fill;
+            //inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            //inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
 
         }
 
