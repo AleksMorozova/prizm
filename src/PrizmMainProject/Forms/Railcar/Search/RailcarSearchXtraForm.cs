@@ -14,6 +14,7 @@ using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.MainChildForm;
 
 using PrizmMain.DummyData;
+using PrizmMain.Commands;
 
 
 namespace PrizmMain.Forms.Railcar.Search
@@ -21,6 +22,7 @@ namespace PrizmMain.Forms.Railcar.Search
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarSearchXtraForm : ChildForm
     {
+        private ICommandManager commandManager = new CommandManager();
         private RailcarSearchViewModel viewModel;
 
         public RailcarSearchXtraForm()
@@ -51,7 +53,7 @@ namespace PrizmMain.Forms.Railcar.Search
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
 

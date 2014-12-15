@@ -4,6 +4,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entity.Construction;
 using Ninject;
 using Ninject.Parameters;
+using PrizmMain.Commands;
 using PrizmMain.Common;
 using PrizmMain.DummyData;
 using PrizmMain.Forms.Joint.NewEdit;
@@ -18,6 +19,7 @@ namespace PrizmMain.Forms.Joint.Search
     public partial class JointSearchXtraForm : ChildForm
     {
         private JointSearchViewModel viewModel;
+        ICommandManager commandManager = new CommandManager();
 
         [Inject]
         public JointSearchXtraForm(JointSearchViewModel vm)
@@ -60,7 +62,7 @@ namespace PrizmMain.Forms.Joint.Search
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
         private void controlState_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)

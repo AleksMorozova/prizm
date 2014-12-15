@@ -7,6 +7,7 @@ using PrizmMain.Common;
 using System.Windows.Forms;
 using PrizmMain.Forms.Common;
 using System.ComponentModel;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
@@ -14,6 +15,7 @@ namespace PrizmMain.Forms.Reports.Construction
     public partial class ConstructionReportsXtraForm : ChildForm
     {
         private ConstructionReportViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
 
         public ConstructionReportsXtraForm()
         {
@@ -48,8 +50,8 @@ namespace PrizmMain.Forms.Reports.Construction
 
         private void BindCommands()
         {
-            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
-            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+            commandManager["PreviewButton"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void RefreshTypes()

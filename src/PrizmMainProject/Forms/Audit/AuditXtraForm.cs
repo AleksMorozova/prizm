@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using PrizmMain.Forms.MainChildForm;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Audit
 {
@@ -16,6 +17,8 @@ namespace PrizmMain.Forms.Audit
     public partial class AuditXtraForm : ChildForm
     {
         private AuditViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
+
         public AuditXtraForm()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace PrizmMain.Forms.Audit
 
         private void BindCommands()
         {
-            search.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(search);
         }
 
     }
