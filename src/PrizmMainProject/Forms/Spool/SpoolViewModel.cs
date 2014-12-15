@@ -64,7 +64,6 @@ namespace PrizmMain.Forms.Spool
             Spool.Pipe = new Pipe();
             Pipe = new Pipe();
             
-            
         }
 
         public string SpoolNumber

@@ -69,6 +69,7 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).BeginInit();
@@ -102,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -183,11 +185,13 @@
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             // 
             // inspectionDateGridColumn
             // 
             this.inspectionDateGridColumn.Caption = "Дата";
             this.inspectionDateGridColumn.ColumnEdit = this.inspectionDateEdit;
+            this.inspectionDateGridColumn.FieldName = "Date";
             this.inspectionDateGridColumn.Name = "inspectionDateGridColumn";
             this.inspectionDateGridColumn.Visible = true;
             this.inspectionDateGridColumn.VisibleIndex = 0;
@@ -205,6 +209,7 @@
             // 
             this.inspectionResultGridColumn.Caption = "Результат";
             this.inspectionResultGridColumn.ColumnEdit = this.resultLookUpEdit;
+            this.inspectionResultGridColumn.FieldName = "Status";
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.Visible = true;
             this.inspectionResultGridColumn.VisibleIndex = 1;
@@ -214,13 +219,19 @@
             this.resultLookUpEdit.AutoHeight = false;
             this.resultLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Status")});
+            this.resultLookUpEdit.DisplayMember = "Value";
             this.resultLookUpEdit.Name = "resultLookUpEdit";
             this.resultLookUpEdit.NullText = "";
+            this.resultLookUpEdit.EditValueChanged += new System.EventHandler(this.resultLookUpEdit_EditValueChanged);
+            this.resultLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultLookUpEdit_CustomDisplayText);
             // 
             // inspectorsGridColumn
             // 
             this.inspectorsGridColumn.Caption = "Инспектор";
             this.inspectorsGridColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
+            this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 2;
@@ -231,11 +242,16 @@
             this.inspectorsPopupContainerEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
+            this.inspectorsPopupContainerEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.inspectorsPopupContainerEdit_QueryPopUp);
+            this.inspectorsPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.inspectorsPopupContainerEdit_CloseUp);
+            this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
+            this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
             // 
             // reasonGridColumn
             // 
             this.reasonGridColumn.Caption = "Причина";
             this.reasonGridColumn.ColumnEdit = this.reasonTextEdit;
+            this.reasonGridColumn.FieldName = "Value";
             this.reasonGridColumn.Name = "reasonGridColumn";
             this.reasonGridColumn.Visible = true;
             this.reasonGridColumn.VisibleIndex = 3;
@@ -583,6 +599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -628,5 +645,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultLookUpEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit reasonTextEdit;
+        private System.Windows.Forms.BindingSource inspectorsDataSource;
     }
 }
