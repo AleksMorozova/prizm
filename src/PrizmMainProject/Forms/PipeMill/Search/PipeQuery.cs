@@ -1,6 +1,7 @@
 ﻿using Domain.Entity.Mill;
 using Domain.Entity.Setup;
 using NHibernate.Transform;
+using PrizmMain.Common;
 using PrizmMain.Properties;
 using System;
 using System.Collections;
@@ -43,7 +44,10 @@ namespace PrizmMain.Forms.PipeMill.Search
 
 
         internal static string BuildSql(
-            string Number)
+            string Number,
+            IList<PipeMillSizeType> CheckedPipeTypes,
+            string Activity,
+            IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -54,7 +58,7 @@ namespace PrizmMain.Forms.PipeMill.Search
                         [Heat].[number] as HeatNumber,
                         [Pipe].[mill] as Mill, 
                         [Pipe].[productionDate],
-                        [Pipe].[pipeMillStatus],
+                        [Pipe].[pipeMillStatus] as PipeMillStatus,
                         [Pipe].[isActive],
                         [PurchaseOrder].[number] as PurchaseOrderNumber,
                         [PipeMillSizeType].[type] as [Type]
@@ -65,8 +69,37 @@ namespace PrizmMain.Forms.PipeMill.Search
                          left join [PipeMillSizeType] on ([PipeMillSizeType].[id] = [Pipe].[typeId]) ");
 
             sb.Append(string.Format(" WHERE [Pipe].[number] LIKE N'%{0}%' ", Number));
-            sb.Append(string.Format(" AND [Pipe].[number] LIKE N'%{0}%' ", Number));
 
+            if (CheckedPipeTypes.Count > 0)
+            {
+                sb.Append(" AND [Type] IN (");
+                foreach (var t in CheckedPipeTypes)
+                {
+                    sb.Append(string.Format("  N'{0}',", t.Type));
+                }
+                sb.Remove(sb.Length - 1, 1);
+                sb.Append(" )");
+            }
+
+            if (Activity.Equals(Resources.PipeStatusComboActive))
+            {
+                sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", true));
+            }
+            else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+            {
+                sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", false));
+            }
+
+            if (CheckedStatusTypes.Count > 0)
+            {
+                sb.Append(" AND PipeMillStatus IN (");
+                foreach (var s in CheckedStatusTypes)
+                {
+                    sb.Append(string.Format("  N'{0}',", s.Name));
+                }
+                sb.Remove(sb.Length - 1, 1);
+                sb.Append(" )");
+            }
 
             return sb.ToString();
         }

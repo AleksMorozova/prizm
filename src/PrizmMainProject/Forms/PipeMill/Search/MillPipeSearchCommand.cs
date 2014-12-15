@@ -38,38 +38,16 @@ namespace PrizmMain.Forms.PipeMill.Search
         {
             repo.Clear();
 
-            var criteria = NHibernate.Criterion.DetachedCriteria
-                    .For<Domain.Entity.Mill.Pipe>("p")
-                    .Add(Restrictions.InG<PipeMillSizeType>("p.Type", viewModel.CheckedPipeTypes));
-
-            //if (viewModel.CheckedStatusTypes != null && viewModel.CheckedStatusTypes.Count != viewModel.StatusTypes.Count)
-            //{
-            //    var statuses = new List<PipeMillStatus>();
-            //    foreach (var item in viewModel.CheckedStatusTypes)
-            //    {
-            //        statuses.Add(item.Value);
-            //    }
-            //    criteria.Add(Restrictions.InG<PipeMillStatus>("p.Status",statuses));
-            //}
-
-            //if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
-            //{
-            //    criteria.Add(Restrictions.Eq("p.IsActive", true));
-            //}
-            //else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
-            //{
-            //    criteria.Add(Restrictions.Eq("p.IsActive", false));
-            //}
-
-            //viewModel.Pipes = repo.GetByCriteria(criteria);
-
             try
             {
                 var pipes = new List<Pipe>();
 
                 var query = repo
                     .CreateSQLQuery(PipeQuery.BuildSql(
-                    viewModel.PipeNumber))
+                    viewModel.PipeNumber,
+                    viewModel.CheckedPipeTypes,
+                    viewModel.Activity,
+                    viewModel.CheckedStatusTypes))
                     .SetResultTransformer(PipeQuery.Transformer);
 
                 var qpipes = query.List<Pipe>();
