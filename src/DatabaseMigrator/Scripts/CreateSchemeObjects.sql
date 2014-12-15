@@ -646,6 +646,8 @@ CREATE TABLE [dbo].[Joint](
 	[part1Type] [nvarchar](20) NULL,
 	[part2Id] [uniqueidentifier] NULL,
 	[part2Type] [nvarchar](20) NULL,
+	[part1Number] [nvarchar](20) NULL,
+	[part2Number] [nvarchar](20) NULL,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
