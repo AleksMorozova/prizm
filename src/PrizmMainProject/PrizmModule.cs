@@ -30,6 +30,7 @@ using PrizmMain.Forms.Component;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
 using PrizmMain.Forms.InspectionParts.Search;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain
 {
@@ -70,7 +71,8 @@ namespace PrizmMain
             Bind<IComponentRepositories>().To<ComponentRepositories>();
             Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
             Bind<IComponentRepository>().To<ComponentRepository>();
-            
+            Bind<ISpoolRepository>().To<SpoolRepository>();
+
 
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
@@ -88,7 +90,10 @@ namespace PrizmMain
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             Bind<JointNewEditViewModel>().ToSelf();
+	        Bind<JointSearchViewModel>().ToSelf();
             Bind<PartSearchViewModel>().ToSelf();
+            Bind<FirstSetupViewModel>().ToSelf();
+            Bind<SpoolViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -108,6 +113,11 @@ namespace PrizmMain
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
             Bind<PartSearchXtraForm>().ToSelf();
+            Bind<FirstSetupXtraForm>().ToSelf();
+            #endregion
+
+            #region Commands
+            Bind<JointSearchCommand>().ToSelf(); 
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();

@@ -148,6 +148,8 @@ namespace PrizmMain.Forms.Settings
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+
+            jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
         }
        
@@ -499,12 +501,16 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             if (view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 User user = view.GetRow(view.FocusedRowHandle) as User;
-                PasswordChangeDialog dlg = new PasswordChangeDialog();
-                if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                if(user != null)
                 {
-                    user.PasswordHash = dlg.NewPasswordHash;
-                    IsModified = true;
+                    PasswordChangeDialog dlg = new PasswordChangeDialog();
+                    if(dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlg.NewPasswordHash;
+                        IsModified = true;
+                    }
                 }
+                
             }
         }
 
@@ -562,6 +568,13 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         private void gridViewUsers_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             RefreshUserRoles(e.FocusedRowHandle);
+        }
+
+        private void jointsOperationsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
+            jointOperation.IsActive = true;
         }
 
     }

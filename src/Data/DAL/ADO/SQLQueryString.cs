@@ -8,6 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
+        public const string GettAllKP = @"Select distinct(numberKP) From Joint";
         public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
           from  Pipe Pipe
           left join Plate on (Plate.id = Pipe.plateId)
@@ -62,7 +63,36 @@ FROM AuditLog
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
                 WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
-    
+
+        public const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union 
+select Spool.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Component.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part2Id])
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
     }
 }
             

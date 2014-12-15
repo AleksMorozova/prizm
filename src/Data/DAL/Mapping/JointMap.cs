@@ -20,6 +20,9 @@ namespace Data.DAL.Mapping
             Map(_ => _.GpsHeight).Column("gpsHeight");
             Map(_ => _.GpsLatitude).Column("gpsLatitude");
             Map(_ => _.GpsLongitude).Column("gpsLongitude");
+
+            HasMany<JointTestResult>(_ => _.JointTestResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
+            HasMany<JointWeldResult>(_ => _.JointWeldResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
         }
     }
 }

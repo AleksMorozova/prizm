@@ -1,8 +1,11 @@
 ﻿using Data.DAL;
+using Data.DAL.ADO;
 using DevExpress.XtraReports.UI;
 using PrizmMain.Commands;
+using PrizmMain.Forms.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -28,8 +31,33 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             try
             {
-                // TODO: create data Set for report
-                data = repo.GetPipesFromInspection(DateTime.Now, DateTime.Now);
+                StringBuilder GetAllUsedProducts = new StringBuilder();
+                foreach (var item in viewModel.Types)
+                {
+                    switch (item)
+                    {
+                        case PartType.Undefined:
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                        case PartType.Pipe:
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                        case PartType.Spool:
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                        case PartType.Component:
+                            GetAllUsedProducts.Append(" ");
+                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
+                            break;
+                        default:
+                            GetAllUsedProducts.Append(" ");
+                            break;
+                    }
+                }
+
+                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
                 viewModel.report.DataSource = data;
                 viewModel.report.CreateDocument();
                 viewModel.PreviewSource = viewModel.report;

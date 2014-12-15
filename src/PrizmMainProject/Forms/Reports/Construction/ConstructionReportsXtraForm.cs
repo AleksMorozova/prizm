@@ -41,12 +41,29 @@ namespace PrizmMain.Forms.Reports.Construction
         {
             bindingSource.DataSource = viewModel;
             previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
+            start.DataBindings.Add("EditValue", bindingSource, "StartPK");
+            end.DataBindings.Add("EditValue", bindingSource, "EndPK");
+            viewModel.LoadData();
         }
 
         private void BindCommands()
         {
             createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
             previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+        }
+
+        private void RefreshTypes()
+        {
+            BindingList<PartType> selectedTypes = new BindingList<PartType>();
+            for (int i = 0; i < type.Properties.Items.Count; i++)
+            {
+                if (type.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    selectedTypes.Add((PartType)type.Properties.Items[i].Value);
+                }
+            }
+            viewModel.Types.Clear();
+            viewModel.Types = selectedTypes;
         }
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
@@ -62,6 +79,7 @@ namespace PrizmMain.Forms.Reports.Construction
             type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+            RefreshTypes();
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,7 +93,14 @@ namespace PrizmMain.Forms.Reports.Construction
                 endLayout.ContentVisible = true;
                 countPointsLayout.ContentVisible = false;
                 typeLayout.ContentVisible = true;
+
+                foreach (int KP in viewModel.AllKP)
+                {
+                    start.Properties.Items.Add(KP);
+                    end.Properties.Items.Add(KP);
+                }
             }
+
             else
             {
                 viewModel.report = new testReport();
@@ -86,6 +111,16 @@ namespace PrizmMain.Forms.Reports.Construction
                 countPointsLayout.ContentVisible = true;
                 typeLayout.ContentVisible = false;
             }
+        }
+
+        private void createReportButton_Click(object sender, EventArgs e)
+        {
+            RefreshTypes();
+        }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            RefreshTypes();
         }
     }
 }

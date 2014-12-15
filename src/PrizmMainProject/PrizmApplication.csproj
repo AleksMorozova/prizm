@@ -217,6 +217,14 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
+      <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Part\Search\Part.cs" />
     <Compile Include="Forms\Part\Search\PartQuery.cs" />
     <Compile Include="Forms\Part\Search\PartSearchCommand.cs" />
@@ -231,6 +239,8 @@
     <Compile Include="Forms\IUserNotify.cs" />
     <Compile Include="Forms\IViewModel.cs" />
     <Compile Include="Forms\Joint\NewEdit\ExtractOperationsCommand.cs" />
+    <Compile Include="Forms\Joint\Search\JointSearchCommand.cs" />
+    <Compile Include="Forms\Joint\Search\JointSearchViewModel.cs" />
     <Compile Include="Forms\MainChildForm\ChildForm.cs" />
     <Compile Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.cs">
       <SubType>Form</SubType>
@@ -311,6 +321,10 @@
     <Compile Include="Forms\Settings\PasswordChangeDialog.Designer.cs">
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
+    <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
+    <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
+    <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -475,6 +489,9 @@
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.resx">
+      <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Part\Search\PartSearchXtraForm.resx">
       <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
@@ -751,6 +768,7 @@
   <ItemGroup>
     <None Include="Resources\password_logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
