@@ -1,6 +1,7 @@
 using Domain.Entity.Mill;
 using Domain.Entity.Setup;
 using Ninject.Parameters;
+using PrizmMain.Commands;
 using PrizmMain.Common;
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.PipeMill.NewEdit;
@@ -15,6 +16,7 @@ namespace PrizmMain.Forms.PipeMill.Search
     public partial class MillPipeSearchXtraForm : ChildForm
     {
         private MillPipeSearchViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
         private Dictionary<PipeMillStatus, string> statusTypeDict 
             = new Dictionary<PipeMillStatus, string>();
 
@@ -55,7 +57,7 @@ namespace PrizmMain.Forms.PipeMill.Search
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
         private void MillPipeSearchXtraForm_Load(object sender, System.EventArgs e)

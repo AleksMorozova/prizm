@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using PrizmMain.Common;
 using PrizmMain.Forms.Component.NewEdit;
 using Ninject.Parameters;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
@@ -22,6 +23,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
     public partial class PartSearchXtraForm : ChildForm
     {
         private PartSearchViewModel viewModel;
+        ICommandManager commandManager = new CommandManager();
 
         public PartSearchXtraForm()
         {
@@ -53,7 +55,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
         private void type_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
