@@ -569,6 +569,12 @@
   <data name="Rejected" xml:space="preserve">
     <value>Отклонено</value>
   </data>
+  <data name="ConstructionStatus" xml:space="preserve">
+    <value>Статус на строительстве</value>
+  </data>
+  <data name="InspectionStatus" xml:space="preserve">
+    <value>Статус на входном контроле</value>
+    </data>
   <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к деактивации комплектующего элемента. 
 Параметры комплектующего элемента станут невозможны для редактирования. 
