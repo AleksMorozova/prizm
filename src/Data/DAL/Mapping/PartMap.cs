@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Domain.Entity;
+using FluentNHibernate.Mapping;
+
+namespace Data.DAL.Mapping
+{
+    public class PartMap : SubclassMap<Part>
+    {
+        public PartMap()
+        {
+            Map(x => x.Number).Column("number");
+            Map(x => x.Length).Column("length");
+
+            Map(x => x.InspectionStatus).Column("inspectionStatus");
+            Map(x => x.ConstructionStatus).Column("constructionStatus");
+        }
+    }
+}

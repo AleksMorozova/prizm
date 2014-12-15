@@ -55,14 +55,19 @@
   <ItemGroup>
     <Compile Include="DAL\ADO\MillReportsRepository.cs" />
     <Compile Include="DAL\ADO\SQLQueryString.cs" />
+    <Compile Include="DAL\Construction\IComponentTypeRepository.cs" />
+    <Compile Include="DAL\Construction\IComponentRepository.cs" />
     <Compile Include="DAL\Construction\IJointActionResultRepository.cs" />
     <Compile Include="DAL\Construction\IJointRepository.cs" />
     <Compile Include="DAL\Construction\IJointTestResultRepository.cs" />
+    <Compile Include="DAL\Construction\ISpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
     <Compile Include="DAL\Hibernate\AuditLogRepository.cs" />
     <Compile Include="DAL\Hibernate\CategoryRepository.cs" />
+    <Compile Include="DAL\Hibernate\ComponentTypeRepository.cs" />
+    <Compile Include="DAL\Hibernate\ComponentRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
@@ -82,6 +87,7 @@
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\RoleRepository.cs" />
+    <Compile Include="DAL\Hibernate\SpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\UserRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
@@ -94,17 +100,22 @@
     <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
     <Compile Include="DAL\Mapping\ComponentMap.cs" />
+    <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
     <Compile Include="DAL\Mapping\ConnectorMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
+    <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
+    <Compile Include="DAL\Mapping\JointActionResultMap.cs" />
     <Compile Include="DAL\Mapping\JointMap.cs" />
     <Compile Include="DAL\Mapping\JointOperationMap.cs" />
+    <Compile Include="DAL\Mapping\JointTestResultMap.cs" />
+    <Compile Include="DAL\Mapping\JointWeldResultMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PermissionMap.cs" />
     <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
-    <Compile Include="DAL\Mapping\PipelinePieceMap.cs" />
+    <Compile Include="DAL\Mapping\PartMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
     <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
     <Compile Include="DAL\Mapping\PipeTestMap.cs" />
@@ -150,9 +161,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\Construction\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,7 +5,7 @@ using Domain.Entity.Construction;
 
 namespace Domain.Entity.Mill
 {
-    public class Pipe : PipelinePiece
+    public class Pipe : Part
     {
         public Pipe()
         {
@@ -23,17 +23,7 @@ namespace Domain.Entity.Mill
         public virtual int Diameter { get; set; }
         public virtual int WallThickness { get; set; }
 
-        public virtual float Weight
-        {
-            get
-            {
-                return (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
-            }
-            set
-            {
-                weight = (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
-            }
-        }
+        public virtual float Weight { get; set; }
 
         public virtual DateTime ProductionDate { get; set; }
 
@@ -53,9 +43,30 @@ namespace Domain.Entity.Mill
 
         public virtual PipeMillStatus Status { get; set; }
 
-        private float weight;
-
+        /// <summary>
+        ///  Density of carbon steel
+        /// </summary>
         public const float Ro = 0.00000785F;
+
+        //TODO: remove this Method from MillPipeNewEditViewModel
+        /// <summary>
+        ///  Calculate pipe weight
+        /// </summary>
+        /// <param name="WallThickness"> Pipe WallThickness</param>
+        ///  <param name="Diameter"> Pipe Diameter</param>
+        ///  <param name="Length"> Pipe Length</param>
+        public virtual float ChangePipeWeight(int WallThickness, int Diameter, int Length )
+        {
+            return (float)(Math.PI * Ro * WallThickness * (Diameter - WallThickness) * Length);
+        }
+
+        /// <summary>
+        ///  Recalculate pipe weight
+        /// </summary>
+        public virtual void RecalculateWeight()
+        {
+            this.Weight = (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
+        }
 
     }
 }

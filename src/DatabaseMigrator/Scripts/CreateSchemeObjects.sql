@@ -30,6 +30,24 @@ SET ANSI_PADDING OFF
 
 
 
+/****** Object:  Table [dbo].[ComponentType]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[ComponentType](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[name] [nvarchar](20) NULL,
+	[connectorsCount] [int] NULL,
+
+ CONSTRAINT [PK_ComponentType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
 
 /****** Object:  Table [dbo].[Connector]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -65,6 +83,8 @@ CREATE TABLE [dbo].[Component](
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
 
+	[componentTypeId] [uniqueidentifier] NULL,
+
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -72,8 +92,6 @@ CREATE TABLE [dbo].[Component](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-
-
 
 /****** Object:  Table [dbo].[Spool]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -99,11 +117,6 @@ CREATE TABLE [dbo].[Spool](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-
-
-
-
-
 /****** Object:  Table [dbo].[Heat]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -242,7 +255,7 @@ CREATE TABLE [dbo].[JointOperation](
 	[id] [uniqueidentifier] NOT NULL,
 	[name] [nvarchar](50) NULL,
 	[isRequired] [bit] NULL,
-	[isTest] [bit] NULL,
+	[type] [nvarchar](20)  NULL,
 	[testHasAccepted] [bit] NULL,
 	[testHasToRepair] [bit] NULL,
 	[testHasToWithdraw] [bit] NULL,
@@ -366,7 +379,40 @@ CREATE TABLE [dbo].[Railcar](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+
 SET ANSI_PADDING OFF
+
+
+
+
+/****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[InspectionTestResult](
+	
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[partId] [uniqueidentifier] NULL,
+
+
+	[inspectionDate] [date] NULL,
+
+	[order][int] NULL,
+	[status] [nvarchar] (25) NULL,
+	[value] [nvarchar] (20) NULL,
+
+ CONSTRAINT [PK_InspectionTestResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+
+
+
+
 /****** Object:  Table [dbo].[TestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -436,6 +482,12 @@ CREATE TABLE [dbo].[Welder](
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
 
+
+
+/* ------ Component Type CONSTRAINT ------ */
+ALTER TABLE [dbo].[Component]  WITH CHECK ADD  CONSTRAINT [FK_Component_ComponentType] FOREIGN KEY([componentTypeId])
+REFERENCES [dbo].[ComponentType] ([id])
+ALTER TABLE [dbo].[Component] CHECK CONSTRAINT [FK_Component_ComponentType]
 
 /* ------ Connector CONSTRAINT ------ */
 ALTER TABLE [dbo].[Connector]  WITH CHECK ADD  CONSTRAINT [FK_Connector_Component] FOREIGN KEY([componentId])
@@ -580,7 +632,107 @@ CREATE TABLE [dbo].[Role_Permission] (
   CONSTRAINT ROLE_PERM_PERM_FK FOREIGN KEY([permissionId]) REFERENCES [dbo].[Permission]([id]),
 );
 
+CREATE TABLE [dbo].[Joint](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[number] [nvarchar](20) NULL,
+	[numberKP] [int] NULL,
+	[distanceFromKP] [float] NULL,
+	[loweringDate] [date] NULL,
+	[status] [nvarchar](20) NULL,
+	[gpsLatitude] [float] NULL,
+	[gpsLongitude] [float] NULL,
+	[gpsHeight] [float] NULL,
+	[part1Id] [uniqueidentifier] NULL,
+	[part1Type] [nvarchar](20) NULL,
+	[part2Id] [uniqueidentifier] NULL,
+	[part2Type] [nvarchar](20) NULL,
+ CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 GO
 
+CREATE TABLE [dbo].[JointTestResult](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[date] [date] NULL,
+	[value] [nvarchar](20) NULL,
+	[status] [nvarchar](25) NULL,
+	[order] [int] NULL,
+	[jointOperationId] [uniqueidentifier] NOT NULL,
+	[jointId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_Joint] FOREIGN KEY([jointId])
+REFERENCES [dbo].[Joint] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_Joint]
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_JointOperation] FOREIGN KEY([jointOperationId])
+REFERENCES [dbo].[JointOperation] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_JointOperation]
+GO
+
+CREATE TABLE [dbo].[JointWeldResult](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[isCompleted] [bit] NULL,
+	[date] [date] NULL,
+	[jointOperationId] [uniqueidentifier] NOT NULL,
+	[jointId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_JointWeldResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[JointWeldResult]  WITH CHECK ADD  CONSTRAINT [FK_JointWeldResult_Joint] FOREIGN KEY([jointId])
+REFERENCES [dbo].[Joint] ([id])
+GO
+
+ALTER TABLE [dbo].[JointWeldResult] CHECK CONSTRAINT [FK_JointWeldResult_Joint]
+GO
+
+ALTER TABLE [dbo].[JointWeldResult]  WITH CHECK ADD  CONSTRAINT [FK_JointWeldResult_JointOperation] FOREIGN KEY([jointOperationId])
+REFERENCES [dbo].[JointOperation] ([id])
+GO
+
+ALTER TABLE [dbo].[JointWeldResult] CHECK CONSTRAINT [FK_JointWeldResult_JointOperation]
+GO
+
+CREATE TABLE [dbo].[WeldResult_Welder](
+	[welderId] [uniqueidentifier] NULL,
+	[resultId] [uniqueidentifier] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder]  WITH CHECK ADD  CONSTRAINT [FK_WeldResult_Welder_Result] FOREIGN KEY([resultId])
+REFERENCES [dbo].[JointWeldResult] ([id])
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Result]
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder]  WITH CHECK ADD  CONSTRAINT [FK_WeldResult_Welder_Welder] FOREIGN KEY([welderId])
+REFERENCES [dbo].[Welder] ([id])
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
+GO
 

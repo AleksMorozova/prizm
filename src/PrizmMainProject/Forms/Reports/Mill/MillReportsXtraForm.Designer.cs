@@ -94,7 +94,7 @@
             this.previewReportDocument.AutoScroll = true;
             this.previewReportDocument.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.previewReportDocument.IsMetric = false;
-            this.previewReportDocument.Location = new System.Drawing.Point(-178, 201);
+            this.previewReportDocument.Location = new System.Drawing.Point(29, 201);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(1089, 203);
             this.previewReportDocument.TabIndex = 78;
@@ -102,7 +102,7 @@
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(798, 94);
+            this.previewButton.Location = new System.Drawing.Point(1005, 94);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(113, 22);
             this.previewButton.StyleController = this.generalReportLayout;
@@ -131,7 +131,7 @@
             // 
             // statuses
             // 
-            this.statuses.Location = new System.Drawing.Point(501, 59);
+            this.statuses.Location = new System.Drawing.Point(708, 59);
             this.statuses.Name = "statuses";
             this.statuses.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.statuses.Size = new System.Drawing.Size(278, 82);
@@ -141,7 +141,7 @@
             // 
             // testCategories
             // 
-            this.testCategories.Location = new System.Drawing.Point(211, 59);
+            this.testCategories.Location = new System.Drawing.Point(418, 59);
             this.testCategories.MultiColumn = true;
             this.testCategories.Name = "testCategories";
             this.testCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -153,7 +153,7 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(92, 60);
+            this.endDate.Location = new System.Drawing.Point(299, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -166,7 +166,7 @@
             // startDate
             // 
             this.startDate.EditValue = null;
-            this.startDate.Location = new System.Drawing.Point(-35, 60);
+            this.startDate.Location = new System.Drawing.Point(172, 60);
             this.startDate.Name = "startDate";
             this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -178,7 +178,7 @@
             // 
             // reportPeriodLabel
             // 
-            this.reportPeriodLabel.Location = new System.Drawing.Point(-47, 43);
+            this.reportPeriodLabel.Location = new System.Drawing.Point(160, 43);
             this.reportPeriodLabel.Name = "reportPeriodLabel";
             this.reportPeriodLabel.Size = new System.Drawing.Size(52, 13);
             this.reportPeriodLabel.StyleController = this.generalReportLayout;
@@ -188,7 +188,7 @@
             // reportTypes
             // 
             this.reportTypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.reportTypes.Location = new System.Drawing.Point(-181, 59);
+            this.reportTypes.Location = new System.Drawing.Point(26, 59);
             this.reportTypes.Name = "reportTypes";
             this.reportTypes.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.reportTypes.Properties.Appearance.Options.UseBackColor = true;
@@ -201,7 +201,7 @@
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(798, 58);
+            this.createReportButton.Location = new System.Drawing.Point(1005, 58);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(113, 22);
             this.createReportButton.StyleController = this.generalReportLayout;
@@ -216,7 +216,7 @@
             this.generalReportLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.createReportaLyoutGroup,
             this.previewLayoutGroup});
-            this.generalReportLayoutGroup.Location = new System.Drawing.Point(-207, 0);
+            this.generalReportLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalReportLayoutGroup.Name = "Root";
             this.generalReportLayoutGroup.Size = new System.Drawing.Size(1147, 433);
             this.generalReportLayoutGroup.Text = "Root";
@@ -441,7 +441,7 @@
             this.previewLayoutGroup.Name = "previewLayoutGroup";
             this.previewLayoutGroup.Size = new System.Drawing.Size(1127, 268);
             this.previewLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
-            this.previewLayoutGroup.Text = "Предворительный просмотр отчёта";
+            this.previewLayoutGroup.Text = "Предварительный просмотр отчёта ";
             // 
             // previewLayout
             // 

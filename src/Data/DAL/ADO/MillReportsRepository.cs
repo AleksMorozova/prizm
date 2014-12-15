@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Ninject;
 using Domain.Entity.Mill;
-
+using System.ComponentModel;
 
 namespace Data.DAL.ADO
 {
@@ -127,6 +127,117 @@ namespace Data.DAL.ADO
             return auditDataTable;
         }
 
+        public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
+
+        public DataSet GetUsedProducts(int startPK, int endPK, string queryString)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Joint");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startPK", startPK);
+                        command.Parameters.AddWithValue("@endPK", endPK);
+                        command.CommandText = queryString;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get Used Products", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
+
+        public DataTable GetPipelineElements()
+        { 
+         CreateConnection();
+            DataTable resultsTable = new DataTable();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = SQLQueryString.GetPipelinePieces;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(resultsTable);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetAuditResults", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return resultsTable;
+        }
+
         public SqlConnection CreateConnection()
         {
             if (connection == null)
@@ -136,6 +247,42 @@ namespace Data.DAL.ADO
             }
 
             return connection;
+        }
+
+        public BindingList<int> GetAllKP() 
+        {
+            CreateConnection();
+            BindingList<int> PKList = new BindingList<int>();
+         
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = SQLQueryString.GettAllKP;
+                    SqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {  
+                        PKList.Add((int)dr[0]);
+                    }
+                }
+
+              
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get Used Products", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return PKList;
         }
 
     }

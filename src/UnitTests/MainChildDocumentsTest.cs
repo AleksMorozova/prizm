@@ -2,10 +2,8 @@
 using NUnit.Framework;
 
 using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
@@ -13,8 +11,10 @@ using PrizmMain.Forms.Railcar.Search;
 using PrizmMain.Forms.Reports.Construction;
 using PrizmMain.Forms.Reports.Incoming;
 using PrizmMain.Forms.Reports.Mill;
+using PrizmMain.Forms.Reports.Custom;
 using PrizmMain.Forms.Settings;
 using PrizmMain.Forms.Spool;
+using PrizmMain.Forms.InspectionParts.Search;
 
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Forms.Audit;
@@ -24,26 +24,47 @@ namespace UnitTests
     [TestFixture]
     public class MainChildDocumentsTest
     {
-        [Test]
-        public void TestAllChildFormsAreChild()
+        [TestCase(typeof(MillPipeNewEditXtraForm))]
+        [TestCase(typeof(MillPipeSearchXtraForm))]
+        [TestCase(typeof(RailcarNewEditXtraForm))]
+        [TestCase(typeof(RailcarSearchXtraForm))]
+        [TestCase(typeof(MillReportsXtraForm))]
+        [TestCase(typeof(PartSearchXtraForm))]
+        [TestCase(typeof(InspectionReportsXtraForm))]
+        [TestCase(typeof(ComponentNewEditXtraForm))]
+        [TestCase(typeof(CustomReportsXtraForm))]
+        [TestCase(typeof(JointNewEditXtraForm))]
+        [TestCase(typeof(JointSearchXtraForm))]
+        [TestCase(typeof(ConstructionReportsXtraForm))]
+        [TestCase(typeof(SettingsXtraForm))]
+        [TestCase(typeof(SpoolsXtraForm))]
+        [TestCase(typeof(AuditXtraForm))]
+        public void TestChildFormSuccessor(System.Type type)
         {
-            Assert.IsTrue(typeof(MillPipeNewEditXtraForm).IsSubclassOf(typeof(ChildForm)), "MillPipeNewEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(RailcarNewEditXtraForm).IsSubclassOf(typeof(ChildForm)), "RailcarNewEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(MillPipeSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "MillPipeSearchXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(MillReportsXtraForm).IsSubclassOf(typeof(ChildForm)), "MillReportsXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(ComponentNewEditXtraForm).IsSubclassOf(typeof(ChildForm)), "ComponentNewEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(InspectionReportsXtraForm).IsSubclassOf(typeof(ChildForm)), "InspectionReportsXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(ComponentSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "ComponentSearchXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(JointNewEditXtraForm).IsSubclassOf(typeof(ChildForm)), "JointNewEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(JointSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "JointSearchXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(ConstructionReportsXtraForm).IsSubclassOf(typeof(ChildForm)), "ConstructionReportsXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(SettingsXtraForm).IsSubclassOf(typeof(ChildForm)), "SettingsXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(RailcarSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "RailcarSearchXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(InspectionPipeSearchEditXtraForm).IsSubclassOf(typeof(ChildForm)), "InspectionPipeSearchEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(SpoolsXtraForm).IsSubclassOf(typeof(ChildForm)), "SpoolsXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(ComponentSearchXtraForm).IsSubclassOf(typeof(ChildForm)), "ComponentSearchXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(InspectionPipeSearchEditXtraForm).IsSubclassOf(typeof(ChildForm)), "InspectionPipeSearchEditXtraForm does not inherit from ChildForm!");
-            Assert.IsTrue(typeof(AuditXtraForm).IsSubclassOf(typeof(ChildForm)), "AuditXtraForm does not inherit from ChildForm!");
+            Assert.IsTrue(type.IsSubclassOf(typeof(ChildForm)), type.Name + " does not inherit from ChildForm!");
+
+            var attributes = type.GetCustomAttributes(typeof(System.ComponentModel.DesignerCategoryAttribute), false);
+
+            Assert.GreaterOrEqual(attributes.Length, 1, string.Format("No DesignerCategoryAttribute for {0}!", type.Name));
+
+            foreach (var a in attributes)
+            {
+                Assert.AreEqual(((System.ComponentModel.DesignerCategoryAttribute)a).Category, "Form", type.Name + " does not marked as DesignerCategoryAttribute - Form");
+            }
+        }
+
+        [Test]
+        public void TestChildForm()
+        {
+            var attributes = typeof(ChildForm).GetCustomAttributes(typeof(System.ComponentModel.DesignerCategoryAttribute), false);
+
+            Assert.GreaterOrEqual(attributes.Length, 1, "No DesignerCategoryAttribute for child form!");
+
+            foreach (var a in attributes)
+            {
+                Assert.AreEqual(((System.ComponentModel.DesignerCategoryAttribute)a).Category, "", typeof(ChildForm) + " does not marked as empty DesignerCategoryAttribute");
+            }
+
         }
     }
 

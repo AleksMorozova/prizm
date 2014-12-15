@@ -8,6 +8,7 @@ namespace Data.DAL.ADO
 {
     public static class SQLQueryString
     {
+        public const string GettAllKP = @"Select distinct(numberKP) From Joint";
         public const string GetAllActivePipesByDate = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
           from  Pipe Pipe
           left join Plate on (Plate.id = Pipe.plateId)
@@ -44,5 +45,54 @@ namespace Data.DAL.ADO
 FROM AuditLog 
                 WHERE auditDate >= @startDate and auditDate <= @finalDate
                 AND [user] LIKE @user";
+
+        public const string GetPipelinePieces =
+            @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length FROM pipe WHERE isActive = 1
+            UNION ALL
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length FROM spool s 
+            INNER JOIN pipe p ON s.pipeId = p.id WHERE s.isActive = 1
+            UNION ALL
+            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length FROM component c 
+            INNER JOIN connector con ON c.id = con.componentId WHERE c.isActive = 1
+            ORDER BY number";
+            
+        public const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
+          from  InspectionTestResult InspectionTestResult
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
+          left join Plate on (Plate.id = Pipe.plateId)
+          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+          left  join Heat on (Heat.id = Plate.heatId)
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+
+        public const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union 
+select Spool.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        public const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Component.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part2Id])
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
     }
 }
+            

@@ -6,10 +6,8 @@ using NHibernate;
 using Ninject.Modules;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.Railcar.Search;
@@ -28,8 +26,11 @@ using Data.DAL.ADO;
 using Data.DAL.Security;
 using PrizmMain.Forms.Audit;
 using PrizmMain.Security;
+using PrizmMain.Forms.Component;
 using PrizmMain.Forms.Joint;
 using Data.DAL.Construction;
+using PrizmMain.Forms.InspectionParts.Search;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain
 {
@@ -67,6 +68,12 @@ namespace PrizmMain
             Bind<IConstructionRepository>().To<ConstructionRepository>();
             Bind<IJointRepository>().To<JointRepository>();
 
+            Bind<IComponentRepositories>().To<ComponentRepositories>();
+            Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
+            Bind<IComponentRepository>().To<ComponentRepository>();
+            Bind<ISpoolRepository>().To<SpoolRepository>();
+
+
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
@@ -83,6 +90,10 @@ namespace PrizmMain
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
             Bind<JointNewEditViewModel>().ToSelf();
+	        Bind<JointSearchViewModel>().ToSelf();
+            Bind<PartSearchViewModel>().ToSelf();
+            Bind<FirstSetupViewModel>().ToSelf();
+            Bind<SpoolViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -92,17 +103,21 @@ namespace PrizmMain
             Bind<MillReportsXtraForm>().ToSelf();
             Bind<ComponentNewEditXtraForm>().ToSelf();
             Bind<InspectionReportsXtraForm>().ToSelf();
-            Bind<ComponentSearchXtraForm>().ToSelf();
             Bind<JointNewEditXtraForm>().ToSelf();
             Bind<JointSearchXtraForm>().ToSelf();
             Bind<ConstructionReportsXtraForm>().ToSelf();
             Bind<SettingsXtraForm>().ToSelf();
             Bind<RailcarSearchXtraForm>().ToSelf();
-            Bind<InspectionPipeSearchEditXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();
             Bind<AuditXtraForm>().ToSelf();
+            Bind<PartSearchXtraForm>().ToSelf();
+            Bind<FirstSetupXtraForm>().ToSelf();
+            #endregion
+
+            #region Commands
+            Bind<JointSearchCommand>().ToSelf(); 
             #endregion
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
