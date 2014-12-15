@@ -28,9 +28,9 @@ namespace PrizmMain.Forms.Spool
         {
             repos.BeginTransaction();
             repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-            repos.PipeRepo.Evict(viewModel.Pipe);
             repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-            repos.Commit();
+            repos.Commit();            
+            repos.PipeRepo.Evict(viewModel.Pipe);
             repos.SpoolRepo.Evict(viewModel.Spool);
             //TODO: move to Resource file
             notify.ShowNotify("Отрезана катушка заданной длины","Создание катушка");
