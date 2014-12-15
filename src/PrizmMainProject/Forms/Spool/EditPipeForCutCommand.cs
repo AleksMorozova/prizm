@@ -26,8 +26,17 @@ namespace PrizmMain.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
-            viewModel.ModifiableView.IsModified = false;
+            if (repo.GetByNumber(viewModel.PipeNumber) != null)
+            {
+                viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
+                viewModel.ModifiableView.IsModified = false;
+            }
+
+            else
+            {
+                //TODO: input in Resource
+                notify.ShowFailure("Неверный номер трубы", "Введен неверный номер трубы.");
+            }
         }
 
 
