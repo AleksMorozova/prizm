@@ -23,13 +23,16 @@ using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
 using Domain.Entity.Security;
 using Domain.Entity.Mill;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Settings
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class SettingsXtraForm : ChildForm
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
         {
@@ -40,6 +43,7 @@ namespace PrizmMain.Forms.Settings
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
         #region Role Setting
@@ -130,9 +134,13 @@ namespace PrizmMain.Forms.Settings
 
             gridControlRoles.DataSource = rolesBindingSource;
 
+            jointOperationsBindingSource.DataSource = viewModel.JointOperations;
             #endregion
 
             #region Data Bindings
+
+            jointOperations.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "JointOperations");
+
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
 
             client.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Client");
@@ -142,17 +150,21 @@ namespace PrizmMain.Forms.Settings
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+
+            jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
         }
        
         private void BindCommands()
         {
-           saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+           commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
+                      
            SaveCommand = viewModel.SaveCommand;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
+            commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }
@@ -439,11 +451,9 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             {
                 case CollectionChangeAction.Add:
                     viewModel.AddPermissionToRole(role, p);
-                    IsModified = true;
                     break;
                 case CollectionChangeAction.Remove:
                     viewModel.RemovePermissionFromRole(role, p);
-                    IsModified = true;
                     break;
             }
         }
@@ -495,12 +505,16 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             if (view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 User user = view.GetRow(view.FocusedRowHandle) as User;
-                PasswordChangeDialog dlg = new PasswordChangeDialog();
-                if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                if(user != null)
                 {
-                    user.PasswordHash = dlg.NewPasswordHash;
-                    IsModified = true;
+                    PasswordChangeDialog dlg = new PasswordChangeDialog();
+                    if(dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlg.NewPasswordHash;
+                        IsModified = true;
+                    }
                 }
+                
             }
         }
 
@@ -524,11 +538,9 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
                     {
                         case CollectionChangeAction.Add:
                             viewModel.AddRoleToUser(role, user);
-                            IsModified = true;
                             break;
                         case CollectionChangeAction.Remove:
                             viewModel.RemoveRoleFromUser(role, user);
-                            IsModified = true;
                             break;
                     }
                 }
@@ -560,6 +572,13 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         private void gridViewUsers_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             RefreshUserRoles(e.FocusedRowHandle);
+        }
+
+        private void jointsOperationsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
+            jointOperation.IsActive = true;
         }
 
     }

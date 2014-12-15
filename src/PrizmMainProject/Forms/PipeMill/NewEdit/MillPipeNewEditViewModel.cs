@@ -50,6 +50,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
+        bool recalculateWeight = false;
 
         private bool canDeactivatePipe = false;
         public bool CanDeactivatePipe
@@ -282,6 +283,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.Diameter)
                 {
                     Pipe.Diameter = value;
+                    recalculateWeight = true;
                     RaisePropertyChanged("Diameter");
                 }
             }
@@ -295,14 +297,22 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.Length)
                 {
                     Pipe.Length = value;
+                    recalculateWeight = true; 
                     RaisePropertyChanged("Length");
                 }
             }
         }
 
-        public int Weight
+        public float Weight
         {
-            get { return Pipe.Weight; }
+            get
+            {
+                if (recalculateWeight) 
+                {
+                    Pipe.Weight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                }
+                return Pipe.Weight; 
+            }
             set
             {
                 if (value != Pipe.Weight)
@@ -321,6 +331,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 if (value != Pipe.WallThickness)
                 {
                     Pipe.WallThickness = value;
+                    recalculateWeight = true;
                     RaisePropertyChanged("WallThickness");
                 }
             }
@@ -734,7 +745,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             int count = 0; 
             foreach (PipeTestResult test in pipeTestResults)
             {
-                if ((test.Status == PipeTestResultStatus.Failed) || (test.Status == PipeTestResultStatus.Passed))
+                if ((test.Status == PipeTestResultStatus.Failed) || 
+                    (test.Status == PipeTestResultStatus.Passed))
                 {
                     count++;
                 }
@@ -743,7 +755,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
 
 
-         private void LoadPipeMillStatuses()
+        private void LoadPipeMillStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
@@ -756,17 +768,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-         public Documents.IModifiable ModifiableView
-         {
+        public Documents.IModifiable ModifiableView
+        {
             get
             {
-               return modifiableView;
+                return modifiableView;
             }
             set
             {
-               modifiableView = value;
+                modifiableView = value;
             }
-         }
+        }
 
          public bool CheckStatus()
          {

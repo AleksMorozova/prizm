@@ -150,6 +150,7 @@
             this.railcarListView.OptionsBehavior.ReadOnly = true;
             this.railcarListView.OptionsView.ShowGroupPanel = false;
             this.railcarListView.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.railcarListView_CustomRowCellEdit);
+            this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
             // editGridColumn
@@ -428,8 +429,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "Завод - поиск вагонов";
-            this.Activated += new System.EventHandler(this.RailcarSearchXtraForm_Activated);
+            this.Text = "Поиск вагонов";
             this.Load += new System.EventHandler(this.RailcarSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).EndInit();

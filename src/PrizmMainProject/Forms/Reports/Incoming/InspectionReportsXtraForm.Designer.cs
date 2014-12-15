@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionReportsXtraForm));
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
@@ -41,12 +42,13 @@
             this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.incomingInspectionDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.createButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.DateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.labelEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.previewReportLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectionReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -58,12 +60,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomingInspectionDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelEmptySpaceItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewReportLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionReportsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayout
@@ -86,22 +89,23 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(140, 60);
+            this.endDate.Location = new System.Drawing.Point(138, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.endDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endDate.Size = new System.Drawing.Size(80, 20);
+            this.endDate.Size = new System.Drawing.Size(79, 20);
             this.endDate.StyleController = this.generalLayout;
             this.endDate.TabIndex = 54;
             // 
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(798, 48);
+            this.createReportButton.Location = new System.Drawing.Point(354, 58);
+            this.createReportButton.MinimumSize = new System.Drawing.Size(100, 0);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(113, 22);
+            this.createReportButton.Size = new System.Drawing.Size(110, 22);
             this.createReportButton.StyleController = this.generalLayout;
             this.createReportButton.TabIndex = 55;
             this.createReportButton.Text = "Соз&дать отчет";
@@ -109,7 +113,7 @@
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(672, 48);
+            this.previewButton.Location = new System.Drawing.Point(228, 58);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(110, 22);
             this.previewButton.StyleController = this.generalLayout;
@@ -143,7 +147,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.startDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.startDate.Size = new System.Drawing.Size(84, 20);
+            this.startDate.Size = new System.Drawing.Size(82, 20);
             this.startDate.StyleController = this.generalLayout;
             this.startDate.TabIndex = 53;
             // 
@@ -169,9 +173,9 @@
             this.incomingInspectionDateLayout,
             this.endDateLayout,
             this.createButtonLayout,
-            this.DateEmptySpace,
             this.labelEmptySpaceItem,
-            this.previewButtonLayout});
+            this.previewButtonLayout,
+            this.DateEmptySpace});
             this.createReportLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.createReportLayoutGroup.Name = "createReportLayoutGroup";
             this.createReportLayoutGroup.Size = new System.Drawing.Size(920, 84);
@@ -183,7 +187,7 @@
             this.startDateLayout.CustomizationFormText = "С";
             this.startDateLayout.Location = new System.Drawing.Point(0, 17);
             this.startDateLayout.Name = "startDateLayout";
-            this.startDateLayout.Size = new System.Drawing.Size(100, 24);
+            this.startDateLayout.Size = new System.Drawing.Size(98, 24);
             this.startDateLayout.Text = "С";
             this.startDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.startDateLayout.TextSize = new System.Drawing.Size(7, 13);
@@ -205,33 +209,22 @@
             // 
             this.endDateLayout.Control = this.endDate;
             this.endDateLayout.CustomizationFormText = "По";
-            this.endDateLayout.Location = new System.Drawing.Point(100, 17);
+            this.endDateLayout.Location = new System.Drawing.Point(98, 17);
             this.endDateLayout.Name = "endDateLayout";
-            this.endDateLayout.Size = new System.Drawing.Size(100, 24);
+            this.endDateLayout.Size = new System.Drawing.Size(99, 24);
             this.endDateLayout.Text = "По";
             this.endDateLayout.TextSize = new System.Drawing.Size(13, 13);
-            // 
-            // previewButtonLayout
-            // 
-            this.previewButtonLayout.Control = this.previewButton;
-            this.previewButtonLayout.CustomizationFormText = "previewButtonLayout";
-            this.previewButtonLayout.Location = new System.Drawing.Point(641, 0);
-            this.previewButtonLayout.Name = "previewButtonLayout";
-            this.previewButtonLayout.Size = new System.Drawing.Size(126, 41);
-            this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 5, 5);
-            this.previewButtonLayout.Text = "previewButtonLayout";
-            this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewButtonLayout.TextToControlDistance = 0;
-            this.previewButtonLayout.TextVisible = false;
             // 
             // createButtonLayout
             // 
             this.createButtonLayout.Control = this.createReportButton;
             this.createButtonLayout.CustomizationFormText = "createButtonLayout";
-            this.createButtonLayout.Location = new System.Drawing.Point(767, 0);
+            this.createButtonLayout.Location = new System.Drawing.Point(323, 0);
+            this.createButtonLayout.MinSize = new System.Drawing.Size(110, 36);
             this.createButtonLayout.Name = "createButtonLayout";
-            this.createButtonLayout.Size = new System.Drawing.Size(129, 41);
-            this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 5, 5);
+            this.createButtonLayout.Size = new System.Drawing.Size(126, 41);
+            this.createButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 15, 0);
             this.createButtonLayout.Text = "createButtonLayout";
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.createButtonLayout.TextToControlDistance = 0;
@@ -241,9 +234,9 @@
             // 
             this.DateEmptySpace.AllowHotTrack = false;
             this.DateEmptySpace.CustomizationFormText = "DateEmptySpace";
-            this.DateEmptySpace.Location = new System.Drawing.Point(200, 0);
+            this.DateEmptySpace.Location = new System.Drawing.Point(449, 0);
             this.DateEmptySpace.Name = "DateEmptySpace";
-            this.DateEmptySpace.Size = new System.Drawing.Size(441, 41);
+            this.DateEmptySpace.Size = new System.Drawing.Size(447, 41);
             this.DateEmptySpace.Text = "DateEmptySpace";
             this.DateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -253,9 +246,24 @@
             this.labelEmptySpaceItem.CustomizationFormText = "labelEmptySpaceItem";
             this.labelEmptySpaceItem.Location = new System.Drawing.Point(136, 0);
             this.labelEmptySpaceItem.Name = "labelEmptySpaceItem";
-            this.labelEmptySpaceItem.Size = new System.Drawing.Size(64, 17);
+            this.labelEmptySpaceItem.Size = new System.Drawing.Size(61, 17);
             this.labelEmptySpaceItem.Text = "labelEmptySpaceItem";
             this.labelEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // previewButtonLayout
+            // 
+            this.previewButtonLayout.Control = this.previewButton;
+            this.previewButtonLayout.CustomizationFormText = "previewButtonLayout";
+            this.previewButtonLayout.Location = new System.Drawing.Point(197, 0);
+            this.previewButtonLayout.MinSize = new System.Drawing.Size(126, 36);
+            this.previewButtonLayout.Name = "previewButtonLayout";
+            this.previewButtonLayout.Size = new System.Drawing.Size(126, 41);
+            this.previewButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 15, 0);
+            this.previewButtonLayout.Text = "previewButtonLayout";
+            this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.previewButtonLayout.TextToControlDistance = 0;
+            this.previewButtonLayout.TextVisible = false;
             // 
             // previewReportLayoutGroup
             // 
@@ -266,7 +274,7 @@
             this.previewReportLayoutGroup.Name = "previewReportLayoutGroup";
             this.previewReportLayoutGroup.Size = new System.Drawing.Size(920, 346);
             this.previewReportLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
-            this.previewReportLayoutGroup.Text = "Предворительный просмотр отчёта";
+            this.previewReportLayoutGroup.Text = "Предварительный просмотр отчёта ";
             // 
             // previewLayout
             // 
@@ -289,7 +297,8 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionReportsXtraForm";
-            this.Text = "Входной контроль - отчет";
+            this.Text = "Отчет";
+            this.Load += new System.EventHandler(this.InspectionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).EndInit();
@@ -301,12 +310,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomingInspectionDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelEmptySpaceItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewReportLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionReportsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +341,6 @@
         private DevExpress.XtraLayout.LayoutControlItem createButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem DateEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem labelEmptySpaceItem;
+        private System.Windows.Forms.BindingSource inspectionReportsBindingSource;
     }
 }

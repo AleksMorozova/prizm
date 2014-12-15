@@ -12,6 +12,8 @@ using PrizmMain.Forms.Common;
 using PrizmMain.Security;
 using Data.DAL.Security;
 using Domain.Entity.Security;
+using Data.DAL;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
 namespace PrizmMain
 {
@@ -39,12 +41,16 @@ namespace PrizmMain
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
+
+                while(!CreateProject())
+                { }
+                
+                //Login
                 while (!Login())
                 {
-                   MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                   
-                
+
                 Application.Run(new PrizmApplicationXtraForm());
             }
             catch (Exception ex)
@@ -66,15 +72,24 @@ namespace PrizmMain
            LoginForm dlg = new LoginForm();
            if (dlg.ShowDialog() == DialogResult.OK)
            {
+
               string login = dlg.Login;
               string password = dlg.Password;
+
+               #if DEBUG
+              if(string.IsNullOrWhiteSpace(dlg.Login) || string.IsNullOrWhiteSpace(dlg.Password))
+              {
+                  login = "admin";
+                  password = "admin";
+              }
+               #endif
 
               User user = new User() { IsActive = false, Login = "system" };
 
               IUserRepository userRepo = Kernel.Get<IUserRepository>();
               user = userRepo.FindByLogin(login);
 
-              if (!user.IsActive)
+              if (user == null || !user.IsActive)
                  return false;
 
               string hash = PasswordEncryptor.EncryptPassword(password);
@@ -94,6 +109,30 @@ namespace PrizmMain
            }
 
            return false;
+        }
+
+        static bool CreateProject()
+        {
+            bool result = false;
+            IProjectRepository repo = (IProjectRepository)Program.Kernel.Get(typeof(IProjectRepository));
+
+            if(repo.GetSingle() == null)
+            {
+                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
+                {
+                        setupDialog.ShowDialog();
+                        if(setupDialog.DialogResult == DialogResult.Cancel)
+                        {
+                            System.Environment.Exit(0);
+                        }
+                }
+            }
+            else
+            {
+                result = true;
+            }
+
+            return result;
         }
     }
 }

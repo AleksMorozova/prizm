@@ -60,9 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandInfoTest.cs" />
+    <Compile Include="Commands\CommandManagerTest.cs" />
     <Compile Include="DisplayObjectInfo.cs" />
     <Compile Include="AuditTrailTests.cs" />
     <Compile Include="Forms\Common\PasswordEncryptorTest.cs" />
+    <Compile Include="Forms\Component\NewEdit\TestNewSaveComponentCommand.cs" />
     <Compile Include="Forms\PrizmMainForm.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommandTest.cs" />

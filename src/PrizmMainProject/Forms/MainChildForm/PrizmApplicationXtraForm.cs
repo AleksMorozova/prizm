@@ -9,10 +9,8 @@ using Ninject.Parameters;
 using Ninject;
 
 using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Component.Search;
 using PrizmMain.Forms.Joint.NewEdit;
 using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeIncoming;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.Railcar.NewEdit;
@@ -26,6 +24,8 @@ using PrizmMain.Forms.Spool;
 using PrizmMain.Properties;
 using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
+using PrizmMain.Forms.Audit;
+using PrizmMain.Forms.InspectionParts.Search;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -177,8 +177,20 @@ namespace PrizmMain.Forms.MainChildForm
                 }
                 ShowChildForm(form);
             }
+            else
+            {
+                var forms = childForms[typeof(SettingsXtraForm).Name];
+
+                if (forms.Count > 0)
+                {
+                    SettingsXtraForm f = (SettingsXtraForm)forms[0];
+                    f.settings.SelectedTabPage = f.settings.TabPages[page];
+                    f.Activate();
+                }      
+            }
         }
 
+        #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(MillPipeNewEditXtraForm));
@@ -207,11 +219,6 @@ namespace PrizmMain.Forms.MainChildForm
         private void barButtonItemInspectionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(InspectionReportsXtraForm));
-        }
-
-        private void barButtonItemInspectionFindComponentry_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateChildForm(typeof(ComponentSearchXtraForm));
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
@@ -256,12 +263,12 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -271,7 +278,7 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(PartSearchXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
@@ -279,14 +286,14 @@ namespace PrizmMain.Forms.MainChildForm
             CreateChildForm(typeof(SpoolsXtraForm));
         }
 
-        private void barButtonItemConstructionFindEditComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemConstructionFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(ComponentSearchXtraForm));
+            CreateChildForm(typeof(PartSearchXtraForm));
         }
 
-        private void barButtonItemConstructionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionPipeSearchEditXtraForm));
+            CreateChildForm(typeof(AuditXtraForm));
         }
 
         private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
@@ -295,7 +302,8 @@ namespace PrizmMain.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        }
+        } 
+        #endregion
 
 
         #region IUserNotify
@@ -400,12 +408,14 @@ namespace PrizmMain.Forms.MainChildForm
         private void PrizmApplicationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
-            viewModel.GetOrCreateProject();
+
+            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
+
+            if (!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
+            {
+                this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
+            }
         }
-
-
-
-
 
 
      

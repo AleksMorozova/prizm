@@ -8,13 +8,15 @@ using System.Linq;
 using System.Collections.Generic;
 using Domain.Entity.Mill;
 using PrizmMain.Common;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.PipeMill.Heat
 {
-    public partial class HeatXtraForm : ChildForm
+    public partial class HeatXtraForm : XtraForm
     {
 
         private HeatViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
 
         public HeatXtraForm() : this("")
         {
@@ -26,6 +28,8 @@ namespace PrizmMain.Forms.PipeMill.Heat
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
+
+            number.SetAsIdentifier();
         }
 
         private void HeatXtraForm_Load(object sender, EventArgs e)
@@ -48,7 +52,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton); 
         }
 
         private void HeatXtraForm_FormClosed(object sender, FormClosedEventArgs e)

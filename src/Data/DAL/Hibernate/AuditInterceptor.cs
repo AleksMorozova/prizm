@@ -90,13 +90,15 @@ namespace Data.DAL.Hibernate
         /// </summary>
         private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
         {
+            string entityType = curentity.GetType().ToString();
+            string tableName = entityType.Substring(entityType.LastIndexOf('.') + 1);
             AuditLog record = new AuditLog()
             {
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
                 User = currentUser.GetFullName(),
-                TableName = curentity.GetType().ToString(),
+                TableName = tableName,
                 FieldName = fieldName,
                 NewValue = newValue,
                 OldValue = oldValue
@@ -137,6 +139,8 @@ namespace Data.DAL.Hibernate
                             break;
                         default: break;
                     }
+                    if (state[i].ToString().StartsWith("System.Collections.Generic") || state[i].ToString().StartsWith("System.ComponentModel.BindingList"))
+                        continue;
                     NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                 }
             }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -71,7 +72,8 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -234,6 +236,7 @@
             // pipesSearchResultView
             // 
             this.pipesSearchResultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idCol,
             this.pipeNumberGridColumn,
             this.pipeDiameterGridColumn,
             this.pipeMillGridColumn,
@@ -255,7 +258,7 @@
             this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
             this.pipeNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeNumberGridColumn.Visible = true;
-            this.pipeNumberGridColumn.VisibleIndex = 0;
+            this.pipeNumberGridColumn.VisibleIndex = 1;
             this.pipeNumberGridColumn.Width = 170;
             // 
             // pipeDiameterGridColumn
@@ -265,7 +268,7 @@
             this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
             this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeDiameterGridColumn.Visible = true;
-            this.pipeDiameterGridColumn.VisibleIndex = 1;
+            this.pipeDiameterGridColumn.VisibleIndex = 2;
             this.pipeDiameterGridColumn.Width = 170;
             // 
             // pipeMillGridColumn
@@ -275,7 +278,7 @@
             this.pipeMillGridColumn.Name = "pipeMillGridColumn";
             this.pipeMillGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeMillGridColumn.Visible = true;
-            this.pipeMillGridColumn.VisibleIndex = 2;
+            this.pipeMillGridColumn.VisibleIndex = 3;
             this.pipeMillGridColumn.Width = 150;
             // 
             // heatNumberGridColumn
@@ -285,7 +288,7 @@
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
             this.heatNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.heatNumberGridColumn.Visible = true;
-            this.heatNumberGridColumn.VisibleIndex = 3;
+            this.heatNumberGridColumn.VisibleIndex = 4;
             this.heatNumberGridColumn.Width = 170;
             // 
             // statusSearchGridColumn
@@ -296,7 +299,7 @@
             this.statusSearchGridColumn.Name = "statusSearchGridColumn";
             this.statusSearchGridColumn.OptionsColumn.AllowEdit = false;
             this.statusSearchGridColumn.Visible = true;
-            this.statusSearchGridColumn.VisibleIndex = 4;
+            this.statusSearchGridColumn.VisibleIndex = 5;
             this.statusSearchGridColumn.Width = 100;
             // 
             // repositoryLookUpEditStatus
@@ -320,7 +323,7 @@
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
             this.weldingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.weldingDateGridColumn.Visible = true;
-            this.weldingDateGridColumn.VisibleIndex = 5;
+            this.weldingDateGridColumn.VisibleIndex = 6;
             this.weldingDateGridColumn.Width = 100;
             // 
             // internalCoatingDateGridColumn
@@ -330,7 +333,7 @@
             this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
             this.internalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.internalCoatingDateGridColumn.Visible = true;
-            this.internalCoatingDateGridColumn.VisibleIndex = 7;
+            this.internalCoatingDateGridColumn.VisibleIndex = 8;
             this.internalCoatingDateGridColumn.Width = 87;
             // 
             // externalCoatingDateGridColumn
@@ -340,7 +343,7 @@
             this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
             this.externalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.externalCoatingDateGridColumn.Visible = true;
-            this.externalCoatingDateGridColumn.VisibleIndex = 6;
+            this.externalCoatingDateGridColumn.VisibleIndex = 7;
             this.externalCoatingDateGridColumn.Width = 100;
             // 
             // pipeRepositoryButtonEdit
@@ -585,6 +588,14 @@
             this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // idCol
+            // 
+            this.idCol.Caption = "#";
+            this.idCol.FieldName = "Id";
+            this.idCol.Name = "idCol";
+            this.idCol.Visible = true;
+            this.idCol.VisibleIndex = 0;
+            // 
             // MillPipeSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,7 +604,7 @@
             this.Controls.Add(this.PipeSearchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeSearchXtraForm";
-            this.Text = "Завод - поиск труб";
+            this.Text = "Поиск труб";
             this.Load += new System.EventHandler(this.MillPipeSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();
@@ -678,6 +689,7 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeMillStatus;
         private DevExpress.XtraLayout.LayoutControlItem pipeActivityLayoutControl;
         private DevExpress.XtraEditors.ComboBoxEdit pipeActivity;
+        private DevExpress.XtraGrid.Columns.GridColumn idCol;
 
 
     }

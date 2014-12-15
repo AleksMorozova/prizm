@@ -25,7 +25,7 @@ namespace Data.DAL.Mapping
          HasManyToMany<Role>(_ => _.Roles)
             .Table("User_Role")
             .ParentKeyColumn("userId")
-            .ChildKeyColumn("roleId");
+            .ChildKeyColumn("roleId").Not.LazyLoad();
       }
    }
 }

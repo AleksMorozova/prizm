@@ -7,10 +7,15 @@ using System.Text;
 using Ninject;
 using Domain.Entity;
 
+using Domain.Entity.Setup;
+using PrizmMain.Common;
+using PrizmMain.Forms.MainChildForm.FirstSetupForm;
+
 namespace PrizmMain.Forms.MainChildForm
 {
     public class PrizmApplicationViewModel : ViewModelBase, IDisposable
     {
+        private EnumWrapper<WorkstationType> workstationName;
         readonly IProjectRepository repo;
         public Project ProjectSettings;
 
@@ -18,27 +23,26 @@ namespace PrizmMain.Forms.MainChildForm
         public PrizmApplicationViewModel(IProjectRepository repo)
         {
             this.repo = repo;
+            this.ProjectSettings = repo.GetSingle();
         }
 
-        public void GetOrCreateProject()
+
+
+
+        public EnumWrapper<WorkstationType> WorkstationType
         {
-            if (repo.GetSingle() == null)
+            get
             {
-                ProjectSettings = new Project()
-                {
-                    Client = string.Empty,
-                    MillName = string.Empty,
-                    WorkstationType = Domain.Entity.Setup.WorkstationType.Mill,
-                    MillPipeNumberMask = string.Empty,
-                    IsActive = true
-                };
-                repo.BeginTransaction();
-                repo.Save(ProjectSettings);
-                repo.Commit();
-                repo.Evict(ProjectSettings);
+                return
+                   workstationName ??
+                    new EnumWrapper<WorkstationType>() { Value = ProjectSettings.WorkstationType };
             }
-            ProjectSettings = repo.GetSingle();
+            set
+            {
+                workstationName = value;
+            }
         }
+
 
         public void Dispose()
         {

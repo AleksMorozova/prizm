@@ -37,16 +37,17 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             }
             else
             {
-                    foreach (var pipe in viewModel.Railcar.Pipes)
-                    {
-                        pipe.Status = PipeMillStatus.Stocked;
-                    }
-                    viewModel.Railcar.ShippingDate = DateTime.MinValue;
-                    viewModel.Railcar.IsShipped = false;
-                    notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
-                    viewModel.SaveCommand.Execute();
-                    viewModel.ShipCommand.IsExecutable ^= true;
-                    viewModel.UnshipCommand.IsExecutable ^= true;
+                foreach (var pipe in viewModel.Railcar.Pipes)
+                {
+                    pipe.Status = PipeMillStatus.Stocked;
+                }
+                viewModel.Railcar.ShippingDate = DateTime.MinValue;
+                viewModel.IsShipped = false;
+                notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
+                viewModel.SaveCommand.Execute();
+                viewModel.ShipCommand.IsExecutable ^= true;
+                viewModel.UnshipCommand.IsExecutable ^= true;
+                viewModel.SaveCommand.IsExecutable ^= true;
             }
         }
         public bool CanExecute()

@@ -24,12 +24,14 @@ using PrizmMain.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
 using PrizmMain.Forms.ExternalFile;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
-
+        ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -70,8 +72,15 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(chemicalComposition);
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(tensileTests);
+            SetAlwaysReadOnly(weight);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
+
+            #region --- Set Properties.CharacterCasing to Upper ---
+            pipeNumber.SetAsIdentifier();
+            plateNumber.SetAsIdentifier();
+            certificateNumber.SetAsIdentifier();
+            #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -249,9 +258,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         private void BindCommands()
         {
-            saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
-            saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
-            SaveCommand = viewModel.SavePipeCommand;
+           commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
+           commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
+
+           SaveCommand = viewModel.SavePipeCommand;
         }
 
 
@@ -332,7 +342,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.SavePipeCommand.IsExecutable ^= true;
             viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
-
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -466,7 +475,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             heatNumber.SelectedIndex = -1;
         }
 
-
         private void purchaseOrderButton_Click(object sender, EventArgs e)
         {
             var order = purchaseOrder.EditValue as PurchaseOrder;
@@ -549,7 +557,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #endregion
 
-       
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit q = sender as LookUpEdit;
@@ -588,7 +595,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 IsEditMode = false;
             }
         }
-
 
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
