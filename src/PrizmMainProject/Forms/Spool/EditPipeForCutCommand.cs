@@ -32,9 +32,10 @@ namespace PrizmMain.Forms.Spool
                 viewModel.ModifiableView.IsModified = false;
             }
 
-            else 
+            else
             {
-                notify.ShowFailure("wrong number","wrong number");
+                //TODO: input in Resource
+                notify.ShowFailure("Неверный номер трубы", "Введен неверный номер трубы.");
             }
         }
 
