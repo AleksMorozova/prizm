@@ -12,23 +12,23 @@ namespace PrizmMain.Forms.Spool
 {
     public class EditPipeForCutCommand : ICommand
     {
-        readonly IPipeRepository repo;
+        readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
 
-        public EditPipeForCutCommand(SpoolViewModel viewModel, IPipeRepository repo,IUserNotify notify)
+        public EditPipeForCutCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
-            this.repo = repo;
+            this.repos = repos;
             this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            if (repo.GetByNumber(viewModel.PipeNumber) != null)
+            if (repos.PipeRepo.GetByNumber(viewModel.PipeNumber) != null)
             {
-                viewModel.Pipe = repo.GetByNumber(viewModel.PipeNumber);
+                viewModel.Pipe = repos.PipeRepo.GetByNumber(viewModel.PipeNumber);
                 viewModel.ModifiableView.IsModified = false;
             }
 

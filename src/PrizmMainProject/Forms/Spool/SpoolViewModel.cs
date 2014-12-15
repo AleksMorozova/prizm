@@ -20,9 +20,7 @@ namespace PrizmMain.Forms.Spool
 {
     public class SpoolViewModel : ViewModelBase, IDisposable
     {
-        private readonly ISpoolRepository repoSpool;
-        private readonly IPipeRepository repoPipe;
-        private readonly IInspectorRepository repoInspector;
+        private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand cutCommand;
         readonly ICommand saveCommand;
@@ -36,26 +34,25 @@ namespace PrizmMain.Forms.Spool
         public BindingList<Pipe> allPipes { get; set; }
 
         [Inject]
-        public SpoolViewModel(IPipeRepository repoPipe, ISpoolRepository repoSpool, IInspectorRepository repoInspector, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, IUserNotify notify)
         {
-            this.repoPipe = repoPipe;
-            this.repoSpool = repoSpool;
-            this.repoInspector = repoInspector;
+            this.repos = repos;
+
             this.notify=notify;
-            this.Inspectors = repoInspector.GetAll();
+            this.Inspectors = repos.RepoInspector.GetAll();
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
-              () => new EditPipeForCutCommand(this, repoPipe, notify));
+              () => new EditPipeForCutCommand(this, repos, notify));
 
             cutCommand = ViewModelSource.Create<CutSpoolCommand>(
-             () => new CutSpoolCommand(this, repoPipe, repoSpool,notify));
+             () => new CutSpoolCommand(this, repos, notify));
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
-            () => new SaveSpoolCommand(this, repoSpool, notify));
+            () => new SaveSpoolCommand(this, repos, notify));
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repoSpool.GetAvailablePipes()) 
+            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes()) 
             {
                 allPipes.Add(p);
             }
@@ -92,7 +89,7 @@ namespace PrizmMain.Forms.Spool
                     Spool.PipeNumber = value;
 
                     StringBuilder number = new StringBuilder();
-                    int spoolNumber = repoSpool.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
+                    int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
                     number.Append(Spool.PipeNumber + "/" + spoolNumber.ToString());
                     Spool.Number = number.ToString();
 
@@ -232,8 +229,7 @@ namespace PrizmMain.Forms.Spool
 
         public void Dispose()
         {
-            repoPipe.Dispose();
-            repoSpool.Dispose();
+            repos.Dispose();
             ModifiableView = null;
         }
 
