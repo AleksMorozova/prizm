@@ -13,18 +13,24 @@ using NHibernate.SqlCommand;
 using Domain.Entity.Setup;
 using Domain.Entity.Mill;
 using PrizmMain.Properties;
+using Data.DAL;
 
 namespace PrizmMain.Forms.PipeMill.Search
 {
     public class MillPipeSearchCommand : ICommand
     {
-        readonly IPipeRepository repo;
-        readonly MillPipeSearchViewModel viewModel;
+        private readonly IPipeRepository repo;
+        private readonly MillPipeSearchViewModel viewModel;
+        private readonly IUserNotify notify;
 
-        public MillPipeSearchCommand(MillPipeSearchViewModel viewModel, IPipeRepository repo)
+        public MillPipeSearchCommand(
+            MillPipeSearchViewModel viewModel,
+            IPipeRepository repo,
+            IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -34,29 +40,51 @@ namespace PrizmMain.Forms.PipeMill.Search
 
             var criteria = NHibernate.Criterion.DetachedCriteria
                     .For<Domain.Entity.Mill.Pipe>("p")
-                    .Add(Restrictions.Like("p.Number", viewModel.PipeNumber, MatchMode.Anywhere))
                     .Add(Restrictions.InG<PipeMillSizeType>("p.Type", viewModel.CheckedPipeTypes));
 
-            if (viewModel.CheckedStatusTypes != null && viewModel.CheckedStatusTypes.Count != viewModel.StatusTypes.Count)
+            //if (viewModel.CheckedStatusTypes != null && viewModel.CheckedStatusTypes.Count != viewModel.StatusTypes.Count)
+            //{
+            //    var statuses = new List<PipeMillStatus>();
+            //    foreach (var item in viewModel.CheckedStatusTypes)
+            //    {
+            //        statuses.Add(item.Value);
+            //    }
+            //    criteria.Add(Restrictions.InG<PipeMillStatus>("p.Status",statuses));
+            //}
+
+            //if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
+            //{
+            //    criteria.Add(Restrictions.Eq("p.IsActive", true));
+            //}
+            //else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
+            //{
+            //    criteria.Add(Restrictions.Eq("p.IsActive", false));
+            //}
+
+            //viewModel.Pipes = repo.GetByCriteria(criteria);
+
+            try
             {
-                var statuses = new List<PipeMillStatus>();
-                foreach (var item in viewModel.CheckedStatusTypes)
+                var pipes = new List<Pipe>();
+
+                var query = repo
+                    .CreateSQLQuery(PipeQuery.BuildSql(
+                    viewModel.PipeNumber))
+                    .SetResultTransformer(PipeQuery.Transformer);
+
+                var qpipes = query.List<Pipe>();
+
+                foreach (var item in qpipes)
                 {
-                    statuses.Add(item.Value);
+                    pipes.Add(item);
                 }
-                criteria.Add(Restrictions.InG<PipeMillStatus>("p.Status",statuses));
-            }
 
-            if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
-            {
-                criteria.Add(Restrictions.Eq("p.IsActive", true));
+                viewModel.Pipes = pipes;
             }
-            else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
+            catch (RepositoryException ex)
             {
-                criteria.Add(Restrictions.Eq("p.IsActive", false));
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-
-            viewModel.Pipes = repo.GetByCriteria(criteria);
         }
 
 

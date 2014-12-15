@@ -15,8 +15,6 @@ namespace PrizmMain.Forms.PipeMill.Search
     public partial class MillPipeSearchXtraForm : ChildForm
     {
         private MillPipeSearchViewModel viewModel;
-        private Dictionary<PipeMillStatus, string> statusTypeDict 
-            = new Dictionary<PipeMillStatus, string>();
 
         public MillPipeSearchXtraForm()
         {
@@ -43,13 +41,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "Activity");
-
-            statusTypeDict.Clear();
-            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
-            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
-            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
-            repositoryLookUpEditStatus.DataSource = statusTypeDict;
-
 
         }
 
@@ -89,21 +80,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             if (e.KeyCode == Keys.Enter)
             {
                 pipeRepositoryButtonEdit_Click(sender, e);
-            }
-        }
-
-        private void repositoryLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
-        {
-            try
-            {
-                if (e.Value is PipeMillStatus)
-                {
-                    e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
-                }
-            }
-            catch (KeyNotFoundException exception)
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show(exception.Message);
             }
         }
 

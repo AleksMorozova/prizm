@@ -287,6 +287,8 @@
     <Compile Include="Forms\PipeMill\Purchase\SaveOrderCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
+    <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\Railcar.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarQuery.cs" />
@@ -537,6 +539,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
