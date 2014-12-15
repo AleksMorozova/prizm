@@ -20,18 +20,18 @@ namespace PrizmMain.Forms.Railcar.Search
         private readonly SearchRailcarCommand searchCommand;
         private readonly IUserNotify notify;
 
-        private List<RailcarPartial> railcars;
+        private List<Railcar> railcars;
 
         [Inject]
         public RailcarSearchViewModel(IRailcarRepository repo, IUserNotify notify)
         {
-            railcars = new List<RailcarPartial>();
+            railcars = new List<Railcar>();
             this.repo = repo;
             this.notify = notify;
             searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
         }
 
-        public List<RailcarPartial> Railcars
+        public List<Railcar> Railcars
         {
             get { return railcars; }
             set

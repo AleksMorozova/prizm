@@ -25,7 +25,7 @@ namespace PrizmMain.Forms.Railcar.Search
         public object TransformTuple(object[] tuple, string[] aliases)
         {
             return
-                new RailcarPartial()
+                new Railcar()
                 {
                     Id = (Guid)tuple[0],
                     Number = (string)tuple[1],

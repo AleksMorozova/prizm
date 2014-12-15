@@ -35,7 +35,7 @@ namespace PrizmMain.Forms.Railcar.Search
         {
             try
             {
-                var railcars = new List<RailcarPartial>();
+                var railcars = new List<Railcar>();
 
                 var query = repo
                     .CreateSQLQuery(RailcarQuery.BuildSql(
@@ -45,7 +45,7 @@ namespace PrizmMain.Forms.Railcar.Search
                     viewModel.ShippingDate))
                     .SetResultTransformer(RailcarQuery.Transformer);
 
-                var qparts = query.List<RailcarPartial>();
+                var qparts = query.List<Railcar>();
 
                 foreach (var item in qparts)
                 {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Railcar.Search
 {
-    public class RailcarPartial
+    public class Railcar
     {
         public Guid Id { get; set; }
         public string Number { get; set; }
