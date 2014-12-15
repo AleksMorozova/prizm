@@ -39,8 +39,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
             if (j != null && j.Count > 0)
             {
                 notify.ShowInfo(
-                    string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
-                    Resources.DLG_PIPE_DUPLICATE_HEDER);
+                    string.Concat(Resources.DLG_JOINT_DUPLICATE, viewModel.Number),
+                    Resources.DLG_JOINT_DUPLICATE_HEADER);
                 viewModel.Number = string.Empty;
             }
             else
@@ -72,7 +72,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-            return  !string.IsNullOrEmpty(viewModel.Number) && viewModel.FirstElement!=null && viewModel.SecondElement !=null;
+             bool condition = !string.IsNullOrEmpty(viewModel.Number) && viewModel.FirstElement!=null && viewModel.SecondElement !=null;
+             return condition;
         }
     }
 }

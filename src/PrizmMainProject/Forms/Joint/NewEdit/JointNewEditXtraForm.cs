@@ -126,12 +126,10 @@ namespace PrizmMain.Forms.Joint.NewEdit
             LookUpColumnInfoCollection firstEllementColumns = lookup.Properties.Columns;
             firstEllementColumns.Add(new LookUpColumnInfo("Number", Resources.Number));
             firstEllementColumns.Add(new LookUpColumnInfo("PartTypeDescription", Resources.Type));
-            //firstEllementColumns.Add(new LookUpColumnInfo("typeTranslated", Resources.Type));
             firstEllementColumns.Add(new LookUpColumnInfo("Diameter", Resources.Diameter));
             firstEllementColumns.Add(new LookUpColumnInfo("WallThickness", Resources.WallThickness));
             firstEllementColumns.Add(new LookUpColumnInfo("Length", Resources.Length));
             firstEllementColumns.Add(new LookUpColumnInfo("Id", Resources.Id));
-            //firstEllementColumns[1].Visible = false;
             firstEllementColumns[5].Visible = false;
             lookup.Properties.DisplayMember = "Number";
             lookup.Properties.ValueMember = "Id";
@@ -140,6 +138,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private void BindCommands()
         {
             saveButton.BindCommand(() => viewModel.SaveJointCommand.Execute(), viewModel.SaveJointCommand);
+            saveAndCreateButton.BindCommand(() => viewModel.NewSaveJointCommand.Execute(), viewModel.NewSaveJointCommand);
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
@@ -150,8 +149,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.Number = jointNumber.Text;
             viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
         }
 
         private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -315,42 +314,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 e.Cancel = true;
         }
 
-        private void firstJointElement_EditValueChanged(object sender, EventArgs e)
-        {
-            //DataRowView rowView = (DataRowView)firstJointElement.GetSelectedDataRow();
-            //if (rowView != null)
-            //{
-            //    DataRow row = rowView.Row;
-            //    PartData partData = new PartData() { Id = (Guid)row["id"], PartType = (PartType)Enum.Parse(typeof(PartType), row["type"].ToString()), Number = row["number"].ToString() };
-            //    viewModel.FirstElement = partData;
-            //    viewModel.SaveJointCommand.IsExecutable ^= true;
-            //}
-            //LookUpEdit q = sender as LookUpEdit;
-            //object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
-            //PartData selectedPart = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PartData;
-            //if (selectedPart != null)
-            //    viewModel.FirstElement = selectedPart;
-            //viewModel.SaveJointCommand.IsExecutable ^= true;
-        }
-
-        private void secondJointElement_EditValueChanged(object sender, EventArgs e)
-        {
-            //DataRowView rowView = (DataRowView)secondJointElement.GetSelectedDataRow();
-            //if (rowView != null)
-            //{
-            //    DataRow row = rowView.Row;
-            //    PartData partData = new PartData() { Id = (Guid)row["id"], PartType = (PartType)Enum.Parse(typeof(PartType), row["type"].ToString()), Number = row["number"].ToString() };
-            //    viewModel.SecondElement = partData;
-            //    viewModel.SaveJointCommand.IsExecutable ^= true;
-            //}
-            LookUpEdit q = sender as LookUpEdit;
-            object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
-            PartData selectedPart = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PartData;
-            if (selectedPart != null)
-                viewModel.SecondElement = selectedPart;
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-        }
-
         private void SetControlsTextLength()
         {
             jointNumber.Properties.MaxLength = LengthLimit.MaxJointNumber;
@@ -359,6 +322,18 @@ namespace PrizmMain.Forms.Joint.NewEdit
             seaLevel.Properties.MaxLength = LengthLimit.MaxSeaLevel;
             distanceFromPK.Properties.MaxLength = LengthLimit.MaxKPDistance;
             ResultValueTextEdit.MaxLength = LengthLimit.MaxJointTestResultValue;
+        }
+
+        private void firstJointElement_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+        }
+
+        private void secondJointElement_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
         }
     }
 }

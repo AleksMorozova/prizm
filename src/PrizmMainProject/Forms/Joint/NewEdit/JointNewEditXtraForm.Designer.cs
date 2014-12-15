@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.saveAndCreate = new DevExpress.XtraEditors.SimpleButton();
+            this.saveAndCreateButton = new DevExpress.XtraEditors.SimpleButton();
             this.repairOperations = new DevExpress.XtraGrid.GridControl();
             this.repairOperationsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repairTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -167,7 +167,7 @@
             // 
             // newJointLayoutControl
             // 
-            this.newJointLayoutControl.Controls.Add(this.saveAndCreate);
+            this.newJointLayoutControl.Controls.Add(this.saveAndCreateButton);
             this.newJointLayoutControl.Controls.Add(this.repairOperations);
             this.newJointLayoutControl.Controls.Add(this.saveButton);
             this.newJointLayoutControl.Controls.Add(this.extraFiles);
@@ -194,15 +194,15 @@
             this.newJointLayoutControl.TabIndex = 15;
             this.newJointLayoutControl.Text = "layoutControl1";
             // 
-            // saveAndCreate
+            // saveAndCreateButton
             // 
-            this.saveAndCreate.Image = ((System.Drawing.Image)(resources.GetObject("saveAndCreate.Image")));
-            this.saveAndCreate.Location = new System.Drawing.Point(1121, 506);
-            this.saveAndCreate.Name = "saveAndCreate";
-            this.saveAndCreate.Size = new System.Drawing.Size(132, 22);
-            this.saveAndCreate.StyleController = this.newJointLayoutControl;
-            this.saveAndCreate.TabIndex = 29;
-            this.saveAndCreate.Text = "Сохранить/Создать";
+            this.saveAndCreateButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndCreateButton.Image")));
+            this.saveAndCreateButton.Location = new System.Drawing.Point(1121, 506);
+            this.saveAndCreateButton.Name = "saveAndCreateButton";
+            this.saveAndCreateButton.Size = new System.Drawing.Size(132, 22);
+            this.saveAndCreateButton.StyleController = this.newJointLayoutControl;
+            this.saveAndCreateButton.TabIndex = 29;
+            this.saveAndCreateButton.Text = "Сохранить/Создать";
             // 
             // repairOperations
             // 
@@ -589,6 +589,7 @@
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 15;
+            this.firstJointElement.EditValueChanged += new System.EventHandler(this.firstJointElement_EditValueChanged);
             // 
             // loweringDate
             // 
@@ -908,7 +909,7 @@
             // 
             // saveAndCreateLayout
             // 
-            this.saveAndCreateLayout.Control = this.saveAndCreate;
+            this.saveAndCreateLayout.Control = this.saveAndCreateButton;
             this.saveAndCreateLayout.CustomizationFormText = "saveAndCreateLayout";
             this.saveAndCreateLayout.Location = new System.Drawing.Point(1089, 484);
             this.saveAndCreateLayout.Name = "saveAndCreateLayout";
@@ -1059,7 +1060,7 @@
         private System.Windows.Forms.BindingSource weldersDataSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit weldersPopupContainerEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ResultValueTextEdit;
-        private DevExpress.XtraEditors.SimpleButton saveAndCreate;
+        private DevExpress.XtraEditors.SimpleButton saveAndCreateButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndCreateLayout;
 
     }

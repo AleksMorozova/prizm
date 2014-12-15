@@ -62,7 +62,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
             else
             {
                 this.Joint = repoConstruction.RepoJoint.Get(jointId);
-                this.FirstElement = Joint.FirstElement;
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                     jointWeldResults = new BindingList<JointWeldResult>(weldResults);
@@ -269,7 +268,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         public Guid FirstElementId
         {
-            get { return Joint.FirstElement.Id; }
+            get
+            {
+                if (Joint.FirstElement.Id == null)
+                    return Guid.Empty; 
+                return  Joint.FirstElement.Id;
+            }
             set
             {
                 Joint.FirstElement = FindElementById(value);
@@ -284,7 +288,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         public Guid SecondElementId
         {
-            get { return Joint.SecondElement.Id;}
+            get
+            {
+                if (Joint.SecondElement.Id == null)
+                    return Guid.Empty;
+                return Joint.FirstElement.Id;
+            }
             set 
             {
                 Joint.SecondElement = FindElementById(value);
@@ -374,14 +383,15 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public void NewJoint()
         {
             this.Joint = new construction.Joint();
+            Joint.FirstElement = new PartData();
+            Joint.SecondElement = new PartData();
             this.Joint.IsActive = true;
             this.Joint.Status = JointStatus.Welded;
             this.JointTestResults = new BindingList<JointTestResult>();
             this.JointWeldResults = new BindingList<JointWeldResult>();
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
-            //this.FirstElement = new PartData();
-            //this.SecondElement = new PartData();
+
         }
     }
 }

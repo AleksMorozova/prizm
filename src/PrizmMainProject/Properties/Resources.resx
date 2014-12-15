@@ -534,7 +534,6 @@
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
-
   </data>
   <data name="AtControl" xml:space="preserve">
     <value>Контроль</value>
@@ -588,5 +587,11 @@
   </data>
   <data name="Test" xml:space="preserve">
     <value>Контрольная операция</value>
+  </data>
+  <data name="DLG_JOINT_DUPLICATE" xml:space="preserve">
+    <value>Уже существует стык с номером:</value>
+  </data>
+  <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
+    <value>Дублирование номера стыка</value>
   </data>
 </root>
