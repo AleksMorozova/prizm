@@ -108,6 +108,7 @@
             this.user.Name = "user";
             this.user.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.user.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.user.Size = new System.Drawing.Size(185, 20);
             this.user.StyleController = this.searchGroupLayout;
             this.user.TabIndex = 8;
@@ -142,9 +143,13 @@
             this.newValueGridColumn,
             this.fieldGridColumn});
             this.auditResultsView.GridControl = this.auditResults;
+            this.auditResultsView.GroupCount = 2;
             this.auditResultsView.Name = "auditResultsView";
+            this.auditResultsView.OptionsBehavior.Editable = false;
             this.auditResultsView.OptionsView.BestFitUseErrorInfo = DevExpress.Utils.DefaultBoolean.False;
-            this.auditResultsView.OptionsView.ShowGroupPanel = false;
+            this.auditResultsView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.userGridColumn, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.dateGridColumn, DevExpress.Data.ColumnSortOrder.Descending)});
             // 
             // userGridColumn
             // 
@@ -163,7 +168,7 @@
             this.dateGridColumn.FieldName = "auditDate";
             this.dateGridColumn.Name = "dateGridColumn";
             this.dateGridColumn.Visible = true;
-            this.dateGridColumn.VisibleIndex = 1;
+            this.dateGridColumn.VisibleIndex = 0;
             this.dateGridColumn.Width = 70;
             // 
             // entityGridColumn
@@ -172,7 +177,7 @@
             this.entityGridColumn.FieldName = "tableName";
             this.entityGridColumn.Name = "entityGridColumn";
             this.entityGridColumn.Visible = true;
-            this.entityGridColumn.VisibleIndex = 2;
+            this.entityGridColumn.VisibleIndex = 0;
             this.entityGridColumn.Width = 137;
             // 
             // oldValueGridColumn
@@ -181,7 +186,7 @@
             this.oldValueGridColumn.FieldName = "oldValue";
             this.oldValueGridColumn.Name = "oldValueGridColumn";
             this.oldValueGridColumn.Visible = true;
-            this.oldValueGridColumn.VisibleIndex = 4;
+            this.oldValueGridColumn.VisibleIndex = 2;
             this.oldValueGridColumn.Width = 137;
             // 
             // newValueGridColumn
@@ -190,7 +195,7 @@
             this.newValueGridColumn.FieldName = "newValue";
             this.newValueGridColumn.Name = "newValueGridColumn";
             this.newValueGridColumn.Visible = true;
-            this.newValueGridColumn.VisibleIndex = 5;
+            this.newValueGridColumn.VisibleIndex = 3;
             this.newValueGridColumn.Width = 148;
             // 
             // fieldGridColumn
@@ -199,7 +204,7 @@
             this.fieldGridColumn.FieldName = "fieldName";
             this.fieldGridColumn.Name = "fieldGridColumn";
             this.fieldGridColumn.Visible = true;
-            this.fieldGridColumn.VisibleIndex = 3;
+            this.fieldGridColumn.VisibleIndex = 1;
             this.fieldGridColumn.Width = 137;
             // 
             // endDate
