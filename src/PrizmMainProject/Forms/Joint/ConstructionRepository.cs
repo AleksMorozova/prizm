@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Construction;
 using Data.DAL.Hibernate;
+using Data.DAL.Mill;
 using Data.DAL.Setup;
 using NHibernate;
 using Ninject;
@@ -16,6 +17,8 @@ namespace PrizmMain.Forms.Joint
         private readonly IJointRepository repoJoint;
         private readonly IJointActionResultRepository repoJointActionResult;
         private readonly IJointOperationRepository repoJointOperation;
+        private readonly IInspectorRepository repoInspector;
+        private readonly IWelderRepository repoWelder;
 
         private readonly ISession session;
 
@@ -26,6 +29,8 @@ namespace PrizmMain.Forms.Joint
             this.repoJoint = new JointRepository(session);
             this.repoJointActionResult = new JointActionResultRepository(session);
             this.repoJointOperation = new JointOperationRepository(session);
+            this.repoInspector = new InspectorRepository(session);
+            this.repoWelder = new WelderRepository(session);
         }
         public void Commit()
         {
@@ -55,6 +60,16 @@ namespace PrizmMain.Forms.Joint
         public IJointOperationRepository RepoJointOperation
         {
             get { return repoJointOperation; }
+        }
+
+        public IInspectorRepository RepoInspector
+        {
+            get { return repoInspector; }
+        }
+
+        public IWelderRepository RepoWelder
+        {
+            get { return repoWelder; }
         }
     }
 }

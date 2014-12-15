@@ -255,7 +255,7 @@ CREATE TABLE [dbo].[JointOperation](
 	[id] [uniqueidentifier] NOT NULL,
 	[name] [nvarchar](50) NULL,
 	[isRequired] [bit] NULL,
-	[isTest] [bit] NULL,
+	[type] [nvarchar](20)  NULL,
 	[testHasAccepted] [bit] NULL,
 	[testHasToRepair] [bit] NULL,
 	[testHasToWithdraw] [bit] NULL,
@@ -655,5 +655,84 @@ CREATE TABLE [dbo].[Joint](
 
 GO
 
+CREATE TABLE [dbo].[JointTestResult](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[date] [date] NULL,
+	[value] [nvarchar](20) NULL,
+	[status] [nvarchar](25) NULL,
+	[order] [int] NULL,
+	[jointOperationId] [uniqueidentifier] NOT NULL,
+	[jointId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_Joint] FOREIGN KEY([jointId])
+REFERENCES [dbo].[Joint] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_Joint]
+GO
+
+ALTER TABLE [dbo].[JointTestResult]  WITH CHECK ADD  CONSTRAINT [FK_JointTestResult_JointOperation] FOREIGN KEY([jointOperationId])
+REFERENCES [dbo].[JointOperation] ([id])
+GO
+
+ALTER TABLE [dbo].[JointTestResult] CHECK CONSTRAINT [FK_JointTestResult_JointOperation]
+GO
+
+CREATE TABLE [dbo].[JointWeldResult](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[isCompleted] [bit] NULL,
+	[date] [date] NULL,
+	[jointOperationId] [uniqueidentifier] NOT NULL,
+	[jointId] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_JointWeldResult] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[JointWeldResult]  WITH CHECK ADD  CONSTRAINT [FK_JointWeldResult_Joint] FOREIGN KEY([jointId])
+REFERENCES [dbo].[Joint] ([id])
+GO
+
+ALTER TABLE [dbo].[JointWeldResult] CHECK CONSTRAINT [FK_JointWeldResult_Joint]
+GO
+
+ALTER TABLE [dbo].[JointWeldResult]  WITH CHECK ADD  CONSTRAINT [FK_JointWeldResult_JointOperation] FOREIGN KEY([jointOperationId])
+REFERENCES [dbo].[JointOperation] ([id])
+GO
+
+ALTER TABLE [dbo].[JointWeldResult] CHECK CONSTRAINT [FK_JointWeldResult_JointOperation]
+GO
+
+CREATE TABLE [dbo].[WeldResult_Welder](
+	[welderId] [uniqueidentifier] NULL,
+	[resultId] [uniqueidentifier] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder]  WITH CHECK ADD  CONSTRAINT [FK_WeldResult_Welder_Result] FOREIGN KEY([resultId])
+REFERENCES [dbo].[JointWeldResult] ([id])
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Result]
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder]  WITH CHECK ADD  CONSTRAINT [FK_WeldResult_Welder_Welder] FOREIGN KEY([welderId])
+REFERENCES [dbo].[Welder] ([id])
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
+GO
 

@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity;
 using Domain.Entity.Construction;
 using Ninject;
 using PrizmMain.Commands;
@@ -18,6 +19,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
 
+        private bool canDeactivateComponent;
+
         private BindingList<ComponentType> componentTypes;
 
         private SaveComponentCommand saveCommand;
@@ -35,6 +38,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             this.notify = notify;
            
             this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
+            this.Inspectors = repos.RepoInspector.GetAll();
 
             saveCommand = ViewModelSource
                 .Create(() => new SaveComponentCommand(this, repos, notify));
@@ -45,6 +49,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             deactivationCommand = ViewModelSource
                 .Create(() => new ComponentDeactivationCommand(this, repos, notify));
 
+
             if (componentId == Guid.Empty)
             {
                 NewComponent();
@@ -52,10 +57,29 @@ namespace PrizmMain.Forms.Component.NewEdit
             else
             {
                 this.Component = repos.ComponentRepo.Get(componentId);
+                this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
 
-        public bool CanDeactivateComponent { get; set; }
+        public Domain.Entity.Construction.Component Component { get; set; }
+
+        public bool CanDeactivateComponent
+        {
+            get
+            {
+                return canDeactivateComponent;
+            }
+            set
+            {
+                if (value != canDeactivateComponent)
+                {
+                    canDeactivateComponent = value;
+                    RaisePropertyChanged("CanDeactivateComponent");
+                }
+            }
+        }
+
+        public IList<Inspector> Inspectors { get; set; }
 
         public BindingList<ComponentType> ComponentTypes
         {
@@ -86,8 +110,6 @@ namespace PrizmMain.Forms.Component.NewEdit
                 modifiableView = value;
             }
         }
-
-        public Domain.Entity.Construction.Component Component { get; set; }
 
         public string Certificate
         {
@@ -148,6 +170,19 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
+        public int Length
+        {
+            get { return Component.Length; }
+            set
+            {
+                if (value != Component.Length)
+                {
+                    Component.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
         public IList<Connector> Connectors
         {
             get 
@@ -198,6 +233,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
+        #region ---- Commands ----
         public ICommand SaveCommand
         {
             get { return saveCommand; }
@@ -212,6 +248,7 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             get { return deactivationCommand; }
         }
+        #endregion
 
         public void NewComponent()
         {
@@ -232,6 +269,17 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             repos.Dispose();
             ModifiableView = null;
+        }
+
+        /// <summary>
+        /// Customize displaying inspectors name in grid cell : show only last name
+        /// </summary>
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }
     }
 }

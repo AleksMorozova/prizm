@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using Ninject;
 using DevExpress.Mvvm.DataAnnotations;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Component.NewEdit
 {
@@ -31,7 +32,16 @@ namespace PrizmMain.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.SaveCommand.Execute();
+            if (notify.ShowYesNo(
+                Resources.DLG_COMPONENT_DEACTIVATION,
+                Resources.DLG_COMPONENT_DEACTIVATION_HEDER))
+            {
+                viewModel.SaveCommand.Execute();
+            }
+            else
+            {
+                viewModel.IsNotActive = false;
+            }
         }
 
         public virtual bool IsExecutable { get; set; }
