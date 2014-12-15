@@ -1,11 +1,14 @@
 ﻿using Data.DAL;
 using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using NHibernate;
 using NHibernate.Criterion;
 using Ninject;
 using PrizmMain.Commands;
 using PrizmMain.Properties;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace PrizmMain.Forms.Railcar.Search
@@ -17,7 +20,10 @@ namespace PrizmMain.Forms.Railcar.Search
         private readonly IUserNotify notify;
 
         [Inject]
-        public SearchRailcarCommand(RailcarSearchViewModel viewmodel, IRailcarRepository repo, IUserNotify notify)
+        public SearchRailcarCommand(
+            RailcarSearchViewModel viewmodel, 
+            IRailcarRepository repo, 
+            IUserNotify notify)
         {
             this.viewModel = viewmodel;
             this.repo = repo;
@@ -27,37 +33,31 @@ namespace PrizmMain.Forms.Railcar.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            var criteria = DetachedCriteria.For<Domain.Entity.Mill.Railcar>();
-
-            if (!string.IsNullOrWhiteSpace(viewModel.RailcarNumber))
-            {
-                criteria.Add(Restrictions.Like("Number", viewModel.RailcarNumber, MatchMode.Anywhere));
-            }
-
-            if (!string.IsNullOrWhiteSpace(viewModel.Certificate))
-            {
-                criteria.Add(Restrictions.Like("Certificate", viewModel.Certificate, MatchMode.Anywhere));
-            }
-
-            if (!string.IsNullOrWhiteSpace(viewModel.Receiver))
-            {
-                criteria.Add(Restrictions.Like("Destination", viewModel.Receiver, MatchMode.Anywhere));
-            }
-            if (viewModel.ShippingDate > DateTime.MinValue)
-            {
-                criteria.Add(Restrictions.Eq("ShippingDate", viewModel.ShippingDate));
-            }
-
             try
             {
-                viewModel.Railcars = repo.GetByCriteria(criteria).ToList();
-                repo.Clear();
+                var railcars = new List<RailcarPartial>();
+
+                var query = repo
+                    .CreateSQLQuery(RailcarQuery.BuildSql(
+                    viewModel.RailcarNumber, 
+                    viewModel.Certificate, 
+                    viewModel.Receiver,
+                    viewModel.ShippingDate))
+                    .SetResultTransformer(RailcarQuery.Transformer);
+
+                var qparts = query.List<RailcarPartial>();
+
+                foreach (var item in qparts)
+                {
+                    railcars.Add(item);
+                }
+
+                viewModel.Railcars = railcars;
             }
             catch (RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-            
             
         }
 

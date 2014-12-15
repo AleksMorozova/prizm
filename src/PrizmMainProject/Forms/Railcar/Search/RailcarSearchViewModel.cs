@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using NHibernate;
 using Ninject;
 using PrizmMain.Commands;
 using System;
@@ -19,20 +20,20 @@ namespace PrizmMain.Forms.Railcar.Search
         private readonly SearchRailcarCommand searchCommand;
         private readonly IUserNotify notify;
 
-        private List<Domain.Entity.Mill.Railcar> railcars;
+        private List<RailcarPartial> railcars;
 
         [Inject]
         public RailcarSearchViewModel(IRailcarRepository repo, IUserNotify notify)
         {
-            railcars = new List<Domain.Entity.Mill.Railcar>();
+            railcars = new List<RailcarPartial>();
             this.repo = repo;
             this.notify = notify;
             searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
-            searchCommand.Execute();
         }
 
-        public List<Domain.Entity.Mill.Railcar> Railcars {
-            get { return railcars;}
+        public List<RailcarPartial> Railcars
+        {
+            get { return railcars; }
             set
             {
                 if (value != railcars)
@@ -41,7 +42,7 @@ namespace PrizmMain.Forms.Railcar.Search
                     RaisePropertyChanged("Railcars");
                 }
             }
-            }
+        }
 
         #region Search Fields
         private string railcarNumber = "";
