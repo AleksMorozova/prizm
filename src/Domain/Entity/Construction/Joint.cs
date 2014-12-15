@@ -7,7 +7,6 @@ namespace Domain.Entity.Construction
     {
         public Joint()
         {
-            this.Parts = new List<Part>(2);
             this.JointTestResults = new List<JointTestResult>();
             this.JointWeldResults = new List<JointWeldResult>();
         }
@@ -20,7 +19,8 @@ namespace Domain.Entity.Construction
         public virtual double GpsLatitude { get; set; }
         public virtual double GpsLongitude { get; set; }
         public virtual float GpsHeight { get; set; }
-        public virtual IList<Part> Parts { get; set; }
+        public virtual PartData FirstElement { get; set; }
+        public virtual PartData SecondElement { get; set; }
         public virtual IList<JointTestResult> JointTestResults { get; set; }
         public virtual IList<JointWeldResult> JointWeldResults { get; set; } 
 

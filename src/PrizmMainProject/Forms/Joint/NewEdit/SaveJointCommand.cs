@@ -31,20 +31,35 @@ namespace PrizmMain.Forms.Joint.NewEdit
             {
                 viewModel.Joint.LoweringDate = null;
             }
-            try
+            var j = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
+            foreach (var joint in j)
             {
-                repo.BeginTransaction();
-                repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-                repo.Commit();
-                repo.RepoJoint.Evict(viewModel.Joint);
-                viewModel.ModifiableView.IsModified = false;
-                notify.ShowNotify(
-                    string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
-                    Resources.DLG_JOINT_SAVED_HEADER);
+                repo.RepoJoint.Evict(joint);
             }
-            catch (RepositoryException ex)
+            if (j != null && j.Count > 0)
             {
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                notify.ShowInfo(
+                    string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
+                    Resources.DLG_PIPE_DUPLICATE_HEDER);
+                viewModel.Number = string.Empty;
+            }
+            else
+            {
+                try
+                {
+                    repo.BeginTransaction();
+                    repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
+                    repo.Commit();
+                    repo.RepoJoint.Evict(viewModel.Joint);
+                    viewModel.ModifiableView.IsModified = false;
+                    notify.ShowNotify(
+                        string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
+                        Resources.DLG_JOINT_SAVED_HEADER);
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
         }
 
@@ -57,7 +72,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-            return  !string.IsNullOrEmpty(viewModel.Number);
+            return  !string.IsNullOrEmpty(viewModel.Number) && viewModel.FirstElement!=null && viewModel.SecondElement !=null;
         }
     }
 }

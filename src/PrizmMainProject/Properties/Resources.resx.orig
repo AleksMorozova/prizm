@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
+    <value>Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.</value>
+  </data>
+  <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
+    <value>Сначала расформируйте вагон.</value>
+  </data>
+  <data name="COAT_EXTERNAL" xml:space="preserve">
+    <value>Внешнее</value>
+  </data>
+  <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
+    <value>Нельзя одновременно открыть больше документов.</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="VALUE_REQUIRED" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED" xml:space="preserve">
+    <value>Невозможно деактивировать отгруженную трубу.</value>
+  </data>
+  <data name="Shipped" xml:space="preserve">
+    <value>Отгружена</value>
+  </data>
+  <data name="PRIZM" xml:space="preserve">
+    <value>PRIZM</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Не пройден</value>
+  </data>
+  <data name="InspectionControlType_Witness" xml:space="preserve">
+    <value>Присутствие</value>
+  </data>
+  <data name="PipeSizeChangeHeader" xml:space="preserve">
+    <value>Изменение типоразмера</value>
+  </data>
+  <data name="COAT_INTERNAL" xml:space="preserve">
+    <value>Внутреннее</value>
+  </data>
+  <data name="DLG_RAILCAR_NUMBER_EMPTY" xml:space="preserve">
+    <value>Введите номер вагона</value>
+  </data>
+  <data name="AlertInfoHeader" xml:space="preserve">
+    <value>Внимание</value>
+  </data>
+  <data name="InspectionResultType_String" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="InspectionControlType_Review" xml:space="preserve">
+    <value>По документации</value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера трубы</value>
+  </data>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE_HEADER" xml:space="preserve">
+    <value>Несохранённые изменения</value>
+  </data>
+  <data name="DLG_CHANGE_PIPESIZE_ON_EDITPIPE" xml:space="preserve">
+    <value>Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.</value>
+  </data>
+  <data name="DLG_RAILCAR_TYPESIZE_ERROR" xml:space="preserve">
+    <value>Все трубы в в вагоне должны быть одного типоразмера</value>
+  </data>
+  <data name="InvalidOldPassword" xml:space="preserve">
+    <value>Текущий пароль введен неверно.</value>
+  </data>
+  <data name="Produced" xml:space="preserve">
+    <value>Производится</value>
+  </data>
+  <data name="AlertShipRailcar" xml:space="preserve">
+    <value>Вагон успешно отгружен</value>
+  </data>
+  <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
+    <value>Отправка вагона без труб невозможна</value>
+  </data>
+  <data name="Scheduled" xml:space="preserve">
+    <value>Ожидается</value>
+  </data>
+  <data name="DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR" xml:space="preserve">
+    <value>Данная труба находится в вагоне #</value>
+  </data>
+  <data name="AlertUnsipRailcar" xml:space="preserve">
+    <value>Отгрузка вагона отменена. Дата отгрузки аннулированна. Трубы перемещены на склад.</value>
+  </data>
+  <data name="AlertSaveRailcar" xml:space="preserve">
+    <value>Данные вагона сохранены</value>
+  </data>
+  <data name="IDS_QUESTION_DO_NOT_CLOSE" xml:space="preserve">
+    <value>У вас остались несохранённые изменения. Отменить закрытие документа?</value>
+  </data>
+  <data name="InspectionResultType_Boolean" xml:space="preserve">
+    <value>Логический</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
+    <value>Труба отгружена</value>
+  </data>
+  <data name="InspectionControlType_Monitor" xml:space="preserve">
+    <value>Визуальный</value>
+  </data>
+  <data name="InspectionControlType_Hold" xml:space="preserve">
+    <value>Обязательный</value>
+  </data>
+  <data name="IDS_ERROR" xml:space="preserve">
+    <value>Во время работы программы произошла ошибка. Причина: </value>
+  </data>
+  <data name="NewHeatCombo" xml:space="preserve">
+    <value>&lt; Создать плавку &gt;</value>
+  </data>
+  <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
+    <value>Номер наряд-заказа обязателен</value>
+  </data>
+  <data name="DLG_SETUP_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение настроек</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Пройден</value>
+  </data>
+  <data name="DLG_SETUP_SAVED" xml:space="preserve">
+    <value>Настройки успешно сохранены.</value>
+  </data>
+  <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertSaveHeader" xml:space="preserve">
+    <value>Сохранение успешно</value>
+  </data>
+  <data name="InspectionResultType_Diapason" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
+    <value>Удалить запись?</value>
+  </data>
+  <data name="DATA_EXPIRED" xml:space="preserve">
+    <value>Срок действия истек</value>
+  </data>
+  <data name="AlertFailureHeader" xml:space="preserve">
+    <value>Произошла ошибка!</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
+  </data>
+  <data name="DLG_ERROR_HEADER" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="DLG_PIPE_DUPLICATE" xml:space="preserve">
+    <value>Уже существует труба с номером: </value>
+  </data>
+  <data name="DLG_PIPE_IN_RAILCAR_HEDER" xml:space="preserve">
+    <value>Деактивация трубы в вагоне невозможна</value>
+  </data>
+  <data name="Stocked" xml:space="preserve">
+    <value>На складе</value>
+  </data>
+  <data name="PasswordsNotMatch" xml:space="preserve">
+    <value>Пароли не совпадают.</value>
+  </data>
+  <data name="DLG_CHANGE_PIPESIZE_ON_NEWPIPE" xml:space="preserve">
+    <value>Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново</value>
+  </data>
+  <data name="DLG_PIPE_SAVED" xml:space="preserve">
+    <value>Труба успешно сохранена в базе. Труба  # </value>
+  </data>
+  <data name="AlertFailureReportDateHeader" xml:space="preserve">
+    <value>Неверный диапазон дат</value>
+  </data>
+  <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
+    <value>Вагон не отгружен</value>
+  </data>
+  <data name="DLG_PIPE_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение трубы</value>
+  </data>
+  <data name="NewOrderCombo" xml:space="preserve">
+    <value>&lt; Создать наряд-заказ&gt;</value>
+  </data>
+  <data name="AlertFailureReportDate" xml:space="preserve">
+    <value>Начальная дата позже конечной</value>
+  </data>
+  <data name="password_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\password_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>Неверное имя пользователя или пароль.</value>
+  </data>
+  <data name="ByCategories" xml:space="preserve">
+    <value>По категориям</value>
+  </data>
+  <data name="PipeStatusComboActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="ByProducing" xml:space="preserve">
+    <value>В производстве</value>
+  </data>
+  <data name="PipeStatusComboAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="ByShipped" xml:space="preserve">
+    <value>По отгруженным</value>
+  </data>
+  <data name="PipeStatusComboUnactive" xml:space="preserve">
+    <value>Деактивированные</value>
+  </data>
+  <data name="TestResultIncorrectDate" xml:space="preserve">
+    <value>Дата не может быть пустой или будущей</value>
+  </data>
+  <data name="DLG_AddFailedControlOperation" xml:space="preserve">
+    <value>Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. </value>
+  </data>
+  <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
+    <value>Значение не соответствует маске</value>
+  </data>
+  <data name="Construction" xml:space="preserve">
+    <value>Строительство</value>
+  </data>
+  <data name="Inspection" xml:space="preserve">
+    <value>Входной контроль</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Главный</value>
+  </data>
+  <data name="Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
+  <data name="Pipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="Plate" xml:space="preserve">
+    <value>Лист</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="ChemicalComposition" xml:space="preserve">
+    <value>Химический состав</value>
+  </data>
+  <data name="Coat" xml:space="preserve">
+    <value>Покрытие</value>
+  </data>
+  <data name="Heat" xml:space="preserve">
+    <value>Плавка</value>
+  </data>
+  <data name="Inspector" xml:space="preserve">
+    <value>Инспектор</value>
+  </data>
+  <data name="InspectorCertificate" xml:space="preserve">
+    <value>Сертификат инспектора</value>
+  </data>
+  <data name="PhysicalParameters" xml:space="preserve">
+    <value>Физические параметры</value>
+  </data>
+  <data name="PipeMillSizeType" xml:space="preserve">
+    <value>Типоразмер трубы</value>
+  </data>
+  <data name="PipeTest" xml:space="preserve">
+    <value>Контольная операция трубы</value>
+  </data>
+  <data name="PipeTestResult" xml:space="preserve">
+    <value>Результат контольной операции трубы</value>
+  </data>
+  <data name="PlateManufacturer" xml:space="preserve">
+    <value>Производитель листа</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Настройки проекта</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Наряд-заказ</value>
+  </data>
+  <data name="Railcar" xml:space="preserve">
+    <value>Вагон</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роли пользователя</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Weld" xml:space="preserve">
+    <value>Сварка</value>
+  </data>
+  <data name="Welder" xml:space="preserve">
+    <value>Сварщик</value>
+  </data>
+  <data name="BoolExpected" xml:space="preserve">
+    <value>Булевый ожидаемый результат</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Сертификат</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Клиент</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="ControlType" xml:space="preserve">
+    <value>Тип контроля</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="Diameter" xml:space="preserve">
+    <value>Диаметр</value>
+  </data>
+  <data name="DocumentSizeLimit" xml:space="preserve">
+    <value>Ограничение размера документа</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Разряд</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Уникальный идентификатор</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Активен</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Обязательный</value>
+  </data>
+  <data name="IsShipped" xml:space="preserve">
+    <value>Отправлен</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="MaxExpected" xml:space="preserve">
+    <value>Максимальный ожидаемый результат</value>
+  </data>
+  <data name="MillName" xml:space="preserve">
+    <value>Название завода</value>
+  </data>
+  <data name="MillPipeNumberMask" xml:space="preserve">
+    <value>Маска номера трубы</value>
+  </data>
+  <data name="MillPipeNumberMaskRegexp" xml:space="preserve">
+    <value>Маска номера трубы (служебная)</value>
+  </data>
+  <data name="MinExpected" xml:space="preserve">
+    <value>Минимальный ожидаемый результат</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Контрольная операция</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Порядок</value>
+  </data>
+  <data name="pipeType" xml:space="preserve">
+    <value>Типоразмер трубы</value>
+  </data>
+  <data name="ProductionDate" xml:space="preserve">
+    <value>Дата производства</value>
+  </data>
+  <data name="ResultType" xml:space="preserve">
+    <value>Тип результата</value>
+  </data>
+  <data name="ShippingDate" xml:space="preserve">
+    <value>Дата отправки</value>
+  </data>
+  <data name="Stamp" xml:space="preserve">
+    <value>Клеймо</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="StringExpected" xml:space="preserve">
+    <value>Строковый ожидаемый результат</value>
+  </data>
+  <data name="TestSubject" xml:space="preserve">
+    <value>Объект инспекции</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="WallThickness" xml:space="preserve">
+    <value>Толщина стенки</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="WorkstationType" xml:space="preserve">
+    <value>Тип рабочего места</value>
+  </data>
+  <data name="ЕxpirationDate" xml:space="preserve">
+    <value>Срок истечения</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED" xml:space="preserve">
+    <value>Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #</value>
+  </data>
+  <data name="DLG_COMPONENT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение комплектующего изделия</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Комплектующие</value>
+  </data>
+  <data name="Spool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
+  <data name="DLG_JOINT_SAVED" xml:space="preserve">
+    <value>Стык успешно сохранен в базе. Стык  #</value>
+  </data>
+  <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение стыка</value>
+
+  </data>
+  <data name="AtControl" xml:space="preserve">
+    <value>Контроль</value>
+  </data>
+  <data name="AtIsolation" xml:space="preserve">
+    <value>Изоляция</value>
+  </data>
+  <data name="Filled" xml:space="preserve">
+    <value>Засыпан</value>
+  </data>
+  <data name="Lowered" xml:space="preserve">
+    <value>Укладка</value>
+  </data>
+  <data name="Welded" xml:space="preserve">
+    <value>Сварен</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Задержано</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидает контроль</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
+  </data>
+<<<<<<< HEAD
+  <data name="ConstructionStatus" xml:space="preserve">
+    <value>Статус на строительстве</value>
+  </data>
+  <data name="InspectionStatus" xml:space="preserve">
+    <value>Статус на входном контроле</value>
+=======
+  <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации комплектующего элемента. 
+Параметры комплектующего элемента станут невозможны для редактирования. 
+Деактивировать комплектующий элемент?</value>
+  </data>
+  <data name="DLG_COMPONENT_DEACTIVATION_HEDER" xml:space="preserve">
+    <value>Деактивация комплектующего элемента</value>
+  </data>
+  <data name="DLG_COMPONENT_DUPLICATE" xml:space="preserve">
+    <value>Уже существует комплектующий элемент с номером:</value>
+  </data>
+  <data name="DLG_COMPONENT_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера комплектующего элемента</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Ремонтная операция</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Контрольная операция</value>
+>>>>>>> 125da0e1d2fb1b84e9e8ca5721511c4df47a67ef
+  </data>
+</root>

@@ -7,6 +7,7 @@ using PrizmMain.Common;
 using System.Windows.Forms;
 using PrizmMain.Forms.Common;
 using System.ComponentModel;
+using Domain.Entity.Construction;
 
 namespace PrizmMain.Forms.Reports.Construction
 {

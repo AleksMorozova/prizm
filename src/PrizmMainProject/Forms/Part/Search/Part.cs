@@ -1,5 +1,5 @@
-﻿using PrizmMain.Common;
-using PrizmMain.Forms.Common;
+﻿using Domain.Entity.Construction;
+using PrizmMain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

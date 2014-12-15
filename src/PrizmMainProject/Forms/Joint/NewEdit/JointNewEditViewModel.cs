@@ -24,6 +24,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private readonly Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
         private readonly SaveJointCommand saveJointCommand;
+        private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private IModifiable modifiableView;
         private DataTable pieces;
@@ -46,6 +47,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
             saveJointCommand =
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
+            newSaveJointCommand =
+              ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
             Inspectors = repoConstruction.RepoInspector.GetAll();
@@ -59,6 +62,13 @@ namespace PrizmMain.Forms.Joint.NewEdit
             else
             {
                 this.Joint = repoConstruction.RepoJoint.Get(jointId);
+                this.FirstElement = Joint.FirstElement;
+                var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
+                if (weldResults != null)
+                    jointWeldResults = new BindingList<JointWeldResult>(weldResults);
+                var testResults = repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
+                if (testResults != null)
+                    jointTestResults = new BindingList<JointTestResult>(testResults);
             }
         }
 
@@ -105,6 +115,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public ICommand ExtractOperationsCommand
         {
             get { return extractOperationsCommand; }
+        }
+
+        public ICommand NewSaveJointCommand
+        {
+            get { return newSaveJointCommand; }
         }
         #endregion
 
@@ -251,6 +266,58 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 }
             }
         }
+
+        public Guid FirstElementId
+        {
+            get { return Joint.FirstElement.Id; }
+            set
+            {
+                Joint.FirstElement = FindElementById(value);
+                RaisePropertyChanged("FirstElement");
+            }
+        }
+
+        private PartData FindElementById(Guid id)
+        {
+            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
+        }
+
+        public Guid SecondElementId
+        {
+            get { return Joint.SecondElement.Id;}
+            set 
+            {
+                Joint.SecondElement = FindElementById(value);
+                RaisePropertyChanged("SecondElement");
+            }
+        }
+
+        public PartData FirstElement 
+        {
+            get { return Joint.FirstElement; }
+            set
+            {
+                if (value != Joint.FirstElement)
+                {
+                    Joint.FirstElement = value;
+                    RaisePropertyChanged("FirstElement");
+                }
+            }
+        }
+
+        public PartData SecondElement
+        {
+            get { return Joint.SecondElement; }
+            set
+            {
+                if (value != Joint.SecondElement)
+                {
+                    Joint.SecondElement = value;
+                    RaisePropertyChanged("SecondElement");
+                }
+            }
+        }
+
         #endregion 
 
         public DataTable Pieces
@@ -263,10 +330,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
             {
                 if (value != pieces)
                 {
+                    value.Columns.Add("typeTranslated", typeof(String));
                     foreach (DataRow record in value.Rows)
                     {
                         string typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
-                        record.SetField("type", typeResourceValue);
+                        record.SetField("typeTranslated", typeResourceValue);
                         pieces = value;
                         RaisePropertyChanged("Pieces");
                     }
@@ -274,7 +342,36 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
         }
 
-        private void NewJoint()
+        BindingList<PartData> list = null;
+
+        public BindingList<PartData> PartDataList
+        { 
+            get 
+            {
+                if (list != null)
+                    return list;
+
+                list = new BindingList<PartData>();
+                
+                foreach (DataRow row in Pieces.Rows)
+                {
+                    PartData p = new PartData () 
+                    {
+                        Id = row.Field<Guid>("id"), 
+                        Number = row.Field<string>("number"),
+                        PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")), 
+                        Length = row.Field<int>("length"),
+                        PartTypeDescription = row.Field<string>("typeTranslated"),
+                        WallThickness = row.Field<int>("wallThickness"),
+                        Diameter = row.Field<int>("diameter")
+                    };
+                    list.Add(p);
+                }
+                return list;
+            }
+        }
+
+        public void NewJoint()
         {
             this.Joint = new construction.Joint();
             this.Joint.IsActive = true;
@@ -283,6 +380,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.JointWeldResults = new BindingList<JointWeldResult>();
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
+            //this.FirstElement = new PartData();
+            //this.SecondElement = new PartData();
         }
     }
 }
