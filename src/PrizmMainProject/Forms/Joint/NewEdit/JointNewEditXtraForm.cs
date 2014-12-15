@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using Domain.Entity;
 using PrizmMain.Common;
 using System.Data;
+using PrizmMain.Commands;
 using System.Reflection;
 using System.Resources;
 using System.Collections;
@@ -33,6 +34,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
+        ICommandManager commandManager = new CommandManager();
 
 
         public JointNewEditXtraForm(Guid jointId)
@@ -137,7 +139,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.SaveJointCommand.Execute(), viewModel.SaveJointCommand);
+            commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
             saveAndCreateButton.BindCommand(() => viewModel.NewSaveJointCommand.Execute(), viewModel.NewSaveJointCommand);
         }
 

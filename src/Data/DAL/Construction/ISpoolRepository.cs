@@ -10,5 +10,7 @@ namespace Data.DAL.Construction
 {
     public interface ISpoolRepository : IRepository<Guid, Spool>
     {
+        IList<Pipe> GetAvailablePipes();
+        IList<Spool> GetAllSpoolFromPipe(string number);
     }
 }

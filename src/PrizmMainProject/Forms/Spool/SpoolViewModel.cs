@@ -31,6 +31,7 @@ namespace PrizmMain.Forms.Spool
         readonly IUserNotify notify;
         private IModifiable modifiableView;
         public Domain.Entity.Construction.Spool Spool { get; set; }
+        public BindingList<Pipe> allPipes { get; set; }
 
         [Inject]
         public SpoolViewModel(IPipeRepository repoPipe, ISpoolRepository repoSpool, IUserNotify notify)
@@ -39,8 +40,8 @@ namespace PrizmMain.Forms.Spool
             this.repoSpool = repoSpool;
             this.notify=notify;
 
-            searchCommand = ViewModelSource.Create<SpoolSearchCommand>(
-              () => new SpoolSearchCommand(this, repoPipe, notify));
+            searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
+              () => new EditPipeForCutCommand(this, repoPipe, notify));
 
             cutCommand = ViewModelSource.Create<CutSpoolCommand>(
              () => new CutSpoolCommand(this, repoPipe, repoSpool,notify));
@@ -48,9 +49,16 @@ namespace PrizmMain.Forms.Spool
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
             () => new SaveSpoolCommand(this, repoSpool, notify));
 
+            allPipes = new BindingList<Pipe>();
+
+            foreach (Pipe p in repoSpool.GetAvailablePipes()) 
+            {
+                allPipes.Add(p);
+            }
             Spool = new Domain.Entity.Construction.Spool();
             Spool.Pipe = new Pipe();
             Pipe = new Pipe();
+            
             
         }
 
@@ -67,18 +75,23 @@ namespace PrizmMain.Forms.Spool
             }
         }
 
-        // TODO: fixed if pipe number was wrong
         public string PipeNumber
         {
             get
             {
-                return Pipe.Number;
+                return Spool.PipeNumber;
             }
             set
             {
-                if (value != Pipe.Number)
+                if (value != Spool.PipeNumber)
                 {
-                    Pipe.Number = value;
+                    Spool.PipeNumber = value;
+
+                    StringBuilder number = new StringBuilder();
+                    int spoolNumber = repoSpool.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
+                    number.Append(Spool.PipeNumber + "/" + spoolNumber.ToString());
+                    Spool.Number = number.ToString();
+
                     RaisePropertyChanged("PipeNumber");
                 }
             }
@@ -92,6 +105,7 @@ namespace PrizmMain.Forms.Spool
                 if (value != Spool.Pipe)
                 {
                     Spool.Pipe = value;
+                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("PipeNumber");
                 }
             }
@@ -108,9 +122,27 @@ namespace PrizmMain.Forms.Spool
             {
                 if (value != Pipe.Length)
                 {
-                    Pipe.Length = value;
-                    Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                    Pipe.Length = value;                    
+                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("PipeLength");
+
+                    //RaisePropertyChanged("PipeWeight");
+                }
+            }
+        }
+
+        public float PipeWeight
+        {
+            get
+            {
+                return Pipe.Weight;
+            }
+            set
+            {
+                if (value != Pipe.Weight)
+                {
+                    Pipe.Weight = value;
+                    RaisePropertyChanged("PipeWeight");
                 }
             }
         }
@@ -124,7 +156,7 @@ namespace PrizmMain.Forms.Spool
                 {
                     Spool.Length = value;
                     Pipe.Length = Pipe.Length - Spool.Length;
-                    Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                    Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
                 }
             }

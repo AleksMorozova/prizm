@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandInfoTest.cs" />
+    <Compile Include="Commands\CommandManagerTest.cs" />
     <Compile Include="DisplayObjectInfo.cs" />
     <Compile Include="AuditTrailTests.cs" />
     <Compile Include="Forms\Common\PasswordEncryptorTest.cs" />

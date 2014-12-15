@@ -23,6 +23,7 @@ using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
 using Domain.Entity.Security;
 using Domain.Entity.Mill;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -31,6 +32,7 @@ namespace PrizmMain.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
         {
@@ -155,12 +157,14 @@ namespace PrizmMain.Forms.Settings
        
         private void BindCommands()
         {
-           saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+           commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
+                      
            SaveCommand = viewModel.SaveCommand;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
+            commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PrizmMain.Forms.Common;
 using System.ComponentModel;
 using Domain.Entity.Construction;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Reports.Construction
 {
@@ -15,6 +16,7 @@ namespace PrizmMain.Forms.Reports.Construction
     public partial class ConstructionReportsXtraForm : ChildForm
     {
         private ConstructionReportViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
 
         public ConstructionReportsXtraForm()
         {
@@ -49,8 +51,8 @@ namespace PrizmMain.Forms.Reports.Construction
 
         private void BindCommands()
         {
-            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
-            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+            commandManager["PreviewButton"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void RefreshTypes()
@@ -81,6 +83,7 @@ namespace PrizmMain.Forms.Reports.Construction
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
+            reportType.SelectedIndex = 0;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
