@@ -80,6 +80,7 @@ namespace PrizmMain.Forms.Reports.Construction
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
+            reportType.SelectedIndex = 0;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
