@@ -292,7 +292,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             {
                 if (Joint.SecondElement.Id == null)
                     return Guid.Empty;
-                return Joint.FirstElement.Id;
+                return Joint.SecondElement.Id;
             }
             set 
             {
