@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace PrizmMain.Forms.Spool
 {
-    public class SpoolSearchCommand : ICommand
+    public class EditPipeForCutCommand : ICommand
     {
         readonly IPipeRepository repo;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
 
-        public SpoolSearchCommand(SpoolViewModel viewModel, IPipeRepository repo,IUserNotify notify)
+        public EditPipeForCutCommand(SpoolViewModel viewModel, IPipeRepository repo,IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;

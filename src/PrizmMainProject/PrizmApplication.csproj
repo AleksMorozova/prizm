@@ -323,7 +323,7 @@
     </Compile>
     <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
-    <Compile Include="Forms\Spool\SpoolSearchCommand.cs" />
+    <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -34,6 +34,8 @@ namespace PrizmMain.Forms.Spool
             spoolLength.DataBindings
                 .Add("EditValue", SpoolBindingSource, "SpoolLength");
 
+            pipeNumber.Properties.DataSource = viewModel.allPipes;
+
         }
 
         private void BindCommands()
@@ -49,6 +51,7 @@ namespace PrizmMain.Forms.Spool
             BindToViewModel();
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
+            pipeLength.Properties.ReadOnly = true;
         }
 
         private void cutButton_Click(object sender, System.EventArgs e)
