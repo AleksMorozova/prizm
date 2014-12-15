@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-
+using PrizmMain.Commands;
 using PrizmMain.Forms.MainChildForm;
 using System;
 
@@ -9,6 +9,7 @@ namespace PrizmMain.Forms.Reports.Incoming
     public partial class InspectionReportsXtraForm : ChildForm
     {
         private InspectionReportsViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager();
 
         public InspectionReportsXtraForm()
         {
@@ -24,8 +25,8 @@ namespace PrizmMain.Forms.Reports.Incoming
 
         private void BindCommands()
         {
-            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
-            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+           commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+           commandManager["PreviewReport"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void InspectionReportsXtraForm_Load(object sender, EventArgs e)

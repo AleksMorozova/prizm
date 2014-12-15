@@ -13,12 +13,15 @@ using System.Collections.Generic;
 using PrizmMain.Properties;
 using PrizmMain.Common;
 using PrizmMain.Forms.ExternalFile;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Railcar.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarNewEditXtraForm : ChildForm
     {
+        private ICommandManager commandManager = new CommandManager();
+
         private RailcarViewModel viewModel;
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
@@ -68,11 +71,13 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void BindCommands()
         {
-            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
-            SaveCommand = viewModel.SaveCommand;
-            shipButton.BindCommand(() => viewModel.ShipCommand.Execute(), viewModel.ShipCommand);
-            unshipButton.BindCommand(() => viewModel.UnshipCommand.Execute(), viewModel.UnshipCommand);
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
+            commandManager["Ship"].Executor(viewModel.ShipCommand).AttachTo(shipButton);
+            commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
 
+            SaveCommand = viewModel.SaveCommand;
+            
+            // TODO(odem): Is BindCommands() a correct method for initializing dictionary for lookup?
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
@@ -82,6 +87,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void RailcarNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }
