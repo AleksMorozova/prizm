@@ -121,27 +121,11 @@ namespace PrizmMain.Forms.Spool
             {
                 if (value != Spool.Pipe.Length)
                 {
-                    Spool.Pipe.Length = value;                    
+                    Spool.Pipe.Length = value;
                     RaisePropertyChanged("PipeLength");
                 }
             }
         }
-
-        //public float PipeWeight
-        //{
-        //    get
-        //    {
-        //        return Pipe.Weight;
-        //    }
-        //    set
-        //    {
-        //        if (value != Pipe.Weight)
-        //        {
-        //            Pipe.Weight = value;
-        //            RaisePropertyChanged("PipeWeight");
-        //        }
-        //    }
-        //}
 
         public int SpoolLength
         {
