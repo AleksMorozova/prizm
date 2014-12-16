@@ -160,7 +160,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandInfo.cs" />
+    <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="Commands\Attacher.cs" />
+    <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
@@ -327,7 +332,7 @@
     </Compile>
     <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
-    <Compile Include="Forms\Spool\SpoolSearchCommand.cs" />
+    <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -24,13 +24,14 @@ using PrizmMain.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
 using PrizmMain.Forms.ExternalFile;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
-
+        ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -257,9 +258,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         }
         private void BindCommands()
         {
-            saveAndNewButton.BindCommand(() => viewModel.NewSavePipeCommand.Execute(), viewModel.NewSavePipeCommand);
-            saveButton.BindCommand(() => viewModel.SavePipeCommand.Execute(), viewModel.SavePipeCommand);
-            SaveCommand = viewModel.SavePipeCommand;
+           commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
+           commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
+
+           SaveCommand = viewModel.SavePipeCommand;
         }
 
 

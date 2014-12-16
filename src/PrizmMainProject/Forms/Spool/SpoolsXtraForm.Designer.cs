@@ -44,7 +44,7 @@
             this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
-            this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
+            this.pipeNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeSearchayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.upperSearchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -238,6 +238,15 @@
             // 
             this.pipeNumber.Location = new System.Drawing.Point(31, 64);
             this.pipeNumber.Name = "pipeNumber";
+            this.pipeNumber.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.pipeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeNumber.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Number")});
+            this.pipeNumber.Properties.DisplayMember = "Number";
+            this.pipeNumber.Properties.NullText = "";
+            this.pipeNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.pipeNumber.Properties.ValueMember = "Number";
             this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
@@ -561,6 +570,6 @@
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
-        private DevExpress.XtraEditors.TextEdit pipeNumber;
+        private DevExpress.XtraEditors.LookUpEdit pipeNumber;
     }
 }
