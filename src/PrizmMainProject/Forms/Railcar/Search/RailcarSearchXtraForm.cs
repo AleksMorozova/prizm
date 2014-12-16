@@ -14,6 +14,7 @@ using PrizmMain.Forms.Railcar.NewEdit;
 using PrizmMain.Forms.MainChildForm;
 
 using PrizmMain.DummyData;
+using PrizmMain.Commands;
 
 
 namespace PrizmMain.Forms.Railcar.Search
@@ -21,6 +22,7 @@ namespace PrizmMain.Forms.Railcar.Search
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarSearchXtraForm : ChildForm
     {
+        private ICommandManager commandManager = new CommandManager();
         private RailcarSearchViewModel viewModel;
 
         public RailcarSearchXtraForm()
@@ -42,6 +44,7 @@ namespace PrizmMain.Forms.Railcar.Search
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
+
             railcarNumber.DataBindings.Add("Editvalue", bindingSource, "RailcarNumber");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
@@ -51,9 +54,8 @@ namespace PrizmMain.Forms.Railcar.Search
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
-
 
         private void railcarListView_DoubleClick(object sender, EventArgs e)
         {
@@ -97,9 +99,13 @@ namespace PrizmMain.Forms.Railcar.Search
             MessageBox.Show("Unship");
         }
 
-        private void RailcarSearchXtraForm_Activated(object sender, EventArgs e)
+        private void railcarListView_KeyDown(object sender, KeyEventArgs e)
         {
-            viewModel.SearchCommand.Execute();
+            if (e.KeyCode == Keys.Enter)
+            {
+                railcarListView_DoubleClick(sender, e);
+            }
         }
+
     }
 }

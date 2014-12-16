@@ -86,8 +86,8 @@ namespace PrizmMain.Forms.Audit
 
                     foreach (DataRow record in value.Rows)
                     {
-                        string tableResourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName"));
-                        string fieldResourceValue = Resources.ResourceManager.GetString(record.Field<string>("fieldName"));
+                        string tableResourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName")) == null ? record.Field<string>("tableName") : Resources.ResourceManager.GetString(record.Field<string>("tableName"));
+                        string fieldResourceValue = Resources.ResourceManager.GetString(record.Field<string>("fieldName")) == null ? record.Field<string>("fieldName") : Resources.ResourceManager.GetString(record.Field<string>("fieldName"));
                         record.SetField("tableName", tableResourceValue);
                         record.SetField("fieldName", fieldResourceValue);
                     }

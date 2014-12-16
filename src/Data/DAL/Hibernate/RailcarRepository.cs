@@ -39,6 +39,16 @@ namespace Data.DAL.Hibernate
             }
         }
 
-
+        public ISQLQuery CreateSQLQuery(string queryString)
+        {
+            try
+            {
+                return session.CreateSQLQuery(queryString);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("CreateSQLQuery", ex);
+            }
+        }
     }
 }

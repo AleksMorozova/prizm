@@ -23,6 +23,7 @@ using PrizmMain.Common;
 using DevExpress.XtraLayout.Customization;
 using Domain.Entity.Security;
 using Domain.Entity.Mill;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -31,6 +32,7 @@ namespace PrizmMain.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
         {
@@ -148,17 +150,21 @@ namespace PrizmMain.Forms.Settings
             pipeNumberMask.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "MillPipeNumberMask");
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
+
+            jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
         }
        
         private void BindCommands()
         {
-           saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+           commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
+                      
            SaveCommand = viewModel.SaveCommand;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
+            commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }
@@ -499,12 +505,16 @@ private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
             if (view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 User user = view.GetRow(view.FocusedRowHandle) as User;
-                PasswordChangeDialog dlg = new PasswordChangeDialog();
-                if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                if(user != null)
                 {
-                    user.PasswordHash = dlg.NewPasswordHash;
-                    IsModified = true;
+                    PasswordChangeDialog dlg = new PasswordChangeDialog();
+                    if(dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlg.NewPasswordHash;
+                        IsModified = true;
+                    }
                 }
+                
             }
         }
 

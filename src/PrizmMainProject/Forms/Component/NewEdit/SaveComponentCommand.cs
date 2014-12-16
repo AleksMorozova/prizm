@@ -33,22 +33,39 @@ namespace PrizmMain.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            try
+            
+            var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
+            foreach (var component in c)
             {
-                repos.BeginTransaction();
-                repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
-                repos.Commit();
-                repos.ComponentRepo.Evict(viewModel.Component);
-
-                viewModel.ModifiableView.IsModified = false;
-
-                notify.ShowSuccess(
-                     string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
-                     Resources.DLG_COMPONENT_SAVED_HEADER);
+                repos.ComponentRepo.Evict(component);
             }
-            catch (RepositoryException ex)
+
+            if (c != null && c.Count > 0)
             {
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                notify.ShowInfo(
+                    string.Concat(Resources.DLG_COMPONENT_DUPLICATE, viewModel.Number),
+                    Resources.DLG_COMPONENT_DUPLICATE_HEDER);
+                viewModel.Number = string.Empty;
+            }
+            else
+            {
+                try
+                {
+                    repos.BeginTransaction();
+                    repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
+                    repos.Commit();
+                    repos.ComponentRepo.Evict(viewModel.Component);
+                    viewModel.CanDeactivateComponent = viewModel.DeactivationCommand.CanExecute();
+                    viewModel.ModifiableView.IsModified = false;
+
+                    notify.ShowSuccess(
+                         string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
+                         Resources.DLG_COMPONENT_SAVED_HEADER);
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
         }
 

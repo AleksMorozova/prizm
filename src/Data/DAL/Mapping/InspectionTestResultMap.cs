@@ -21,7 +21,8 @@ namespace Data.DAL.Mapping
                     .Table("[TestResult_Inspector]")
                     .ParentKeyColumn("resultId")
                     .ChildKeyColumn("inspectorId")
-                    .Cascade.SaveUpdate().Not.LazyLoad();
+                    .Cascade.SaveUpdate()
+                    .Not.LazyLoad();
         }
     }
 }
