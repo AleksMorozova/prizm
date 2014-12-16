@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using PrizmMain.Forms.MainChildForm;
+using System.Reflection;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.Common
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class AboutXtraForm : ChildForm
+    public partial class AboutXtraForm : XtraForm
     {
         public AboutXtraForm()
         {
             InitializeComponent();
+        }
+
+        private void AboutXtraForm_Load(object sender, EventArgs e)
+        {
+            this.titleLabel.Text = Resources.AboutForm_TitleLabel;
         }
     }
 }

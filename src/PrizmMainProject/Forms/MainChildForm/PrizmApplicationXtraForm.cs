@@ -420,7 +420,9 @@ namespace PrizmMain.Forms.MainChildForm
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(AboutXtraForm));
+            //CreateChildForm(typeof(AboutXtraForm));
+            AboutXtraForm form = new AboutXtraForm();
+            form.ShowDialog();
         }
 
 
