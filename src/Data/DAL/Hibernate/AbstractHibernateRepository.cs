@@ -200,5 +200,17 @@ namespace Data.DAL.Hibernate
                 throw new RepositoryException("Clear", ex);
             }
         }
+
+        public ISQLQuery CreateSQLQuery(string queryString)
+        {
+            try
+            {
+                return session.CreateSQLQuery(queryString);
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("CreateSQLQuery", ex);
+            }
+        }
     }
 }
