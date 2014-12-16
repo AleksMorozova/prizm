@@ -636,10 +636,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void ShowHeatDialog(string number)
         {
-            heatsLookUp.ClosePopup();
             var dlg = new HeatXtraForm(number);
             dlg.ShowDialog();
-            viewModel.ExtractHeatsCommand.Execute();
+            
         }
 
         private void heatsLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -665,8 +664,43 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void heatsLookUp_QueryPopUp(object sender, CancelEventArgs e)
         {
+            viewModel.ExtractHeatsCommand.Execute();
             heatsLookUp.Properties.DataSource = null;
             heatsLookUp.Properties.DataSource = viewModel.Heats;
+        }
+
+        private void ShowOrderDialog(string number)
+        {
+            var dlg = new PurchaseOrderXtraForm(number);
+            dlg.ShowDialog();
+        }
+        
+        private void ordersLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
+            {
+                var number = ((GridLookUpEdit)sender).Text;
+                ShowOrderDialog(number);
+            }
+        }
+
+        private void ordersLookUp_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+            if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
+            {
+                if(MessageBox.Show("Создать наряд-заказ " + e.DisplayValue.ToString(), "Новый наряд-заказ", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    ShowOrderDialog(e.DisplayValue.ToString());
+                }
+            }
+            e.Handled = true;
+        }
+
+        private void ordersLookUp_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            viewModel.ExtractPurchaseOrderCommand.Execute();
+            ordersLookUp.Properties.DataSource = null;
+            ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
 
 

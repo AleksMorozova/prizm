@@ -1268,11 +1268,16 @@
             this.ordersLookUp.Name = "ordersLookUp";
             this.ordersLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ordersLookUp.Properties.DisplayMember = "Number";
             this.ordersLookUp.Properties.NullText = "";
+            this.ordersLookUp.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.ordersLookUp.Properties.View = this.gridLookUpEdit2View;
             this.ordersLookUp.Size = new System.Drawing.Size(209, 20);
             this.ordersLookUp.StyleController = this.generalPipeLayout;
             this.ordersLookUp.TabIndex = 34;
+            this.ordersLookUp.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.ordersLookUp_ProcessNewValue);
+            this.ordersLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.ordersLookUp_QueryPopUp);
+            this.ordersLookUp.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ordersLookUp_ButtonClick);
             // 
             // gridLookUpEdit2View
             // 
@@ -1305,9 +1310,12 @@
             this.heatsLookUp.EditValue = "";
             this.heatsLookUp.Location = new System.Drawing.Point(422, 27);
             this.heatsLookUp.Name = "heatsLookUp";
+            this.heatsLookUp.Properties.AutoComplete = false;
             this.heatsLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.heatsLookUp.Properties.DisplayMember = "Number";
             this.heatsLookUp.Properties.NullText = "";
+            this.heatsLookUp.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.heatsLookUp.Properties.View = this.gridLookUpEdit1View;
             this.heatsLookUp.Size = new System.Drawing.Size(191, 20);
             this.heatsLookUp.StyleController = this.generalPipeLayout;
