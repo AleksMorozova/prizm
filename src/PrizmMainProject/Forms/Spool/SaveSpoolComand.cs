@@ -12,24 +12,24 @@ namespace PrizmMain.Forms.Spool
 {
     public class SaveSpoolCommand: ICommand
     {
-        readonly ISpoolRepository repoSpool;
+        readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
 
-        public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepository repoSpool, IUserNotify notify)
+        public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
-            this.repoSpool = repoSpool;
+            this.repos = repos;
             this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repoSpool.BeginTransaction();
-            repoSpool.SaveOrUpdate(viewModel.Spool);
-            repoSpool.Commit();
-            repoSpool.Evict(viewModel.Spool);
+            repos.BeginTransaction();
+            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+            repos.Commit();
+            repos.SpoolRepo.Evict(viewModel.Spool);
             viewModel.ModifiableView.IsModified = false;
         }
 

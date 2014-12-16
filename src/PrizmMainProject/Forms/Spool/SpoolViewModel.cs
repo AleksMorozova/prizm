@@ -2,6 +2,7 @@
 using Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity;
 using Domain.Entity.Construction;
 using Domain.Entity.Mill;
 using Ninject;
@@ -19,8 +20,7 @@ namespace PrizmMain.Forms.Spool
 {
     public class SpoolViewModel : ViewModelBase, IDisposable
     {
-        private readonly ISpoolRepository repoSpool;
-        private readonly IPipeRepository repoPipe;
+        private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand cutCommand;
         readonly ICommand saveCommand;
@@ -34,31 +34,32 @@ namespace PrizmMain.Forms.Spool
         public BindingList<Pipe> allPipes { get; set; }
 
         [Inject]
-        public SpoolViewModel(IPipeRepository repoPipe, ISpoolRepository repoSpool, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, IUserNotify notify)
         {
-            this.repoPipe = repoPipe;
-            this.repoSpool = repoSpool;
+            this.repos = repos;
+
             this.notify=notify;
+            this.Inspectors = repos.RepoInspector.GetAll();
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
-              () => new EditPipeForCutCommand(this, repoPipe, notify));
+              () => new EditPipeForCutCommand(this, repos, notify));
 
             cutCommand = ViewModelSource.Create<CutSpoolCommand>(
-             () => new CutSpoolCommand(this, repoPipe, repoSpool,notify));
+             () => new CutSpoolCommand(this, repos, notify));
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
-            () => new SaveSpoolCommand(this, repoSpool, notify));
+            () => new SaveSpoolCommand(this, repos, notify));
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repoSpool.GetAvailablePipes()) 
+            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes()) 
             {
                 allPipes.Add(p);
             }
             Spool = new Domain.Entity.Construction.Spool();
+            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
             Spool.Pipe = new Pipe();
             Pipe = new Pipe();
-            
             
         }
 
@@ -88,7 +89,7 @@ namespace PrizmMain.Forms.Spool
                     Spool.PipeNumber = value;
 
                     StringBuilder number = new StringBuilder();
-                    int spoolNumber = repoSpool.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
+                    int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
                     number.Append(Spool.PipeNumber + "/" + spoolNumber.ToString());
                     Spool.Number = number.ToString();
 
@@ -105,44 +106,23 @@ namespace PrizmMain.Forms.Spool
                 if (value != Spool.Pipe)
                 {
                     Spool.Pipe = value;
-                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
                     RaisePropertyChanged("PipeNumber");
                 }
             }
         }
 
-        // TODO: fixed if pipe number was wrong
         public int PipeLength
         {
             get
             {
-                return Pipe.Length;
+                return Spool.Pipe.Length;
             }
             set
             {
-                if (value != Pipe.Length)
+                if (value != Spool.Pipe.Length)
                 {
-                    Pipe.Length = value;                    
-                    this.PipeWeight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                    Spool.Pipe.Length = value;
                     RaisePropertyChanged("PipeLength");
-
-                    //RaisePropertyChanged("PipeWeight");
-                }
-            }
-        }
-
-        public float PipeWeight
-        {
-            get
-            {
-                return Pipe.Weight;
-            }
-            set
-            {
-                if (value != Pipe.Weight)
-                {
-                    Pipe.Weight = value;
-                    RaisePropertyChanged("PipeWeight");
                 }
             }
         }
@@ -200,10 +180,40 @@ namespace PrizmMain.Forms.Spool
             }
         }
 
+        public IList<Inspector> Inspectors { get; set; }
+        public BindingList<InspectionTestResult> InspectionTestResults
+        {
+            get
+            {
+                return
+                    (Spool.InspectionTestResults is BindingList<InspectionTestResult>
+                    ? (BindingList<InspectionTestResult>)Spool.InspectionTestResults
+                    : new BindingList<InspectionTestResult>(Spool.InspectionTestResults));
+            }
+            set
+            {
+                if (value != Spool.InspectionTestResults)
+                {
+                    Spool.InspectionTestResults = value;
+                    RaisePropertyChanged("InspectionTestResults");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Customize displaying inspectors name in grid cell : show only last name
+        /// </summary>
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
+        }
+
         public void Dispose()
         {
-            repoPipe.Dispose();
-            repoSpool.Dispose();
+            repos.Dispose();
             ModifiableView = null;
         }
 

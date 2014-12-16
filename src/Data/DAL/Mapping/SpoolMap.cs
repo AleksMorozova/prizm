@@ -14,7 +14,7 @@ namespace Data.DAL.Mapping
         public SpoolMap()
         {
             Map(_ => _.PipeNumber).Column("pipeNumber");
-
+            HasMany<InspectionTestResult>(_ => _.InspectionTestResults).KeyColumn("partId").Cascade.All().Not.LazyLoad();
             References<Pipe>(x => x.Pipe).Column("pipeId");
         }
     }

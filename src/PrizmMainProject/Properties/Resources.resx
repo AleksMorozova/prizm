@@ -573,7 +573,7 @@
   </data>
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
-    </data>
+  </data>
   <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к деактивации комплектующего элемента. 
 Параметры комплектующего элемента станут невозможны для редактирования. 
@@ -594,10 +594,22 @@
   <data name="Test" xml:space="preserve">
     <value>Контрольная операция</value>
   </data>
+  <data name="Cut_Spool_from_pipe" xml:space="preserve">
+    <value>Отрезана катушка заданной длины</value>
+  </data>
   <data name="DLG_JOINT_DUPLICATE" xml:space="preserve">
     <value>Уже существует стык с номером:</value>
   </data>
+  <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
+    <value>Создание катушка</value>
+    </data>
   <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
     <value>Дублирование номера стыка</value>
+  </data>
+  <data name="Wrong_pipe_number_for_cutting" xml:space="preserve">
+    <value>Введен неверный номер трубы</value>
+  </data>
+  <data name="Wrong_pipe_number_for_cutting_Header" xml:space="preserve">
+    <value>Неверный номер трубы</value>
   </data>
 </root>

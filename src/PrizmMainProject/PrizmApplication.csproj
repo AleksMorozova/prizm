@@ -329,8 +329,10 @@
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
+    <Compile Include="Forms\Spool\ISpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
+    <Compile Include="Forms\Spool\SpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
