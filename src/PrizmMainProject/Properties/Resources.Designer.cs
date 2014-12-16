@@ -61,6 +61,17 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PRIZM – программа полного цикла управления 
+        ///процессом производства, транспортировки 
+        ///и строительства промышленных труб..
+        /// </summary>
+        internal static string AboutForm_TitleLabel {
+            get {
+                return ResourceManager.GetString("AboutForm_TitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Принято.
         /// </summary>
         internal static string Accepted {
@@ -322,6 +333,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отрезана катушка заданной длины.
+        /// </summary>
+        internal static string Cut_Spool_from_pipe {
+            get {
+                return ResourceManager.GetString("Cut_Spool_from_pipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание катушка.
+        /// </summary>
+        internal static string Cut_Spool_from_pipe_Header {
+            get {
+                return ResourceManager.GetString("Cut_Spool_from_pipe_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Срок действия истек.
         /// </summary>
         internal static string DATA_EXPIRED {
@@ -446,6 +475,24 @@ namespace PrizmMain.Properties {
         internal static string DLG_ERROR_HEADER {
             get {
                 return ResourceManager.GetString("DLG_ERROR_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует стык с номером:.
+        /// </summary>
+        internal static string DLG_JOINT_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера стыка.
+        /// </summary>
+        internal static string DLG_JOINT_DUPLICATE_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DUPLICATE_HEADER", resourceCulture);
             }
         }
         
@@ -896,6 +943,16 @@ namespace PrizmMain.Properties {
         internal static string Lowered {
             get {
                 return ResourceManager.GetString("Lowered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_logo_03 {
+            get {
+                object obj = ResourceManager.GetObject("main-logo_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1475,6 +1532,24 @@ namespace PrizmMain.Properties {
         internal static string WorkstationType {
             get {
                 return ResourceManager.GetString("WorkstationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введен неверный номер трубы.
+        /// </summary>
+        internal static string Wrong_pipe_number_for_cutting {
+            get {
+                return ResourceManager.GetString("Wrong_pipe_number_for_cutting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный номер трубы.
+        /// </summary>
+        internal static string Wrong_pipe_number_for_cutting_Header {
+            get {
+                return ResourceManager.GetString("Wrong_pipe_number_for_cutting_Header", resourceCulture);
             }
         }
         

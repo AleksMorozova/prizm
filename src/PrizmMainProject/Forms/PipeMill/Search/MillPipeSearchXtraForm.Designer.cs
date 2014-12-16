@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -47,12 +46,9 @@
             this.pipeMillGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.heatNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusSearchGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryGridLookUpEditViewStatus = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.internalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pipeRepositoryButtonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.pipeMillStatus = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.pipeActivity = new DevExpress.XtraEditors.ComboBoxEdit();
             this.PipeSearchLayout = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -73,7 +69,6 @@
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
             this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -87,9 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpEditStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).BeginInit();
@@ -225,9 +217,6 @@
             this.pipesSearchResult.Location = new System.Drawing.Point(30, 194);
             this.pipesSearchResult.MainView = this.pipesSearchResultView;
             this.pipesSearchResult.Name = "pipesSearchResult";
-            this.pipesSearchResult.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.pipeRepositoryButtonEdit,
-            this.repositoryLookUpEditStatus});
             this.pipesSearchResult.Size = new System.Drawing.Size(1150, 243);
             this.pipesSearchResult.TabIndex = 33;
             this.pipesSearchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -236,7 +225,6 @@
             // pipesSearchResultView
             // 
             this.pipesSearchResultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idCol,
             this.pipeNumberGridColumn,
             this.pipeDiameterGridColumn,
             this.pipeMillGridColumn,
@@ -258,13 +246,13 @@
             this.pipeNumberGridColumn.Name = "pipeNumberGridColumn";
             this.pipeNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeNumberGridColumn.Visible = true;
-            this.pipeNumberGridColumn.VisibleIndex = 1;
+            this.pipeNumberGridColumn.VisibleIndex = 0;
             this.pipeNumberGridColumn.Width = 170;
             // 
             // pipeDiameterGridColumn
             // 
             this.pipeDiameterGridColumn.Caption = "Типоразмер";
-            this.pipeDiameterGridColumn.FieldName = "Type.Type";
+            this.pipeDiameterGridColumn.FieldName = "Type";
             this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
             this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeDiameterGridColumn.Visible = true;
@@ -278,43 +266,28 @@
             this.pipeMillGridColumn.Name = "pipeMillGridColumn";
             this.pipeMillGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeMillGridColumn.Visible = true;
-            this.pipeMillGridColumn.VisibleIndex = 3;
+            this.pipeMillGridColumn.VisibleIndex = 1;
             this.pipeMillGridColumn.Width = 150;
             // 
             // heatNumberGridColumn
             // 
             this.heatNumberGridColumn.Caption = "Номер плавки";
-            this.heatNumberGridColumn.FieldName = "Plate.Heat.Number";
+            this.heatNumberGridColumn.FieldName = "HeatNumber";
             this.heatNumberGridColumn.Name = "heatNumberGridColumn";
             this.heatNumberGridColumn.OptionsColumn.AllowEdit = false;
             this.heatNumberGridColumn.Visible = true;
-            this.heatNumberGridColumn.VisibleIndex = 4;
+            this.heatNumberGridColumn.VisibleIndex = 3;
             this.heatNumberGridColumn.Width = 170;
             // 
             // statusSearchGridColumn
             // 
             this.statusSearchGridColumn.Caption = "Статус на заводе";
-            this.statusSearchGridColumn.ColumnEdit = this.repositoryLookUpEditStatus;
-            this.statusSearchGridColumn.FieldName = "Status";
+            this.statusSearchGridColumn.FieldName = "PipeMillStatus";
             this.statusSearchGridColumn.Name = "statusSearchGridColumn";
             this.statusSearchGridColumn.OptionsColumn.AllowEdit = false;
             this.statusSearchGridColumn.Visible = true;
-            this.statusSearchGridColumn.VisibleIndex = 5;
+            this.statusSearchGridColumn.VisibleIndex = 4;
             this.statusSearchGridColumn.Width = 100;
-            // 
-            // repositoryLookUpEditStatus
-            // 
-            this.repositoryLookUpEditStatus.AutoHeight = false;
-            this.repositoryLookUpEditStatus.Name = "repositoryLookUpEditStatus";
-            this.repositoryLookUpEditStatus.View = this.repositoryGridLookUpEditViewStatus;
-            this.repositoryLookUpEditStatus.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryLookUpEditStatus_CustomDisplayText);
-            // 
-            // repositoryGridLookUpEditViewStatus
-            // 
-            this.repositoryGridLookUpEditViewStatus.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryGridLookUpEditViewStatus.Name = "repositoryGridLookUpEditViewStatus";
-            this.repositoryGridLookUpEditViewStatus.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryGridLookUpEditViewStatus.OptionsView.ShowGroupPanel = false;
             // 
             // weldingDateGridColumn
             // 
@@ -323,7 +296,7 @@
             this.weldingDateGridColumn.Name = "weldingDateGridColumn";
             this.weldingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.weldingDateGridColumn.Visible = true;
-            this.weldingDateGridColumn.VisibleIndex = 6;
+            this.weldingDateGridColumn.VisibleIndex = 5;
             this.weldingDateGridColumn.Width = 100;
             // 
             // internalCoatingDateGridColumn
@@ -333,7 +306,7 @@
             this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
             this.internalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.internalCoatingDateGridColumn.Visible = true;
-            this.internalCoatingDateGridColumn.VisibleIndex = 8;
+            this.internalCoatingDateGridColumn.VisibleIndex = 7;
             this.internalCoatingDateGridColumn.Width = 87;
             // 
             // externalCoatingDateGridColumn
@@ -343,17 +316,8 @@
             this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
             this.externalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
             this.externalCoatingDateGridColumn.Visible = true;
-            this.externalCoatingDateGridColumn.VisibleIndex = 7;
+            this.externalCoatingDateGridColumn.VisibleIndex = 6;
             this.externalCoatingDateGridColumn.Width = 100;
-            // 
-            // pipeRepositoryButtonEdit
-            // 
-            this.pipeRepositoryButtonEdit.AutoHeight = false;
-            this.pipeRepositoryButtonEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pipeRepositoryButtonEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.pipeRepositoryButtonEdit.Name = "pipeRepositoryButtonEdit";
-            this.pipeRepositoryButtonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.pipeRepositoryButtonEdit.Click += new System.EventHandler(this.pipeRepositoryButtonEdit_Click);
             // 
             // pipeMillStatus
             // 
@@ -588,14 +552,6 @@
             this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // idCol
-            // 
-            this.idCol.Caption = "#";
-            this.idCol.FieldName = "Id";
-            this.idCol.Name = "idCol";
-            this.idCol.Visible = true;
-            this.idCol.VisibleIndex = 0;
-            // 
             // MillPipeSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,9 +575,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSearchResultView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpEditStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditViewStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeRepositoryButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeActivity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayout)).EndInit();
@@ -681,15 +634,11 @@
         private System.Windows.Forms.BindingSource MillPipeSearchBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn pipeDiameterGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn pipeMillGridColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit pipeRepositoryButtonEdit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryLookUpEditStatus;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryGridLookUpEditViewStatus;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeSize;
         private DevExpress.XtraLayout.LayoutControlItem PipeSizeLayoutControl;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeMillStatus;
         private DevExpress.XtraLayout.LayoutControlItem pipeActivityLayoutControl;
         private DevExpress.XtraEditors.ComboBoxEdit pipeActivity;
-        private DevExpress.XtraGrid.Columns.GridColumn idCol;
 
 
     }

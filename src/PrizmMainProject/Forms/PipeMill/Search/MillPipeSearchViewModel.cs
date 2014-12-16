@@ -13,8 +13,6 @@ namespace PrizmMain.Forms.PipeMill.Search
     using PrizmMain.Commands;
     using System;
     using System.Windows.Forms;
-    using Pipe = Domain.Entity.Mill.Pipe;
-
     using Data.DAL.Mill;
     using Domain.Entity.Mill;
     using PrizmMain.Common;
@@ -25,7 +23,7 @@ using PrizmMain.Properties;
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
     {
-
+        private readonly IUserNotify notify;
         readonly ICommand searchCommand;
 
         readonly IMillRepository repoMill;
@@ -45,12 +43,15 @@ using PrizmMain.Properties;
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
         [Inject]
-        public MillPipeSearchViewModel(IMillRepository repoMill)
+        public MillPipeSearchViewModel(
+            IMillRepository repoMill,
+            IUserNotify notify)
         {
             this.repoMill = repoMill;
+            this.notify = notify;
 
             searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
-                () => new MillPipeSearchCommand(this, repoMill.RepoPipe));
+                () => new MillPipeSearchCommand(this, repoMill.RepoPipe, notify));
 
             pipeTypes = repoMill.RepoPipeType.GetAll();
             checkedPipeTypes = repoMill.RepoPipeType.GetAll();

@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Construction;
 using Domain.Entity.Construction;
 using NHibernate;
+using NHibernate.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,18 @@ namespace Data.DAL.Hibernate
         public JointRepository(ISession session)
             : base(session)
         {
+        }
 
+        public IList<Joint> GetActiveByNumber(Joint joint)
+        {
+            try
+            {
+                return session.QueryOver<Joint>().Where(_ => _.IsActive == true && _.Id != joint.Id && _.Number == joint.Number).List<Joint>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetActiveByNumber", ex);
+            }
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Domain.Entity.Construction
 {
     public class InspectionTestResult : TestResult<PartInspectionStatus>
     {
-
+        public InspectionTestResult()
+        {
+        }
     }
 }

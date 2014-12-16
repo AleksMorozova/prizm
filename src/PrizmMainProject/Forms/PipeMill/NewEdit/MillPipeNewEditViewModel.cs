@@ -309,7 +309,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             {
                 if (recalculateWeight) 
                 {
-                    Pipe.Weight = Pipe.ChangePipeWeight(Pipe.WallThickness, Pipe.Diameter, Pipe.Length);
+                    Pipe.RecalculateWeight();
                 }
                 return Pipe.Weight; 
             }

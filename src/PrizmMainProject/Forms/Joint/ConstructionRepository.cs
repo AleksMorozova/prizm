@@ -15,7 +15,8 @@ namespace PrizmMain.Forms.Joint
     public class ConstructionRepository : IConstructionRepository
     {
         private readonly IJointRepository repoJoint;
-        private readonly IJointActionResultRepository repoJointActionResult;
+        private readonly IJointTestResultRepository repoJointTestResult;
+        private readonly IJointWeldResultRepository repoJointWeldResult;
         private readonly IJointOperationRepository repoJointOperation;
         private readonly IInspectorRepository repoInspector;
         private readonly IWelderRepository repoWelder;
@@ -27,7 +28,8 @@ namespace PrizmMain.Forms.Joint
         {
             this.session = session;
             this.repoJoint = new JointRepository(session);
-            this.repoJointActionResult = new JointActionResultRepository(session);
+            this.repoJointTestResult = new JointTestResultRepository(session);
+            this.repoJointWeldResult = new JointWeldResultRepository(session);
             this.repoJointOperation = new JointOperationRepository(session);
             this.repoInspector = new InspectorRepository(session);
             this.repoWelder = new WelderRepository(session);
@@ -52,9 +54,9 @@ namespace PrizmMain.Forms.Joint
             get { return repoJoint; }
         }
 
-        public IJointActionResultRepository RepoJointActionResult
+        public IJointTestResultRepository RepoJointTestResult
         {
-            get { return repoJointActionResult; }
+            get { return repoJointTestResult; }
         }
 
         public IJointOperationRepository RepoJointOperation
@@ -70,6 +72,10 @@ namespace PrizmMain.Forms.Joint
         public IWelderRepository RepoWelder
         {
             get { return repoWelder; }
+        }
+        public IJointWeldResultRepository RepoJointWeldResult
+        {
+            get { return repoJointWeldResult; }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NHibernate.Transform;
+﻿using Domain.Entity.Construction;
+using NHibernate.Transform;
 using PrizmMain.Common;
 using PrizmMain.Forms.Common;
 using System;
@@ -37,7 +38,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
 
         #endregion
 
-        internal static string BuildSql(System.ComponentModel.BindingList<Common.PartType> partTypes, string number)
+        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number)
         {
             if(partTypes.Count == 0)
             {

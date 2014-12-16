@@ -2,6 +2,7 @@
 using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,34 +13,27 @@ namespace PrizmMain.Forms.Spool
 {
     public class CutSpoolCommand : ICommand
     {
-        readonly IPipeRepository repoPipe;
-        readonly ISpoolRepository repoSpool;
+        readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
 
-        public CutSpoolCommand(SpoolViewModel viewModel, IPipeRepository repoPipe, ISpoolRepository repoSpool, IUserNotify notify)
+        public CutSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
-            this.repoPipe = repoPipe;
-            this.repoSpool = repoSpool;
+            this.repos = repos;
             this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repoPipe.BeginTransaction();
-            repoPipe.SaveOrUpdate(viewModel.Pipe);
-            repoPipe.Commit();
-            repoPipe.Evict(viewModel.Pipe);
-
-            repoSpool.BeginTransaction();
-            repoSpool.SaveOrUpdate(viewModel.Spool);
-            repoSpool.Commit();
-            repoSpool.Evict(viewModel.Spool);
-
-            //TODO: move to Resource file
-            notify.ShowNotify("Отрезана катушка заданной длины","Создание катушка");
+            repos.BeginTransaction();
+            repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+            repos.Commit();            
+            repos.PipeRepo.Evict(viewModel.Pipe);
+            repos.SpoolRepo.Evict(viewModel.Spool);
+            notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
         }
 
 
