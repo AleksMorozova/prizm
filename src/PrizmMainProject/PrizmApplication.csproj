@@ -791,13 +791,7 @@
     <None Include="Resources\password_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo_intertek_sc1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\main-logo_031.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
