@@ -15,10 +15,11 @@ namespace PrizmMain.Forms.PipeMill.Heat
     public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
     {
 
-        public HeatNumberXtraForm()
+        public HeatNumberXtraForm(string number)
         {
             InitializeComponent();
             SetControlsTextLength();
+            this.number.Text = number;
         }
 
         public string Number { get { return number.Text; } }
