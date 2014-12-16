@@ -468,6 +468,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Уже существует стык с номером:.
+        /// </summary>
+        internal static string DLG_JOINT_DUPLICATE {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера стыка.
+        /// </summary>
+        internal static string DLG_JOINT_DUPLICATE_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DUPLICATE_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
         /// </summary>
         internal static string DLG_JOINT_SAVED {

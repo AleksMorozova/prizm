@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Construction
 {
-    public interface IJointActionResultRepository : IRepository <Guid, JointActionResult>
+    public interface IJointWeldResultRepository : IRepository <Guid, JointWeldResult>
     {
+        IList<JointWeldResult> GetByJoint(Joint joint);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Data.DAL;
 using Data.DAL.ADO;
 using DevExpress.XtraReports.UI;
+using Domain.Entity.Construction;
 using PrizmMain.Commands;
 using PrizmMain.Forms.Common;
 using System;

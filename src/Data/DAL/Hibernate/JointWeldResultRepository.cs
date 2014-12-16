@@ -11,23 +11,27 @@ using System.Threading.Tasks;
 
 namespace Data.DAL.Hibernate
 {
-    public class JointRepository : AbstractHibernateRepository<Guid, Joint>, IJointRepository
+    public class JointWeldResultRepository : AbstractHibernateRepository<Guid, JointWeldResult>, IJointWeldResultRepository
     {
         [Inject]
-        public JointRepository(ISession session)
+        public JointWeldResultRepository(ISession session)
             : base(session)
         {
+
         }
 
-        public IList<Joint> GetActiveByNumber(Joint joint)
+        public IList<JointWeldResult> GetByJoint(Joint joint)
         {
             try
             {
-                return session.QueryOver<Joint>().Where(_ => _.IsActive == true && _.Id != joint.Id && _.Number == joint.Number).List<Joint>();
+                return session
+                    .QueryOver<JointWeldResult>()
+                    .Where(x => x.Joint == joint)
+                    .List<JointWeldResult>();
             }
             catch (GenericADOException ex)
             {
-                throw new RepositoryException("GetActiveByNumber", ex);
+                throw new RepositoryException("GetByJoint", ex);
             }
         }
     }
