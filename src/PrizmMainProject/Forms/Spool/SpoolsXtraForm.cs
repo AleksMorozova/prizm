@@ -3,6 +3,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entity;
 using Domain.Entity.Construction;
 using Domain.Entity.Mill;
+using PrizmMain.Commands;
 using PrizmMain.Controls;
 using PrizmMain.Forms.ExternalFile;
 using PrizmMain.Forms.MainChildForm;
@@ -18,6 +19,7 @@ namespace PrizmMain.Forms.Spool
         private SpoolViewModel viewModel;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
+        ICommandManager commandManager = new CommandManager();
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
@@ -70,9 +72,9 @@ namespace PrizmMain.Forms.Spool
 
         private void BindCommands()
         {
-            searchButton.BindCommand(() => viewModel.SearchCommand.Execute(), viewModel.SearchCommand);
-            cutButton.BindCommand(() => viewModel.CutCommand.Execute(), viewModel.CutCommand);
-            saveButton.BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
+            commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            commandManager["Cut"].Executor(viewModel.CutCommand).AttachTo(cutButton);
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
