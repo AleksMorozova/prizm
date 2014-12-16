@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using Domain.Entity.Mill;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,7 @@ namespace PrizmMain.Forms.Spool
 
             else
             {
-                //TODO: input in Resource
-                notify.ShowError("Неверный номер трубы", "Введен неверный номер трубы.");
+                notify.ShowError(Resources.Wrong_pipe_number_for_cutting, Resources.Wrong_pipe_number_for_cutting_Header);
             }
         }
 

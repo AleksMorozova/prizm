@@ -2,6 +2,7 @@
 using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using PrizmMain.Commands;
+using PrizmMain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +33,7 @@ namespace PrizmMain.Forms.Spool
             repos.Commit();            
             repos.PipeRepo.Evict(viewModel.Pipe);
             repos.SpoolRepo.Evict(viewModel.Spool);
-            //TODO: move to Resource file
-            notify.ShowNotify("Отрезана катушка заданной длины","Создание катушка");
+            notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
         }
 
 
