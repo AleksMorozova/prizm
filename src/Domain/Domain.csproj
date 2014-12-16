@@ -45,6 +45,8 @@
     <Compile Include="Entity\Construction\Connector.cs" />
     <Compile Include="Entity\Construction\InspectionTestResult.cs" />
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
+    <Compile Include="Entity\Construction\PartData.cs" />
+    <Compile Include="Entity\Construction\PartType.cs" />
     <Compile Include="Entity\Setup\JointOperationType.cs" />
     <Compile Include="Entity\Construction\PartConstructionStatus.cs" />
     <Compile Include="Entity\Construction\PartInspectionStatus.cs" />

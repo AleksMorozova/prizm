@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Construction
 {
-    public class InspectionTestResult : TestResult<PartInspectionStatus>
+    public enum PartType
     {
-        public InspectionTestResult()
-        {
-        }
+        Undefined = 0,
+        Pipe = 1,
+        Spool = 2,
+        Component =3
     }
 }

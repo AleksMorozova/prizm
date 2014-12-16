@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using Domain.Entity.Construction;
 using NHibernate;
 using Ninject;
 using PrizmMain.Commands;

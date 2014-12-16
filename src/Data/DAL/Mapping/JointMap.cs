@@ -20,6 +20,19 @@ namespace Data.DAL.Mapping
             Map(_ => _.GpsHeight).Column("gpsHeight");
             Map(_ => _.GpsLatitude).Column("gpsLatitude");
             Map(_ => _.GpsLongitude).Column("gpsLongitude");
+            Component<PartData>(_ => _.FirstElement, m =>
+            {
+                m.Map(_ => _.Id).Column("part1Id");
+                m.Map(_ => _.PartType).Column("part1Type");
+
+            });
+
+            Component<PartData>(_ => _.SecondElement, n =>
+            {
+                n.Map(_ => _.Id).Column("part2Id");
+                n.Map(_ => _.PartType).Column("part2Type");
+
+            });
 
             HasMany<JointTestResult>(_ => _.JointTestResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
             HasMany<JointWeldResult>(_ => _.JointWeldResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
