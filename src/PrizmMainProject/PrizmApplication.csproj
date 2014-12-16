@@ -212,7 +212,6 @@
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
@@ -228,6 +227,7 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">

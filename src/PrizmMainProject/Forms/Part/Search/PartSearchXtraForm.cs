@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using PrizmMain.Common;
 using PrizmMain.Forms.Component.NewEdit;
 using Ninject.Parameters;
+using Domain.Entity.Construction;
 using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.InspectionParts.Search

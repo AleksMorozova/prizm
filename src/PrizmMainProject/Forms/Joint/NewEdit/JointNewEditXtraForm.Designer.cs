@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.saveAndCreateButton = new DevExpress.XtraEditors.SimpleButton();
             this.repairOperations = new DevExpress.XtraGrid.GridControl();
             this.repairOperationsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repairTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.RepairOperationsLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repairOperationsLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repairDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repairDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.completedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,6 +63,7 @@
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ResultValueTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.secondJointElement = new DevExpress.XtraEditors.LookUpEdit();
             this.firstJointElement = new DevExpress.XtraEditors.LookUpEdit();
@@ -88,6 +90,7 @@
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
             this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
@@ -97,7 +100,7 @@
             this.newJointLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RepairOperationsLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperationsLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit)).BeginInit();
@@ -115,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultValueTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElement.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElement.Properties)).BeginInit();
@@ -142,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndCreateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
@@ -162,6 +167,7 @@
             // 
             // newJointLayoutControl
             // 
+            this.newJointLayoutControl.Controls.Add(this.saveAndCreateButton);
             this.newJointLayoutControl.Controls.Add(this.repairOperations);
             this.newJointLayoutControl.Controls.Add(this.saveButton);
             this.newJointLayoutControl.Controls.Add(this.extraFiles);
@@ -188,6 +194,16 @@
             this.newJointLayoutControl.TabIndex = 15;
             this.newJointLayoutControl.Text = "layoutControl1";
             // 
+            // saveAndCreateButton
+            // 
+            this.saveAndCreateButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndCreateButton.Image")));
+            this.saveAndCreateButton.Location = new System.Drawing.Point(1121, 506);
+            this.saveAndCreateButton.Name = "saveAndCreateButton";
+            this.saveAndCreateButton.Size = new System.Drawing.Size(132, 22);
+            this.saveAndCreateButton.StyleController = this.newJointLayoutControl;
+            this.saveAndCreateButton.TabIndex = 29;
+            this.saveAndCreateButton.Text = "Сохранить/Создать";
+            // 
             // repairOperations
             // 
             this.repairOperations.Cursor = System.Windows.Forms.Cursors.Default;
@@ -196,7 +212,7 @@
             this.repairOperations.Name = "repairOperations";
             this.repairOperations.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.CompletedCheckEdit,
-            this.RepairOperationsLookUpEdit,
+            this.repairOperationsLookUpEdit,
             this.repairDateEdit,
             this.weldersPopupContainerEdit});
             this.repairOperations.Size = new System.Drawing.Size(532, 261);
@@ -216,30 +232,31 @@
             this.repairOperationsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.repairOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.repairOperationsView.OptionsView.ShowGroupPanel = false;
+            this.repairOperationsView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.repairOperationsView_ShowingEditor);
             this.repairOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.repairOperationsView_InitNewRow);
             // 
             // repairTypeGridColumn
             // 
             this.repairTypeGridColumn.Caption = "Тип операции";
-            this.repairTypeGridColumn.ColumnEdit = this.RepairOperationsLookUpEdit;
+            this.repairTypeGridColumn.ColumnEdit = this.repairOperationsLookUpEdit;
             this.repairTypeGridColumn.FieldName = "Operation.Name";
             this.repairTypeGridColumn.Name = "repairTypeGridColumn";
             this.repairTypeGridColumn.Visible = true;
             this.repairTypeGridColumn.VisibleIndex = 0;
             this.repairTypeGridColumn.Width = 134;
             // 
-            // RepairOperationsLookUpEdit
+            // repairOperationsLookUpEdit
             // 
-            this.RepairOperationsLookUpEdit.AutoHeight = false;
-            this.RepairOperationsLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repairOperationsLookUpEdit.AutoHeight = false;
+            this.repairOperationsLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.RepairOperationsLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.repairOperationsLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Тип операции")});
-            this.RepairOperationsLookUpEdit.DisplayMember = "Name";
-            this.RepairOperationsLookUpEdit.Name = "RepairOperationsLookUpEdit";
-            this.RepairOperationsLookUpEdit.NullText = "";
-            this.RepairOperationsLookUpEdit.ValueMember = "Name";
-            this.RepairOperationsLookUpEdit.EditValueChanged += new System.EventHandler(this.RepairOperationsLookUpEdit_EditValueChanged);
+            this.repairOperationsLookUpEdit.DisplayMember = "Name";
+            this.repairOperationsLookUpEdit.Name = "repairOperationsLookUpEdit";
+            this.repairOperationsLookUpEdit.NullText = "";
+            this.repairOperationsLookUpEdit.ValueMember = "Name";
+            this.repairOperationsLookUpEdit.EditValueChanged += new System.EventHandler(this.RepairOperationsLookUpEdit_EditValueChanged);
             // 
             // repairDateGridColumn
             // 
@@ -274,6 +291,7 @@
             // 
             this.CompletedCheckEdit.AutoHeight = false;
             this.CompletedCheckEdit.Name = "CompletedCheckEdit";
+            this.CompletedCheckEdit.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             // 
             // weldersGridColumn
             // 
@@ -298,7 +316,7 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(1156, 506);
+            this.saveButton.Location = new System.Drawing.Point(1010, 506);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(97, 22);
             this.saveButton.StyleController = this.newJointLayoutControl;
@@ -381,6 +399,8 @@
             this.GPSLat.Location = new System.Drawing.Point(613, 69);
             this.GPSLat.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLat.Name = "GPSLat";
+            this.GPSLat.Properties.Mask.EditMask = "f6";
+            this.GPSLat.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLat.Size = new System.Drawing.Size(191, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
             this.GPSLat.TabIndex = 9;
@@ -391,6 +411,8 @@
             this.GPSLong.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.GPSLong.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLong.Name = "GPSLong";
+            this.GPSLong.Properties.Mask.EditMask = "f6";
+            this.GPSLong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLong.Size = new System.Drawing.Size(191, 20);
             this.GPSLong.StyleController = this.newJointLayoutControl;
             this.GPSLong.TabIndex = 10;
@@ -409,7 +431,8 @@
             this.ControlOperationLookUpEdit,
             this.operationDateEdit,
             this.inspectorsPopupContainerEdit,
-            this.resultStatusLookUpEdit});
+            this.resultStatusLookUpEdit,
+            this.ResultValueTextEdit});
             this.controlOperations.Size = new System.Drawing.Size(657, 261);
             this.controlOperations.TabIndex = 24;
             this.controlOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -439,7 +462,7 @@
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 0;
-            this.controlTypeGridColumn.Width = 137;
+            this.controlTypeGridColumn.Width = 122;
             // 
             // ControlOperationLookUpEdit
             // 
@@ -462,7 +485,7 @@
             this.resultGridColumn.Name = "resultGridColumn";
             this.resultGridColumn.Visible = true;
             this.resultGridColumn.VisibleIndex = 1;
-            this.resultGridColumn.Width = 98;
+            this.resultGridColumn.Width = 87;
             // 
             // resultStatusLookUpEdit
             // 
@@ -485,7 +508,7 @@
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
             this.controlDateGridColumn.VisibleIndex = 2;
-            this.controlDateGridColumn.Width = 136;
+            this.controlDateGridColumn.Width = 121;
             // 
             // operationDateEdit
             // 
@@ -504,7 +527,7 @@
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 3;
-            this.inspectorsGridColumn.Width = 268;
+            this.inspectorsGridColumn.Width = 230;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -518,11 +541,18 @@
             // 
             // valueGridColumn
             // 
-            this.valueGridColumn.Caption = "Значение результата";
+            this.valueGridColumn.Caption = "Значение";
+            this.valueGridColumn.ColumnEdit = this.ResultValueTextEdit;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
             this.valueGridColumn.Visible = true;
             this.valueGridColumn.VisibleIndex = 4;
+            this.valueGridColumn.Width = 79;
+            // 
+            // ResultValueTextEdit
+            // 
+            this.ResultValueTextEdit.AutoHeight = false;
+            this.ResultValueTextEdit.Name = "ResultValueTextEdit";
             // 
             // inspectionsGridView
             // 
@@ -543,6 +573,7 @@
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
             this.secondJointElement.TabIndex = 16;
+            this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
             // 
             // firstJointElement
             // 
@@ -550,16 +581,15 @@
             this.firstJointElement.Name = "firstJointElement";
             this.firstJointElement.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.firstJointElement.Properties.Appearance.Options.UseBackColor = true;
-            this.firstJointElement.Properties.AutoSearchColumnIndex = 1;
             this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
             this.firstJointElement.Properties.NullText = "Введите номер";
-            this.firstJointElement.Properties.SortColumnIndex = 1;
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 15;
+            this.firstJointElement.EditValueChanged += new System.EventHandler(this.firstJointElement_EditValueChanged);
             // 
             // loweringDate
             // 
@@ -586,7 +616,8 @@
             this.extraFilesLayout,
             this.deactivatedLayout,
             this.saveButtonLayout,
-            this.saveButtonEmptySpace});
+            this.saveButtonEmptySpace,
+            this.saveAndCreateLayout});
             this.newJointLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.newJointLayoutGroup.Name = "Root";
             this.newJointLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -854,7 +885,7 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1119, 484);
+            this.saveButtonLayout.Location = new System.Drawing.Point(973, 484);
             this.saveButtonLayout.MaxSize = new System.Drawing.Size(116, 26);
             this.saveButtonLayout.MinSize = new System.Drawing.Size(116, 26);
             this.saveButtonLayout.Name = "saveButtonLayout";
@@ -872,9 +903,22 @@
             this.saveButtonEmptySpace.CustomizationFormText = "saveButtonEmptySpace";
             this.saveButtonEmptySpace.Location = new System.Drawing.Point(279, 484);
             this.saveButtonEmptySpace.Name = "saveButtonEmptySpace";
-            this.saveButtonEmptySpace.Size = new System.Drawing.Size(840, 26);
+            this.saveButtonEmptySpace.Size = new System.Drawing.Size(694, 26);
             this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
             this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // saveAndCreateLayout
+            // 
+            this.saveAndCreateLayout.Control = this.saveAndCreateButton;
+            this.saveAndCreateLayout.CustomizationFormText = "saveAndCreateLayout";
+            this.saveAndCreateLayout.Location = new System.Drawing.Point(1089, 484);
+            this.saveAndCreateLayout.Name = "saveAndCreateLayout";
+            this.saveAndCreateLayout.Size = new System.Drawing.Size(146, 26);
+            this.saveAndCreateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
+            this.saveAndCreateLayout.Text = "saveAndCreateLayout";
+            this.saveAndCreateLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveAndCreateLayout.TextToControlDistance = 0;
+            this.saveAndCreateLayout.TextVisible = false;
             // 
             // JointNewEditXtraForm
             // 
@@ -895,7 +939,7 @@
             this.newJointLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RepairOperationsLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairOperationsLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit)).EndInit();
@@ -913,6 +957,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultValueTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElement.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElement.Properties)).EndInit();
@@ -940,6 +985,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndCreateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNewEditBindingSoure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
@@ -1005,7 +1051,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn completedGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit CompletedCheckEdit;
         private DevExpress.XtraGrid.Columns.GridColumn weldersGridColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit RepairOperationsLookUpEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repairOperationsLookUpEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repairDateEdit;
         private System.Windows.Forms.BindingSource inspectorsDataSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
@@ -1013,6 +1059,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn valueGridColumn;
         private System.Windows.Forms.BindingSource weldersDataSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit weldersPopupContainerEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ResultValueTextEdit;
+        private DevExpress.XtraEditors.SimpleButton saveAndCreateButton;
+        private DevExpress.XtraLayout.LayoutControlItem saveAndCreateLayout;
 
     }
 }

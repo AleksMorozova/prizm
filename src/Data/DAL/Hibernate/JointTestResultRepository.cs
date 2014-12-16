@@ -1,6 +1,7 @@
 ﻿using Data.DAL.Construction;
 using Domain.Entity.Construction;
 using NHibernate;
+using NHibernate.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,20 @@ namespace Data.DAL.Hibernate
             : base(session)
         {
 
+        }
+        public IList<JointTestResult> GetByJoint(Joint joint)
+        {
+            try
+            {
+                return session
+                    .QueryOver<JointTestResult>()
+                    .Where(x => x.Joint == joint)
+                    .List<JointTestResult>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetByJoint", ex);
+            }
         }
     }
 }

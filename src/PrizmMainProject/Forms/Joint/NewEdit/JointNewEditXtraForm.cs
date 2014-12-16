@@ -17,6 +17,11 @@ using Domain.Entity;
 using PrizmMain.Common;
 using System.Data;
 using PrizmMain.Commands;
+using System.Reflection;
+using System.Resources;
+using System.Collections;
+using System.Threading;
+using System.Linq;
 
 namespace PrizmMain.Forms.Joint.NewEdit
 {
@@ -31,9 +36,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
 
+
         public JointNewEditXtraForm(Guid jointId)
         {
             InitializeComponent();
+            SetControlsTextLength();
             viewModel = (JointNewEditViewModel)Program
                .Kernel
                .Get<JointNewEditViewModel>(
@@ -78,12 +85,19 @@ namespace PrizmMain.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
+            firstJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
+            secondJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
 
-            pipelinePiecesBindingSource.DataSource = viewModel.Pieces;
+            pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             SetLookup(firstJointElement);
+
             SetLookup(secondJointElement);
+
             ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
-            RepairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
+
+            repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
@@ -102,6 +116,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             weldersSelectionControl.Dock = DockStyle.Fill;
             weldersPopupContainerEdit.PopupControl = weldersPopup;
             weldersPopupContainerEdit.PopupControl.MaximumSize = weldersPopup.MaximumSize;
+
         }
 
         /// <summary>
@@ -111,20 +126,21 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             lookup.Properties.DataSource = pipelinePiecesBindingSource;
             LookUpColumnInfoCollection firstEllementColumns = lookup.Properties.Columns;
-            firstEllementColumns.Add(new LookUpColumnInfo("number", Resources.Number));
-            firstEllementColumns.Add(new LookUpColumnInfo("type", Resources.Type));
-            firstEllementColumns.Add(new LookUpColumnInfo("diameter", Resources.Diameter));
-            firstEllementColumns.Add(new LookUpColumnInfo("wallThickness", Resources.WallThickness));
-            firstEllementColumns.Add(new LookUpColumnInfo("length", Resources.Length));
-            firstEllementColumns.Add(new LookUpColumnInfo("id", Resources.Id));
+            firstEllementColumns.Add(new LookUpColumnInfo("Number", Resources.Number));
+            firstEllementColumns.Add(new LookUpColumnInfo("PartTypeDescription", Resources.Type));
+            firstEllementColumns.Add(new LookUpColumnInfo("Diameter", Resources.Diameter));
+            firstEllementColumns.Add(new LookUpColumnInfo("WallThickness", Resources.WallThickness));
+            firstEllementColumns.Add(new LookUpColumnInfo("Length", Resources.Length));
+            firstEllementColumns.Add(new LookUpColumnInfo("Id", Resources.Id));
             firstEllementColumns[5].Visible = false;
-            lookup.Properties.DisplayMember = "number";
-            lookup.Properties.ValueMember = "id";
+            lookup.Properties.DisplayMember = "Number";
+            lookup.Properties.ValueMember = "Id";
         }
 
         private void BindCommands()
         {
             commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
+            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
@@ -135,8 +151,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.Number = jointNumber.Text;
             viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
         }
 
         private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -158,6 +174,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             JointOperation selectedOperation = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
             if (selectedOperation != null)
                 currentJointTestResult.Operation = selectedOperation;
+
         }
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, CloseUpEventArgs e)
@@ -231,14 +248,21 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
         }
 
+        /// <summary>
+        /// Assigns to current ActionWeldResult selected operation. If operation is not Weld,  ActionWeldResult is created with empty Welders list
+        /// </summary>
         private void RepairOperationsLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit q = sender as LookUpEdit;
             object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
-            JointOperation selectedOperation = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
-            if (selectedOperation != null)
+            JointOperation selectedOperationWeld = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
+            if (selectedOperationWeld != null)
             {
-                currentJointWeldResult.Operation = selectedOperation;
+                currentJointWeldResult.Operation = selectedOperationWeld;
+                if (selectedOperationWeld.Type != JointOperationType.Weld)
+                {
+                    currentJointWeldResult.Welders = new BindingList<Welder>();
+                }
             }
         }
 
@@ -282,6 +306,40 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         }
 
+        /// <summary>
+        /// Disables the ability to edit welders list when not Welding operation is selected
+        /// </summary>
+        private void repairOperationsView_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView view = sender as GridView;
+            JointOperation selectedOperation = repairOperationsLookUpEdit.GetDataSourceRowByDisplayValue(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Operation.Name"])) as JointOperation;
+            if (selectedOperation != null && selectedOperation.Type != JointOperationType.Weld
+                && view.FocusedColumn.FieldName == "Welders")
+            {
+                e.Cancel = true;
+            }
+        }
 
+        private void SetControlsTextLength()
+        {
+            jointNumber.Properties.MaxLength = LengthLimit.MaxJointNumber;
+            GPSLat.Properties.MaxLength = LengthLimit.MaxGPSCoordinate;
+            GPSLong.Properties.MaxLength = LengthLimit.MaxGPSCoordinate;
+            seaLevel.Properties.MaxLength = LengthLimit.MaxSeaLevel;
+            distanceFromPK.Properties.MaxLength = LengthLimit.MaxKPDistance;
+            ResultValueTextEdit.MaxLength = LengthLimit.MaxJointTestResultValue;
+        }
+
+        private void firstJointElement_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+        }
+
+        private void secondJointElement_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.SaveJointCommand.IsExecutable ^= true;
+            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+        }
     }
 }
