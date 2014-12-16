@@ -84,6 +84,7 @@ namespace PrizmMain.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
+            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             viewModel.ModifiableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true; 

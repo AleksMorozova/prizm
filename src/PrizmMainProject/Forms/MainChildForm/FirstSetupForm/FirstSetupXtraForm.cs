@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using Domain.Entity.Setup;
 using PrizmMain.Common;
 using Ninject;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
 {
@@ -28,6 +29,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();
+            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
         }
 
         private void BindToViewModel()
@@ -69,12 +71,14 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
             if(((WorkstationType)look.EditValue) == WorkstationType.Mill)
             {
                 millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;  
+                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                pipeNumberMaskLayoutItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always; 
             }
             else
             {
                 millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                pipeNumberMaskLayoutItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never; 
             }
         }
     }
