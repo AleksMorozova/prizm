@@ -46,7 +46,6 @@
             this.codeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.controlNameRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.subjectRepositoryItemEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.controlTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.controlTypeItems = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.resultTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +58,7 @@
             this.testIsActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.categoryColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemsСategory = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.subjectRepositoryItemEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.pipeParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -216,11 +216,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlNameRepositoryTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).BeginInit();
@@ -493,11 +493,6 @@
             this.controlNameRepositoryTextEdit.AutoHeight = false;
             this.controlNameRepositoryTextEdit.Name = "controlNameRepositoryTextEdit";
             // 
-            // subjectRepositoryItemEdit
-            // 
-            this.subjectRepositoryItemEdit.AutoHeight = false;
-            this.subjectRepositoryItemEdit.Name = "subjectRepositoryItemEdit";
-            // 
             // controlTypeGridColumn
             // 
             this.controlTypeGridColumn.Caption = "Вид контроля";
@@ -620,6 +615,11 @@
             this.repositoryItemsСategory.DisplayMember = "Name";
             this.repositoryItemsСategory.Name = "repositoryItemsСategory";
             this.repositoryItemsСategory.NullText = "";
+            // 
+            // subjectRepositoryItemEdit
+            // 
+            this.subjectRepositoryItemEdit.AutoHeight = false;
+            this.subjectRepositoryItemEdit.Name = "subjectRepositoryItemEdit";
             // 
             // pipeParametersLayoutGroup
             // 
@@ -2127,11 +2127,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.codeRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlNameRepositoryTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).EndInit();
