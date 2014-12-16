@@ -69,12 +69,14 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
             if(((WorkstationType)look.EditValue) == WorkstationType.Mill)
             {
                 millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;  
+                maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                pipeNumberMaskLayoutItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always; 
             }
             else
             {
                 millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                pipeNumberMaskLayoutItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never; 
             }
         }
     }
