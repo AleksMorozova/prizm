@@ -27,30 +27,24 @@ namespace PrizmMain.Forms.PipeMill.Heat
             this.repo = heatRepository;
             saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo));
 
-            if (string.IsNullOrWhiteSpace(heatNumber))
+            if(string.IsNullOrWhiteSpace(heatNumber))
             {
-                CreateHeat();
+                CreateHeat("");
             }
             else
             {
-                if (heatNumber.Equals(Resources.NewHeatCombo))
+                var heat = GetHeatByNumber(heatNumber);
+                if(heat != null)
                 {
-                    CreateHeat();
+                    Heat = heat;
+                    SetupManufacturers();
+                    heats = new List<Domain.Entity.Mill.Heat>() { heat };
                 }
                 else
                 {
-                    var heat = GetHeatByNumber(heatNumber);
-                    if (heat != null)
-                    {
-                        Heat = heat;
-                        SetupManufacturers();
-                        heats = new List<Domain.Entity.Mill.Heat>() { heat };
-                    }
-                    else
-                    {
-                        CreateHeat();
-                    }
+                    CreateHeat(heatNumber);
                 }
+
 
             }
         }
@@ -61,7 +55,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             get { return heat; }
             set
             {
-                if (value != heat)
+                if(value != heat)
                 {
                     heat = value;
                     RaisePropertyChanged("Heat");
@@ -73,7 +67,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             get
             {
-                if (heat.PlateManufacturer != null)
+                if(heat.PlateManufacturer != null)
                 {
                     return heat.PlateManufacturer;
                 }
@@ -84,7 +78,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
             set
             {
-                if (value != heat.PlateManufacturer)
+                if(value != heat.PlateManufacturer)
                 {
                     heat.PlateManufacturer = value;
                     RaisePropertyChanged("PlateManufacturer");
@@ -97,7 +91,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             get { return Heat.SteelGrade; }
             set
             {
-                if (value != Heat.SteelGrade)
+                if(value != Heat.SteelGrade)
                 {
                     Heat.SteelGrade = value;
                     RaisePropertyChanged("SteelGrade");
@@ -110,7 +104,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             get { return heats; }
         }
-        
+
         IList<PlateManufacturer> manufacrurers;
         public IList<PlateManufacturer> Manufacrurers
         {
@@ -124,7 +118,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
             SetupHeats();
             SetupManufacturers();
             heat = heats[0];
-            
+
         }
 
         private void SetupHeats()
@@ -151,22 +145,22 @@ namespace PrizmMain.Forms.PipeMill.Heat
         public void NewHeat(string number)
         {
             var heatFromDb = GetHeatByNumber(number);
-            if (heatFromDb != null)
+            if(heatFromDb != null)
             {
                 HeatsList();
                 return;
             }
             SetupManufacturers();
-            Heat = new Domain.Entity.Mill.Heat() 
+            Heat = new Domain.Entity.Mill.Heat()
             {
-                IsActive = true, 
-                Number=number,
+                IsActive = true,
+                Number = number,
                 SteelGrade = string.Empty,
                 PlateManufacturer = manufacrurers[0],
                 Plates = new List<Plate>()
             };
 
-            
+
             heats = new List<Domain.Entity.Mill.Heat>() { Heat };
 
         }
@@ -186,19 +180,19 @@ namespace PrizmMain.Forms.PipeMill.Heat
             Heat = heats.Where(x => x.Id == guid).FirstOrDefault();
         }
 
-        internal void CreateHeat()
+        internal void CreateHeat(string number)
         {
-            var numberForm = new HeatNumberXtraForm();
-            
-                if (numberForm.ShowDialog() == DialogResult.OK)
-                {
-                    NewHeat(numberForm.Number);
-                }
-                else
-                {
-                    HeatsList();
-                }
-            
+            var numberForm = new HeatNumberXtraForm(number);
+
+            if(numberForm.ShowDialog() == DialogResult.OK)
+            {
+                NewHeat(numberForm.Number);
+            }
+            else
+            {
+                HeatsList();
+            }
+
 
         }
     }

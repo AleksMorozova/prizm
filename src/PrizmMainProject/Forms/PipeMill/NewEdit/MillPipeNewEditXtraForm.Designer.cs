@@ -1312,6 +1312,9 @@
             this.heatsLookUp.Size = new System.Drawing.Size(191, 20);
             this.heatsLookUp.StyleController = this.generalPipeLayout;
             this.heatsLookUp.TabIndex = 33;
+            this.heatsLookUp.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.heatsLookUp_ProcessNewValue);
+            this.heatsLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.heatsLookUp_QueryPopUp);
+            this.heatsLookUp.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.heatsLookUp_ButtonClick);
             // 
             // gridLookUpEdit1View
             // 

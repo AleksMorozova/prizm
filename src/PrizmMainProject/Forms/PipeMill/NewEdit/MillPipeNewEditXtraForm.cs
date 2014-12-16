@@ -157,7 +157,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
-            
+
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
             shippedDate.DataBindings
@@ -633,5 +633,42 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
             attachments.ShowDialog();
         }
+
+        private void ShowHeatDialog(string number)
+        {
+            heatsLookUp.ClosePopup();
+            var dlg = new HeatXtraForm(number);
+            dlg.ShowDialog();
+            viewModel.ExtractHeatsCommand.Execute();
+        }
+
+        private void heatsLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
+            {
+                var number = ((GridLookUpEdit)sender).Text;
+                ShowHeatDialog(number);
+            }
+        }
+
+        private void heatsLookUp_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+            if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
+            {
+                if(MessageBox.Show("Создать плавку " + e.DisplayValue.ToString(), "Новая плавка", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    ShowHeatDialog(e.DisplayValue.ToString());
+                }
+            }
+            e.Handled = true;
+        }
+
+        private void heatsLookUp_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            heatsLookUp.Properties.DataSource = null;
+            heatsLookUp.Properties.DataSource = viewModel.Heats;
+        }
+
+
     }
 }

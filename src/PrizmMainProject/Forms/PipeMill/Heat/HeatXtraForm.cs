@@ -89,7 +89,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            viewModel.CreateHeat();
+            viewModel.CreateHeat("");
             RefreshControls();
         }
 
