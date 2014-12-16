@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 using System.Collections.Generic;
 
 namespace Data.DAL
@@ -8,6 +9,7 @@ namespace Data.DAL
         TEntity Get(TKey key);
         IList<TEntity> GetAll();
         IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria);
+        ISQLQuery CreateSQLQuery(string queryString);
         void Clear();
         void Save(TEntity entity);
         void SaveOrUpdate(TEntity entity);
