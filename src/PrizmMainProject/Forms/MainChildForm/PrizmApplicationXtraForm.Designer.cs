@@ -223,6 +223,7 @@
             this.barButtonItemExit.Id = 31;
             this.barButtonItemExit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4));
             this.barButtonItemExit.Name = "barButtonItemExit";
+            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
             // 
             // barSubItemMill
             // 

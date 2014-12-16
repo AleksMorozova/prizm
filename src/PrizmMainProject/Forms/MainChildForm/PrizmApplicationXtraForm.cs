@@ -430,7 +430,6 @@ namespace PrizmMain.Forms.MainChildForm
             Application.Exit();
         }
 
-
      
     }
 }
