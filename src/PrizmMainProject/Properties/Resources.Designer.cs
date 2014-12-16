@@ -322,6 +322,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отрезана катушка заданной длины.
+        /// </summary>
+        internal static string Cut_Spool_from_pipe {
+            get {
+                return ResourceManager.GetString("Cut_Spool_from_pipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание катушка.
+        /// </summary>
+        internal static string Cut_Spool_from_pipe_Header {
+            get {
+                return ResourceManager.GetString("Cut_Spool_from_pipe_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Срок действия истек.
         /// </summary>
         internal static string DATA_EXPIRED {
@@ -1475,6 +1493,24 @@ namespace PrizmMain.Properties {
         internal static string WorkstationType {
             get {
                 return ResourceManager.GetString("WorkstationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введен неверный номер трубы.
+        /// </summary>
+        internal static string Wrong_pipe_number_for_cutting {
+            get {
+                return ResourceManager.GetString("Wrong_pipe_number_for_cutting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный номер трубы.
+        /// </summary>
+        internal static string Wrong_pipe_number_for_cutting_Header {
+            get {
+                return ResourceManager.GetString("Wrong_pipe_number_for_cutting_Header", resourceCulture);
             }
         }
         
