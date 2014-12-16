@@ -425,6 +425,11 @@ namespace PrizmMain.Forms.MainChildForm
             form.ShowDialog();
         }
 
+        private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
+
 
      
     }
