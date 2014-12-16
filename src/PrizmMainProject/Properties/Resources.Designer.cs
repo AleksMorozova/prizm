@@ -936,6 +936,15 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Формат ввода номера трубы: .
+        /// </summary>
+        internal static string MillPipeNumber_Mask_Hint {
+            get {
+                return ResourceManager.GetString("MillPipeNumber_Mask_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Маска номера трубы.
         /// </summary>
         internal static string MillPipeNumberMask {

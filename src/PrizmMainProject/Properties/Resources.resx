@@ -534,7 +534,6 @@
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
-
   </data>
   <data name="AtControl" xml:space="preserve">
     <value>Контроль</value>
@@ -574,7 +573,7 @@
   </data>
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
-    </data>
+  </data>
   <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к деактивации комплектующего элемента. 
 Параметры комплектующего элемента станут невозможны для редактирования. 
@@ -594,5 +593,8 @@
   </data>
   <data name="Test" xml:space="preserve">
     <value>Контрольная операция</value>
+  </data>
+  <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
+    <value>Формат ввода номера трубы: </value>
   </data>
 </root>

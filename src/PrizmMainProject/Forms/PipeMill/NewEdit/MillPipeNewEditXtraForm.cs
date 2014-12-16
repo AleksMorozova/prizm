@@ -98,6 +98,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             pipeNumber.Validating += pipeNumber_Validating;
 
             IsModified = false;
+            pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
         }
 
         private void BindToViewModel()
