@@ -48,18 +48,6 @@ namespace Domain.Entity.Mill
         /// </summary>
         public const float Ro = 0.00000785F;
 
-        //TODO: remove this Method from MillPipeNewEditViewModel
-        /// <summary>
-        ///  Calculate pipe weight
-        /// </summary>
-        /// <param name="WallThickness"> Pipe WallThickness</param>
-        ///  <param name="Diameter"> Pipe Diameter</param>
-        ///  <param name="Length"> Pipe Length</param>
-        public virtual float ChangePipeWeight(int WallThickness, int Diameter, int Length )
-        {
-            return (float)(Math.PI * Ro * WallThickness * (Diameter - WallThickness) * Length);
-        }
-
         /// <summary>
         ///  Recalculate pipe weight
         /// </summary>
