@@ -12,6 +12,10 @@ namespace Domain.Entity.Construction
         {
             this.Welders = new List<Welder>();
         }
+
+        /// <summary>
+        /// Is empty if JointActionresult is saved
+        /// </summary>
         public virtual IList<Welder> Welders { get; set; }
     }
 }

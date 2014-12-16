@@ -17,9 +17,6 @@ namespace PrizmMain.Forms.PipeMill.Search
     {
         private MillPipeSearchViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
-        private Dictionary<PipeMillStatus, string> statusTypeDict 
-            = new Dictionary<PipeMillStatus, string>();
-
         public MillPipeSearchXtraForm()
         {
             InitializeComponent();
@@ -44,13 +41,8 @@ namespace PrizmMain.Forms.PipeMill.Search
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
-            pipeActivity.DataBindings.Add("EditValue", MillPipeSearchBindingSource, "Activity");
-
-            statusTypeDict.Clear();
-            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
-            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
-            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
-            repositoryLookUpEditStatus.DataSource = statusTypeDict;
+            pipeActivity.DataBindings
+                .Add("EditValue", MillPipeSearchBindingSource, "Activity");
 
 
         }
@@ -91,21 +83,6 @@ namespace PrizmMain.Forms.PipeMill.Search
             if (e.KeyCode == Keys.Enter)
             {
                 pipeRepositoryButtonEdit_Click(sender, e);
-            }
-        }
-
-        private void repositoryLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
-        {
-            try
-            {
-                if (e.Value is PipeMillStatus)
-                {
-                    e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
-                }
-            }
-            catch (KeyNotFoundException exception)
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show(exception.Message);
             }
         }
 

@@ -64,5 +64,11 @@ namespace PrizmMain.Common
         public const int MaxAuditlogFieldName = 50;
         public const int MaxAuditlogOldvalue = 100;
         public const int MaxAuditlogNewValue = 100;
+
+        public const int MaxJointNumber = 20;
+        public const int MaxGPSCoordinate = 12;
+        public const int MaxSeaLevel = 10;
+        public const int MaxKPDistance = 10;
+        public const int MaxJointTestResultValue = 20;
     }
 }

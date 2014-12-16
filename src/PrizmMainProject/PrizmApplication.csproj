@@ -200,13 +200,18 @@
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BindingListExtensions.cs" />
+    <Compile Include="Forms\Common\AboutXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\AboutXtraForm.Designer.cs">
+      <DependentUpon>AboutXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Common\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Common\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\PartType.cs" />
     <Compile Include="Forms\Common\PasswordEncryptor.cs" />
     <Compile Include="Forms\Common\SaveDialog.cs">
       <SubType>Form</SubType>
@@ -222,6 +227,7 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">
@@ -292,6 +298,8 @@
     <Compile Include="Forms\PipeMill\Purchase\SaveOrderCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommand.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
+    <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
+    <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\Railcar.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarQuery.cs" />
@@ -329,8 +337,10 @@
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
+    <Compile Include="Forms\Spool\ISpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
+    <Compile Include="Forms\Spool\SpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -481,6 +491,9 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\AboutXtraForm.resx">
+      <DependentUpon>AboutXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -542,6 +555,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
@@ -775,7 +789,9 @@
   <ItemGroup>
     <None Include="Resources\password_logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\main-logo_03.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,6 +13,9 @@ using PrizmMain.Forms.PipeMill.Search;
 using PrizmMain.Forms.PipeMill;
 using NHibernate.Criterion;
 using Domain.Entity.Setup;
+using PrizmMain.Forms;
+using NHibernate;
+using NHibernate.Transform;
 
 namespace UnitTests.Forms.PipeMill.Search
 {
@@ -22,6 +25,10 @@ namespace UnitTests.Forms.PipeMill.Search
         [Test]
         public void TestMillPipeSearchCommand()
         {
+            var iQuery = new Mock<IQuery>();
+            var iSQLQuery = new Mock<ISQLQuery>();
+
+            var notify = new Mock<IUserNotify>();
             var repoPipe = new Mock<IPipeRepository>();
             var repoPlate = new Mock<IPlateRepository>();
             var repoHeat = new Mock<IHeatRepository>();
@@ -45,37 +52,39 @@ namespace UnitTests.Forms.PipeMill.Search
             millRepos.SetupGet(_ => _.RepoPipeTest).Returns(repoPipeTest.Object);
             millRepos.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
 
-            var pipes = new List<Domain.Entity.Mill.Pipe>();
+
+
+            var pipes = new List<Pipe>();
             {
                 new Domain.Entity.Mill.Pipe { Number = "test-1" };
                 new Domain.Entity.Mill.Pipe { Number = "test-3" };
             };
 
-             repoPipe.Setup(_ => _.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>()))
-                .Returns(pipes).Verifiable();
 
-            var criteria = NHibernate.Criterion.DetachedCriteria
-              .For<Domain.Entity.Mill.Pipe>()
-              .Add(Restrictions.Like("Number", "test-1", MatchMode.Anywhere));
-
-
-
-            var viewModel = new MillPipeSearchViewModel(millRepos.Object);
+            var viewModel = new MillPipeSearchViewModel(millRepos.Object, notify.Object);
             viewModel.PipeNumber = "Test Number";
             viewModel.CheckedPipeTypes = new List<PipeMillSizeType>();
 
+            iQuery.Setup(x => x.List<Pipe>())
+                .Returns(pipes).Verifiable();
 
-            var command = new MillPipeSearchCommand(viewModel, repoPipe.Object);
+            iSQLQuery.Setup(x => x.SetResultTransformer(It.IsAny<IResultTransformer>()))
+                .Returns(iQuery.Object).Verifiable();
 
+            repoPipe.Setup(x => x.CreateSQLQuery(It.IsAny<string>()))
+                .Returns(iSQLQuery.Object).Verifiable();
 
+            var command = new MillPipeSearchCommand(viewModel, repoPipe.Object, notify.Object);
 
             command.Execute();
 
+            repoPipe.Verify(x => x.CreateSQLQuery(It.IsAny<string>()), Times.Once());
 
-
-            repoPipe.Verify(x => x.GetByCriteria(It.IsAny<DetachedCriteria>()), Times.Once());
-
-            Assert.AreEqual(repoPipe.Object.GetByCriteria(criteria), pipes);
+            Assert.AreEqual(
+                repoPipe.Object
+                .CreateSQLQuery(It.IsAny<string>())
+                .SetResultTransformer(It.IsAny<IResultTransformer>())
+                .List<Pipe>(), pipes);
 
         }
 

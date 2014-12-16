@@ -35,7 +35,6 @@
             this.type = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.parts = new DevExpress.XtraGrid.GridControl();
             this.partsView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.numberCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.typeCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraEditors.TextEdit();
@@ -115,7 +114,6 @@
             // partsView
             // 
             this.partsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idCol,
             this.numberCol,
             this.typeCol});
             this.partsView.GridControl = this.parts;
@@ -128,12 +126,6 @@
             this.partsView.OptionsView.ShowGroupPanel = false;
             this.partsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partsView_KeyDown);
             this.partsView.DoubleClick += new System.EventHandler(this.partsView_DoubleClick);
-            // 
-            // idCol
-            // 
-            this.idCol.Caption = "#";
-            this.idCol.FieldName = "Id";
-            this.idCol.Name = "idCol";
             // 
             // numberCol
             // 
@@ -293,7 +285,6 @@
         private DevExpress.XtraLayout.LayoutControlItem typeLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem searchBtnLayoutControl;
-        private DevExpress.XtraGrid.Columns.GridColumn idCol;
         private DevExpress.XtraGrid.Columns.GridColumn numberCol;
         private DevExpress.XtraGrid.Columns.GridColumn typeCol;
         private System.Windows.Forms.BindingSource bindingSource;

@@ -9,5 +9,6 @@ namespace Data.DAL.Construction
 {
     public interface IJointTestResultRepository : IRepository <Guid, JointTestResult>
     {
+        IList<JointTestResult> GetByJoint(Joint joint);
     }
 }

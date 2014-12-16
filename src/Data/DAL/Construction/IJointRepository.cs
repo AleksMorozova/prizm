@@ -9,5 +9,6 @@ namespace Data.DAL.Construction
 {
     public interface IJointRepository : IRepository<Guid, Joint>
     {
+        IList<Joint> GetActiveByNumber(Joint joint);
     }
 }

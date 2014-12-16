@@ -2,6 +2,7 @@
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using DevExpress.XtraReports.UI;
+using Domain.Entity.Construction;
 using NHibernate;
 using Ninject;
 using PrizmMain.Commands;
