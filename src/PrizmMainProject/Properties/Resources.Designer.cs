@@ -61,6 +61,17 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PRIZM – программа полного цикла управления 
+        ///процессом производства, транспортировки 
+        ///и строительства промышленных труб..
+        /// </summary>
+        internal static string AboutForm_TitleLabel {
+            get {
+                return ResourceManager.GetString("AboutForm_TitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Принято.
         /// </summary>
         internal static string Accepted {
@@ -936,14 +947,12 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Правила задания формата : # - цифра, 
-        ///@ - буква, % - цифра или буква, ? - любой 
-        ///печатный символ, все остальные символы 
-        ///принимаются как есть.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string Mask_Label {
+        internal static System.Drawing.Bitmap main_logo_03 {
             get {
-                return ResourceManager.GetString("Mask_Label", resourceCulture);
+                object obj = ResourceManager.GetObject("main-logo_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -980,15 +989,6 @@ namespace PrizmMain.Properties {
         internal static string MillName {
             get {
                 return ResourceManager.GetString("MillName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Формат ввода номера трубы: .
-        /// </summary>
-        internal static string MillPipeNumber_Mask_Hint {
-            get {
-                return ResourceManager.GetString("MillPipeNumber_Mask_Hint", resourceCulture);
             }
         }
         
