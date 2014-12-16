@@ -24,7 +24,6 @@ namespace Data.DAL.Mapping
             {
                 m.Map(_ => _.Id).Column("part1Id");
                 m.Map(_ => _.PartType).Column("part1Type");
-                m.Map(_ => _.Number).Column("part1Number");
 
             });
 
@@ -32,7 +31,6 @@ namespace Data.DAL.Mapping
             {
                 n.Map(_ => _.Id).Column("part2Id");
                 n.Map(_ => _.PartType).Column("part2Type");
-                n.Map(_ => _.Number).Column("part2Number");
 
             });
 
