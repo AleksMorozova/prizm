@@ -41,7 +41,6 @@
             this.pipeNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipesSearchResult = new DevExpress.XtraGrid.GridControl();
             this.pipesSearchResultView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeDiameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeMillGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -226,7 +225,6 @@
             // pipesSearchResultView
             // 
             this.pipesSearchResultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idCol,
             this.pipeNumberGridColumn,
             this.pipeDiameterGridColumn,
             this.pipeMillGridColumn,
@@ -240,12 +238,6 @@
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
-            // 
-            // idCol
-            // 
-            this.idCol.Caption = "#";
-            this.idCol.FieldName = "Id";
-            this.idCol.Name = "idCol";
             // 
             // pipeNumberGridColumn
             // 
@@ -647,7 +639,6 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeMillStatus;
         private DevExpress.XtraLayout.LayoutControlItem pipeActivityLayoutControl;
         private DevExpress.XtraEditors.ComboBoxEdit pipeActivity;
-        private DevExpress.XtraGrid.Columns.GridColumn idCol;
 
 
     }
