@@ -48,6 +48,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
             viewModel.ModifiableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
+
+            #region --- Colouring of required controls and IsEditMode ---
+            jointNumber.SetRequiredText();
+            IsEditMode = true;
+            #endregion
         }
 
         public JointNewEditXtraForm() : this(Guid.Empty) { }
@@ -147,6 +152,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             BindCommands();
             BindToViewModel();
+            IsEditMode = !viewModel.IsNotActive;
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
@@ -340,6 +346,16 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             viewModel.SaveJointCommand.IsExecutable ^= true;
             viewModel.NewSaveJointCommand.IsExecutable ^= true;
+        }
+
+        private void deactivated_Modified(object sender, EventArgs e)
+        {
+            viewModel.IsNotActive = (bool)deactivated.EditValue;
+            if (viewModel.IsNotActive)
+            {
+                viewModel.JointDeactivationCommand.Execute();
+                IsEditMode = false;
+            }
         }
     }
 }
