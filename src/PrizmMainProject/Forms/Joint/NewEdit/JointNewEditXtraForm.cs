@@ -140,7 +140,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private void BindCommands()
         {
             commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
-            saveAndCreateButton.BindCommand(() => viewModel.NewSaveJointCommand.Execute(), viewModel.NewSaveJointCommand);
+            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
@@ -174,6 +174,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
             JointOperation selectedOperation = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
             if (selectedOperation != null)
                 currentJointTestResult.Operation = selectedOperation;
+
         }
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, CloseUpEventArgs e)
