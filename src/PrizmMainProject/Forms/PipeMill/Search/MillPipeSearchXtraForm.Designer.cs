@@ -246,8 +246,6 @@
             this.idCol.Caption = "#";
             this.idCol.FieldName = "Id";
             this.idCol.Name = "idCol";
-            this.idCol.Visible = false;
-            this.idCol.VisibleIndex = 0;
             // 
             // pipeNumberGridColumn
             // 
