@@ -313,8 +313,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             GridView view = sender as GridView;
             JointOperation selectedOperation = repairOperationsLookUpEdit.GetDataSourceRowByDisplayValue(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Operation.Name"])) as JointOperation;
-            if (selectedOperation != null && selectedOperation.Type != JointOperationType.Weld && view.FocusedColumn.FieldName == "Welders")
+            if (selectedOperation != null && selectedOperation.Type != JointOperationType.Weld
+                && view.FocusedColumn.FieldName == "Welders")
+            {
                 e.Cancel = true;
+            }
         }
 
         private void SetControlsTextLength()

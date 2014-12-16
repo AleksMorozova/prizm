@@ -64,10 +64,14 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 this.Joint = repoConstruction.RepoJoint.Get(jointId);
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
+                {
                     jointWeldResults = new BindingList<JointWeldResult>(weldResults);
+                }
                 var testResults = repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
                 if (testResults != null)
+                {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
+                }
             }
         }
 
@@ -165,7 +169,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
                     return DateTime.MinValue;
                 }
             }
-            set 
+            set
             {
                 if (value != Joint.LoweringDate)
                 {
@@ -243,7 +247,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public BindingList<JointTestResult> JointTestResults
         {
             get { return jointTestResults; }
-            set 
+            set
             {
                 if (value != jointTestResults)
                 {
@@ -270,9 +274,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             get
             {
-                if (Joint.FirstElement.Id == null)
-                    return Guid.Empty; 
-                return  Joint.FirstElement.Id;
+                return (Joint.FirstElement.Id == null) ? Guid.Empty : Joint.FirstElement.Id;
             }
             set
             {
@@ -290,18 +292,16 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             get
             {
-                if (Joint.SecondElement.Id == null)
-                    return Guid.Empty;
-                return Joint.SecondElement.Id;
+                return (Joint.SecondElement.Id == null) ? Guid.Empty : Joint.SecondElement.Id;
             }
-            set 
+            set
             {
                 Joint.SecondElement = FindElementById(value);
                 RaisePropertyChanged("SecondElement");
             }
         }
 
-        public PartData FirstElement 
+        public PartData FirstElement
         {
             get { return Joint.FirstElement; }
             set
@@ -327,15 +327,15 @@ namespace PrizmMain.Forms.Joint.NewEdit
             }
         }
 
-        #endregion 
+        #endregion
 
         public DataTable Pieces
         {
-            get 
-            { 
+            get
+            {
                 return pieces;
             }
-            set 
+            set
             {
                 if (value != pieces)
                 {
@@ -354,27 +354,27 @@ namespace PrizmMain.Forms.Joint.NewEdit
         BindingList<PartData> list = null;
 
         public BindingList<PartData> PartDataList
-        { 
-            get 
+        {
+            get
             {
-                if (list != null)
-                    return list;
-
-                list = new BindingList<PartData>();
-                
-                foreach (DataRow row in Pieces.Rows)
+                if (list == null)
                 {
-                    PartData p = new PartData () 
+                    list = new BindingList<PartData>();
+
+                    foreach (DataRow row in Pieces.Rows)
                     {
-                        Id = row.Field<Guid>("id"), 
-                        Number = row.Field<string>("number"),
-                        PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")), 
-                        Length = row.Field<int>("length"),
-                        PartTypeDescription = row.Field<string>("typeTranslated"),
-                        WallThickness = row.Field<int>("wallThickness"),
-                        Diameter = row.Field<int>("diameter")
-                    };
-                    list.Add(p);
+                        PartData p = new PartData()
+                        {
+                            Id = row.Field<Guid>("id"),
+                            Number = row.Field<string>("number"),
+                            PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
+                            Length = row.Field<int>("length"),
+                            PartTypeDescription = row.Field<string>("typeTranslated"),
+                            WallThickness = row.Field<int>("wallThickness"),
+                            Diameter = row.Field<int>("diameter")
+                        };
+                        list.Add(p);
+                    }
                 }
                 return list;
             }

@@ -31,12 +31,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
             {
                 viewModel.Joint.LoweringDate = null;
             }
-            var j = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
-            foreach (var joint in j)
+            var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
+            foreach (var joint in joints)
             {
                 repo.RepoJoint.Evict(joint);
             }
-            if (j != null && j.Count > 0)
+            if (joints != null && joints.Count > 0)
             {
                 notify.ShowInfo(
                     string.Concat(Resources.DLG_JOINT_DUPLICATE, viewModel.Number),
