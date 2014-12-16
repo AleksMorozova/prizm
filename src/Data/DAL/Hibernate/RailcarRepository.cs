@@ -38,17 +38,5 @@ namespace Data.DAL.Hibernate
                 throw new RepositoryException("SaveOrUpdate", ex);
             }
         }
-
-        public ISQLQuery CreateSQLQuery(string queryString)
-        {
-            try
-            {
-                return session.CreateSQLQuery(queryString);
-            }
-            catch (GenericADOException ex)
-            {
-                throw new RepositoryException("CreateSQLQuery", ex);
-            }
-        }
     }
 }
