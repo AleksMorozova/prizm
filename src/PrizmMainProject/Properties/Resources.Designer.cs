@@ -479,6 +479,24 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
+        /// </summary>
+        internal static string DLG_JOINT_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация стыка.
+        /// </summary>
+        internal static string DLG_JOINT_DEACTIVATION_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_DEACTIVATION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Уже существует стык с номером:.
         /// </summary>
         internal static string DLG_JOINT_DUPLICATE {
