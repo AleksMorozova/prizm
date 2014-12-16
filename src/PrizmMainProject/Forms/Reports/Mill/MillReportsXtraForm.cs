@@ -15,6 +15,7 @@ using Domain.Entity.Mill;
 using System.Text;
 using DevExpress.XtraEditors.Controls;
 using PrizmMain.Common;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Reports.Mill
 {
@@ -22,6 +23,7 @@ namespace PrizmMain.Forms.Reports.Mill
     public partial class MillReportsXtraForm : ChildForm
     {
         private MillReportsViewModel viewModel;
+        private ICommandManager commandManager = new CommandManager(); 
 
         public MillReportsXtraForm()
         {
@@ -51,8 +53,8 @@ namespace PrizmMain.Forms.Reports.Mill
 
         private void BindCommands()
         {
-            createReportButton.BindCommand(() => viewModel.CreateCommand.Execute(), viewModel.CreateCommand);
-            previewButton.BindCommand(() => viewModel.PreviewCommand.Execute(), viewModel.PreviewCommand);
+            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+            commandManager["PreviewButton"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)

@@ -45,7 +45,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
             }
             if(!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format("WHERE number LIKE '%{0}%' ",number);
+                number = string.Format("WHERE number LIKE N'%{0}%' ",number);
             }
 
             StringBuilder sb = new StringBuilder();

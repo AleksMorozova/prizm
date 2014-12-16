@@ -12,6 +12,7 @@ using PrizmMain.Properties;
 using PrizmMain.Controls;
 using System.Windows.Forms;
 using Domain.Entity;
+using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.Component.NewEdit
 {
@@ -22,7 +23,8 @@ namespace PrizmMain.Forms.Component.NewEdit
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
-
+        private ICommandManager commandManager = new CommandManager();
+       
         public ComponentNewEditXtraForm() : this(Guid.Empty) { }
 
         public ComponentNewEditXtraForm(Guid componentId)
@@ -119,11 +121,8 @@ namespace PrizmMain.Forms.Component.NewEdit
 
         private void BindCommands()
         {
-            saveComponentButton
-                .BindCommand(() => viewModel.SaveCommand.Execute(), viewModel.SaveCommand);
-            
-            newSaveComponentButton
-                .BindCommand(() => viewModel.NewSaveCommand.Execute(), viewModel.NewSaveCommand);
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
+            commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
 
             SaveCommand = viewModel.SaveCommand;
         }
