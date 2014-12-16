@@ -594,8 +594,6 @@
   <data name="Test" xml:space="preserve">
     <value>Контрольная операция</value>
   </data>
-  <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
-    <value>Формат ввода номера трубы: </value>
   <data name="Cut_Spool_from_pipe" xml:space="preserve">
     <value>Отрезана катушка заданной длины</value>
   </data>
@@ -604,7 +602,7 @@
   </data>
   <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
     <value>Создание катушка</value>
-    </data>
+  </data>
   <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
     <value>Дублирование номера стыка</value>
   </data>
@@ -613,5 +611,14 @@
   </data>
   <data name="Wrong_pipe_number_for_cutting_Header" xml:space="preserve">
     <value>Неверный номер трубы</value>
+  </data>
+  <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
+    <value>Формат ввода номера трубы: </value>
+  </data>
+  <data name="Mask_Label" xml:space="preserve">
+    <value>Правила задания формата : # - цифра, 
+@ - буква, % - цифра или буква, ? - любой 
+печатный символ, все остальные символы 
+принимаются как есть</value>
   </data>
 </root>

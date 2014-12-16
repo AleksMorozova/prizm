@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using Domain.Entity.Setup;
 using PrizmMain.Common;
 using Ninject;
+using PrizmMain.Properties;
 
 namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
 {
@@ -28,6 +29,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();
+            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
         }
 
         private void BindToViewModel()

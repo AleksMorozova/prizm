@@ -111,7 +111,7 @@
             // 
             // pass
             // 
-            this.pass.Location = new System.Drawing.Point(29, 281);
+            this.pass.Location = new System.Drawing.Point(29, 265);
             this.pass.Name = "pass";
             this.pass.Size = new System.Drawing.Size(386, 20);
             this.pass.StyleController = this.layoutControl;
@@ -152,11 +152,9 @@
             this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(593, 98);
             this.pipeNumberMaskRulesLabel.Name = "pipeNumberMaskRulesLabel";
-            this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(242, 52);
+            this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(242, 13);
             this.pipeNumberMaskRulesLabel.StyleController = this.layoutControl;
             this.pipeNumberMaskRulesLabel.TabIndex = 17;
-            this.pipeNumberMaskRulesLabel.Text = "Правила задания формата : # - цифра, \r\n@ - буква, % - цифра или буква, ? - любой " +
-    "\r\nпечатный символ, все остальные символы \r\nпринимаются как есть";
             // 
             // fileSize
             // 
@@ -177,7 +175,7 @@
             // 
             // reEnterPass
             // 
-            this.reEnterPass.Location = new System.Drawing.Point(29, 331);
+            this.reEnterPass.Location = new System.Drawing.Point(29, 315);
             this.reEnterPass.Name = "reEnterPass";
             this.reEnterPass.Size = new System.Drawing.Size(386, 20);
             this.reEnterPass.StyleController = this.layoutControl;
@@ -189,7 +187,7 @@
             // 
             // middleName
             // 
-            this.middleName.Location = new System.Drawing.Point(449, 331);
+            this.middleName.Location = new System.Drawing.Point(449, 315);
             this.middleName.Name = "middleName";
             this.middleName.Size = new System.Drawing.Size(386, 20);
             this.middleName.StyleController = this.layoutControl;
@@ -197,7 +195,7 @@
             // 
             // firstName
             // 
-            this.firstName.Location = new System.Drawing.Point(449, 281);
+            this.firstName.Location = new System.Drawing.Point(449, 265);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(386, 20);
             this.firstName.StyleController = this.layoutControl;
@@ -208,7 +206,7 @@
             // 
             // lastName
             // 
-            this.lastName.Location = new System.Drawing.Point(449, 231);
+            this.lastName.Location = new System.Drawing.Point(449, 215);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(386, 20);
             this.lastName.StyleController = this.layoutControl;
@@ -219,7 +217,7 @@
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(29, 231);
+            this.login.Location = new System.Drawing.Point(29, 215);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(386, 20);
             this.login.StyleController = this.layoutControl;
@@ -258,7 +256,7 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(595, 372);
+            this.saveButton.Location = new System.Drawing.Point(595, 356);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(121, 23);
             this.saveButton.StyleController = this.layoutControl;
@@ -270,7 +268,7 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(730, 372);
+            this.cancelButton.Location = new System.Drawing.Point(730, 356);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(122, 23);
             this.cancelButton.StyleController = this.layoutControl;
@@ -317,11 +315,11 @@
             // 
             this.saveLayoutControlItem.Control = this.saveButton;
             this.saveLayoutControlItem.CustomizationFormText = "layoutControlItem2";
-            this.saveLayoutControlItem.Location = new System.Drawing.Point(583, 360);
+            this.saveLayoutControlItem.Location = new System.Drawing.Point(583, 344);
             this.saveLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.saveLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
             this.saveLayoutControlItem.Name = "saveLayoutControlItem";
-            this.saveLayoutControlItem.Size = new System.Drawing.Size(125, 131);
+            this.saveLayoutControlItem.Size = new System.Drawing.Size(125, 147);
             this.saveLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.saveLayoutControlItem.Text = "layoutControlItem2";
             this.saveLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -332,11 +330,11 @@
             // 
             this.cancelLayoutControlItem.Control = this.cancelButton;
             this.cancelLayoutControlItem.CustomizationFormText = "layoutControlItem3";
-            this.cancelLayoutControlItem.Location = new System.Drawing.Point(718, 360);
+            this.cancelLayoutControlItem.Location = new System.Drawing.Point(718, 344);
             this.cancelLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.cancelLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
             this.cancelLayoutControlItem.Name = "cancelLayoutControlItem";
-            this.cancelLayoutControlItem.Size = new System.Drawing.Size(126, 131);
+            this.cancelLayoutControlItem.Size = new System.Drawing.Size(126, 147);
             this.cancelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.cancelLayoutControlItem.Text = "layoutControlItem3";
             this.cancelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -347,11 +345,11 @@
             // 
             this.delimiterEmptySpaceItem.AllowHotTrack = false;
             this.delimiterEmptySpaceItem.CustomizationFormText = "delimiterEmptySpaceItem";
-            this.delimiterEmptySpaceItem.Location = new System.Drawing.Point(708, 360);
+            this.delimiterEmptySpaceItem.Location = new System.Drawing.Point(708, 344);
             this.delimiterEmptySpaceItem.MaxSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.MinSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.Name = "delimiterEmptySpaceItem";
-            this.delimiterEmptySpaceItem.Size = new System.Drawing.Size(10, 131);
+            this.delimiterEmptySpaceItem.Size = new System.Drawing.Size(10, 147);
             this.delimiterEmptySpaceItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.delimiterEmptySpaceItem.Text = "delimiterEmptySpaceItem";
             this.delimiterEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
@@ -360,9 +358,9 @@
             // 
             this.buttonEmptySpaceItem.AllowHotTrack = false;
             this.buttonEmptySpaceItem.CustomizationFormText = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 360);
+            this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 344);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(583, 131);
+            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(583, 147);
             this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -378,7 +376,7 @@
             this.pipeNumberMaskLayoutItem});
             this.projectLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.projectLayoutGroup.Name = "projectLayoutGroup";
-            this.projectLayoutGroup.Size = new System.Drawing.Size(844, 159);
+            this.projectLayoutGroup.Size = new System.Drawing.Size(844, 143);
             this.projectLayoutGroup.Text = "Проект";
             // 
             // titleLayoutControl
@@ -412,7 +410,7 @@
             this.millLayoutControlItem.Location = new System.Drawing.Point(0, 50);
             this.millLayoutControlItem.MinSize = new System.Drawing.Size(195, 50);
             this.millLayoutControlItem.Name = "millLayoutControlItem";
-            this.millLayoutControlItem.Size = new System.Drawing.Size(326, 66);
+            this.millLayoutControlItem.Size = new System.Drawing.Size(326, 50);
             this.millLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.millLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 5, 5);
             this.millLayoutControlItem.Text = "Название завода";
@@ -439,7 +437,7 @@
             this.maskLayoutControlItem.Location = new System.Drawing.Point(326, 50);
             this.maskLayoutControlItem.MinSize = new System.Drawing.Size(195, 50);
             this.maskLayoutControlItem.Name = "maskLayoutControlItem";
-            this.maskLayoutControlItem.Size = new System.Drawing.Size(238, 66);
+            this.maskLayoutControlItem.Size = new System.Drawing.Size(238, 50);
             this.maskLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.maskLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 5, 5);
             this.maskLayoutControlItem.Text = "Формат номера трубы";
@@ -453,7 +451,7 @@
             this.pipeNumberMaskLayoutItem.CustomizationFormText = "pipeNumberMaskLayoutItem";
             this.pipeNumberMaskLayoutItem.Location = new System.Drawing.Point(564, 50);
             this.pipeNumberMaskLayoutItem.Name = "pipeNumberMaskLayoutItem";
-            this.pipeNumberMaskLayoutItem.Size = new System.Drawing.Size(256, 66);
+            this.pipeNumberMaskLayoutItem.Size = new System.Drawing.Size(256, 50);
             this.pipeNumberMaskLayoutItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeNumberMaskLayoutItem.Text = "pipeNumberMaskLayoutItem";
             this.pipeNumberMaskLayoutItem.TextSize = new System.Drawing.Size(0, 0);
@@ -470,7 +468,7 @@
             this.firstNameLayoutControlItem,
             this.middleNameLayoutControlItem,
             this.lastNameLayoutControlItem});
-            this.adminLayoutControlGroup.Location = new System.Drawing.Point(0, 159);
+            this.adminLayoutControlGroup.Location = new System.Drawing.Point(0, 143);
             this.adminLayoutControlGroup.Name = "adminLayoutControlGroup";
             this.adminLayoutControlGroup.Size = new System.Drawing.Size(844, 201);
             this.adminLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
