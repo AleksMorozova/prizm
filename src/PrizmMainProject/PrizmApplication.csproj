@@ -492,6 +492,9 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\AboutXtraForm.resx">
+      <DependentUpon>AboutXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -787,7 +790,15 @@
   <ItemGroup>
     <None Include="Resources\password_logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logo_intertek_sc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main-logo_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main-logo_031.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

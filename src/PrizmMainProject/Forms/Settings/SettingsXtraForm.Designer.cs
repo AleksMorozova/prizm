@@ -765,8 +765,6 @@
             this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(251, 52);
             this.pipeNumberMaskRulesLabel.StyleController = this.generalProjectLayout;
             this.pipeNumberMaskRulesLabel.TabIndex = 16;
-            this.pipeNumberMaskRulesLabel.Text = "Правила задания формата : # - цифра, \r\n@ - буква, % - цифра или буква, ? - любой " +
-    "\r\nпечатный символ, все остальные символы \r\nпринимаются как есть";
             // 
             // pipeNumberMask
             // 

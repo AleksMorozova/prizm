@@ -61,6 +61,17 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PRIZM – программа полного цикла управления 
+        ///процессом производства, транспортировки 
+        ///и строительства промышленных труб..
+        /// </summary>
+        internal static string AboutForm_TitleLabel {
+            get {
+                return ResourceManager.GetString("AboutForm_TitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Принято.
         /// </summary>
         internal static string Accepted {
@@ -950,6 +961,16 @@ namespace PrizmMain.Properties {
         internal static string Lowered {
             get {
                 return ResourceManager.GetString("Lowered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_logo_03 {
+            get {
+                object obj = ResourceManager.GetObject("main-logo_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
