@@ -26,6 +26,7 @@ using DevExpress.XtraBars.Alerter;
 using PrizmMain.Forms.PipeMill.Heat;
 using PrizmMain.Forms.Audit;
 using PrizmMain.Forms.InspectionParts.Search;
+using PrizmMain.Forms.Common;
 
 namespace PrizmMain.Forms.MainChildForm
 {
@@ -415,6 +416,11 @@ namespace PrizmMain.Forms.MainChildForm
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
+        }
+
+        private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(AboutXtraForm));
         }
 
 
