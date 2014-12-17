@@ -18,6 +18,7 @@ using Ninject.Parameters;
 using Domain.Entity.Construction;
 using PrizmMain.Commands;
 using PrizmMain.Forms.PipeMill.NewEdit;
+using PrizmMain.Forms.Spool;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
@@ -42,7 +43,7 @@ namespace PrizmMain.Forms.InspectionParts.Search
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
             var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
 
-            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text,CheckState.Checked,true);
+            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
@@ -68,9 +69,9 @@ namespace PrizmMain.Forms.InspectionParts.Search
         private void RefreshTypes()
         {
             BindingList<PartType> selectedTypes = new BindingList<PartType>();
-            for(int i = 0; i < type.Properties.Items.Count; i++)
+            for (int i = 0; i < type.Properties.Items.Count; i++)
             {
-                if(type.Properties.Items[i].CheckState == CheckState.Checked)
+                if (type.Properties.Items[i].CheckState == CheckState.Checked)
                 {
                     selectedTypes.Add((PartType)type.Properties.Items[i].Value);
                 }
@@ -87,25 +88,31 @@ namespace PrizmMain.Forms.InspectionParts.Search
             switch (viewModel.Parts[selectedPart].Type.Value)
             {
                 case PartType.Component:
-                    { 
-                    parent.CreateChildForm(
-                        typeof(ComponentNewEditXtraForm),
-                        new ConstructorArgument(
-                            "componentId",
-                            viewModel.Parts[selectedPart].Id)); 
+                    {
+                        parent.CreateChildForm(
+                            typeof(ComponentNewEditXtraForm),
+                            new ConstructorArgument(
+                                "componentId",
+                                viewModel.Parts[selectedPart].Id));
                     } break;
                 case PartType.Pipe:
-                    { 
-                    parent.CreateChildForm
-                        (typeof (MillPipeNewEditXtraForm), 
-                        new ConstructorArgument("pipeId", 
-                        viewModel.Parts[selectedPart].Id));
+                    {
+                        parent.CreateChildForm
+                            (typeof(MillPipeNewEditXtraForm),
+                            new ConstructorArgument("pipeId",
+                            viewModel.Parts[selectedPart].Id));
                     } break;
                 case PartType.Spool:
-                    { } break;
+                    {
+                        parent.CreateChildForm(
+                            typeof(SpoolsXtraForm),
+                            new ConstructorArgument("spoolId",
+                                viewModel.Parts[selectedPart].Id)
+                            );
+                    } break;
                 default: break;
             }
-            
+
         }
 
         private void partsView_KeyDown(object sender, KeyEventArgs e)

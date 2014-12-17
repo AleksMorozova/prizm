@@ -32,14 +32,14 @@ namespace PrizmMain.Forms.Spool
         private IModifiable modifiableView;
         public Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
-        public bool canCut=false;
+        public bool canCut = false;
 
         [Inject]
-        public SpoolViewModel(ISpoolRepositories repos, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)
         {
             this.repos = repos;
 
-            this.notify=notify;
+            this.notify = notify;
             this.Inspectors = repos.RepoInspector.GetAll();
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
@@ -53,15 +53,22 @@ namespace PrizmMain.Forms.Spool
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes()) 
+            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes())
             {
                 allPipes.Add(p);
             }
-            Spool = new Domain.Entity.Construction.Spool();
-            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
-            Spool.Pipe = new Pipe();
-            Pipe = new Pipe();
-            
+
+            if (spoolId == Guid.Empty)
+            {
+                Spool = new Domain.Entity.Construction.Spool();
+                Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
+                Spool.Pipe = new Pipe();
+                Pipe = new Pipe();
+            }
+            else
+            {
+                Spool = repos.SpoolRepo.Get(spoolId);
+            }
         }
 
         public string SpoolNumber
@@ -101,7 +108,7 @@ namespace PrizmMain.Forms.Spool
 
         public Pipe SpoolPipe
         {
-            get { return Spool.Pipe;}
+            get { return Spool.Pipe; }
             set
             {
                 if (value != Spool.Pipe)
@@ -149,9 +156,9 @@ namespace PrizmMain.Forms.Spool
 
         public Pipe Pipe
         {
-            get 
+            get
             {
-                return Spool.Pipe; 
+                return Spool.Pipe;
             }
             set
             {

@@ -3,13 +3,16 @@ using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entity;
 using Domain.Entity.Construction;
 using Domain.Entity.Mill;
+using Ninject.Parameters;
 using PrizmMain.Commands;
 using PrizmMain.Controls;
 using PrizmMain.Forms.ExternalFile;
 using PrizmMain.Forms.MainChildForm;
 using PrizmMain.Properties;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Ninject;
 
 namespace PrizmMain.Forms.Spool
 {
@@ -23,13 +26,15 @@ namespace PrizmMain.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public SpoolsXtraForm()
+        public SpoolsXtraForm(Guid spoolId)
         {
             InitializeComponent();
-            viewModel = (SpoolViewModel)Program.Kernel.GetService(typeof(SpoolViewModel));
+            viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
             IsEditMode = true;
         }
+
+        public SpoolsXtraForm () : this(Guid.Empty) { }
 
         private void BindToViewModel()
         {
