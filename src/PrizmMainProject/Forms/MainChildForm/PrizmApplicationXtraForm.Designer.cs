@@ -253,7 +253,7 @@
             // 
             // barButtonItemNewRailcar
             // 
-            this.barButtonItemNewRailcar.Caption = "&Новый вагон";
+            this.barButtonItemNewRailcar.Caption = "&Разрешение на отгрузку";
             this.barButtonItemNewRailcar.Id = 37;
             this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
             this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
@@ -261,7 +261,7 @@
             // 
             // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemFindEditShipRailcars.Caption = "Поиск &вагонов";
+            this.barButtonItemFindEditShipRailcars.Caption = "По&иск разрешений на отгрузку";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);

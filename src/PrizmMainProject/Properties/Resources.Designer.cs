@@ -975,10 +975,8 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Правила задания формата : # - цифра, 
-        ///@ - буква, % - цифра или буква, ? - любой 
-        ///печатный символ, все остальные символы 
-        ///принимаются как есть.
+        ///   Looks up a localized string similar to Правила задания формата : # - цифра, @ - буква, 
+        ///% - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть.
         /// </summary>
         internal static string Mask_Label {
             get {
