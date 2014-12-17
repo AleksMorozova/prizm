@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
@@ -181,6 +182,41 @@ namespace PrizmMain.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+        }
+
+        private void cloneTypeSizeButton_Click(object sender, EventArgs e)
+        {
+            if(CurrentPipeMillSizeType != null)
+            {
+                var clone = new PipeMillSizeType();
+                var pipes = new List<Pipe>();
+                var tests = new List<PipeTest>();
+
+                foreach(var item in CurrentPipeMillSizeType.PipeTests)
+                {
+                    tests.Add(new PipeTest()
+                    {
+                        Category = item.Category,
+                        Code = item.Code,
+                        Name = item.Name,
+                        TestSubject = item.TestSubject,
+                        MinExpected = item.MinExpected,
+                        MaxExpected = item.MaxExpected,
+                        StringExpected = item.StringExpected,
+                        BoolExpected = item.BoolExpected,
+                        IsRequired = item.IsRequired,
+                        pipeType = clone,
+                        ControlType = item.ControlType,
+                        ResultType = item.ResultType,
+                        IsActive = item.IsActive
+                    });
+                }
+                clone.Type = CurrentPipeMillSizeType.Type + " Copy " + (viewModel.PipeMillSizeType.Count + 1);
+                clone.PipeTests = new BindingList<PipeTest>(tests);
+                clone.IsActive = CurrentPipeMillSizeType.IsActive;
+
+                viewModel.PipeMillSizeType.Add(clone);
+            }
         }
 
         private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
