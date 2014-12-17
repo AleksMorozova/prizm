@@ -265,6 +265,8 @@
             // 
             this.spoolLength.Location = new System.Drawing.Point(196, 246);
             this.spoolLength.Name = "spoolLength";
+            this.spoolLength.Properties.Mask.EditMask = "d";
+            this.spoolLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.spoolLength.Size = new System.Drawing.Size(120, 20);
             this.spoolLength.StyleController = this.mainLayoutControl;
             this.spoolLength.TabIndex = 16;
