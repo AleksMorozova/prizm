@@ -166,7 +166,6 @@
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
-    <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
     <Compile Include="Common\EnumWrapper.cs" />
@@ -228,7 +227,6 @@
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
-    <Compile Include="Forms\Joint\NewEdit\JointDeactivationCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
@@ -792,7 +790,13 @@
     <None Include="Resources\password_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo_intertek_sc1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main-logo_031.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

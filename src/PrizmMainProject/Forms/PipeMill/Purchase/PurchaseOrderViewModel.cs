@@ -23,27 +23,19 @@ namespace PrizmMain.Forms.PipeMill.Purchase
         private PurchaseOrder order;
 
         [Inject]
-        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, string number, IUserNotify notify)
+        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, Guid id, IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;
             saveCommand = ViewModelSource.Create(() => new SaveOrderCommand(repo, this, notify));
 
-            if (string.IsNullOrWhiteSpace(number))
+            if (id == Guid.Empty)
             {
-                NewOrder(number);
+                NewOrder();
             }
-            else 
+            else
             {
-                var ord = LoadOrder(number);
-                if(ord != null)
-                {
-                    order = ord;
-                }
-                else
-                {
-                    NewOrder(number);
-                }
+                LoadOrder(id);
             }
         }
 
@@ -94,14 +86,14 @@ namespace PrizmMain.Forms.PipeMill.Purchase
             get { return saveCommand; }
         }
 
-        private PurchaseOrder LoadOrder(string number)
+        private void LoadOrder(Guid id)
         {
-            return repo.GetByNumber(number);
+            order = repo.Get(id);
         }
 
-        private void NewOrder(string number)
+        private void NewOrder()
         {
-            order = new PurchaseOrder() { Number = number, Date = DateTime.Now, IsActive = true };
+            order = new PurchaseOrder() { Number = string.Empty, Date = DateTime.Now, IsActive = true };
         }
 
         public void Dispose()

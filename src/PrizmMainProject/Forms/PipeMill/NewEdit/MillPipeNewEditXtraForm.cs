@@ -28,7 +28,7 @@ using PrizmMain.Commands;
 
 namespace PrizmMain.Forms.PipeMill.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")]
+    [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeNewEditXtraForm : ChildForm
     {
         ICommandManager commandManager = new CommandManager();
@@ -48,7 +48,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("pipeId", pipeId));
             viewModel.ModifiableView = this;
-
+            
 
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
             pipeCreationDate.Properties.NullText = string.Empty;
@@ -56,9 +56,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             #region --- Colouring of required controls ---
             pipeNumber.SetRequiredText();
             pipeSize.SetRequiredCombo();
+            heatNumber.SetRequiredCombo();
+            purchaseOrder.SetRequiredCombo();
             pipeCreationDate.SetRequiredText();
-            heatsLookUp.SetRequiredGridLookUp();
-            ordersLookUp.SetRequiredText();
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
@@ -81,9 +81,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             plateNumber.SetAsIdentifier();
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
-
-            heatsLookUp.ButtonSetup();
-            ordersLookUp.ButtonSetup();
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -102,7 +99,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             IsModified = false;
             pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
-
         }
 
         private void BindToViewModel()
@@ -111,7 +107,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             #region ComboBox filling
 
-            foreach(var t in viewModel.PipeTypes)
+            HeatFill();
+
+            PurchaseOrderFill();
+
+            foreach (var t in viewModel.PipeTypes)
             {
                 pipeSize.Properties.Items.Add(t);
             }
@@ -119,8 +119,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             #region DataBindings
 
-            ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
-            heatsLookUp.Properties.DataSource = viewModel.Heats;
+            pipeNewEditBindingSource.DataSource = viewModel;
 
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
@@ -140,6 +139,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             deactivate.DataBindings
                 .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
 
+
+
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
             pipeCreationDate.DataBindings
@@ -148,11 +149,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             steelGrade.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "SteelGrade");
 
+
+
+            heatNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "Heat");
             plateManufacturer.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateManufacturer");
 
             pipeSize.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeMillSizeType");
+            purchaseOrder.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
 
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
@@ -169,7 +176,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
             plateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
-
+            
 
             inspections.DataBindings
                 .Add("DataSource", pipeNewEditBindingSource, "PipeTestResults");
@@ -186,11 +193,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
 
-            ordersLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
-
-            heatsLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "Heat");
-
             inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+
             #endregion
 
 
@@ -214,75 +218,115 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             inspectorSelectionControl.Dock = DockStyle.Fill;
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
-
+            
             coatingTypeDict.Clear();
             coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
             coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
 
-            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;
+            repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;            
 
-            coatDataSource.ListChanged += (s, eve) => IsModified = true;
+            coatDataSource.ListChanged += (s, eve) => IsModified = true; 
 
-            coatDataSource.DataSource = viewModel.Pipe;
-
+            coatDataSource.DataSource = viewModel.Pipe; 
         }
 
+        private void HeatFill() 
+        {
+            //TODO: FEATURE return heat & purchase order from editform for select in combo
+
+            viewModel.ExtractHeatsCommand.Execute();
+            heatNumber.Properties.Items.Clear();
+            heatNumber.Properties.Items.Insert(0, Resources.NewHeatCombo);
+            heatNumber.SelectedIndex = -1;
+
+            foreach (var h in viewModel.Heats)
+            {
+                heatNumber.Properties.Items.Add(h);
+            }
+        }
+
+        private void PurchaseOrderFill()
+        {
+            viewModel.ExtractPurchaseOrderCommand.Execute();
+            purchaseOrder.Properties.Items.Clear();
+            purchaseOrder.Properties.Items.Insert(0, Resources.NewOrderCombo);
+            purchaseOrder.SelectedIndex = -1;
+
+            foreach (var h in viewModel.PurchaseOrders)
+            {
+                purchaseOrder.Properties.Items.Add(h);
+            }
+        }
         private void BindCommands()
         {
-            commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
-            commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
+           commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
+           commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
 
-            SaveCommand = viewModel.SavePipeCommand;
+           SaveCommand = viewModel.SavePipeCommand;
         }
 
 
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
-            {
-                IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
-                Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
 
 
-                weld.Welders.Clear();
-                foreach(Welder w in selectedWelders)
-                {
-                    weld.Welders.Add(w);
-                    w.Welds.Add(weld);
-                }
-            }
-
+              weld.Welders.Clear();
+              foreach (Welder w in selectedWelders)
+              {
+                 weld.Welders.Add(w);
+                 w.Welds.Add(weld);
+              }
+           }
+            
         }
 
         private void repositoryItemPopupWelders_Popup(object sender, EventArgs e)
         {
-            weldingHistoryGridView.ClearSelection();
-            if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
-            {
-                Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
+           weldingHistoryGridView.ClearSelection();
+           if (weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
+           {
+              Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+              if (weld == null)
+                 return;
 
-                weldersSelectionControl.SelectWelders(weld.Welders);
-            }
+              weldersSelectionControl.SelectWelders(weld.Welders);
+           }
         }
 
         private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
-                e.DisplayText = string.Empty;
+           if (e.Value == null)
+              e.DisplayText = string.Empty;
 
-            IList<Welder> welders = e.Value as IList<Welder>;
-            e.DisplayText = viewModel.FormatWeldersList(welders);
+           IList<Welder> welders = e.Value as IList<Welder>;
+           e.DisplayText = viewModel.FormatWeldersList(welders); 
         }
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
         {
-            Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-            if(weld == null)
-                e.Cancel = true;
+           Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+           if (weld == null)
+              e.Cancel = true;
+        }
+
+        private void heatNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.Heat = heatNumber.SelectedItem as Domain.Entity.Mill.Heat;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+        }
+
+        private void purchaseOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.PipePurchaseOrder = purchaseOrder.SelectedItem as PurchaseOrder;
+            viewModel.SavePipeCommand.IsExecutable ^= true;
+            viewModel.NewSavePipeCommand.IsExecutable ^= true;
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
@@ -302,53 +346,53 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
-            GridView view = sender as GridView;
-            view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
-            view.RefreshData();
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
+           view.RefreshData();
         }
 
         private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
         {
-            LookUpEdit lookup = sender as LookUpEdit;
-
-            if(!(lookup.EditValue is CoatingType))
-            {
-                KeyValuePair<CoatingType, string> val = (KeyValuePair<CoatingType, string>)lookup.EditValue;
-                lookup.EditValue = val.Key;
-            }
+           LookUpEdit lookup = sender as LookUpEdit;
+           
+           if (!(lookup.EditValue is CoatingType))
+           {
+              KeyValuePair<CoatingType, string> val = (KeyValuePair<CoatingType, string>)lookup.EditValue;
+              lookup.EditValue = val.Key;
+           }
         }
 
         private void repositoryItemLookUpEditCoatType_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value is CoatingType)
-            {
-                e.DisplayText = coatingTypeDict[(CoatingType)e.Value];
-            }
+           if (e.Value is CoatingType)
+           {
+              e.DisplayText = coatingTypeDict[(CoatingType)e.Value];
+           }
         }
 
         private void coatingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            GridView view = sender as GridView;
-            if(view.IsValidRowHandle(e.RowHandle))
-            {
-                Coat coat = view.GetRow(e.RowHandle) as Coat;
-                coat.Pipe = viewModel.Pipe;
-                coat.Type = CoatingType.Internal;
-                coat.Date = DateTime.Now;
-            }
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Coat coat = view.GetRow(e.RowHandle) as Coat;
+              coat.Pipe = viewModel.Pipe;
+              coat.Type = CoatingType.Internal;
+              coat.Date = DateTime.Now;
+           }
         }
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            if(inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
             {
                 IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
-                if(pipeTestResult == null)
+                if (pipeTestResult == null)
                     return;
 
                 pipeTestResult.Inspectors.Clear();
-                foreach(Inspector i in selectedInspectors)
+                foreach (Inspector i in selectedInspectors)
                 {
                     pipeTestResult.Inspectors.Add(i);
                 }
@@ -358,10 +402,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
         {
             inspectionsGridView.ClearSelection();
-            if(inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
+            if (inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
-                if(pipeTestResult == null)
+                if (pipeTestResult == null)
                     return;
 
                 inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
@@ -370,7 +414,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
+            if (e.Value == null)
                 e.DisplayText = string.Empty;
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
@@ -383,9 +427,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
-            if(e.Column.FieldName == "Expected" && e.IsGetData)
-                e.Value =
-                    getExpectedValue(view, e.ListSourceRowIndex);
+            if (e.Column.FieldName == "Expected" && e.IsGetData) e.Value =
+              getExpectedValue(view, e.ListSourceRowIndex);
         }
 
         /// <summary>
@@ -394,37 +437,57 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private string getExpectedValue(GridView view, int listSourceRowIndex)
         {
             PipeTestResult pipeTestResult = view.GetRow(listSourceRowIndex) as PipeTestResult;
-            if(pipeTestResult != null && pipeTestResult.Operation != null)
+            if (pipeTestResult != null && pipeTestResult.Operation != null)
             {
-                switch(pipeTestResult.Operation.ResultType)
+                switch (pipeTestResult.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
                         return pipeTestResult.Operation.BoolExpected.ToString();
                     case PipeTestResultType.Diapason:
                         return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
-                    default:
-                        return "";
+                    default: return "";
                 }
             }
-            else
-                return "";
+            else return "";
         }
 
         private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
-            GridView view = sender as GridView;
-            view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
-            view.RefreshData();
+           GridView view = sender as GridView;
+           view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+           view.RefreshData();
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            GridView view = sender as GridView;
-            if(view.IsValidRowHandle(e.RowHandle))
+           GridView view = sender as GridView;
+           if (view.IsValidRowHandle(e.RowHandle))
+           {
+              Weld weld = view.GetRow(e.RowHandle) as Weld;
+              weld.Pipe = viewModel.Pipe;
+           }
+        }
+
+        private void heatButton_Click(object sender, EventArgs e)
+        {
+            var heatForm = (HeatXtraForm)Program.Kernel.Get<HeatXtraForm>(new ConstructorArgument("heatNumber", heatNumber.Text));
+            heatForm.ShowDialog();
+            HeatFill();
+            heatNumber.SelectedIndex = -1;
+        }
+
+        private void purchaseOrderButton_Click(object sender, EventArgs e)
+        {
+            var order = purchaseOrder.EditValue as PurchaseOrder;
+            Guid id = Guid.Empty;
+            if (order != null)
             {
-                Weld weld = view.GetRow(e.RowHandle) as Weld;
-                weld.Pipe = viewModel.Pipe;
+                id = order.Id;
             }
+            PurchaseOrderXtraForm form = new PurchaseOrderXtraForm(id);
+            form.ShowDialog();
+            PurchaseOrderFill();
+            purchaseOrder.SelectedIndex = -1;
         }
 
         private void SetControlsTextLength()
@@ -442,8 +505,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void Dummy()
         {
-
-
+            
+           
             List<ChemicalComposition> chem = new List<ChemicalComposition>()
         {
             new ChemicalComposition(){Parameter = "C",HeatValue = 0.06f, PlateValue = 0.06f,PipeValue = 0.06f},
@@ -500,33 +563,34 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             LookUpEdit q = sender as LookUpEdit;
             object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
             PipeTest selectedTest = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PipeTest;
-            if(selectedTest != null)
+            if (selectedTest != null)
                 currentTestResult.Operation = selectedTest;
         }
 
         private void inspectionsGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            GridView view = sender as GridView;
-            if(view.IsValidRowHandle(e.RowHandle))
-            {
-                currentTestResult = view.GetRow(e.RowHandle) as PipeTestResult;
-                currentTestResult.IsActive = true;
-                currentTestResult.Pipe = viewModel.Pipe;
-                currentTestResult.Order = viewModel.PipeTestResults.Max(test => test.Order) + 1;
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-            }
+             GridView view = sender as GridView;
+             if (view.IsValidRowHandle(e.RowHandle))
+             { 
+                 currentTestResult  =  view.GetRow(e.RowHandle) as PipeTestResult;
+                 currentTestResult.IsActive = true;
+                 currentTestResult.Pipe = viewModel.Pipe;
+                 currentTestResult.Order = viewModel.PipeTestResults.Max(test=>test.Order)+1;
+                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+             }
         }
 
         private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
         {
-
+            HeatFill();
+            PurchaseOrderFill();
         }
 
         private void deactivate_Modified(object sender, EventArgs e)
         {
             viewModel.IsNotActive = (bool)deactivate.EditValue;
 
-            if(viewModel.IsNotActive)
+            if (viewModel.IsNotActive)
             {
                 viewModel.PipeDeactivationCommand.Execute();
                 IsEditMode = false;
@@ -539,16 +603,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
             PipeMillSizeType currentPipeType;
-            if(pipeSize.SelectedIndex >= 0)
+            if (pipeSize.SelectedIndex>=0)
             {
                 currentPipeType = (PipeMillSizeType)e.NewValue;
-                if(currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+                if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
                 {
-                    if(viewModel.IsAnyInspectionResult() > 0)
+                    if (viewModel.IsAnyInspectionResult() > 0) 
                     {
-                        if(viewModel.IsNew == true)
+                        if (viewModel.IsNew == true)
                         {
-                            if(this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader) != true)
+                            if (this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader)!=true)
                             {
                                 e.Cancel = true;
                             }
@@ -558,17 +622,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                             this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
                             e.Cancel = true;
                         }
-                    }
+                    } 
                 }
             }
         }
-
+        
         /// <summary>
         ///Refreshes list of required pipe test 
         /// </summary>
         private void RefreshPipeTest(PipeMillSizeType currentPipeType)
         {
-            if(currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
+            if (currentPipeType != null && viewModel.Pipe.Type != currentPipeType)
             {
                 viewModel.PipeMillSizeType = currentPipeType;
                 viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
@@ -597,17 +661,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             PipeTestResultStatus result = (PipeTestResultStatus)gv.GetRowCellValue(e.RowHandle, inspectionResultGridColumn);
             DateTime? date = (DateTime?)gv.GetRowCellValue(e.RowHandle, controlDateGridColumn);
             var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
-            if(string.IsNullOrWhiteSpace(op))
+            if (string.IsNullOrWhiteSpace(op))
             {
                 gv.SetColumnError(inspectionCodeGridColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
 
-            switch(result)
+            switch (result)
             {
                 case PipeTestResultStatus.Passed:
                 case PipeTestResultStatus.Failed:
-                    if(date == null || date > DateTime.Now)
+                    if (date == null || date > DateTime.Now)
                     {
                         gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
                         e.Valid = false;
@@ -621,7 +685,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         private void pipeNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            if (!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
             {
                 pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
                 e.Cancel = true;
@@ -633,76 +697,5 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
             attachments.ShowDialog();
         }
-
-        private void ShowHeatDialog(string number)
-        {
-            var dlg = new HeatXtraForm(number);
-            dlg.ShowDialog();
-            
-        }
-
-        private void heatsLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
-            {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowHeatDialog(number);
-            }
-        }
-
-        private void heatsLookUp_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
-            {
-                if(MessageBox.Show("Создать плавку " + e.DisplayValue.ToString(), "Новая плавка", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    ShowHeatDialog(e.DisplayValue.ToString());
-                }
-            }
-            e.Handled = true;
-        }
-
-        private void heatsLookUp_QueryPopUp(object sender, CancelEventArgs e)
-        {
-            viewModel.ExtractHeatsCommand.Execute();
-            heatsLookUp.Properties.DataSource = null;
-            heatsLookUp.Properties.DataSource = viewModel.Heats;
-        }
-
-        private void ShowOrderDialog(string number)
-        {
-            var dlg = new PurchaseOrderXtraForm(number);
-            dlg.ShowDialog();
-        }
-        
-        private void ordersLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
-            {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowOrderDialog(number);
-            }
-        }
-
-        private void ordersLookUp_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
-            {
-                if(MessageBox.Show("Создать наряд-заказ " + e.DisplayValue.ToString(), "Новый наряд-заказ", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    ShowOrderDialog(e.DisplayValue.ToString());
-                }
-            }
-            e.Handled = true;
-        }
-
-        private void ordersLookUp_QueryPopUp(object sender, CancelEventArgs e)
-        {
-            viewModel.ExtractPurchaseOrderCommand.Execute();
-            ordersLookUp.Properties.DataSource = null;
-            ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
-        }
-
-
     }
 }

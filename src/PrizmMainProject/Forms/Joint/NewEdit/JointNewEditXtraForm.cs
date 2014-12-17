@@ -48,14 +48,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
             viewModel.ModifiableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
-
-            #region --- Colouring of required controls, IsEditMode, uppercasing ---
-            jointNumber.SetRequiredText();
-            firstJointElement.SetRequiredText();
-            secondJointElement.SetRequiredText();
-            IsEditMode = true;
-            jointNumber.SetAsIdentifier();
-            #endregion
         }
 
         public JointNewEditXtraForm() : this(Guid.Empty) { }
@@ -149,22 +141,16 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
             commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
-            SaveCommand = viewModel.SaveJointCommand;
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
         {
             BindCommands();
             BindToViewModel();
-            viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = !viewModel.IsNotActive;
-            IsModified = false;
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
-            this.headerNumberPart =jointNumber.Text;
-            viewModel.Number = jointNumber.Text;
             viewModel.SaveJointCommand.IsExecutable ^= true;
             viewModel.NewSaveJointCommand.IsExecutable ^= true;
         }
@@ -354,16 +340,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             viewModel.SaveJointCommand.IsExecutable ^= true;
             viewModel.NewSaveJointCommand.IsExecutable ^= true;
-        }
-
-        private void deactivated_Modified(object sender, EventArgs e)
-        {
-            viewModel.IsNotActive = (bool)deactivated.EditValue;
-            if (viewModel.IsNotActive)
-            {
-                viewModel.JointDeactivationCommand.Execute();
-                IsEditMode = false;
-            }
         }
     }
 }

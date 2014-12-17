@@ -346,7 +346,6 @@
             this.deactivated.Size = new System.Drawing.Size(131, 19);
             this.deactivated.StyleController = this.newJointLayoutControl;
             this.deactivated.TabIndex = 17;
-            this.deactivated.Modified += new System.EventHandler(this.deactivated_Modified);
             // 
             // distanceFromPK
             // 

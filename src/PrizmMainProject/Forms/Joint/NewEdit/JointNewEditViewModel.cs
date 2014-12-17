@@ -26,7 +26,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
         private readonly SaveJointCommand saveJointCommand;
         private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
-        private readonly JointDeactivationCommand jointdeactivationCommand;
         private IModifiable modifiableView;
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
@@ -46,17 +45,12 @@ namespace PrizmMain.Forms.Joint.NewEdit
             this.notify = notify;
             this.adoRepo = adoRepo;
 
-            #region Commands
             saveJointCommand =
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
             newSaveJointCommand =
               ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
-            jointdeactivationCommand = 
-                ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify));
-            #endregion
-
             Inspectors = repoConstruction.RepoInspector.GetAll();
             Welders = repoConstruction.RepoWelder.GetAll();
             Pieces = adoRepo.GetPipelineElements();
@@ -129,11 +123,6 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public ICommand NewSaveJointCommand
         {
             get { return newSaveJointCommand; }
-        }
-
-        public ICommand JointDeactivationCommand
-        {
-            get { return jointdeactivationCommand; }
         }
         #endregion
 
@@ -284,8 +273,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public Guid FirstElementId
         {
             get
-            {                
-                return (Joint.FirstElement == null) ? Guid.Empty : Joint.FirstElement.Id;
+            {
+                return (Joint.FirstElement.Id == null) ? Guid.Empty : Joint.FirstElement.Id;
             }
             set
             {
@@ -303,7 +292,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             get
             {
-                return (Joint.SecondElement == null) ? Guid.Empty : Joint.SecondElement.Id;
+                return (Joint.SecondElement.Id == null) ? Guid.Empty : Joint.SecondElement.Id;
             }
             set
             {

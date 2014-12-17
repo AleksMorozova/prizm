@@ -362,7 +362,7 @@ namespace PrizmMain.Forms.Settings
         {
         }
 
-        private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
             Domain.Entity.Mill.Category category
@@ -580,22 +580,6 @@ namespace PrizmMain.Forms.Settings
             GridView v = sender as GridView;
             JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
             jointOperation.IsActive = true;
-        }
-
-        private void repositoryItemsСategoryView_CustomRowFilter(object sender, RowFilterEventArgs e)
-        {
-            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-
-            var ct = view.DataSource as BindingList<Domain.Entity.Mill.Category>;
-
-            if (ct != null)
-            {
-                if ((bool)ct[e.ListSourceRow].IsNotActive)
-                {
-                    e.Visible = false;
-                    e.Handled = true;
-                }
-            }
         }
 
     }

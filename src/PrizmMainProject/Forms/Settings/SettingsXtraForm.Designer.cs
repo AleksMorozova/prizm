@@ -57,9 +57,8 @@
             this.isRequired = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.testIsActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.categoryColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemsСategory = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemsСategoryView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.CategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemsСategory = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.subjectRepositoryItemEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.pipeParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -221,7 +220,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).BeginInit();
@@ -487,7 +486,7 @@
             this.inspectionNameGridColumn.Name = "inspectionNameGridColumn";
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 141;
+            this.inspectionNameGridColumn.Width = 166;
             // 
             // controlNameRepositoryTextEdit
             // 
@@ -579,7 +578,7 @@
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.Visible = true;
             this.isRequiredGridColumn.VisibleIndex = 7;
-            this.isRequiredGridColumn.Width = 44;
+            this.isRequiredGridColumn.Width = 46;
             // 
             // isRequired
             // 
@@ -604,36 +603,18 @@
             this.categoryColumn.Name = "categoryColumn";
             this.categoryColumn.Visible = true;
             this.categoryColumn.VisibleIndex = 9;
-            this.categoryColumn.Width = 167;
+            this.categoryColumn.Width = 125;
             // 
             // repositoryItemsСategory
             // 
             this.repositoryItemsСategory.AutoHeight = false;
             this.repositoryItemsСategory.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemsСategory.LookAndFeel.SkinName = "VS2010";
+            this.repositoryItemsСategory.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Категория")});
+            this.repositoryItemsСategory.DisplayMember = "Name";
             this.repositoryItemsСategory.Name = "repositoryItemsСategory";
             this.repositoryItemsСategory.NullText = "";
-            this.repositoryItemsСategory.View = this.repositoryItemsСategoryView;
-            // 
-            // repositoryItemsСategoryView
-            // 
-            this.repositoryItemsСategoryView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.CategoryName});
-            this.repositoryItemsСategoryView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemsСategoryView.Name = "repositoryItemsСategoryView";
-            this.repositoryItemsСategoryView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemsСategoryView.OptionsView.ShowGroupPanel = false;
-            this.repositoryItemsСategoryView.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.repositoryItemsСategoryView_CustomRowFilter);
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.FieldName = "Name";
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.OptionsColumn.AllowEdit = false;
-            this.CategoryName.OptionsColumn.ShowCaption = false;
-            this.CategoryName.Visible = true;
-            this.CategoryName.VisibleIndex = 0;
             // 
             // subjectRepositoryItemEdit
             // 
@@ -2150,7 +2131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isRequired)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).EndInit();
@@ -2393,6 +2374,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn categoryNameColumn;
         private DevExpress.XtraGrid.Columns.GridColumn isActiveColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryIsActiveCheckEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn categoryColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemsСategory;
         private DevExpress.XtraGrid.GridControl gridControlRoles;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewRoles;
         private DevExpress.XtraGrid.GridControl gridControlUsers;
@@ -2439,9 +2422,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn testResultRequiredGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn isActiveJointOperationGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit jointOperationTypeLookUpEdit;
-        private DevExpress.XtraGrid.Columns.GridColumn categoryColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemsСategory;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemsСategoryView;
-        private DevExpress.XtraGrid.Columns.GridColumn CategoryName;
     }
 }
