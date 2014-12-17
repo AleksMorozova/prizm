@@ -12,8 +12,5 @@
 
         public virtual Heat Heat { get; set; }
         public virtual Pipe Pipe { get; set; }
-
-        public virtual ChemicalComposition ChemicalComposition { get; set; }
-        public virtual TensileTest TensileTest { get; set; }
     }
 }

@@ -243,15 +243,6 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Химический состав.
-        /// </summary>
-        internal static string ChemicalComposition {
-            get {
-                return ResourceManager.GetString("ChemicalComposition", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Клиент.
         /// </summary>
         internal static string Client {
@@ -1156,15 +1147,6 @@ namespace PrizmMain.Properties {
         internal static string Pending {
             get {
                 return ResourceManager.GetString("Pending", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Физические параметры.
-        /// </summary>
-        internal static string PhysicalParameters {
-            get {
-                return ResourceManager.GetString("PhysicalParameters", resourceCulture);
             }
         }
         

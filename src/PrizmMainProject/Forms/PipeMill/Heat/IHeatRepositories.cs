@@ -11,8 +11,6 @@ namespace PrizmMain.Forms.PipeMill.Heat
     {
         IHeatRepository HeatRepo { get; }
         IPlateManufacturerRepository PlateManRepo { get; }
-        IPhysicalParametersRepository PhysRepo { get; }
-        IChemicalCompositionRepository ChemRepo { get; }
 
         void Commit();
         void BeginTransaction();

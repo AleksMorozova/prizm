@@ -184,9 +184,6 @@
   <data name="Coat" xml:space="preserve">
     <value>Покрытие</value>
   </data>
-  <data name="PhysicalParameters" xml:space="preserve">
-    <value>Физические параметры</value>
-  </data>
   <data name="InvalidOldPassword" xml:space="preserve">
     <value>Текущий пароль введен неверно.</value>
   </data>
@@ -306,9 +303,6 @@
   </data>
   <data name="Thickness" xml:space="preserve">
     <value>Толщина</value>
-  </data>
-  <data name="ChemicalComposition" xml:space="preserve">
-    <value>Химический состав</value>
   </data>
   <data name="InspectionControlType_Witness" xml:space="preserve">
     <value>Присутствие</value>
@@ -619,7 +613,7 @@
   </data>
   <data name="main-logo_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\main-logo_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
+  </data>
   <data name="DLG_JOINT_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?</value>
   </data>

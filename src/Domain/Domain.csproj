@@ -70,7 +70,6 @@
     <Compile Include="Entity\Security\User.cs" />
     <Compile Include="Entity\Mill\ReportType.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
-    <Compile Include="Entity\Mill\ChemicalComposition.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Setup\InspectorCertificate.cs" />
     <Compile Include="Entity\Setup\JointOperation.cs" />
@@ -92,7 +91,6 @@
     <Compile Include="Entity\PersonName.cs" />
     <Compile Include="Entity\Part.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
-    <Compile Include="Entity\Mill\PhysicalParameters.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
     <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs">
       <SubType>Code</SubType>
