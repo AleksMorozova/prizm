@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
@@ -189,7 +188,6 @@ namespace PrizmMain.Forms.Settings
             if(CurrentPipeMillSizeType != null)
             {
                 var clone = new PipeMillSizeType();
-                var pipes = new List<Pipe>();
                 var tests = new List<PipeTest>();
 
                 foreach(var item in CurrentPipeMillSizeType.PipeTests)
