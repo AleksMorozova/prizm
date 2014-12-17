@@ -17,6 +17,7 @@ using PrizmMain.Forms.Component.NewEdit;
 using Ninject.Parameters;
 using Domain.Entity.Construction;
 using PrizmMain.Commands;
+using PrizmMain.Forms.PipeMill.NewEdit;
 
 namespace PrizmMain.Forms.InspectionParts.Search
 {
@@ -83,21 +84,28 @@ namespace PrizmMain.Forms.InspectionParts.Search
             int selectedPart = partsView.GetFocusedDataSourceRowIndex();
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
-
-            if (viewModel.Parts[selectedPart].Type.Value == PartType.Component)
+            switch (viewModel.Parts[selectedPart].Type.Value)
             {
-                parent.CreateChildForm(
+                case PartType.Component:
+                    { 
+                    parent.CreateChildForm(
                         typeof(ComponentNewEditXtraForm),
                         new ConstructorArgument(
                             "componentId",
-                            viewModel.Parts[selectedPart].Id));
+                            viewModel.Parts[selectedPart].Id)); 
+                    } break;
+                case PartType.Pipe:
+                    { 
+                    parent.CreateChildForm
+                        (typeof (MillPipeNewEditXtraForm), 
+                        new ConstructorArgument("pipeId", 
+                        viewModel.Parts[selectedPart].Id));
+                    } break;
+                case PartType.Spool:
+                    { } break;
+                default: break;
             }
-            else if (viewModel.Parts[selectedPart].Type.Value == PartType.Pipe)
-            {
-            }
-            else if (viewModel.Parts[selectedPart].Type.Value == PartType.Spool)
-            {
-            }
+            
         }
 
         private void partsView_KeyDown(object sender, KeyEventArgs e)
