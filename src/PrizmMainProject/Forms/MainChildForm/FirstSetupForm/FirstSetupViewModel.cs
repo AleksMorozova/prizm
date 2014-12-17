@@ -49,7 +49,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
         public BindingList<EnumWrapper<WorkstationType>> Types = new BindingList<EnumWrapper<WorkstationType>>();
 
         private Project project = new Project();
-        private User admin = new User();
+        private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
 
         #region BindingFields

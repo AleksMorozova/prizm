@@ -19,5 +19,6 @@ namespace Domain.Entity.Security
       public virtual PersonName Name { get; set; }
       public virtual DateTime? PasswordExpires { get; set; }
       public virtual IList<Role> Roles { get; set; }
+      public virtual bool Undeletable { get; set; }
    }
 }

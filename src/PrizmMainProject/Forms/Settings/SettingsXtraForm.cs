@@ -459,6 +459,7 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
@@ -598,6 +599,17 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
-    }
+        private void gridViewUsers_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView view = sender as GridView;
 
+            int selectedUser = gridViewUsers.GetFocusedDataSourceRowIndex();
+
+            if (view.FocusedColumn.FieldName == "IsActive" &&
+                viewModel.Users[selectedUser].Undeletable)
+            {
+                e.Cancel = true;
+            }
+        }
+    }
 }
