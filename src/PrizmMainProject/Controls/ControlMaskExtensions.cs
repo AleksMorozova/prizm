@@ -19,6 +19,7 @@ namespace PrizmMain.Common
             if (!string.IsNullOrEmpty(regExpMask))
             {
                 edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                edit.Properties.Mask.EditMask = regExpMask;
                 edit.Properties.Mask.ShowPlaceHolders = false;
             }
         }
