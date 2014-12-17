@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
@@ -82,10 +81,10 @@
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -223,6 +222,7 @@
             this.barButtonItemExit.Id = 31;
             this.barButtonItemExit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4));
             this.barButtonItemExit.Name = "barButtonItemExit";
+            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
             // 
             // barSubItemMill
             // 
@@ -605,11 +605,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageStore = global::PrizmMain.Properties.Resources.main_logo_03;
             this.ClientSize = new System.Drawing.Size(1276, 623);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
             this.Text = "[PRISM v.2]";
