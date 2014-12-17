@@ -605,10 +605,14 @@ namespace PrizmMain.Forms.Settings
 
             int selectedUser = gridViewUsers.GetFocusedDataSourceRowIndex();
 
-            if (view.FocusedColumn.FieldName == "IsActive" &&
-                viewModel.Users[selectedUser].Undeletable)
+            if (selectedUser > -1
+                && selectedUser < viewModel.Users.Count)
             {
-                e.Cancel = true;
+                if (view.FocusedColumn.FieldName == "IsActive" &&
+                    viewModel.Users[selectedUser].Undeletable)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
