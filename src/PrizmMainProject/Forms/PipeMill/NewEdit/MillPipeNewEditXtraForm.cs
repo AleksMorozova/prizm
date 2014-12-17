@@ -232,6 +232,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
             commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
 
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+
             SaveCommand = viewModel.SavePipeCommand;
         }
 
@@ -289,15 +292,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.headerNumberPart = pipeNumber.Text;  // BEFORE set to viewModel
             viewModel.Number = pipeNumber.Text;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.ProductionDate = pipeCreationDate.DateTime;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -529,7 +534,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             if(viewModel.IsNotActive)
             {
                 viewModel.PipeDeactivationCommand.Execute();
-                IsEditMode = false;
+                IsEditMode = !viewModel.IsNotActive;
             }
         }
 
@@ -578,8 +583,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)

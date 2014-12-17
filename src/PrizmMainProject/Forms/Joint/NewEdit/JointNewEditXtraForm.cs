@@ -147,8 +147,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void BindCommands()
         {
-            commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
-            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
+            commandManager["Save"].Executor(viewModel.SaveJointCommand)
+                .AttachTo(saveButton).RefreshState();
+            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand)
+                .AttachTo(saveAndCreateButton).RefreshState();
+ 
             SaveCommand = viewModel.SaveJointCommand;
         }
 
@@ -165,8 +168,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             this.headerNumberPart =jointNumber.Text;
             viewModel.Number = jointNumber.Text;
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -346,14 +349,14 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void firstJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void secondJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void deactivated_Modified(object sender, EventArgs e)

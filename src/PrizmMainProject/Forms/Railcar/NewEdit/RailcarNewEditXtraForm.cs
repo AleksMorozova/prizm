@@ -135,8 +135,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void ButtonRefresh()
         {
-            viewModel.ShipCommand.IsExecutable ^= true;
-            viewModel.UnshipCommand.IsExecutable ^= true;
+            commandManager["Ship"].RefreshState();
+            commandManager["Unship"].RefreshState();
         }
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)

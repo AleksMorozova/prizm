@@ -124,6 +124,10 @@ namespace PrizmMain.Forms.Component.NewEdit
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
             commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
 
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
+
+
             SaveCommand = viewModel.SaveCommand;
         }
 
@@ -131,16 +135,18 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             this.headerNumberPart = componentNumber.Text;
             viewModel.Number = componentNumber.Text;
-            viewModel.SaveCommand.IsExecutable ^= true;
-            viewModel.NewSaveCommand.IsExecutable ^= true;
+
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void type_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Type = type.SelectedItem as ComponentType;
-            viewModel.SaveCommand.IsExecutable ^= true;
-            viewModel.NewSaveCommand.IsExecutable ^= true;
             componentParameters.RefreshDataSource();
+
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void componentDeactivated_Modified(object sender, EventArgs e)
@@ -150,7 +156,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             if (viewModel.IsNotActive)
             {
                 viewModel.DeactivationCommand.Execute();
-                IsEditMode = false;
+                IsEditMode = !viewModel.IsNotActive;
             }
         }
 
