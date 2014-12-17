@@ -143,11 +143,14 @@ namespace PrizmMain.Forms.Component.NewEdit
                 {
                     Component.Type = value;
                     Connectors.Clear();
-                    for (int i = 0; i < value.ConnectorsCount; ++i )
+                    if (value != null)
                     {
-                        Connectors.Add(new Connector());
+                        for (int i = 0; i < value.ConnectorsCount; ++i)
+                        {
+                            Connectors.Add(new Connector());
+                        }
+                        RaisePropertyChanged("Type");
                     }
-                    RaisePropertyChanged("Type");
                 }
             }
         }

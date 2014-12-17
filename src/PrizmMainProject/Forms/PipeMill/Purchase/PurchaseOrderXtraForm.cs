@@ -21,15 +21,15 @@ namespace PrizmMain.Forms.PipeMill
         PurchaseOrderViewModel viewModel;
 
         public PurchaseOrderXtraForm()
-            : this(Guid.Empty)
+            : this(string.Empty)
         {
 
         }
-        public PurchaseOrderXtraForm(Guid id)
+        public PurchaseOrderXtraForm(string nmb)
         {
             InitializeComponent();
             SetControlsTextLength();
-            viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("id", id));
+            viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("number", nmb));
             number.SetAsIdentifier();
         }
 
