@@ -654,6 +654,8 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             extractPipeTypeCommand.Execute();
 
             this.Pipe = new Pipe();
+            this.PipePurchaseOrder = null;
+            this.Heat = null;
 
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;

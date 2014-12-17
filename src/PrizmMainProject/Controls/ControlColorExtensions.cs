@@ -33,6 +33,14 @@ namespace PrizmMain.Common
             }
         }
 
+        private static void OnGridLookupChanged(object sender, EventArgs e)
+        {
+            if(sender is GridLookUpEdit)
+            {
+                ((GridLookUpEdit)sender).SwitchRequired();
+            }
+        }
+
         /// <summary>
         /// set combo control color as 'required' for the form completion
         /// </summary>
@@ -49,6 +57,12 @@ namespace PrizmMain.Common
         public static void SetRequiredText(this TextEdit edit)
         {
             edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnTextChanged);
+        }
+
+        public static void SetRequiredGridLookUp(this GridLookUpEdit edit)
+        {
+            edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnGridLookupChanged);
+            edit.EditValueChanged += new System.EventHandler(ControlColorExtensions.OnGridLookupChanged);
         }
 
     }
