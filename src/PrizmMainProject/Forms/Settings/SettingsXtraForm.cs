@@ -199,7 +199,6 @@ namespace PrizmMain.Forms.Settings
                         Category = item.Category,
                         Code = item.Code,
                         Name = item.Name,
-                        TestSubject = item.TestSubject,
                         MinExpected = item.MinExpected,
                         MaxExpected = item.MaxExpected,
                         StringExpected = item.StringExpected,
