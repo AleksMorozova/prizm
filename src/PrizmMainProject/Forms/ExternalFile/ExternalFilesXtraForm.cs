@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using DevExpress.XtraEditors;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
-namespace PrizmMain.Forms.ExternalFile
+namespace Prizm.Main.Forms.ExternalFile
 {
     public partial class ExternalFilesXtraForm : XtraForm
     {

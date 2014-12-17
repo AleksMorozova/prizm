@@ -1,25 +1,25 @@
 ﻿using Moq;
 using NUnit.Framework;
 
-using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Joint.NewEdit;
-using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.PipeMill.Search;
-using PrizmMain.Forms.Railcar.NewEdit;
-using PrizmMain.Forms.Railcar.Search;
-using PrizmMain.Forms.Reports.Construction;
-using PrizmMain.Forms.Reports.Incoming;
-using PrizmMain.Forms.Reports.Mill;
-using PrizmMain.Forms.Reports.Custom;
-using PrizmMain.Forms.Settings;
-using PrizmMain.Forms.Spool;
-using PrizmMain.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Component.NewEdit;
+using Prizm.Main.Forms.Joint.NewEdit;
+using Prizm.Main.Forms.Joint.Search;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.PipeMill.Search;
+using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.Reports.Construction;
+using Prizm.Main.Forms.Reports.Incoming;
+using Prizm.Main.Forms.Reports.Mill;
+using Prizm.Main.Forms.Reports.Custom;
+using Prizm.Main.Forms.Settings;
+using Prizm.Main.Forms.Spool;
+using Prizm.Main.Forms.InspectionParts.Search;
 
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Forms.Audit;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.Audit;
 
-namespace UnitTests
+namespace Prizm.UnitTests
 {
     [TestFixture]
     public class MainChildDocumentsTest

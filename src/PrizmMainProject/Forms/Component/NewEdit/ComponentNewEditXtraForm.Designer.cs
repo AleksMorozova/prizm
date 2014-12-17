@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Component.NewEdit
+﻿namespace Prizm.Main.Forms.Component.NewEdit
 {
     partial class ComponentNewEditXtraForm
     {

@@ -1,5 +1,5 @@
-﻿using Data.DAL.Setup;
-using Domain.Entity.Setup;
+﻿using Prizm.Data.DAL.Setup;
+using Prizm.Domain.Entity.Setup;
 using NHibernate;
 using NHibernate.Exceptions;
 using Ninject;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class PipeTestRepository : AbstractHibernateRepository<Guid, PipeTest>, IPipeTestRepository
     {

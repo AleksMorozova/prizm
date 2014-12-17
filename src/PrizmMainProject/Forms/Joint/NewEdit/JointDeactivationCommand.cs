@@ -1,6 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 
-namespace PrizmMain.Forms.Joint.NewEdit
+namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointDeactivationCommand : ICommand
     {

@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Common
+﻿namespace Prizm.Main.Forms.Common
 {
    partial class LoginForm
    {
@@ -42,7 +42,7 @@
          // 
          // pictureBox
          // 
-         this.pictureBox.Image = global::PrizmMain.Properties.Resources.password_logo;
+         this.pictureBox.Image = global::Prizm.Main.Properties.Resources.password_logo;
          this.pictureBox.Location = new System.Drawing.Point(12, 12);
          this.pictureBox.Name = "pictureBox";
          this.pictureBox.Size = new System.Drawing.Size(128, 128);

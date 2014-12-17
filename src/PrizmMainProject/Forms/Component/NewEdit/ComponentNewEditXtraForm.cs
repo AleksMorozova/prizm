@@ -1,20 +1,20 @@
 ﻿using DevExpress.XtraEditors;
 using Ninject.Parameters;
 using Ninject;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Forms.MainChildForm;
 using System;
-using PrizmMain.Common;
-using Domain.Entity.Construction;
+using Prizm.Main.Common;
+using Prizm.Domain.Entity.Construction;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Collections.Generic;
-using PrizmMain.Properties;
-using PrizmMain.Controls;
+using Prizm.Main.Properties;
+using Prizm.Main.Controls;
 using System.Windows.Forms;
-using Domain.Entity;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.Component.NewEdit
+namespace Prizm.Main.Forms.Component.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ComponentNewEditXtraForm : ChildForm
@@ -75,7 +75,7 @@ namespace PrizmMain.Forms.Component.NewEdit
                 type.Properties.Items.Add(t);
             }
 
-            #region   ---- Data Bindings ----
+            #region   ---- Prizm.Data Bindings ----
             componentNumber.DataBindings
                 .Add("EditValue", componentBindingSource, "Number");
 

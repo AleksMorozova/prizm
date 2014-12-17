@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
+﻿namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     partial class FirstSetupXtraForm
     {

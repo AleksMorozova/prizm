@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.Common
+namespace Prizm.Main.Forms.Common
 {
    public partial class LoginForm : XtraForm
    {

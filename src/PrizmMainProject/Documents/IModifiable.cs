@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PrizmMain.Documents
+namespace Prizm.Main.Documents
 {
     public interface IModifiable
     {

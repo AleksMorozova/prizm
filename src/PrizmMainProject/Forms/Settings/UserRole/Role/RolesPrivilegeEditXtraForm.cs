@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using PrizmMain.DummyData;
+using Prizm.Main.DummyData;
 
-namespace PrizmMain.Forms.Settings.UserRole.Role
+namespace Prizm.Main.Forms.Settings.UserRole.Role
 {
     public partial class RolesPrivilegeEditXtraForm : XtraForm
     {

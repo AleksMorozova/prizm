@@ -1,20 +1,20 @@
-﻿using Data.DAL.Mill;
-using Data.DAL.Setup;
-using Data.DAL;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
-using Domain.Entity.Setup;
-using PrizmMain.Commands;
-using PrizmMain.Forms.Settings.ViewTypes;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrizmMain.Properties;
-using PrizmMain.Documents;
-using Domain.Entity.Security;
+using Prizm.Main.Properties;
+using Prizm.Main.Documents;
+using Prizm.Domain.Entity.Security;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
     public class SaveSettingsCommand : ICommand
     {
@@ -117,7 +117,7 @@ namespace PrizmMain.Forms.Settings
 
         private void EvictPlateManufacturers()
         {
-            foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
+            foreach (Prizm.Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
             {
                 repos.PlateManufacturerRepo.Evict(manufacturer);
             }
@@ -171,7 +171,7 @@ namespace PrizmMain.Forms.Settings
 
         void SavePlateManufacturers()
         {
-            foreach (Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
+            foreach (Prizm.Domain.Entity.Mill.PlateManufacturer manufacturer in viewModel.PlateManufacturers)
             {
                 repos.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
             }

@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
-using Data.DAL.Mill;
+using Prizm.Data.DAL.Mill;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
-using Domain.Entity.Setup;
-using Domain.Entity.Mill;
-using PrizmMain.Properties;
-using Data.DAL;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Properties;
+using Prizm.Data.DAL;
 
-namespace PrizmMain.Forms.PipeMill.Search
+namespace Prizm.Main.Forms.PipeMill.Search
 {
     public class MillPipeSearchCommand : ICommand
     {

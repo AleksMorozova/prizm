@@ -1,5 +1,5 @@
-﻿using Data.DAL.Construction;
-using Domain.Entity.Construction;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Domain.Entity.Construction;
 using NHibernate;
 using NHibernate.Exceptions;
 using Ninject;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class JointRepository : AbstractHibernateRepository<Guid, Joint>, IJointRepository
     {

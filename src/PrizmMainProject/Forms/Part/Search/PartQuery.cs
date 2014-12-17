@@ -1,7 +1,7 @@
-﻿using Domain.Entity.Construction;
+﻿using Prizm.Domain.Entity.Construction;
 using NHibernate.Transform;
-using PrizmMain.Common;
-using PrizmMain.Forms.Common;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.InspectionParts.Search
 {
     public class PartQuery : IResultTransformer
     {

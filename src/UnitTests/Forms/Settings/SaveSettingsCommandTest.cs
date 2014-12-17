@@ -1,24 +1,24 @@
-﻿using Data.DAL.Setup;
-using Data.DAL.Mill;
-using Data.DAL;
-using Domain.Entity.Setup;
+﻿using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Setup;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Forms.Settings;
+using Prizm.Main.Forms.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entity;
-using Domain.Entity.Mill;
-using PrizmMain.Forms;
-using Data.DAL.Security;
-using Domain.Entity.Security;
-using PrizmMain.Documents;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Forms;
+using Prizm.Data.DAL.Security;
+using Prizm.Domain.Entity.Security;
+using Prizm.Main.Documents;
 
 
-namespace UnitTests.Forms.Settings
+namespace Prizm.UnitTests.Forms.Settings
 {
     [TestFixture]
     public class SaveSettingsCommandTest

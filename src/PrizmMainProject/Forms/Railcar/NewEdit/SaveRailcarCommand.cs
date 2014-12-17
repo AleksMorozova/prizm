@@ -1,18 +1,18 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
-using Domain.Entity.Mill;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Ninject;
-using Data.DAL;
+using Prizm.Data.DAL;
 
-namespace PrizmMain.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
-namespace PrizmMain.Controls
+namespace Prizm.Main.Controls
 {
    public partial class WeldersSelectionControl : UserControl
    {
