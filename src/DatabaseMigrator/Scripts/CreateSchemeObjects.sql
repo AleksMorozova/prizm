@@ -228,7 +228,6 @@ CREATE TABLE [dbo].[PipeTest](
 	[id] [uniqueidentifier] NOT NULL,
 	[code] [nvarchar](20) NULL,
 	[name] [nvarchar](50) NULL,
-	[testSubject] [nvarchar](300) NULL,
 	[controlType] [nvarchar](15) NULL,
 	[resultType] [nvarchar](10) NULL,
 	[minExpected] [decimal](10, 2) NULL,

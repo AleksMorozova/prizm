@@ -15,7 +15,6 @@ namespace Data.DAL.Mapping
         {
             Map(_ => _.Code, "code");
             Map(_ => _.Name, "name");
-            Map(_ => _.TestSubject, "testSubject");
             Map(_ => _.ControlType, "controlType");       
             Map(_ => _.ResultType, "resultType");
             Map(_ => _.MinExpected, "minExpected");
