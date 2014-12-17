@@ -32,6 +32,7 @@ namespace PrizmMain.Forms.Spool
         private IModifiable modifiableView;
         public Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
+        public bool canCut=false;
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, IUserNotify notify)
@@ -135,7 +136,11 @@ namespace PrizmMain.Forms.Spool
                 if (value != Spool.Length)
                 {
                     Spool.Length = value;
-                    Pipe.Length = Pipe.Length - Spool.Length;
+                    if ((Pipe.Length - Spool.Length) > 0)
+                    {
+                        Pipe.Length = Pipe.Length - Spool.Length;
+                        canCut = true;
+                    }
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
                 }
@@ -144,7 +149,10 @@ namespace PrizmMain.Forms.Spool
 
         public Pipe Pipe
         {
-            get { return Spool.Pipe; }
+            get 
+            {
+                return Spool.Pipe; 
+            }
             set
             {
                 if (value != Spool.Pipe)

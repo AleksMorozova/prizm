@@ -27,13 +27,20 @@ namespace PrizmMain.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repos.BeginTransaction();
-            repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-            repos.Commit();            
-            repos.PipeRepo.Evict(viewModel.Pipe);
-            repos.SpoolRepo.Evict(viewModel.Spool);
-            notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+            if (viewModel.canCut)
+            {
+                repos.BeginTransaction();
+                repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                repos.Commit();
+                repos.PipeRepo.Evict(viewModel.Pipe);
+                repos.SpoolRepo.Evict(viewModel.Spool);
+                notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+            }
+            else 
+            {
+                notify.ShowFailure("Длинны трубы не достаточно дял отрезания заданной катушки", Resources.Cut_Spool_from_pipe_Header);
+            }
         }
 
 
