@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Settings
+﻿namespace Prizm.Main.Forms.Settings
 {
     partial class SettingsXtraForm
     {
@@ -438,7 +438,7 @@
             // 
             // inspectionBindingSource
             // 
-            this.inspectionBindingSource.DataSource = typeof(PrizmMain.DummyData.InspectionDummy);
+            this.inspectionBindingSource.DataSource = typeof(Prizm.Main.DummyData.InspectionDummy);
             // 
             // inspectionView
             // 
@@ -1390,7 +1390,7 @@
             // 
             this.repositoryItemButtonUserPass.AutoHeight = false;
             this.repositoryItemButtonUserPass.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::PrizmMain.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonUserPass.Name = "repositoryItemButtonUserPass";
             this.repositoryItemButtonUserPass.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonUserPass.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonUserPass_ButtonClick);
@@ -1977,11 +1977,11 @@
             // 
             // userBindingSource
             // 
-            this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
+            this.userBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
             // roleBindingSource
             // 
-            this.roleBindingSource.DataSource = typeof(PrizmMain.DummyData.Role);
+            this.roleBindingSource.DataSource = typeof(Prizm.Main.DummyData.Role);
             // 
             // settingsTabPanel
             // 
@@ -2096,7 +2096,7 @@
             // 
             // jointOperationsBindingSource
             // 
-            this.jointOperationsBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
+            this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
             // SettingsXtraForm
             // 

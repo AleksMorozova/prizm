@@ -1,10 +1,10 @@
-﻿using Domain.Entity.Construction;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+﻿using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class PipeMap : SubclassMap<Pipe>
     {

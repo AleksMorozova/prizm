@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Spool
+﻿namespace Prizm.Main.Forms.Spool
 {
     partial class SpoolsXtraForm
     {

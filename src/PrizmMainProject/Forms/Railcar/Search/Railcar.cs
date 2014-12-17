@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Railcar.Search
+namespace Prizm.Main.Forms.Railcar.Search
 {
     public class Railcar
     {

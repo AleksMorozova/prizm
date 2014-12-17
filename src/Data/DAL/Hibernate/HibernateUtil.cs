@@ -4,10 +4,10 @@ using NHibernate;
 using NHibernate.Exceptions;
 using NHibernate.Tool.hbm2ddl;
 using System.ComponentModel;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class HibernateUtil
     {

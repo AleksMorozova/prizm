@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
    public class Coat : Item
    {

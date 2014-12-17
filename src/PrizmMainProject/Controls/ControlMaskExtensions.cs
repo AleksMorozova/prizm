@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.XtraEditors;
 
-namespace PrizmMain.Common
+namespace Prizm.Main.Common
 {
     static class ControlMaskExtensions
     {

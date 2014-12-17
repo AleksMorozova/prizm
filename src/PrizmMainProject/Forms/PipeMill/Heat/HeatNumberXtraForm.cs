@@ -8,9 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using PrizmMain.Common;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.PipeMill.Heat
+namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
     {

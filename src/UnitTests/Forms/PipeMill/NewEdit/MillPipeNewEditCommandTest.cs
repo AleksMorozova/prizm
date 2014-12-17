@@ -1,21 +1,21 @@
-﻿using Data.DAL;
-using Data.DAL.Mill;
-using Data.DAL.Setup;
-using Domain.Entity;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Documents;
-using PrizmMain.Forms;
-using PrizmMain.Forms.PipeMill;
-using PrizmMain.Forms.PipeMill.NewEdit;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.PipeMill;
+using Prizm.Main.Forms.PipeMill.NewEdit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Forms.PipeMill.NewEdit
+namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
 {
     [TestFixture]
     class MillPipeNewEditCommandTest

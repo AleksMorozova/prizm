@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Documents;
-using PrizmMain.Forms;
-using Data.DAL.Construction;
-using Data.DAL.Setup;
-using Data.DAL.Mill;
-using PrizmMain.Forms.Joint;
-using PrizmMain.Forms.Joint.NewEdit;
-using Data.DAL;
-using Domain.Entity.Setup;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms;
+using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL.Mill;
+using Prizm.Main.Forms.Joint;
+using Prizm.Main.Forms.Joint.NewEdit;
+using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Setup;
 using System.ComponentModel;
 
-namespace UnitTests.Forms.Joint.NewEdit
+namespace Prizm.UnitTests.Forms.Joint.NewEdit
 {
 
     [TestFixture]
@@ -35,7 +35,7 @@ namespace UnitTests.Forms.Joint.NewEdit
             var repoWelder = new Mock<IWelderRepository>();
             var repoAdo = new Mock<IMillReportsRepository>();
 
-            var joint = new Domain.Entity.Construction.Joint();
+            var joint = new Prizm.Domain.Entity.Construction.Joint();
             BindingList<JointOperation> operations = new BindingList<JointOperation>(); 
 
             Mock<IConstructionRepository> repoConstruction = new Mock<IConstructionRepository>();
@@ -56,9 +56,9 @@ namespace UnitTests.Forms.Joint.NewEdit
             var command = new SaveJointCommand(repoConstruction.Object,viewModel, notify.Object);
             command.Execute();
             repoConstruction.Verify(_ => _.BeginTransaction(), Times.Once());
-            repoJoint.Verify(_ => _.SaveOrUpdate(It.IsAny<Domain.Entity.Construction.Joint>()), Times.Once());
+            repoJoint.Verify(_ => _.SaveOrUpdate(It.IsAny<Prizm.Domain.Entity.Construction.Joint>()), Times.Once());
             repoConstruction.Verify(_ => _.Commit(), Times.Once());
-            repoJoint.Verify(_ => _.Evict(It.IsAny<Domain.Entity.Construction.Joint>()), Times.Once());
+            repoJoint.Verify(_ => _.Evict(It.IsAny<Prizm.Domain.Entity.Construction.Joint>()), Times.Once());
         }
     }
 }

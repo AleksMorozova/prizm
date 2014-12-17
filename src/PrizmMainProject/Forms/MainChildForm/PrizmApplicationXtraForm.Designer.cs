@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.MainChildForm
+﻿namespace Prizm.Main.Forms.MainChildForm
 {
     partial class PrizmApplicationXtraForm
     {
@@ -606,7 +606,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
-            this.BackgroundImageStore = global::PrizmMain.Properties.Resources.main_logo_03;
+            this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
             this.ClientSize = new System.Drawing.Size(1276, 623);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

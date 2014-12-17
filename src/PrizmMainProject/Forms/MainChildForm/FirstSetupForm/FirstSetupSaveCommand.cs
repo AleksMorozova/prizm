@@ -1,19 +1,19 @@
-﻿using Data.DAL;
-using Data.DAL.Security;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Security;
 using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
-using PrizmMain.Forms.Common;
-using PrizmMain.Security;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
-using Data.DAL.Hibernate;
+using Prizm.Data.DAL.Hibernate;
 using NHibernate;
 
-namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
+namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupSaveCommand : ICommand
     {
@@ -60,7 +60,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
 
         public bool CanExecute()
         {
-            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Undef
+            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undef
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Login) && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.LastName) 
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.FirstName);
         }

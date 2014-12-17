@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.PipeMill.NewEdit
+﻿namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     partial class MillPipeNewEditXtraForm
     {
@@ -300,7 +300,7 @@
             // 
             // weldBindingSource
             // 
-            this.weldBindingSource.DataSource = typeof(Domain.Entity.Mill.Weld);
+            this.weldBindingSource.DataSource = typeof(Prizm.Domain.Entity.Mill.Weld);
             // 
             // weldingHistoryGridView
             // 
@@ -1050,7 +1050,7 @@
             // 
             // inspectionOperation
             // 
-            this.inspectionOperation.DataSource = typeof(PrizmMain.DummyData.InspectionDummy);
+            this.inspectionOperation.DataSource = typeof(Prizm.Main.DummyData.InspectionDummy);
             // 
             // inspectionsGridView
             // 
@@ -1642,7 +1642,7 @@
             // 
             // weldingDs
             // 
-            this.weldingDs.DataSource = typeof(PrizmMain.DummyData.WeldersDummy);
+            this.weldingDs.DataSource = typeof(Prizm.Main.DummyData.WeldersDummy);
             // 
             // MillPipeNewEditXtraForm
             // 

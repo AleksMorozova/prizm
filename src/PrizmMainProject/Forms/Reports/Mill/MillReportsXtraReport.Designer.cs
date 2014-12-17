@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Reports.Mill
+﻿namespace Prizm.Main.Forms.Reports.Mill
 {
     partial class MillReportsXtraReport
     {

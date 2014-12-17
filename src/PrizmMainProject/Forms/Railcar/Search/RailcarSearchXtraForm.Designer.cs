@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Railcar.Search
+﻿namespace Prizm.Main.Forms.Railcar.Search
 {
     partial class RailcarSearchXtraForm
     {

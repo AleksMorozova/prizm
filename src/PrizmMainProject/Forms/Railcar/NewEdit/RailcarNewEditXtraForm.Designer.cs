@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Railcar.NewEdit
+﻿namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     partial class RailcarNewEditXtraForm
     {

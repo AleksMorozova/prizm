@@ -1,5 +1,5 @@
-﻿using Data.DAL.Mill;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class ChemicalCompositionRepository : AbstractHibernateRepository<Guid, ChemicalComposition>, 
         IChemicalCompositionRepository

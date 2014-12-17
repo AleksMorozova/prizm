@@ -1,10 +1,10 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 using NHibernate;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Forms.Common;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.InspectionParts.Search
 {
     public class PartSearchViewModel : ViewModelBase, IDisposable
     {
