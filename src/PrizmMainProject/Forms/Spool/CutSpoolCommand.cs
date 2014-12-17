@@ -39,7 +39,7 @@ namespace PrizmMain.Forms.Spool
             }
             else 
             {
-                notify.ShowFailure("Длинны трубы не достаточно дял отрезания заданной катушки", Resources.Cut_Spool_from_pipe_Header);
+                notify.ShowFailure(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
             }
         }
 
