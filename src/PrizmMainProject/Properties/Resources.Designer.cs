@@ -333,7 +333,7 @@ namespace PrizmMain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отрезана катушка заданной длины.
+        ///   Looks up a localized string similar to  Отрезана катушка заданной длины.
         /// </summary>
         internal static string Cut_Spool_from_pipe {
             get {
@@ -1589,6 +1589,15 @@ namespace PrizmMain.Properties {
         internal static string Wrong_pipe_number_for_cutting_Header {
             get {
                 return ResourceManager.GetString("Wrong_pipe_number_for_cutting_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длинны трубы не достаточно для отрезания заданной катушки.
+        /// </summary>
+        internal static string Wrong_Spool_Lengs {
+            get {
+                return ResourceManager.GetString("Wrong_Spool_Lengs", resourceCulture);
             }
         }
         
