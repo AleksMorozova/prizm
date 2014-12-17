@@ -65,6 +65,7 @@
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalProjectLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.pipeNumberMaskRulesLabel = new DevExpress.XtraEditors.LabelControl();
             this.categoriesGrid = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.categoryNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,6 +95,7 @@
             this.categoryLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeNumberMaskLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.pipeNumberMaskRulesLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipelinePage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.jointOperations = new DevExpress.XtraGrid.GridControl();
@@ -251,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskRulesLabelLayout)).BeginInit();
             this.pipelinePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
@@ -685,6 +688,7 @@
             // 
             // generalProjectLayout
             // 
+            this.generalProjectLayout.Controls.Add(this.pipeNumberMaskRulesLabel);
             this.generalProjectLayout.Controls.Add(this.categoriesGrid);
             this.generalProjectLayout.Controls.Add(this.pipeNumberMask);
             this.generalProjectLayout.Controls.Add(this.projectTitle);
@@ -700,6 +704,17 @@
             this.generalProjectLayout.Size = new System.Drawing.Size(1241, 463);
             this.generalProjectLayout.TabIndex = 16;
             this.generalProjectLayout.Text = "layoutControl1";
+            // 
+            // pipeNumberMaskRulesLabel
+            // 
+            this.pipeNumberMaskRulesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(872, 96);
+            this.pipeNumberMaskRulesLabel.Name = "pipeNumberMaskRulesLabel";
+            this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(340, 46);
+            this.pipeNumberMaskRulesLabel.StyleController = this.generalProjectLayout;
+            this.pipeNumberMaskRulesLabel.TabIndex = 16;
             // 
             // categoriesGrid
             // 
@@ -960,7 +975,8 @@
             this.millNameLayout,
             this.categoryLayoutControl,
             this.pipeNumberMaskLayout,
-            this.clientEmptySpace});
+            this.clientEmptySpace,
+            this.pipeNumberMaskRulesLabelLayout});
             this.millLayoutGroup.Location = new System.Drawing.Point(571, 0);
             this.millLayoutGroup.Name = "millLayoutGroup";
             this.millLayoutGroup.Size = new System.Drawing.Size(650, 443);
@@ -1015,9 +1031,24 @@
             this.clientEmptySpace.CustomizationFormText = "clientEmptySpace";
             this.clientEmptySpace.Location = new System.Drawing.Point(267, 0);
             this.clientEmptySpace.Name = "clientEmptySpace";
-            this.clientEmptySpace.Size = new System.Drawing.Size(356, 100);
+            this.clientEmptySpace.Size = new System.Drawing.Size(356, 50);
             this.clientEmptySpace.Text = "clientEmptySpace";
             this.clientEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // pipeNumberMaskRulesLabelLayout
+            // 
+            this.pipeNumberMaskRulesLabelLayout.Control = this.pipeNumberMaskRulesLabel;
+            this.pipeNumberMaskRulesLabelLayout.CustomizationFormText = "pipeNumberMaskRulesLabelLayout";
+            this.pipeNumberMaskRulesLabelLayout.Location = new System.Drawing.Point(267, 50);
+            this.pipeNumberMaskRulesLabelLayout.MinSize = new System.Drawing.Size(67, 17);
+            this.pipeNumberMaskRulesLabelLayout.Name = "pipeNumberMaskRulesLabelLayout";
+            this.pipeNumberMaskRulesLabelLayout.Size = new System.Drawing.Size(356, 50);
+            this.pipeNumberMaskRulesLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.pipeNumberMaskRulesLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 0, 0);
+            this.pipeNumberMaskRulesLabelLayout.Text = "pipeNumberMaskRulesLabelLayout";
+            this.pipeNumberMaskRulesLabelLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.pipeNumberMaskRulesLabelLayout.TextToControlDistance = 0;
+            this.pipeNumberMaskRulesLabelLayout.TextVisible = false;
             // 
             // pipelinePage
             // 
@@ -2126,6 +2157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMaskRulesLabelLayout)).EndInit();
             this.pipelinePage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
@@ -2379,5 +2411,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemsСategory;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemsСategoryView;
         private DevExpress.XtraGrid.Columns.GridColumn CategoryName;
+        private DevExpress.XtraEditors.LabelControl pipeNumberMaskRulesLabel;
+        private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskRulesLabelLayout;
     }
 }
