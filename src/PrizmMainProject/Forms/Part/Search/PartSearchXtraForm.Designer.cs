@@ -250,7 +250,7 @@
             this.ClientSize = new System.Drawing.Size(1259, 511);
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "PartSearchXtraForm";
-            this.Text = "Входной контроль - поиск компонентов";
+            this.Text = "Строительство - поиск компонентов";
             this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);

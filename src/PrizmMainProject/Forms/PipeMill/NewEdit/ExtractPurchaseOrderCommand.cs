@@ -1,5 +1,6 @@
 ﻿using Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
+using Domain.Entity.Mill;
 using PrizmMain.Commands;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.PurchaseOrders = repo.GetAll();
+            if(viewModel.PurchaseOrders == null)
+            {
+                viewModel.PurchaseOrders = new List<PurchaseOrder>();
+            }
         }
 
         public bool CanExecute()
