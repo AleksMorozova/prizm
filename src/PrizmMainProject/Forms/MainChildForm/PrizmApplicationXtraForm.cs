@@ -27,6 +27,7 @@ using Prizm.Main.Forms.PipeMill.Heat;
 using Prizm.Main.Forms.Audit;
 using Prizm.Main.Forms.InspectionParts.Search;
 using Prizm.Main.Forms.Common;
+using PrizmMain.Forms.Notifications;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -303,7 +304,12 @@ namespace Prizm.Main.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        } 
+        }
+
+        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
+        }
         #endregion
 
 
@@ -429,6 +435,8 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             Application.Exit();
         }
+
+
 
      
     }

@@ -85,6 +85,7 @@
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.barButtonNotification = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -156,9 +157,10 @@
             this.languageBarListItem,
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
-            this.barButtonItemHeat});
+            this.barButtonItemHeat,
+            this.barButtonNotification});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 59;
+            this.barManager1.MaxItemId = 60;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -478,7 +480,8 @@
             this.barStatus.DockRow = 0;
             this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonNotification)});
             this.barStatus.OptionsBar.AllowQuickCustomization = false;
             this.barStatus.OptionsBar.DisableClose = true;
             this.barStatus.OptionsBar.DisableCustomization = true;
@@ -504,22 +507,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 598);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 27);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 574);
             // 
             // barButtonItemSettingsDictionaries
             // 
@@ -600,6 +603,16 @@
             this.alertControl.AutoFormDelay = 5000;
             this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
             this.alertControl.ShowPinButton = false;
+            // 
+            // barButtonNotification
+            // 
+            this.barButtonNotification.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonNotification.Caption = "Сообщения системы(3)";
+            this.barButtonNotification.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
+            this.barButtonNotification.Id = 59;
+            this.barButtonNotification.Name = "barButtonNotification";
+            this.barButtonNotification.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonNotification.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNotification_ItemClick);
             // 
             // PrizmApplicationXtraForm
             // 
@@ -685,6 +698,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsWelders;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsInspectors;
         private DevExpress.XtraBars.BarButtonItem barButtonItemHeat;
+        private DevExpress.XtraBars.BarButtonItem barButtonNotification;
 
 
 
