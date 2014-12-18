@@ -18,5 +18,22 @@ namespace Data.DAL.Hibernate
         {
 
         }
+
+        public void RefreshWelder()
+        {
+            try
+            {
+                IList<Welder> list= session.QueryOver<Welder>().Where(_=>_.Certificate.ExpirationDate<DateTime.Now.Date).List<Welder>();
+                foreach(Welder w in list)
+                {
+                    w.IsActive = false;
+                    session.Update(w);
+                }
+            }
+            catch 
+            {
+
+            }
+        }
     }
 }

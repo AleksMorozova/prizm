@@ -284,7 +284,7 @@ namespace PrizmMain.Forms.Settings
         {
            if (Welders == null)
               Welders = new BindingList<WelderViewType>();
-
+           repos.WelderRepo.RefreshWelder();
            var foundWelders = repos.WelderRepo.GetAll();
            if (foundWelders != null)
            {

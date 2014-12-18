@@ -24,6 +24,7 @@ using DevExpress.XtraLayout.Customization;
 using Domain.Entity.Security;
 using Domain.Entity.Mill;
 using PrizmMain.Commands;
+using System.Drawing;
 
 namespace PrizmMain.Forms.Settings
 {
@@ -598,6 +599,17 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        private void gridViewWelders_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as WelderViewType;
+            if (data == null)
+                return;
+            if (e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date<DateTime.Now)
+            { 
+                e.Appearance.ForeColor = Color.Red;
+                e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+            }
+        }
     }
-
 }
