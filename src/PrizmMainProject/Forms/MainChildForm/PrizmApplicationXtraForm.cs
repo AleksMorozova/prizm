@@ -384,9 +384,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowSuccess(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header,text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+
         }
         /// <summary>
         /// Message about failure, that doesn't require user confirmation.
@@ -395,9 +394,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowFailure(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader +" "+ header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
         }
         /// <summary>
         /// Informational message, that doesn't require user confirmation.
@@ -406,9 +403,15 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowNotify(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+        }
+
+        private void StatusNotifyText(string s)
+        {
+            var main = Program.MainForm as PrizmApplicationXtraForm;
+            main.UpdateStatusBar(DateTime.Now.ToShortTimeString() + Resources.AlertSaveRailcar);
+            main.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s));
+
         }
         #endregion
 
@@ -436,7 +439,10 @@ namespace Prizm.Main.Forms.MainChildForm
             Application.Exit();
         }
 
-
+        public void UpdateStatusBar(string text) 
+        {
+            barStaticItem1.Caption = text;
+        }
 
      
     }
