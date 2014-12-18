@@ -79,7 +79,6 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
-            commandManager["Cut"].Executor(viewModel.CutCommand).AttachTo(cutButton);
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
