@@ -14,8 +14,6 @@ namespace Prizm.Main.Forms.PipeMill.Heat
     {
         ISession session;
         IHeatRepository heatRepo;
-        IPhysicalParametersRepository physRepo;
-        IChemicalCompositionRepository chemRepo;
         IPlateManufacturerRepository plateManRepo;
 
         [Inject]
@@ -23,24 +21,12 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         {
             this.session = session;
             this.heatRepo = new HeatRepository(session);
-            this.physRepo = new PhysicalParametersRepository(session);
-            this.chemRepo = new ChemicalCompositionRepository(session);
             this.plateManRepo = new PlateManufacturerRepository(session);
         }
 
         public IHeatRepository HeatRepo
         {
             get { return heatRepo; }
-        }
-
-        public IPhysicalParametersRepository PhysRepo
-        {
-            get { return physRepo; }
-        }
-
-        public IChemicalCompositionRepository ChemRepo
-        {
-            get { return chemRepo; }
         }
 
         public IPlateManufacturerRepository PlateManRepo
