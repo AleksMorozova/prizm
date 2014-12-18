@@ -17,8 +17,8 @@ using Prizm.Main.Forms.Component.NewEdit;
 using Ninject.Parameters;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.Spool;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.Spool;
 
 namespace Prizm.Main.Forms.InspectionParts.Search
 {
