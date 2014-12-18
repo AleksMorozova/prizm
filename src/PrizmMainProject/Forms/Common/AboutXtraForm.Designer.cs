@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Common
+﻿namespace Prizm.Main.Forms.Common
 {
     partial class AboutXtraForm
     {
@@ -53,7 +53,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Image = global::PrizmMain.Properties.Resources.main_logo_03;
+            this.pictureBox.Image = global::Prizm.Main.Properties.Resources.main_logo_03;
             this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(255, 164);

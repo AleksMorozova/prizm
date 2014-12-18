@@ -8,25 +8,25 @@ using DevExpress.XtraGrid.Views.Base;
 using Ninject;
 using Ninject.Parameters;
 
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Setup;
 
-using PrizmMain.Forms.Settings.Dictionary;
-using PrizmMain.Forms.Settings.UserRole.Role;
-using PrizmMain.Forms.Settings.UserRole.User;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.Settings.Dictionary;
+using Prizm.Main.Forms.Settings.UserRole.Role;
+using Prizm.Main.Forms.Settings.UserRole.User;
+using Prizm.Main.Forms.MainChildForm;
 
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 using System.Collections.Generic;
-using Domain.Entity;
-using PrizmMain.Forms.Settings.ViewTypes;
-using PrizmMain.Common;
+using Prizm.Domain.Entity;
+using Prizm.Main.Forms.Settings.ViewTypes;
+using Prizm.Main.Common;
 using DevExpress.XtraLayout.Customization;
-using Domain.Entity.Security;
-using Domain.Entity.Mill;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Security;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
 using System.Drawing;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class SettingsXtraForm : ChildForm
@@ -105,7 +105,7 @@ namespace PrizmMain.Forms.Settings
 
         private void BindToViewModel()
         {
-            #region Data Source
+            #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
@@ -139,7 +139,7 @@ namespace PrizmMain.Forms.Settings
             jointOperationsBindingSource.DataSource = viewModel.JointOperations;
             #endregion
 
-            #region Data Bindings
+            #region Prizm.Data Bindings
 
             jointOperations.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "JointOperations");
 
@@ -182,6 +182,39 @@ namespace PrizmMain.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+        }
+
+        private void cloneTypeSizeButton_Click(object sender, EventArgs e)
+        {
+            if(CurrentPipeMillSizeType != null)
+            {
+                var clone = new PipeMillSizeType();
+                var tests = new List<PipeTest>();
+
+                foreach(var item in CurrentPipeMillSizeType.PipeTests)
+                {
+                    tests.Add(new PipeTest()
+                    {
+                        Category = item.Category,
+                        Code = item.Code,
+                        Name = item.Name,
+                        MinExpected = item.MinExpected,
+                        MaxExpected = item.MaxExpected,
+                        StringExpected = item.StringExpected,
+                        BoolExpected = item.BoolExpected,
+                        IsRequired = item.IsRequired,
+                        pipeType = clone,
+                        ControlType = item.ControlType,
+                        ResultType = item.ResultType,
+                        IsActive = item.IsActive
+                    });
+                }
+                clone.Type = CurrentPipeMillSizeType.Type + " Copy " + (viewModel.PipeMillSizeType.Count + 1);
+                clone.PipeTests = new BindingList<PipeTest>(tests);
+                clone.IsActive = CurrentPipeMillSizeType.IsActive;
+
+                viewModel.PipeMillSizeType.Add(clone);
+            }
         }
 
         private void inspectionView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -366,8 +399,8 @@ namespace PrizmMain.Forms.Settings
         private void categoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            Domain.Entity.Mill.Category category
-                = v.GetRow(e.RowHandle) as Domain.Entity.Mill.Category;
+            Prizm.Domain.Entity.Mill.Category category
+                = v.GetRow(e.RowHandle) as Prizm.Domain.Entity.Mill.Category;
 
             category.IsActive = true;
         }
@@ -375,7 +408,7 @@ namespace PrizmMain.Forms.Settings
         private void categoryGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<Domain.Entity.Mill.Category>(
+            view.RemoveSelectedItem<Prizm.Domain.Entity.Mill.Category>(
                 e,
                 viewModel.CategoryTypes,
                 (_) => _.IsNew());
@@ -587,7 +620,7 @@ namespace PrizmMain.Forms.Settings
         {
             var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
 
-            var ct = view.DataSource as BindingList<Domain.Entity.Mill.Category>;
+            var ct = view.DataSource as BindingList<Prizm.Domain.Entity.Mill.Category>;
 
             if (ct != null)
             {
@@ -623,6 +656,11 @@ namespace PrizmMain.Forms.Settings
                 e.Appearance.ForeColor = Color.Red;
                 e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
             }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

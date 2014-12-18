@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     public class Welder : Item
     {

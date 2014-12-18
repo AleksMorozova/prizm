@@ -4,18 +4,18 @@ using System.Windows.Forms;
 
 using Ninject;
 
-using Data.DAL.Hibernate;
+using Prizm.Data.DAL.Hibernate;
 
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
-using PrizmMain.Forms.Common;
-using PrizmMain.Security;
-using Data.DAL.Security;
-using Domain.Entity.Security;
-using Data.DAL;
-using PrizmMain.Forms.MainChildForm.FirstSetupForm;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Security;
+using Prizm.Data.DAL.Security;
+using Prizm.Domain.Entity.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 
-namespace PrizmMain
+namespace Prizm.Main
 {
     internal static class Program
     {

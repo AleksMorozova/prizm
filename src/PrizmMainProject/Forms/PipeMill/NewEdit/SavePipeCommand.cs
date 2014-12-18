@@ -1,5 +1,5 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DevExpress.Mvvm.POCO;
-using PrizmMain.Properties;
-using Data.DAL;
-using Domain.Entity.Mill;
+using Prizm.Main.Properties;
+using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Mill;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class SavePipeCommand: ICommand
     {

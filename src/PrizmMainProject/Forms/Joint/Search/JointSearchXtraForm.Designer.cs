@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Joint.Search
+﻿namespace Prizm.Main.Forms.Joint.Search
 {
     partial class JointSearchXtraForm
     {

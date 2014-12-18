@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Ninject;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using System.ComponentModel;
 
-namespace Data.DAL.ADO
+namespace Prizm.Data.DAL.ADO
 {
     public class MillReportsRepository : IMillReportsRepository
     {

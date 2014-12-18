@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrizmMain.Properties {
+namespace Prizm.Main.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

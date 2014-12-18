@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Railcar.NewEdit
+﻿namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     partial class RailcarNewEditXtraForm
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -68,7 +67,7 @@
             this.layoutControlNewRailcarButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
@@ -583,7 +582,7 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarNewEditXtraForm";
-            this.Text = "Вагон";
+            this.Text = "Разрешение на отгрузку";
             this.Activated += new System.EventHandler(this.RailcarNewEditXtraForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarNewEditXtraForm_Load);

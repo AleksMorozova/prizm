@@ -1,5 +1,5 @@
-﻿using Data.DAL.Hibernate;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using NHibernate;
 using Ninject;
 using System;
@@ -8,14 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Heat
+namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public class HeatRepositories : IHeatRepositories
     {
         ISession session;
         IHeatRepository heatRepo;
-        IPhysicalParametersRepository physRepo;
-        IChemicalCompositionRepository chemRepo;
         IPlateManufacturerRepository plateManRepo;
 
         [Inject]
@@ -23,24 +21,12 @@ namespace PrizmMain.Forms.PipeMill.Heat
         {
             this.session = session;
             this.heatRepo = new HeatRepository(session);
-            this.physRepo = new PhysicalParametersRepository(session);
-            this.chemRepo = new ChemicalCompositionRepository(session);
             this.plateManRepo = new PlateManufacturerRepository(session);
         }
 
         public IHeatRepository HeatRepo
         {
             get { return heatRepo; }
-        }
-
-        public IPhysicalParametersRepository PhysRepo
-        {
-            get { return physRepo; }
-        }
-
-        public IChemicalCompositionRepository ChemRepo
-        {
-            get { return chemRepo; }
         }
 
         public IPlateManufacturerRepository PlateManRepo

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Controls
+namespace Prizm.Main.Controls
 {
     public static class ControlButtonsExtension
     {

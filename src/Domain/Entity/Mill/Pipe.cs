@@ -1,9 +1,9 @@
 ﻿using System;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Setup;
 using System.Collections.Generic;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
     public class Pipe : Part
     {
@@ -32,8 +32,6 @@ namespace Domain.Entity.Mill
         public virtual Railcar Railcar { get; set; }
 
         public virtual PurchaseOrder PurchaseOrder { get; set; }
-
-        public virtual ChemicalComposition ChemicalComposition { get; set; }
 
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }

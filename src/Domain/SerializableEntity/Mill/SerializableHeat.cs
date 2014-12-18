@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.SerializableEntity.Mill
+namespace Prizm.Domain.SerializableEntity.Mill
 {
     [Serializable]
     class SerializableHeat

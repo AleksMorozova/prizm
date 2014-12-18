@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Data.DAL
+namespace Prizm.Data.DAL
 {
     public interface IRepository<TKey, TEntity> : IDisposable where TEntity : class
     {

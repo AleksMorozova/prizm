@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Security
+namespace Prizm.Main.Security
 {
     public enum Privileges
     {

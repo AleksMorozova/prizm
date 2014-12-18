@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace PrizmMain.DummyData
+namespace Prizm.Main.DummyData
 {
     public class JointsDummy
     {

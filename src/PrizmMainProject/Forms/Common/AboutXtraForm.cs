@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.MainChildForm;
 using System.Reflection;
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 
-namespace PrizmMain.Forms.Common
+namespace Prizm.Main.Forms.Common
 {
     public partial class AboutXtraForm : XtraForm
     {

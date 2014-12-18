@@ -1,8 +1,8 @@
-﻿using Domain.Entity.Setup;
+﻿using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     public class Inspector : Item
     {

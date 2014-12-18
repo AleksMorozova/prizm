@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL
+namespace Prizm.Data.DAL
 {
     [Serializable]
     public class RepositoryException : ApplicationException

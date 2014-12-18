@@ -1,29 +1,29 @@
 ﻿using System.ComponentModel;
 using DevExpress.XtraEditors;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Forms.ExternalFile;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.ExternalFile;
 using System;
 using Ninject;
 using Ninject.Parameters;
 using DevExpress.XtraEditors.Controls;
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 using DevExpress.XtraGrid.Views.Grid;
-using Domain.Entity.Construction;
-using Domain.Entity.Setup;
-using PrizmMain.Controls;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Controls;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using Domain.Entity;
-using PrizmMain.Common;
+using Prizm.Domain.Entity;
+using Prizm.Main.Common;
 using System.Data;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System.Reflection;
 using System.Resources;
 using System.Collections;
 using System.Threading;
 using System.Linq;
 
-namespace PrizmMain.Forms.Joint.NewEdit
+namespace Prizm.Main.Forms.Joint.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm
@@ -147,8 +147,11 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void BindCommands()
         {
-            commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
-            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
+            commandManager["Save"].Executor(viewModel.SaveJointCommand)
+                .AttachTo(saveButton).RefreshState();
+            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand)
+                .AttachTo(saveAndCreateButton).RefreshState();
+ 
             SaveCommand = viewModel.SaveJointCommand;
         }
 
@@ -165,8 +168,8 @@ namespace PrizmMain.Forms.Joint.NewEdit
         {
             this.headerNumberPart =jointNumber.Text;
             viewModel.Number = jointNumber.Text;
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -177,7 +180,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 currentJointTestResult = view.GetRow(e.RowHandle) as JointTestResult;
                 currentJointTestResult.IsActive = true;
                 currentJointTestResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointTestResults = viewModel.JointTestResults;
+                viewModel.Joint.JointTestResults.Add(currentJointTestResult);
             }
         }
 
@@ -258,7 +261,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
                 currentJointWeldResult = view.GetRow(e.RowHandle) as JointWeldResult;
                 currentJointWeldResult.IsActive = true;
                 currentJointWeldResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointWeldResults = viewModel.JointWeldResults;
+                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);
             }
         }
 
@@ -346,14 +349,14 @@ namespace PrizmMain.Forms.Joint.NewEdit
 
         private void firstJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void secondJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.SaveJointCommand.IsExecutable ^= true;
-            viewModel.NewSaveJointCommand.IsExecutable ^= true;
+            commandManager["Save"].RefreshState();
+            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void deactivated_Modified(object sender, EventArgs e)

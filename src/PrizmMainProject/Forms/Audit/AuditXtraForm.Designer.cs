@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Audit
+﻿namespace Prizm.Main.Forms.Audit
 {
     partial class AuditXtraForm
     {

@@ -1,14 +1,14 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
-using Domain.Entity.Construction;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Mill;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Documents;
-using PrizmMain.Forms.PipeMill;
+using Prizm.Main.Commands;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms.PipeMill;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Spool
+namespace Prizm.Main.Forms.Spool
 {
     public class SpoolViewModel : ViewModelBase, IDisposable
     {
@@ -30,16 +30,16 @@ namespace PrizmMain.Forms.Spool
         public int spoolLength;
         readonly IUserNotify notify;
         private IModifiable modifiableView;
-        public Domain.Entity.Construction.Spool Spool { get; set; }
+        public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
-        public bool canCut=false;
+        public bool canCut = false;
 
         [Inject]
-        public SpoolViewModel(ISpoolRepositories repos, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)
         {
             this.repos = repos;
 
-            this.notify=notify;
+            this.notify = notify;
             this.Inspectors = repos.RepoInspector.GetAll();
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
@@ -53,15 +53,22 @@ namespace PrizmMain.Forms.Spool
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes()) 
+            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes())
             {
                 allPipes.Add(p);
             }
-            Spool = new Domain.Entity.Construction.Spool();
-            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
-            Spool.Pipe = new Pipe();
-            Pipe = new Pipe();
-            
+
+            if (spoolId == Guid.Empty)
+            {
+                Spool = new Prizm.Domain.Entity.Construction.Spool();
+                Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
+                Spool.Pipe = new Pipe();
+                Pipe = new Pipe();
+            }
+            else
+            {
+                Spool = repos.SpoolRepo.Get(spoolId);
+            }
         }
 
         public string SpoolNumber
@@ -101,7 +108,7 @@ namespace PrizmMain.Forms.Spool
 
         public Pipe SpoolPipe
         {
-            get { return Spool.Pipe;}
+            get { return Spool.Pipe; }
             set
             {
                 if (value != Spool.Pipe)
@@ -149,9 +156,9 @@ namespace PrizmMain.Forms.Spool
 
         public Pipe Pipe
         {
-            get 
+            get
             {
-                return Spool.Pipe; 
+                return Spool.Pipe;
             }
             set
             {

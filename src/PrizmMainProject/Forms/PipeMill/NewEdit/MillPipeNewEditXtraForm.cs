@@ -8,25 +8,25 @@ using Ninject;
 using Ninject.Parameters;
 using System.Collections.Generic;
 using System.Linq;
-using Domain.Entity;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.Controls;
-using Domain.Entity.Setup;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.PipeMill.Heat;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
+using Prizm.Main.Controls;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.DummyData;
+using Prizm.Main.Forms.PipeMill.Heat;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
 using System.Collections;
 using System.Drawing;
 
-using PrizmMain.Common;
+using Prizm.Main.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Commands;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillPipeNewEditXtraForm : ChildForm
@@ -42,7 +42,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             InitializeComponent();
             SetControlsTextLength();
-            Dummy();
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
@@ -69,9 +68,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(shippedDate);
             SetAlwaysReadOnly(certificateNumber);
             SetAlwaysReadOnly(destination);
-            SetAlwaysReadOnly(chemicalComposition);
             SetAlwaysReadOnly(steelGrade);
-            SetAlwaysReadOnly(tensileTests);
             SetAlwaysReadOnly(weight);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
@@ -98,7 +95,14 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             IsEditMode = !viewModel.IsNotActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            pipeNumber.Validating += pipeNumber_Validating;
+            if (IsEditMode)
+            {
+                pipeNumber.Validating += pipeNumber_Validating;
+            }
+            else
+            {
+                pipeNumber.Validating -= pipeNumber_Validating;
+            }
 
             IsModified = false;
             pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
@@ -232,6 +236,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
             commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
 
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+
             SaveCommand = viewModel.SavePipeCommand;
         }
 
@@ -289,15 +296,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.headerNumberPart = pipeNumber.Text;  // BEFORE set to viewModel
             viewModel.Number = pipeNumber.Text;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.ProductionDate = pipeCreationDate.DateTime;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -438,63 +447,6 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             //TODO: limit fields for Plate and heat parameters tab
         }
 
-        #region DummyData
-
-        private void Dummy()
-        {
-
-
-            List<ChemicalComposition> chem = new List<ChemicalComposition>()
-        {
-            new ChemicalComposition(){Parameter = "C",HeatValue = 0.06f, PlateValue = 0.06f,PipeValue = 0.06f},
-            new ChemicalComposition(){Parameter = "Mn",HeatValue = 1.64f, PlateValue = 1.64f},
-            new ChemicalComposition(){Parameter = "Si",HeatValue = 0.29f ,PlateValue = 0.29f,PipeValue = 0.29f},
-            new ChemicalComposition(){Parameter = "P",HeatValue = 0.007f, PlateValue = 0.006f,PipeValue = 0.006f},
-            new ChemicalComposition(){Parameter = "S",HeatValue = 0.001f, PlateValue = 0,},
-            new ChemicalComposition(){Parameter = "Mo",HeatValue = 0.175f, PlateValue = 0.175f}
-        };
-            chemicalComposition.DataSource = chem;
-            steelGrade.Text = "H18N9T";
-
-            List<TensileTest> tests = new List<TensileTest>()
-            {
-                new TensileTest()
-                {
-                    Parameter = "Предел текучести, Rt0.5,",
-                    BaseValue = 645f,
-                },
-                new TensileTest()
-                {
-                    Parameter = "Временное сопротивление, Rm,МПа",
-                    BaseValue = 700f,
-                },
-                new TensileTest()
-                {
-                    Parameter = "Удлиннение на 2 дюймах (50,8мм)",
-                    BaseValue = 32f,
-                },
-                new TensileTest()
-                {
-                    Parameter = "ИПГ при t=0С,ср.,%",
-                    BaseValue = 100f,
-                },
-                new TensileTest()
-                {
-                    Parameter = "Доля вязкой сост. на ударных образцах при t=-10C,ср.,%",
-                    BaseValue = 100f,
-                },
-            };
-
-            tensileTests.DataSource = tests;
-
-
-
-        }
-
-
-
-        #endregion
-
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit q = sender as LookUpEdit;
@@ -529,7 +481,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             if(viewModel.IsNotActive)
             {
                 viewModel.PipeDeactivationCommand.Execute();
-                IsEditMode = false;
+                IsEditMode = !viewModel.IsNotActive;
             }
         }
 
@@ -578,15 +530,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            Prizm.Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Prizm.Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
         }
 

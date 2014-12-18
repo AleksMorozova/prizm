@@ -1,13 +1,13 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using DevExpress.XtraReports.UI;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 using NHibernate;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Forms.Common;
-using PrizmMain.Forms.InspectionParts.Search;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Forms.InspectionParts.Search;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Reports.Construction
+namespace Prizm.Main.Forms.Reports.Construction
 {
     public class ConstructionReportViewModel : ViewModelBase
     {
