@@ -29,7 +29,7 @@ namespace PrizmMain.Forms.Notifications
             this.InitializeComponent();
         }
 
-        private void HeatXtraForm_Load(object sender, EventArgs e)
+        private void NotificationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (NotificationViewModel)Program.Kernel.GetService(typeof(NotificationViewModel));
             BindToViewModel();
@@ -42,10 +42,7 @@ namespace PrizmMain.Forms.Notifications
             gridControlMessage.DataBindings.Add("DataSource", notificationBindingSource, "Notification");
         }
 
-        private void HeatXtraForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
 
-        }
 
 
     }
