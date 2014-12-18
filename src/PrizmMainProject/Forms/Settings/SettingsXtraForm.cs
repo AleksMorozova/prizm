@@ -636,12 +636,13 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as WelderViewType;
-            if (data == null)
-                return;
-            if (e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date < DateTime.Now)
+            if (data != null)
             {
-                e.Appearance.ForeColor = Color.Red;
-                e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                if (e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
             }
         }
 
@@ -649,12 +650,13 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as InspectorCertificate;
-            if (data == null)
-                return;
-            if (data.Certificate.ExpirationDate < DateTime.Now)
+            if (data != null)
             {
-                e.Appearance.ForeColor = Color.Red;
-                e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                if (data.Certificate.ExpirationDate < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
             }
         }
 
