@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -26,11 +27,28 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repos.BeginTransaction();
-            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-            repos.Commit();
-            repos.SpoolRepo.Evict(viewModel.Spool);
-            viewModel.ModifiableView.IsModified = false;
+            if (viewModel.Spool.Length != 0)
+            {
+                if (viewModel.canCut)
+                {
+                    repos.BeginTransaction();
+                    repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                    repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                    repos.Commit();
+                    repos.PipeRepo.Evict(viewModel.Pipe);
+                    repos.SpoolRepo.Evict(viewModel.Spool);
+                    //notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+                    viewModel.ModifiableView.IsModified = false;
+                }
+                else 
+                {
+                    notify.ShowFailure(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
+                }
+            }
+            else
+            {notify.ShowFailure("Длинна катушки не может быть равна 0", Resources.Cut_Spool_from_pipe_Header);
+                
+            }
         }
 
 

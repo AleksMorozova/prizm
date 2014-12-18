@@ -44,11 +44,11 @@
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.reasonGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.spoolLength = new DevExpress.XtraEditors.TextEdit();
             this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.LookUpEdit();
+            this.spoolLength = new DevExpress.XtraEditors.SpinEdit();
             this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeSearchayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.upperSearchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -79,10 +79,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSearchayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).BeginInit();
@@ -122,12 +122,12 @@
             this.mainLayoutControl.Controls.Add(this.saveButton);
             this.mainLayoutControl.Controls.Add(this.attachmentsButton);
             this.mainLayoutControl.Controls.Add(this.inspectionHistory);
-            this.mainLayoutControl.Controls.Add(this.spoolLength);
             this.mainLayoutControl.Controls.Add(this.cutButton);
             this.mainLayoutControl.Controls.Add(this.pipeLength);
             this.mainLayoutControl.Controls.Add(this.spoolNumber);
             this.mainLayoutControl.Controls.Add(this.searchButton);
             this.mainLayoutControl.Controls.Add(this.pipeNumber);
+            this.mainLayoutControl.Controls.Add(this.spoolLength);
             this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControl.Name = "mainLayoutControl";
@@ -261,16 +261,6 @@
             this.reasonTextEdit.AutoHeight = false;
             this.reasonTextEdit.Name = "reasonTextEdit";
             // 
-            // spoolLength
-            // 
-            this.spoolLength.Location = new System.Drawing.Point(196, 246);
-            this.spoolLength.Name = "spoolLength";
-            this.spoolLength.Properties.Mask.EditMask = "d";
-            this.spoolLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.spoolLength.Size = new System.Drawing.Size(120, 20);
-            this.spoolLength.StyleController = this.mainLayoutControl;
-            this.spoolLength.TabIndex = 16;
-            // 
             // cutButton
             // 
             this.cutButton.Image = ((System.Drawing.Image)(resources.GetObject("cutButton.Image")));
@@ -291,6 +281,7 @@
             this.pipeLength.Size = new System.Drawing.Size(126, 20);
             this.pipeLength.StyleController = this.mainLayoutControl;
             this.pipeLength.TabIndex = 13;
+            this.pipeLength.TextChanged += new System.EventHandler(this.pipeLength_TextChanged);
             // 
             // spoolNumber
             // 
@@ -316,6 +307,23 @@
             this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
+            // 
+            // spoolLength
+            // 
+            this.spoolLength.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spoolLength.Location = new System.Drawing.Point(196, 246);
+            this.spoolLength.Name = "spoolLength";
+            this.spoolLength.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spoolLength.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.spoolLength.Properties.Mask.EditMask = "d";
+            this.spoolLength.Size = new System.Drawing.Size(120, 20);
+            this.spoolLength.StyleController = this.mainLayoutControl;
+            this.spoolLength.TabIndex = 16;
             // 
             // layoutRootGroup
             // 
@@ -468,7 +476,7 @@
             this.spoonlengthLabel.Control = this.spoolLength;
             this.spoonlengthLabel.CustomizationFormText = "Катушка";
             this.spoonlengthLabel.Location = new System.Drawing.Point(147, 0);
-            this.spoonlengthLabel.MinSize = new System.Drawing.Size(82, 41);
+            this.spoonlengthLabel.MinSize = new System.Drawing.Size(50, 25);
             this.spoonlengthLabel.Name = "spoonlengthLabel";
             this.spoonlengthLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
             this.spoonlengthLabel.Size = new System.Drawing.Size(149, 54);
@@ -577,10 +585,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSearchayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).EndInit();
@@ -633,7 +641,6 @@
         private DevExpress.XtraLayout.LayoutControlItem inspectionHistoryLayout;
         private DevExpress.XtraLayout.EmptySpaceItem spoolNumberEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem spoolCreationEmptySpace;
-        private DevExpress.XtraEditors.TextEdit spoolLength;
         private DevExpress.XtraLayout.LayoutControlItem spoonlengthLabel;
         private DevExpress.XtraLayout.EmptySpaceItem curButtonmptySpace;
         private System.Windows.Forms.BindingSource SpoolBindingSource;
@@ -648,5 +655,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit reasonTextEdit;
         private System.Windows.Forms.BindingSource inspectorsDataSource;
+        private DevExpress.XtraEditors.SpinEdit spoolLength;
     }
 }

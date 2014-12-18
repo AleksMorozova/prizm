@@ -89,6 +89,7 @@ namespace Prizm.Main.Forms.Spool
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             pipeLength.Properties.ReadOnly = true;
+
         }
 
         private void cutButton_Click(object sender, System.EventArgs e)
@@ -183,6 +184,12 @@ namespace Prizm.Main.Forms.Spool
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
             e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        private void pipeLength_TextChanged(object sender, EventArgs e)
+        {
+            spoolLength.Properties.MinValue = 1;
+            spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
         }
     }
 }
