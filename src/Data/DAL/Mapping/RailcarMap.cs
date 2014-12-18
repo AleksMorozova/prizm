@@ -1,7 +1,7 @@
-﻿using Domain.Entity.Mill;
+﻿using Prizm.Domain.Entity.Mill;
 using FluentNHibernate.Mapping;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class RailcarMap : SubclassMap<Railcar>
     {

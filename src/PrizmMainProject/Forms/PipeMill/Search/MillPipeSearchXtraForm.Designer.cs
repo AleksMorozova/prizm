@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.PipeMill.Search
+﻿namespace Prizm.Main.Forms.PipeMill.Search
 {
     partial class MillPipeSearchXtraForm
     {

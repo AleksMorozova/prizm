@@ -1,17 +1,17 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Domain.Entity;
-using Domain.Entity.Construction;
-using Domain.Entity.Mill;
-using PrizmMain.Commands;
-using PrizmMain.Controls;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
+using Prizm.Main.Controls;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.Spool
+namespace Prizm.Main.Forms.Spool
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class SpoolsXtraForm : ChildForm
@@ -88,7 +88,7 @@ namespace PrizmMain.Forms.Spool
 
         private void cutButton_Click(object sender, System.EventArgs e)
         {
-            Domain.Entity.Construction.Spool s = viewModel.Spool;
+            Prizm.Domain.Entity.Construction.Spool s = viewModel.Spool;
         }
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)

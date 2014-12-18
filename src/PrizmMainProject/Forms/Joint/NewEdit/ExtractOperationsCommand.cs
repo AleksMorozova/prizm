@@ -1,6 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
-using Domain.Entity.Setup;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Joint.NewEdit
+namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class ExtractOperationsCommand : ICommand
     {

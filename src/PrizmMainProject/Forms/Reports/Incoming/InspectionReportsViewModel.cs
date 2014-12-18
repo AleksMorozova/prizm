@@ -1,15 +1,15 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Reports.Incoming
+namespace Prizm.Main.Forms.Reports.Incoming
 {
     public class InspectionReportsViewModel : ViewModelBase
     {

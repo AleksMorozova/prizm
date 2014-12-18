@@ -1,15 +1,15 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class ExtractHeatsCommand: ICommand
     {
@@ -29,7 +29,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             viewModel.Heats = repo.GetAll();
             if (viewModel.Heats == null)
             {
-                viewModel.Heats = new List<Domain.Entity.Mill.Heat>();
+                viewModel.Heats = new List<Prizm.Domain.Entity.Mill.Heat>();
             }
         }
 

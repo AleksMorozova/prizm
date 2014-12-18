@@ -1,7 +1,7 @@
-﻿using Domain.Entity.Mill;
+﻿using Prizm.Domain.Entity.Mill;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Setup
+namespace Prizm.Domain.Entity.Setup
 {
     public class PipeTest : Item
     {

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests
+namespace Prizm.UnitTests
 {
     /// <summary>
     /// Helper for display object info in vs express for debug

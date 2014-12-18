@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
-using PrizmMain.DummyData;
+using Prizm.Main.DummyData;
 
-namespace PrizmMain.Forms.Settings.Dictionary
+namespace Prizm.Main.Forms.Settings.Dictionary
 {
     public partial class SettingsEditDictionaryXtraForm : XtraForm
     {

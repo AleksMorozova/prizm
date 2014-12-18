@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     // TODO: Name convert Funtion (property)
     public class PersonName : Item

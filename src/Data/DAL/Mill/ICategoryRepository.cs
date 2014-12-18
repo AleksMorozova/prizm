@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Mill
+namespace Prizm.Data.DAL.Mill
 {
-    public interface ICategoryRepository : IRepository<Guid, Domain.Entity.Mill.Category>
+    public interface ICategoryRepository : IRepository<Guid, Prizm.Domain.Entity.Mill.Category>
     {
         
     }

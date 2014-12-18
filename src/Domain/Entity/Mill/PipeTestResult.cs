@@ -1,9 +1,9 @@
-﻿using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+﻿using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
     public class PipeTestResult : TestResult<PipeTestResultStatus>
     {

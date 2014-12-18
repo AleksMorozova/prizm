@@ -1,10 +1,10 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class UnshipRailcarCommand : ICommand
     {

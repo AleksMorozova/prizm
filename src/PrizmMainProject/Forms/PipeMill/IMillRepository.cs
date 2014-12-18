@@ -1,6 +1,6 @@
-﻿using Data.DAL;
-using Data.DAL.Mill;
-using Data.DAL.Setup;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 
-namespace PrizmMain.Forms.PipeMill
+namespace Prizm.Main.Forms.PipeMill
 {
     public interface IMillRepository : IDisposable
     {

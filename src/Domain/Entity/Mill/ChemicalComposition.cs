@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
     public class ChemicalComposition : Item
     {

@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.MainChildForm
+﻿namespace Prizm.Main.Forms.MainChildForm
 {
     partial class PrizmApplicationXtraForm
     {
@@ -253,7 +253,7 @@
             // 
             // barButtonItemNewRailcar
             // 
-            this.barButtonItemNewRailcar.Caption = "&Новый вагон";
+            this.barButtonItemNewRailcar.Caption = "&Разрешение на отгрузку";
             this.barButtonItemNewRailcar.Id = 37;
             this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
             this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
@@ -261,7 +261,7 @@
             // 
             // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemFindEditShipRailcars.Caption = "Поиск &вагонов";
+            this.barButtonItemFindEditShipRailcars.Caption = "По&иск разрешений на отгрузку";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
@@ -606,7 +606,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
-            this.BackgroundImageStore = global::PrizmMain.Properties.Resources.main_logo_03;
+            this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
             this.ClientSize = new System.Drawing.Size(1276, 623);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

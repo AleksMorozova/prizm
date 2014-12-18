@@ -8,13 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Domain.Entity.Mill;
-using PrizmMain.Forms.PipeMill.Purchase;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Forms.PipeMill.Purchase;
 using Ninject;
 using Ninject.Parameters;
-using PrizmMain.Common;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.PipeMill
+namespace Prizm.Main.Forms.PipeMill
 {
     public partial class PurchaseOrderXtraForm : DevExpress.XtraEditors.XtraForm
     {

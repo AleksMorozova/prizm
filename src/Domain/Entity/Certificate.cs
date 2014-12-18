@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     public class Certificate : Item
     {

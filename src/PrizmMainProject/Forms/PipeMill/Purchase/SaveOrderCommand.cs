@@ -1,15 +1,15 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Purchase
+namespace Prizm.Main.Forms.PipeMill.Purchase
 {
     public class SaveOrderCommand : ICommand
     {

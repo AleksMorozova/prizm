@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
     public class Railcar : Item
     {

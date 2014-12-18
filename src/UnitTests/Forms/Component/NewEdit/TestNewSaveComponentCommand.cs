@@ -1,19 +1,19 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Mill;
-using Domain.Entity.Construction;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Construction;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Documents;
-using PrizmMain.Forms;
-using PrizmMain.Forms.Component;
-using PrizmMain.Forms.Component.NewEdit;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.Component;
+using Prizm.Main.Forms.Component.NewEdit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Forms.Component.NewEdit
+namespace Prizm.UnitTests.Forms.Component.NewEdit
 {
     [TestFixture]
     class TestNewSaveComponentCommand
@@ -29,9 +29,9 @@ namespace UnitTests.Forms.Component.NewEdit
             var componentTypeRepo = new Mock<IComponentTypeRepository>();
             var repoInspector = new Mock<IInspectorRepository>();
 
-            var component = new Domain.Entity.Construction.Component();
+            var component = new Prizm.Domain.Entity.Construction.Component();
 
-            componentRepo.Setup(x => x.GetActiveByNumber(component)).Returns(new List<Domain.Entity.Construction.Component>());
+            componentRepo.Setup(x => x.GetActiveByNumber(component)).Returns(new List<Prizm.Domain.Entity.Construction.Component>());
             componentTypeRepo.Setup(x => x.GetAll()).Returns(new List<ComponentType>());
             componentTypeRepo.Setup(x => x.GetAll()).Returns(new List<ComponentType>());
 
@@ -62,9 +62,9 @@ namespace UnitTests.Forms.Component.NewEdit
             command.Execute();
 
             componentsRepos.Verify(_ => _.BeginTransaction(), Times.Once());
-            componentRepo.Verify(_ => _.SaveOrUpdate(It.IsAny<Domain.Entity.Construction.Component>()), Times.Once());
+            componentRepo.Verify(_ => _.SaveOrUpdate(It.IsAny<Prizm.Domain.Entity.Construction.Component>()), Times.Once());
             componentsRepos.Verify(_ => _.Commit(), Times.Once());
-            componentRepo.Verify(_ => _.Evict(It.IsAny<Domain.Entity.Construction.Component>()), Times.Once());
+            componentRepo.Verify(_ => _.Evict(It.IsAny<Prizm.Domain.Entity.Construction.Component>()), Times.Once());
         }
     }
 }

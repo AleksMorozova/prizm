@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Moq;
-using Data.DAL.Hibernate;
-using Data.DAL;
-using Domain.Entity;
+using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL;
+using Prizm.Domain.Entity;
 
-namespace UnitTests
+namespace Prizm.UnitTests
 {
     [TestFixture]
     public class AuditTrailTests

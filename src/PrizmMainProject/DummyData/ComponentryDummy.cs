@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DevExpress.XtraEditors.Controls;
 
-namespace PrizmMain.DummyData
+namespace Prizm.Main.DummyData
 {
     public static class ComponentryDummy
     {

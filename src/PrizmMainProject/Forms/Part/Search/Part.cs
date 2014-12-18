@@ -1,12 +1,12 @@
-﻿using Domain.Entity.Construction;
-using PrizmMain.Common;
+﻿using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.InspectionParts.Search
 {
     public class Part
     {

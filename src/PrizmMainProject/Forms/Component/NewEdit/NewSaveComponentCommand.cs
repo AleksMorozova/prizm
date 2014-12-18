@@ -1,7 +1,7 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 using DevExpress.Mvvm.POCO;
 
-namespace PrizmMain.Forms.Component.NewEdit
+namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class NewSaveComponentCommand: ICommand
     {

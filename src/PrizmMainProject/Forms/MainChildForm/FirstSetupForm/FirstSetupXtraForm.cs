@@ -8,12 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Domain.Entity.Setup;
-using PrizmMain.Common;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
 using Ninject;
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 
-namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
+namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public partial class FirstSetupXtraForm : DevExpress.XtraEditors.XtraForm
     {
