@@ -1,6 +1,6 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 using Ninject;
 using System;
 using System.Collections.Generic;

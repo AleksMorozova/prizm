@@ -31,7 +31,7 @@ using Prizm.Main.Forms.Joint;
 using Prizm.Data.DAL.Construction;
 using Prizm.Main.Forms.InspectionParts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
-
+using Prizm.DAL.Hibernate;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule

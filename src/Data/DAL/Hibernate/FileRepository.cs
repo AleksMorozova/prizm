@@ -1,13 +1,15 @@
-﻿using Domain.Entity;
+﻿using Prizm.Domain.Entity;
 using NHibernate;
 using Ninject;
+using Prizm.Data.DAL.Hibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Data.DAL;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.DAL.Hibernate
 {
     public class FileRepository : AbstractHibernateRepository<Guid, File>, IFileRepository
     {

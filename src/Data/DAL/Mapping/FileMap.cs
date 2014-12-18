@@ -1,4 +1,4 @@
-﻿using Domain.Entity;
+﻿using Prizm.Domain.Entity;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
