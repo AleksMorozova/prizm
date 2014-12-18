@@ -249,5 +249,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
             view.RemoveSelectedItem<InspectionTestResult>( e, viewModel.InspectionTestResults, (_) => _.IsNew());
             view.RefreshData();
         }
+
+        private void ComponentNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

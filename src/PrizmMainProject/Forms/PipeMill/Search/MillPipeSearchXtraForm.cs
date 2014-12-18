@@ -112,5 +112,12 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 }
             }
         }
+
+        private void MillPipeSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

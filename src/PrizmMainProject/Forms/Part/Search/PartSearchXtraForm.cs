@@ -122,5 +122,12 @@ namespace Prizm.Main.Forms.InspectionParts.Search
                 partsView_DoubleClick(sender, e);
             }
         }
+
+        private void PartSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

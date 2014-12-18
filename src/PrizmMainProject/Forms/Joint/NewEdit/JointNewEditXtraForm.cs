@@ -368,5 +368,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 IsEditMode = false;
             }
         }
+
+        private void JointNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }
