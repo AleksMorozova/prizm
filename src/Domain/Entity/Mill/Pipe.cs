@@ -33,8 +33,6 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
-        public virtual ChemicalComposition ChemicalComposition { get; set; }
-
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
         public virtual IList<Coat> Coats { get; set; }

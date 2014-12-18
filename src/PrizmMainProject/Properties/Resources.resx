@@ -184,9 +184,6 @@
   <data name="Coat" xml:space="preserve">
     <value>Покрытие</value>
   </data>
-  <data name="PhysicalParameters" xml:space="preserve">
-    <value>Физические параметры</value>
-  </data>
   <data name="InvalidOldPassword" xml:space="preserve">
     <value>Текущий пароль введен неверно.</value>
   </data>
@@ -306,9 +303,6 @@
   </data>
   <data name="Thickness" xml:space="preserve">
     <value>Толщина</value>
-  </data>
-  <data name="ChemicalComposition" xml:space="preserve">
-    <value>Химический состав</value>
   </data>
   <data name="InspectionControlType_Witness" xml:space="preserve">
     <value>Присутствие</value>

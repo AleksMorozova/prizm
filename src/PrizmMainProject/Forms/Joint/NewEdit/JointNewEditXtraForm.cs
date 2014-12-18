@@ -180,7 +180,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointTestResult = view.GetRow(e.RowHandle) as JointTestResult;
                 currentJointTestResult.IsActive = true;
                 currentJointTestResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointTestResults = viewModel.JointTestResults;
+                viewModel.Joint.JointTestResults.Add(currentJointTestResult);
             }
         }
 
@@ -261,7 +261,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointWeldResult = view.GetRow(e.RowHandle) as JointWeldResult;
                 currentJointWeldResult.IsActive = true;
                 currentJointWeldResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointWeldResults = viewModel.JointWeldResults;
+                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);
             }
         }
 

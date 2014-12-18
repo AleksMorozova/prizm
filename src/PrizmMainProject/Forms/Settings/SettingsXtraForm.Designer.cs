@@ -202,6 +202,8 @@
             this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
             this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
+            this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cloneTypeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -328,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -1997,6 +2000,7 @@
             // 
             // generalSettingsLayout
             // 
+            this.generalSettingsLayout.Controls.Add(this.cloneTypeSizeButton);
             this.generalSettingsLayout.Controls.Add(this.closeButton);
             this.generalSettingsLayout.Controls.Add(this.saveButton);
             this.generalSettingsLayout.Controls.Add(this.settings);
@@ -2012,19 +2016,20 @@
             // closeButton
             // 
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1140, 504);
+            this.closeButton.Location = new System.Drawing.Point(1175, 504);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(116, 22);
+            this.closeButton.Size = new System.Drawing.Size(81, 22);
             this.closeButton.StyleController = this.generalSettingsLayout;
             this.closeButton.TabIndex = 5;
             this.closeButton.Text = "За&крыть";
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(995, 504);
+            this.saveButton.Location = new System.Drawing.Point(1069, 504);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(131, 22);
+            this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalSettingsLayout;
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Со&хранить";
@@ -2038,7 +2043,8 @@
             this.settingsLayout,
             this.closeButtonLayout,
             this.buttonEmptySpaceItem,
-            this.saveButtonLayout});
+            this.saveButtonLayout,
+            this.cloneTypeSizeLayoutControl});
             this.generalSettingsLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalSettingsLayoutGroup.Name = "generalSettingsLayoutGroup";
             this.generalSettingsLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -2063,9 +2069,9 @@
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1121, 495);
+            this.closeButtonLayout.Location = new System.Drawing.Point(1156, 495);
             this.closeButtonLayout.Name = "closeButtonLayout";
-            this.closeButtonLayout.Size = new System.Drawing.Size(130, 31);
+            this.closeButtonLayout.Size = new System.Drawing.Size(95, 31);
             this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -2078,7 +2084,7 @@
             this.buttonEmptySpaceItem.CustomizationFormText = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 495);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(976, 31);
+            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(883, 31);
             this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -2086,9 +2092,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(976, 495);
+            this.saveButtonLayout.Location = new System.Drawing.Point(1050, 495);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(145, 31);
+            this.saveButtonLayout.Size = new System.Drawing.Size(106, 31);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -2098,6 +2104,30 @@
             // jointOperationsBindingSource
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
+            // 
+            // cloneTypeSizeButton
+            // 
+            this.cloneTypeSizeButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneTypeSizeButton.Image")));
+            this.cloneTypeSizeButton.Location = new System.Drawing.Point(902, 504);
+            this.cloneTypeSizeButton.Name = "cloneTypeSizeButton";
+            this.cloneTypeSizeButton.Size = new System.Drawing.Size(153, 22);
+            this.cloneTypeSizeButton.StyleController = this.generalSettingsLayout;
+            this.cloneTypeSizeButton.TabIndex = 6;
+            this.cloneTypeSizeButton.Text = "Копировать типоразмер";
+            this.cloneTypeSizeButton.Click += new System.EventHandler(this.cloneTypeSizeButton_Click);
+            // 
+            // cloneTypeSizeLayoutControl
+            // 
+            this.cloneTypeSizeLayoutControl.Control = this.cloneTypeSizeButton;
+            this.cloneTypeSizeLayoutControl.CustomizationFormText = "cloneTypeSizeLayoutControl";
+            this.cloneTypeSizeLayoutControl.Location = new System.Drawing.Point(883, 495);
+            this.cloneTypeSizeLayoutControl.Name = "cloneTypeSizeLayoutControl";
+            this.cloneTypeSizeLayoutControl.Size = new System.Drawing.Size(167, 31);
+            this.cloneTypeSizeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
+            this.cloneTypeSizeLayoutControl.Text = "cloneTypeSizeLayoutControl";
+            this.cloneTypeSizeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
+            this.cloneTypeSizeLayoutControl.TextToControlDistance = 0;
+            this.cloneTypeSizeLayoutControl.TextVisible = false;
             // 
             // SettingsXtraForm
             // 
@@ -2236,6 +2266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2415,6 +2446,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemsСategory;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemsСategoryView;
         private DevExpress.XtraGrid.Columns.GridColumn CategoryName;
+        private DevExpress.XtraEditors.SimpleButton cloneTypeSizeButton;
+        private DevExpress.XtraLayout.LayoutControlItem cloneTypeSizeLayoutControl;
         private DevExpress.XtraEditors.LabelControl pipeNumberMaskRulesLabel;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskRulesLabelLayout;
     }
