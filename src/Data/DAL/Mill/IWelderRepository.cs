@@ -9,6 +9,5 @@ namespace Data.DAL.Mill
 {
     public interface IWelderRepository : IRepository<Guid, Welder>
     {
-        void RefreshWelder();
     }
 }

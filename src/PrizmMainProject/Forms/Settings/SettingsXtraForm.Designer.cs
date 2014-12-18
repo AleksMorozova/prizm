@@ -161,7 +161,6 @@
             this.colWelderCert = new DevExpress.XtraGrid.Columns.GridColumn();
             this.welderCertificateTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemWelderCertExpDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colWelderStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.stampRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderGrade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -301,8 +300,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.welderLNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWelderCertExpDateEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWelderCertExpDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupWerlders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemWelders)).BeginInit();
@@ -1630,8 +1627,7 @@
             this.welderFNRepositoryTextEdit,
             this.welderMNRepositoryTextEdit,
             this.welderCertificateTextEdit,
-            this.stampRepositoryTextEdit,
-            this.repositoryItemWelderCertExpDateEdit});
+            this.stampRepositoryTextEdit});
             this.gridControlWelders.Size = new System.Drawing.Size(1217, 439);
             this.gridControlWelders.TabIndex = 0;
             this.gridControlWelders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1654,7 +1650,6 @@
             this.gridViewWelders.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridViewWelders.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
-            this.gridViewWelders.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewWelders_RowCellStyle);
             this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.gridViewWelders.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewWelders_ValidateRow);
             this.gridViewWelders.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewWelders_KeyDown);
@@ -1722,20 +1717,10 @@
             // colWelderCertExp
             // 
             this.colWelderCertExp.Caption = "Дата аттестации";
-            this.colWelderCertExp.ColumnEdit = this.repositoryItemWelderCertExpDateEdit;
             this.colWelderCertExp.FieldName = "CertificateExpiration";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
             this.colWelderCertExp.VisibleIndex = 4;
-            // 
-            // repositoryItemWelderCertExpDateEdit
-            // 
-            this.repositoryItemWelderCertExpDateEdit.AutoHeight = false;
-            this.repositoryItemWelderCertExpDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemWelderCertExpDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemWelderCertExpDateEdit.Name = "repositoryItemWelderCertExpDateEdit";
             // 
             // colWelderStamp
             // 
@@ -2245,8 +2230,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.welderLNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWelderCertExpDateEdit.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWelderCertExpDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupWerlders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemWelders)).EndInit();
@@ -2463,6 +2446,5 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemsСategory;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemsСategoryView;
         private DevExpress.XtraGrid.Columns.GridColumn CategoryName;
-        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemWelderCertExpDateEdit;
     }
 }
