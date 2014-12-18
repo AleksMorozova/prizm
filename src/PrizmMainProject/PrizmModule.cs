@@ -76,6 +76,7 @@ namespace PrizmMain
             Bind<IJointTestResultRepository>().To<JointTestResultRepository>();
             Bind<IJointWeldResultRepository>().To<JointWeldResultRepository>();
             Bind<IInspectorRepository>().To<InspectorRepository>();
+            Bind<IFileRepository>().To<FileRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 

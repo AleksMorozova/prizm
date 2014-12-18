@@ -7,5 +7,6 @@ namespace Domain.Entity
         public virtual string FileName { get; set; }
         public virtual string Description { get; set; }
         public virtual DateTime UploadDate { get; set; }
+        public virtual Item Item { get; set; }
     }
 }

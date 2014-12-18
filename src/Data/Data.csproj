@@ -68,6 +68,7 @@
     <Compile Include="DAL\Hibernate\CategoryRepository.cs" />
     <Compile Include="DAL\Hibernate\ComponentTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\ComponentRepository.cs" />
+    <Compile Include="DAL\Hibernate\FileRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
+    <Compile Include="DAL\IFileRepository.cs" />
     <Compile Include="DAL\IMillReportsRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="DAL\Mapping\ComponentMap.cs" />
     <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
     <Compile Include="DAL\Mapping\ConnectorMap.cs" />
+    <Compile Include="DAL\Mapping\FileMap.cs" />
     <Compile Include="DAL\Mapping\HeatMap.cs" />
     <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
