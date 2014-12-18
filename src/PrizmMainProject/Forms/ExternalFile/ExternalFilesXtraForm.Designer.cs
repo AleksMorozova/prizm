@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExternalFilesXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.files = new DevExpress.XtraGrid.GridControl();
-            this.fileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,11 +41,12 @@
             this.colDownload = new DevExpress.XtraGrid.Columns.GridColumn();
             this.downloadButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.addFile = new DevExpress.XtraEditors.SimpleButton();
+            this.filesBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.files)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // files
@@ -56,7 +55,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.files.Cursor = System.Windows.Forms.Cursors.Default;
-            this.files.DataSource = this.fileBindingSource;
             this.files.Location = new System.Drawing.Point(20, 20);
             this.files.MainView = this.filesView;
             this.files.Margin = new System.Windows.Forms.Padding(11);
@@ -156,6 +154,7 @@
             this.addFile.Size = new System.Drawing.Size(113, 23);
             this.addFile.TabIndex = 1;
             this.addFile.Text = "Добавить файл";
+            this.addFile.Click += new System.EventHandler(this.addFile_Click);
             // 
             // ExternalFilesXtraForm
             // 
@@ -167,11 +166,12 @@
             this.Name = "ExternalFilesXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Внешние файлы";
+            this.Load += new System.EventHandler(this.ExternalFilesXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.files)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,7 +180,6 @@
 
         private DevExpress.XtraGrid.GridControl files;
         private DevExpress.XtraGrid.Views.Grid.GridView filesView;
-        private System.Windows.Forms.BindingSource fileBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colUploadDate;
@@ -189,5 +188,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit viewButton;
         private DevExpress.XtraGrid.Columns.GridColumn colDownload;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit downloadButton;
+        private System.Windows.Forms.BindingSource filesBindingSource;
     }
 }

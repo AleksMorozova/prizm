@@ -33,6 +33,7 @@ using Prizm.Main.Forms.InspectionParts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
 using Prizm.Main.Forms.ExternalFile;
+using PrizmMain.Forms.ExternalFile;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -98,6 +99,7 @@ namespace Prizm.Main
             Bind<PartSearchViewModel>().ToSelf();
             Bind<FirstSetupViewModel>().ToSelf();
             Bind<SpoolViewModel>().ToSelf();
+            Bind<ExternalFilesViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
