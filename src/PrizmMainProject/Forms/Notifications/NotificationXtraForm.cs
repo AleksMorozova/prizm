@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.Notifications;
 using PrizmMain.DummyData;
 
 
@@ -17,8 +19,10 @@ namespace PrizmMain.Forms.Notifications
     public partial class NotificationXtraForm : ChildForm
     {
 
+        // Fields
+        private NotificationViewModel viewModel;
+
         // Methods
- 
         public NotificationXtraForm()
         {
             this.components = null;
@@ -27,24 +31,20 @@ namespace PrizmMain.Forms.Notifications
 
         private void HeatXtraForm_Load(object sender, EventArgs e)
         {
-            NotificationOwners[] ownersArray = new NotificationDummy().GetAllOwners().ToArray<NotificationOwners>();
-            this.notificationBindingSource.DataSource = ownersArray;
-            this.BindToViewModel();
+            viewModel = (NotificationViewModel)Program.Kernel.GetService(typeof(NotificationViewModel));
+            BindToViewModel();
+
         }
 
         private void BindToViewModel()
         {
-            this.RefreshControls();
+            notificationBindingSource.DataSource = viewModel;
+            gridControlMessage.DataBindings.Add("DataSource", notificationBindingSource, "Notification");
         }
 
         private void HeatXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-        }
-
-
-        private void RefreshControls()
-        {
         }
 
 
