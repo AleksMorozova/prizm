@@ -612,6 +612,19 @@ namespace PrizmMain.Forms.Settings
             }
         }
 
+        private void inspectorCertificateGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as InspectorCertificate;
+            if (data == null)
+                return;
+            if (data.Certificate.ExpirationDate < DateTime.Now)
+            {
+                e.Appearance.ForeColor = Color.Red;
+                e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+            }
+        }
+
     }
 
 }
