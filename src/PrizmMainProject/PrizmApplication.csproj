@@ -187,6 +187,7 @@
     <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
+    <Compile Include="DummyData\NotificationDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
@@ -237,6 +238,12 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
+      <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Part\Search\Part.cs" />
     <Compile Include="Forms\Part\Search\PartQuery.cs" />
@@ -794,8 +801,12 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Forms\Notifications\" />
+    <None Include="Resources\critical_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
