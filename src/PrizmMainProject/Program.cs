@@ -15,7 +15,7 @@ using Prizm.Data.DAL.Security;
 using Prizm.Domain.Entity.Security;
 using Prizm.Data.DAL;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
-using PrizmMain.Forms.Settings;
+using Prizm.Main.Forms.Settings;
 
 
 namespace Prizm.Main
@@ -26,7 +26,7 @@ namespace Prizm.Main
         /// <summary>
         /// the months count of user password prolongation
         /// </summary>
-        public static int monthsCountPasswordProlongation = 3;
+        private const int monthsCountPasswordProlongation = 3;
 
         /// <summary>
         ///     The main entry point for the application.
