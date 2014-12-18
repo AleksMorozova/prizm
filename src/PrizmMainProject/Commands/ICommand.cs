@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Commands
+﻿namespace Prizm.Main.Commands
 {
     public interface ICommand
     {

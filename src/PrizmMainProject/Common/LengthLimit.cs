@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Common
+namespace Prizm.Main.Common
 {
     public class LengthLimit
     {

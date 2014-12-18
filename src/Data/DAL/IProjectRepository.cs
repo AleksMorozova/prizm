@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
-namespace Data.DAL
+namespace Prizm.Data.DAL
 {
     public interface IProjectRepository : IRepository<Guid, Project>
     {

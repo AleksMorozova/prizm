@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using DevExpress.XtraEditors;
 
-namespace PrizmMain.Common
+namespace Prizm.Main.Common
 {
     static class ControlColorExtensions
     {

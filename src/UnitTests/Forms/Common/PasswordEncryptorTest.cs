@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
-using PrizmMain.Forms.Common;
+using Prizm.Main.Forms.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Forms.Common
+namespace Prizm.UnitTests.Forms.Common
 {
    [TestFixture]
    public class PasswordEncryptorTest

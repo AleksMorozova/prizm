@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
-    class MillMap : SubclassMap<Domain.Entity.Mill.Mill>
+    class MillMap : SubclassMap<Prizm.Domain.Entity.Mill.Mill>
     {
         public MillMap()
         {

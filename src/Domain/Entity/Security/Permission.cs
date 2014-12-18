@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Security
+namespace Prizm.Domain.Entity.Security
 {
    public class Permission
    {

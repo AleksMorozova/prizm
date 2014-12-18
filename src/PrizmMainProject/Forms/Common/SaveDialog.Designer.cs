@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Common
+﻿namespace Prizm.Main.Forms.Common
 {
    partial class SaveDialog
    {
@@ -40,7 +40,7 @@
          // 
          // pictureBox
          // 
-         this.pictureBox.Image = global::PrizmMain.Properties.Resources.Question;
+         this.pictureBox.Image = global::Prizm.Main.Properties.Resources.Question;
          this.pictureBox.Location = new System.Drawing.Point(12, 12);
          this.pictureBox.Name = "pictureBox";
          this.pictureBox.Size = new System.Drawing.Size(56, 52);

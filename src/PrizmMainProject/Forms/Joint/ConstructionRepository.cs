@@ -1,7 +1,7 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Hibernate;
-using Data.DAL.Mill;
-using Data.DAL.Setup;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
 using NHibernate;
 using Ninject;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Joint
+namespace Prizm.Main.Forms.Joint
 {
     public class ConstructionRepository : IConstructionRepository
     {

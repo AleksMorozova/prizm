@@ -4,19 +4,21 @@ using System.Windows.Forms;
 
 using Ninject;
 
-using Data.DAL.Hibernate;
+using Prizm.Data.DAL.Hibernate;
 
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
-using PrizmMain.Forms.Common;
-using PrizmMain.Security;
-using Data.DAL.Security;
-using Domain.Entity.Security;
-using Data.DAL;
-using PrizmMain.Forms.MainChildForm.FirstSetupForm;
+
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Security;
+using Prizm.Data.DAL.Security;
+using Prizm.Domain.Entity.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using PrizmMain.Forms.Settings;
 
-namespace PrizmMain
+
+namespace Prizm.Main
 {
     internal static class Program
     {
@@ -90,7 +92,9 @@ namespace PrizmMain
 
               User user = new User() { IsActive = false, Login = "system" };
 
+
               IUserRepository userRepo;
+
 
               using ( userRepo = Kernel.Get<IUserRepository>())
               {

@@ -1,13 +1,13 @@
-﻿using Domain.Entity.Mill;
-using Domain.Entity.Setup;
-using PrizmMain.Properties;
+﻿using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Search
+namespace Prizm.Main.Forms.PipeMill.Search
 {
     public class Pipe
     {

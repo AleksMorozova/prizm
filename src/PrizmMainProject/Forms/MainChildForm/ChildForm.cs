@@ -4,12 +4,12 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.Documents;
-using PrizmMain.Properties;
-using PrizmMain.Forms.Common;
-using PrizmMain.Commands;
+using Prizm.Main.Documents;
+using Prizm.Main.Properties;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.MainChildForm
+namespace Prizm.Main.Forms.MainChildForm
 {
     [System.ComponentModel.DesignerCategory("")] 
     public class ChildForm : XtraForm, IModifiable

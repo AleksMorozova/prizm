@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using DevExpress.XtraEditors;
-using PrizmMain.DummyData;
+using Prizm.Main.DummyData;
 
-namespace PrizmMain.Forms.Settings.UserRole.User
+namespace Prizm.Main.Forms.Settings.UserRole.User
 {
     public partial class UserInfoXtraForm : XtraForm
     {

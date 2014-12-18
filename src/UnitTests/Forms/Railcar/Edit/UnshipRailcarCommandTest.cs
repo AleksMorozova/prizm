@@ -1,10 +1,10 @@
-﻿using Data.DAL.Mill;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Forms;
-using PrizmMain.Forms.Railcar;
-using PrizmMain.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.Railcar;
+using Prizm.Main.Forms.Railcar.NewEdit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UnitTests.Forms.Railcar.Edit
+namespace Prizm.UnitTests.Forms.Railcar.Edit
 {
     [TestFixture]
     public class UnshipRailcarCommandTest

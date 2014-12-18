@@ -1,4 +1,4 @@
-﻿namespace Domain.Entity.Setup
+﻿namespace Prizm.Domain.Entity.Setup
 {
     public enum PipeTestControlType
     {

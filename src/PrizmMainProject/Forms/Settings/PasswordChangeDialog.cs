@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using PrizmMain.Forms.Common;
-using PrizmMain.Properties;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
    public partial class PasswordChangeDialog : XtraForm
    {

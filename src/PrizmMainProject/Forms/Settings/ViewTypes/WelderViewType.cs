@@ -1,4 +1,4 @@
-﻿using Domain.Entity;
+﻿using Prizm.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Settings.ViewTypes
+namespace Prizm.Main.Forms.Settings.ViewTypes
 {
     public class WelderViewType : PersonSetupViewType
    {

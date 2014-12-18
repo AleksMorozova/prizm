@@ -1,4 +1,4 @@
-namespace PrizmMain.Forms.Settings.Dictionary
+namespace Prizm.Main.Forms.Settings.Dictionary
 {
     partial class SettingsEditDictionaryXtraForm
     {
