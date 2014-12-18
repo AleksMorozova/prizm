@@ -9,6 +9,7 @@ using Prizm.Main.Forms.Common;
 using System.ComponentModel;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -21,10 +22,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-
-            reportType.Properties.Items.Add("Использованные изделия");
-            reportType.Properties.Items.Add("Протяженность трубопровода");
-            reportType.Properties.Items.Add("Трассовка");
 
             var item1 = new RadioGroupItem(0, "Стык");
             var item2 = new RadioGroupItem(1, "Пикет");
@@ -82,13 +79,23 @@ namespace Prizm.Main.Forms.Reports.Construction
             type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+
+
+            var usedProduct = new EnumWrapper<ReportType> { Value = ReportType.UsedProductReport };
+            var length = new EnumWrapper<ReportType> { Value = ReportType.PipelineLengthReport };
+            var highway = new EnumWrapper<ReportType> { Value = ReportType.HighwayReport };
+
+            reportType.Properties.Items.Add(usedProduct);
+            reportType.Properties.Items.Add(length);
+            reportType.Properties.Items.Add(highway);
+
             RefreshTypes();
             reportType.SelectedIndex = 0;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (reportType.SelectedItem == "Использованные изделия")
+            if (reportType.SelectedItem.ToString() == Resources.UsedProductReport)
             {
                 viewModel.report = new UsedProductsXtraReport();
                 reportPeriodLabel.Text = "Пикеты";
