@@ -18,13 +18,8 @@ namespace PrizmMain.Forms.Notifications
     {
 
         // Methods
+ 
         public NotificationXtraForm()
-            : this("")
-        {
-
-        }
-
-        public NotificationXtraForm(string heatNumber)
         {
             this.components = null;
             this.InitializeComponent();

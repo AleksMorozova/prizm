@@ -106,11 +106,13 @@ namespace PrizmMain.DummyData
         {
             get
             {
+                byte[] icon = null;
+
                 if (this.Notification != null)
                 {
-                    return this.Notification.Image;
+                    icon = this.Notification.Image;
                 }
-                return null;
+                return icon;
             }
         }
 
