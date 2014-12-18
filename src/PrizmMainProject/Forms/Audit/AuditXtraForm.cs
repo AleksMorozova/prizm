@@ -48,5 +48,12 @@ namespace Prizm.Main.Forms.Audit
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(search);
         }
 
+        private void AuditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
+
     }
 }

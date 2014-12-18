@@ -113,5 +113,12 @@ namespace Prizm.Main.Forms.Joint.Search
                 parent.CreateChildForm(typeof(JointNewEditXtraForm), new ConstructorArgument("jointId", id));
             }
         }
+
+        private void JointSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

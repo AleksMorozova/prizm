@@ -561,6 +561,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillPipeSearchXtraForm";
             this.Text = "Поиск труб";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillPipeSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.MillPipeSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();

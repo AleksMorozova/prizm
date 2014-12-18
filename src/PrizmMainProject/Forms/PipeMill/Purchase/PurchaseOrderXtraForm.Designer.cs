@@ -235,6 +235,7 @@
             this.Name = "PurchaseOrderXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Наряд-заказ";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PurchaseOrderXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.PurchaseOrderXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).EndInit();
             this.purchaseOrderLayout.ResumeLayout(false);
