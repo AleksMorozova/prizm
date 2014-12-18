@@ -29,7 +29,6 @@ namespace Prizm.DatabaseMigrator.Migrations
             Delete.FromTable("plate").AllRows();
             Delete.FromTable("pipeMillSizeType").AllRows();
             Delete.FromTable("heat").AllRows();
-            Delete.FromTable("chemicalComposition").AllRows();
         }
     }
 }
