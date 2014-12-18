@@ -19,6 +19,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
 using Prizm.Main.Common;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -73,6 +74,7 @@ namespace Prizm.Main.Forms.Settings
            GetAllManufacturers();
            GetAllJointOperations();
            LoadJointOperationTypes();
+           GetAllComponentryTypes();
            ControlType = new BindingList<PipeTestControlTypeWrapper>();
            ResultType = new BindingList<PipeTestResultTypeWrapper>();
 
@@ -154,6 +156,7 @@ namespace Prizm.Main.Forms.Settings
         }
 
         public BindingList<Category> CategoryTypes { get; set; }
+        public BindingList<ComponentType> ComponentryTypes { get; set; }
 
         #region Current Project Settings
 
@@ -334,6 +337,22 @@ namespace Prizm.Main.Forms.Settings
            PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
         }
 
+        void GetAllComponentryTypes()
+        {
+            if (ComponentryTypes == null)
+                ComponentryTypes = new BindingList<ComponentType>();
+
+            var foundComponentryTypes = repos.ComponentTypeRepo.GetAll();
+            if (foundComponentryTypes != null)
+            {
+                foreach (ComponentType t in foundComponentryTypes)
+                {
+                    ComponentryTypes.Add(t);
+                }
+            }
+            ComponentryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+        }
+
         public void AddNewManufacturer(string newManufacturerName)
         {
            var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
@@ -373,7 +392,6 @@ namespace Prizm.Main.Forms.Settings
               modifiable = value;
            }
         }
-
 
         public bool RoleHasPermission(Role role, Permission perm)
         {

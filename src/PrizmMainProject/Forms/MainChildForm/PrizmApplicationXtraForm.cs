@@ -255,22 +255,27 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 3);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 7);
+        }
+
+        private void barButtonIComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateSettingsChildForm(page: 3);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -435,6 +440,8 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             Application.Exit();
         }
+
+
 
 
 
