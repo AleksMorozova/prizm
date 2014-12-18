@@ -95,7 +95,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = !viewModel.IsNotActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            pipeNumber.Validating += pipeNumber_Validating;
+            if (IsEditMode)
+            {
+                pipeNumber.Validating += pipeNumber_Validating;
+            }
+            else
+            {
+                pipeNumber.Validating -= pipeNumber_Validating;
+            }
 
             IsModified = false;
             pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
