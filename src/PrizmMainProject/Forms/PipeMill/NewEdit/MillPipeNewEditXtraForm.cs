@@ -583,7 +583,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm(viewModel.Pipe as Item);
             attachments.ShowDialog();
         }
 

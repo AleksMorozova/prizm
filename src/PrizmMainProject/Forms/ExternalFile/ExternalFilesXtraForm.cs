@@ -2,19 +2,23 @@
 using System.ComponentModel;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity;
+using PrizmMain.Forms.ExternalFile;
+using Ninject.Parameters;
+using Ninject;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
     public partial class ExternalFilesXtraForm : XtraForm
     {
-        public ExternalFilesXtraForm()
+        ExternalFilesViewModel viewModel;
+        public ExternalFilesXtraForm(Item item)
         {
             InitializeComponent();
-            var list = new BindingList<File>
-            {
-                new File {Description = "Aaa", FileName = "ERER", UploadDate = DateTime.Now}
-            };
-            files.DataSource = list;
+            viewModel = (ExternalFilesViewModel)Program
+                .Kernel
+                .Get<ExternalFilesViewModel>(
+                new ConstructorArgument("item", item));
         }
+
     }
 }

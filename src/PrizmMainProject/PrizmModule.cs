@@ -32,6 +32,7 @@ using Prizm.Data.DAL.Construction;
 using Prizm.Main.Forms.InspectionParts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
+using Prizm.Main.Forms.ExternalFile;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -117,6 +118,7 @@ namespace Prizm.Main
             Bind<AuditXtraForm>().ToSelf();
             Bind<PartSearchXtraForm>().ToSelf();
             Bind<FirstSetupXtraForm>().ToSelf();
+            Bind<ExternalFilesXtraForm>().ToSelf();
             #endregion
 
             #region Commands

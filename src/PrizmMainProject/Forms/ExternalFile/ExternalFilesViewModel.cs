@@ -19,11 +19,15 @@ namespace PrizmMain.Forms.ExternalFile
         public ExternalFilesViewModel(IFileRepository repo, Item item)
         {
             this.repo = repo;
-            var fileList = repo.GetByItem(item);
-            if (fileList != null)
+            if (item.Id != Guid.Empty)
             {
-                files = new BindingList<File>(fileList);
+                var fileList = repo.GetByItem(item);
+                if (fileList != null)
+                {
+                    files = new BindingList<File>(fileList);
+                }
             }
+            else { files = new BindingList<File>(); }
         }
 
         public BindingList<File> Files

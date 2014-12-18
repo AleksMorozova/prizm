@@ -149,8 +149,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+            //ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
+            //attachments.ShowDialog();
         }
 
 

@@ -184,7 +184,6 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DummyData\ComponentryDummy.cs" />
-    <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
