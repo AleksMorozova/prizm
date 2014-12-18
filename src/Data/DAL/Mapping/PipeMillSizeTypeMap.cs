@@ -1,4 +1,4 @@
-﻿using Domain.Entity.Setup;
+﻿using Prizm.Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class PipeMillSizeTypeMap : SubclassMap<PipeMillSizeType>
     {

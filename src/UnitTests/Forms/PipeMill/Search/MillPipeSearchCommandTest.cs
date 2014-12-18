@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.DAL.Setup;
-using Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Forms.Railcar.NewEdit;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.PipeMill.Search;
-using PrizmMain.Forms.PipeMill;
+using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.PipeMill.Search;
+using Prizm.Main.Forms.PipeMill;
 using NHibernate.Criterion;
-using Domain.Entity.Setup;
-using PrizmMain.Forms;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Forms;
 using NHibernate;
 using NHibernate.Transform;
 
-namespace UnitTests.Forms.PipeMill.Search
+namespace Prizm.UnitTests.Forms.PipeMill.Search
 {
     [TestFixture]
     public class MillPipeSearchCommandTest
@@ -56,8 +56,8 @@ namespace UnitTests.Forms.PipeMill.Search
 
             var pipes = new List<Pipe>();
             {
-                new Domain.Entity.Mill.Pipe { Number = "test-1" };
-                new Domain.Entity.Mill.Pipe { Number = "test-3" };
+                new Prizm.Domain.Entity.Mill.Pipe { Number = "test-1" };
+                new Prizm.Domain.Entity.Mill.Pipe { Number = "test-3" };
             };
 
 

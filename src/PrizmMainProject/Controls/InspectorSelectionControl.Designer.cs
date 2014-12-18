@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Controls
+﻿namespace Prizm.Main.Controls
 {
     partial class InspectorSelectionControl
     {

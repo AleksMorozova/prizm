@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.PipeMill.Heat
+﻿namespace Prizm.Main.Forms.PipeMill.Heat
 {
     partial class HeatNumberXtraForm
     {

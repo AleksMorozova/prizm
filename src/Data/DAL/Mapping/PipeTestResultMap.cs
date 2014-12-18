@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class PipeTestResultMap : SubclassMap<PipeTestResult>
     {

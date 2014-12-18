@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Settings.UserRole.Role
+﻿namespace Prizm.Main.Forms.Settings.UserRole.Role
 {
     partial class RolesPrivilegeEditXtraForm
     {

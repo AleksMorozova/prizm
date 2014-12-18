@@ -1,26 +1,26 @@
-using Data.DAL.Mill;
-using Data.DAL.Setup;
-using Data.DAL;
-using Domain.Entity.Mill;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Setup;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Forms.Settings.ViewTypes;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrizmMain.Properties;
-using PrizmMain.Documents;
-using Domain.Entity.Security;
-using PrizmMain.Common;
+using Prizm.Main.Properties;
+using Prizm.Main.Documents;
+using Prizm.Domain.Entity.Security;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {

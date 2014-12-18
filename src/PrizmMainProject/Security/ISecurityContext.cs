@@ -1,15 +1,15 @@
-﻿using Domain.Entity.Security;
+﻿using Prizm.Domain.Entity.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PrizmMain.Security
+namespace Prizm.Main.Security
 {
     public interface ISecurityContext
     {
         bool HasAccess(Privileges privilege);
-        Domain.Entity.PersonName GetLoggedPerson();
+        Prizm.Domain.Entity.PersonName GetLoggedPerson();
         User LoggedUser { get; set; }
     }
 }

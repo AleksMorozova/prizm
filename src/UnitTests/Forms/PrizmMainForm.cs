@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Moq;
-using Data.DAL.Hibernate;
-using Data.DAL;
-using PrizmMain.Forms.MainChildForm;
-using Domain.Entity;
+using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Domain.Entity;
 
-namespace UnitTests.Forms
+namespace Prizm.UnitTests.Forms
 {
     [TestFixture]
     public class GetOrCreateProjectTest

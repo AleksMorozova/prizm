@@ -1,9 +1,9 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using NHibernate;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace PrizmMain.Forms.Railcar.Search
+namespace Prizm.Main.Forms.Railcar.Search
 {
     public class RailcarSearchViewModel : ViewModelBase, IDisposable
     {

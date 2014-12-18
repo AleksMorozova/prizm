@@ -1,6 +1,6 @@
-﻿using Data.DAL.Construction;
-using Domain.Entity.Construction;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Mill;
 using NHibernate;
 using NHibernate.Exceptions;
 using Ninject;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class SpoolRepository : AbstractHibernateRepository<Guid, Spool>, ISpoolRepository
     {

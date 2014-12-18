@@ -8,25 +8,25 @@ using Ninject;
 using Ninject.Parameters;
 using System.Collections.Generic;
 using System.Linq;
-using Domain.Entity;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.Controls;
-using Domain.Entity.Setup;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.PipeMill.Heat;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
+using Prizm.Main.Controls;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.DummyData;
+using Prizm.Main.Forms.PipeMill.Heat;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
 using System.Collections;
 using System.Drawing;
 
-using PrizmMain.Common;
+using Prizm.Main.Common;
 using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Commands;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillPipeNewEditXtraForm : ChildForm
@@ -229,6 +229,9 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
             commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
 
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+
             SaveCommand = viewModel.SavePipeCommand;
         }
 
@@ -286,15 +289,17 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         {
             this.headerNumberPart = pipeNumber.Text;  // BEFORE set to viewModel
             viewModel.Number = pipeNumber.Text;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeCreationDate_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.ProductionDate = pipeCreationDate.DateTime;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -469,7 +474,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             if(viewModel.IsNotActive)
             {
                 viewModel.PipeDeactivationCommand.Execute();
-                IsEditMode = false;
+                IsEditMode = !viewModel.IsNotActive;
             }
         }
 
@@ -518,15 +523,16 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-            viewModel.SavePipeCommand.IsExecutable ^= true;
-            viewModel.NewSavePipeCommand.IsExecutable ^= true;
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void pipeSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBoxEdit cb = sender as ComboBoxEdit;
-            Domain.Entity.Setup.PipeMillSizeType currentPipeType
-                = cb.SelectedItem as Domain.Entity.Setup.PipeMillSizeType;
+            Prizm.Domain.Entity.Setup.PipeMillSizeType currentPipeType
+                = cb.SelectedItem as Prizm.Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
         }
 

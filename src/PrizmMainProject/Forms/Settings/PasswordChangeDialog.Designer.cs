@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Settings
+﻿namespace Prizm.Main.Forms.Settings
 {
    partial class PasswordChangeDialog
    {

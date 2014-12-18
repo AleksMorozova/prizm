@@ -1,19 +1,19 @@
 ﻿using System;
-using Data.DAL.Mill;
+using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System.ComponentModel;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using System.Collections.Generic;
 using DevExpress.XtraEditors;
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 using System.Windows.Forms;
-using Data.DAL;
-using PrizmMain.Documents;
+using Prizm.Data.DAL;
+using Prizm.Main.Documents;
 
-namespace PrizmMain.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
@@ -59,7 +59,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             get { return allPipes; }
         }
 
-        public Domain.Entity.Mill.Railcar Railcar { get; set; }
+        public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
 
         public string Number
         {
@@ -234,7 +234,7 @@ namespace PrizmMain.Forms.Railcar.NewEdit
         {
             if (Railcar == null)
             {
-                Railcar = new Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
+                Railcar = new Prizm.Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
             }
             Number = string.Empty;
             Destination = string.Empty;

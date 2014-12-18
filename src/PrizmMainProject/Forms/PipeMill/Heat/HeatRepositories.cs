@@ -1,5 +1,5 @@
-﻿using Data.DAL.Hibernate;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using NHibernate;
 using Ninject;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Heat
+namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public class HeatRepositories : IHeatRepositories
     {

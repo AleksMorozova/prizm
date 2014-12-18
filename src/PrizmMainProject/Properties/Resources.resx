@@ -269,7 +269,7 @@
     <value>Создание катушка</value>
   </data>
   <data name="Cut_Spool_from_pipe" xml:space="preserve">
-    <value>Отрезана катушка заданной длины</value>
+    <value> Отрезана катушка заданной длины</value>
   </data>
   <data name="PipeStatusComboUnactive" xml:space="preserve">
     <value>Деактивированные</value>
@@ -628,5 +628,8 @@
   </data>
   <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
     <value>Формат номера трубы: </value>
+  </data>
+  <data name="Wrong_Spool_Lengs" xml:space="preserve">
+    <value>Длинны трубы не достаточно для отрезания заданной катушки</value>
   </data>
 </root>

@@ -1,16 +1,16 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Purchase
+namespace Prizm.Main.Forms.PipeMill.Purchase
 {
     public class PurchaseOrderViewModel : ViewModelBase, IDisposable
     {

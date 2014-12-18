@@ -1,6 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
-using Domain.Entity.Mill;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
     public class ExtractCategoriesCommand : ICommand
     {

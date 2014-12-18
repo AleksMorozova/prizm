@@ -1,4 +1,4 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Domain.Entity.Mill;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using System.ComponentModel;
 using System.Windows.Forms;
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 
-namespace PrizmMain.Forms.PipeMill.Heat
+namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public class HeatViewModel : ViewModelBase, IDisposable
     {
@@ -38,7 +38,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
                 {
                     Heat = heat;
                     SetupManufacturers();
-                    heats = new List<Domain.Entity.Mill.Heat>() { heat };
+                    heats = new List<Prizm.Domain.Entity.Mill.Heat>() { heat };
                 }
                 else
                 {
@@ -49,8 +49,8 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
         #region Property
-        Domain.Entity.Mill.Heat heat;
-        public Domain.Entity.Mill.Heat Heat
+        Prizm.Domain.Entity.Mill.Heat heat;
+        public Prizm.Domain.Entity.Mill.Heat Heat
         {
             get { return heat; }
             set
@@ -99,8 +99,8 @@ namespace PrizmMain.Forms.PipeMill.Heat
             }
         }
 
-        IList<Domain.Entity.Mill.Heat> heats;
-        public IList<Domain.Entity.Mill.Heat> Heats
+        IList<Prizm.Domain.Entity.Mill.Heat> heats;
+        public IList<Prizm.Domain.Entity.Mill.Heat> Heats
         {
             get { return heats; }
         }
@@ -123,7 +123,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void SetupHeats()
         {
-            heats = new List<Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+            heats = new List<Prizm.Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
         }
 
         private void SetupManufacturers()
@@ -151,7 +151,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
                 return;
             }
             SetupManufacturers();
-            Heat = new Domain.Entity.Mill.Heat()
+            Heat = new Prizm.Domain.Entity.Mill.Heat()
             {
                 IsActive = true,
                 Number = number,
@@ -161,11 +161,11 @@ namespace PrizmMain.Forms.PipeMill.Heat
             };
 
 
-            heats = new List<Domain.Entity.Mill.Heat>() { Heat };
+            heats = new List<Prizm.Domain.Entity.Mill.Heat>() { Heat };
 
         }
 
-        internal Domain.Entity.Mill.Heat GetHeatByNumber(string number)
+        internal Prizm.Domain.Entity.Mill.Heat GetHeatByNumber(string number)
         {
             return repo.HeatRepo.GetByNumber(number);
         }

@@ -1,9 +1,9 @@
 ﻿using System;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Setup;
 using System.Collections.Generic;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 
-namespace Domain.Entity.Mill
+namespace Prizm.Domain.Entity.Mill
 {
     public class Pipe : Part
     {

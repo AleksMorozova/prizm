@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
    /// <summary>
-   /// Extensions for Item class. Methods cannot be added directly to <see cref="Domain.Entity.Item"/> class
+   /// Extensions for Item class. Methods cannot be added directly to <see cref="Prizm.Domain.Entity.Item"/> class
    /// because of Hibernate proxy generation mechanism.
    /// </summary>
    public static class ItemExtensions

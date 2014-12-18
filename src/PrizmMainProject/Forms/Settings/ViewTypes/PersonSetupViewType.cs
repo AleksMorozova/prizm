@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Settings.ViewTypes
+namespace Prizm.Main.Forms.Settings.ViewTypes
 {
    public abstract class PersonSetupViewType : INotifyPropertyChanged
    {

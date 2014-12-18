@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Construction
+namespace Prizm.Domain.Entity.Construction
 {
     public class InspectionTestResult : TestResult<PartInspectionStatus>
     {

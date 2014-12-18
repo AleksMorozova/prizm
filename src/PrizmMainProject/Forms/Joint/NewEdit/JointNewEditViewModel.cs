@@ -1,12 +1,12 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
-using Domain.Entity.Construction;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Setup;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Documents;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Documents;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +14,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using construction = Domain.Entity.Construction;
+using construction = Prizm.Domain.Entity.Construction;
 
-namespace PrizmMain.Forms.Joint.NewEdit
+namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private readonly IConstructionRepository repoConstruction;
-        private readonly Data.DAL.IMillReportsRepository adoRepo;
+        private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
         private readonly SaveJointCommand saveJointCommand;
         private readonly NewSaveJointCommand newSaveJointCommand;
@@ -39,7 +39,7 @@ namespace PrizmMain.Forms.Joint.NewEdit
         public IList<Welder> Welders { get; set; }
 
         [Inject]
-        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Data.DAL.IMillReportsRepository adoRepo)
+        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Prizm.Data.DAL.IMillReportsRepository adoRepo)
         {
             this.repoConstruction = repoConstruction;
             this.JointId = jointId;

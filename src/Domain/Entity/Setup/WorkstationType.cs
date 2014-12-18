@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity.Setup
+namespace Prizm.Domain.Entity.Setup
 {
     public enum WorkstationType
     {

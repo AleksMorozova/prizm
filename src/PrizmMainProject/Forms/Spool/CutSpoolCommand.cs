@@ -1,15 +1,15 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Spool
+namespace Prizm.Main.Forms.Spool
 {
     public class CutSpoolCommand : ICommand
     {
@@ -27,13 +27,20 @@ namespace PrizmMain.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repos.BeginTransaction();
-            repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-            repos.Commit();            
-            repos.PipeRepo.Evict(viewModel.Pipe);
-            repos.SpoolRepo.Evict(viewModel.Spool);
-            notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+            if (viewModel.canCut)
+            {
+                repos.BeginTransaction();
+                repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                repos.Commit();
+                repos.PipeRepo.Evict(viewModel.Pipe);
+                repos.SpoolRepo.Evict(viewModel.Spool);
+                notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+            }
+            else 
+            {
+                notify.ShowFailure(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
+            }
         }
 
 

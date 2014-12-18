@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
 
-namespace PrizmMain.Controls
+namespace Prizm.Main.Controls
 {
     public partial class InspectorSelectionControl : UserControl
     {

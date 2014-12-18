@@ -1,11 +1,11 @@
-﻿using PrizmMain.Properties;
+﻿using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Common
+namespace Prizm.Main.Common
 {
     /// <summary>
     /// Generic wrapper for Enum type which use embedded resources 

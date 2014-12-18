@@ -1,13 +1,13 @@
 ﻿using Moq;
 using NUnit.Framework;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Commands
+namespace Prizm.UnitTests.Commands
 {
    [TestFixture]
    public class CommandInfoTest

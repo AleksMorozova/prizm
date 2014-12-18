@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PrizmMain.DummyData
+namespace Prizm.Main.DummyData
 {
     public class RailcarsDummy
     {

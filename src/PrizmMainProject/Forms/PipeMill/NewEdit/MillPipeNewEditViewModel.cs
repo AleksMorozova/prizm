@@ -1,31 +1,31 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.POCO;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 using NHibernate.Criterion;
 using System.ComponentModel;
-using Domain.Entity;
-using PrizmMain.Properties;
-using PrizmMain.Common;
-using PrizmMain.Documents;
+using Prizm.Domain.Entity;
+using Prizm.Main.Properties;
+using Prizm.Main.Common;
+using Prizm.Main.Documents;
 
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private string mill;
         private readonly IMillRepository repoMill;
 
-        private IList<Domain.Entity.Mill.Heat> heats;
+        private IList<Prizm.Domain.Entity.Mill.Heat> heats;
         private IList<PurchaseOrder> purchaseOrders;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
@@ -217,7 +217,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             }
         }
 
-        public IList<Domain.Entity.Mill.Heat> Heats
+        public IList<Prizm.Domain.Entity.Mill.Heat> Heats
         {
             get { return heats; }
             set
@@ -458,7 +458,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
 
         #region Heat
 
-        public Domain.Entity.Mill.Heat Heat
+        public Prizm.Domain.Entity.Mill.Heat Heat
         {
             get { return Plate.Heat; }
             set
@@ -528,7 +528,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         #endregion
 
         #region Railcar
-        public Domain.Entity.Mill.Railcar Railcar
+        public Prizm.Domain.Entity.Mill.Railcar Railcar
         {
             get { return Pipe.Railcar; }
             set
@@ -734,7 +734,7 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
                     IsActive = true,
                     Status = PipeTestResultStatus.Scheduled,
                     Pipe = Pipe,
-                    Inspectors = new BindingList<Domain.Entity.Inspector>()
+                    Inspectors = new BindingList<Prizm.Domain.Entity.Inspector>()
                 };
                 requiredTestResults.Add(requiredResult);
                 requiredResult.Order++;

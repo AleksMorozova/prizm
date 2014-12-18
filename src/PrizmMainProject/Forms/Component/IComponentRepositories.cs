@@ -1,12 +1,12 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Mill;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Component
+namespace Prizm.Main.Forms.Component
 {
     public interface IComponentRepositories : IDisposable
     {

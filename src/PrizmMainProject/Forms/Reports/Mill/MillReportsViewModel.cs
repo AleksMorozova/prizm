@@ -1,9 +1,9 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +11,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.DAL.Mill;
-using PrizmMain.Properties;
-using PrizmMain.Common;
+using Prizm.Data.DAL.Mill;
+using Prizm.Main.Properties;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.Reports.Mill
+namespace Prizm.Main.Forms.Reports.Mill
 {
     public class MillReportsViewModel : ViewModelBase
     {
@@ -165,7 +165,7 @@ namespace PrizmMain.Forms.Reports.Mill
         {
             foreach (string status in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
-                if (status != Enum.GetName(typeof(PipeTestResultStatus), Domain.Entity.Mill.PipeTestResultStatus.Undef))
+                if (status != Enum.GetName(typeof(PipeTestResultStatus), Prizm.Domain.Entity.Mill.PipeTestResultStatus.Undef))
                 statuses.Add(new EnumWrapper<PipeTestResultStatus>()
                 {
                     Name = status

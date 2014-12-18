@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.MainChildForm;
 
-namespace PrizmMain.Forms.Reports.Custom
+namespace Prizm.Main.Forms.Reports.Custom
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class CustomReportsXtraForm : ChildForm
