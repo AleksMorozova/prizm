@@ -42,6 +42,7 @@ namespace Prizm.UnitTests.Forms.Spool
 
             var viewModel = new SpoolViewModel(
                 spoolRepos.Object,
+                Guid.Empty,
                 notify.Object);
 
             viewModel.Spool = spool;
