@@ -409,9 +409,8 @@ namespace Prizm.Main.Forms.MainChildForm
         private void StatusNotifyText(string s)
         {
             var main = Program.MainForm as PrizmApplicationXtraForm;
-            main.UpdateStatusBar(DateTime.Now.ToShortTimeString() + Resources.AlertSaveRailcar);
-            main.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s));
-
+            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s);
+            main.UpdateStatusBar(str);
         }
         #endregion
 
@@ -442,6 +441,12 @@ namespace Prizm.Main.Forms.MainChildForm
         public void UpdateStatusBar(string text) 
         {
             barStaticItem1.Caption = text;
+            notifyHistory.Items.Add(text);
+        }
+
+        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            flyoutPanel.ShowPopup();
         }
 
      
