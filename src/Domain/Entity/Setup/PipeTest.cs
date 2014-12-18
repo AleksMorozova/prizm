@@ -1,7 +1,7 @@
-﻿using Domain.Entity.Mill;
+﻿using Prizm.Domain.Entity.Mill;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Setup
+namespace Prizm.Domain.Entity.Setup
 {
     public class PipeTest : Item
     {
@@ -29,7 +29,6 @@ namespace Domain.Entity.Setup
         public PipeTest(string code, string subject, bool isRequired)
         {
             this.Code = code;
-            this.TestSubject = subject;
             this.IsRequired = isRequired;
             this.PipeTestResults = new List<PipeTestResult>();
         }
@@ -44,7 +43,6 @@ namespace Domain.Entity.Setup
 
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
-        public virtual string TestSubject { get; set; }
         public virtual int MinExpected { get; set; }
         public virtual int MaxExpected { get; set; }
         public virtual string StringExpected { get; set; }

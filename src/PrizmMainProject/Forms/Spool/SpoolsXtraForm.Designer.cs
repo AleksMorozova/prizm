@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Spool
+﻿namespace Prizm.Main.Forms.Spool
 {
     partial class SpoolsXtraForm
     {
@@ -265,6 +265,8 @@
             // 
             this.spoolLength.Location = new System.Drawing.Point(196, 246);
             this.spoolLength.Name = "spoolLength";
+            this.spoolLength.Properties.Mask.EditMask = "d";
+            this.spoolLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.spoolLength.Size = new System.Drawing.Size(120, 20);
             this.spoolLength.StyleController = this.mainLayoutControl;
             this.spoolLength.TabIndex = 16;
@@ -565,6 +567,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
             this.Text = "Создание катушки";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpoolsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.SpoolsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);

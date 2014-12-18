@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Joint.NewEdit
+﻿namespace Prizm.Main.Forms.Joint.NewEdit
 {
     partial class JointNewEditXtraForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -91,10 +92,10 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -346,6 +347,7 @@
             this.deactivated.Size = new System.Drawing.Size(131, 19);
             this.deactivated.StyleController = this.newJointLayoutControl;
             this.deactivated.TabIndex = 17;
+            this.deactivated.Modified += new System.EventHandler(this.deactivated_Modified);
             // 
             // distanceFromPK
             // 
@@ -933,6 +935,7 @@
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
             this.Text = "Стык";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();

@@ -1,5 +1,5 @@
-﻿using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+﻿using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class PipeTestMap : SubclassMap<PipeTest>
     {
@@ -15,7 +15,6 @@ namespace Data.DAL.Mapping
         {
             Map(_ => _.Code, "code");
             Map(_ => _.Name, "name");
-            Map(_ => _.TestSubject, "testSubject");
             Map(_ => _.ControlType, "controlType");       
             Map(_ => _.ResultType, "resultType");
             Map(_ => _.MinExpected, "minExpected");

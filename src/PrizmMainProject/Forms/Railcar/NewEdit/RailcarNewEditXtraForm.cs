@@ -6,16 +6,16 @@ using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
 
-using Domain.Entity.Mill;
-using Domain.Entity;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity;
+using Prizm.Main.Forms.MainChildForm;
 using System.Collections.Generic;
-using PrizmMain.Properties;
-using PrizmMain.Common;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Commands;
+using Prizm.Main.Properties;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarNewEditXtraForm : ChildForm
@@ -40,7 +40,6 @@ namespace PrizmMain.Forms.Railcar.NewEdit
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
-
         }
 
         public RailcarNewEditXtraForm()
@@ -135,8 +134,8 @@ namespace PrizmMain.Forms.Railcar.NewEdit
 
         private void ButtonRefresh()
         {
-            viewModel.ShipCommand.IsExecutable ^= true;
-            viewModel.UnshipCommand.IsExecutable ^= true;
+            commandManager["Ship"].RefreshState();
+            commandManager["Unship"].RefreshState();
         }
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)

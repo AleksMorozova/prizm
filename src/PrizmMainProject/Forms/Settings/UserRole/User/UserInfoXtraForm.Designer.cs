@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Settings.UserRole.User
+﻿namespace Prizm.Main.Forms.Settings.UserRole.User
 {
     partial class UserInfoXtraForm
     {
@@ -111,7 +111,7 @@
             // 
             // userBindingSource
             // 
-            this.userBindingSource.DataSource = typeof(PrizmMain.DummyData.User);
+            this.userBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
             // firstName
             // 

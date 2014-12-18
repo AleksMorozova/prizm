@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity.Construction
+namespace Prizm.Domain.Entity.Construction
 {
     public class Joint : Item
     {

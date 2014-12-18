@@ -4,22 +4,29 @@ using System.Windows.Forms;
 
 using Ninject;
 
-using Data.DAL.Hibernate;
+using Prizm.Data.DAL.Hibernate;
 
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Properties;
-using PrizmMain.Forms.Common;
-using PrizmMain.Security;
-using Data.DAL.Security;
-using Domain.Entity.Security;
-using Data.DAL;
-using PrizmMain.Forms.MainChildForm.FirstSetupForm;
 
-namespace PrizmMain
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Properties;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Security;
+using Prizm.Data.DAL.Security;
+using Prizm.Domain.Entity.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
+using Prizm.Main.Forms.Settings;
+
+
+namespace Prizm.Main
 {
     internal static class Program
     {
         public static IKernel Kernel { get; private set; }
+        /// <summary>
+        /// the months count of user password prolongation
+        /// </summary>
+        private const int monthsCountPasswordProlongation = 3;
 
         /// <summary>
         ///     The main entry point for the application.
@@ -41,7 +48,6 @@ namespace PrizmMain
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-
                 while(!CreateProject())
                 { }
                 
@@ -51,7 +57,8 @@ namespace PrizmMain
                     MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                Application.Run(new PrizmApplicationXtraForm());
+                mainForm = new PrizmApplicationXtraForm();
+                Application.Run(mainForm);
             }
             catch (Exception ex)
             {
@@ -86,16 +93,45 @@ namespace PrizmMain
 
               User user = new User() { IsActive = false, Login = "system" };
 
-              IUserRepository userRepo = Kernel.Get<IUserRepository>();
-              user = userRepo.FindByLogin(login);
 
-              if (user == null || !user.IsActive)
-                 return false;
+              IUserRepository userRepo;
+
+
+              using ( userRepo = Kernel.Get<IUserRepository>())
+              {
+                  user = userRepo.FindByLogin(login);
+
+                  if (user == null || !user.IsActive)
+                      return false;
+              }
+
+              userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
 
               string hash = PasswordEncryptor.EncryptPassword(password);
 
               if (user.PasswordHash != hash)
                  return false;
+
+              if (user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
+              {
+                  PasswordChangeDialog dlgPassChange = new PasswordChangeDialog();
+
+                  if (dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
+                      System.Windows.Forms.DialogResult.OK)
+                  {
+                      user.PasswordHash = dlgPassChange.NewPasswordHash;
+                      user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
+
+                      userRepo.BeginTransaction();
+                      userRepo.SaveOrUpdate(user);
+                      userRepo.Commit();
+                      userRepo.Evict(user);
+                  }
+                  else
+                  {
+                      return false;
+                  }
+              }
               
               ISecurityContext ctx = Kernel.Get<ISecurityContext>();
               ctx.LoggedUser = user;
@@ -118,13 +154,13 @@ namespace PrizmMain
 
             if(repo.GetSingle() == null)
             {
-                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
+                using (var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
                 {
-                        setupDialog.ShowDialog();
-                        if(setupDialog.DialogResult == DialogResult.Cancel)
-                        {
-                            System.Environment.Exit(0);
-                        }
+                    setupDialog.ShowDialog();
+                    if (setupDialog.DialogResult == DialogResult.Cancel)
+                    {
+                        System.Environment.Exit(0);
+                    }
                 }
             }
             else
@@ -134,5 +170,13 @@ namespace PrizmMain
 
             return result;
         }
+
+
+        //Global data
+        private static DevExpress.XtraEditors.XtraForm mainForm;
+        /// <summary>
+        /// Global access to main form need to update statusbar texts
+        /// </summary>
+        public static DevExpress.XtraEditors.XtraForm MainForm { get { return mainForm; } }
     }
 }

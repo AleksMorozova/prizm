@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 using FluentNHibernate.Mapping;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class PartMap : SubclassMap<Part>
     {

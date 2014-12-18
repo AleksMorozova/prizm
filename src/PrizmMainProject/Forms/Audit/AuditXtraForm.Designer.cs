@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Audit
+﻿namespace Prizm.Main.Forms.Audit
 {
     partial class AuditXtraForm
     {
@@ -379,6 +379,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuditXtraForm";
             this.Text = "AuditXtraForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();
             this.searchGroupLayout.ResumeLayout(false);

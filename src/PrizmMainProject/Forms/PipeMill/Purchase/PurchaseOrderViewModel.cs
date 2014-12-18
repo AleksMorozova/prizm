@@ -1,16 +1,16 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Purchase
+namespace Prizm.Main.Forms.PipeMill.Purchase
 {
     public class PurchaseOrderViewModel : ViewModelBase, IDisposable
     {
@@ -23,19 +23,27 @@ namespace PrizmMain.Forms.PipeMill.Purchase
         private PurchaseOrder order;
 
         [Inject]
-        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, Guid id, IUserNotify notify)
+        public PurchaseOrderViewModel(IPurchaseOrderRepository repo, string number, IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;
             saveCommand = ViewModelSource.Create(() => new SaveOrderCommand(repo, this, notify));
 
-            if (id == Guid.Empty)
+            if (string.IsNullOrWhiteSpace(number))
             {
-                NewOrder();
+                NewOrder(number);
             }
-            else
+            else 
             {
-                LoadOrder(id);
+                var ord = LoadOrder(number);
+                if(ord != null)
+                {
+                    order = ord;
+                }
+                else
+                {
+                    NewOrder(number);
+                }
             }
         }
 
@@ -86,14 +94,14 @@ namespace PrizmMain.Forms.PipeMill.Purchase
             get { return saveCommand; }
         }
 
-        private void LoadOrder(Guid id)
+        private PurchaseOrder LoadOrder(string number)
         {
-            order = repo.Get(id);
+            return repo.GetByNumber(number);
         }
 
-        private void NewOrder()
+        private void NewOrder(string number)
         {
-            order = new PurchaseOrder() { Number = string.Empty, Date = DateTime.Now, IsActive = true };
+            order = new PurchaseOrder() { Number = number, Date = DateTime.Now, IsActive = true };
         }
 
         public void Dispose()

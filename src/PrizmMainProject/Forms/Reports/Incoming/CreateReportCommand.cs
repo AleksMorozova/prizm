@@ -1,11 +1,11 @@
-﻿using Data.DAL;
-using Data.DAL.ADO;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.ADO;
 using DevExpress.DataAccess.Sql;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Reports.Incoming
+namespace Prizm.Main.Forms.Reports.Incoming
 {
     public class CreateReportCommand : ICommand
     {

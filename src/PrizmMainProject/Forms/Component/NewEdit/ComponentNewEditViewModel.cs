@@ -1,10 +1,10 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Documents;
+using Prizm.Main.Commands;
+using Prizm.Main.Documents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Component.NewEdit
+namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class ComponentNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
@@ -61,7 +61,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             }
         }
 
-        public Domain.Entity.Construction.Component Component { get; set; }
+        public Prizm.Domain.Entity.Construction.Component Component { get; set; }
 
         public bool CanDeactivateComponent
         {
@@ -143,11 +143,14 @@ namespace PrizmMain.Forms.Component.NewEdit
                 {
                     Component.Type = value;
                     Connectors.Clear();
-                    for (int i = 0; i < value.ConnectorsCount; ++i )
+                    if (value != null)
                     {
-                        Connectors.Add(new Connector());
+                        for (int i = 0; i < value.ConnectorsCount; ++i)
+                        {
+                            Connectors.Add(new Connector());
+                        }
+                        RaisePropertyChanged("Type");
                     }
-                    RaisePropertyChanged("Type");
                 }
             }
         }
@@ -252,7 +255,7 @@ namespace PrizmMain.Forms.Component.NewEdit
 
         public void NewComponent()
         {
-            this.Component = new Domain.Entity.Construction.Component();
+            this.Component = new Prizm.Domain.Entity.Construction.Component();
 
             this.Component.InspectionStatus = PartInspectionStatus.Pending;
             this.Component.ConstructionStatus = PartConstructionStatus.Pending;

@@ -1,11 +1,11 @@
-﻿using PrizmMain.Documents;
+﻿using Prizm.Main.Documents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms
+namespace Prizm.Main.Forms
 {
    public interface ISupportModifiableView
    {

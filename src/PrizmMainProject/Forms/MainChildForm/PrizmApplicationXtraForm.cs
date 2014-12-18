@@ -8,27 +8,28 @@ using DevExpress.XtraEditors;
 using Ninject.Parameters;
 using Ninject;
 
-using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Joint.NewEdit;
-using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.PipeMill.Search;
-using PrizmMain.Forms.Railcar.NewEdit;
-using PrizmMain.Forms.Railcar.Search;
-using PrizmMain.Forms.Reports.Construction;
-using PrizmMain.Forms.Reports.Incoming;
-using PrizmMain.Forms.Reports.Mill;
-using PrizmMain.Forms.Settings;
-using PrizmMain.Forms.Spool;
+using Prizm.Main.Forms.Component.NewEdit;
+using Prizm.Main.Forms.Joint.NewEdit;
+using Prizm.Main.Forms.Joint.Search;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.PipeMill.Search;
+using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.Reports.Construction;
+using Prizm.Main.Forms.Reports.Incoming;
+using Prizm.Main.Forms.Reports.Mill;
+using Prizm.Main.Forms.Settings;
+using Prizm.Main.Forms.Spool;
 
-using PrizmMain.Properties;
+using Prizm.Main.Properties;
 using DevExpress.XtraBars.Alerter;
-using PrizmMain.Forms.PipeMill.Heat;
-using PrizmMain.Forms.Audit;
-using PrizmMain.Forms.InspectionParts.Search;
-using PrizmMain.Forms.Common;
+using Prizm.Main.Forms.PipeMill.Heat;
+using Prizm.Main.Forms.Audit;
+using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Common;
+using PrizmMain.Forms.Notifications;
 
-namespace PrizmMain.Forms.MainChildForm
+namespace Prizm.Main.Forms.MainChildForm
 {
     public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify
     {
@@ -303,7 +304,12 @@ namespace PrizmMain.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        } 
+        }
+
+        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
+        }
         #endregion
 
 
@@ -378,9 +384,8 @@ namespace PrizmMain.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowSuccess(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header,text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+
         }
         /// <summary>
         /// Message about failure, that doesn't require user confirmation.
@@ -389,9 +394,7 @@ namespace PrizmMain.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowFailure(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader +" "+ header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
         }
         /// <summary>
         /// Informational message, that doesn't require user confirmation.
@@ -400,9 +403,14 @@ namespace PrizmMain.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowNotify(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+        }
+
+        private void StatusNotifyText(string s)
+        {
+            var main = Program.MainForm as PrizmApplicationXtraForm;
+            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s);
+            main.UpdateStatusBar(str);
         }
         #endregion
 
@@ -425,6 +433,21 @@ namespace PrizmMain.Forms.MainChildForm
             form.ShowDialog();
         }
 
+        private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void UpdateStatusBar(string text) 
+        {
+            barStaticItem1.Caption = text;
+            notifyHistory.Items.Add(text);
+        }
+
+        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            flyoutPanel.ShowPopup();
+        }
 
      
     }

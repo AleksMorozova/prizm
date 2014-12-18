@@ -1,11 +1,11 @@
-﻿using Domain.Entity.Security;
+﻿using Prizm.Domain.Entity.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Security
+namespace Prizm.Main.Security
 {
    public class SecurityContext : ISecurityContext
    {
@@ -17,7 +17,7 @@ namespace PrizmMain.Security
          return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
       }
 
-      public Domain.Entity.PersonName GetLoggedPerson()
+      public Prizm.Domain.Entity.PersonName GetLoggedPerson()
       {
          return loggedUser.Name;
       }

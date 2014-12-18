@@ -1,19 +1,19 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 using Ninject;
 using Ninject.Parameters;
-using PrizmMain.Commands;
-using PrizmMain.Common;
-using PrizmMain.DummyData;
-using PrizmMain.Forms.Joint.NewEdit;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Commands;
+using Prizm.Main.Common;
+using Prizm.Main.DummyData;
+using Prizm.Main.Forms.Joint.NewEdit;
+using Prizm.Main.Forms.MainChildForm;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.Joint.Search
+namespace Prizm.Main.Forms.Joint.Search
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class JointSearchXtraForm : ChildForm
@@ -112,6 +112,13 @@ namespace PrizmMain.Forms.Joint.Search
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
                 parent.CreateChildForm(typeof(JointNewEditXtraForm), new ConstructorArgument("jointId", id));
             }
+        }
+
+        private void JointSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Railcar.Search
+﻿namespace Prizm.Main.Forms.Railcar.Search
 {
     partial class RailcarSearchXtraForm
     {
@@ -429,7 +429,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RailcarSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "Поиск вагонов";
+            this.Text = "Поиск разрешений на отгрузку";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).EndInit();

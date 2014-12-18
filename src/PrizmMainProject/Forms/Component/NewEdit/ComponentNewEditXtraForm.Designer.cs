@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Component.NewEdit
+﻿namespace Prizm.Main.Forms.Component.NewEdit
 {
     partial class ComponentNewEditXtraForm
     {
@@ -547,6 +547,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ComponentNewEditXtraForm";
             this.Text = " Комлектующее изделие";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ComponentNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.ComponentNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).EndInit();

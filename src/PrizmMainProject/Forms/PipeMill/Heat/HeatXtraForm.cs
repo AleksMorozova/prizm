@@ -3,14 +3,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Ninject;
 using Ninject.Parameters;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.MainChildForm;
 using System.Linq;
 using System.Collections.Generic;
-using Domain.Entity.Mill;
-using PrizmMain.Common;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Common;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.PipeMill.Heat
+namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public partial class HeatXtraForm : XtraForm
     {
@@ -89,7 +89,7 @@ namespace PrizmMain.Forms.PipeMill.Heat
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            viewModel.CreateHeat();
+            viewModel.CreateHeat("");
             RefreshControls();
         }
 

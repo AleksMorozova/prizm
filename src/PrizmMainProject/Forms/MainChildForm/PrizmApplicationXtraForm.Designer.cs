@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.MainChildForm
+﻿namespace Prizm.Main.Forms.MainChildForm
 {
     partial class PrizmApplicationXtraForm
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
@@ -70,6 +71,7 @@
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonNotification = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -86,11 +88,19 @@
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
+            this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
+            this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
+            this.flyoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).BeginInit();
+            this.flyoutPanelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // bar2
@@ -157,9 +167,10 @@
             this.languageBarListItem,
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
-            this.barButtonItemHeat});
+            this.barButtonItemHeat,
+            this.barButtonNotification});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 59;
+            this.barManager1.MaxItemId = 60;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -223,6 +234,7 @@
             this.barButtonItemExit.Id = 31;
             this.barButtonItemExit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4));
             this.barButtonItemExit.Name = "barButtonItemExit";
+            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
             // 
             // barSubItemMill
             // 
@@ -253,7 +265,7 @@
             // 
             // barButtonItemNewRailcar
             // 
-            this.barButtonItemNewRailcar.Caption = "&Новый вагон";
+            this.barButtonItemNewRailcar.Caption = "&Разрешение на отгрузку";
             this.barButtonItemNewRailcar.Id = 37;
             this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
             this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
@@ -261,7 +273,7 @@
             // 
             // barButtonItemFindEditShipRailcars
             // 
-            this.barButtonItemFindEditShipRailcars.Caption = "Поиск &вагонов";
+            this.barButtonItemFindEditShipRailcars.Caption = "По&иск разрешений на отгрузку";
             this.barButtonItemFindEditShipRailcars.Id = 38;
             this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
             this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
@@ -478,7 +490,8 @@
             this.barStatus.DockRow = 0;
             this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barStaticItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonNotification)});
             this.barStatus.OptionsBar.AllowQuickCustomization = false;
             this.barStatus.OptionsBar.DisableClose = true;
             this.barStatus.OptionsBar.DisableCustomization = true;
@@ -489,37 +502,50 @@
             // barStaticItem1
             // 
             this.barStaticItem1.Caption = "Status text";
+            this.barStaticItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.Glyph")));
             this.barStaticItem1.Id = 6;
+            this.barStaticItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.LargeGlyph")));
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barStaticItem1_ItemClick);
+            // 
+            // barButtonNotification
+            // 
+            this.barButtonNotification.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonNotification.Caption = "Сообщения системы(3)";
+            this.barButtonNotification.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
+            this.barButtonNotification.Id = 59;
+            this.barButtonNotification.Name = "barButtonNotification";
+            this.barButtonNotification.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonNotification.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNotification_ItemClick);
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1276, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(1152, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 598);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1276, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1152, 27);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1276, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Location = new System.Drawing.Point(1152, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 574);
             // 
             // barButtonItemSettingsDictionaries
             // 
@@ -598,18 +624,57 @@
             // alertControl
             // 
             this.alertControl.AutoFormDelay = 5000;
+            this.alertControl.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.BottomLeft;
             this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
             this.alertControl.ShowPinButton = false;
+            // 
+            // flyoutPanel
+            // 
+            this.flyoutPanel.Controls.Add(this.flyoutPanelControl);
+            this.flyoutPanel.Location = new System.Drawing.Point(14, 385);
+            this.flyoutPanel.Name = "flyoutPanel";
+            this.flyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+            this.flyoutPanel.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
+            this.flyoutPanel.Options.CloseOnOuterClick = true;
+            this.flyoutPanel.OwnerControl = this.barDockControlBottom;
+            this.flyoutPanel.ParentForm = this;
+            this.flyoutPanel.Size = new System.Drawing.Size(574, 199);
+            this.flyoutPanel.TabIndex = 5;
+            // 
+            // flyoutPanelControl
+            // 
+            this.flyoutPanelControl.AutoSize = true;
+            this.flyoutPanelControl.Controls.Add(this.notifyHistory);
+            this.flyoutPanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flyoutPanelControl.FlyoutPanel = this.flyoutPanel;
+            this.flyoutPanelControl.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl.Name = "flyoutPanelControl";
+            this.flyoutPanelControl.Size = new System.Drawing.Size(574, 199);
+            this.flyoutPanelControl.TabIndex = 0;
+            // 
+            // notifyHistory
+            // 
+            this.notifyHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.notifyHistory.Location = new System.Drawing.Point(2, 2);
+            this.notifyHistory.Name = "notifyHistory";
+            this.notifyHistory.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.notifyHistory.Size = new System.Drawing.Size(570, 195);
+            this.notifyHistory.SortOrder = System.Windows.Forms.SortOrder.Descending;
+            this.notifyHistory.TabIndex = 0;
             // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 623);
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
+            this.ClientSize = new System.Drawing.Size(1152, 623);
+            this.Controls.Add(this.flyoutPanel);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
             this.Text = "[PRISM v.2]";
@@ -619,6 +684,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
+            this.flyoutPanel.ResumeLayout(false);
+            this.flyoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).EndInit();
+            this.flyoutPanelControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,6 +753,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsWelders;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsInspectors;
         private DevExpress.XtraBars.BarButtonItem barButtonItemHeat;
+        private DevExpress.XtraBars.BarButtonItem barButtonNotification;
+        private DevExpress.Utils.FlyoutPanel flyoutPanel;
+        private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
+        private DevExpress.XtraEditors.ListBoxControl notifyHistory;
 
 
 

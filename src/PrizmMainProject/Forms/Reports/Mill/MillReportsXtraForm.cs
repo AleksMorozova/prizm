@@ -5,19 +5,19 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
 
-using PrizmMain.DummyData;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.DummyData;
+using Prizm.Main.Forms.MainChildForm;
 using DevExpress.XtraReports.Parameters;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using System.Text;
 using DevExpress.XtraEditors.Controls;
-using PrizmMain.Common;
-using PrizmMain.Commands;
+using Prizm.Main.Common;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.Reports.Mill
+namespace Prizm.Main.Forms.Reports.Mill
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillReportsXtraForm : ChildForm
@@ -104,6 +104,10 @@ namespace PrizmMain.Forms.Reports.Mill
             viewModel.SearchStatuses = statusList;
         }
 
-
+        private void MillReportsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
+        }
     }
 }

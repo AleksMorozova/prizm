@@ -1,16 +1,16 @@
-﻿using Data.DAL.Construction;
+﻿using Prizm.Data.DAL.Construction;
 using DevExpress.Mvvm.DataAnnotations;
 using NHibernate.Criterion;
 using Ninject;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Construction = Domain.Entity.Construction;
+using Construction = Prizm.Domain.Entity.Construction;
 
-namespace PrizmMain.Forms.Joint.Search
+namespace Prizm.Main.Forms.Joint.Search
 {
     public class JointSearchCommand : ICommand
     {

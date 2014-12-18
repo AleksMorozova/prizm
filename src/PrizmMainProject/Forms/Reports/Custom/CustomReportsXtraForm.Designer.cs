@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Reports.Custom
+﻿namespace Prizm.Main.Forms.Reports.Custom
 {
     partial class CustomReportsXtraForm
     {

@@ -1,14 +1,14 @@
-﻿using Data.DAL.Mill;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Documents;
-using PrizmMain.Forms;
-using PrizmMain.Forms.Railcar;
-using PrizmMain.Forms.Railcar.NewEdit;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.Railcar;
+using Prizm.Main.Forms.Railcar.NewEdit;
 using System.Collections.Generic;
 
-namespace UnitTests.Forms.Railcar.Edit
+namespace Prizm.UnitTests.Forms.Railcar.Edit
 {
     [TestFixture]
     public class SaveRailcarCommandTest

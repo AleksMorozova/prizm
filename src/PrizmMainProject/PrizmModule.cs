@@ -1,38 +1,38 @@
-﻿using Data.DAL.Hibernate;
-using Data.DAL.Mill;
-using Data.DAL.Setup;
-using Data.DAL;
+﻿using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL;
 using NHibernate;
 using Ninject.Modules;
-using PrizmMain.Forms.PipeMill.Search;
-using PrizmMain.Forms.Component.NewEdit;
-using PrizmMain.Forms.Joint.NewEdit;
-using PrizmMain.Forms.Joint.Search;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Forms.Railcar.NewEdit;
-using PrizmMain.Forms.Railcar.Search;
-using PrizmMain.Forms.Reports.Construction;
-using PrizmMain.Forms.Reports.Incoming;
-using PrizmMain.Forms.Reports.Mill;
-using PrizmMain.Forms.Settings;
-using PrizmMain.Forms.Spool;
-using PrizmMain.Forms;
-using PrizmMain.Forms.PipeMill.Heat;
-using PrizmMain.Forms.Railcar;
-using PrizmMain.Forms.PipeMill;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Forms.PipeMill.Purchase;
-using Data.DAL.ADO;
-using Data.DAL.Security;
-using PrizmMain.Forms.Audit;
-using PrizmMain.Security;
-using PrizmMain.Forms.Component;
-using PrizmMain.Forms.Joint;
-using Data.DAL.Construction;
-using PrizmMain.Forms.InspectionParts.Search;
-using PrizmMain.Forms.MainChildForm.FirstSetupForm;
+using Prizm.Main.Forms.PipeMill.Search;
+using Prizm.Main.Forms.Component.NewEdit;
+using Prizm.Main.Forms.Joint.NewEdit;
+using Prizm.Main.Forms.Joint.Search;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.Reports.Construction;
+using Prizm.Main.Forms.Reports.Incoming;
+using Prizm.Main.Forms.Reports.Mill;
+using Prizm.Main.Forms.Settings;
+using Prizm.Main.Forms.Spool;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.PipeMill.Heat;
+using Prizm.Main.Forms.Railcar;
+using Prizm.Main.Forms.PipeMill;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.PipeMill.Purchase;
+using Prizm.Data.DAL.ADO;
+using Prizm.Data.DAL.Security;
+using Prizm.Main.Forms.Audit;
+using Prizm.Main.Security;
+using Prizm.Main.Forms.Component;
+using Prizm.Main.Forms.Joint;
+using Prizm.Data.DAL.Construction;
+using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 
-namespace PrizmMain
+namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
     {
@@ -77,7 +77,7 @@ namespace PrizmMain
             Bind<IJointWeldResultRepository>().To<JointWeldResultRepository>();
             Bind<IInspectorRepository>().To<InspectorRepository>();
             // TODO: remove TemporaryContext after binding to real context.
-            Bind<PrizmMain.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
+            Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
             #endregion
 

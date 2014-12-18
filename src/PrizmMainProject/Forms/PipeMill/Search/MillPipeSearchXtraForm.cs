@@ -1,16 +1,16 @@
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 using Ninject.Parameters;
-using PrizmMain.Commands;
-using PrizmMain.Common;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Forms.PipeMill.NewEdit;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace PrizmMain.Forms.PipeMill.Search
+namespace Prizm.Main.Forms.PipeMill.Search
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class MillPipeSearchXtraForm : ChildForm
@@ -111,6 +111,13 @@ namespace PrizmMain.Forms.PipeMill.Search
                     viewModel.CheckedStatusTypes.Add(pipeMillStatus.Properties.Items[i].Value as EnumWrapper<PipeMillStatus>);
                 }
             }
+        }
+
+        private void MillPipeSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
         }
     }
 }

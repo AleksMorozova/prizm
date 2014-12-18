@@ -7,7 +7,7 @@
     <ProjectGuid>{843DA113-0EE6-4DA3-A182-008B3BD09199}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
+    <RootNamespace>Prizm.Data</RootNamespace>
     <AssemblyName>Prizm.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -62,7 +62,6 @@
     <Compile Include="DAL\Construction\IJointTestResultRepository.cs" />
     <Compile Include="DAL\Construction\ISpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
-    <Compile Include="DAL\Hibernate\ChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
     <Compile Include="DAL\Hibernate\AuditLogRepository.cs" />
     <Compile Include="DAL\Hibernate\CategoryRepository.cs" />
@@ -77,7 +76,6 @@
     <Compile Include="DAL\Hibernate\JointTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\PermissionRepository.cs" />
-    <Compile Include="DAL\Hibernate\PhysicalParametersRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestResultRepository.cs" />
@@ -97,7 +95,6 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\CategoryMap.cs" />
-    <Compile Include="DAL\Mapping\ChemicalCompositionMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
     <Compile Include="DAL\Mapping\ComponentMap.cs" />
     <Compile Include="DAL\Mapping\ComponentTypeMap.cs" />
@@ -114,7 +111,6 @@
     <Compile Include="DAL\Mapping\JointWeldResultMap.cs" />
     <Compile Include="DAL\Mapping\MillMap.cs" />
     <Compile Include="DAL\Mapping\PermissionMap.cs" />
-    <Compile Include="DAL\Mapping\PhysicalParametersMap.cs" />
     <Compile Include="DAL\Mapping\PartMap.cs" />
     <Compile Include="DAL\Mapping\PipeMap.cs" />
     <Compile Include="DAL\Mapping\PipeMillSizeTypeMap.cs" />
@@ -130,10 +126,8 @@
     <Compile Include="DAL\Mapping\UserMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
-    <Compile Include="DAL\Mill\IChemicalCompositionRepository.cs" />
     <Compile Include="DAL\Mill\IHeatRepository.cs" />
     <Compile Include="DAL\Mill\IInspectorRepository.cs" />
-    <Compile Include="DAL\Mill\IPhysicalParametersRepository.cs" />
     <Compile Include="DAL\Mill\IPipeRepository.cs" />
     <Compile Include="DAL\Mill\IPipeTestResultRepository.cs" />
     <Compile Include="DAL\Mill\IPlateManufacturerRepository.cs" />

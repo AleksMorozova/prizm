@@ -1,15 +1,3 @@
-/****** Object:  Table [dbo].[ChemicalComposition]    Script Date: 11/4/2014 4:35:49 PM ******/
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-CREATE TABLE [dbo].[ChemicalComposition](
-	[id] [uniqueidentifier] NOT NULL,
-
-	[isActive] [bit] NULL,
- CONSTRAINT [PK_chemicalComposition] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
 /****** Object:  Table [dbo].[Category]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +114,6 @@ CREATE TABLE [dbo].[Heat](
 	[number] [nvarchar](20) NULL,
 	[steelGrade] [nvarchar](20) NULL,
 	[plateManufacturer] [uniqueidentifier] NULL,
-	[chemicalCompositionId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_heat] PRIMARY KEY CLUSTERED 
@@ -189,7 +176,6 @@ CREATE TABLE [dbo].[Pipe](
 	[purchaseOrderId] [uniqueidentifier] NULL,
 	[railcarId] [uniqueidentifier] NULL,
 	[productionDate][date] NULL,
-	[chemicalCompositionId] [uniqueidentifier] NULL,
 
 	[length] [int] NULL,
 	[number] [nvarchar](20) NULL,
@@ -228,7 +214,6 @@ CREATE TABLE [dbo].[PipeTest](
 	[id] [uniqueidentifier] NOT NULL,
 	[code] [nvarchar](20) NULL,
 	[name] [nvarchar](50) NULL,
-	[testSubject] [nvarchar](300) NULL,
 	[controlType] [nvarchar](15) NULL,
 	[resultType] [nvarchar](10) NULL,
 	[minExpected] [decimal](10, 2) NULL,
@@ -296,7 +281,6 @@ CREATE TABLE [dbo].[Plate](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [nvarchar](20) NULL,
 	[thickness] [int] NULL,
-	[chemicalCompositionId] [uniqueidentifier] NULL,
 	[heatId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
@@ -505,12 +489,6 @@ ALTER TABLE [dbo].[PipeTest]  WITH CHECK ADD  CONSTRAINT [FK_PipeTest_Category] 
 REFERENCES [dbo].[Category] ([id])
 ALTER TABLE [dbo].[PipeTest] CHECK CONSTRAINT [FK_PipeTest_Category]
 
-ALTER TABLE [dbo].[Heat]  WITH CHECK ADD  CONSTRAINT [FK_heat_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[ChemicalComposition] ([id])
-ALTER TABLE [dbo].[Heat] CHECK CONSTRAINT [FK_heat_chemicalComposition]
-ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[ChemicalComposition] ([id])
-ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_chemicalComposition]
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PipeMillSizeType] FOREIGN KEY([typeId])
 REFERENCES [dbo].[PipeMillSizeType] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PipeMillSizeType]
@@ -534,9 +512,7 @@ ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_PipeTest]
 ALTER TABLE [dbo].[PipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_PipeTestResult_TestResult] FOREIGN KEY([testResultId])
 REFERENCES [dbo].[TestResult] ([id])
 ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_TestResult]
-ALTER TABLE [dbo].[Plate]  WITH CHECK ADD  CONSTRAINT [FK_Plate_chemicalComposition] FOREIGN KEY([chemicalCompositionId])
-REFERENCES [dbo].[ChemicalComposition] ([id])
-ALTER TABLE [dbo].[Plate] CHECK CONSTRAINT [FK_Plate_chemicalComposition]
+
 ALTER TABLE [dbo].[Plate]  WITH CHECK ADD  CONSTRAINT [FK_Plate_heat] FOREIGN KEY([heatId])
 REFERENCES [dbo].[Heat] ([id])
 ALTER TABLE [dbo].[Plate] CHECK CONSTRAINT [FK_Plate_heat]
@@ -594,6 +570,7 @@ CREATE TABLE [dbo].[User] (
   [lastName] [nvarchar](30) NULL,
   [middleName] [nvarchar](30) NULL,
   [isActive] [bit] NOT NULL,
+  [undeletable] [bit] NOT NULL,
   PRIMARY KEY(id)
 ) ON [PRIMARY]
 

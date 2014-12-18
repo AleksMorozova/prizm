@@ -2,15 +2,15 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Common;
 using System.Windows.Forms;
-using PrizmMain.Forms.Common;
+using Prizm.Main.Forms.Common;
 using System.ComponentModel;
-using Domain.Entity.Construction;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.Reports.Construction
+namespace Prizm.Main.Forms.Reports.Construction
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ConstructionReportsXtraForm : ChildForm
@@ -125,6 +125,12 @@ namespace PrizmMain.Forms.Reports.Construction
         private void previewButton_Click(object sender, EventArgs e)
         {
             RefreshTypes();
+        }
+
+        private void ConstructionReportsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
         }
     }
 }

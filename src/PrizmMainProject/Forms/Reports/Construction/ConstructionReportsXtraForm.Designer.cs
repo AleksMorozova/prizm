@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Reports.Construction
+﻿namespace Prizm.Main.Forms.Reports.Construction
 {
     partial class ConstructionReportsXtraForm
     {
@@ -399,6 +399,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
             this.Text = "Строительство - отчет";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConstructionReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.ConstructionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();

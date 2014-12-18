@@ -1,13 +1,14 @@
-﻿using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class ExtractPurchaseOrderCommand : ICommand
     {
@@ -26,6 +27,10 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
         public void Execute()
         {
             viewModel.PurchaseOrders = repo.GetAll();
+            if(viewModel.PurchaseOrders == null)
+            {
+                viewModel.PurchaseOrders = new List<PurchaseOrder>();
+            }
         }
 
         public bool CanExecute()

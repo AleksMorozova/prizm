@@ -1,27 +1,29 @@
-﻿using Data.DAL.Construction;
+﻿using Prizm.Data.DAL.Construction;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity.Construction;
+using Prizm.Domain.Entity.Construction;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Common;
+using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Construction = Domain.Entity.Construction;
+using Construction = Prizm.Domain.Entity.Construction;
 
-namespace PrizmMain.Forms.Joint.Search
+namespace Prizm.Main.Forms.Joint.Search
 {
-    public class JointSearchViewModel : ViewModelBase
+    public class JointSearchViewModel : ViewModelBase, IDisposable
     {
         private readonly JointSearchCommand searchCommand;
+        private readonly IJointRepository repo;
 
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
+            this.repo = repo;
             searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
         }
 
@@ -114,6 +116,11 @@ namespace PrizmMain.Forms.Joint.Search
         public ICommand SearchCommand
         {
             get { return searchCommand; }
+        }
+
+        public void Dispose()
+        {
+            repo.Dispose();
         }
     }
 }

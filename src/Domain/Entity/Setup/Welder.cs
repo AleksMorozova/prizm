@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Domain.Entity.Mill;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Domain.Entity.Setup;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     public class Welder : Item
     {
@@ -17,5 +17,14 @@ namespace Domain.Entity
         public virtual string Stamp { get; set; }
         public virtual int Grade { get; set; }
         public virtual IList<Weld> Welds { get; set; }
+
+        public virtual void CheckExpirationDate() 
+        {
+            if (Certificate.ExpirationDate < DateTime.Now.Date) 
+            {
+                this.IsActive = false;
+            }
+
+        }
     }
 }

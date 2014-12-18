@@ -1,4 +1,4 @@
-﻿using Domain.Entity;
+﻿using Prizm.Domain.Entity;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class ItemMap : ClassMap<Item>
     {

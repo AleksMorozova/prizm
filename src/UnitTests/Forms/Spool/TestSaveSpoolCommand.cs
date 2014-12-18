@@ -1,17 +1,17 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Mill;
 using Moq;
 using NUnit.Framework;
-using PrizmMain.Documents;
-using PrizmMain.Forms;
-using PrizmMain.Forms.Spool;
+using Prizm.Main.Documents;
+using Prizm.Main.Forms;
+using Prizm.Main.Forms.Spool;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Forms.Spool
+namespace Prizm.UnitTests.Forms.Spool
 {
     [TestFixture]
     class TestSaveSpoolCommand
@@ -26,9 +26,9 @@ namespace UnitTests.Forms.Spool
             var pipeRepo = new Mock<IPipeRepository>();
             var inspectorRepo = new Mock<IInspectorRepository>();
 
-            var spool = new Domain.Entity.Construction.Spool();
+            var spool = new Prizm.Domain.Entity.Construction.Spool();
 
-            spoolRepo.Setup(x => x.GetAvailablePipes()).Returns(new List<Domain.Entity.Mill.Pipe>());
+            spoolRepo.Setup(x => x.GetAvailablePipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
 
             var spoolRepos = new Mock<ISpoolRepositories>();
 
@@ -42,6 +42,7 @@ namespace UnitTests.Forms.Spool
 
             var viewModel = new SpoolViewModel(
                 spoolRepos.Object,
+                Guid.Empty,
                 notify.Object);
 
             viewModel.Spool = spool;
@@ -55,9 +56,9 @@ namespace UnitTests.Forms.Spool
             command.Execute();
 
             spoolRepos.Verify(_ => _.BeginTransaction(), Times.Once());
-            spoolRepo.Verify(_ => _.SaveOrUpdate(It.IsAny<Domain.Entity.Construction.Spool>()), Times.Once());
+            spoolRepo.Verify(_ => _.SaveOrUpdate(It.IsAny<Prizm.Domain.Entity.Construction.Spool>()), Times.Once());
             spoolRepos.Verify(_ => _.Commit(), Times.Once());
-            spoolRepo.Verify(_ => _.Evict(It.IsAny<Domain.Entity.Construction.Spool>()), Times.Once());
+            spoolRepo.Verify(_ => _.Evict(It.IsAny<Prizm.Domain.Entity.Construction.Spool>()), Times.Once());
         }
     }
 }

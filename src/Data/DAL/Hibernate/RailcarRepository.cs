@@ -1,11 +1,11 @@
 ﻿using System;
-using Data.DAL.Mill;
-using Domain.Entity.Mill;
+using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Mill;
 using NHibernate;
 using Ninject;
 using NHibernate.Exceptions;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class RailcarRepository : AbstractHibernateRepository<Guid, Railcar>, IRailcarRepository
     {

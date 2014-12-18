@@ -1,8 +1,8 @@
-﻿using Domain.Entity.Construction;
+﻿using Prizm.Domain.Entity.Construction;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     // TODO: Part 
     public class Part : Item

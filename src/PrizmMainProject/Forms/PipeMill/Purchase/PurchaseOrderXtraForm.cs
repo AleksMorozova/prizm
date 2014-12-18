@@ -8,28 +8,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Domain.Entity.Mill;
-using PrizmMain.Forms.PipeMill.Purchase;
+using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Forms.PipeMill.Purchase;
 using Ninject;
 using Ninject.Parameters;
-using PrizmMain.Common;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.PipeMill
+namespace Prizm.Main.Forms.PipeMill
 {
     public partial class PurchaseOrderXtraForm : DevExpress.XtraEditors.XtraForm
     {
         PurchaseOrderViewModel viewModel;
 
         public PurchaseOrderXtraForm()
-            : this(Guid.Empty)
+            : this(string.Empty)
         {
 
         }
-        public PurchaseOrderXtraForm(Guid id)
+        public PurchaseOrderXtraForm(string nmb)
         {
             InitializeComponent();
             SetControlsTextLength();
-            viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("id", id));
+            viewModel = (PurchaseOrderViewModel)Program.Kernel.Get<PurchaseOrderViewModel>(new ConstructorArgument("number", nmb));
             number.SetAsIdentifier();
         }
 
@@ -63,6 +63,12 @@ namespace PrizmMain.Forms.PipeMill
         private void SetControlsTextLength()
         {
             number.Properties.MaxLength = LengthLimit.MaxPurchaseOrderNumber;
+        }
+
+        private void PurchaseOrderXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+            viewModel = null;
         }
     }
 }

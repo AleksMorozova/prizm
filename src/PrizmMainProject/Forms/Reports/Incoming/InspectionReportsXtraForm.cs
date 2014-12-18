@@ -1,9 +1,9 @@
 ﻿using DevExpress.XtraEditors;
-using PrizmMain.Commands;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Commands;
+using Prizm.Main.Forms.MainChildForm;
 using System;
 
-namespace PrizmMain.Forms.Reports.Incoming
+namespace Prizm.Main.Forms.Reports.Incoming
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class InspectionReportsXtraForm : ChildForm
@@ -36,6 +36,12 @@ namespace PrizmMain.Forms.Reports.Incoming
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
+        }
+
+        private void InspectionReportsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
         }
     }
 }

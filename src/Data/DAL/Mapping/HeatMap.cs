@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using FluentNHibernate.Mapping;
 
-namespace Data.DAL.Mapping
+namespace Prizm.Data.DAL.Mapping
 {
     public class HeatMap: SubclassMap<Heat>
     {
@@ -17,10 +17,6 @@ namespace Data.DAL.Mapping
             References(x => x.PlateManufacturer).Column("plateManufacturer").Cascade.All();
 
             HasMany(x => x.Plates).KeyColumn("heatId");
-            //HasMany(x => x.ChemicalComposition).KeyColumn("heatId");
-            //HasMany(x => x.PhysicalParameters).KeyColumn("heatId");
-
-
         }
     }
 }

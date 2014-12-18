@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.Reports.Mill
+﻿namespace Prizm.Main.Forms.Reports.Mill
 {
     partial class MillReportsXtraForm
     {
@@ -465,6 +465,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MillReportsXtraForm";
             this.Text = "Отчет";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.MillReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).EndInit();
             this.generalReportLayout.ResumeLayout(false);

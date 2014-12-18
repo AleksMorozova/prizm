@@ -1,8 +1,8 @@
 ﻿using System;
-using Domain.Entity.Mill;
+using Prizm.Domain.Entity.Mill;
 using NHibernate;
 
-namespace Data.DAL.Mill
+namespace Prizm.Data.DAL.Mill
 {
     public interface IRailcarRepository : IRepository<Guid, Railcar>
     {

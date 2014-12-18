@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.XtraEditors;
 
-namespace PrizmMain.Common
+namespace Prizm.Main.Common
 {
     static class ControlMaskExtensions
     {
@@ -19,6 +19,7 @@ namespace PrizmMain.Common
             if (!string.IsNullOrEmpty(regExpMask))
             {
                 edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                edit.Properties.Mask.EditMask = regExpMask;
                 edit.Properties.Mask.ShowPlaceHolders = false;
             }
         }

@@ -1,13 +1,13 @@
-﻿using Data.DAL;
-using Data.DAL.Security;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Security;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
-using Domain.Entity.Security;
-using Domain.Entity.Setup;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Security;
+using Prizm.Domain.Entity.Setup;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Common;
+using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
+namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupViewModel : ViewModelBase, IDisposable
     {
@@ -49,7 +49,7 @@ namespace PrizmMain.Forms.MainChildForm.FirstSetupForm
         public BindingList<EnumWrapper<WorkstationType>> Types = new BindingList<EnumWrapper<WorkstationType>>();
 
         private Project project = new Project();
-        private User admin = new User();
+        private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
 
         #region BindingFields
