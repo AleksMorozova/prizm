@@ -1,20 +1,20 @@
 ﻿using DevExpress.XtraEditors;
 using Ninject.Parameters;
 using Ninject;
-using PrizmMain.Forms.ExternalFile;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Forms.MainChildForm;
 using System;
-using PrizmMain.Common;
-using Domain.Entity.Construction;
+using Prizm.Main.Common;
+using Prizm.Domain.Entity.Construction;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Collections.Generic;
-using PrizmMain.Properties;
-using PrizmMain.Controls;
+using Prizm.Main.Properties;
+using Prizm.Main.Controls;
 using System.Windows.Forms;
-using Domain.Entity;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity;
+using Prizm.Main.Commands;
 
-namespace PrizmMain.Forms.Component.NewEdit
+namespace Prizm.Main.Forms.Component.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ComponentNewEditXtraForm : ChildForm
@@ -75,7 +75,7 @@ namespace PrizmMain.Forms.Component.NewEdit
                 type.Properties.Items.Add(t);
             }
 
-            #region   ---- Data Bindings ----
+            #region   ---- Prizm.Data Bindings ----
             componentNumber.DataBindings
                 .Add("EditValue", componentBindingSource, "Number");
 
@@ -124,6 +124,10 @@ namespace PrizmMain.Forms.Component.NewEdit
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
             commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
 
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
+
+
             SaveCommand = viewModel.SaveCommand;
         }
 
@@ -131,16 +135,18 @@ namespace PrizmMain.Forms.Component.NewEdit
         {
             this.headerNumberPart = componentNumber.Text;
             viewModel.Number = componentNumber.Text;
-            viewModel.SaveCommand.IsExecutable ^= true;
-            viewModel.NewSaveCommand.IsExecutable ^= true;
+
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void type_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.Type = type.SelectedItem as ComponentType;
-            viewModel.SaveCommand.IsExecutable ^= true;
-            viewModel.NewSaveCommand.IsExecutable ^= true;
             componentParameters.RefreshDataSource();
+
+            commandManager["NewSave"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
 
         private void componentDeactivated_Modified(object sender, EventArgs e)
@@ -150,7 +156,7 @@ namespace PrizmMain.Forms.Component.NewEdit
             if (viewModel.IsNotActive)
             {
                 viewModel.DeactivationCommand.Execute();
-                IsEditMode = false;
+                IsEditMode = !viewModel.IsNotActive;
             }
         }
 

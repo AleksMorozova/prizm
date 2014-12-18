@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Commands
+namespace Prizm.Main.Commands
 {
    public class CommandInfo : IDisposable
    {

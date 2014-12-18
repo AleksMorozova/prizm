@@ -1,6 +1,6 @@
-﻿using Data.DAL;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+﻿using Prizm.Data.DAL;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Reports.Mill
+namespace Prizm.Main.Forms.Reports.Mill
 {
     public class PreviewReportCommand: ICommand
     {

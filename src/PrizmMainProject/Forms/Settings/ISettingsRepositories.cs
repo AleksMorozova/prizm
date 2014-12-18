@@ -1,14 +1,14 @@
-﻿using Data.DAL.Mill;
-using Data.DAL.Setup;
-using Data.DAL;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.DAL.Security;
+using Prizm.Data.DAL.Security;
 
-namespace PrizmMain.Forms.Settings
+namespace Prizm.Main.Forms.Settings
 {
    public interface ISettingsRepositories : IDisposable
    {

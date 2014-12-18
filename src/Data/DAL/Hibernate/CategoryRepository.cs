@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Ninject;
 using NHibernate;
-using Data.DAL.Mill;
-using Domain.Entity.Mill;
+using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity.Mill;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class CategoryRepository: AbstractHibernateRepository<Guid, Category>, ICategoryRepository
     {

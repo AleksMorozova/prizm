@@ -1,6 +1,6 @@
-﻿using Data.DAL.Mill;
-using Domain.Entity;
-using Domain.Entity.Mill;
+﻿using Prizm.Data.DAL.Mill;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using NHibernate;
 using NHibernate.Exceptions;
 using Ninject;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public class PipeRepository : AbstractHibernateRepository<Guid, Pipe>, IPipeRepository
     {

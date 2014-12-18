@@ -2,7 +2,7 @@
 using NHibernate.Exceptions;
 using System.Collections.Generic;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     public abstract class AbstractHibernateRepository<TKey, TEntity> : IRepository<TKey, TEntity>
         where TEntity : class

@@ -1,12 +1,12 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
-using PrizmMain.Commands;
+using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.NewEdit
+namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class GetPipeCommand: ICommand
     {
@@ -30,11 +30,11 @@ namespace PrizmMain.Forms.PipeMill.NewEdit
             // Perhaps this problem can be solved by entities mapping.
             if (viewModel.Pipe.Coats.Count == 0)
             {
-                viewModel.Pipe.Coats = new List<Domain.Entity.Mill.Coat>();
+                viewModel.Pipe.Coats = new List<Prizm.Domain.Entity.Mill.Coat>();
             }
             if (viewModel.Pipe.Welds.Count == 0)
             {
-                viewModel.Pipe.Welds = new List<Domain.Entity.Mill.Weld>();
+                viewModel.Pipe.Welds = new List<Prizm.Domain.Entity.Mill.Weld>();
             }
         }
 

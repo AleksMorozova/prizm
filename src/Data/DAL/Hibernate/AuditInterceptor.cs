@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using Ninject;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
-namespace Data.DAL.Hibernate
+namespace Prizm.Data.DAL.Hibernate
 {
     [Serializable]
     public class AuditInterceptor : EmptyInterceptor

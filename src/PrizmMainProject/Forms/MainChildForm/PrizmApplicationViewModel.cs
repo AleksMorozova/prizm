@@ -1,17 +1,17 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Ninject;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 
-using Domain.Entity.Setup;
-using PrizmMain.Common;
-using PrizmMain.Forms.MainChildForm.FirstSetupForm;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 
-namespace PrizmMain.Forms.MainChildForm
+namespace Prizm.Main.Forms.MainChildForm
 {
     public class PrizmApplicationViewModel : ViewModelBase, IDisposable
     {

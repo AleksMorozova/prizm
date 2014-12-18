@@ -1,6 +1,6 @@
-﻿using Data.DAL.Construction;
-using Data.DAL.Hibernate;
-using Data.DAL.Mill;
+﻿using Prizm.Data.DAL.Construction;
+using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using NHibernate;
 using Ninject;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.Spool
+namespace Prizm.Main.Forms.Spool
 {
     public class SpoolRepositories : ISpoolRepositories
     {

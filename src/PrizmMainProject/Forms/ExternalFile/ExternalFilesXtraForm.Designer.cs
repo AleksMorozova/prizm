@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.ExternalFile
+﻿namespace Prizm.Main.Forms.ExternalFile
 {
     partial class ExternalFilesXtraForm
     {

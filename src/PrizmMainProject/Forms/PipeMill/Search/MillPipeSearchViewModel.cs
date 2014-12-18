@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.PipeMill.Search
+namespace Prizm.Main.Forms.PipeMill.Search
 {
     using DevExpress.Mvvm;
     using DevExpress.Mvvm.DataAnnotations;
     using DevExpress.Mvvm.POCO;
     using Ninject;
-    using PrizmMain.Commands;
+    using Prizm.Main.Commands;
     using System;
     using System.Windows.Forms;
-    using Data.DAL.Mill;
-    using Domain.Entity.Mill;
-    using PrizmMain.Common;
-    using Data.DAL.Setup;
-    using Domain.Entity.Setup;
-using PrizmMain.Properties;
+    using Prizm.Data.DAL.Mill;
+    using Prizm.Domain.Entity.Mill;
+    using Prizm.Main.Common;
+    using Prizm.Data.DAL.Setup;
+    using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Properties;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
@@ -181,7 +181,7 @@ using PrizmMain.Properties;
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
-                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Domain.Entity.Mill.PipeMillStatus.Undefined))
+                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Prizm.Domain.Entity.Mill.PipeMillStatus.Undefined))
                 {
                     StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                     CheckedStatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });

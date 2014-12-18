@@ -2,8 +2,8 @@
 using NHibernate;
 using NHibernate.Type;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Common;
+using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizmMain.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.InspectionParts.Search
 {
     public class PartsSearchCommand : ICommand
     {

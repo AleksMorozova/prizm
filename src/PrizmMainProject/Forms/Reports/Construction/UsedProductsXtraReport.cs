@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace PrizmMain.Forms.Reports.Construction
+namespace Prizm.Main.Forms.Reports.Construction
 {
     public partial class UsedProductsXtraReport : DevExpress.XtraReports.UI.XtraReport
     {

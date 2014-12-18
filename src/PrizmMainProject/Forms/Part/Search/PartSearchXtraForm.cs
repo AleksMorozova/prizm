@@ -8,19 +8,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using PrizmMain.Forms.MainChildForm;
-using PrizmMain.Forms.Common;
-using PrizmMain.Properties;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Properties;
 using DevExpress.XtraGrid.Views.Grid;
-using PrizmMain.Common;
-using PrizmMain.Forms.Component.NewEdit;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Component.NewEdit;
 using Ninject.Parameters;
-using Domain.Entity.Construction;
-using PrizmMain.Commands;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Commands;
 using PrizmMain.Forms.PipeMill.NewEdit;
 using PrizmMain.Forms.Spool;
 
-namespace PrizmMain.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.InspectionParts.Search
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PartSearchXtraForm : ChildForm

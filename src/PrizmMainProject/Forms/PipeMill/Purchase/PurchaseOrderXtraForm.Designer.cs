@@ -1,4 +1,4 @@
-﻿namespace PrizmMain.Forms.PipeMill
+﻿namespace Prizm.Main.Forms.PipeMill
 {
     partial class PurchaseOrderXtraForm
     {

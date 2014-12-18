@@ -10,14 +10,14 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 using System.Windows.Forms;
 
-using PrizmMain.Forms.Railcar.NewEdit;
-using PrizmMain.Forms.MainChildForm;
+using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.MainChildForm;
 
-using PrizmMain.DummyData;
-using PrizmMain.Commands;
+using Prizm.Main.DummyData;
+using Prizm.Main.Commands;
 
 
-namespace PrizmMain.Forms.Railcar.Search
+namespace Prizm.Main.Forms.Railcar.Search
 {
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class RailcarSearchXtraForm : ChildForm

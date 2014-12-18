@@ -1,5 +1,5 @@
-﻿using Domain.Entity.Setup;
-namespace Domain.Entity
+﻿using Prizm.Domain.Entity.Setup;
+namespace Prizm.Domain.Entity
 {
     // FIX: remove??
     public class Project : Item

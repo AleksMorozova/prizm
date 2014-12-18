@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Entity
+namespace Prizm.Domain.Entity
 {
     public class Item
     {

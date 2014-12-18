@@ -1,15 +1,15 @@
-﻿using Data.DAL;
+﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
-using Domain.Entity;
+using Prizm.Domain.Entity;
 using Ninject;
-using PrizmMain.Commands;
-using PrizmMain.Properties;
+using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace PrizmMain.Forms.Audit
+namespace Prizm.Main.Forms.Audit
 {
     public class AuditViewModel : ViewModelBase, IDisposable
     {

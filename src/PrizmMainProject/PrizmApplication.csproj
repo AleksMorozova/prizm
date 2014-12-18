@@ -7,7 +7,7 @@
     <ProjectGuid>{B950DA6A-6F29-42FD-A021-433CECBE5046}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrizmMain</RootNamespace>
+    <RootNamespace>Prizm.Main</RootNamespace>
     <AssemblyName>Prizm.Program</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PrizmMain.Program</StartupObject>
+    <StartupObject>Prizm.Main.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>2B639A4916BD9A1ADCD7EA045E6854F38DB55FA7</ManifestCertificateThumbprint>
@@ -793,6 +793,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Notifications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
