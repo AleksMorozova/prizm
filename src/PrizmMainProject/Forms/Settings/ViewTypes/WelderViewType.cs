@@ -80,6 +80,7 @@ namespace PrizmMain.Forms.Settings.ViewTypes
       { 
          get
          {
+             welder.CheckExpirationDate();
             return welder.Certificate;
          }
          set
