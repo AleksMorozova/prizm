@@ -27,6 +27,7 @@ using Prizm.Main.Forms.PipeMill.Heat;
 using Prizm.Main.Forms.Audit;
 using Prizm.Main.Forms.InspectionParts.Search;
 using Prizm.Main.Forms.Common;
+using PrizmMain.Forms.Notifications;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -303,7 +304,12 @@ namespace Prizm.Main.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        } 
+        }
+
+        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
+        }
         #endregion
 
 
@@ -378,9 +384,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowSuccess(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header,text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+
         }
         /// <summary>
         /// Message about failure, that doesn't require user confirmation.
@@ -389,9 +394,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowFailure(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader +" "+ header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
         }
         /// <summary>
         /// Informational message, that doesn't require user confirmation.
@@ -400,9 +403,14 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowNotify(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+        }
+
+        private void StatusNotifyText(string s)
+        {
+            var main = Program.MainForm as PrizmApplicationXtraForm;
+            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s);
+            main.UpdateStatusBar(str);
         }
         #endregion
 
@@ -428,6 +436,17 @@ namespace Prizm.Main.Forms.MainChildForm
         private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
         {
             Application.Exit();
+        }
+
+        public void UpdateStatusBar(string text) 
+        {
+            barStaticItem1.Caption = text;
+            notifyHistory.Items.Add(text);
+        }
+
+        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            flyoutPanel.ShowPopup();
         }
 
      

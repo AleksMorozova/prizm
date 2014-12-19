@@ -570,6 +570,7 @@ CREATE TABLE [dbo].[User] (
   [lastName] [nvarchar](30) NULL,
   [middleName] [nvarchar](30) NULL,
   [isActive] [bit] NOT NULL,
+  [undeletable] [bit] NOT NULL,
   PRIMARY KEY(id)
 ) ON [PRIMARY]
 

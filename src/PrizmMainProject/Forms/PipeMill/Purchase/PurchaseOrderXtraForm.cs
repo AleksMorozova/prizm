@@ -64,5 +64,11 @@ namespace Prizm.Main.Forms.PipeMill
         {
             number.Properties.MaxLength = LengthLimit.MaxPurchaseOrderNumber;
         }
+
+        private void PurchaseOrderXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }
