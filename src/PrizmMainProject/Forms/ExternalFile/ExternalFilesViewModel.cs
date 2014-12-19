@@ -12,6 +12,7 @@ using System.IO;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Forms;
 
 namespace PrizmMain.Forms.ExternalFile
 {
@@ -19,15 +20,20 @@ namespace PrizmMain.Forms.ExternalFile
     {
         private readonly IFileRepository repo;
         private readonly AddExternalFileCommand addExternalFileCommand;
+        private readonly DownloadFileCommand downloadFileCommand;
+        private readonly ViewFileCommand viewFileCommand;
+        private readonly IUserNotify notify;
         private readonly Item item;
         private BindingList<Prizm.Domain.Entity.File> files;
         private FileInfo fileInfo;
+        private Prizm.Domain.Entity.File selectedFile;
 
         [Inject]
-        public ExternalFilesViewModel(IFileRepository repo, Item item)
+        public ExternalFilesViewModel(IFileRepository repo, Item item, IUserNotify notify)
         {
             this.repo = repo;
             this.item = item;
+            this.notify = notify;
             if (item.Id != Guid.Empty)
             {
                 RefreshFiles();
@@ -36,8 +42,13 @@ namespace PrizmMain.Forms.ExternalFile
             { 
                 files = new BindingList<Prizm.Domain.Entity.File>(); 
             }
+
             addExternalFileCommand =
-              ViewModelSource.Create(() => new AddExternalFileCommand(repo, this));
+              ViewModelSource.Create(() => new AddExternalFileCommand(repo, this, notify));
+            downloadFileCommand =
+              ViewModelSource.Create(() => new DownloadFileCommand(repo, this, notify));
+            viewFileCommand =
+              ViewModelSource.Create(() => new ViewFileCommand(repo, this, notify));
         }
 
         public void RefreshFiles()
@@ -75,15 +86,41 @@ namespace PrizmMain.Forms.ExternalFile
           }
         }
 
+        public Prizm.Domain.Entity.File SelectedFile
+        {
+            get { return selectedFile; }
+            set
+            {
+                if (value != selectedFile)
+                {
+                    selectedFile = value;
+                    RaisePropertyChanged("SelectedFile");
+                }
+            }
+        }
+
+        public string SelectedPath { get; set; } 
          public Item Item
          {
              get {return item;}
          }
 
-        public ICommand AddExternalFileCommand
+         #region Commands
+         public ICommand AddExternalFileCommand
         {
             get { return addExternalFileCommand; }
         }
+
+         public ICommand DownloadFileCommand
+         {
+             get { return downloadFileCommand; }
+         }
+
+         public ICommand ViewFileCommand
+         {
+             get { return viewFileCommand; }
+         }
+        #endregion
 
         public void Dispose()
         {

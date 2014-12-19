@@ -41,5 +41,31 @@ namespace Prizm.Main.Forms.ExternalFile
                     files.DataSource = viewModel.Files; //the only variant that works
                 }
         }
+
+        private void downloadButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            Prizm.Domain.Entity.File selectedFile = filesView.GetRow(filesView.FocusedRowHandle) as Prizm.Domain.Entity.File;
+            if (selectedFile != null)
+            {
+                viewModel.SelectedFile = selectedFile;
+                SaveFileDialog saveFileDlg = new SaveFileDialog();
+                saveFileDlg.FileName = selectedFile.FileName;
+                if (saveFileDlg.ShowDialog() == DialogResult.OK)
+                {
+                    viewModel.SelectedPath = saveFileDlg.FileName;
+                    viewModel.DownloadFileCommand.Execute();
+                }
+            }
+        }
+
+        private void viewButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+             Prizm.Domain.Entity.File selectedFile = filesView.GetRow(filesView.FocusedRowHandle) as Prizm.Domain.Entity.File;
+             if (selectedFile != null)
+             {
+                 viewModel.SelectedFile = selectedFile;
+                 viewModel.ViewFileCommand.Execute();
+             }
+        }
     }
 }

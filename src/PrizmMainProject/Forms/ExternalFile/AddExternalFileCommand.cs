@@ -16,12 +16,13 @@ namespace Prizm.Main.Forms.ExternalFile
     {
         private readonly IFileRepository repo;
         private readonly ExternalFilesViewModel viewModel;
-       // private readonly IUserNotify notify;
+        private readonly IUserNotify notify;
 
-        public AddExternalFileCommand(IFileRepository repo, ExternalFilesViewModel viewModel)
+        public AddExternalFileCommand(IFileRepository repo, ExternalFilesViewModel viewModel, IUserNotify notify)
         {
             this.repo = repo;
             this.viewModel = viewModel;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
@@ -48,6 +49,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
             viewModel.FileInfo.CopyTo(string.Format("{0}{1}{2}", targetPath, fileEntity.Id, viewModel.FileInfo.Extension));
             viewModel.RefreshFiles();
+            notify.ShowInfo("Файл успешно добавлен", "Yay!");
 
         }
 

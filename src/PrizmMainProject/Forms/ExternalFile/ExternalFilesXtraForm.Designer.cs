@@ -77,7 +77,6 @@
             this.colDownload});
             this.filesView.GridControl = this.files;
             this.filesView.Name = "filesView";
-            this.filesView.OptionsBehavior.Editable = false;
             this.filesView.OptionsView.ShowGroupPanel = false;
             this.filesView.OptionsView.ShowIndicator = false;
             // 
@@ -86,6 +85,7 @@
             this.colFileName.Caption = "Имя файла";
             this.colFileName.FieldName = "FileName";
             this.colFileName.Name = "colFileName";
+            this.colFileName.OptionsColumn.AllowEdit = false;
             this.colFileName.Visible = true;
             this.colFileName.VisibleIndex = 0;
             this.colFileName.Width = 104;
@@ -104,6 +104,7 @@
             this.colUploadDate.Caption = "Дата добавления";
             this.colUploadDate.FieldName = "UploadDate";
             this.colUploadDate.Name = "colUploadDate";
+            this.colUploadDate.OptionsColumn.AllowEdit = false;
             this.colUploadDate.Visible = true;
             this.colUploadDate.VisibleIndex = 2;
             this.colUploadDate.Width = 104;
@@ -124,6 +125,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.viewButton.Name = "viewButton";
             this.viewButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.viewButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.viewButton_ButtonClick);
             // 
             // colDownload
             // 
@@ -141,6 +143,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.downloadButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.downloadButton_ButtonClick);
             // 
             // addFile
             // 
