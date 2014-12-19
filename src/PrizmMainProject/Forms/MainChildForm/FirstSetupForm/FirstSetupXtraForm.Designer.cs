@@ -111,11 +111,13 @@
             // 
             // pass
             // 
+            this.pass.EnterMoveNextControl = true;
             this.pass.Location = new System.Drawing.Point(29, 265);
             this.pass.Name = "pass";
+            this.pass.Properties.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(386, 20);
             this.pass.StyleController = this.layoutControl;
-            this.pass.TabIndex = 13;
+            this.pass.TabIndex = 7;
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule6.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.pass, conditionValidationRule6);
@@ -139,7 +141,8 @@
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl.Location = new System.Drawing.Point(0, 0);
             this.layoutControl.Name = "layoutControl";
-            this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(416, 492, 361, 350);
+            this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(335, 289, 361, 350);
+            this.layoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl.Root = this.rootLayoutControlGroup;
             this.layoutControl.Size = new System.Drawing.Size(864, 511);
             this.layoutControl.TabIndex = 0;
@@ -159,7 +162,7 @@
             // fileSize
             // 
             this.fileSize.EditValue = new decimal(new int[] {
-            1024,
+            1,
             0,
             0,
             0});
@@ -169,17 +172,29 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.fileSize.Properties.IsFloatValue = false;
             this.fileSize.Properties.Mask.EditMask = "N00";
+            this.fileSize.Properties.MaxValue = new decimal(new int[] {
+            10240,
+            0,
+            0,
+            0});
+            this.fileSize.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.fileSize.Size = new System.Drawing.Size(242, 20);
             this.fileSize.StyleController = this.layoutControl;
-            this.fileSize.TabIndex = 18;
+            this.fileSize.TabIndex = 3;
             // 
             // reEnterPass
             // 
+            this.reEnterPass.EnterMoveNextControl = true;
             this.reEnterPass.Location = new System.Drawing.Point(29, 315);
             this.reEnterPass.Name = "reEnterPass";
+            this.reEnterPass.Properties.PasswordChar = '*';
             this.reEnterPass.Size = new System.Drawing.Size(386, 20);
             this.reEnterPass.StyleController = this.layoutControl;
-            this.reEnterPass.TabIndex = 14;
+            this.reEnterPass.TabIndex = 8;
             compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals;
             compareAgainstControlValidationRule1.Control = this.pass;
             compareAgainstControlValidationRule1.ErrorText = "Пароли не совпадают";
@@ -187,41 +202,45 @@
             // 
             // middleName
             // 
+            this.middleName.EnterMoveNextControl = true;
             this.middleName.Location = new System.Drawing.Point(449, 315);
             this.middleName.Name = "middleName";
             this.middleName.Size = new System.Drawing.Size(386, 20);
             this.middleName.StyleController = this.layoutControl;
-            this.middleName.TabIndex = 17;
+            this.middleName.TabIndex = 11;
             // 
             // firstName
             // 
+            this.firstName.EnterMoveNextControl = true;
             this.firstName.Location = new System.Drawing.Point(449, 265);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(386, 20);
             this.firstName.StyleController = this.layoutControl;
-            this.firstName.TabIndex = 16;
+            this.firstName.TabIndex = 10;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.firstName, conditionValidationRule1);
             // 
             // lastName
             // 
+            this.lastName.EnterMoveNextControl = true;
             this.lastName.Location = new System.Drawing.Point(449, 215);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(386, 20);
             this.lastName.StyleController = this.layoutControl;
-            this.lastName.TabIndex = 15;
+            this.lastName.TabIndex = 9;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.lastName, conditionValidationRule2);
             // 
             // login
             // 
+            this.login.EnterMoveNextControl = true;
             this.login.Location = new System.Drawing.Point(29, 215);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(386, 20);
             this.login.StyleController = this.layoutControl;
-            this.login.TabIndex = 12;
+            this.login.TabIndex = 6;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.login, conditionValidationRule3);
@@ -232,7 +251,7 @@
             this.pipeMask.Name = "pipeMask";
             this.pipeMask.Size = new System.Drawing.Size(214, 20);
             this.pipeMask.StyleController = this.layoutControl;
-            this.pipeMask.TabIndex = 10;
+            this.pipeMask.TabIndex = 5;
             // 
             // mill
             // 
@@ -240,7 +259,7 @@
             this.mill.Name = "mill";
             this.mill.Size = new System.Drawing.Size(302, 20);
             this.mill.StyleController = this.layoutControl;
-            this.mill.TabIndex = 9;
+            this.mill.TabIndex = 4;
             // 
             // projectName
             // 
@@ -248,7 +267,7 @@
             this.projectName.Name = "projectName";
             this.projectName.Size = new System.Drawing.Size(302, 20);
             this.projectName.StyleController = this.layoutControl;
-            this.projectName.TabIndex = 7;
+            this.projectName.TabIndex = 1;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.projectName, conditionValidationRule4);
@@ -260,7 +279,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(121, 23);
             this.saveButton.StyleController = this.layoutControl;
-            this.saveButton.TabIndex = 5;
+            this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Сохранить";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -272,7 +291,7 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(122, 23);
             this.cancelButton.StyleController = this.layoutControl;
-            this.cancelButton.TabIndex = 6;
+            this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Закрыть";
             // 
             // type
@@ -287,7 +306,7 @@
             this.type.Properties.PopupSizeable = false;
             this.type.Size = new System.Drawing.Size(214, 20);
             this.type.StyleController = this.layoutControl;
-            this.type.TabIndex = 8;
+            this.type.TabIndex = 2;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "Поле обязательно";
             this.validationProvider.SetValidationRule(this.type, conditionValidationRule5);
@@ -416,7 +435,6 @@
             this.millLayoutControlItem.Text = "Название завода";
             this.millLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.millLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
-            this.millLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // fileLayoutControlItem
             // 
@@ -443,7 +461,6 @@
             this.maskLayoutControlItem.Text = "Формат номера трубы";
             this.maskLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.maskLayoutControlItem.TextSize = new System.Drawing.Size(171, 13);
-            this.maskLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // pipeNumberMaskLayoutItem
             // 
