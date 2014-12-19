@@ -25,6 +25,7 @@ using Prizm.Domain.Entity.Security;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Construction;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -631,6 +632,34 @@ namespace Prizm.Main.Forms.Settings
                 {
                     e.Visible = false;
                     e.Handled = true;
+                }
+            }
+        }
+
+        private void gridViewWelders_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as WelderViewType;
+            if (data != null)
+            {
+                if (e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
+            }
+        }
+
+        private void inspectorCertificateGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as InspectorCertificate;
+            if (data != null)
+            {
+                if (data.Certificate.ExpirationDate < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
                 }
             }
         }

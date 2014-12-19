@@ -57,7 +57,8 @@ namespace Prizm.Main
                     MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                Application.Run(new PrizmApplicationXtraForm());
+                mainForm = new PrizmApplicationXtraForm();
+                Application.Run(mainForm);
             }
             catch (Exception ex)
             {
@@ -169,5 +170,13 @@ namespace Prizm.Main
 
             return result;
         }
+
+
+        //Global data
+        private static DevExpress.XtraEditors.XtraForm mainForm;
+        /// <summary>
+        /// Global access to main form need to update statusbar texts
+        /// </summary>
+        public static DevExpress.XtraEditors.XtraForm MainForm { get { return mainForm; } }
     }
 }

@@ -239,6 +239,7 @@
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>

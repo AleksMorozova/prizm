@@ -184,5 +184,12 @@ namespace Prizm.Main.Forms.Spool
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
             e.DisplayText = viewModel.FormatInspectorList(inspectors);
         }
+
+        private void SpoolsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

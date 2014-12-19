@@ -17,5 +17,14 @@ namespace Prizm.Domain.Entity
         public virtual string Stamp { get; set; }
         public virtual int Grade { get; set; }
         public virtual IList<Weld> Welds { get; set; }
+
+        public virtual void CheckExpirationDate() 
+        {
+            if (Certificate.ExpirationDate < DateTime.Now.Date) 
+            {
+                this.IsActive = false;
+            }
+
+        }
     }
 }

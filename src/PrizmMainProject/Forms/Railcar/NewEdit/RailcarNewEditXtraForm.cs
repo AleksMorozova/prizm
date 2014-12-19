@@ -40,7 +40,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
-
         }
 
         public RailcarNewEditXtraForm()
