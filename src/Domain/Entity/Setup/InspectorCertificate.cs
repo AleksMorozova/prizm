@@ -9,6 +9,7 @@ namespace Prizm.Domain.Entity.Setup
     public class InspectorCertificate : Item
     {
         public virtual Inspector Inspector { get; set; }
+        public virtual InspectorCertificateType Type { get; set; }
         public virtual Certificate Certificate { get; set; }
     }
 }

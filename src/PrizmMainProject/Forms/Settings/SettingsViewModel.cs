@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<Role> Roles { get; set; }
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
+        public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
 
@@ -64,6 +65,7 @@ namespace Prizm.Main.Forms.Settings
 
         public void LoadData()
         {
+           GetAllCertificateTypes();
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
@@ -298,6 +300,24 @@ namespace Prizm.Main.Forms.Settings
            }
 
            Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
+        }
+
+
+        void GetAllCertificateTypes()
+        {
+            if (CertificateTypes == null)
+                CertificateTypes = new BindingList<InspectorCertificateType>();
+
+            var foundCertificateTypes = repos.CertificateTypeRepo.GetAll();
+            if (foundCertificateTypes != null)
+            {
+                foreach (var t in foundCertificateTypes)
+                {
+                    CertificateTypes.Add(t);
+                }
+            }
+
+            CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllInspectors()
