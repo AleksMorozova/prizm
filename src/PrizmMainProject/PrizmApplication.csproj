@@ -316,6 +316,7 @@
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\TestReport.cs">
       <SubType>Component</SubType>
     </Compile>

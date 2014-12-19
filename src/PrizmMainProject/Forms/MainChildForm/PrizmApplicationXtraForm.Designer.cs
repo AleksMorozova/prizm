@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -58,6 +59,7 @@
             this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonIComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
@@ -84,6 +86,7 @@
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
+
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
@@ -91,6 +94,8 @@
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
+
+
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -168,9 +173,10 @@
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
             this.barButtonItemHeat,
-            this.barButtonNotification});
+            this.barButtonNotification,
+            this.barButtonIComponentry});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 60;
+            this.barManager1.MaxItemId = 61;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -373,10 +379,11 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSetingsProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonIComponentry),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsWelders),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
@@ -401,6 +408,13 @@
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
+            // 
+            // barButtonIComponentry
+            // 
+            this.barButtonIComponentry.Caption = "Комплектующие";
+            this.barButtonIComponentry.Id = 60;
+            this.barButtonIComponentry.Name = "barButtonIComponentry";
+            this.barButtonIComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIComponentry_ItemClick);
             // 
             // barButtonItemSettingsUsers
             // 
@@ -640,8 +654,7 @@
             this.flyoutPanel.ParentForm = this;
             this.flyoutPanel.Size = new System.Drawing.Size(574, 199);
             this.flyoutPanel.TabIndex = 5;
-            // 
-            // flyoutPanelControl
+            //             // flyoutPanelControl
             // 
             this.flyoutPanelControl.AutoSize = true;
             this.flyoutPanelControl.Controls.Add(this.notifyHistory);
@@ -757,6 +770,7 @@
         private DevExpress.Utils.FlyoutPanel flyoutPanel;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
         private DevExpress.XtraEditors.ListBoxControl notifyHistory;
+        private DevExpress.XtraBars.BarButtonItem barButtonIComponentry;
 
 
 

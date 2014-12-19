@@ -112,6 +112,17 @@
             this.isActiveJointOperationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointOperationsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.componentryPage = new DevExpress.XtraTab.XtraTabPage();
+            this.componentryTabLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.componentryTypeGridControl = new DevExpress.XtraGrid.GridControl();
+            this.componentryTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.typeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.connectorsNumbersColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryConnectorsNumbers = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.isActiveComponentColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryComponentryTypeCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.componentryLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.componentryTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
@@ -265,6 +276,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).BeginInit();
+            this.componentryPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).BeginInit();
+            this.componentryTabLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryComponentryTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeLayout)).BeginInit();
             this.usersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).BeginInit();
             this.usersLayoutControl.SuspendLayout();
@@ -395,6 +415,7 @@
             this.projectPage,
             this.pipePage,
             this.pipelinePage,
+            this.componentryPage,
             this.usersPage,
             this.rolesPage,
             this.weldersPage,
@@ -1226,6 +1247,114 @@
             this.jointOperationsLayout.Text = "Набор операций - условия приемки стыка для спуска";
             this.jointOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.jointOperationsLayout.TextSize = new System.Drawing.Size(271, 13);
+            // 
+            // componentryPage
+            // 
+            this.componentryPage.Controls.Add(this.componentryTabLayoutControl);
+            this.componentryPage.Name = "componentryPage";
+            this.componentryPage.Size = new System.Drawing.Size(1241, 463);
+            this.componentryPage.Text = "Комплектующие";
+            // 
+            // componentryTabLayoutControl
+            // 
+            this.componentryTabLayoutControl.Controls.Add(this.componentryTypeGridControl);
+            this.componentryTabLayoutControl.Location = new System.Drawing.Point(3, 3);
+            this.componentryTabLayoutControl.Name = "componentryTabLayoutControl";
+            this.componentryTabLayoutControl.Root = this.componentryLayoutGroup;
+            this.componentryTabLayoutControl.Size = new System.Drawing.Size(550, 456);
+            this.componentryTabLayoutControl.TabIndex = 0;
+            this.componentryTabLayoutControl.Text = "componentryTabLayoutControl";
+            // 
+            // componentryTypeGridControl
+            // 
+            this.componentryTypeGridControl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.componentryTypeGridControl.Location = new System.Drawing.Point(12, 28);
+            this.componentryTypeGridControl.MainView = this.componentryTypeGridView;
+            this.componentryTypeGridControl.Name = "componentryTypeGridControl";
+            this.componentryTypeGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryComponentryTypeCheck,
+            this.repositoryConnectorsNumbers});
+            this.componentryTypeGridControl.Size = new System.Drawing.Size(526, 416);
+            this.componentryTypeGridControl.TabIndex = 4;
+            this.componentryTypeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.componentryTypeGridView});
+            // 
+            // componentryTypeGridView
+            // 
+            this.componentryTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.typeColumn,
+            this.connectorsNumbersColumn,
+            this.isActiveComponentColumn});
+            this.componentryTypeGridView.GridControl = this.componentryTypeGridControl;
+            this.componentryTypeGridView.Name = "componentryTypeGridView";
+            this.componentryTypeGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.componentryTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.componentryTypeGridView.OptionsView.ShowGroupPanel = false;
+            this.componentryTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.componentryTypeGridView_InitNewRow);
+            this.componentryTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.componentryTypeGridView_KeyDown);
+            // 
+            // typeColumn
+            // 
+            this.typeColumn.Caption = "Тип комплектующего";
+            this.typeColumn.FieldName = "Name";
+            this.typeColumn.Name = "typeColumn";
+            this.typeColumn.Visible = true;
+            this.typeColumn.VisibleIndex = 0;
+            // 
+            // connectorsNumbersColumn
+            // 
+            this.connectorsNumbersColumn.Caption = "Количество коннекторов";
+            this.connectorsNumbersColumn.ColumnEdit = this.repositoryConnectorsNumbers;
+            this.connectorsNumbersColumn.FieldName = "ConnectorsCount";
+            this.connectorsNumbersColumn.Name = "connectorsNumbersColumn";
+            this.connectorsNumbersColumn.Visible = true;
+            this.connectorsNumbersColumn.VisibleIndex = 1;
+            // 
+            // repositoryConnectorsNumbers
+            // 
+            this.repositoryConnectorsNumbers.AutoHeight = false;
+            this.repositoryConnectorsNumbers.Mask.EditMask = "[1-4]";
+            this.repositoryConnectorsNumbers.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.repositoryConnectorsNumbers.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryConnectorsNumbers.Name = "repositoryConnectorsNumbers";
+            // 
+            // isActiveComponentColumn
+            // 
+            this.isActiveComponentColumn.Caption = "Состояние";
+            this.isActiveComponentColumn.ColumnEdit = this.repositoryComponentryTypeCheck;
+            this.isActiveComponentColumn.FieldName = "IsActive";
+            this.isActiveComponentColumn.Name = "isActiveComponentColumn";
+            this.isActiveComponentColumn.Visible = true;
+            this.isActiveComponentColumn.VisibleIndex = 2;
+            // 
+            // repositoryComponentryTypeCheck
+            // 
+            this.repositoryComponentryTypeCheck.AutoHeight = false;
+            this.repositoryComponentryTypeCheck.Name = "repositoryComponentryTypeCheck";
+            // 
+            // componentryLayoutGroup
+            // 
+            this.componentryLayoutGroup.CustomizationFormText = "componentryLayoutGroup";
+            this.componentryLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.componentryLayoutGroup.GroupBordersVisible = false;
+            this.componentryLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.componentryTypeLayout});
+            this.componentryLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.componentryLayoutGroup.Name = "componentryLayoutGroup";
+            this.componentryLayoutGroup.Size = new System.Drawing.Size(550, 456);
+            this.componentryLayoutGroup.Text = "componentryLayoutGroup";
+            this.componentryLayoutGroup.TextVisible = false;
+            // 
+            // componentryTypeLayout
+            // 
+            this.componentryTypeLayout.Control = this.componentryTypeGridControl;
+            this.componentryTypeLayout.CustomizationFormText = "Типы комплектующих изделий";
+            this.componentryTypeLayout.Location = new System.Drawing.Point(0, 0);
+            this.componentryTypeLayout.Name = "componentryTypeLayout";
+            this.componentryTypeLayout.Size = new System.Drawing.Size(530, 436);
+            this.componentryTypeLayout.Text = "Типы комплектующих изделий";
+            this.componentryTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.componentryTypeLayout.TextSize = new System.Drawing.Size(158, 13);
             // 
             // usersPage
             // 
@@ -2202,6 +2331,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).EndInit();
+            this.componentryPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).EndInit();
+            this.componentryTabLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryComponentryTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeLayout)).EndInit();
             this.usersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).EndInit();
             this.usersLayoutControl.ResumeLayout(false);
@@ -2452,5 +2590,16 @@
         private DevExpress.XtraLayout.LayoutControlItem cloneTypeSizeLayoutControl;
         private DevExpress.XtraEditors.LabelControl pipeNumberMaskRulesLabel;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskRulesLabelLayout;
+        private DevExpress.XtraTab.XtraTabPage componentryPage;
+        private DevExpress.XtraLayout.LayoutControl componentryTabLayoutControl;
+        private DevExpress.XtraGrid.GridControl componentryTypeGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView componentryTypeGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn typeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn connectorsNumbersColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn isActiveComponentColumn;
+        private DevExpress.XtraLayout.LayoutControlGroup componentryLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem componentryTypeLayout;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryComponentryTypeCheck;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryConnectorsNumbers;
     }
 }
