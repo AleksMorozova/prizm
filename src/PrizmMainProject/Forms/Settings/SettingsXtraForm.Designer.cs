@@ -1314,7 +1314,7 @@
             // repositoryConnectorsNumbers
             // 
             this.repositoryConnectorsNumbers.AutoHeight = false;
-            this.repositoryConnectorsNumbers.Mask.EditMask = "[1-4]";
+            this.repositoryConnectorsNumbers.Mask.EditMask = "[2-4]";
             this.repositoryConnectorsNumbers.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.repositoryConnectorsNumbers.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryConnectorsNumbers.Name = "repositoryConnectorsNumbers";
