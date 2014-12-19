@@ -141,6 +141,8 @@ namespace Prizm.Main.Forms.Settings
 
             #region Prizm.Data Bindings
 
+            projectTitle.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "ProjectTitle");
+
             jointOperations.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "JointOperations");
 
             pipesSizeList.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "PipeMillSizeType");
