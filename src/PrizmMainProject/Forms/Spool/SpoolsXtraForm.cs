@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Spool
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
             IsEditMode = false;
+            SetAlwaysReadOnly(pipeLength);
         }
 
         public SpoolsXtraForm () : this(Guid.Empty) { }
@@ -204,6 +205,8 @@ namespace Prizm.Main.Forms.Spool
         private void searchButton_Click(object sender, EventArgs e)
         {
             IsEditMode = true;
+            saveButton.Enabled = true;
+            attachmentsButton.Enabled = true;
         }
     }
 }

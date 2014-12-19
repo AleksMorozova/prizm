@@ -37,16 +37,17 @@ namespace Prizm.Main.Forms.Spool
                     repos.Commit();
                     repos.PipeRepo.Evict(viewModel.Pipe);
                     repos.SpoolRepo.Evict(viewModel.Spool);
-                    //notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
                     viewModel.ModifiableView.IsModified = false;
+                    notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
                 }
                 else 
                 {
-                    notify.ShowFailure(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
+                    notify.ShowError(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
                 }
             }
             else
-            {notify.ShowFailure("Длинна катушки не может быть равна 0", Resources.Cut_Spool_from_pipe_Header);
+            {
+                notify.ShowError("Длинна катушки не может быть равна 0", Resources.Cut_Spool_from_pipe_Header);
                 
             }
         }
