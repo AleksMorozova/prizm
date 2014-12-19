@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Ninject;
+using System.Text;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -32,7 +33,7 @@ namespace Prizm.Main.Forms.Spool
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
             IsEditMode = false;
-            SetAlwaysReadOnly(pipeLength);
+
         }
 
         public SpoolsXtraForm () : this(Guid.Empty) { }
@@ -86,11 +87,8 @@ namespace Prizm.Main.Forms.Spool
         {
             BindCommands();
             BindToViewModel();
-            DisableEditModeFalse();
+            SetAlwaysReadOnly(pipeLength);
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            pipeLength.Properties.ReadOnly = true;
-
-
         }
 
         private void cutButton_Click(object sender, System.EventArgs e)
@@ -195,9 +193,6 @@ namespace Prizm.Main.Forms.Spool
 
         private void DisableEditModeFalse() 
         {
-            spoolNumber.Properties.ReadOnly = true;
-            spoolLength.Properties.ReadOnly = true;
-            inspectionHistoryGridView.OptionsBehavior.ReadOnly = true;
             saveButton.Enabled = false;
             attachmentsButton.Enabled = false;
         }
@@ -207,6 +202,13 @@ namespace Prizm.Main.Forms.Spool
             IsEditMode = true;
             saveButton.Enabled = true;
             attachmentsButton.Enabled = true;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            IsEditMode = false;
+            saveButton.Enabled = false;
+            attachmentsButton.Enabled = false;
         }
     }
 }

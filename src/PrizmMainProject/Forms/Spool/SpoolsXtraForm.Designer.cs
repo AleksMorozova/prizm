@@ -141,6 +141,7 @@
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 46;
             this.saveButton.Text = "Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // attachmentsButton
             // 

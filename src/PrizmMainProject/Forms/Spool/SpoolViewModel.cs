@@ -57,10 +57,7 @@ namespace Prizm.Main.Forms.Spool
 
             if (spoolId == Guid.Empty)
             {
-                Spool = new Prizm.Domain.Entity.Construction.Spool();
-                Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
-                Spool.Pipe = new Pipe();
-                Pipe = new Pipe();
+                NewSpool();
             }
             else
             {
@@ -70,7 +67,10 @@ namespace Prizm.Main.Forms.Spool
 
         public string SpoolNumber
         {
-            get { return Spool.Number; }
+            get 
+            { 
+                return Spool.Number;
+            }
             set
             {
                 if (value != Spool.Number)
@@ -92,12 +92,6 @@ namespace Prizm.Main.Forms.Spool
                 if (value != Spool.PipeNumber)
                 {
                     Spool.PipeNumber = value;
-
-                    StringBuilder number = new StringBuilder();
-                    int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
-                    number.Append(Spool.PipeNumber + "/" + spoolNumber.ToString());
-                    Spool.Number = number.ToString();
-
                     RaisePropertyChanged("PipeNumber");
                 }
             }
@@ -229,6 +223,15 @@ namespace Prizm.Main.Forms.Spool
             ModifiableView = null;
         }
 
+        public void NewSpool() 
+        {
+            Spool = new Prizm.Domain.Entity.Construction.Spool();
+            Spool.Number = string.Empty;
+            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
+            Spool.Pipe = new Pipe();
+            Pipe = new Pipe();
+            
+        }
         #region ---- Commands ----
         public ICommand SearchCommand
         {

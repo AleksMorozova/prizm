@@ -31,6 +31,10 @@ namespace Prizm.Main.Forms.Spool
             {
                 viewModel.Pipe = repos.PipeRepo.GetByNumber(viewModel.PipeNumber);
                 viewModel.editMode = true;
+                StringBuilder number = new StringBuilder();
+                int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(viewModel.Spool.PipeNumber).Count + 1;
+                number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
+                viewModel.SpoolNumber = number.ToString();
             }
 
             else

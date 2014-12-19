@@ -39,6 +39,11 @@ namespace Prizm.Main.Forms.Spool
                     repos.SpoolRepo.Evict(viewModel.Spool);
                     viewModel.ModifiableView.IsModified = false;
                     notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+                    string oldPipeNumber = viewModel.Pipe.Number;
+                    viewModel.NewSpool();
+                    viewModel.PipeNumber = oldPipeNumber;
+                    viewModel.editMode = false;
+
                 }
                 else 
                 {
@@ -55,7 +60,8 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanExecute()
         {
-            return true;
+            bool condition = viewModel.ModifiableView.IsEditMode;
+            return condition;
         }
 
         public virtual bool IsExecutable { get; set; }
