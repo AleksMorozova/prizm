@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -34,8 +35,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             Types.Add(construction);
             Types.Add(master);
 
-            var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), Properties.Settings.Default.WorkstationType);
-            var defaultProjName = Properties.Settings.Default.ProjectName;
+            var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), ConfigurationManager.AppSettings["WorkstationType"]);
+            var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
 
             if(defaultStation == WorkstationType.Undef)
             {
