@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Domain.Entity;
+using DevExpress.XtraGrid.Columns;
 
 namespace Prizm.Main.Controls
 {
@@ -50,30 +51,12 @@ namespace Prizm.Main.Controls
       }
 
 
-      //  public void ShowOnlyActive 
+      //public void ShowOnlyActive
       //{
-      //    get
+      //    set
       //    {
-      //        gridViewWelders.Columns["IsActive"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-      //        gridViewWelders.ActiveFilterString = "[IsActive] = false";
-
-      //        //IList<Welder> result = new List<Welder>();
-
-      //        //for (int i=0;i < gridViewWelders.DataRowCount;i++ )
-      //        //{
-      //        //    Welder w = DataSource[gridViewWelders.GetDataSourceRowIndex(i)] as Welder;
-      //        //    if (w.IsActive)
-      //        //    {
-      //        //        result.Add(w);
-      //        //    }
-      //        //    else 
-      //        //    {
-      //        //        gridViewWelders.Columns["IsActive"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-      //        //        gridViewWelders.ActiveFilterString = "[IsActive] = false";
-      //        //    }
-      //        //}
-
-      //       // return result;
+      //        gridViewWelders.Columns["colIsActive"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
+      //        gridViewWelders.ActiveFilterString = "[colIsActive] = true";
       //    }
       //}
 
@@ -112,27 +95,30 @@ namespace Prizm.Main.Controls
             int rowHandle = gridViewWelders.GetRowHandle(DataSource.IndexOf(w));
             gridViewWelders.SelectRow(rowHandle);
          }
-      }
 
-      public void SelectActiveWelders(IList<Welder> welders)
-      {
-          gridViewWelders.ClearSelection();
-
-          foreach (Welder w in welders)
-          {
-              if (w.IsActive)
-              {
-                  int rowHandle = gridViewWelders.GetRowHandle(DataSource.IndexOf(w));
-                  gridViewWelders.SelectRow(rowHandle);
-              }
-          }
+         gridViewWelders.Columns["colIsActive"].FilterInfo = new ColumnFilterInfo("[Active] = true");
       }
 
       public void ShowActiveWelders() 
       {
 
-          gridViewWelders.Columns["isActiveGridColumn"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-          gridViewWelders.ActiveFilterString = "[isActiveGridColumn] = true";
+          gridViewWelders.Columns["colIsActive"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
+          gridViewWelders.ActiveFilterString = "[isActive] = true";
+      }
+
+      private void gridViewWelders_ShowingEditor(object sender, CancelEventArgs e)
+      {
+          //gridViewWelders.Columns["colIsActive"].FilterInfo = new ColumnFilterInfo("[Active] = true");
+      }
+
+      private void gridViewWelders_CustomFilterDisplayText(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+      {
+
+      }
+
+      private void gridViewWelders_RowLoaded(object sender, DevExpress.XtraGrid.Views.Base.RowEventArgs e)
+      {
+
       }
    }
 }

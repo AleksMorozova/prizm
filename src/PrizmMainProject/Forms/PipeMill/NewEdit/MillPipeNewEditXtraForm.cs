@@ -288,11 +288,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
         {
-
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if (weld == null)
                 e.Cancel = true;
-            weldersSelectionControl.ShowActiveWelders();
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
