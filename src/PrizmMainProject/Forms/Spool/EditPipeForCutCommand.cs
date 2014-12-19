@@ -31,6 +31,7 @@ namespace Prizm.Main.Forms.Spool
             {
                 viewModel.Pipe = repos.PipeRepo.GetByNumber(viewModel.PipeNumber);
                 viewModel.ModifiableView.IsModified = false;
+                viewModel.editMode = true;
             }
 
             else

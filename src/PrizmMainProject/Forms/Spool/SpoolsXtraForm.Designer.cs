@@ -111,6 +111,7 @@
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "&Редактировать";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // mainLayoutControl
             // 

@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Spool
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
         public bool canCut = false;
+        public bool editMode = false;
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)

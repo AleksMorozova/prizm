@@ -85,9 +85,10 @@ namespace Prizm.Main.Forms.Spool
         {
             BindCommands();
             BindToViewModel();
-
+            DisableEditModeFalse();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             pipeLength.Properties.ReadOnly = true;
+            DisableEditModeFalse();
 
         }
 
@@ -189,6 +190,29 @@ namespace Prizm.Main.Forms.Spool
         {
             spoolLength.Properties.MinValue = 1;
             spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
+        }
+
+        private void DisableEditModeFalse() 
+        {
+            spoolNumber.Properties.ReadOnly = true;
+            spoolLength.Properties.ReadOnly = true;
+            inspectionHistoryGridView.OptionsBehavior.ReadOnly = true;
+            saveButton.Enabled = false;
+            attachmentsButton.Enabled = false;
+        }
+
+        private void DisableEditModeTrue()
+        {
+            spoolNumber.Properties.ReadOnly = false;
+            spoolLength.Properties.ReadOnly = false;
+            inspectionHistoryGridView.OptionsBehavior.ReadOnly = false;
+            saveButton.Enabled = true;
+            attachmentsButton.Enabled = true;
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            DisableEditModeTrue();
         }
     }
 }
