@@ -107,5 +107,12 @@ namespace Prizm.Main.Forms.Railcar.Search
             }
         }
 
+        private void RailcarSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
+
     }
 }

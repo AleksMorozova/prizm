@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,7 +39,7 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isShipped = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -429,6 +430,7 @@
             this.Name = "RailcarSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "Поиск разрешений на отгрузку";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).EndInit();

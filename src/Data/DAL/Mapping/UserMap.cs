@@ -16,6 +16,7 @@ namespace Prizm.Data.DAL.Mapping
          Map(_ => _.Login, "login");
          Map(_ => _.PasswordExpires, "password_expires");
          Map(_ => _.PasswordHash, "password_hash");
+         Map(_ => _.Undeletable).Column("undeletable");
          Component<PersonName>(x => x.Name, m =>
          {
             m.Map(x => x.FirstName).Column("firstName");

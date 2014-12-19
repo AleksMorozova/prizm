@@ -133,5 +133,11 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             RefreshTypes();
         }
+
+        private void ConstructionReportsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
+        }
     }
 }

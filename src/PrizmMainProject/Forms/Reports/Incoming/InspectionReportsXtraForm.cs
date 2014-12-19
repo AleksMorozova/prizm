@@ -37,5 +37,11 @@ namespace Prizm.Main.Forms.Reports.Incoming
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
         }
+
+        private void InspectionReportsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
+        }
     }
 }

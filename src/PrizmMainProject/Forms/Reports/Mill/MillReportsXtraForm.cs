@@ -104,6 +104,10 @@ namespace Prizm.Main.Forms.Reports.Mill
             viewModel.SearchStatuses = statusList;
         }
 
-
+        private void MillReportsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
+        }
     }
 }

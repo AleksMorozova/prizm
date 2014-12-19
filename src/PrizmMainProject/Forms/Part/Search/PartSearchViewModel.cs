@@ -78,7 +78,7 @@ namespace Prizm.Main.Forms.InspectionParts.Search
 
         public void Dispose()
         {
-
+            session.Dispose();
         }
 
         #endregion
