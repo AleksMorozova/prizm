@@ -647,4 +647,16 @@
   <data name="PipelineLengthReport" xml:space="preserve">
     <value>Протяженность трубопровода</value>
   </data>
+  <data name="Constraction_Report_label" xml:space="preserve">
+    <value>Точки отсчета</value>
+  </data>
+  <data name="Constraction_UsedProductReport_label" xml:space="preserve">
+    <value>Пикеты</value>
+  </data>
+  <data name="Joint" xml:space="preserve">
+    <value>Стык</value>
+  </data>
+  <data name="KP" xml:space="preserve">
+    <value>Пикет</value>
+  </data>
 </root>

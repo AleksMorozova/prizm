@@ -297,6 +297,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Точки отсчета.
+        /// </summary>
+        internal static string Constraction_Report_label {
+            get {
+                return ResourceManager.GetString("Constraction_Report_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пикеты.
+        /// </summary>
+        internal static string Constraction_UsedProductReport_label {
+            get {
+                return ResourceManager.GetString("Constraction_UsedProductReport_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строительство.
         /// </summary>
         internal static string Construction {
@@ -953,6 +971,24 @@ namespace Prizm.Main.Properties {
         internal static string IsShipped {
             get {
                 return ResourceManager.GetString("IsShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык.
+        /// </summary>
+        internal static string Joint {
+            get {
+                return ResourceManager.GetString("Joint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пикет.
+        /// </summary>
+        internal static string KP {
+            get {
+                return ResourceManager.GetString("KP", resourceCulture);
             }
         }
         

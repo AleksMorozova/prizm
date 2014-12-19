@@ -23,8 +23,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             InitializeComponent();
 
-            var item1 = new RadioGroupItem(0, "Стык");
-            var item2 = new RadioGroupItem(1, "Пикет");
+            var item1 = new RadioGroupItem(0, Resources.KP);
+            var item2 = new RadioGroupItem(1, Resources.Joint);
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;
@@ -98,7 +98,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             if (reportType.SelectedItem.ToString() == Resources.UsedProductReport)
             {
                 viewModel.report = new UsedProductsXtraReport();
-                reportPeriodLabel.Text = "Пикеты";
+                reportPeriodLabel.Text = Resources.Constraction_UsedProductReport_label;
                 reportPeriodLabelLayout.ContentVisible = true;
                 startLayout.ContentVisible = true;
                 endLayout.ContentVisible = true;
@@ -115,7 +115,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             else
             {
                 viewModel.report = new testReport();
-                reportPeriodLabel.Text = "Точки отсчета";
+                reportPeriodLabel.Text = Resources.Constraction_Report_label;
                 reportPeriodLabelLayout.ContentVisible = true;
                 startLayout.ContentVisible = true;
                 endLayout.ContentVisible = true;
