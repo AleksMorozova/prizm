@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -114,7 +113,7 @@
             this.jointOperationsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.componentryPage = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.componentryTabLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.componentryTypeGridControl = new DevExpress.XtraGrid.GridControl();
             this.componentryTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.typeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -278,8 +277,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).BeginInit();
             this.componentryPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
-            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).BeginInit();
+            this.componentryTabLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).BeginInit();
@@ -1252,20 +1251,20 @@
             // 
             // componentryPage
             // 
-            this.componentryPage.Controls.Add(this.layoutControl3);
+            this.componentryPage.Controls.Add(this.componentryTabLayoutControl);
             this.componentryPage.Name = "componentryPage";
             this.componentryPage.Size = new System.Drawing.Size(1241, 463);
             this.componentryPage.Text = "Комплектующие";
             // 
-            // layoutControl3
+            // componentryTabLayoutControl
             // 
-            this.layoutControl3.Controls.Add(this.componentryTypeGridControl);
-            this.layoutControl3.Location = new System.Drawing.Point(3, 3);
-            this.layoutControl3.Name = "layoutControl3";
-            this.layoutControl3.Root = this.componentryLayoutGroup;
-            this.layoutControl3.Size = new System.Drawing.Size(550, 456);
-            this.layoutControl3.TabIndex = 0;
-            this.layoutControl3.Text = "layoutControl3";
+            this.componentryTabLayoutControl.Controls.Add(this.componentryTypeGridControl);
+            this.componentryTabLayoutControl.Location = new System.Drawing.Point(3, 3);
+            this.componentryTabLayoutControl.Name = "componentryTabLayoutControl";
+            this.componentryTabLayoutControl.Root = this.componentryLayoutGroup;
+            this.componentryTabLayoutControl.Size = new System.Drawing.Size(550, 456);
+            this.componentryTabLayoutControl.TabIndex = 0;
+            this.componentryTabLayoutControl.Text = "componentryTabLayoutControl";
             // 
             // componentryTypeGridControl
             // 
@@ -1525,7 +1524,7 @@
             // 
             this.repositoryItemButtonUserPass.AutoHeight = false;
             this.repositoryItemButtonUserPass.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonUserPass.Name = "repositoryItemButtonUserPass";
             this.repositoryItemButtonUserPass.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonUserPass.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonUserPass_ButtonClick);
@@ -2334,8 +2333,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).EndInit();
             this.componentryPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
-            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).EndInit();
+            this.componentryTabLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).EndInit();
@@ -2593,7 +2592,7 @@
         private DevExpress.XtraEditors.LabelControl pipeNumberMaskRulesLabel;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskRulesLabelLayout;
         private DevExpress.XtraTab.XtraTabPage componentryPage;
-        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private DevExpress.XtraLayout.LayoutControl componentryTabLayoutControl;
         private DevExpress.XtraGrid.GridControl componentryTypeGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView componentryTypeGridView;
         private DevExpress.XtraGrid.Columns.GridColumn typeColumn;
