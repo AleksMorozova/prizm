@@ -31,7 +31,7 @@ namespace Prizm.Main.Forms.Spool
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
-            IsEditMode = true;
+            IsEditMode = false;
         }
 
         public SpoolsXtraForm () : this(Guid.Empty) { }
@@ -88,7 +88,7 @@ namespace Prizm.Main.Forms.Spool
             DisableEditModeFalse();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             pipeLength.Properties.ReadOnly = true;
-            DisableEditModeFalse();
+
 
         }
 
@@ -201,18 +201,9 @@ namespace Prizm.Main.Forms.Spool
             attachmentsButton.Enabled = false;
         }
 
-        private void DisableEditModeTrue()
-        {
-            spoolNumber.Properties.ReadOnly = false;
-            spoolLength.Properties.ReadOnly = false;
-            inspectionHistoryGridView.OptionsBehavior.ReadOnly = false;
-            saveButton.Enabled = true;
-            attachmentsButton.Enabled = true;
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
-            DisableEditModeTrue();
+            IsEditMode = true;
         }
     }
 }
