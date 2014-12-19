@@ -24,6 +24,7 @@ using DevExpress.XtraLayout.Customization;
 using Prizm.Domain.Entity.Security;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
+using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 
 namespace Prizm.Main.Forms.Settings
@@ -126,6 +127,8 @@ namespace Prizm.Main.Forms.Settings
 
             repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
             categoriesGrid.DataSource = viewModel.CategoryTypes;
+
+            componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
             rolesBindingSource.DataSource = viewModel.Roles;
             rolesBindingSource.ListChanged += (s, e) => IsModified = true;
@@ -682,5 +685,23 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+        private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            ComponentType componentType = v.GetRow(e.RowHandle) as ComponentType;
+            componentType.IsActive = true;
+            componentType.ConnectorsCount = 1;
+        }
+
+        private void componentryTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<ComponentType>(
+                e,
+                viewModel.ComponentryTypes,
+                (_) => _.IsNew());
+        }
+
+       
     }
 }
