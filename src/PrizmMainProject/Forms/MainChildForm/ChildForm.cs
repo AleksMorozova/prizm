@@ -175,13 +175,24 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
+        /// Is some control never read only for the form
+        /// </summary>
+        /// <param name="c">reference to control</param>
+        /// <returns>true if control shouldn't be read only</returns>
+        private bool IsExceptionReadOnly(Control c)
+        {
+            return exceptionsReadOnly != null ? exceptionsReadOnly.Contains(c) : false;
+        }
+
+
+        /// <summary>
         /// Is some control read only for the form
         /// </summary>
         /// <param name="c">reference to control</param>
         /// <returns>true if control should be always read only</returns>
         private bool IsAlwaysReadOnly(Control c)
         {
-            return alwaysReadOnly != null && alwaysReadOnly.Contains(c);
+            return alwaysReadOnly != null ? alwaysReadOnly.Contains(c) : false;
         }
 
         /// <summary>
@@ -193,29 +204,25 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             foreach (Control c in control.Controls)
             {
-                if (!exceptionsReadOnly.Contains(c))
+                bool isControlReadOnly = !IsExceptionReadOnly(c) && (!editMode || IsAlwaysReadOnly(c));
+                if (c is TextEdit)
                 {
-                    bool isControlReadOnly = !editMode || IsAlwaysReadOnly(c);
-                    if (c is TextEdit)
-                    {
-                        ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;
-                    }
-
-                    else if (c is DevExpress.XtraGrid.GridControl)
-                    {
-                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
-                        {
-                            ((GridView)v).OptionsBehavior.Editable = !isControlReadOnly;
-                        }
-                    }
-                    else if (c is DevExpress.XtraEditors.CheckEdit)
-                    {
-
-                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
-                    }
-                    SetEditModeAllChildren(c, editMode);
+                    ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;
                 }
-            }
+                else if (c is DevExpress.XtraGrid.GridControl)
+                {
+                    foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                    {
+                        ((GridView)v).OptionsBehavior.Editable = !isControlReadOnly;
+                    }
+                }
+                else if (c is DevExpress.XtraEditors.CheckEdit)
+                {
+                    ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
+
+                }
+                SetEditModeAllChildren(c, editMode);
+            } 
         }
 
         #endregion // Edit mode
