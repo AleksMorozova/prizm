@@ -543,7 +543,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Просмотр и загрузка несохрвненных файлов.
+        ///   Looks up a localized string similar to Просмотр и загрузка несохрaненных файлов.
         /// </summary>
         internal static string DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER {
             get {

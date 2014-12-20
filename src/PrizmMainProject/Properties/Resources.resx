@@ -640,7 +640,7 @@
   </data>
   <data name="DLG_FILE_ATTACH_SUCCESS" xml:space="preserve">
     <value>Вложения успешно добавлены</value>
-    </data>
+  </data>
   <data name="UsedProductReport" xml:space="preserve">
     <value>Использованные изделия</value>
   </data>
@@ -669,7 +669,7 @@
     <value>Пикеты</value>
   </data>
   <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
-    <value>Просмотр и загрузка несохрвненных файлов</value>
+    <value>Просмотр и загрузка несохрaненных файлов</value>
   </data>
   <data name="Joint" xml:space="preserve">
     <value>Стык</value>
