@@ -695,7 +695,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             ComponentType componentType = v.GetRow(e.RowHandle) as ComponentType;
             componentType.IsActive = true;
-            componentType.ConnectorsCount = 1;
+            componentType.ConnectorsCount = 2;
         }
 
         private void componentryTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
