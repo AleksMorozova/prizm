@@ -1,6 +1,8 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Data.DAL;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
+using Prizm.Main.Properties;
 using PrizmMain.Forms.ExternalFile;
 using System;
 using System.Collections.Generic;
@@ -27,21 +29,27 @@ namespace Prizm.Main.Forms.ExternalFile
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            string sourceFile = Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\", viewModel.SelectedFile.Id.ToString() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
-            string tempFile = Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\tmp", "random" + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
+            if (CanExecute())
+            {
+                string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
+                string tempFile = Path.Combine(Directories.TargetPathForView, Guid.NewGuid() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
 
-            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\tmp")))
-            {
-                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\tmp"));
-                DirectoryInfo directoryInfo = new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\tmp"));
-                directoryInfo.Attributes |= FileAttributes.Hidden;
+                if (!Directory.Exists(Directories.TargetPathForView))
+                {
+                    Directory.CreateDirectory(Directories.TargetPathForView);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPathForView);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+
+                if (File.Exists(sourceFile))
+                {
+                    File.Copy(sourceFile, tempFile);
+                    System.Diagnostics.Process.Start(tempFile);
+                }
             }
-            
-            
-            if (File.Exists(sourceFile))
+            else
             {
-                File.Copy(sourceFile, tempFile);
-                System.Diagnostics.Process.Start(tempFile);
+                notify.ShowInfo(Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL, Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER);
             }
         }
 
@@ -49,7 +57,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public bool CanExecute()
         {
-            return viewModel.FileInfo != null;
+            return viewModel.SelectedFile.Id!= Guid.Empty;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Data.DAL;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
+using Prizm.Main.Properties;
 using PrizmMain.Forms.ExternalFile;
 using System;
 using System.Collections.Generic;
@@ -27,11 +29,18 @@ namespace Prizm.Main.Forms.ExternalFile
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            string sourceFile = Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\", viewModel.SelectedFile.Id.ToString() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
-            if (File.Exists(sourceFile))
+            if (CanExecute())
             {
-                File.Copy(sourceFile, viewModel.SelectedPath);
-                notify.ShowInfo("Файл успешно скачан", "Yay!");
+                string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.Id.ToString() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
+                if (File.Exists(sourceFile))
+                {
+                    File.Copy(sourceFile, viewModel.SelectedPath);
+                    notify.ShowNotify(Resources.DLG_FILE_DOWNLOAD_SUCCESS,Resources.DLG_FILE_DOWNLOAD_HEADER);
+                }
+            }
+            else
+            {
+                notify.ShowInfo(Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL,Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER);
             }
         }
 
@@ -39,7 +48,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public bool CanExecute()
         {
-            return viewModel.SelectedFile != null;
+            return viewModel.SelectedFile.Id != Guid.Empty;
         }
     }
 }

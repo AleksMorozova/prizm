@@ -7,14 +7,16 @@ using Ninject.Parameters;
 using Ninject;
 using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
+using System.Collections.Generic;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
     public partial class ExternalFilesXtraForm : XtraForm
     {
-        ExternalFilesViewModel viewModel;
-        public ExternalFilesXtraForm(Item item)
+        private ExternalFilesViewModel viewModel;
+
+        public ExternalFilesXtraForm(Guid item)
         {
             InitializeComponent();
             viewModel = (ExternalFilesViewModel)Program
@@ -30,16 +32,25 @@ namespace Prizm.Main.Forms.ExternalFile
 
         private void addFile_Click(object sender, EventArgs e)
         {
-          
+            Guid newNameId = Guid.NewGuid();
             OpenFileDialog openFileDlg = new OpenFileDialog();
-             openFileDlg.InitialDirectory = Directory.GetCurrentDirectory();
-                if (openFileDlg.ShowDialog() == DialogResult.OK) 
+            openFileDlg.InitialDirectory = Directory.GetCurrentDirectory();
+            if (openFileDlg.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo fileInfo = new FileInfo(openFileDlg.FileName);
+                if (!Directory.Exists(Directories.FilesToAttachFolder))
                 {
-                    FileInfo fileInfo = new FileInfo(openFileDlg.FileName);
-                    viewModel.FileInfo = fileInfo;
-                    viewModel.AddExternalFileCommand.Execute();
-                    files.DataSource = viewModel.Files; //the only variant that works
+                    Directory.CreateDirectory(Directories.FilesToAttachFolder);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.FilesToAttachFolder);
+                    DirectoryInfo directoryInfoParent = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                    directoryInfoParent.Attributes |= FileAttributes.Hidden;
                 }
+                fileInfo.CopyTo(string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension));
+                viewModel.FilesToAttach.Add(newNameId.ToString() + fileInfo.Extension, fileInfo.Name);
+                Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() {FileName = fileInfo.Name, UploadDate = DateTime.Now };
+                viewModel.Files.Add(newFile);
+            }
         }
 
         private void downloadButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -60,12 +71,23 @@ namespace Prizm.Main.Forms.ExternalFile
 
         private void viewButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-             Prizm.Domain.Entity.File selectedFile = filesView.GetRow(filesView.FocusedRowHandle) as Prizm.Domain.Entity.File;
-             if (selectedFile != null)
-             {
-                 viewModel.SelectedFile = selectedFile;
-                 viewModel.ViewFileCommand.Execute();
-             }
+            Prizm.Domain.Entity.File selectedFile = filesView.GetRow(filesView.FocusedRowHandle) as Prizm.Domain.Entity.File;
+            if (selectedFile != null)
+            {
+                viewModel.SelectedFile = selectedFile;
+                viewModel.ViewFileCommand.Execute();
+            }
+        }
+
+        public ExternalFilesViewModel ViewModel
+        {
+            get { return viewModel; }
+            set
+            {
+                if (value != viewModel)
+
+                    viewModel = value;
+            }
         }
     }
 }

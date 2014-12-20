@@ -638,4 +638,22 @@
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS" xml:space="preserve">
+    <value>Вложения успешно добавлены</value>
+  </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
+    <value>Добавление вложений</value>
+  </data>
+  <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
+    <value>Загрузка файла</value>
+  </data>
+  <data name="DLG_FILE_DOWNLOAD_SUCCESS" xml:space="preserve">
+    <value>Файл успешно загружен</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL" xml:space="preserve">
+    <value>Для просмотра и скачивания вложений необходимо их предварительное сохранение</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
+    <value>Просмотр и загрузка несохрвненных файлов</value>
+  </data>
 </root>

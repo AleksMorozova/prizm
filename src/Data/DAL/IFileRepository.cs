@@ -9,6 +9,6 @@ namespace Prizm.Data.DAL
 {
     public interface IFileRepository : IRepository<Guid, File>
     {
-        IList<File> GetByItem(Item item);
+        IList<File> GetByItem(Guid item);
     }
 }

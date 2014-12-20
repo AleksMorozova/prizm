@@ -15,7 +15,8 @@ namespace Data.DAL.Mapping
             Map(_ => _.Description).Column("description");
             Map(_ => _.FileName).Column("fileName");
             Map(_ => _.UploadDate).Column("uploadDate");
-            References<Item>(_ => _.Item).Column("item");
+            Map(_ => _.Item).Column("item");
+            Map(_ => _.NewName).Column("newName");
         }
     }
 }

@@ -23,18 +23,19 @@ namespace PrizmMain.Forms.ExternalFile
         private readonly DownloadFileCommand downloadFileCommand;
         private readonly ViewFileCommand viewFileCommand;
         private readonly IUserNotify notify;
-        private readonly Item item;
+        private readonly Guid item;
         private BindingList<Prizm.Domain.Entity.File> files;
-        private FileInfo fileInfo;
         private Prizm.Domain.Entity.File selectedFile;
+        public Dictionary<string, string> FilesToAttach = new Dictionary<string, string>();
+        public Guid Item { get; set; }
 
         [Inject]
-        public ExternalFilesViewModel(IFileRepository repo, Item item, IUserNotify notify)
+        public ExternalFilesViewModel(IFileRepository repo, Guid item, IUserNotify notify)
         {
             this.repo = repo;
             this.item = item;
             this.notify = notify;
-            if (item.Id != Guid.Empty)
+            if (item!= Guid.Empty)
             {
                 RefreshFiles();
             }
@@ -73,18 +74,6 @@ namespace PrizmMain.Forms.ExternalFile
             }
         }
 
-        public FileInfo FileInfo
-        {
-            get { return fileInfo; }
-          set
-          {
-              if (value != fileInfo)
-              {
-                  fileInfo = value;
-                  RaisePropertyChanged("FileInfo");
-              }
-          }
-        }
 
         public Prizm.Domain.Entity.File SelectedFile
         {
@@ -99,11 +88,7 @@ namespace PrizmMain.Forms.ExternalFile
             }
         }
 
-        public string SelectedPath { get; set; } 
-         public Item Item
-         {
-             get {return item;}
-         }
+        public string SelectedPath { get; set; }
 
          #region Commands
          public ICommand AddExternalFileCommand

@@ -18,7 +18,7 @@ namespace Prizm.DAL.Hibernate
             : base(session)
         {}
 
-        public IList<File> GetByItem(Item item)
+        public IList<File> GetByItem(Guid item)
         {
             return session.QueryOver<File>().Where(_ => _.Item == item).List<File>();
         }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using DevExpress.Mvvm.DataAnnotations;
 using System.IO;
+using Prizm.Main.Common;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
@@ -28,36 +30,41 @@ namespace Prizm.Main.Forms.ExternalFile
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            string targetPath = Path.Combine(Directory.GetCurrentDirectory(), "Attachments\\");
-            Prizm.Domain.Entity.File fileEntity = new Domain.Entity.File()
+            if (CanExecute())
             {
-                FileName = viewModel.FileInfo.Name, 
-                UploadDate =  DateTime.Now,
-                Item = viewModel.Item,
-                IsActive = true
-            };
-            repo.BeginTransaction();
-            repo.Save(fileEntity);
-            repo.Commit();
-            repo.Evict(fileEntity);
+                if (!Directory.Exists(Directories.TargetPath))
+                {
+                    Directory.CreateDirectory(Directories.TargetPath);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+                foreach (KeyValuePair<string, string> kvp in viewModel.FilesToAttach)
+                {
+                    Prizm.Domain.Entity.File fileEntity = new Domain.Entity.File()
+                    {
+                        FileName = kvp.Value,
+                        UploadDate = DateTime.Now,
+                        Item = viewModel.Item,
+                        IsActive = true,
+                        NewName = kvp.Key
+                    };
+                    repo.BeginTransaction();
+                    repo.Save(fileEntity);
+                    repo.Commit();
+                    repo.Evict(fileEntity);
+                    System.IO.File.Copy(Directories.FilesToAttachFolder + fileEntity.NewName, Directories.TargetPath + fileEntity.NewName);
+                }
 
-            if (!Directory.Exists(targetPath))
-            {
-                Directory.CreateDirectory(targetPath);
-                DirectoryInfo directoryInfo = new DirectoryInfo(targetPath);
-                directoryInfo.Attributes |= FileAttributes.Hidden;
+                Directory.Delete(Directories.FilesToAttachFolder, true);
+                notify.ShowNotify(Resources.DLG_FILE_ATTACH_SUCCESS, Resources.DLG_FILE_ATTACH_SUCCESS_HEADER);
             }
-            viewModel.FileInfo.CopyTo(string.Format("{0}{1}{2}", targetPath, fileEntity.Id, viewModel.FileInfo.Extension));
-            viewModel.RefreshFiles();
-            notify.ShowInfo("Файл успешно добавлен", "Yay!");
-
         }
 
         public virtual bool IsExecutable { get; set; }
 
         public bool CanExecute()
         {
-            return viewModel.FileInfo != null;
+            return viewModel.FilesToAttach.Count != 0;
         }
     }
 }
