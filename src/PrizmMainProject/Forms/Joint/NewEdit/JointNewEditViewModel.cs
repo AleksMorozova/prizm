@@ -338,22 +338,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        private bool isCanDiactivate;
-        public bool IsCanDiactivate
+        private bool isCanDeactivate;
+        public bool IsCanDeactivate
         {
-            get { return isCanDiactivate; }
+            get { return isCanDeactivate; }
             set 
             {
-                if(isCanDiactivate != value)
+                if(isCanDeactivate != value)
                 {
-                    isCanDiactivate = value;
-                    RaisePropertyChanged("IsCanDiactivate");
+                    isCanDeactivate = value;
+                    RaisePropertyChanged("IsCanDeactivate");
                 }
             }
         }
         public void CheckDeactivation()
         {
-            IsCanDiactivate = JointDeactivationCommand.CanExecute();
+            IsCanDeactivate = JointDeactivationCommand.CanExecute();
         }
 
         #endregion

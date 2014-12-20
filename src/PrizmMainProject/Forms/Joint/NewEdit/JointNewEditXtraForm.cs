@@ -78,7 +78,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             deactivated.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "IsNotActive");
             deactivated.DataBindings
-               .Add("Enabled", jointNewEditBindingSoure, "IsCanDiactivate");
+               .Add("Enabled", jointNewEditBindingSoure, "IsCanDeactivate");
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
             GPSLat.DataBindings
