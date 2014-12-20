@@ -637,7 +637,7 @@
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
             this.inspectionLayoutGroup.Size = new System.Drawing.Size(1235, 346);
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
-            this.inspectionLayoutGroup.Text = "Сварка и ремонт";
+            this.inspectionLayoutGroup.Text = "Операции";
             // 
             // repairOperationLayout
             // 
@@ -647,7 +647,7 @@
             this.repairOperationLayout.Name = "repairOperationLayout";
             this.repairOperationLayout.Size = new System.Drawing.Size(543, 281);
             this.repairOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
-            this.repairOperationLayout.Text = "Ремонтные операции";
+            this.repairOperationLayout.Text = "Сварка и ремонт";
             this.repairOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.repairOperationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
