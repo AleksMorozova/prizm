@@ -69,6 +69,7 @@
     <Compile Include="DAL\Hibernate\ComponentRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\InspectorCertificateTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
     <Compile Include="DAL\Hibernate\JointOperationRepository.cs" />
     <Compile Include="DAL\Hibernate\JointWeldResultRepository.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="DAL\Mapping\HeatMap.cs" />
     <Compile Include="DAL\Mapping\InspectionTestResultMap.cs" />
     <Compile Include="DAL\Mapping\InspectorCertificateMap.cs" />
+    <Compile Include="DAL\Mapping\InspectorCertificateTypeMap.cs" />
     <Compile Include="DAL\Mapping\InspectorMap.cs" />
     <Compile Include="DAL\Mapping\ItemMap.cs" />
     <Compile Include="DAL\Mapping\JointActionResultMap.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="DAL\Security\IPermissionRepository.cs" />
     <Compile Include="DAL\Security\IRoleRepository.cs" />
     <Compile Include="DAL\Security\IUserRepository.cs" />
+    <Compile Include="DAL\Setup\ICertificateTypeRepository.cs" />
     <Compile Include="DAL\Setup\IJointOperationRepository.cs" />
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />

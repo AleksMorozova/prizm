@@ -68,6 +68,8 @@ namespace Prizm.Main
             Bind<IConstructionRepository>().To<ConstructionRepository>();
             Bind<IJointRepository>().To<JointRepository>();
 
+            Bind<IFirstSetupRepo>().To<FirstSetupRepo>();
+            
             Bind<IComponentRepositories>().To<ComponentRepositories>();
             Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
             Bind<IComponentRepository>().To<ComponentRepository>();

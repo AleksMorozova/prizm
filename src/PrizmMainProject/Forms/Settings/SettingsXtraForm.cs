@@ -128,6 +128,9 @@ namespace Prizm.Main.Forms.Settings
             repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
             categoriesGrid.DataSource = viewModel.CategoryTypes;
 
+            repositoryLookUpCertificateType.DataSource = viewModel.CertificateTypes;
+            certificateTypes.DataSource = viewModel.CertificateTypes;
+
             componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
             rolesBindingSource.DataSource = viewModel.Roles;
@@ -498,7 +501,6 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
@@ -687,6 +689,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+        
         private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
@@ -702,6 +705,38 @@ namespace Prizm.Main.Forms.Settings
                 e,
                 viewModel.ComponentryTypes,
                 (_) => _.IsNew());
+        }
+
+        private void certificateTypesView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            InspectorCertificateType certificateType = v.GetRow(e.RowHandle) as InspectorCertificateType;
+            certificateType.IsActive = true;
+        }
+
+        private void certificateTypesView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<InspectorCertificateType>(
+                e,
+                viewModel.CertificateTypes,
+                (_) => _.IsNew());
+        }
+
+        private void repositoryLookUpCertificateTypeView_CustomRowFilter(object sender, RowFilterEventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+            var certp = view.DataSource as BindingList<InspectorCertificateType>;
+
+            if (certp != null)
+            {
+                if ((bool)certp[e.ListSourceRow].IsNotActive)
+                {
+                    e.Visible = false;
+                    e.Handled = true;
+                }
+            }
         }
 
        
