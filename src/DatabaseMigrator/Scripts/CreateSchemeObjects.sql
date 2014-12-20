@@ -715,10 +715,11 @@ GO
 CREATE TABLE [dbo].[File](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NOT NULL,
-	[fileName] [nvarchar](50) NOT NULL,
+	[fileName] [nvarchar](300) NOT NULL,
 	[description] [nvarchar](100) NULL,
 	[uploadDate] [date] NULL,
 	[item] [uniqueidentifier] NOT NULL,
+	[newName] [nvarchar](50) NULL,
  CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

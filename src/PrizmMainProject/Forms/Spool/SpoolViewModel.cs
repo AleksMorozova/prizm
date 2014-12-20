@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -33,6 +34,7 @@ namespace Prizm.Main.Forms.Spool
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
         public bool canCut = false;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)
@@ -230,6 +232,10 @@ namespace Prizm.Main.Forms.Spool
         {
             repos.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         #region ---- Commands ----

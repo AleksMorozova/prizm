@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public BindingList<JointOperation> RepairOperations;
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
-        public ExternalFilesXtraForm FilesForm { get; set; }
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
         public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Prizm.Data.DAL.IMillReportsRepository adoRepo)
@@ -87,6 +87,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         internal string FormatInspectorList(IList<Inspector> inspectors)

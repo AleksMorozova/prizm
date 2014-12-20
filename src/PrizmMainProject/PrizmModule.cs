@@ -33,7 +33,6 @@ using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
 using Prizm.Main.Forms.ExternalFile;
-using PrizmMain.Forms.ExternalFile;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule

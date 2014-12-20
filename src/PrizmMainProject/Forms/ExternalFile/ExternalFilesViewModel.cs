@@ -13,8 +13,9 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Forms;
+using Prizm.Main.Common;
 
-namespace PrizmMain.Forms.ExternalFile
+namespace Prizm.Main.Forms.ExternalFile
 {
     public class ExternalFilesViewModel: ViewModelBase, IDisposable
     {
@@ -110,6 +111,10 @@ namespace PrizmMain.Forms.ExternalFile
         public void Dispose()
         {
             repo.Dispose();
+            if (Directory.Exists(Directories.TargetPathForView))
+            {
+                Directory.Delete(Directories.TargetPathForView, true);
+            }
         }
         
     }

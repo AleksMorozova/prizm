@@ -54,10 +54,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.ModifiableView.IsModified = false;
 
                     //saving attached documents
-                    if (viewModel.FilesForm != null)
+                    if (viewModel.FilesFormViewModel != null)
                     {
-                        viewModel.FilesForm.ViewModel.Item = viewModel.Joint.Id;
-                        viewModel.FilesForm.ViewModel.AddExternalFileCommand.Execute();
+                        viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
+                        viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                        viewModel.FilesFormViewModel = null;
                     }
 
                     notify.ShowNotify(

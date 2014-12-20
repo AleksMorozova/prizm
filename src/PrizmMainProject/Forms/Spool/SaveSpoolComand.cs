@@ -30,6 +30,13 @@ namespace Prizm.Main.Forms.Spool
             repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
             repos.Commit();
             repos.SpoolRepo.Evict(viewModel.Spool);
+            //saving attached documents
+            if (viewModel.FilesFormViewModel != null)
+            {
+               viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
+               viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+               viewModel.FilesFormViewModel = null;
+            }
             viewModel.ModifiableView.IsModified = false;
         }
 

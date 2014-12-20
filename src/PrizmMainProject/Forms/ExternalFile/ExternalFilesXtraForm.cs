@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity;
-using PrizmMain.Forms.ExternalFile;
+using Prizm.Main.Forms.ExternalFile;
 using Ninject.Parameters;
 using Ninject;
 using System.Windows.Forms;

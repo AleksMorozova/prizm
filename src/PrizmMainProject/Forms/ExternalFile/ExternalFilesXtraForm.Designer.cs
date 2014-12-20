@@ -34,7 +34,6 @@
             this.files = new DevExpress.XtraGrid.GridControl();
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUploadDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colView = new DevExpress.XtraGrid.Columns.GridColumn();
             this.viewButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -71,7 +70,6 @@
             // 
             this.filesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFileName,
-            this.colDescription,
             this.colUploadDate,
             this.colView,
             this.colDownload});
@@ -88,16 +86,7 @@
             this.colFileName.OptionsColumn.AllowEdit = false;
             this.colFileName.Visible = true;
             this.colFileName.VisibleIndex = 0;
-            this.colFileName.Width = 104;
-            // 
-            // colDescription
-            // 
-            this.colDescription.Caption = "Описание";
-            this.colDescription.FieldName = "Description";
-            this.colDescription.Name = "colDescription";
-            this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 104;
+            this.colFileName.Width = 251;
             // 
             // colUploadDate
             // 
@@ -106,8 +95,8 @@
             this.colUploadDate.Name = "colUploadDate";
             this.colUploadDate.OptionsColumn.AllowEdit = false;
             this.colUploadDate.Visible = true;
-            this.colUploadDate.VisibleIndex = 2;
-            this.colUploadDate.Width = 104;
+            this.colUploadDate.VisibleIndex = 1;
+            this.colUploadDate.Width = 140;
             // 
             // colView
             // 
@@ -115,8 +104,8 @@
             this.colView.Name = "colView";
             this.colView.ToolTip = "Просмотреть файл";
             this.colView.Visible = true;
-            this.colView.VisibleIndex = 3;
-            this.colView.Width = 30;
+            this.colView.VisibleIndex = 2;
+            this.colView.Width = 39;
             // 
             // viewButton
             // 
@@ -133,8 +122,8 @@
             this.colDownload.Name = "colDownload";
             this.colDownload.ToolTip = "Извлечь файл";
             this.colDownload.Visible = true;
-            this.colDownload.VisibleIndex = 4;
-            this.colDownload.Width = 30;
+            this.colDownload.VisibleIndex = 3;
+            this.colDownload.Width = 43;
             // 
             // downloadButton
             // 
@@ -184,7 +173,6 @@
         private DevExpress.XtraGrid.GridControl files;
         private DevExpress.XtraGrid.Views.Grid.GridView filesView;
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colUploadDate;
         private DevExpress.XtraEditors.SimpleButton addFile;
         private DevExpress.XtraGrid.Columns.GridColumn colView;

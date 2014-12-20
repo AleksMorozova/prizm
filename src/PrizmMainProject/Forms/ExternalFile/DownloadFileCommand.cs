@@ -3,7 +3,6 @@ using Prizm.Data.DAL;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Properties;
-using PrizmMain.Forms.ExternalFile;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +30,7 @@ namespace Prizm.Main.Forms.ExternalFile
         {
             if (CanExecute())
             {
-                string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.Id.ToString() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
+                string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
                 if (File.Exists(sourceFile))
                 {
                     File.Copy(sourceFile, viewModel.SelectedPath);

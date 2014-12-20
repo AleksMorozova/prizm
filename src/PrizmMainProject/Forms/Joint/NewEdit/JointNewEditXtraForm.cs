@@ -64,11 +64,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            if (viewModel.FilesForm == null)
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id);
+            if (viewModel.FilesFormViewModel == null)
             {
-                viewModel.FilesForm = new ExternalFilesXtraForm(viewModel.Joint.Id);
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
-            viewModel.FilesForm.ShowDialog();
+            else
+            {
+                filesForm.ViewModel = viewModel.FilesFormViewModel;
+            }
+            filesForm.ShowDialog();
         }
 
 

@@ -3,7 +3,7 @@ using Prizm.Data.DAL;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Properties;
-using PrizmMain.Forms.ExternalFile;
+using Prizm.Main.Forms.ExternalFile;
 using System;
 using System.Collections.Generic;
 using System.IO;
