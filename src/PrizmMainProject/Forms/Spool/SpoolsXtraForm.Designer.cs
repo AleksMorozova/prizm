@@ -533,6 +533,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
             this.Text = "Создание катушки";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpoolsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.SpoolsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);

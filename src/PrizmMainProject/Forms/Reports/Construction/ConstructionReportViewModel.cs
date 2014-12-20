@@ -7,7 +7,7 @@ using NHibernate;
 using Ninject;
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.Common;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

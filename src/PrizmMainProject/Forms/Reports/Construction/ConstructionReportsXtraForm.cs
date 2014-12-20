@@ -9,6 +9,7 @@ using Prizm.Main.Forms.Common;
 using System.ComponentModel;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -22,12 +23,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             InitializeComponent();
 
-            reportType.Properties.Items.Add("Использованные изделия");
-            reportType.Properties.Items.Add("Протяженность трубопровода");
-            reportType.Properties.Items.Add("Трассовка");
-
-            var item1 = new RadioGroupItem(0, "Стык");
-            var item2 = new RadioGroupItem(1, "Пикет");
+            var item1 = new RadioGroupItem(0, Resources.KP);
+            var item2 = new RadioGroupItem(1, Resources.Joint);
             countPoints.Properties.Items.Add(item1);
             countPoints.Properties.Items.Add(item2);
             countPoints.SelectedIndex = 0;
@@ -82,16 +79,26 @@ namespace Prizm.Main.Forms.Reports.Construction
             type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+
+
+            var usedProduct = new EnumWrapper<ReportType> { Value = ReportType.UsedProductReport };
+            var length = new EnumWrapper<ReportType> { Value = ReportType.PipelineLengthReport };
+            var highway = new EnumWrapper<ReportType> { Value = ReportType.HighwayReport };
+
+            reportType.Properties.Items.Add(usedProduct);
+            reportType.Properties.Items.Add(length);
+            reportType.Properties.Items.Add(highway);
+
             RefreshTypes();
             reportType.SelectedIndex = 0;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (reportType.SelectedItem == "Использованные изделия")
+            if (reportType.SelectedItem.ToString() == Resources.UsedProductReport)
             {
                 viewModel.report = new UsedProductsXtraReport();
-                reportPeriodLabel.Text = "Пикеты";
+                reportPeriodLabel.Text = Resources.Constraction_UsedProductReport_label;
                 reportPeriodLabelLayout.ContentVisible = true;
                 startLayout.ContentVisible = true;
                 endLayout.ContentVisible = true;
@@ -108,7 +115,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             else
             {
                 viewModel.report = new testReport();
-                reportPeriodLabel.Text = "Точки отсчета";
+                reportPeriodLabel.Text = Resources.Constraction_Report_label;
                 reportPeriodLabelLayout.ContentVisible = true;
                 startLayout.ContentVisible = true;
                 endLayout.ContentVisible = true;
@@ -125,6 +132,12 @@ namespace Prizm.Main.Forms.Reports.Construction
         private void previewButton_Click(object sender, EventArgs e)
         {
             RefreshTypes();
+        }
+
+        private void ConstructionReportsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel = null;
         }
     }
 }

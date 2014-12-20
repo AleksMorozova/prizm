@@ -208,5 +208,12 @@ namespace Prizm.Main.Forms.Spool
             attachmentsButton.Enabled = false;
             commandManager["Save"].RefreshState();
         }
+
+        private void SpoolsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
     }
 }

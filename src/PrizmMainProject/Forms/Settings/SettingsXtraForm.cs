@@ -24,6 +24,8 @@ using DevExpress.XtraLayout.Customization;
 using Prizm.Domain.Entity.Security;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
+using Prizm.Domain.Entity.Construction;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -126,6 +128,8 @@ namespace Prizm.Main.Forms.Settings
             repositoryItemsСategory.DataSource = viewModel.CategoryTypes;
             categoriesGrid.DataSource = viewModel.CategoryTypes;
 
+            componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
+
             rolesBindingSource.DataSource = viewModel.Roles;
             rolesBindingSource.ListChanged += (s, e) => IsModified = true;
 
@@ -139,6 +143,8 @@ namespace Prizm.Main.Forms.Settings
             #endregion
 
             #region Prizm.Data Bindings
+
+            projectTitle.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "ProjectTitle");
 
             jointOperations.DataBindings.Add("DataSource", pipeMillSizeTypeBindingSource, "JointOperations");
 
@@ -492,6 +498,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
@@ -631,11 +638,72 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private void gridViewWelders_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as WelderViewType;
+            if (data != null)
+            {
+                if (e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
+            }
+        }
+
+        private void inspectorCertificateGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as InspectorCertificate;
+            if (data != null)
+            {
+                if (data.Certificate.ExpirationDate < DateTime.Now)
+                {
+                    e.Appearance.ForeColor = Color.Red;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
+            }
+        }
+
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-    }
+        private void gridViewUsers_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView view = sender as GridView;
 
+            int selectedUser = gridViewUsers.GetFocusedDataSourceRowIndex();
+
+            if (selectedUser > -1
+                && selectedUser < viewModel.Users.Count)
+            {
+                if (view.FocusedColumn.FieldName == "IsActive" &&
+                    viewModel.Users[selectedUser].Undeletable)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+        private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            ComponentType componentType = v.GetRow(e.RowHandle) as ComponentType;
+            componentType.IsActive = true;
+            componentType.ConnectorsCount = 1;
+        }
+
+        private void componentryTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<ComponentType>(
+                e,
+                viewModel.ComponentryTypes,
+                (_) => _.IsNew());
+        }
+
+       
+    }
 }

@@ -36,6 +36,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             viewModel.Admin.IsActive = true;
 
             viewModel.Project.IsActive = true;
+            if(viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Mill)
+            {
+                viewModel.MillName = string.Empty;
+                viewModel.MillPipeNumberMask = string.Empty;
+            }
 
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             ctx.LoggedUser = viewModel.Admin;

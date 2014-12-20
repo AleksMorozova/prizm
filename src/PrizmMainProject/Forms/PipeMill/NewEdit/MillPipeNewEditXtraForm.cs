@@ -656,6 +656,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
 
-
+        private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
+        }
+    
     }
 }
