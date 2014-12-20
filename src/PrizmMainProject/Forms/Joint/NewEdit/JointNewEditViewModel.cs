@@ -338,6 +338,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
+        private bool isCanDiactivate;
+        public bool IsCanDiactivate
+        {
+            get { return isCanDiactivate; }
+            set 
+            {
+                if(isCanDiactivate != value)
+                {
+                    isCanDiactivate = value;
+                    RaisePropertyChanged("IsCanDiactivate");
+                }
+            }
+        }
+        public void CheckDeactivation()
+        {
+            IsCanDiactivate = JointDeactivationCommand.CanExecute();
+        }
+
         #endregion
 
         public DataTable Pieces

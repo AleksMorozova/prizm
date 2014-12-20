@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.NewJoint();
             }
+            viewModel.CheckDeactivation();
         }
         public virtual bool IsExecutable { get; set; }
 

@@ -77,6 +77,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("EditValue", jointNewEditBindingSoure, "Number");
             deactivated.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "IsNotActive");
+            deactivated.DataBindings
+               .Add("Enabled", jointNewEditBindingSoure, "IsCanDiactivate");
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
             GPSLat.DataBindings
@@ -162,6 +164,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = !viewModel.IsNotActive;
             IsModified = false;
+            viewModel.CheckDeactivation();
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
@@ -361,6 +364,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void deactivated_Modified(object sender, EventArgs e)
         {
+            deactivated.Enabled = viewModel.Joint.Id != Guid.Empty;
             viewModel.IsNotActive = (bool)deactivated.EditValue;
             if (viewModel.IsNotActive)
             {
