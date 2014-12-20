@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Main.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,16 @@ namespace Prizm.Main.Forms.Railcar.Search
         public string Destination { get; set; }
         public DateTime? ShippingDate { get; set; }
         public bool IsShipped { get; set; }
+
+        public string Status
+        {
+            get
+            {
+                return
+                    this.IsShipped ?
+                    Resources.ResourceManager.GetString("RailcarShipped") :
+                    Resources.ResourceManager.GetString("RailcarPending");
+            }
+        }
     }
 }

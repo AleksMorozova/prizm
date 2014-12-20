@@ -1378,6 +1378,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сформирован.
+        /// </summary>
+        internal static string RailcarPending {
+            get {
+                return ResourceManager.GetString("RailcarPending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отгружен.
+        /// </summary>
+        internal static string RailcarShipped {
+            get {
+                return ResourceManager.GetString("RailcarShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отклонено.
         /// </summary>
         internal static string Rejected {

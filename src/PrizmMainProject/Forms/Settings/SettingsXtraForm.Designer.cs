@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -40,7 +39,7 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.codeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -126,7 +125,7 @@
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,11 +145,11 @@
             this.rolesPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersButtonLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -211,8 +210,8 @@
             this.certificateTypesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -224,10 +223,10 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.cloneTypeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -825,10 +824,9 @@
             // 
             // projectTitle
             // 
-            this.projectTitle.EditValue = "Мой новый трубопровод";
+            this.projectTitle.EditValue = "";
             this.projectTitle.Location = new System.Drawing.Point(32, 62);
             this.projectTitle.Name = "projectTitle";
-            this.projectTitle.Properties.ReadOnly = true;
             this.projectTitle.Size = new System.Drawing.Size(251, 20);
             this.projectTitle.StyleController = this.generalProjectLayout;
             this.projectTitle.TabIndex = 14;

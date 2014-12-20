@@ -659,4 +659,10 @@
   <data name="KP" xml:space="preserve">
     <value>Пикет</value>
   </data>
+  <data name="RailcarPending" xml:space="preserve">
+    <value>Сформирован</value>
+  </data>
+  <data name="RailcarShipped" xml:space="preserve">
+    <value>Отгружен</value>
+  </data>
 </root>

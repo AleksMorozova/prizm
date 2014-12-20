@@ -14,10 +14,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
-    public class FirstSetupViewModel : ViewModelBase, IDisposable
+    public class FirstSetupViewModel : ViewModelBase
     {
         private IList<InspectorCertificateType> inspectorCertificateTypes;
         private string[] inspectorCertificateTypesName
@@ -34,15 +35,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.firstSetupRepo = firstSetupRepo;
             saveCommand = ViewModelSource.Create(() => new FirstSetupSaveCommand(this, firstSetupRepo));
 
-            var mill = new EnumWrapper<WorkstationType> { Value = WorkstationType.Mill };
-            var construction = new EnumWrapper<WorkstationType> { Value = WorkstationType.Construction };
-            var master = new EnumWrapper<WorkstationType> { Value = WorkstationType.Master };
-            Types.Add(mill);
-            Types.Add(construction);
-            Types.Add(master);
+            var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), ConfigurationManager.AppSettings["WorkstationType"]);
 
-            var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), Properties.Settings.Default.WorkstationType);
-            var defaultProjName = Properties.Settings.Default.ProjectName;
+            var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
 
             if(defaultStation == WorkstationType.Undef)
             {
@@ -52,8 +47,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             project.Title = defaultProjName;
             project.DocumentSizeLimit = 1024;
         }
-
-        public BindingList<EnumWrapper<WorkstationType>> Types = new BindingList<EnumWrapper<WorkstationType>>();
 
         private Project project = new Project();
         private User admin = new User() { Undeletable = true };
@@ -91,17 +84,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
-        public WorkstationType Type
+        public string Type
         {
-            get { return project.WorkstationType; }
-            set
-            {
-                if(value != project.WorkstationType)
-                {
-                    project.WorkstationType = value;
-                    RaisePropertyChanged("Type");
-                }
-            }
+            get { return (new EnumWrapper<WorkstationType>() { Value = project.WorkstationType }).Text; }
         }
 
         public int Size

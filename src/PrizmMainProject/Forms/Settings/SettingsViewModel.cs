@@ -243,6 +243,19 @@ namespace Prizm.Main.Forms.Settings
 
         }
 
+        public string ProjectTitle
+        {
+            get { return CurrentProjectSettings.Title; }
+            set
+            {
+                if(CurrentProjectSettings.Title != value)
+                {
+                    CurrentProjectSettings.Title = value;
+                    RaisePropertiesChanged("ProjectTitle");
+                }
+            }
+        }
+
         #endregion
 
         #region Plate Manufacturers
