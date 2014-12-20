@@ -741,19 +741,20 @@ begin
   if IsNewInstall then
   begin
     // update project settigns
-    Nodes := RootNode.selectNodes('//configuration/applicationSettings/PrizmMain.Properties.Settings/setting');
+    Nodes := RootNode.selectNodes('//configuration/appSettings/add');
     
     for i := 0 to Nodes.length - 1 do
     begin
       Node := Nodes.Item[i];
       if Node.NodeType = 1 then
       begin
-        key := Node.getAttribute('name');
+        key := Node.getAttribute('key');
+        Log('key: ' + key);
         Case key of
-          'ProjectName' : Node.firstChild().text := GetProjectName('');
+          'ProjectName' : Node.setAttribute('value', GetProjectName(''));
         end;
         Case key of
-          'WorkstationType' : Node.firstChild().text := GetWorkstationTypeValue();
+          'WorkstationType' : Node.setAttribute('value', GetWorkstationTypeValue());
         end;
       end;
     end;
