@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -92,10 +91,10 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -238,7 +237,7 @@
             // 
             // repairTypeGridColumn
             // 
-            this.repairTypeGridColumn.Caption = "Тип операции";
+            this.repairTypeGridColumn.Caption = "Название операции";
             this.repairTypeGridColumn.ColumnEdit = this.repairOperationsLookUpEdit;
             this.repairTypeGridColumn.FieldName = "Operation.Name";
             this.repairTypeGridColumn.Name = "repairTypeGridColumn";
@@ -458,7 +457,7 @@
             // 
             // controlTypeGridColumn
             // 
-            this.controlTypeGridColumn.Caption = "Тип операции";
+            this.controlTypeGridColumn.Caption = "Название операции";
             this.controlTypeGridColumn.ColumnEdit = this.ControlOperationLookUpEdit;
             this.controlTypeGridColumn.FieldName = "Operation.Name";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
@@ -638,7 +637,7 @@
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
             this.inspectionLayoutGroup.Size = new System.Drawing.Size(1235, 346);
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
-            this.inspectionLayoutGroup.Text = "Контрольнo - ремонтные операции";
+            this.inspectionLayoutGroup.Text = "Сварка и ремонт";
             // 
             // repairOperationLayout
             // 

@@ -127,6 +127,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             weldersPopupContainerEdit.PopupControl = weldersPopup;
             weldersPopupContainerEdit.PopupControl.MaximumSize = weldersPopup.MaximumSize;
 
+
+
         }
 
         /// <summary>
