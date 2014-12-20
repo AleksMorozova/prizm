@@ -29,7 +29,7 @@ using Prizm.Main.Security;
 using Prizm.Main.Forms.Component;
 using Prizm.Main.Forms.Joint;
 using Prizm.Data.DAL.Construction;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 
 namespace Prizm.Main
@@ -68,6 +68,8 @@ namespace Prizm.Main
             Bind<IConstructionRepository>().To<ConstructionRepository>();
             Bind<IJointRepository>().To<JointRepository>();
 
+            Bind<IFirstSetupRepo>().To<FirstSetupRepo>();
+            
             Bind<IComponentRepositories>().To<ComponentRepositories>();
             Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
             Bind<IComponentRepository>().To<ComponentRepository>();

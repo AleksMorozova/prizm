@@ -25,7 +25,8 @@ using Prizm.Main.Properties;
 using DevExpress.XtraBars.Alerter;
 using Prizm.Main.Forms.PipeMill.Heat;
 using Prizm.Main.Forms.Audit;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Main.Forms.Common;
 using PrizmMain.Forms.Notifications;
 
@@ -231,6 +232,11 @@ namespace Prizm.Main.Forms.MainChildForm
         private void barButtonItemFindEditJoints_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(JointSearchXtraForm));
+        }
+
+        private void barButtonItemPartIncomingInspection_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(PartInspectionXtraForm));
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
@@ -453,6 +459,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             flyoutPanel.ShowPopup();
         }
+
 
 
 

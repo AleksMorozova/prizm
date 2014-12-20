@@ -43,6 +43,7 @@ namespace Prizm.Main.Forms.Settings
             SaveCategories();
             SaveJointOperations();
             SaveComponentryType();
+            SaveInspectorCertificateType();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -54,6 +55,7 @@ namespace Prizm.Main.Forms.Settings
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
             EvictCategories();
             EvictComponentryType();
+            EvictInspectorCertificateType();
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
@@ -189,7 +191,7 @@ namespace Prizm.Main.Forms.Settings
         }
 
 
-        void SaveCategories()
+        private void SaveCategories()
         {
             foreach (var category in viewModel.CategoryTypes)
             {
@@ -207,11 +209,29 @@ namespace Prizm.Main.Forms.Settings
         }
 
 
-        void SaveComponentryType()
+        private void SaveComponentryType()
         {
             foreach (var component in viewModel.ComponentryTypes)
             {
                 repos.ComponentTypeRepo.SaveOrUpdate(component);
+            }
+        }
+
+
+        private void EvictInspectorCertificateType()
+        {
+            foreach (var certificate in viewModel.CertificateTypes)
+            {
+                repos.CertificateTypeRepo.Evict(certificate);
+            }
+        }
+
+
+        private void SaveInspectorCertificateType()
+        {
+            foreach (var certificate in viewModel.CertificateTypes)
+            {
+                repos.CertificateTypeRepo.SaveOrUpdate(certificate);
             }
         }
 

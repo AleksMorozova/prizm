@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Main.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.Parts.Search
 {
     public class Part
     {
