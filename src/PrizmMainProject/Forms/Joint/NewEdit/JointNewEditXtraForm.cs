@@ -77,6 +77,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("EditValue", jointNewEditBindingSoure, "Number");
             deactivated.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "IsNotActive");
+            deactivated.DataBindings
+               .Add("Enabled", jointNewEditBindingSoure, "IsCanDeactivate");
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
             GPSLat.DataBindings
@@ -125,6 +127,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             weldersPopupContainerEdit.PopupControl = weldersPopup;
             weldersPopupContainerEdit.PopupControl.MaximumSize = weldersPopup.MaximumSize;
 
+
+
         }
 
         /// <summary>
@@ -162,6 +166,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = !viewModel.IsNotActive;
             IsModified = false;
+            viewModel.CheckDeactivation();
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
@@ -242,7 +247,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if (jointTestResult != null)
+                if(jointTestResult != null && jointTestResult.Operation != null)
                 {
                     availabeResults.Clear();
                     if (jointTestResult.Operation.TestHasAccepted) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Accepted });
@@ -361,6 +366,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void deactivated_Modified(object sender, EventArgs e)
         {
+            deactivated.Enabled = viewModel.Joint.Id != Guid.Empty;
             viewModel.IsNotActive = (bool)deactivated.EditValue;
             if (viewModel.IsNotActive)
             {
@@ -374,6 +380,28 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void controlOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            var operation = gv.GetRowCellValue(e.RowHandle, controlTypeGridColumn);
+            if(operation == null)
+            {
+                gv.SetColumnError(controlDateGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+        }
+
+        private void repairOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            var operation = gv.GetRowCellValue(e.RowHandle, repairTypeGridColumn);
+            if(operation == null)
+            {
+                gv.SetColumnError(repairTypeGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
         }
     }
 }
