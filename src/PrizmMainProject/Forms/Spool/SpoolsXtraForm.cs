@@ -32,11 +32,13 @@ namespace Prizm.Main.Forms.Spool
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
-            IsEditMode = false;
+            SetAlwaysReadOnly(pipeLength);
+            SetExceptionReadOnly(pipeNumber);
+            IsEditMode = true;
 
         }
 
-        public SpoolsXtraForm () : this(Guid.Empty) { }
+        public SpoolsXtraForm() : this(Guid.Empty) {  }
 
         private void BindToViewModel()
         {
@@ -81,19 +83,20 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+
+            commandManager["Save"].RefreshState();
+
+
+            SaveCommand = viewModel.SaveCommand;
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
-            BindCommands();
             BindToViewModel();
-            SetAlwaysReadOnly(pipeLength);
+            attachmentsButton.Enabled = false;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-        }
-
-        private void cutButton_Click(object sender, System.EventArgs e)
-        {
-            Prizm.Domain.Entity.Construction.Spool s = viewModel.Spool;
+            IsEditMode = false;
+            BindCommands();
         }
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
@@ -189,26 +192,21 @@ namespace Prizm.Main.Forms.Spool
         {
             spoolLength.Properties.MinValue = 1;
             spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
-        }
-
-        private void DisableEditModeFalse() 
-        {
-            saveButton.Enabled = false;
-            attachmentsButton.Enabled = false;
+            spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             IsEditMode = true;
-            saveButton.Enabled = true;
             attachmentsButton.Enabled = true;
+            commandManager["Save"].RefreshState();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             IsEditMode = false;
-            saveButton.Enabled = false;
             attachmentsButton.Enabled = false;
+            commandManager["Save"].RefreshState();
         }
     }
 }

@@ -193,25 +193,28 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             foreach (Control c in control.Controls)
             {
-                bool isControlReadOnly = !editMode || IsAlwaysReadOnly(c);
-
-                if (c is TextEdit)
+                if (!exceptionsReadOnly.Contains(c))
                 {
-                    ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;
-                }
-
-                else if (c is DevExpress.XtraGrid.GridControl)
-                {
-                    foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                    bool isControlReadOnly = !editMode || IsAlwaysReadOnly(c);
+                    if (c is TextEdit)
                     {
-                        ((GridView)v).OptionsBehavior.Editable = !isControlReadOnly;
+                        ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;
                     }
+
+                    else if (c is DevExpress.XtraGrid.GridControl)
+                    {
+                        foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                        {
+                            ((GridView)v).OptionsBehavior.Editable = !isControlReadOnly;
+                        }
+                    }
+                    else if (c is DevExpress.XtraEditors.CheckEdit)
+                    {
+
+                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
+                    }
+                    SetEditModeAllChildren(c, editMode);
                 }
-                else if (c is DevExpress.XtraEditors.CheckEdit)
-                {
-                    ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
-                }
-                SetEditModeAllChildren(c, editMode);
             }
         }
 

@@ -136,9 +136,9 @@ namespace Prizm.Main.Forms.Spool
                     Spool.Length = value;
                     if ((Pipe.Length - Spool.Length) > 0)
                     {
-                        Pipe.Length = Pipe.Length - Spool.Length;
                         canCut = true;
                     }
+                    Pipe.Length = Pipe.Length - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
                 }

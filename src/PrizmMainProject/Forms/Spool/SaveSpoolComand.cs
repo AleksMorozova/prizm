@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Properties;
+using DevExpress.Mvvm.POCO;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -42,7 +43,6 @@ namespace Prizm.Main.Forms.Spool
                     string oldPipeNumber = viewModel.Pipe.Number;
                     viewModel.NewSpool();
                     viewModel.PipeNumber = oldPipeNumber;
-                    viewModel.editMode = false;
 
                 }
                 else 
@@ -57,13 +57,17 @@ namespace Prizm.Main.Forms.Spool
             }
         }
 
+        public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
 
         public bool CanExecute()
         {
             bool condition = viewModel.ModifiableView.IsEditMode;
             return condition;
         }
-
-        public virtual bool IsExecutable { get; set; }
     }
 }
