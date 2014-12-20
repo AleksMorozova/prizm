@@ -34,13 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             viewModel.Admin.Name = viewModel.Name;
             viewModel.Admin.PasswordHash = PasswordEncryptor.EncryptPassword(viewModel.Password);
             viewModel.Admin.IsActive = true;
-
             viewModel.Project.IsActive = true;
-
-            //ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            //ctx.LoggedUser = viewModel.Admin;
-
-            //HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
 
             firstSetupRepo.BeginTransaction();
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
@@ -52,7 +46,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             EvictInspectorCertificateTypes();
 
             viewModel.IsSaved = true;
-
         }
 
         public bool CanExecute()

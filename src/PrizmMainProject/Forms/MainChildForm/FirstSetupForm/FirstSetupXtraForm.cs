@@ -81,5 +81,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 pipeNumberMaskLayoutItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never; 
             }
         }
+
+        private void FirstSetupXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+        }
     }
 }
