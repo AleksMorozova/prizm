@@ -231,6 +231,7 @@
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointDeactivationCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupRepo.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">
@@ -239,6 +240,7 @@
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\IFirstSetupRepo.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
@@ -246,14 +248,20 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Part\Search\Part.cs" />
-    <Compile Include="Forms\Part\Search\PartQuery.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchCommand.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchViewModel.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchXtraForm.cs">
+    <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Part\Search\PartSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.Designer.cs">
+      <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Search\Part.cs" />
+    <Compile Include="Forms\Parts\Search\PartQuery.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchCommand.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchViewModel.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Search\PartSearchXtraForm.Designer.cs">
       <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
@@ -316,6 +324,7 @@
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\TestReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -523,7 +532,10 @@
     <EmbeddedResource Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.resx">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Part\Search\PartSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
+      <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parts\Search\PartSearchXtraForm.resx">
       <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

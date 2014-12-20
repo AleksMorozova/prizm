@@ -19,6 +19,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
 using Prizm.Main.Common;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -33,6 +34,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<Role> Roles { get; set; }
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
+        public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
 
@@ -63,6 +65,7 @@ namespace Prizm.Main.Forms.Settings
 
         public void LoadData()
         {
+           GetAllCertificateTypes();
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
@@ -73,6 +76,7 @@ namespace Prizm.Main.Forms.Settings
            GetAllManufacturers();
            GetAllJointOperations();
            LoadJointOperationTypes();
+           GetAllComponentryTypes();
            ControlType = new BindingList<PipeTestControlTypeWrapper>();
            ResultType = new BindingList<PipeTestResultTypeWrapper>();
 
@@ -154,6 +158,7 @@ namespace Prizm.Main.Forms.Settings
         }
 
         public BindingList<Category> CategoryTypes { get; set; }
+        public BindingList<ComponentType> ComponentryTypes { get; set; }
 
         #region Current Project Settings
 
@@ -238,6 +243,19 @@ namespace Prizm.Main.Forms.Settings
 
         }
 
+        public string ProjectTitle
+        {
+            get { return CurrentProjectSettings.Title; }
+            set
+            {
+                if(CurrentProjectSettings.Title != value)
+                {
+                    CurrentProjectSettings.Title = value;
+                    RaisePropertiesChanged("ProjectTitle");
+                }
+            }
+        }
+
         #endregion
 
         #region Plate Manufacturers
@@ -297,6 +315,24 @@ namespace Prizm.Main.Forms.Settings
            Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
+
+        void GetAllCertificateTypes()
+        {
+            if (CertificateTypes == null)
+                CertificateTypes = new BindingList<InspectorCertificateType>();
+
+            var foundCertificateTypes = repos.CertificateTypeRepo.GetAll();
+            if (foundCertificateTypes != null)
+            {
+                foreach (var t in foundCertificateTypes)
+                {
+                    CertificateTypes.Add(t);
+                }
+            }
+
+            CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+        }
+
         void GetAllInspectors()
         {
            if (Inspectors == null)
@@ -332,6 +368,22 @@ namespace Prizm.Main.Forms.Settings
         {
            var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
            PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
+        }
+
+        void GetAllComponentryTypes()
+        {
+            if (ComponentryTypes == null)
+                ComponentryTypes = new BindingList<ComponentType>();
+
+            var foundComponentryTypes = repos.ComponentTypeRepo.GetAll();
+            if (foundComponentryTypes != null)
+            {
+                foreach (ComponentType t in foundComponentryTypes)
+                {
+                    ComponentryTypes.Add(t);
+                }
+            }
+            ComponentryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void AddNewManufacturer(string newManufacturerName)
@@ -373,7 +425,6 @@ namespace Prizm.Main.Forms.Settings
               modifiable = value;
            }
         }
-
 
         public bool RoleHasPermission(Role role, Permission perm)
         {

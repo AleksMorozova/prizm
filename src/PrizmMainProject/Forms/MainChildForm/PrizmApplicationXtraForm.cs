@@ -25,7 +25,8 @@ using Prizm.Main.Properties;
 using DevExpress.XtraBars.Alerter;
 using Prizm.Main.Forms.PipeMill.Heat;
 using Prizm.Main.Forms.Audit;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Main.Forms.Common;
 using PrizmMain.Forms.Notifications;
 
@@ -233,6 +234,11 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(JointSearchXtraForm));
         }
 
+        private void barButtonItemPartIncomingInspection_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(PartInspectionXtraForm));
+        }
+
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(ConstructionReportsXtraForm));
@@ -255,22 +261,27 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 3);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 7);
+        }
+
+        private void barButtonIComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateSettingsChildForm(page: 3);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -448,6 +459,9 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             flyoutPanel.ShowPopup();
         }
+
+
+
 
      
     }
