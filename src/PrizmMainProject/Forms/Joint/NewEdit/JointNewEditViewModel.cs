@@ -355,7 +355,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     value.Columns.Add("typeTranslated", typeof(String));
                     foreach (DataRow record in value.Rows)
                     {
-                        string typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
+                        string typeResourceValue;
+
+                        if (record.Field<string>("type") != "Component")
+                        {
+                            typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
+                        }
+                        else
+                        {
+                            typeResourceValue = record.Field<string>("componentTypeName");
+                        }
+
                         record.SetField("typeTranslated", typeResourceValue);
                         pieces = value;
                         RaisePropertyChanged("Pieces");

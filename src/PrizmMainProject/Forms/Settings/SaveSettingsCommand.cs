@@ -42,6 +42,7 @@ namespace Prizm.Main.Forms.Settings
             SaveUsers();
             SaveCategories();
             SaveJointOperations();
+            SaveComponentryType();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -52,6 +53,7 @@ namespace Prizm.Main.Forms.Settings
             EvictJointOperations();
             repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
             EvictCategories();
+            EvictComponentryType();
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
@@ -194,6 +196,25 @@ namespace Prizm.Main.Forms.Settings
                 repos.СategoryRepo.SaveOrUpdate(category);
             }
         }
+
+
+        private void EvictComponentryType()
+        {
+            foreach (var component in viewModel.ComponentryTypes)
+            {
+                repos.ComponentTypeRepo.Evict(component);
+            }
+        }
+
+
+        void SaveComponentryType()
+        {
+            foreach (var component in viewModel.ComponentryTypes)
+            {
+                repos.ComponentTypeRepo.SaveOrUpdate(component);
+            }
+        }
+
 
         public virtual bool IsExecutable { get; set; }
     }

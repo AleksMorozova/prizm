@@ -46,6 +46,7 @@
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dest = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.statusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shippingDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.shipGridButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipGridButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -143,6 +144,7 @@
             this.number,
             this.dest,
             this.certificate,
+            this.statusColumn,
             this.shippingDate});
             this.railcarListView.GridControl = this.railcarList;
             this.railcarListView.Name = "railcarListView";
@@ -174,6 +176,7 @@
             this.number.OptionsColumn.AllowEdit = false;
             this.number.Visible = true;
             this.number.VisibleIndex = 0;
+            this.number.Width = 246;
             // 
             // dest
             // 
@@ -183,6 +186,7 @@
             this.dest.OptionsColumn.AllowEdit = false;
             this.dest.Visible = true;
             this.dest.VisibleIndex = 1;
+            this.dest.Width = 288;
             // 
             // certificate
             // 
@@ -192,6 +196,16 @@
             this.certificate.OptionsColumn.AllowEdit = false;
             this.certificate.Visible = true;
             this.certificate.VisibleIndex = 2;
+            this.certificate.Width = 329;
+            // 
+            // statusColumn
+            // 
+            this.statusColumn.Caption = "Статус";
+            this.statusColumn.FieldName = "Status";
+            this.statusColumn.Name = "statusColumn";
+            this.statusColumn.Visible = true;
+            this.statusColumn.VisibleIndex = 3;
+            this.statusColumn.Width = 133;
             // 
             // shippingDate
             // 
@@ -201,7 +215,7 @@
             this.shippingDate.Name = "shippingDate";
             this.shippingDate.OptionsColumn.AllowEdit = false;
             this.shippingDate.Visible = true;
-            this.shippingDate.VisibleIndex = 3;
+            this.shippingDate.VisibleIndex = 4;
             this.shippingDate.Width = 100;
             // 
             // shipGridButton
@@ -493,5 +507,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit shipGridButton;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit unshipGridButton;
         private DevExpress.XtraGrid.Columns.GridColumn isShipped;
+        private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
     }
 }

@@ -297,6 +297,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Точки отсчета.
+        /// </summary>
+        internal static string Constraction_Report_label {
+            get {
+                return ResourceManager.GetString("Constraction_Report_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пикеты.
+        /// </summary>
+        internal static string Constraction_UsedProductReport_label {
+            get {
+                return ResourceManager.GetString("Constraction_UsedProductReport_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строительство.
         /// </summary>
         internal static string Construction {
@@ -804,6 +822,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Трассовка.
+        /// </summary>
+        internal static string HighwayReport {
+            get {
+                return ResourceManager.GetString("HighwayReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Задержано.
         /// </summary>
         internal static string Hold {
@@ -998,6 +1025,24 @@ namespace Prizm.Main.Properties {
         internal static string IsShipped {
             get {
                 return ResourceManager.GetString("IsShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык.
+        /// </summary>
+        internal static string Joint {
+            get {
+                return ResourceManager.GetString("Joint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пикет.
+        /// </summary>
+        internal static string KP {
+            get {
+                return ResourceManager.GetString("KP", resourceCulture);
             }
         }
         
@@ -1224,6 +1269,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Протяженность трубопровода.
+        /// </summary>
+        internal static string PipelineLengthReport {
+            get {
+                return ResourceManager.GetString("PipelineLengthReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Типоразмер трубы.
         /// </summary>
         internal static string PipeMillSizeType {
@@ -1378,6 +1432,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сформирован.
+        /// </summary>
+        internal static string RailcarPending {
+            get {
+                return ResourceManager.GetString("RailcarPending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отгружен.
+        /// </summary>
+        internal static string RailcarShipped {
+            get {
+                return ResourceManager.GetString("RailcarShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отклонено.
         /// </summary>
         internal static string Rejected {
@@ -1527,6 +1599,15 @@ namespace Prizm.Main.Properties {
         internal static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Использованные изделия.
+        /// </summary>
+        internal static string UsedProductReport {
+            get {
+                return ResourceManager.GetString("UsedProductReport", resourceCulture);
             }
         }
         
