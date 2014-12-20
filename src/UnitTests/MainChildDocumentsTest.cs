@@ -14,7 +14,8 @@ using Prizm.Main.Forms.Reports.Mill;
 using Prizm.Main.Forms.Reports.Custom;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Forms.Spool;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Forms.Parts.Inspection;
 
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Audit;
@@ -41,6 +42,7 @@ namespace Prizm.UnitTests
         [TestCase(typeof(SpoolsXtraForm))]
         [TestCase(typeof(AuditXtraForm))]
         [TestCase(typeof(NotificationXtraForm))]
+        [TestCase(typeof(PartInspectionXtraForm))]
         public void TestChildFormSuccessor(System.Type type)
         {
             Assert.IsTrue(type.IsSubclassOf(typeof(ChildForm)), type.Name + " does not inherit from ChildForm!");
