@@ -1,4 +1,4 @@
-﻿namespace Prizm.Main.Forms.InspectionParts.Search
+﻿namespace Prizm.Main.Forms.Parts.Search
 {
     partial class PartSearchXtraForm
     {
