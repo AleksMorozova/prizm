@@ -47,12 +47,12 @@ namespace Prizm.Main.Forms.Spool
                 }
                 else 
                 {
-                    notify.ShowError(Resources.Wrong_Spool_Lengs, Resources.Cut_Spool_from_pipe_Header);
+                    notify.ShowError(Resources.Wrong_Spool_Lengs_MorePipeLength, Resources.Cut_Spool_from_pipe_Header);
                 }
             }
             else
             {
-                notify.ShowError("Длинна катушки не может быть равна 0", Resources.Cut_Spool_from_pipe_Header);
+                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
                 
             }
         }
