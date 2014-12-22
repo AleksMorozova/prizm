@@ -16,7 +16,6 @@ CREATE TABLE [dbo].[Category](
 
 SET ANSI_PADDING OFF
 
-
 /****** Object:  Table [dbo].[InspectorCertificateType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -34,7 +33,6 @@ CREATE TABLE [dbo].[InspectorCertificateType](
 ) ON [PRIMARY]
 
 SET ANSI_PADDING OFF
-
 
 /****** Object:  Table [dbo].[ComponentType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -201,6 +199,7 @@ CREATE TABLE [dbo].[Pipe](
 	[isActive] [bit] NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
+
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

@@ -570,6 +570,10 @@
             this.secondJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.secondJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Количество коннекторов")});
             this.secondJointElement.Properties.NullText = "Введите номер";
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
@@ -586,6 +590,10 @@
             this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.firstJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Количество коннекторов")});
             this.firstJointElement.Properties.NullText = "Введите номер";
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);

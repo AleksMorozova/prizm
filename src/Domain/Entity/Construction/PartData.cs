@@ -15,7 +15,7 @@ namespace Prizm.Domain.Entity.Construction
         public virtual int Length { get; set; }
         public virtual int WallThickness { get; set; }
         public virtual int Diameter { get; set; }
-                       
 
+        public virtual string ConnectorsCount { get; set; }
     }
 }

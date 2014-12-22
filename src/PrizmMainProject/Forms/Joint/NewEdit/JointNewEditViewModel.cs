@@ -372,7 +372,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        BindingList<PartData> list = null;
+        private BindingList<PartData> list = null;
 
         public BindingList<PartData> PartDataList
         {
@@ -380,21 +380,40 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 if (list == null)
                 {
+                    Guid tempId = Guid.Empty;
+                    string tempNumber = string.Empty;
+                    int tempConnectorsCount = 0;
+
                     list = new BindingList<PartData>();
+
+                    PartData p = new PartData();
 
                     foreach (DataRow row in Pieces.Rows)
                     {
-                        PartData p = new PartData()
+                        if (tempId != row.Field<Guid>("id")
+                        && tempNumber != row.Field<string>("number"))
                         {
-                            Id = row.Field<Guid>("id"),
-                            Number = row.Field<string>("number"),
-                            PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
-                            Length = row.Field<int>("length"),
-                            PartTypeDescription = row.Field<string>("typeTranslated"),
-                            WallThickness = row.Field<int>("wallThickness"),
-                            Diameter = row.Field<int>("diameter")
-                        };
-                        list.Add(p);
+                            p = new PartData()
+                            {
+                                Id = row.Field<Guid>("id"),
+                                Number = row.Field<string>("number"),
+                                PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
+                                Length = row.Field<int>("length"),
+                                PartTypeDescription = row.Field<string>("typeTranslated"),
+                                WallThickness = row.Field<int>("wallThickness"),
+                                Diameter = row.Field<int>("diameter"),
+                                ConnectorsCount = Convert.ToString(row.Field<int>("diameter"))
+                            };
+
+                            list.Add(p);
+
+                            tempId = row.Field<Guid>("id");
+                            tempNumber = row.Field<string>("number");
+                        }
+                        else
+                        {
+                            p.ConnectorsCount += string.Format("({0})", Convert.ToString(row.Field<int>("diameter")));
+                        }
                     }
                 }
                 return list;
