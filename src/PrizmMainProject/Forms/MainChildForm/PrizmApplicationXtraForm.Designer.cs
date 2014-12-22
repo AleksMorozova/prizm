@@ -76,7 +76,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemChangeCurrentProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemInspectionFindEditParts = new DevExpress.XtraBars.BarButtonItem();
@@ -135,7 +134,6 @@
             this.barButtonItemNewPipe,
             this.barButtonItemMillFindEditPipes,
             this.barSubItemApplication,
-            this.barButtonItemNewProject,
             this.barButtonItemNewComponent,
             this.barButtonItemCustomReport,
             this.barButtonItemRailcar,
@@ -554,12 +552,6 @@
             this.barButtonItemSettingsDictionaries.Id = 57;
             this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
             // 
-            // barButtonItemNewProject
-            // 
-            this.barButtonItemNewProject.Caption = "&New project";
-            this.barButtonItemNewProject.Id = 19;
-            this.barButtonItemNewProject.Name = "barButtonItemNewProject";
-            // 
             // barButtonItemRailcar
             // 
             this.barButtonItemRailcar.Caption = "Railcar";
@@ -722,7 +714,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarSubItem barSubItemReports;
         private DevExpress.XtraBars.BarSubItem barSubItemApplication;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemNewProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewPipe;
         private DevExpress.XtraBars.BarButtonItem barButtonItemMillFindEditPipes;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewComponent;
