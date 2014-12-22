@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Controls
 {
@@ -95,30 +96,34 @@ namespace Prizm.Main.Controls
             int rowHandle = gridViewWelders.GetRowHandle(DataSource.IndexOf(w));
             gridViewWelders.SelectRow(rowHandle);
          }
-
-         gridViewWelders.Columns["colIsActive"].FilterInfo = new ColumnFilterInfo("[Active] = true");
       }
 
       public void ShowActiveWelders() 
       {
-
-          gridViewWelders.Columns["colIsActive"].FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-          gridViewWelders.ActiveFilterString = "[isActive] = true";
-      }
-
-      private void gridViewWelders_ShowingEditor(object sender, CancelEventArgs e)
-      {
-          //gridViewWelders.Columns["colIsActive"].FilterInfo = new ColumnFilterInfo("[Active] = true");
-      }
-
-      private void gridViewWelders_CustomFilterDisplayText(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
-      {
+          gridViewWelders.ClearColumnsFilter();
+          GridColumn columnCountry = gridViewWelders.Columns[3];
+          ColumnFilterInfo info = new ColumnFilterInfo("[Active] = 'Checked'");
+          gridViewWelders.Columns[3].FilterInfo = info;
+          ViewColumnFilterInfo viewFilterInfo = new ViewColumnFilterInfo(gridViewWelders.Columns[3], info);
+          gridViewWelders.ActiveFilter.Add(viewFilterInfo);
 
       }
 
-      private void gridViewWelders_RowLoaded(object sender, DevExpress.XtraGrid.Views.Base.RowEventArgs e)
+      private void gridViewWelders_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
       {
 
+          var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+          var ct = view.DataSource as BindingList<Prizm.Domain.Entity.Welder>;
+
+          if (ct != null)
+          {
+              if ((bool)ct[e.ListSourceRow].IsActive)
+              {
+                  e.Visible = false;
+                  e.Handled = true;
+              }
+          }
       }
    }
 }

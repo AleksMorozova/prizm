@@ -64,9 +64,7 @@
             this.gridViewWelders.OptionsSelection.MultiSelect = true;
             this.gridViewWelders.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
-            this.gridViewWelders.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridViewWelders_ShowingEditor);
-            this.gridViewWelders.CustomFilterDisplayText += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.gridViewWelders_CustomFilterDisplayText);
-            this.gridViewWelders.RowLoaded += new DevExpress.XtraGrid.Views.Base.RowEventHandler(this.gridViewWelders_RowLoaded);
+            this.gridViewWelders.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.gridViewWelders_CustomRowFilter);
             // 
             // colLastName
             // 
