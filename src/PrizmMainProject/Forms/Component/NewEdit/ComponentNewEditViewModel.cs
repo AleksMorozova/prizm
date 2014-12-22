@@ -31,7 +31,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         [Inject]
         public ComponentNewEditViewModel(
             IComponentRepositories repos,
-            Guid componentId,
+            Guid id,
             IUserNotify notify)
         {
             this.repos = repos;
@@ -50,13 +50,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 .Create(() => new ComponentDeactivationCommand(this, repos, notify));
 
 
-            if (componentId == Guid.Empty)
+            if (id == Guid.Empty)
             {
                 NewComponent();
             }
             else
             {
-                this.Component = repos.ComponentRepo.Get(componentId);
+                this.Component = repos.ComponentRepo.Get(id);
                 this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
