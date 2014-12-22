@@ -42,7 +42,7 @@ namespace Prizm.Data.DAL.ADO
 
         public const string GetAudit =
             @"SELECT [user], auditDate, oldValue, newValue, tableName, fieldName
-FROM AuditLog 
+                FROM AuditLog 
                 WHERE auditDate >= @startDate and auditDate <= @finalDate
                 AND [user] LIKE @user";
 
@@ -52,14 +52,14 @@ FROM AuditLog
         public const string GetPipelinePieces =
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName 
             FROM pipe 
-            WHERE isActive = 1
+            WHERE isActive = 1 AND isAvailableToJoint = 1
             
             UNION ALL
 
             SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName 
             FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id 
-            WHERE s.isActive = 1
+            WHERE s.isActive = 1  AND s.isAvailableToJoint = 1
             
             UNION ALL
             
@@ -67,7 +67,7 @@ FROM AuditLog
             FROM component c 
             INNER JOIN ComponentType ct on ct.Id = c.componentTypeId
             INNER JOIN connector con ON c.id = con.componentId 
-            WHERE c.isActive = 1
+            WHERE c.isActive = 1 AND c.isAvailableToJoint = 1
             
             ORDER BY number";
         #endregion

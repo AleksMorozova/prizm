@@ -61,6 +61,10 @@ namespace Prizm.Main.Forms.Spool
             if (spoolId == Guid.Empty)
             {
                 Spool = new Prizm.Domain.Entity.Construction.Spool();
+
+                this.Spool.IsActive = true;
+                this.Spool.IsAvailableToJoint = true;
+
                 Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
                 Spool.Pipe = new Pipe();
                 Pipe = new Pipe();

@@ -89,6 +89,8 @@ CREATE TABLE [dbo].[Component](
 
 	[componentTypeId] [uniqueidentifier] NULL,
 
+	[isAvailableToJoint] [bit] NULL,
+
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -113,6 +115,8 @@ CREATE TABLE [dbo].[Spool](
 	[pipeNumber] [nvarchar](20) NULL,
 
 	[pipeId] [uniqueidentifier] NULL,
+
+	[isAvailableToJoint] [bit] NULL,
 
  CONSTRAINT [PK_Spool] PRIMARY KEY CLUSTERED 
 (
@@ -199,6 +203,8 @@ CREATE TABLE [dbo].[Pipe](
 	[isActive] [bit] NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
+
+	[isAvailableToJoint] [bit] NULL,
 
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
