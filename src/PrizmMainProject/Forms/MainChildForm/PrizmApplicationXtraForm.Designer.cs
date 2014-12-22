@@ -69,7 +69,7 @@
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
             this.notifyBarStaticItem = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonNotification = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonStatusNotifications = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -157,7 +157,7 @@
             this.languageBarListItem,
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
-            this.barButtonNotification,
+            this.barButtonStatusNotifications,
             this.barButtonIComponentry,
             this.barButtonItemPartIncomingInspection});
             this.barManager1.MainMenu = this.barMenu;
@@ -475,7 +475,7 @@
             this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.notifyBarStaticItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonNotification)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonStatusNotifications)});
             this.barStatus.OptionsBar.AllowQuickCustomization = false;
             this.barStatus.OptionsBar.DisableClose = true;
             this.barStatus.OptionsBar.DisableCustomization = true;
@@ -493,15 +493,15 @@
             this.notifyBarStaticItem.TextAlignment = System.Drawing.StringAlignment.Near;
             this.notifyBarStaticItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.notifyBarStaticItem_ItemClick);
             // 
-            // barButtonNotification
+            // barButtonStatusNotifications
             // 
-            this.barButtonNotification.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonNotification.Caption = "Сообщения системы(3)";
-            this.barButtonNotification.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
-            this.barButtonNotification.Id = 59;
-            this.barButtonNotification.Name = "barButtonNotification";
-            this.barButtonNotification.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barButtonNotification.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNotification_ItemClick);
+            this.barButtonStatusNotifications.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonStatusNotifications.Caption = "Сообщения системы(3)";
+            this.barButtonStatusNotifications.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
+            this.barButtonStatusNotifications.Id = 59;
+            this.barButtonStatusNotifications.Name = "barButtonStatusNotifications";
+            this.barButtonStatusNotifications.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonStatusNotifications.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonStatusNotifications_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -712,7 +712,7 @@
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsWelders;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsInspectors;
-        private DevExpress.XtraBars.BarButtonItem barButtonNotification;
+        private DevExpress.XtraBars.BarButtonItem barButtonStatusNotifications;
         private DevExpress.Utils.FlyoutPanel flyoutPanel;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
         private DevExpress.XtraEditors.ListBoxControl notifyHistory;

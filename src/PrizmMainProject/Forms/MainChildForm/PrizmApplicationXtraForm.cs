@@ -308,11 +308,6 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             CreateChildForm(typeof(AuditXtraForm));
         }
-
-        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateChildForm(typeof(NotificationXtraForm));
-        }
         #endregion
 
 
@@ -450,6 +445,11 @@ namespace Prizm.Main.Forms.MainChildForm
         private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             flyoutPanel.ShowPopup();
+        }
+
+        private void barButtonStatusNotifications_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
         }
 
 
