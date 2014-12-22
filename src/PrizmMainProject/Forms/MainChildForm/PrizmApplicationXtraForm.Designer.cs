@@ -55,7 +55,7 @@
             this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonIComponentry = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
@@ -158,7 +158,7 @@
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
             this.barButtonStatusNotifications,
-            this.barButtonIComponentry,
+            this.barButtonItemComponentry,
             this.barButtonItemPartIncomingInspection});
             this.barManager1.MainMenu = this.barMenu;
             this.barManager1.MaxItemId = 62;
@@ -349,7 +349,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonIComponentry),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemComponentry),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsWelders),
@@ -379,12 +379,12 @@
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
-            // barButtonIComponentry
+            // barButtonItemComponentry
             // 
-            this.barButtonIComponentry.Caption = "Комплектующие";
-            this.barButtonIComponentry.Id = 60;
-            this.barButtonIComponentry.Name = "barButtonIComponentry";
-            this.barButtonIComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIComponentry_ItemClick);
+            this.barButtonItemComponentry.Caption = "Комплектующие";
+            this.barButtonItemComponentry.Id = 60;
+            this.barButtonItemComponentry.Name = "barButtonItemComponentry";
+            this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
             // 
             // barButtonItemSettingsUsers
             // 
@@ -485,7 +485,6 @@
             // 
             // notifyBarStaticItem
             // 
-            this.notifyBarStaticItem.Caption = "Status text";
             this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
             this.notifyBarStaticItem.Id = 6;
             this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
@@ -716,7 +715,7 @@
         private DevExpress.Utils.FlyoutPanel flyoutPanel;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
         private DevExpress.XtraEditors.ListBoxControl notifyHistory;
-        private DevExpress.XtraBars.BarButtonItem barButtonIComponentry;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
 
 

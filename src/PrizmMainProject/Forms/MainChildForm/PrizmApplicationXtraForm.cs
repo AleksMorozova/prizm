@@ -279,7 +279,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateSettingsChildForm(page: 7);
         }
 
-        private void barButtonIComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateSettingsChildForm(page: 3);
         }
