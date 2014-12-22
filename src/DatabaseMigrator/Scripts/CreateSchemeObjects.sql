@@ -737,3 +737,18 @@ GO
 ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
 GO
 
+CREATE TABLE [dbo].[File](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[fileName] [nvarchar](300) NOT NULL,
+	[description] [nvarchar](100) NULL,
+	[uploadDate] [date] NULL,
+	[item] [uniqueidentifier] NOT NULL,
+	[newName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO

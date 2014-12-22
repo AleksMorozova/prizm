@@ -53,6 +53,15 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 repos.Commit();
                 repos.RailcarRepo.Evict(viewModel.Railcar);
                 viewModel.ModifiableView.IsModified = false;
+
+                //saving attached documents
+                if (viewModel.FilesFormViewModel != null)
+                {
+                    viewModel.FilesFormViewModel.Item = viewModel.Railcar.Id;
+                    viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                    viewModel.FilesFormViewModel = null;
+                }
+
                 notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
             }
             catch (RepositoryException ex)

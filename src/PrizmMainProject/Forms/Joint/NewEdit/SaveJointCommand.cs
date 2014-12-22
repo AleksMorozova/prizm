@@ -52,6 +52,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     repo.Commit();
                     repo.RepoJoint.Evict(viewModel.Joint);
                     viewModel.ModifiableView.IsModified = false;
+
+                    //saving attached documents
+                    if (viewModel.FilesFormViewModel != null)
+                    {
+                        viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
+                        viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                        viewModel.FilesFormViewModel = null;
+                    }
+
                     notify.ShowNotify(
                         string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
                         Resources.DLG_JOINT_SAVED_HEADER);

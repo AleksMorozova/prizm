@@ -28,7 +28,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm
     {
-        JointNewEditViewModel viewModel;
+        private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
         private JointWeldResult currentJointWeldResult;
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -64,8 +64,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id);
+            if (viewModel.FilesFormViewModel == null)
+            {
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
+            }
+            else
+            {
+                filesForm.ViewModel = viewModel.FilesFormViewModel;
+            }
+            filesForm.ShowDialog();
         }
 
 
