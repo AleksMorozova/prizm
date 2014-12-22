@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Spool
         public bool editMode = false;
 
         [Inject]
-        public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
         {
             this.repos = repos;
 
@@ -55,13 +55,13 @@ namespace Prizm.Main.Forms.Spool
                 allPipes.Add(p);
             }
 
-            if (spoolId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewSpool();
             }
             else
             {
-                Spool = repos.SpoolRepo.Get(spoolId);
+                Spool = repos.SpoolRepo.Get(id);
             }
         }
 

@@ -38,14 +38,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
 
-        public MillPipeNewEditXtraForm(Guid pipeId)
+        public MillPipeNewEditXtraForm(Guid id)
         {
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
-                new ConstructorArgument("pipeId", pipeId));
+                new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
 
 
