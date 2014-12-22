@@ -69,7 +69,7 @@
             this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.notifyBarStaticItem = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonNotification = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -126,7 +126,7 @@
             this.barButtonItemSettingsPipeline,
             this.barButtonItemSettingsUsers,
             this.barButtonItemSettingsDictionaries,
-            this.barStaticItem1,
+            this.notifyBarStaticItem,
             this.barSubItemReports,
             this.barButtonItemNewPipe,
             this.barButtonItemMillFindEditPipes,
@@ -484,7 +484,7 @@
             this.barStatus.DockRow = 0;
             this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barStaticItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.notifyBarStaticItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonNotification)});
             this.barStatus.OptionsBar.AllowQuickCustomization = false;
             this.barStatus.OptionsBar.DisableClose = true;
@@ -493,15 +493,15 @@
             this.barStatus.OptionsBar.UseWholeRow = true;
             this.barStatus.Text = "Status bar";
             // 
-            // barStaticItem1
+            // notifyBarStaticItem
             // 
-            this.barStaticItem1.Caption = "Status text";
-            this.barStaticItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.Glyph")));
-            this.barStaticItem1.Id = 6;
-            this.barStaticItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.LargeGlyph")));
-            this.barStaticItem1.Name = "barStaticItem1";
-            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.barStaticItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barStaticItem1_ItemClick);
+            this.notifyBarStaticItem.Caption = "Status text";
+            this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
+            this.notifyBarStaticItem.Id = 6;
+            this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
+            this.notifyBarStaticItem.Name = "notifyBarStaticItem";
+            this.notifyBarStaticItem.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.notifyBarStaticItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.notifyBarStaticItem_ItemClick);
             // 
             // barButtonNotification
             // 
@@ -518,7 +518,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1152, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1152, 22);
             // 
             // barDockControlBottom
             // 
@@ -531,15 +531,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1152, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Location = new System.Drawing.Point(1152, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 574);
             // 
             // barButtonItemSettingsDictionaries
             // 
@@ -681,7 +681,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsUsers;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsDictionaries;
         private DevExpress.XtraBars.Bar barStatus;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem notifyBarStaticItem;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

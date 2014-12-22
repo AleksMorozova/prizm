@@ -443,11 +443,11 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void UpdateStatusBar(string text) 
         {
-            barStaticItem1.Caption = text;
+            notifyBarStaticItem.Caption = text;
             notifyHistory.Items.Add(text);
         }
 
-        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             flyoutPanel.ShowPopup();
         }
