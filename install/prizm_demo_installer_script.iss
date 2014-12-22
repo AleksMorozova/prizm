@@ -167,8 +167,8 @@ english.UpdateProductPageSubCaption=Please, select the name of existing Project 
 russian.UpdateProductPageSubCaption=Ïîæàëóéñòà, óêàæèòå íàçâàíèå óñòàíîâëåííîãî Ïğîåêòà, êîòîğûé íåîáõîäèìî îáíîâèòü äî âåğñèè %1:
 english.SpecifyExistingProjectName=Please, select the name of existing Project
 russian.SpecifyExistingProjectName=Âûáåğèòå íàçâàíèå ñóùåñòâóşùåãî Ïğîåêòà
-english.ProjectNameValidation=Please, use English letters or digits
-russian.ProjectNameValidation=Ïîæàéëóñòà, èñïîëüçóéòå àíãëèéñêèå áóêâû è öèôğû
+english.ProjectNameValidation=Please, use English letters or digits. Don't start with digit
+russian.ProjectNameValidation=Ïîæàéëóñòà, èñïîëüçóéòå àíãëèéñêèå áóêâû è öèôğû. Íå íà÷èíàéòå ñ öèôğû
 english.ConfirmDowngrade=Version of current installation (%1) is lower or the same as installed version (%2). Do you really want to continue update?
 russian.ConfirmDowngrade=Âåğñèÿ òåêóùåé èíñòàëÿöèè (%1) ìåíüøå ëèáî ğàâíà óæå óñòàíîâëåííîé âåğñèè (%2). Âû äåéñòâèòåëüíî õîòèòå ïğîäîëæèòü?
 
@@ -336,6 +336,9 @@ begin
   for n := 1 to Length(name) do
   begin
     b := Copy(name,n,1);
+    If ((n = 1) and ((b >= '0') and (b <= '9')))
+    then
+      Result := False;
     If not (((b >= 'a') and (b <= 'z')) or ((b >= 'A') and (b <= 'Z')) or ((b >= '0') and (b <= '9')))
     then
       Result := False;
@@ -741,19 +744,20 @@ begin
   if IsNewInstall then
   begin
     // update project settigns
-    Nodes := RootNode.selectNodes('//configuration/applicationSettings/PrizmMain.Properties.Settings/setting');
+    Nodes := RootNode.selectNodes('//configuration/appSettings/add');
     
     for i := 0 to Nodes.length - 1 do
     begin
       Node := Nodes.Item[i];
       if Node.NodeType = 1 then
       begin
-        key := Node.getAttribute('name');
+        key := Node.getAttribute('key');
+        Log('key: ' + key);
         Case key of
-          'ProjectName' : Node.firstChild().text := GetProjectName('');
+          'ProjectName' : Node.setAttribute('value', GetProjectName(''));
         end;
         Case key of
-          'WorkstationType' : Node.firstChild().text := GetWorkstationTypeValue();
+          'WorkstationType' : Node.setAttribute('value', GetWorkstationTypeValue());
         end;
       end;
     end;

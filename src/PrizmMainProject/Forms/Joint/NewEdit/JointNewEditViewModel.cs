@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -37,6 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public BindingList<JointOperation> RepairOperations;
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
         public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Prizm.Data.DAL.IMillReportsRepository adoRepo)
@@ -85,6 +87,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         internal string FormatInspectorList(IList<Inspector> inspectors)
@@ -338,6 +344,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
+        private bool isCanDeactivate;
+        public bool IsCanDeactivate
+        {
+            get { return isCanDeactivate; }
+            set 
+            {
+                if(isCanDeactivate != value)
+                {
+                    isCanDeactivate = value;
+                    RaisePropertyChanged("IsCanDeactivate");
+                }
+            }
+        }
+        public void CheckDeactivation()
+        {
+            IsCanDeactivate = JointDeactivationCommand.CanExecute();
+        }
+
         #endregion
 
         public DataTable Pieces
@@ -353,7 +377,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     value.Columns.Add("typeTranslated", typeof(String));
                     foreach (DataRow record in value.Rows)
                     {
-                        string typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
+                        string typeResourceValue;
+
+                        if (record.Field<string>("type") != "Component")
+                        {
+                            typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
+                        }
+                        else
+                        {
+                            typeResourceValue = record.Field<string>("componentTypeName");
+                        }
+
                         record.SetField("typeTranslated", typeResourceValue);
                         pieces = value;
                         RaisePropertyChanged("Pieces");

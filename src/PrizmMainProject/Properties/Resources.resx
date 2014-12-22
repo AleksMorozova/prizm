@@ -629,7 +629,61 @@
   <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
     <value>Формат номера трубы: </value>
   </data>
-  <data name="Wrong_Spool_Lengs" xml:space="preserve">
+  <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
     <value>Длинны трубы не достаточно для отрезания заданной катушки</value>
+  </data>
+  <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\critical_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS" xml:space="preserve">
+    <value>Вложения успешно добавлены</value>
+  </data>
+  <data name="UsedProductReport" xml:space="preserve">
+    <value>Использованные изделия</value>
+  </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
+    <value>Добавление вложений</value>
+  </data>
+  <data name="HighwayReport" xml:space="preserve">
+    <value>Трассовка</value>
+  </data>
+  <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
+    <value>Загрузка файла</value>
+  </data>
+  <data name="PipelineLengthReport" xml:space="preserve">
+    <value>Протяженность трубопровода</value>
+  </data>
+  <data name="DLG_FILE_DOWNLOAD_SUCCESS" xml:space="preserve">
+    <value>Файл успешно загружен</value>
+  </data>
+  <data name="Constraction_Report_label" xml:space="preserve">
+    <value>Точки отсчета</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL" xml:space="preserve">
+    <value>Для просмотра и скачивания вложений необходимо их предварительное сохранение</value>
+  </data>
+  <data name="Constraction_UsedProductReport_label" xml:space="preserve">
+    <value>Пикеты</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
+    <value>Просмотр и загрузка несохрaненных файлов</value>
+  </data>
+  <data name="Joint" xml:space="preserve">
+    <value>Стык</value>
+  </data>
+  <data name="KP" xml:space="preserve">
+    <value>Пикет</value>
+  </data>
+  <data name="RailcarPending" xml:space="preserve">
+    <value>Сформирован</value>
+  </data>
+  <data name="RailcarShipped" xml:space="preserve">
+    <value>Отгружен</value>
+  </data>
+  <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
+    <value>Длинна катушки не может быть равна 0</value>
   </data>
 </root>

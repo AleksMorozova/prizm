@@ -475,6 +475,7 @@
             this.Name = "JointSearchXtraForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "Поиск стыков";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.JointSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).EndInit();

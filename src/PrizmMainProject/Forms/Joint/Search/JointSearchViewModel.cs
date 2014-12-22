@@ -15,13 +15,15 @@ using Construction = Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
-    public class JointSearchViewModel : ViewModelBase
+    public class JointSearchViewModel : ViewModelBase, IDisposable
     {
         private readonly JointSearchCommand searchCommand;
+        private readonly IJointRepository repo;
 
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
+            this.repo = repo;
             searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
         }
 
@@ -114,6 +116,11 @@ namespace Prizm.Main.Forms.Joint.Search
         public ICommand SearchCommand
         {
             get { return searchCommand; }
+        }
+
+        public void Dispose()
+        {
+            repo.Dispose();
         }
     }
 }

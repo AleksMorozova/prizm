@@ -20,7 +20,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Spool;
 
-namespace Prizm.Main.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.Parts.Search
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PartSearchXtraForm : ChildForm
@@ -121,6 +121,13 @@ namespace Prizm.Main.Forms.InspectionParts.Search
             {
                 partsView_DoubleClick(sender, e);
             }
+        }
+
+        private void PartSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            commandManager.Dispose();
+            viewModel.Dispose();
+            viewModel = null;
         }
     }
 }

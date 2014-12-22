@@ -44,11 +44,10 @@
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.reasonGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.spoolLength = new DevExpress.XtraEditors.TextEdit();
-            this.cutButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.LookUpEdit();
+            this.spoolLength = new DevExpress.XtraEditors.SpinEdit();
             this.layoutRootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeSearchayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.upperSearchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -61,8 +60,6 @@
             this.layoutlengthGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipelengthLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoonlengthLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.curButtonmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.cutLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.spoolNumberEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.spoolCreationEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -79,10 +76,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSearchayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).BeginInit();
@@ -95,8 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutlengthGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelengthLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoonlengthLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curButtonmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolCreationEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
@@ -116,18 +111,18 @@
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 39;
             this.searchButton.Text = "&Редактировать";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // mainLayoutControl
             // 
             this.mainLayoutControl.Controls.Add(this.saveButton);
             this.mainLayoutControl.Controls.Add(this.attachmentsButton);
             this.mainLayoutControl.Controls.Add(this.inspectionHistory);
-            this.mainLayoutControl.Controls.Add(this.spoolLength);
-            this.mainLayoutControl.Controls.Add(this.cutButton);
             this.mainLayoutControl.Controls.Add(this.pipeLength);
             this.mainLayoutControl.Controls.Add(this.spoolNumber);
             this.mainLayoutControl.Controls.Add(this.searchButton);
             this.mainLayoutControl.Controls.Add(this.pipeNumber);
+            this.mainLayoutControl.Controls.Add(this.spoolLength);
             this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControl.Name = "mainLayoutControl";
@@ -146,6 +141,7 @@
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 46;
             this.saveButton.Text = "Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // attachmentsButton
             // 
@@ -261,28 +257,6 @@
             this.reasonTextEdit.AutoHeight = false;
             this.reasonTextEdit.Name = "reasonTextEdit";
             // 
-            // spoolLength
-            // 
-            this.spoolLength.Location = new System.Drawing.Point(196, 246);
-            this.spoolLength.Name = "spoolLength";
-            this.spoolLength.Properties.Mask.EditMask = "d";
-            this.spoolLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.spoolLength.Size = new System.Drawing.Size(120, 20);
-            this.spoolLength.StyleController = this.mainLayoutControl;
-            this.spoolLength.TabIndex = 16;
-            // 
-            // cutButton
-            // 
-            this.cutButton.Image = ((System.Drawing.Image)(resources.GetObject("cutButton.Image")));
-            this.cutButton.Location = new System.Drawing.Point(219, 280);
-            this.cutButton.MaximumSize = new System.Drawing.Size(100, 0);
-            this.cutButton.Name = "cutButton";
-            this.cutButton.Size = new System.Drawing.Size(97, 22);
-            this.cutButton.StyleController = this.mainLayoutControl;
-            this.cutButton.TabIndex = 43;
-            this.cutButton.Text = "&Отрезать";
-            this.cutButton.Click += new System.EventHandler(this.cutButton_Click);
-            // 
             // pipeLength
             // 
             this.pipeLength.Location = new System.Drawing.Point(49, 246);
@@ -291,6 +265,7 @@
             this.pipeLength.Size = new System.Drawing.Size(126, 20);
             this.pipeLength.StyleController = this.mainLayoutControl;
             this.pipeLength.TabIndex = 13;
+            this.pipeLength.TextChanged += new System.EventHandler(this.pipeLength_TextChanged);
             // 
             // spoolNumber
             // 
@@ -316,6 +291,23 @@
             this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 38;
+            // 
+            // spoolLength
+            // 
+            this.spoolLength.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spoolLength.Location = new System.Drawing.Point(196, 246);
+            this.spoolLength.Name = "spoolLength";
+            this.spoolLength.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spoolLength.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.spoolLength.Properties.Mask.EditMask = "d";
+            this.spoolLength.Size = new System.Drawing.Size(120, 20);
+            this.spoolLength.StyleController = this.mainLayoutControl;
+            this.spoolLength.TabIndex = 16;
             // 
             // layoutRootGroup
             // 
@@ -441,13 +433,11 @@
             this.layoutlengthGroup.CustomizationFormText = "Длинна";
             this.layoutlengthGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipelengthLabel,
-            this.spoonlengthLabel,
-            this.curButtonmptySpace,
-            this.cutLayoutControlItem});
+            this.spoonlengthLabel});
             this.layoutlengthGroup.Location = new System.Drawing.Point(0, 62);
             this.layoutlengthGroup.Name = "layoutlengthGroup";
             this.layoutlengthGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutlengthGroup.Size = new System.Drawing.Size(324, 136);
+            this.layoutlengthGroup.Size = new System.Drawing.Size(324, 94);
             this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 7, 0, 15);
             this.layoutlengthGroup.Text = "Длина";
             // 
@@ -468,7 +458,7 @@
             this.spoonlengthLabel.Control = this.spoolLength;
             this.spoonlengthLabel.CustomizationFormText = "Катушка";
             this.spoonlengthLabel.Location = new System.Drawing.Point(147, 0);
-            this.spoonlengthLabel.MinSize = new System.Drawing.Size(82, 41);
+            this.spoonlengthLabel.MinSize = new System.Drawing.Size(50, 25);
             this.spoonlengthLabel.Name = "spoonlengthLabel";
             this.spoonlengthLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
             this.spoonlengthLabel.Size = new System.Drawing.Size(149, 54);
@@ -477,30 +467,6 @@
             this.spoonlengthLabel.Text = "Катушка";
             this.spoonlengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoonlengthLabel.TextSize = new System.Drawing.Size(78, 13);
-            // 
-            // curButtonmptySpace
-            // 
-            this.curButtonmptySpace.AllowHotTrack = false;
-            this.curButtonmptySpace.CustomizationFormText = "curButtonmptySpace";
-            this.curButtonmptySpace.Location = new System.Drawing.Point(0, 54);
-            this.curButtonmptySpace.Name = "curButtonmptySpace";
-            this.curButtonmptySpace.Size = new System.Drawing.Size(100, 42);
-            this.curButtonmptySpace.Text = "curButtonmptySpace";
-            this.curButtonmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // cutLayoutControlItem
-            // 
-            this.cutLayoutControlItem.Control = this.cutButton;
-            this.cutLayoutControlItem.CustomizationFormText = "cutLayoutControlItem";
-            this.cutLayoutControlItem.Location = new System.Drawing.Point(100, 54);
-            this.cutLayoutControlItem.Name = "cutLayoutControlItem";
-            this.cutLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
-            this.cutLayoutControlItem.Size = new System.Drawing.Size(196, 42);
-            this.cutLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(80, 15, 3, 15);
-            this.cutLayoutControlItem.Text = "cutLayoutControlItem";
-            this.cutLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.cutLayoutControlItem.TextToControlDistance = 0;
-            this.cutLayoutControlItem.TextVisible = false;
             // 
             // spoolNumberEmptySpace
             // 
@@ -516,9 +482,9 @@
             // 
             this.spoolCreationEmptySpace.AllowHotTrack = false;
             this.spoolCreationEmptySpace.CustomizationFormText = "spoolCreationEmptySpace";
-            this.spoolCreationEmptySpace.Location = new System.Drawing.Point(0, 198);
+            this.spoolCreationEmptySpace.Location = new System.Drawing.Point(0, 156);
             this.spoolCreationEmptySpace.Name = "spoolCreationEmptySpace";
-            this.spoolCreationEmptySpace.Size = new System.Drawing.Size(324, 63);
+            this.spoolCreationEmptySpace.Size = new System.Drawing.Size(324, 105);
             this.spoolCreationEmptySpace.Text = "spoolCreationEmptySpace";
             this.spoolCreationEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -567,6 +533,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SpoolsXtraForm";
             this.Text = "Создание катушки";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpoolsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.SpoolsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
@@ -577,10 +544,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.resultLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spoolLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutRootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSearchayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperSearchEmptySpace)).EndInit();
@@ -593,8 +560,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutlengthGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipelengthLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoonlengthLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curButtonmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cutLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolNumberEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spoolCreationEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
@@ -611,7 +576,6 @@
         private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraEditors.TextEdit pipeLength;
         private DevExpress.XtraEditors.TextEdit spoolNumber;
-        private DevExpress.XtraEditors.SimpleButton cutButton;
         private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup layoutRootGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLabel;
@@ -619,7 +583,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutlengthGroup;
         private DevExpress.XtraLayout.LayoutControlItem pipelengthLabel;
         private DevExpress.XtraLayout.LayoutControlItem searchLayoutControlItem;
-        private DevExpress.XtraLayout.LayoutControlItem cutLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem upperSearchEmptySpace;
         private DevExpress.XtraLayout.LayoutControlGroup pipeSearchayoutGroup;
         private DevExpress.XtraLayout.LayoutControlGroup spoolLayoutGroup;
@@ -633,9 +596,7 @@
         private DevExpress.XtraLayout.LayoutControlItem inspectionHistoryLayout;
         private DevExpress.XtraLayout.EmptySpaceItem spoolNumberEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem spoolCreationEmptySpace;
-        private DevExpress.XtraEditors.TextEdit spoolLength;
         private DevExpress.XtraLayout.LayoutControlItem spoonlengthLabel;
-        private DevExpress.XtraLayout.EmptySpaceItem curButtonmptySpace;
         private System.Windows.Forms.BindingSource SpoolBindingSource;
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
@@ -648,5 +609,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit reasonTextEdit;
         private System.Windows.Forms.BindingSource inspectorsDataSource;
+        private DevExpress.XtraEditors.SpinEdit spoolLength;
     }
 }

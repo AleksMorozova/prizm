@@ -25,8 +25,10 @@ using Prizm.Main.Properties;
 using DevExpress.XtraBars.Alerter;
 using Prizm.Main.Forms.PipeMill.Heat;
 using Prizm.Main.Forms.Audit;
-using Prizm.Main.Forms.InspectionParts.Search;
+using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Main.Forms.Common;
+using PrizmMain.Forms.Notifications;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -232,6 +234,11 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(JointSearchXtraForm));
         }
 
+        private void barButtonItemPartIncomingInspection_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(PartInspectionXtraForm));
+        }
+
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(ConstructionReportsXtraForm));
@@ -254,22 +261,27 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 3);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 7);
+        }
+
+        private void barButtonIComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateSettingsChildForm(page: 3);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
@@ -303,7 +315,12 @@ namespace Prizm.Main.Forms.MainChildForm
             var heatform = new HeatXtraForm();
             heatform.MdiParent = this;
             heatform.Show();
-        } 
+        }
+
+        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
+        }
         #endregion
 
 
@@ -378,9 +395,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowSuccess(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header,text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+
         }
         /// <summary>
         /// Message about failure, that doesn't require user confirmation.
@@ -389,9 +405,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowFailure(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(Resources.AlertFailureHeader +" "+ header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
         }
         /// <summary>
         /// Informational message, that doesn't require user confirmation.
@@ -400,9 +414,14 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowNotify(string text, string header)
         {
-            AlertInfo ai = new AlertInfo(header, text);
-            //TODO: add image and custom buttons if necessity
-            alertControl.Show(this, ai);
+            StatusNotifyText(text);
+        }
+
+        private void StatusNotifyText(string s)
+        {
+            var main = Program.MainForm as PrizmApplicationXtraForm;
+            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s);
+            main.UpdateStatusBar(str);
         }
         #endregion
 
@@ -429,6 +448,20 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             Application.Exit();
         }
+
+        public void UpdateStatusBar(string text) 
+        {
+            barStaticItem1.Caption = text;
+            notifyHistory.Items.Add(text);
+        }
+
+        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            flyoutPanel.ShowPopup();
+        }
+
+
+
 
      
     }

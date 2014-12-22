@@ -66,6 +66,7 @@
     <Compile Include="AuditTrailTests.cs" />
     <Compile Include="Forms\Common\PasswordEncryptorTest.cs" />
     <Compile Include="Forms\Component\NewEdit\TestNewSaveComponentCommand.cs" />
+    <Compile Include="Forms\ExternalFile\AddExternalFileTest.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointNewEditCommandTest.cs" />
     <Compile Include="Forms\PrizmMainForm.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />

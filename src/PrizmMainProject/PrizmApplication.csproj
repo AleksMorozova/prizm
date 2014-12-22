@@ -166,6 +166,7 @@
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
+    <Compile Include="Common\Directories.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
@@ -184,9 +185,9 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DummyData\ComponentryDummy.cs" />
-    <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
+    <Compile Include="DummyData\NotificationDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
@@ -227,9 +228,14 @@
     <Compile Include="Forms\Component\NewEdit\NewSaveComponentCommand.cs" />
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
+    <Compile Include="Forms\ExternalFile\AddExternalFileCommand.cs" />
+    <Compile Include="Forms\ExternalFile\DownloadFileCommand.cs" />
+    <Compile Include="Forms\ExternalFile\ExternalFilesViewModel.cs" />
+    <Compile Include="Forms\ExternalFile\ViewFileCommand.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointDeactivationCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupRepo.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">
@@ -238,14 +244,28 @@
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Part\Search\Part.cs" />
-    <Compile Include="Forms\Part\Search\PartQuery.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchCommand.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchViewModel.cs" />
-    <Compile Include="Forms\Part\Search\PartSearchXtraForm.cs">
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\IFirstSetupRepo.cs" />
+    <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
+    <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Part\Search\PartSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
+      <DependentUpon>NotificationXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.Designer.cs">
+      <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Search\Part.cs" />
+    <Compile Include="Forms\Parts\Search\PartQuery.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchCommand.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchViewModel.cs" />
+    <Compile Include="Forms\Parts\Search\PartSearchXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Search\PartSearchXtraForm.Designer.cs">
       <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ISupportModifiableView.cs" />
@@ -308,6 +328,7 @@
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\TestReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -338,7 +359,6 @@
     <Compile Include="Forms\Settings\PasswordChangeDialog.Designer.cs">
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Spool\CutSpoolCommand.cs" />
     <Compile Include="Forms\Spool\ISpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
@@ -515,7 +535,10 @@
     <EmbeddedResource Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.resx">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Part\Search\PartSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
+      <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parts\Search\PartSearchXtraForm.resx">
       <DependentUpon>PartSearchXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -794,8 +817,12 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Forms\Notifications\" />
+    <None Include="Resources\critical_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

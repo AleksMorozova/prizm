@@ -162,7 +162,7 @@
             this.jointNumber.Properties.Appearance.Options.UseBackColor = true;
             this.jointNumber.Size = new System.Drawing.Size(239, 20);
             this.jointNumber.StyleController = this.newJointLayoutControl;
-            this.jointNumber.TabIndex = 11;
+            this.jointNumber.TabIndex = 0;
             this.jointNumber.EditValueChanged += new System.EventHandler(this.jointNumber_EditValueChanged);
             // 
             // newJointLayoutControl
@@ -201,7 +201,7 @@
             this.saveAndCreateButton.Name = "saveAndCreateButton";
             this.saveAndCreateButton.Size = new System.Drawing.Size(132, 22);
             this.saveAndCreateButton.StyleController = this.newJointLayoutControl;
-            this.saveAndCreateButton.TabIndex = 29;
+            this.saveAndCreateButton.TabIndex = 14;
             this.saveAndCreateButton.Text = "Сохранить/Создать";
             // 
             // repairOperations
@@ -216,7 +216,7 @@
             this.repairDateEdit,
             this.weldersPopupContainerEdit});
             this.repairOperations.Size = new System.Drawing.Size(532, 261);
-            this.repairOperations.TabIndex = 28;
+            this.repairOperations.TabIndex = 9;
             this.repairOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.repairOperationsView});
             // 
@@ -234,10 +234,11 @@
             this.repairOperationsView.OptionsView.ShowGroupPanel = false;
             this.repairOperationsView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.repairOperationsView_ShowingEditor);
             this.repairOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.repairOperationsView_InitNewRow);
+            this.repairOperationsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.repairOperationsView_ValidateRow);
             // 
             // repairTypeGridColumn
             // 
-            this.repairTypeGridColumn.Caption = "Тип операции";
+            this.repairTypeGridColumn.Caption = "Название операции";
             this.repairTypeGridColumn.ColumnEdit = this.repairOperationsLookUpEdit;
             this.repairTypeGridColumn.FieldName = "Operation.Name";
             this.repairTypeGridColumn.Name = "repairTypeGridColumn";
@@ -345,7 +346,7 @@
             this.deactivated.Properties.Caption = "Стык деактивирован";
             this.deactivated.Size = new System.Drawing.Size(131, 19);
             this.deactivated.StyleController = this.newJointLayoutControl;
-            this.deactivated.TabIndex = 17;
+            this.deactivated.TabIndex = 12;
             this.deactivated.Modified += new System.EventHandler(this.deactivated_Modified);
             // 
             // distanceFromPK
@@ -354,7 +355,7 @@
             this.distanceFromPK.Name = "distanceFromPK";
             this.distanceFromPK.Size = new System.Drawing.Size(191, 20);
             this.distanceFromPK.StyleController = this.newJointLayoutControl;
-            this.distanceFromPK.TabIndex = 27;
+            this.distanceFromPK.TabIndex = 8;
             // 
             // PKNumber
             // 
@@ -364,7 +365,7 @@
             this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.PKNumber.Size = new System.Drawing.Size(191, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
-            this.PKNumber.TabIndex = 26;
+            this.PKNumber.TabIndex = 7;
             // 
             // PKLabel
             // 
@@ -393,7 +394,7 @@
             this.seaLevel.Name = "seaLevel";
             this.seaLevel.Size = new System.Drawing.Size(193, 20);
             this.seaLevel.StyleController = this.newJointLayoutControl;
-            this.seaLevel.TabIndex = 14;
+            this.seaLevel.TabIndex = 6;
             // 
             // GPSLat
             // 
@@ -404,7 +405,7 @@
             this.GPSLat.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLat.Size = new System.Drawing.Size(191, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
-            this.GPSLat.TabIndex = 9;
+            this.GPSLat.TabIndex = 4;
             // 
             // GPSLong
             // 
@@ -416,7 +417,7 @@
             this.GPSLong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLong.Size = new System.Drawing.Size(191, 20);
             this.GPSLong.StyleController = this.newJointLayoutControl;
-            this.GPSLong.TabIndex = 10;
+            this.GPSLong.TabIndex = 5;
             // 
             // controlOperations
             // 
@@ -435,7 +436,7 @@
             this.resultStatusLookUpEdit,
             this.ResultValueTextEdit});
             this.controlOperations.Size = new System.Drawing.Size(657, 261);
-            this.controlOperations.TabIndex = 24;
+            this.controlOperations.TabIndex = 10;
             this.controlOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.controlOperationsView,
             this.inspectionsGridView});
@@ -454,10 +455,11 @@
             this.controlOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.controlOperationsView.OptionsView.ShowGroupPanel = false;
             this.controlOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.controlOperationsView_InitNewRow);
+            this.controlOperationsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.controlOperationsView_ValidateRow);
             // 
             // controlTypeGridColumn
             // 
-            this.controlTypeGridColumn.Caption = "Тип операции";
+            this.controlTypeGridColumn.Caption = "Название операции";
             this.controlTypeGridColumn.ColumnEdit = this.ControlOperationLookUpEdit;
             this.controlTypeGridColumn.FieldName = "Operation.Name";
             this.controlTypeGridColumn.Name = "controlTypeGridColumn";
@@ -573,7 +575,7 @@
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
-            this.secondJointElement.TabIndex = 16;
+            this.secondJointElement.TabIndex = 3;
             this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
             // 
             // firstJointElement
@@ -589,7 +591,7 @@
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
-            this.firstJointElement.TabIndex = 15;
+            this.firstJointElement.TabIndex = 2;
             this.firstJointElement.EditValueChanged += new System.EventHandler(this.firstJointElement_EditValueChanged);
             // 
             // loweringDate
@@ -603,7 +605,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.loweringDate.Size = new System.Drawing.Size(242, 20);
             this.loweringDate.StyleController = this.newJointLayoutControl;
-            this.loweringDate.TabIndex = 12;
+            this.loweringDate.TabIndex = 1;
             // 
             // newJointLayoutGroup
             // 
@@ -637,7 +639,7 @@
             this.inspectionLayoutGroup.Name = "inspectionLayoutGroup";
             this.inspectionLayoutGroup.Size = new System.Drawing.Size(1235, 346);
             this.inspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 13, 13);
-            this.inspectionLayoutGroup.Text = "Контрольнo - ремонтные операции";
+            this.inspectionLayoutGroup.Text = "Операции";
             // 
             // repairOperationLayout
             // 
@@ -647,7 +649,7 @@
             this.repairOperationLayout.Name = "repairOperationLayout";
             this.repairOperationLayout.Size = new System.Drawing.Size(543, 281);
             this.repairOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
-            this.repairOperationLayout.Text = "Ремонтные операции";
+            this.repairOperationLayout.Text = "Сварка и ремонт";
             this.repairOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.repairOperationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -934,6 +936,7 @@
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
             this.Text = "Стык";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();

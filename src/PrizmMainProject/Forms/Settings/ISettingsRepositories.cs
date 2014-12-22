@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Data.DAL.Security;
+using Prizm.Data.DAL.Construction;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -23,6 +24,8 @@ namespace Prizm.Main.Forms.Settings
       IPermissionRepository PermissionRepo { get; }
       IJointOperationRepository JointRepo { get; }
       ICategoryRepository СategoryRepo { get; }
+      IComponentTypeRepository ComponentTypeRepo { get; }
+      ICertificateTypeRepository CertificateTypeRepo { get; }
 
       void Commit();
       void BeginTransaction();

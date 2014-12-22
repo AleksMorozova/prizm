@@ -1,4 +1,4 @@
-﻿namespace Prizm.Main.Forms.InspectionParts.Search
+﻿namespace Prizm.Main.Forms.Parts.Search
 {
     partial class PartSearchXtraForm
     {
@@ -251,6 +251,7 @@
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "PartSearchXtraForm";
             this.Text = "Строительство - поиск компонентов";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PartSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);

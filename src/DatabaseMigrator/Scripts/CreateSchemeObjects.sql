@@ -17,6 +17,24 @@ CREATE TABLE [dbo].[Category](
 SET ANSI_PADDING OFF
 
 
+/****** Object:  Table [dbo].[InspectorCertificateType]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[InspectorCertificateType](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+	[name] [nvarchar](30) NULL,
+
+ CONSTRAINT [PK_InspectorCertificateType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+
 
 /****** Object:  Table [dbo].[ComponentType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -153,6 +171,7 @@ CREATE TABLE [dbo].[InspectorCertificate](
 	[number] [nvarchar](50) NOT NULL,
 	[expirationDate] [date] NOT NULL,
 	[inspectorId] [uniqueidentifier] NOT NULL,
+	[inspectorCertificateTypeId] [uniqueidentifier] NULL,
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_InspectorCertificate] PRIMARY KEY CLUSTERED 
 (
@@ -530,6 +549,12 @@ REFERENCES [dbo].[Inspector] ([id])
 ALTER TABLE [dbo].[InspectorCertificate] CHECK CONSTRAINT [FK_InspectorCertificate_Inspector]
 
 
+/* ------ Inspector Certificate Type CONSTRAINT ------ */
+ALTER TABLE [dbo].[InspectorCertificate]  WITH CHECK ADD  CONSTRAINT [FK_InspectorCertificate_InspectorCertificateType] FOREIGN KEY([inspectorCertificateTypeId])
+REFERENCES [dbo].[InspectorCertificateType] ([id])
+ALTER TABLE [dbo].[InspectorCertificate] CHECK CONSTRAINT [FK_InspectorCertificate_InspectorCertificateType]
+
+
 CREATE TABLE [dbo].[Coat](
 	[id] [uniqueidentifier] NOT NULL,
 	[date] [DateTime] NOT NULL,
@@ -570,6 +595,7 @@ CREATE TABLE [dbo].[User] (
   [lastName] [nvarchar](30) NULL,
   [middleName] [nvarchar](30) NULL,
   [isActive] [bit] NOT NULL,
+  [undeletable] [bit] NOT NULL,
   PRIMARY KEY(id)
 ) ON [PRIMARY]
 
@@ -711,3 +737,18 @@ GO
 ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
 GO
 
+CREATE TABLE [dbo].[File](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[fileName] [nvarchar](300) NOT NULL,
+	[description] [nvarchar](100) NULL,
+	[uploadDate] [date] NULL,
+	[item] [uniqueidentifier] NOT NULL,
+	[newName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO

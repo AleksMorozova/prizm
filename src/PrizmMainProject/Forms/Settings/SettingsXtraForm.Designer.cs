@@ -111,6 +111,17 @@
             this.isActiveJointOperationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jointOperationsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.componentryPage = new DevExpress.XtraTab.XtraTabPage();
+            this.componentryTabLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.componentryTypeGridControl = new DevExpress.XtraGrid.GridControl();
+            this.componentryTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.typeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.connectorsNumbersColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryConnectorsNumbers = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.isActiveComponentColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryComponentryTypeCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.componentryLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.componentryTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.usersPage = new DevExpress.XtraTab.XtraTabPage();
             this.usersLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
@@ -166,9 +177,18 @@
             this.layoutControlItemWelders = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorsPage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControlInspectors = new DevExpress.XtraLayout.LayoutControl();
+            this.certificateTypes = new DevExpress.XtraGrid.GridControl();
+            this.certificateTypesView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.certificateNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificateIsActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryCertificateIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridControlInspectorsCertificates = new DevExpress.XtraGrid.GridControl();
             this.inspectorCertificateGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectorCertificateNumberCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.certificateTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryLookUpCertificateType = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryLookUpCertificateTypeView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.inspectorCertificateTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorCertificateExpirationCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -183,14 +203,18 @@
             this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorCertificateTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.InspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemInspectors = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorCertificatesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.certificateTypesLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certificateTypesLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.userBindingSource = new System.Windows.Forms.BindingSource();
             this.roleBindingSource = new System.Windows.Forms.BindingSource();
             this.settingsTabPanel = new DevExpress.XtraEditors.PanelControl();
             this.generalSettingsLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalSettingsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -198,12 +222,11 @@
             this.closeButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cloneTypeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
             this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
-            this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
-            this.cloneTypeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -264,6 +287,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).BeginInit();
+            this.componentryPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).BeginInit();
+            this.componentryTabLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryComponentryTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeLayout)).BeginInit();
             this.usersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).BeginInit();
             this.usersLayoutControl.SuspendLayout();
@@ -303,8 +335,13 @@
             this.inspectorsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlInspectors)).BeginInit();
             this.layoutControlInspectors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCertificateIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectorsCertificates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateTypeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).BeginInit();
@@ -312,8 +349,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InspectorsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificatesLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
@@ -326,11 +366,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -394,6 +434,7 @@
             this.projectPage,
             this.pipePage,
             this.pipelinePage,
+            this.componentryPage,
             this.usersPage,
             this.rolesPage,
             this.weldersPage,
@@ -761,7 +802,7 @@
             // 
             // isActiveColumn
             // 
-            this.isActiveColumn.Caption = "Состояние";
+            this.isActiveColumn.Caption = "Активна";
             this.isActiveColumn.ColumnEdit = this.repositoryIsActiveCheckEdit;
             this.isActiveColumn.FieldName = "IsActive";
             this.isActiveColumn.Name = "isActiveColumn";
@@ -783,10 +824,9 @@
             // 
             // projectTitle
             // 
-            this.projectTitle.EditValue = "Мой новый трубопровод";
+            this.projectTitle.EditValue = "";
             this.projectTitle.Location = new System.Drawing.Point(32, 62);
             this.projectTitle.Name = "projectTitle";
-            this.projectTitle.Properties.ReadOnly = true;
             this.projectTitle.Size = new System.Drawing.Size(251, 20);
             this.projectTitle.StyleController = this.generalProjectLayout;
             this.projectTitle.TabIndex = 14;
@@ -1227,6 +1267,114 @@
             this.jointOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.jointOperationsLayout.TextSize = new System.Drawing.Size(271, 13);
             // 
+            // componentryPage
+            // 
+            this.componentryPage.Controls.Add(this.componentryTabLayoutControl);
+            this.componentryPage.Name = "componentryPage";
+            this.componentryPage.Size = new System.Drawing.Size(1241, 463);
+            this.componentryPage.Text = "Комплектующие";
+            // 
+            // componentryTabLayoutControl
+            // 
+            this.componentryTabLayoutControl.Controls.Add(this.componentryTypeGridControl);
+            this.componentryTabLayoutControl.Location = new System.Drawing.Point(3, 3);
+            this.componentryTabLayoutControl.Name = "componentryTabLayoutControl";
+            this.componentryTabLayoutControl.Root = this.componentryLayoutGroup;
+            this.componentryTabLayoutControl.Size = new System.Drawing.Size(550, 456);
+            this.componentryTabLayoutControl.TabIndex = 0;
+            this.componentryTabLayoutControl.Text = "componentryTabLayoutControl";
+            // 
+            // componentryTypeGridControl
+            // 
+            this.componentryTypeGridControl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.componentryTypeGridControl.Location = new System.Drawing.Point(12, 28);
+            this.componentryTypeGridControl.MainView = this.componentryTypeGridView;
+            this.componentryTypeGridControl.Name = "componentryTypeGridControl";
+            this.componentryTypeGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryComponentryTypeCheck,
+            this.repositoryConnectorsNumbers});
+            this.componentryTypeGridControl.Size = new System.Drawing.Size(526, 416);
+            this.componentryTypeGridControl.TabIndex = 4;
+            this.componentryTypeGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.componentryTypeGridView});
+            // 
+            // componentryTypeGridView
+            // 
+            this.componentryTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.typeColumn,
+            this.connectorsNumbersColumn,
+            this.isActiveComponentColumn});
+            this.componentryTypeGridView.GridControl = this.componentryTypeGridControl;
+            this.componentryTypeGridView.Name = "componentryTypeGridView";
+            this.componentryTypeGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.componentryTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.componentryTypeGridView.OptionsView.ShowGroupPanel = false;
+            this.componentryTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.componentryTypeGridView_InitNewRow);
+            this.componentryTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.componentryTypeGridView_KeyDown);
+            // 
+            // typeColumn
+            // 
+            this.typeColumn.Caption = "Тип комплектующего";
+            this.typeColumn.FieldName = "Name";
+            this.typeColumn.Name = "typeColumn";
+            this.typeColumn.Visible = true;
+            this.typeColumn.VisibleIndex = 0;
+            // 
+            // connectorsNumbersColumn
+            // 
+            this.connectorsNumbersColumn.Caption = "Количество коннекторов";
+            this.connectorsNumbersColumn.ColumnEdit = this.repositoryConnectorsNumbers;
+            this.connectorsNumbersColumn.FieldName = "ConnectorsCount";
+            this.connectorsNumbersColumn.Name = "connectorsNumbersColumn";
+            this.connectorsNumbersColumn.Visible = true;
+            this.connectorsNumbersColumn.VisibleIndex = 1;
+            // 
+            // repositoryConnectorsNumbers
+            // 
+            this.repositoryConnectorsNumbers.AutoHeight = false;
+            this.repositoryConnectorsNumbers.Mask.EditMask = "[1-9]";
+            this.repositoryConnectorsNumbers.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.repositoryConnectorsNumbers.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryConnectorsNumbers.Name = "repositoryConnectorsNumbers";
+            // 
+            // isActiveComponentColumn
+            // 
+            this.isActiveComponentColumn.Caption = "Активно";
+            this.isActiveComponentColumn.ColumnEdit = this.repositoryComponentryTypeCheck;
+            this.isActiveComponentColumn.FieldName = "IsActive";
+            this.isActiveComponentColumn.Name = "isActiveComponentColumn";
+            this.isActiveComponentColumn.Visible = true;
+            this.isActiveComponentColumn.VisibleIndex = 2;
+            // 
+            // repositoryComponentryTypeCheck
+            // 
+            this.repositoryComponentryTypeCheck.AutoHeight = false;
+            this.repositoryComponentryTypeCheck.Name = "repositoryComponentryTypeCheck";
+            // 
+            // componentryLayoutGroup
+            // 
+            this.componentryLayoutGroup.CustomizationFormText = "componentryLayoutGroup";
+            this.componentryLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.componentryLayoutGroup.GroupBordersVisible = false;
+            this.componentryLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.componentryTypeLayout});
+            this.componentryLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.componentryLayoutGroup.Name = "componentryLayoutGroup";
+            this.componentryLayoutGroup.Size = new System.Drawing.Size(550, 456);
+            this.componentryLayoutGroup.Text = "componentryLayoutGroup";
+            this.componentryLayoutGroup.TextVisible = false;
+            // 
+            // componentryTypeLayout
+            // 
+            this.componentryTypeLayout.Control = this.componentryTypeGridControl;
+            this.componentryTypeLayout.CustomizationFormText = "Типы комплектующих изделий";
+            this.componentryTypeLayout.Location = new System.Drawing.Point(0, 0);
+            this.componentryTypeLayout.Name = "componentryTypeLayout";
+            this.componentryTypeLayout.Size = new System.Drawing.Size(530, 436);
+            this.componentryTypeLayout.Text = "Типы комплектующих изделий";
+            this.componentryTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.componentryTypeLayout.TextSize = new System.Drawing.Size(158, 13);
+            // 
             // usersPage
             // 
             this.usersPage.Controls.Add(this.usersLayoutControl);
@@ -1320,6 +1468,7 @@
             this.gridViewUsers.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridViewUsers.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewUsers.OptionsView.ShowGroupPanel = false;
+            this.gridViewUsers.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridViewUsers_ShowingEditor);
             this.gridViewUsers.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewUsers_InitNewRow);
             this.gridViewUsers.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewUsers_FocusedRowChanged);
             this.gridViewUsers.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewUsers_InvalidRowException);
@@ -1765,6 +1914,7 @@
             // 
             // layoutControlInspectors
             // 
+            this.layoutControlInspectors.Controls.Add(this.certificateTypes);
             this.layoutControlInspectors.Controls.Add(this.gridControlInspectorsCertificates);
             this.layoutControlInspectors.Controls.Add(this.gridControlInspectors);
             this.layoutControlInspectors.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1777,13 +1927,63 @@
             this.layoutControlInspectors.TabIndex = 1;
             this.layoutControlInspectors.Text = "layoutControl2";
             // 
+            // certificateTypes
+            // 
+            this.certificateTypes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.certificateTypes.Location = new System.Drawing.Point(935, 59);
+            this.certificateTypes.MainView = this.certificateTypesView;
+            this.certificateTypes.Name = "certificateTypes";
+            this.certificateTypes.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryCertificateIsActive});
+            this.certificateTypes.Size = new System.Drawing.Size(282, 380);
+            this.certificateTypes.TabIndex = 5;
+            this.certificateTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.certificateTypesView});
+            // 
+            // certificateTypesView
+            // 
+            this.certificateTypesView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.certificateNameColumn,
+            this.certificateIsActiveColumn});
+            this.certificateTypesView.GridControl = this.certificateTypes;
+            this.certificateTypesView.Name = "certificateTypesView";
+            this.certificateTypesView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.certificateTypesView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.certificateTypesView.OptionsView.ShowGroupPanel = false;
+            this.certificateTypesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.certificateTypesView_InitNewRow);
+            this.certificateTypesView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.certificateTypesView_KeyDown);
+            // 
+            // certificateNameColumn
+            // 
+            this.certificateNameColumn.Caption = "Название";
+            this.certificateNameColumn.FieldName = "Name";
+            this.certificateNameColumn.Name = "certificateNameColumn";
+            this.certificateNameColumn.Visible = true;
+            this.certificateNameColumn.VisibleIndex = 0;
+            // 
+            // certificateIsActiveColumn
+            // 
+            this.certificateIsActiveColumn.Caption = "Активен";
+            this.certificateIsActiveColumn.ColumnEdit = this.repositoryCertificateIsActive;
+            this.certificateIsActiveColumn.FieldName = "IsActive";
+            this.certificateIsActiveColumn.Name = "certificateIsActiveColumn";
+            this.certificateIsActiveColumn.Visible = true;
+            this.certificateIsActiveColumn.VisibleIndex = 1;
+            // 
+            // repositoryCertificateIsActive
+            // 
+            this.repositoryCertificateIsActive.AutoHeight = false;
+            this.repositoryCertificateIsActive.Name = "repositoryCertificateIsActive";
+            // 
             // gridControlInspectorsCertificates
             // 
             this.gridControlInspectorsCertificates.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControlInspectorsCertificates.Location = new System.Drawing.Point(840, 28);
+            this.gridControlInspectorsCertificates.Location = new System.Drawing.Point(574, 59);
             this.gridControlInspectorsCertificates.MainView = this.inspectorCertificateGridView;
             this.gridControlInspectorsCertificates.Name = "gridControlInspectorsCertificates";
-            this.gridControlInspectorsCertificates.Size = new System.Drawing.Size(389, 423);
+            this.gridControlInspectorsCertificates.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryLookUpCertificateType});
+            this.gridControlInspectorsCertificates.Size = new System.Drawing.Size(333, 380);
             this.gridControlInspectorsCertificates.TabIndex = 4;
             this.gridControlInspectorsCertificates.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectorCertificateGridView});
@@ -1792,6 +1992,7 @@
             // 
             this.inspectorCertificateGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.inspectorCertificateNumberCol,
+            this.certificateTypeColumn,
             this.inspectorCertificateExpirationCol});
             this.inspectorCertificateGridView.GridControl = this.gridControlInspectorsCertificates;
             this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
@@ -1812,6 +2013,42 @@
             this.inspectorCertificateNumberCol.VisibleIndex = 0;
             this.inspectorCertificateNumberCol.Width = 50;
             // 
+            // certificateTypeColumn
+            // 
+            this.certificateTypeColumn.Caption = "Тип";
+            this.certificateTypeColumn.ColumnEdit = this.repositoryLookUpCertificateType;
+            this.certificateTypeColumn.FieldName = "Type";
+            this.certificateTypeColumn.Name = "certificateTypeColumn";
+            this.certificateTypeColumn.Visible = true;
+            this.certificateTypeColumn.VisibleIndex = 1;
+            // 
+            // repositoryLookUpCertificateType
+            // 
+            this.repositoryLookUpCertificateType.AutoHeight = false;
+            this.repositoryLookUpCertificateType.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryLookUpCertificateType.Name = "repositoryLookUpCertificateType";
+            this.repositoryLookUpCertificateType.NullText = "";
+            this.repositoryLookUpCertificateType.View = this.repositoryLookUpCertificateTypeView;
+            // 
+            // repositoryLookUpCertificateTypeView
+            // 
+            this.repositoryLookUpCertificateTypeView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.inspectorCertificateTypeColumn});
+            this.repositoryLookUpCertificateTypeView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryLookUpCertificateTypeView.Name = "repositoryLookUpCertificateTypeView";
+            this.repositoryLookUpCertificateTypeView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryLookUpCertificateTypeView.OptionsView.ShowGroupPanel = false;
+            this.repositoryLookUpCertificateTypeView.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.repositoryLookUpCertificateTypeView_CustomRowFilter);
+            // 
+            // inspectorCertificateTypeColumn
+            // 
+            this.inspectorCertificateTypeColumn.FieldName = "Name";
+            this.inspectorCertificateTypeColumn.Name = "inspectorCertificateTypeColumn";
+            this.inspectorCertificateTypeColumn.OptionsColumn.ShowCaption = false;
+            this.inspectorCertificateTypeColumn.Visible = true;
+            this.inspectorCertificateTypeColumn.VisibleIndex = 0;
+            // 
             // inspectorCertificateExpirationCol
             // 
             this.inspectorCertificateExpirationCol.Caption = "Дата окончания";
@@ -1819,13 +2056,13 @@
             this.inspectorCertificateExpirationCol.MaxWidth = 90;
             this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
             this.inspectorCertificateExpirationCol.Visible = true;
-            this.inspectorCertificateExpirationCol.VisibleIndex = 1;
+            this.inspectorCertificateExpirationCol.VisibleIndex = 2;
             this.inspectorCertificateExpirationCol.Width = 50;
             // 
             // gridControlInspectors
             // 
             this.gridControlInspectors.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControlInspectors.Location = new System.Drawing.Point(12, 28);
+            this.gridControlInspectors.Location = new System.Drawing.Point(24, 59);
             this.gridControlInspectors.MainView = this.gridViewInspectors;
             this.gridControlInspectors.Name = "gridControlInspectors";
             this.gridControlInspectors.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1833,7 +2070,7 @@
             this.inspectorFNRepositoryTextEdit,
             this.inspectorMNRepositoryTextEdit,
             this.inspectorCertificateTextEdit});
-            this.gridControlInspectors.Size = new System.Drawing.Size(818, 423);
+            this.gridControlInspectors.Size = new System.Drawing.Size(540, 380);
             this.gridControlInspectors.TabIndex = 0;
             this.gridControlInspectors.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectors});
@@ -1865,7 +2102,7 @@
             this.colInspectorLastName.Name = "colInspectorLastName";
             this.colInspectorLastName.Visible = true;
             this.colInspectorLastName.VisibleIndex = 0;
-            this.colInspectorLastName.Width = 250;
+            this.colInspectorLastName.Width = 137;
             // 
             // inspectorLNRepositoryTextEdit
             // 
@@ -1880,7 +2117,7 @@
             this.colInspectorFirstName.Name = "colInspectorFirstName";
             this.colInspectorFirstName.Visible = true;
             this.colInspectorFirstName.VisibleIndex = 1;
-            this.colInspectorFirstName.Width = 250;
+            this.colInspectorFirstName.Width = 115;
             // 
             // inspectorFNRepositoryTextEdit
             // 
@@ -1895,7 +2132,7 @@
             this.colInspectorMiddleName.Name = "colInspectorMiddleName";
             this.colInspectorMiddleName.Visible = true;
             this.colInspectorMiddleName.VisibleIndex = 2;
-            this.colInspectorMiddleName.Width = 250;
+            this.colInspectorMiddleName.Width = 122;
             // 
             // inspectorMNRepositoryTextEdit
             // 
@@ -1910,7 +2147,7 @@
             this.colInspectorActive.Name = "colInspectorActive";
             this.colInspectorActive.Visible = true;
             this.colInspectorActive.VisibleIndex = 3;
-            this.colInspectorActive.Width = 50;
+            this.colInspectorActive.Width = 67;
             // 
             // colInspectorCertExp
             // 
@@ -1938,13 +2175,24 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemInspectors,
-            this.inspectorCertificatesLayoutControl});
+            this.InspectorsLayoutControlGroup,
+            this.certificateTypesLayoutGroup});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1241, 463);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
+            // 
+            // InspectorsLayoutControlGroup
+            // 
+            this.InspectorsLayoutControlGroup.CustomizationFormText = "Инспекторы";
+            this.InspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemInspectors,
+            this.inspectorCertificatesLayoutControl});
+            this.InspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.InspectorsLayoutControlGroup.Name = "InspectorsLayoutControlGroup";
+            this.InspectorsLayoutControlGroup.Size = new System.Drawing.Size(911, 443);
+            this.InspectorsLayoutControlGroup.Text = "Инспекторы";
             // 
             // layoutControlItemInspectors
             // 
@@ -1953,7 +2201,7 @@
             this.layoutControlItemInspectors.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItemInspectors.Name = "layoutControlItemInspectors";
             this.layoutControlItemInspectors.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 5, 2, 2);
-            this.layoutControlItemInspectors.Size = new System.Drawing.Size(825, 443);
+            this.layoutControlItemInspectors.Size = new System.Drawing.Size(547, 400);
             this.layoutControlItemInspectors.Text = "Инспекторы";
             this.layoutControlItemInspectors.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItemInspectors.TextSize = new System.Drawing.Size(71, 13);
@@ -1962,13 +2210,34 @@
             // 
             this.inspectorCertificatesLayoutControl.Control = this.gridControlInspectorsCertificates;
             this.inspectorCertificatesLayoutControl.CustomizationFormText = "Сертификаты";
-            this.inspectorCertificatesLayoutControl.Location = new System.Drawing.Point(825, 0);
+            this.inspectorCertificatesLayoutControl.Location = new System.Drawing.Point(547, 0);
             this.inspectorCertificatesLayoutControl.Name = "inspectorCertificatesLayoutControl";
             this.inspectorCertificatesLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
-            this.inspectorCertificatesLayoutControl.Size = new System.Drawing.Size(396, 443);
+            this.inspectorCertificatesLayoutControl.Size = new System.Drawing.Size(340, 400);
             this.inspectorCertificatesLayoutControl.Text = "Сертификаты";
             this.inspectorCertificatesLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectorCertificatesLayoutControl.TextSize = new System.Drawing.Size(71, 13);
+            // 
+            // certificateTypesLayoutGroup
+            // 
+            this.certificateTypesLayoutGroup.CustomizationFormText = "Типы сертификатов";
+            this.certificateTypesLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certificateTypesLayoutControl});
+            this.certificateTypesLayoutGroup.Location = new System.Drawing.Point(911, 0);
+            this.certificateTypesLayoutGroup.Name = "certificateTypesLayoutGroup";
+            this.certificateTypesLayoutGroup.Size = new System.Drawing.Size(310, 443);
+            this.certificateTypesLayoutGroup.Text = "Типы сертификатов";
+            // 
+            // certificateTypesLayoutControl
+            // 
+            this.certificateTypesLayoutControl.Control = this.certificateTypes;
+            this.certificateTypesLayoutControl.CustomizationFormText = "Список типов";
+            this.certificateTypesLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.certificateTypesLayoutControl.Name = "certificateTypesLayoutControl";
+            this.certificateTypesLayoutControl.Size = new System.Drawing.Size(286, 400);
+            this.certificateTypesLayoutControl.Text = "Список типов";
+            this.certificateTypesLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateTypesLayoutControl.TextSize = new System.Drawing.Size(71, 13);
             // 
             // editDictionary
             // 
@@ -2013,6 +2282,17 @@
             this.generalSettingsLayout.Size = new System.Drawing.Size(1275, 535);
             this.generalSettingsLayout.TabIndex = 1;
             this.generalSettingsLayout.Text = "layoutControl1";
+            // 
+            // cloneTypeSizeButton
+            // 
+            this.cloneTypeSizeButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneTypeSizeButton.Image")));
+            this.cloneTypeSizeButton.Location = new System.Drawing.Point(902, 504);
+            this.cloneTypeSizeButton.Name = "cloneTypeSizeButton";
+            this.cloneTypeSizeButton.Size = new System.Drawing.Size(153, 22);
+            this.cloneTypeSizeButton.StyleController = this.generalSettingsLayout;
+            this.cloneTypeSizeButton.TabIndex = 6;
+            this.cloneTypeSizeButton.Text = "Копировать типоразмер";
+            this.cloneTypeSizeButton.Click += new System.EventHandler(this.cloneTypeSizeButton_Click);
             // 
             // closeButton
             // 
@@ -2102,21 +2382,6 @@
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
-            // jointOperationsBindingSource
-            // 
-            this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
-            // 
-            // cloneTypeSizeButton
-            // 
-            this.cloneTypeSizeButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneTypeSizeButton.Image")));
-            this.cloneTypeSizeButton.Location = new System.Drawing.Point(902, 504);
-            this.cloneTypeSizeButton.Name = "cloneTypeSizeButton";
-            this.cloneTypeSizeButton.Size = new System.Drawing.Size(153, 22);
-            this.cloneTypeSizeButton.StyleController = this.generalSettingsLayout;
-            this.cloneTypeSizeButton.TabIndex = 6;
-            this.cloneTypeSizeButton.Text = "Копировать типоразмер";
-            this.cloneTypeSizeButton.Click += new System.EventHandler(this.cloneTypeSizeButton_Click);
-            // 
             // cloneTypeSizeLayoutControl
             // 
             this.cloneTypeSizeLayoutControl.Control = this.cloneTypeSizeButton;
@@ -2129,6 +2394,10 @@
             this.cloneTypeSizeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.cloneTypeSizeLayoutControl.TextToControlDistance = 0;
             this.cloneTypeSizeLayoutControl.TextVisible = false;
+            // 
+            // jointOperationsBindingSource
+            // 
+            this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
             // SettingsXtraForm
             // 
@@ -2201,6 +2470,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationTypeLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsLayout)).EndInit();
+            this.componentryPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTabLayoutControl)).EndInit();
+            this.componentryTabLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryConnectorsNumbers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryComponentryTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentryTypeLayout)).EndInit();
             this.usersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControl)).EndInit();
             this.usersLayoutControl.ResumeLayout(false);
@@ -2240,8 +2518,13 @@
             this.inspectorsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlInspectors)).EndInit();
             this.layoutControlInspectors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryCertificateIsActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectorsCertificates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateTypeView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).EndInit();
@@ -2249,8 +2532,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorMNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InspectorsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificatesLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypesLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
@@ -2263,11 +2549,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeMillSizeTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloneTypeSizeLayoutControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2451,5 +2737,28 @@
         private DevExpress.XtraLayout.LayoutControlItem cloneTypeSizeLayoutControl;
         private DevExpress.XtraEditors.LabelControl pipeNumberMaskRulesLabel;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberMaskRulesLabelLayout;
+        private DevExpress.XtraTab.XtraTabPage componentryPage;
+        private DevExpress.XtraLayout.LayoutControl componentryTabLayoutControl;
+        private DevExpress.XtraGrid.GridControl componentryTypeGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView componentryTypeGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn typeColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn connectorsNumbersColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn isActiveComponentColumn;
+        private DevExpress.XtraLayout.LayoutControlGroup componentryLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem componentryTypeLayout;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryComponentryTypeCheck;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryConnectorsNumbers;
+        private DevExpress.XtraGrid.GridControl certificateTypes;
+        private DevExpress.XtraGrid.Views.Grid.GridView certificateTypesView;
+        private DevExpress.XtraLayout.LayoutControlGroup InspectorsLayoutControlGroup;
+        private DevExpress.XtraLayout.LayoutControlGroup certificateTypesLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem certificateTypesLayoutControl;
+        private DevExpress.XtraGrid.Columns.GridColumn certificateNameColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn certificateIsActiveColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryCertificateIsActive;
+        private DevExpress.XtraGrid.Columns.GridColumn certificateTypeColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryLookUpCertificateType;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryLookUpCertificateTypeView;
+        private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateTypeColumn;
     }
 }

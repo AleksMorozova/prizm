@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Main.Forms.InspectionParts.Search
+namespace Prizm.Main.Forms.Parts.Search
 {
     public class PartSearchViewModel : ViewModelBase, IDisposable
     {
@@ -78,7 +78,7 @@ namespace Prizm.Main.Forms.InspectionParts.Search
 
         public void Dispose()
         {
-
+            session.Dispose();
         }
 
         #endregion
