@@ -25,6 +25,7 @@ using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
+using DevExpress.XtraGrid;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -291,7 +292,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
         {
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-            if(weld == null)
+            if (weld == null)
                 e.Cancel = true;
         }
 
@@ -666,7 +667,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             ordersLookUp.Properties.DataSource = null;
             ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
-
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
