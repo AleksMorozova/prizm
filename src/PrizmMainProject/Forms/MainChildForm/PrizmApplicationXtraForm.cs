@@ -407,7 +407,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void StatusNotifyText(string s)
         {
             var main = Program.MainForm as PrizmApplicationXtraForm;
-            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString(), s);
+            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), s);
             main.UpdateStatusBar(str);
         }
         #endregion
