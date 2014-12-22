@@ -26,7 +26,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         IModifiable modifiableView;
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
+        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify)
         {
             this.repos = repos;
             this.notify = notify;
@@ -37,13 +37,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
             unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify));
 
-            if (string.IsNullOrWhiteSpace(railcarNumber))
+            if (id == Guid.Empty)
             {
                 NewRailcar();
             }
             else
             {
-                Railcar = repos.RailcarRepo.GetByNumber(railcarNumber);
+                Railcar = repos.RailcarRepo.Get(id);
                 if (!Railcar.ShippingDate.HasValue)
                 {
                     Railcar.ShippingDate = DateTime.MinValue;

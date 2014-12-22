@@ -37,7 +37,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.RailcarRepo).Returns(carRepo.Object);
 
 
-            viewModel = new RailcarViewModel(repos.Object, "", notify.Object);
+            viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object);
             viewModel.Railcar.Number = "Railcar";
             command = new UnshipRailcarCommand(viewModel, repos.Object, notify.Object);
 
