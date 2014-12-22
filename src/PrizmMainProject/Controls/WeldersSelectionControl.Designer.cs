@@ -33,7 +33,6 @@
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).BeginInit();
             this.SuspendLayout();
@@ -56,15 +55,15 @@
             this.gridViewWelders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colLastName,
             this.colFirstName,
-            this.colMiddleName,
-            this.colIsActive});
+            this.colMiddleName});
             this.gridViewWelders.GridControl = this.gridControlWelders;
             this.gridViewWelders.Name = "gridViewWelders";
             this.gridViewWelders.OptionsSelection.CheckBoxSelectorColumnWidth = 25;
             this.gridViewWelders.OptionsSelection.MultiSelect = true;
             this.gridViewWelders.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
-            this.gridViewWelders.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.gridViewWelders_CustomRowFilter);
+            this.gridViewWelders.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewWelders_RowCellStyle);
+            this.gridViewWelders.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewWelders_SelectionChanged);
             // 
             // colLastName
             // 
@@ -93,14 +92,6 @@
             this.colMiddleName.Visible = true;
             this.colMiddleName.VisibleIndex = 3;
             // 
-            // colIsActive
-            // 
-            this.colIsActive.Caption = "Active";
-            this.colIsActive.FieldName = "IsActive";
-            this.colIsActive.Name = "colIsActive";
-            this.colIsActive.Visible = true;
-            this.colIsActive.VisibleIndex = 4;
-            // 
             // WeldersSelectionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +112,5 @@
       private DevExpress.XtraGrid.Columns.GridColumn colLastName;
       private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
       private DevExpress.XtraGrid.Columns.GridColumn colMiddleName;
-      private DevExpress.XtraGrid.Columns.GridColumn colIsActive;
    }
 }
