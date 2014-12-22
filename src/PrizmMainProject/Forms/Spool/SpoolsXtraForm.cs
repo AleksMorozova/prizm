@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Ninject;
+using System.Text;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -31,10 +32,13 @@ namespace Prizm.Main.Forms.Spool
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
             viewModel.ModifiableView = this;
+            SetAlwaysReadOnly(pipeLength);
+            SetExceptionReadOnly(pipeNumber);
             IsEditMode = true;
+
         }
 
-        public SpoolsXtraForm () : this(Guid.Empty) { }
+        public SpoolsXtraForm() : this(Guid.Empty) {  }
 
         private void BindToViewModel()
         {
@@ -79,21 +83,20 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
-            commandManager["Cut"].Executor(viewModel.CutCommand).AttachTo(cutButton);
+
+            commandManager["Save"].RefreshState();
+
+
+            SaveCommand = viewModel.SaveCommand;
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
-            BindCommands();
             BindToViewModel();
-
+            attachmentsButton.Enabled = false;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            pipeLength.Properties.ReadOnly = true;
-        }
-
-        private void cutButton_Click(object sender, System.EventArgs e)
-        {
-            Prizm.Domain.Entity.Construction.Spool s = viewModel.Spool;
+            IsEditMode = false;
+            BindCommands();
         }
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
@@ -183,6 +186,27 @@ namespace Prizm.Main.Forms.Spool
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
             e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        private void pipeLength_TextChanged(object sender, EventArgs e)
+        {
+            spoolLength.Properties.MinValue = 1;
+            spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
+            spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            IsEditMode = true;
+            attachmentsButton.Enabled = true;
+            commandManager["Save"].RefreshState();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            IsEditMode = false;
+            attachmentsButton.Enabled = false;
+            commandManager["Save"].RefreshState();
         }
 
         private void SpoolsXtraForm_FormClosed(object sender, FormClosedEventArgs e)

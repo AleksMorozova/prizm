@@ -629,7 +629,7 @@
   <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
     <value>Формат номера трубы: </value>
   </data>
-  <data name="Wrong_Spool_Lengs" xml:space="preserve">
+  <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
     <value>Длинны трубы не достаточно для отрезания заданной катушки</value>
   </data>
   <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -664,5 +664,8 @@
   </data>
   <data name="RailcarShipped" xml:space="preserve">
     <value>Отгружен</value>
+  </data>
+  <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
+    <value>Длинна катушки не может быть равна 0</value>
   </data>
 </root>
