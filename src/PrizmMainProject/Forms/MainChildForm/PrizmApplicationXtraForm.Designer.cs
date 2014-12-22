@@ -77,7 +77,6 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemInspectionFindEditParts = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -142,7 +141,6 @@
             this.barButtonItemNewJoint,
             this.barButtonItemFindEditJoints,
             this.barButtonItemConstructionReports,
-            this.barButtonItemInspectionFindEditParts,
             this.barButtonItemInspectionReports,
             this.barButtonItemNewRailcar,
             this.barButtonItemFindEditShipRailcars,
@@ -554,13 +552,6 @@
             this.barButtonItemRailcar.Id = 25;
             this.barButtonItemRailcar.Name = "barButtonItemRailcar";
             // 
-            // barButtonItemInspectionFindEditParts
-            // 
-            this.barButtonItemInspectionFindEditParts.Caption = "Поиск &компонентов";
-            this.barButtonItemInspectionFindEditParts.Id = 35;
-            this.barButtonItemInspectionFindEditParts.Name = "barButtonItemInspectionFindEditParts";
-            this.barButtonItemInspectionFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionFindEditPipes_ItemClick);
-            // 
             // languageBarSubItem
             // 
             this.languageBarSubItem.Caption = "Локализация";
@@ -706,7 +697,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditParts;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSetingsProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemInspectionFindEditParts;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditJoints;
         private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionReports;
