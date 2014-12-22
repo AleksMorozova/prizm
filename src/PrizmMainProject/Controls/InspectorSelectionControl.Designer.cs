@@ -61,6 +61,8 @@
             this.inspectorsGridView.OptionsSelection.MultiSelect = true;
             this.inspectorsGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.inspectorsGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectorsGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.inspectorsGridView_RowCellStyle);
+            this.inspectorsGridView.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.inspectorsGridView_SelectionChanged);
             // 
             // colLastName
             // 

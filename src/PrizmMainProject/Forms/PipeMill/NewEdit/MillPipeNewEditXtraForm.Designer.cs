@@ -141,6 +141,7 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -243,7 +244,8 @@
             // 
             this.weldersListGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.firstNameGridColumn,
-            this.lastNameGridColumn});
+            this.lastNameGridColumn,
+            this.isActiveGridColumn});
             this.weldersListGridView.GridControl = this.weldingHistory;
             this.weldersListGridView.Name = "weldersListGridView";
             // 
@@ -1493,6 +1495,14 @@
             // 
             this.weldingDs.DataSource = typeof(Prizm.Main.DummyData.WeldersDummy);
             // 
+            // isActiveGridColumn
+            // 
+            this.isActiveGridColumn.Caption = "Active";
+            this.isActiveGridColumn.FieldName = "IsActive";
+            this.isActiveGridColumn.Name = "isActiveGridColumn";
+            this.isActiveGridColumn.Visible = true;
+            this.isActiveGridColumn.VisibleIndex = 2;
+            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1718,6 +1728,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn heatsNumberCol;
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelGradeLayout;
+        private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
 
     }
 }
