@@ -1678,9 +1678,18 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Длинны трубы не достаточно для отрезания заданной катушки.
         /// </summary>
-        internal static string Wrong_Spool_Lengs {
+        internal static string Wrong_Spool_Lengs_MorePipeLength {
             get {
-                return ResourceManager.GetString("Wrong_Spool_Lengs", resourceCulture);
+                return ResourceManager.GetString("Wrong_Spool_Lengs_MorePipeLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длинна катушки не может быть равна 0.
+        /// </summary>
+        internal static string Wrong_Spool_Length_NullLength {
+            get {
+                return ResourceManager.GetString("Wrong_Spool_Length_NullLength", resourceCulture);
             }
         }
         
