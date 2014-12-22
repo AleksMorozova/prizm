@@ -28,7 +28,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm
     {
-        public JointNewEditViewModel viewModel;
+        JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
         private JointWeldResult currentJointWeldResult;
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
