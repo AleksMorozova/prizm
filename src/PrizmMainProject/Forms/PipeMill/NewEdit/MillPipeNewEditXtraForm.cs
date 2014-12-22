@@ -81,6 +81,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             heatsLookUp.ButtonSetup();
             ordersLookUp.ButtonSetup();
+
+            // Allow change focus or close while heatsLookUp or ordersLookUp validation error
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
