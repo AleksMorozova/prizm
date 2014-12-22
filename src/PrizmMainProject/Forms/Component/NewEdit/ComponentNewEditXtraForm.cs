@@ -27,12 +27,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
        
         public ComponentNewEditXtraForm() : this(Guid.Empty) { }
 
-        public ComponentNewEditXtraForm(Guid componentId)
+        public ComponentNewEditXtraForm(Guid id)
         {
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
-               .Get<ComponentNewEditViewModel>(new ConstructorArgument("componentId", componentId));
+               .Get<ComponentNewEditViewModel>(new ConstructorArgument("id", id));
 
             viewModel.ModifiableView = this;
             IsEditMode = true;

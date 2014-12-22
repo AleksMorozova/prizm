@@ -64,10 +64,10 @@ namespace Prizm.Main.Forms.Railcar.Search
 
             if (info.InRow || info.InRowCell)
             {
-                
-                string number = (string)view.GetRowCellValue(info.RowHandle, "Number");
+
+                Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.CreateChildForm(typeof(RailcarNewEditXtraForm), new ConstructorArgument("railcarNumber", number));
+                parent.CreateChildForm(typeof(RailcarNewEditXtraForm), new ConstructorArgument("id", id));
             }
         }
 

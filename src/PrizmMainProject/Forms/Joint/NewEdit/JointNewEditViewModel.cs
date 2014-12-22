@@ -41,10 +41,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
-        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Prizm.Data.DAL.IMillReportsRepository adoRepo)
+        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid id, Prizm.Data.DAL.IMillReportsRepository adoRepo)
         {
             this.repoConstruction = repoConstruction;
-            this.JointId = jointId;
+            this.JointId = id;
             this.notify = notify;
             this.adoRepo = adoRepo;
 
@@ -63,13 +63,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Welders = repoConstruction.RepoWelder.GetAll();
             Pieces = adoRepo.GetPipelineElements();
             extractOperationsCommand.Execute();
-            if (jointId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewJoint();
             }
             else
             {
-                this.Joint = repoConstruction.RepoJoint.Get(jointId);
+                this.Joint = repoConstruction.RepoJoint.Get(id);
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                 {

@@ -244,7 +244,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(ConstructionReportsXtraForm));
         }
 
-        private void barButtonItemSetingsProject_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateSettingsChildForm(page: 0);
         }
@@ -279,7 +279,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateSettingsChildForm(page: 7);
         }
 
-        private void barButtonIComponentry_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateSettingsChildForm(page: 3);
         }
@@ -299,7 +299,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(SpoolsXtraForm));
         }
 
-        private void barButtonItemConstructionFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(PartSearchXtraForm));
         }
@@ -307,19 +307,6 @@ namespace Prizm.Main.Forms.MainChildForm
         private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(AuditXtraForm));
-        }
-
-        private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //CreateChildForm(typeof(HeatXtraForm));
-            var heatform = new HeatXtraForm();
-            heatform.MdiParent = this;
-            heatform.Show();
-        }
-
-        private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CreateChildForm(typeof(NotificationXtraForm));
         }
         #endregion
 
@@ -451,13 +438,18 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void UpdateStatusBar(string text) 
         {
-            barStaticItem1.Caption = text;
+            notifyBarStaticItem.Caption = text;
             notifyHistory.Items.Add(text);
         }
 
-        private void barStaticItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             flyoutPanel.ShowPopup();
+        }
+
+        private void barButtonStatusNotifications_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CreateChildForm(typeof(NotificationXtraForm));
         }
 
 

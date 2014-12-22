@@ -74,11 +74,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
-        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
         {
             this.repoMill = repoMill;
             this.notify = notify;
-            this.PipeId = pipeId;
+            this.PipeId = id;
 
             #region Commands creation
             pipeDeactivationCommand =
@@ -109,7 +109,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.GetProjectCommand.Execute();
             this.mill = Project.MillName;
 
-            if (pipeId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewPipe();
             }
