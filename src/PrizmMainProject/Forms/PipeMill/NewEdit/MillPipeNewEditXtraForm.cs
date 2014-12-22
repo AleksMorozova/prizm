@@ -288,7 +288,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
         {
-            weldersSelectionControl.ShowActiveWelders();
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if (weld == null)
                 e.Cancel = true;
