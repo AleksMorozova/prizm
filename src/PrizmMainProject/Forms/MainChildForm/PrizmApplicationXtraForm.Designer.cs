@@ -53,7 +53,7 @@
             this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemSetingsProject = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonIComponentry = new DevExpress.XtraBars.BarButtonItem();
@@ -136,7 +136,7 @@
             this.barButtonItemRailcar,
             this.barSubItemConstruction,
             this.barButtonItemConstructionFindEditParts,
-            this.barButtonItemSetingsProject,
+            this.barButtonItemSettingsProject,
             this.barButtonItemExit,
             this.barButtonItemNewJoint,
             this.barButtonItemFindEditJoints,
@@ -356,7 +356,7 @@
             this.barSubItemSettings.Caption = "&Настройки";
             this.barSubItemSettings.Id = 1;
             this.barSubItemSettings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSetingsProject),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonIComponentry),
@@ -367,12 +367,12 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
-            // barButtonItemSetingsProject
+            // barButtonItemSettingsProject
             // 
-            this.barButtonItemSetingsProject.Caption = "&Проект";
-            this.barButtonItemSetingsProject.Id = 29;
-            this.barButtonItemSetingsProject.Name = "barButtonItemSetingsProject";
-            this.barButtonItemSetingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSetingsProject_ItemClick);
+            this.barButtonItemSettingsProject.Caption = "&Проект";
+            this.barButtonItemSettingsProject.Id = 29;
+            this.barButtonItemSettingsProject.Name = "barButtonItemSettingsProject";
+            this.barButtonItemSettingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsProject_ItemClick);
             // 
             // barButtonItemSettingsPipe
             // 
@@ -695,7 +695,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemRailcar;
         private DevExpress.XtraBars.BarSubItem barSubItemConstruction;
         private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditParts;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemSetingsProject;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;
         private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditJoints;

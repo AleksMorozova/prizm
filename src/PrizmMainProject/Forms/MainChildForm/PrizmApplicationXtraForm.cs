@@ -244,7 +244,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(ConstructionReportsXtraForm));
         }
 
-        private void barButtonItemSetingsProject_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateSettingsChildForm(page: 0);
         }
