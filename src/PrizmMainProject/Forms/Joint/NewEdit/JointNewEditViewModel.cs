@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -37,6 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public BindingList<JointOperation> RepairOperations;
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
         public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid id, Prizm.Data.DAL.IMillReportsRepository adoRepo)
@@ -85,6 +87,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         internal string FormatInspectorList(IList<Inspector> inspectors)

@@ -16,6 +16,7 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Properties;
 using Prizm.Main.Common;
 using Prizm.Main.Documents;
+using Prizm.Main.Forms.ExternalFile;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -41,6 +42,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly GetProjectCommand getProjectCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
@@ -678,6 +680,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             repoMill.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         /// <summary>
