@@ -452,10 +452,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     Plate.Thickness = value;
                     RaisePropertyChanged("PlateThickness");
                 }
-                else
-                {
-                    
-                }
             }
         }
 
