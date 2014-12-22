@@ -33,7 +33,6 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
@@ -151,7 +150,6 @@
             this.barButtonItemAudit,
             this.barButtonItemExport,
             this.barButtonItemRoles,
-            this.barButtonItemSave,
             this.barButtonItemImport,
             this.languageBarSubItem,
             this.languageComboBoxEdit,
@@ -193,18 +191,10 @@
             this.barSubItemApplication.Caption = "&Файл";
             this.barSubItemApplication.Id = 18;
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemImport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
             this.barSubItemApplication.Name = "barSubItemApplication";
-            // 
-            // barButtonItemSave
-            // 
-            this.barButtonItemSave.Caption = "&Сохранить";
-            this.barButtonItemSave.Id = 48;
-            this.barButtonItemSave.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
-            this.barButtonItemSave.Name = "barButtonItemSave";
             // 
             // barButtonItemExport
             // 
@@ -713,7 +703,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemRoles;
         private DevExpress.XtraBars.Docking2010.DocumentManager mainMDIdocumentManager;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItemImport;
         private DevExpress.XtraBars.BarSubItem languageBarSubItem;
         private DevExpress.XtraBars.BarEditItem languageComboBoxEdit;
