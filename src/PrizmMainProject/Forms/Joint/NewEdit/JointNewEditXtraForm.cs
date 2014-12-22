@@ -37,14 +37,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         ICommandManager commandManager = new CommandManager();
 
 
-        public JointNewEditXtraForm(Guid jointId)
+        public JointNewEditXtraForm(Guid id)
         {
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (JointNewEditViewModel)Program
                .Kernel
                .Get<JointNewEditViewModel>(
-               new ConstructorArgument("jointId", jointId));
+               new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
