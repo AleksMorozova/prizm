@@ -344,6 +344,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
+        private bool isCanDeactivate;
+        public bool IsCanDeactivate
+        {
+            get { return isCanDeactivate; }
+            set 
+            {
+                if(isCanDeactivate != value)
+                {
+                    isCanDeactivate = value;
+                    RaisePropertyChanged("IsCanDeactivate");
+                }
+            }
+        }
+        public void CheckDeactivation()
+        {
+            IsCanDeactivate = JointDeactivationCommand.CanExecute();
+        }
+
         #endregion
 
         public DataTable Pieces

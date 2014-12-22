@@ -70,6 +70,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
             }
+            viewModel.CheckDeactivation();
         }
 
         public virtual bool IsExecutable { get; set; }

@@ -16,6 +16,7 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsRepositories : ISettingsRepositories
     {
+        readonly ICertificateTypeRepository certificateTypeRepo;
         readonly IComponentTypeRepository componentTypeRepo;
         readonly IWelderRepository welderRepo;
         readonly IMillPipeSizeTypeRepository pipeSizeTypeRepo;
@@ -46,6 +47,7 @@ namespace Prizm.Main.Forms.Settings
             this.roleRepo = new RoleRepository(session);
             this.permissionRepo = new PermissionRepository(session);
             this.componentTypeRepo = new ComponentTypeRepository(session);
+            this.certificateTypeRepo = new InspectorCertificateTypeRepository(session);
         }
 
         public void Dispose()
@@ -53,6 +55,13 @@ namespace Prizm.Main.Forms.Settings
             session.Dispose();
         }
 
+        public ICertificateTypeRepository CertificateTypeRepo
+        {
+            get
+            {
+                return certificateTypeRepo;
+            }
+        }
 
         public IComponentTypeRepository ComponentTypeRepo
         {
