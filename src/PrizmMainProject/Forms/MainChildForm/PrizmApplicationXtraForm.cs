@@ -309,14 +309,6 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(AuditXtraForm));
         }
 
-        private void barButtonItemHeat_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //CreateChildForm(typeof(HeatXtraForm));
-            var heatform = new HeatXtraForm();
-            heatform.MdiParent = this;
-            heatform.Show();
-        }
-
         private void barButtonNotification_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(NotificationXtraForm));

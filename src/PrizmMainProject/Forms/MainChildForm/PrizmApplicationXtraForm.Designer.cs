@@ -81,7 +81,6 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.barButtonItemHeat = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
             this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
@@ -162,7 +161,6 @@
             this.languageBarListItem,
             this.barButtonItemSettingsWelders,
             this.barButtonItemSettingsInspectors,
-            this.barButtonItemHeat,
             this.barButtonNotification,
             this.barButtonIComponentry,
             this.barButtonItemPartIncomingInspection});
@@ -586,13 +584,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
             // 
-            // barButtonItemHeat
-            // 
-            this.barButtonItemHeat.Caption = "Пла&вка";
-            this.barButtonItemHeat.Id = 56;
-            this.barButtonItemHeat.Name = "barButtonItemHeat";
-            this.barButtonItemHeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHeat_ItemClick);
-            // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
@@ -742,7 +733,6 @@
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsWelders;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsInspectors;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemHeat;
         private DevExpress.XtraBars.BarButtonItem barButtonNotification;
         private DevExpress.Utils.FlyoutPanel flyoutPanel;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
