@@ -16,6 +16,8 @@ using Prizm.Main.Forms;
 using Prizm.Data.DAL.Security;
 using Prizm.Domain.Entity.Security;
 using Prizm.Main.Documents;
+using Prizm.Data.DAL.Construction;
+using Prizm.Domain.Entity.Construction;
 
 
 namespace Prizm.UnitTests.Forms.Settings
@@ -39,6 +41,8 @@ namespace Prizm.UnitTests.Forms.Settings
             var repoPerms = new Mock<IPermissionRepository>();
             var repoCategory = new Mock<ICategoryRepository>();
             var repoJointOperation = new Mock<IJointOperationRepository>();
+            var repoCertificateType = new Mock<ICertificateTypeRepository>();
+            var repoComponentType = new Mock<IComponentTypeRepository>();
 
             var testProjectSetting = new Project();
             var testSizeType = new PipeMillSizeType();
@@ -61,6 +65,8 @@ namespace Prizm.UnitTests.Forms.Settings
             repoPerms.Setup(_ => _.GetAll()).Returns(new List<Permission>() { testPerm });
             repoJointOperation.Setup(_ => _.GetAll()).Returns(new List<JointOperation>() { jointOperations });
             repoCategory.Setup(x => x.GetAll()).Returns(new List<Category>() { new Category() });
+            repoCertificateType.Setup(x => x.GetAll()).Returns(new List<InspectorCertificateType>() { new InspectorCertificateType() });
+            repoComponentType.Setup(x => x.GetAll()).Returns(new List<ComponentType>() { new ComponentType() });
 
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
@@ -74,6 +80,8 @@ namespace Prizm.UnitTests.Forms.Settings
             settingsRepos.SetupGet(_ => _.PermissionRepo).Returns(repoPerms.Object);
             settingsRepos.SetupGet(_ => _.JointRepo).Returns(repoJointOperation.Object);
             settingsRepos.SetupGet(x => x.СategoryRepo).Returns(repoCategory.Object);
+            settingsRepos.SetupGet(x => x.CertificateTypeRepo).Returns(repoCertificateType.Object);
+            settingsRepos.SetupGet(x => x.ComponentTypeRepo).Returns(repoComponentType.Object);
 
             var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
             viewModel.ModifiableView = modifiableView.Object;
