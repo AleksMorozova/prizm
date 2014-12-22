@@ -46,7 +46,7 @@
             this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemPartIncomingInspection = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemConstructionFindEditParts = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditParts = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
@@ -134,7 +134,7 @@
             this.barButtonItemCustomReport,
             this.barButtonItemRailcar,
             this.barSubItemConstruction,
-            this.barButtonItemConstructionFindEditParts,
+            this.barButtonItemFindEditParts,
             this.barButtonItemSettingsProject,
             this.barButtonItemExit,
             this.barButtonItemNewJoint,
@@ -275,7 +275,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemPartIncomingInspection),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionFindEditParts, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditParts, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true),
@@ -306,12 +306,12 @@
             this.barButtonItemPartIncomingInspection.Name = "barButtonItemPartIncomingInspection";
             this.barButtonItemPartIncomingInspection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPartIncomingInspection_ItemClick);
             // 
-            // barButtonItemConstructionFindEditParts
+            // barButtonItemFindEditParts
             // 
-            this.barButtonItemConstructionFindEditParts.Caption = "Поиск &элементов трубопровода";
-            this.barButtonItemConstructionFindEditParts.Id = 28;
-            this.barButtonItemConstructionFindEditParts.Name = "barButtonItemConstructionFindEditParts";
-            this.barButtonItemConstructionFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionFindEditParts_ItemClick);
+            this.barButtonItemFindEditParts.Caption = "Поиск &элементов трубопровода";
+            this.barButtonItemFindEditParts.Id = 28;
+            this.barButtonItemFindEditParts.Name = "barButtonItemFindEditParts";
+            this.barButtonItemFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditParts_ItemClick);
             // 
             // barButtonItemFindEditJoints
             // 
@@ -683,7 +683,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemCustomReport;
         private DevExpress.XtraBars.BarButtonItem barButtonItemRailcar;
         private DevExpress.XtraBars.BarSubItem barSubItemConstruction;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemConstructionFindEditParts;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemFindEditParts;
         private DevExpress.XtraBars.BarButtonItem barButtonItemSettingsProject;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExit;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewJoint;

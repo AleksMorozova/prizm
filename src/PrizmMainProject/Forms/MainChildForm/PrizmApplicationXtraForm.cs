@@ -299,7 +299,7 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateChildForm(typeof(SpoolsXtraForm));
         }
 
-        private void barButtonItemConstructionFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItemFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(PartSearchXtraForm));
         }
