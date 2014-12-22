@@ -382,7 +382,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
-                    int tempConnectorsCount = 0;
 
                     list = new BindingList<PartData>();
 
@@ -393,17 +392,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         if (tempId != row.Field<Guid>("id")
                         && tempNumber != row.Field<string>("number"))
                         {
-                            p = new PartData()
-                            {
-                                Id = row.Field<Guid>("id"),
-                                Number = row.Field<string>("number"),
-                                PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
-                                Length = row.Field<int>("length"),
-                                PartTypeDescription = row.Field<string>("typeTranslated"),
-                                WallThickness = row.Field<int>("wallThickness"),
-                                Diameter = row.Field<int>("diameter"),
-                                ConnectorsCount = Convert.ToString(row.Field<int>("diameter"))
-                            };
+                            p = CreatePartDataByRow(row);
+
+                            SetPartConnectors(p, row);
 
                             list.Add(p);
 
@@ -412,13 +403,79 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         }
                         else
                         {
-                            p.ConnectorsCount += string.Format("({0})", Convert.ToString(row.Field<int>("diameter")));
+                            SetPartConnectors(p, row);
                         }
                     }
                 }
                 return list;
             }
         }
+
+        #region ---- PartsData creation ot loading ---- 
+        private PartData CreatePartDataByRow(DataRow row)
+        {
+            return
+                new PartData()
+                {
+                    Id = row.Field<Guid>("id"),
+                    Number = row.Field<string>("number"),
+                    PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
+                    Length = row.Field<int>("length"),
+                    PartTypeDescription = row.Field<string>("typeTranslated"),
+                    WallThickness = row.Field<int>("wallThickness"),
+                    Diameter = row.Field<int>("diameter")
+                };
+        }
+
+        private void SetPartConnectors(PartData part, DataRow row)
+        {
+            if (part.Connectors == null)
+            {
+                part.Connectors = new List<Connector>();
+            }
+
+            if (part.PartType == PartType.Component)
+            {
+                var cnt = new Connector() { Diameter = row.Field<int>("diameter") };
+
+                part.Connectors.Add(cnt);
+
+                SetConnectorsCountString(part);
+            }
+            else
+            {
+                var cnt = new Connector() { Diameter = part.Diameter };
+
+                part.Connectors.Add(cnt);
+
+                if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                {
+                    part.Connectors.Add(cnt);
+                }
+
+                SetConnectorsCountString(part);
+            }
+        }
+
+        private void SetConnectorsCountString(PartData part)
+        {
+            string diameterList = string.Empty;
+
+            foreach (var c in part.Connectors)
+            {
+                if (diameterList == string.Empty)
+                {
+                    diameterList = Convert.ToString(c.Diameter);
+                }
+                else
+                {
+                    diameterList = string.Concat(diameterList, ", ", Convert.ToString(c.Diameter));
+                }
+            }
+
+            part.ConnectorsCount = string.Concat(part.Connectors.Count, "(", diameterList, ")");
+        }
+        #endregion
 
         public void NewJoint()
         {
