@@ -48,22 +48,23 @@ namespace Prizm.Data.DAL.ADO
 
 
 
-        #region ---- GetPipelinePieces
+        #region ---- Get Pipeline Pieces ----
+
         public const string GetPipelinePieces =
-          @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName 
+          @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName, constructionStatus 
             FROM pipe 
             WHERE isActive = 1 AND isAvailableToJoint = 1
             
             UNION ALL
 
-            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName 
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName, s.constructionStatus 
             FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id 
             WHERE s.isActive = 1  AND s.isAvailableToJoint = 1
             
             UNION ALL
             
-            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length, ct.name as componentTypeName 
+            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length, ct.name as componentTypeName, c.constructionStatus 
             FROM component c 
             INNER JOIN ComponentType ct on ct.Id = c.componentTypeId
             INNER JOIN connector con ON c.id = con.componentId 

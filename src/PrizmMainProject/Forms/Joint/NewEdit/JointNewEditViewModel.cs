@@ -20,6 +20,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private const int connectedElementsCount = 2;
+        private Part[] connectedElements = new Part[connectedElementsCount];
+
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
@@ -294,11 +297,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        private PartData FindElementById(Guid id)
-        {
-            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
-        }
-
         public Guid SecondElementId
         {
             get
@@ -337,6 +335,67 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
             }
         }
+
+        private PartData FindElementById(Guid id)
+        {
+            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
+        }
+
+
+        #region ===== Makeing The Connection =====
+
+        public void MakeTheConnection()
+        {
+            for (int i = 0; i < connectedElementsCount; i++)
+            {
+                connectedElements[i] = GetPart(FirstElement);
+            }
+
+            SetPartsAsConected();
+        }
+
+        private Part GetPart(PartData partData)
+        {
+            if (partData.PartType == PartType.Component)
+            {
+                return repoConstruction.RepoComponent.Get(partData.Id);
+            }
+            else if (partData.PartType == PartType.Pipe)
+            {
+                return repoConstruction.RepoPipe.Get(partData.Id);
+            }
+            else
+            {
+                return repoConstruction.RepoSpool.Get(partData.Id);
+            }
+        }
+
+        private void SetPartsAsConected()
+        {
+
+
+
+            foreach (var part in connectedElements)
+            {
+                if (part is construction.Component)
+                {
+
+                }
+                else
+                {
+                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    {
+                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                    }
+                    else
+                    {
+                        part.IsAvailableToJoint = false;
+                    }
+                }
+            }
+        }
+
+        #endregion ===============================
 
         #endregion
 
@@ -411,7 +470,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        #region ---- PartsData creation ot loading ---- 
+        #region ---- PartsData creation at loading ---- 
+
         private PartData CreatePartDataByRow(DataRow row)
         {
             return
@@ -423,7 +483,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Length = row.Field<int>("length"),
                     PartTypeDescription = row.Field<string>("typeTranslated"),
                     WallThickness = row.Field<int>("wallThickness"),
-                    Diameter = row.Field<int>("diameter")
+                    Diameter = row.Field<int>("diameter"),
+
+                    ConstructionStatus = (PartConstructionStatus)Enum
+                    .Parse(typeof(PartConstructionStatus), 
+                    row.Field<string>("constructionStatus"))
                 };
         }
 
@@ -475,6 +539,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             part.ConnectorsCount = string.Concat(part.Connectors.Count, "(", diameterList, ")");
         }
+
         #endregion
 
         public void NewJoint()

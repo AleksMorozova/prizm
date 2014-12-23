@@ -573,7 +573,7 @@
             this.secondJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Количество коннекторов")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
             this.secondJointElement.Properties.NullText = "Введите номер";
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
@@ -593,7 +593,7 @@
             this.firstJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Количество коннекторов")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
             this.firstJointElement.Properties.NullText = "Введите номер";
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);

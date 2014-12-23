@@ -14,8 +14,6 @@ namespace Prizm.Domain.Entity
         public virtual PartConstructionStatus ConstructionStatus { get; set; }
         public virtual PartInspectionStatus InspectionStatus { get; set; }
 
-        public virtual IList<Joint> Joints { get; set; }
-
         public virtual IList<InspectionTestResult> InspectionTestResults { get; set; }
     }
 }

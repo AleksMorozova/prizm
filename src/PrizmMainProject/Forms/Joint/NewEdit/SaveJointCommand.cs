@@ -47,10 +47,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 try
                 {
+                    viewModel.MakeTheConnection();
+
                     repo.BeginTransaction();
                     repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
                     repo.Commit();
                     repo.RepoJoint.Evict(viewModel.Joint);
+
                     viewModel.ModifiableView.IsModified = false;
                     notify.ShowNotify(
                         string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
