@@ -344,26 +344,32 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         #region ===== Makeing The Connection =====
 
-        public void MakeTheConnection()
+        public bool MakeTheConnection()
         {
             AddPart(FirstElement);
             AddPart(SecondElement);
-
-            
 
             foreach (var part in connectedElements)
             {
                 if (part is construction.Component)
                 {
                     var component = part as construction.Component;
+
                     int commonDiameter = GetCommonDiameter();
 
-                    foreach (var con in component.Connectors)
+                    if (commonDiameter != -1)
                     {
-                        if (con.Diameter == commonDiameter)
+                        foreach (var con in component.Connectors)
                         {
-                            con.Joint = Joint;
+                            if (con.Diameter == commonDiameter)
+                            {
+                                con.Joint = Joint;
+                            }
                         }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
                 else
@@ -378,6 +384,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     }
                 }
             }
+            return true;
         }
 
         private void AddPart(PartData partData)
@@ -402,15 +409,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private int GetCommonDiameter()
         {
-            foreach (var fec in FirstElement.Connectors)
+            var duplicates =
+                FirstElement.Connectors
+                .Intersect(SecondElement.Connectors, new ConnectorComparer())
+                .ToList<construction.Connector>();
+
+            if (duplicates.Count == 1)
             {
-                foreach (var sec in SecondElement.Connectors)
-                {
-                    if (fec.Diameter == sec.Diameter)
-                    {
-                        return fec.Diameter;
-                    }
-                }
+                return duplicates.First<construction.Connector>(x => true).Diameter;
             }
 
             return -1;
@@ -458,7 +464,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (list == null)
+                if (list == null && Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
@@ -576,5 +582,34 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.LoweringDate = DateTime.MinValue;
 
         }
+
+
+        #region ---- IEnumerable Intersect of diameters ----
+
+        private class ConnectorComparer : IEqualityComparer<construction.Connector>
+        {
+            public bool Equals(construction.Connector x, construction.Connector y)
+            {
+                if (Object.ReferenceEquals(x, y)) 
+                    return true;
+
+                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                    return false;
+
+                return x.Diameter == y.Diameter;
+            }
+
+            public int GetHashCode(construction.Connector connector)
+            {
+                if (Object.ReferenceEquals(connector, null)) 
+                    return 0;
+
+                return connector.Diameter.GetHashCode();
+            }
+
+        }
+
+
+        #endregion---- IEnumerable Intersect ----
     }
 }
