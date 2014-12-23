@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -39,7 +38,7 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isShipped = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,6 +65,7 @@
             this.shippedDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unshipButton)).BeginInit();
@@ -141,6 +141,7 @@
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.editGridColumn,
             this.isShipped,
+            this.idCol,
             this.number,
             this.dest,
             this.certificate,
@@ -434,6 +435,12 @@
             this.railcarsListLayout.TextToControlDistance = 0;
             this.railcarsListLayout.TextVisible = false;
             // 
+            // idCol
+            // 
+            this.idCol.Caption = "Id";
+            this.idCol.FieldName = "Id";
+            this.idCol.Name = "idCol";
+            // 
             // RailcarSearchXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,5 +515,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit unshipGridButton;
         private DevExpress.XtraGrid.Columns.GridColumn isShipped;
         private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn idCol;
     }
 }

@@ -16,6 +16,7 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Properties;
 using Prizm.Main.Common;
 using Prizm.Main.Documents;
+using Prizm.Main.Forms.ExternalFile;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -41,6 +42,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly GetProjectCommand getProjectCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
@@ -72,11 +74,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
-        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
         {
             this.repoMill = repoMill;
             this.notify = notify;
-            this.PipeId = pipeId;
+            this.PipeId = id;
 
             #region Commands creation
             pipeDeactivationCommand =
@@ -107,7 +109,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.GetProjectCommand.Execute();
             this.mill = Project.MillName;
 
-            if (pipeId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewPipe();
             }
@@ -678,6 +680,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             repoMill.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         /// <summary>

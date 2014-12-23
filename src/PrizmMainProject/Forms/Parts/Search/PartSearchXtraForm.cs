@@ -92,21 +92,21 @@ namespace Prizm.Main.Forms.Parts.Search
                         parent.CreateChildForm(
                             typeof(ComponentNewEditXtraForm),
                             new ConstructorArgument(
-                                "componentId",
+                                "id",
                                 viewModel.Parts[selectedPart].Id));
                     } break;
                 case PartType.Pipe:
                     {
                         parent.CreateChildForm
                             (typeof(MillPipeNewEditXtraForm),
-                            new ConstructorArgument("pipeId",
+                            new ConstructorArgument("id",
                             viewModel.Parts[selectedPart].Id));
                     } break;
                 case PartType.Spool:
                     {
                         parent.CreateChildForm(
                             typeof(SpoolsXtraForm),
-                            new ConstructorArgument("spoolId",
+                            new ConstructorArgument("id",
                                 viewModel.Parts[selectedPart].Id)
                             );
                     } break;

@@ -7,6 +7,7 @@ using Prizm.Main.Forms;
 using Prizm.Main.Forms.Railcar;
 using Prizm.Main.Forms.Railcar.NewEdit;
 using System.Collections.Generic;
+using System;
 
 namespace Prizm.UnitTests.Forms.Railcar.Edit
 {
@@ -25,7 +26,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
-            var viewModel = new RailcarViewModel(repos.Object, "", notify.Object);
+            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.ModifiableView = view.Object;

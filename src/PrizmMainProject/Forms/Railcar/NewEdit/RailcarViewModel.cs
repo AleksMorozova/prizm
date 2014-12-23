@@ -12,6 +12,7 @@ using Prizm.Main.Properties;
 using System.Windows.Forms;
 using Prizm.Data.DAL;
 using Prizm.Main.Documents;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -24,9 +25,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
         IModifiable modifiableView;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, string railcarNumber, IUserNotify notify)
+        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify)
         {
             this.repos = repos;
             this.notify = notify;
@@ -37,13 +39,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
             unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify));
 
-            if (string.IsNullOrWhiteSpace(railcarNumber))
+            if (id == Guid.Empty)
             {
                 NewRailcar();
             }
             else
             {
-                Railcar = repos.RailcarRepo.GetByNumber(railcarNumber);
+                Railcar = repos.RailcarRepo.Get(id);
                 if (!Railcar.ShippingDate.HasValue)
                 {
                     Railcar.ShippingDate = DateTime.MinValue;
@@ -175,6 +177,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             repos.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         public void AddPipe(Guid id)

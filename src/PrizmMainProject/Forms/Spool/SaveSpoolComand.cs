@@ -38,6 +38,13 @@ namespace Prizm.Main.Forms.Spool
                     repos.Commit();
                     repos.PipeRepo.Evict(viewModel.Pipe);
                     repos.SpoolRepo.Evict(viewModel.Spool);
+            //saving attached documents
+            if (viewModel.FilesFormViewModel != null)
+            {
+               viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
+               viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+               viewModel.FilesFormViewModel = null;
+            }
                     viewModel.ModifiableView.IsModified = false;
                     notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
                     string oldPipeNumber = viewModel.Pipe.Number;

@@ -57,6 +57,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         repo.Commit();
                         repo.RepoPipe.Evict(viewModel.Pipe);
                         viewModel.ModifiableView.IsModified = false;
+
+                        //saving attached documents
+                        if (viewModel.FilesFormViewModel != null)
+                        {
+                            viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
+                            viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                            viewModel.FilesFormViewModel = null;
+                        }
+
                         viewModel.CanDeactivatePipe = viewModel.PipeDeactivationCommand.CanExecute();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
