@@ -47,6 +47,8 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             repoConstruction.SetupGet(_ => _.RepoWelder).Returns(repoWelder.Object);
             repoJointOperation.Setup(_ => _.GetControlOperations()).Returns(operations);
             repoJointOperation.Setup(_ => _.GetRepairOperations()).Returns(operations);
+            repoJoint.Setup(_ => _.GetActiveByNumber(joint)).Returns(new List<Prizm.Domain.Entity.Construction.Joint>());
+
 
             modifiableView.SetupGet(x => x.IsModified).Returns(false);
 

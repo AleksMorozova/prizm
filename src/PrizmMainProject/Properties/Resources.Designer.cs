@@ -498,6 +498,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вложения успешно добавлены.
+        /// </summary>
+        internal static string DLG_FILE_ATTACH_SUCCESS {
+            get {
+                return ResourceManager.GetString("DLG_FILE_ATTACH_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавление вложений.
+        /// </summary>
+        internal static string DLG_FILE_ATTACH_SUCCESS_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_FILE_ATTACH_SUCCESS_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Загрузка файла.
+        /// </summary>
+        internal static string DLG_FILE_DOWNLOAD_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_FILE_DOWNLOAD_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл успешно загружен.
+        /// </summary>
+        internal static string DLG_FILE_DOWNLOAD_SUCCESS {
+            get {
+                return ResourceManager.GetString("DLG_FILE_DOWNLOAD_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Для просмотра и скачивания вложений необходимо их предварительное сохранение.
+        /// </summary>
+        internal static string DLG_FILE_VIEW_DOWMLOAD_FAIL {
+            get {
+                return ResourceManager.GetString("DLG_FILE_VIEW_DOWMLOAD_FAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просмотр и загрузка несохрaненных файлов.
+        /// </summary>
+        internal static string DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
         /// </summary>
         internal static string DLG_JOINT_DEACTIVATION {
@@ -1678,9 +1732,18 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Длинны трубы не достаточно для отрезания заданной катушки.
         /// </summary>
-        internal static string Wrong_Spool_Lengs {
+        internal static string Wrong_Spool_Lengs_MorePipeLength {
             get {
-                return ResourceManager.GetString("Wrong_Spool_Lengs", resourceCulture);
+                return ResourceManager.GetString("Wrong_Spool_Lengs_MorePipeLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длинна катушки не может быть равна 0.
+        /// </summary>
+        internal static string Wrong_Spool_Length_NullLength {
+            get {
+                return ResourceManager.GetString("Wrong_Spool_Length_NullLength", resourceCulture);
             }
         }
         

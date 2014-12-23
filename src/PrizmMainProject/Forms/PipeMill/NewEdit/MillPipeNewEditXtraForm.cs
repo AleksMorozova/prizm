@@ -25,6 +25,7 @@ using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
+using DevExpress.XtraGrid;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -38,14 +39,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
 
-        public MillPipeNewEditXtraForm(Guid pipeId)
+        public MillPipeNewEditXtraForm(Guid id)
         {
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
                 .Get<MillPipeNewEditViewModel>(
-                new ConstructorArgument("pipeId", pipeId));
+                new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
 
 
@@ -81,6 +82,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             heatsLookUp.ButtonSetup();
             ordersLookUp.ButtonSetup();
+
+            // Allow change focus or close while heatsLookUp or ordersLookUp validation error
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -288,7 +292,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
         {
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-            if(weld == null)
+            if (weld == null)
                 e.Cancel = true;
         }
 
@@ -583,8 +587,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+         ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id);
+         if (viewModel.FilesFormViewModel == null)
+         {
+             viewModel.FilesFormViewModel = filesForm.ViewModel;
+         }
+         else
+         {
+             filesForm.ViewModel = viewModel.FilesFormViewModel;
+         }
+         filesForm.ShowDialog();
         }
 
         private void ShowHeatDialog(string number)
@@ -655,7 +667,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             ordersLookUp.Properties.DataSource = null;
             ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
-
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();

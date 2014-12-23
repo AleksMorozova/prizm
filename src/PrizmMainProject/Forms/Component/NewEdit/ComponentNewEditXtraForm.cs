@@ -27,12 +27,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
        
         public ComponentNewEditXtraForm() : this(Guid.Empty) { }
 
-        public ComponentNewEditXtraForm(Guid componentId)
+        public ComponentNewEditXtraForm(Guid id)
         {
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
-               .Get<ComponentNewEditViewModel>(new ConstructorArgument("componentId", componentId));
+               .Get<ComponentNewEditViewModel>(new ConstructorArgument("id", id));
 
             viewModel.ModifiableView = this;
             IsEditMode = true;
@@ -50,8 +50,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id);
+            if (viewModel.FilesFormViewModel == null)
+            {
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
+            }
+            else
+            {
+                filesForm.ViewModel = viewModel.FilesFormViewModel;
+            }
+            filesForm.ShowDialog();
         }
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
