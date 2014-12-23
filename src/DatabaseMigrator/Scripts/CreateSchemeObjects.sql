@@ -63,7 +63,7 @@ CREATE TABLE [dbo].[Connector](
 	[isActive] [bit] NULL,
 	[diameter] [int] NULL,
 	[wallThickness] [int] NULL,
-	[isUsed] [bit] NULL,
+	[jointId] [uniqueidentifier] NULL,
 	[componentId] [uniqueidentifier] NULL,
 
  CONSTRAINT [PK_Connector] PRIMARY KEY CLUSTERED 

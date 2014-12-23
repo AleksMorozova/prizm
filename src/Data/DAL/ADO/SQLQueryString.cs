@@ -68,11 +68,14 @@ namespace Prizm.Data.DAL.ADO
             FROM component c 
             INNER JOIN ComponentType ct on ct.Id = c.componentTypeId
             INNER JOIN connector con ON c.id = con.componentId 
-            WHERE c.isActive = 1 AND c.isAvailableToJoint = 1 AND con.IsUsed = 0
+            WHERE   c.isActive = 1 AND 
+                    c.isAvailableToJoint = 1 AND 
+                    (con.jointId IS NULL OR
+                    con.jointId = CAST(CAST(0 AS BINARY) AS UNIQUEIDENTIFIER))
+                    
             
             ORDER BY number";
         #endregion
-
 
 
 
