@@ -9,9 +9,9 @@ using DevExpress.XtraSplashScreen;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-    public partial class SplashScreen1 : SplashScreen
+    public partial class AppSplashScreen : SplashScreen
     {
-        public SplashScreen1()
+        public AppSplashScreen()
         {
             InitializeComponent();
         }

@@ -245,17 +245,17 @@
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\IFirstSetupRepo.cs" />
-    <Compile Include="Forms\MainChildForm\SplashScreen1.cs">
+    <Compile Include="Forms\MainChildForm\AppSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainChildForm\SplashScreen1.designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <Compile Include="Forms\MainChildForm\AppSplashScreen.designer.cs">
+      <DependentUpon>AppSplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainChildForm\WaitForm1.cs">
+    <Compile Include="Forms\MainChildForm\AppWaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainChildForm\WaitForm1.Designer.cs">
-      <DependentUpon>WaitForm1.cs</DependentUpon>
+    <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
+      <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
@@ -547,11 +547,11 @@
     <EmbeddedResource Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.resx">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainChildForm\SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainChildForm\AppSplashScreen.resx">
+      <DependentUpon>AppSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainChildForm\WaitForm1.resx">
-      <DependentUpon>WaitForm1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainChildForm\AppWaitForm.resx">
+      <DependentUpon>AppWaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
       <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>

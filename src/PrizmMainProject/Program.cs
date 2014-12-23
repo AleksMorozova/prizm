@@ -39,7 +39,7 @@ namespace Prizm.Main
             try
             {
                 // Splash screen
-                SplashScreenManager.ShowForm(typeof(SplashScreen1), true, false);
+                SplashScreenManager.ShowForm(typeof(AppSplashScreen), true, false);
 
                 // Database
                 ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];

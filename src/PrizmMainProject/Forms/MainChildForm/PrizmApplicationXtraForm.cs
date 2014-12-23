@@ -438,11 +438,19 @@ namespace Prizm.Main.Forms.MainChildForm
         private int currentProcessingStep;
         private int targetProcessingSteps;
 
+        /// <summary>
+        /// Show wait form. Call it at times when UI thread will be unresponsible
+        /// For now used 1. on Executing commands through the CommandManager
+        ///              2. when creating and showing child forms
+        /// </summary>
+        /// <param name="text">message body, optional</param>
+        /// <param name="header">message header, optional</param>
+        /// <param name="steps">overall steps provide to show progress bar, and on each step call IncProcessingState(), optional</param>
         public void ShowProcessing(string text = "", string header = "", int steps = 0)
         {
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
-            SplashScreenManager.ShowForm(this, typeof(WaitForm1), false, false, false);
+            SplashScreenManager.ShowForm(this, typeof(AppWaitForm), false, false, false);
             if (!string.IsNullOrEmpty(header))
                 SplashScreenManager.Default.SetWaitFormCaption(header);
             if (!string.IsNullOrEmpty(text))
@@ -450,11 +458,19 @@ namespace Prizm.Main.Forms.MainChildForm
             this.Update();
         }
 
+        /// <summary>
+        /// Hide wait form, when UI thread will be responsible again
+        /// </summary>
         public void HideProcessing()
         {
             SplashScreenManager.CloseForm(false);
         }
 
+        /// <summary>
+        /// Update progress on wait form, should be called on each processing step
+        /// of the long processing with known number of steps.
+        /// To init progress on the wait form you should previously call ShowProcessing(, , steps) 
+        /// </summary>
         public void IncProcessingState()
         {
             currentProcessingStep++;
