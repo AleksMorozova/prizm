@@ -61,5 +61,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
         }
+
+        private void FirstSetupXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+        }
     }
 }

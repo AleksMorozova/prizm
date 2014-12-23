@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 using Ninject;
 using Prizm.Data.DAL.Hibernate;
 using NHibernate;
+using Prizm.Data.DAL.Setup;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupSaveCommand : ICommand
     {
-        FirstSetupViewModel viewModel;
-        ISession session;
-        IUserRepository userRepo;
-        IProjectRepository projectRepo;
+        private readonly FirstSetupViewModel viewModel;
+        private readonly IFirstSetupRepo firstSetupRepo;
 
-        public FirstSetupSaveCommand(FirstSetupViewModel vm)
+        public FirstSetupSaveCommand(FirstSetupViewModel viewModel, IFirstSetupRepo firstSetupRepo)
         {
-            viewModel = vm;
+            this.viewModel = viewModel;
+            this.firstSetupRepo = firstSetupRepo;
         }
 
         #region ICommand Members
@@ -34,7 +34,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             viewModel.Admin.Name = viewModel.Name;
             viewModel.Admin.PasswordHash = PasswordEncryptor.EncryptPassword(viewModel.Password);
             viewModel.Admin.IsActive = true;
-
             viewModel.Project.IsActive = true;
             if(viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Mill)
             {
@@ -42,23 +41,14 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 viewModel.MillPipeNumberMask = string.Empty;
             }
 
-            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            ctx.LoggedUser = viewModel.Admin;
-
-            HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
-            session = HibernateUtil.OpenSession(false);
-            userRepo = new UserRepository(session);
-            projectRepo = new ProjectRepository(session);
-
-            userRepo.BeginTransaction();
-            userRepo.Save(viewModel.Admin);
-            userRepo.Commit();
-            userRepo.Evict(viewModel.Admin);
-
-            projectRepo.BeginTransaction();
-            projectRepo.Save(viewModel.Project);
-            projectRepo.Commit();
-            projectRepo.Evict(viewModel.Project);
+            firstSetupRepo.BeginTransaction();
+            firstSetupRepo.UserRepo.Save(viewModel.Admin);
+            firstSetupRepo.ProjectRepo.Save(viewModel.Project);
+            SaveInspectorCertificateTypes();
+            firstSetupRepo.Commit();
+            firstSetupRepo.UserRepo.Evict(viewModel.Admin);
+            firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
+            EvictInspectorCertificateTypes();
 
             viewModel.IsSaved = true;
         }
@@ -68,6 +58,22 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undef
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Login) && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.LastName) 
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.FirstName);
+        }
+
+        private void SaveInspectorCertificateTypes()
+        {
+            foreach (var ct in viewModel.InspectorCertificateTypes)
+            {
+                firstSetupRepo.CertificateTypeRepo.Save(ct);
+            }
+        }
+
+        private void EvictInspectorCertificateTypes()
+        {
+            foreach (var ct in viewModel.InspectorCertificateTypes)
+            {
+                firstSetupRepo.CertificateTypeRepo.Evict(ct);
+            }
         }
 
         public bool IsExecutable { get; set; }

@@ -20,13 +20,20 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupViewModel : ViewModelBase
     {
+        private IList<InspectorCertificateType> inspectorCertificateTypes;
+        private string[] inspectorCertificateTypesName
+            = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
+
+        private readonly IFirstSetupRepo firstSetupRepo;
+
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
 
         [Inject]
-        public FirstSetupViewModel()
+        public FirstSetupViewModel(IFirstSetupRepo firstSetupRepo)
         {
-            saveCommand = ViewModelSource.Create(() => new FirstSetupSaveCommand(this));
+            this.firstSetupRepo = firstSetupRepo;
+            saveCommand = ViewModelSource.Create(() => new FirstSetupSaveCommand(this, firstSetupRepo));
 
             var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), ConfigurationManager.AppSettings["WorkstationType"]);
 
@@ -44,6 +51,22 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private Project project = new Project();
         private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
+
+        public IList<InspectorCertificateType> InspectorCertificateTypes
+        {
+            get 
+            { 
+                if(inspectorCertificateTypes == null)
+                {
+                    inspectorCertificateTypes = new List<InspectorCertificateType>();
+                    foreach(string str in inspectorCertificateTypesName)
+                    {
+                        inspectorCertificateTypes.Add(new InspectorCertificateType() { Name = str, IsActive = true });
+                    }
+                }
+                return inspectorCertificateTypes;
+            }
+        }
 
         #region BindingFields
 
@@ -218,5 +241,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return saveCommand; }
         }
 
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            firstSetupRepo.Dispose();
+        }
+
+        #endregion
     }
 }

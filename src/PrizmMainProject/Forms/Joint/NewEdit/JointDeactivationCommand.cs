@@ -36,6 +36,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.IsNotActive = false;
             }
+            viewModel.CheckDeactivation();
         }
 
         public virtual bool IsExecutable { get; set; }
@@ -47,8 +48,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-            return
-                viewModel.Joint.IsActive;
+            return viewModel.Joint.IsActive && viewModel.Joint.Id != Guid.Empty;
         }
     }
 }

@@ -565,6 +565,7 @@
             this.Controls.Add(this.layoutControl);
             this.Name = "FirstSetupXtraForm";
             this.Text = "Первичные настройки";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FirstSetupXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.FirstSetupXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();

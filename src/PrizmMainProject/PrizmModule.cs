@@ -31,7 +31,8 @@ using Prizm.Main.Forms.Joint;
 using Prizm.Data.DAL.Construction;
 using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
-
+using Prizm.DAL.Hibernate;
+using Prizm.Main.Forms.ExternalFile;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -68,6 +69,8 @@ namespace Prizm.Main
             Bind<IConstructionRepository>().To<ConstructionRepository>();
             Bind<IJointRepository>().To<JointRepository>();
 
+            Bind<IFirstSetupRepo>().To<FirstSetupRepo>();
+            
             Bind<IComponentRepositories>().To<ComponentRepositories>();
             Bind<IComponentTypeRepository>().To<ComponentTypeRepository>();
             Bind<IComponentRepository>().To<ComponentRepository>();
@@ -76,6 +79,7 @@ namespace Prizm.Main
             Bind<IJointTestResultRepository>().To<JointTestResultRepository>();
             Bind<IJointWeldResultRepository>().To<JointWeldResultRepository>();
             Bind<IInspectorRepository>().To<InspectorRepository>();
+            Bind<IFileRepository>().To<FileRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
@@ -96,6 +100,7 @@ namespace Prizm.Main
             Bind<PartSearchViewModel>().ToSelf();
             Bind<FirstSetupViewModel>().ToSelf();
             Bind<SpoolViewModel>().ToSelf();
+            Bind<ExternalFilesViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -116,6 +121,7 @@ namespace Prizm.Main
             Bind<AuditXtraForm>().ToSelf();
             Bind<PartSearchXtraForm>().ToSelf();
             Bind<FirstSetupXtraForm>().ToSelf();
+            Bind<ExternalFilesXtraForm>().ToSelf();
             #endregion
 
             #region Commands

@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -37,12 +38,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public BindingList<JointOperation> RepairOperations;
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
-        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid jointId, Prizm.Data.DAL.IMillReportsRepository adoRepo)
+        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid id, Prizm.Data.DAL.IMillReportsRepository adoRepo)
         {
             this.repoConstruction = repoConstruction;
-            this.JointId = jointId;
+            this.JointId = id;
             this.notify = notify;
             this.adoRepo = adoRepo;
 
@@ -61,13 +63,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Welders = repoConstruction.RepoWelder.GetAll();
             Pieces = adoRepo.GetPipelineElements();
             extractOperationsCommand.Execute();
-            if (jointId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewJoint();
             }
             else
             {
-                this.Joint = repoConstruction.RepoJoint.Get(jointId);
+                this.Joint = repoConstruction.RepoJoint.Get(id);
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                 {
@@ -85,6 +87,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         internal string FormatInspectorList(IList<Inspector> inspectors)
@@ -336,6 +342,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     RaisePropertyChanged("SecondElement");
                 }
             }
+        }
+
+        private bool isCanDeactivate;
+        public bool IsCanDeactivate
+        {
+            get { return isCanDeactivate; }
+            set 
+            {
+                if(isCanDeactivate != value)
+                {
+                    isCanDeactivate = value;
+                    RaisePropertyChanged("IsCanDeactivate");
+                }
+            }
+        }
+        public void CheckDeactivation()
+        {
+            IsCanDeactivate = JointDeactivationCommand.CanExecute();
         }
 
         #endregion

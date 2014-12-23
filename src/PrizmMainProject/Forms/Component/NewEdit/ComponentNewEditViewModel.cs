@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -27,11 +28,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private NewSaveComponentCommand newSaveCommand;
         private ComponentDeactivationCommand deactivationCommand;
         private IModifiable modifiableView;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
         public ComponentNewEditViewModel(
             IComponentRepositories repos,
-            Guid componentId,
+            Guid id,
             IUserNotify notify)
         {
             this.repos = repos;
@@ -50,13 +52,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 .Create(() => new ComponentDeactivationCommand(this, repos, notify));
 
 
-            if (componentId == Guid.Empty)
+            if (id == Guid.Empty)
             {
                 NewComponent();
             }
             else
             {
-                this.Component = repos.ComponentRepo.Get(componentId);
+                this.Component = repos.ComponentRepo.Get(id);
                 this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
@@ -272,6 +274,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             repos.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         /// <summary>

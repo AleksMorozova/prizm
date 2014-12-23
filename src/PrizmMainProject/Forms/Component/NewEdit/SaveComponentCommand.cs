@@ -58,6 +58,14 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     viewModel.CanDeactivateComponent = viewModel.DeactivationCommand.CanExecute();
                     viewModel.ModifiableView.IsModified = false;
 
+                    //saving attached documents
+                    if (viewModel.FilesFormViewModel != null)
+                    {
+                        viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
+                        viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                        viewModel.FilesFormViewModel = null;
+                    }
+
                     notify.ShowSuccess(
                          string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
                          Resources.DLG_COMPONENT_SAVED_HEADER);

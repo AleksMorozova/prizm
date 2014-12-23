@@ -8,7 +8,6 @@ namespace Prizm.Main.Forms.Settings.Dictionary
         public SettingsEditDictionaryXtraForm()
         {
             InitializeComponent();
-            items.DataSource = DictionaryDummy.GetItems();
         }
     }
 }

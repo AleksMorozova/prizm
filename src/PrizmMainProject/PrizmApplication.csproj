@@ -166,6 +166,7 @@
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
+    <Compile Include="Common\Directories.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
@@ -184,7 +185,6 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DummyData\ComponentryDummy.cs" />
-    <Compile Include="DummyData\DictionaryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
     <Compile Include="DummyData\NotificationDummy.cs" />
@@ -228,9 +228,14 @@
     <Compile Include="Forms\Component\NewEdit\NewSaveComponentCommand.cs" />
     <Compile Include="Forms\Component\NewEdit\SaveComponentCommand.cs" />
     <Compile Include="Forms\ControlMaskExtensions.cs" />
+    <Compile Include="Forms\ExternalFile\AddExternalFileCommand.cs" />
+    <Compile Include="Forms\ExternalFile\DownloadFileCommand.cs" />
+    <Compile Include="Forms\ExternalFile\ExternalFilesViewModel.cs" />
+    <Compile Include="Forms\ExternalFile\ViewFileCommand.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointDeactivationCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupRepo.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.cs">
@@ -238,6 +243,19 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.Designer.cs">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\IFirstSetupRepo.cs" />
+    <Compile Include="Forms\MainChildForm\AppSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainChildForm\AppSplashScreen.designer.cs">
+      <DependentUpon>AppSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainChildForm\AppWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
+      <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
@@ -528,6 +546,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainChildForm\FirstSetupForm\FirstSetupXtraForm.resx">
       <DependentUpon>FirstSetupXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainChildForm\AppSplashScreen.resx">
+      <DependentUpon>AppSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainChildForm\AppWaitForm.resx">
+      <DependentUpon>AppWaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
       <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>

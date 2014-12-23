@@ -27,10 +27,10 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public SpoolsXtraForm(Guid spoolId)
+        public SpoolsXtraForm(Guid id)
         {
             InitializeComponent();
-            viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>( new ConstructorArgument("spoolId", spoolId));
+            viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             SetAlwaysReadOnly(pipeLength);
             SetExceptionReadOnly(pipeNumber);
@@ -101,8 +101,16 @@ namespace Prizm.Main.Forms.Spool
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id);
+            if (viewModel.FilesFormViewModel == null)
+            {
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
+            }
+            else
+            {
+                filesForm.ViewModel = viewModel.FilesFormViewModel;
+            }
+            filesForm.ShowDialog();
         }
 
         private void inspectionHistoryGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
