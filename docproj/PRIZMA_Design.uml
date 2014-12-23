@@ -15156,8 +15156,8 @@ OPTIONAL for the first version?
 <XPD:REF name="Owner">BHD28x9Ic0Wb8/92kdBU2QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="t7wLMsrMLE+A8jw3PbWgWQAA">
-<XPD:ATTR name="Name" type="string">isUsed</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Boolean</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">jointId</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Guid</XPD:ATTR>
 <XPD:REF name="Owner">BHD28x9Ic0Wb8/92kdBU2QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
