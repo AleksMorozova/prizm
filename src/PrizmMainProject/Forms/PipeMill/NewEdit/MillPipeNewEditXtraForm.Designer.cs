@@ -398,7 +398,7 @@
             // 
             this.plateThickness.Location = new System.Drawing.Point(307, 58);
             this.plateThickness.Name = "plateThickness";
-            this.plateThickness.Properties.Mask.EditMask = "d";
+            this.plateThickness.Properties.Mask.EditMask = "f2";
             this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.plateThickness.Size = new System.Drawing.Size(101, 20);
             this.plateThickness.StyleController = this.pipeGeneralParametersLayout;
@@ -550,7 +550,7 @@
             // 
             this.thickness.Location = new System.Drawing.Point(1070, 101);
             this.thickness.Name = "thickness";
-            this.thickness.Properties.Mask.EditMask = "d";
+            this.thickness.Properties.Mask.EditMask = "f2";
             this.thickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.thickness.Size = new System.Drawing.Size(137, 20);
             this.thickness.StyleController = this.pipeGeneralParametersLayout;
