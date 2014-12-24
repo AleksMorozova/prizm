@@ -29,6 +29,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private readonly JointDeactivationCommand jointdeactivationCommand;
         private IModifiable modifiableView;
+        private IValidatable validatableView;
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
@@ -119,6 +120,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 modifiableView = value;
             }
+        }
+
+        public IValidatable ValidatableView
+        {
+            get { return validatableView; }
+            set { validatableView = value; }
         }
 
         #region Commands

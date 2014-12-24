@@ -31,6 +31,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
+
             viewModel.SavePipeCommand.Execute();
 
              if (viewModel.Number != string.Empty)

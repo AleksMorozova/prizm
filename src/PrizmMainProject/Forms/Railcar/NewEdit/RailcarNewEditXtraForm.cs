@@ -14,11 +14,12 @@ using Prizm.Main.Properties;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class RailcarNewEditXtraForm : ChildForm
+    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable
     {
         private ICommandManager commandManager = new CommandManager();
 
@@ -31,6 +32,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
 
             shippedDate.Properties.NullDate = DateTime.MinValue;
@@ -160,6 +162,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             filesForm.ShowDialog();
         }
 
+        #region IValidatable Members
 
+        bool IValidatable.Validate()
+        {
+            return dxValidationProvider.Validate();
+        }
+
+        #endregion
     }
 }
