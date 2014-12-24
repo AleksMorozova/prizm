@@ -13,5 +13,10 @@ namespace Prizm.Domain.Entity.Construction
 
         public virtual Joint Joint { get; set; }
         public virtual Component Component { get; set; }
+
+        public override string ToString()
+        {
+            return Convert.ToString(Diameter);
+        }
     }
 }

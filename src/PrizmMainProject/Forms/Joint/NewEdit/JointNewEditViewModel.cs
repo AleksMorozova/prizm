@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
+using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -346,6 +347,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool MakeTheConnection()
         {
+            if (FirstElement == null || SecondElement == null)
+            {
+                return false;
+            }
+
+            int commonDiameter = -1;
+
             AddPart(FirstElement);
             AddPart(SecondElement);
 
@@ -355,7 +363,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     var component = part as construction.Component;
 
-                    int commonDiameter = GetCommonDiameter();
+                    if (commonDiameter < 0)
+                    {
+                        commonDiameter = GetCommonDiameter();
+                    }
 
                     if (commonDiameter != -1)
                     {
@@ -414,13 +425,55 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Intersect(SecondElement.Connectors, new ConnectorComparer())
                 .ToList<construction.Connector>();
 
-            if (duplicates.Count == 1)
+            if (duplicates.Count == 0)
+            {
+                return -1;
+            }
+            else if (duplicates.Count == 1)
             {
                 return duplicates.First<construction.Connector>(x => true).Diameter;
             }
+            else
+            {
+                var choiceDiameter = new ChoiceConnectedDiameter(duplicates);
 
-            return -1;
+                if (choiceDiameter.ShowDialog() == DialogResult.OK)
+                {
+                    return choiceDiameter.Diameter;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
         }
+
+        #region ---- Intersect of diameters ----
+
+        private class ConnectorComparer : IEqualityComparer<construction.Connector>
+        {
+            public bool Equals(construction.Connector x, construction.Connector y)
+            {
+                if (Object.ReferenceEquals(x, y))
+                    return true;
+
+                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                    return false;
+
+                return x.Diameter == y.Diameter;
+            }
+
+            public int GetHashCode(construction.Connector connector)
+            {
+                if (Object.ReferenceEquals(connector, null))
+                    return 0;
+
+                return connector.Diameter.GetHashCode();
+            }
+
+        }
+
+        #endregion---- Intersect of diameters ----
 
         #endregion ===============================
 
@@ -569,6 +622,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         #endregion
 
+
         public void NewJoint()
         {
             this.Joint = new construction.Joint();
@@ -584,32 +638,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
 
-        #region ---- IEnumerable Intersect of diameters ----
-
-        private class ConnectorComparer : IEqualityComparer<construction.Connector>
-        {
-            public bool Equals(construction.Connector x, construction.Connector y)
-            {
-                if (Object.ReferenceEquals(x, y)) 
-                    return true;
-
-                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
-                    return false;
-
-                return x.Diameter == y.Diameter;
-            }
-
-            public int GetHashCode(construction.Connector connector)
-            {
-                if (Object.ReferenceEquals(connector, null)) 
-                    return 0;
-
-                return connector.Diameter.GetHashCode();
-            }
-
-        }
 
 
-        #endregion---- IEnumerable Intersect ----
     }
 }

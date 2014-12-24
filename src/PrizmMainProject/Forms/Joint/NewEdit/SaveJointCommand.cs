@@ -75,7 +75,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-             bool condition = !string.IsNullOrEmpty(viewModel.Number) && viewModel.FirstElement!=null && viewModel.SecondElement !=null;
+             bool condition = !string.IsNullOrEmpty(viewModel.Number) 
+                 && viewModel.FirstElement!=null 
+                 && viewModel.SecondElement !=null;
+
              return condition;
         }
     }
