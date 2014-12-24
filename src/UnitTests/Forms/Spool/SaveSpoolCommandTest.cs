@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Prizm.UnitTests.Forms.Spool
 {
     [TestFixture]
-    class TestSaveSpoolCommand
+    class SaveSpoolCommandTest
     {
         [Test]
         public void TestSaveCommand()
@@ -27,6 +27,7 @@ namespace Prizm.UnitTests.Forms.Spool
             var inspectorRepo = new Mock<IInspectorRepository>();
 
             var spool = new Prizm.Domain.Entity.Construction.Spool();
+            var pipe = new Prizm.Domain.Entity.Mill.Pipe();
 
             spoolRepo.Setup(x => x.GetAvailablePipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
 
@@ -46,12 +47,18 @@ namespace Prizm.UnitTests.Forms.Spool
                 notify.Object);
 
             viewModel.Spool = spool;
+            viewModel.Pipe = pipe;
+
             viewModel.ModifiableView = modifiableView.Object;
 
             var command = new SaveSpoolCommand(
                 viewModel,
                 spoolRepos.Object,
                 notify.Object);
+
+            viewModel.Spool.Length = 124;
+            viewModel.canCut = true;
+            viewModel.Pipe.Number = "Test";
 
             command.Execute();
 

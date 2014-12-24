@@ -26,10 +26,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
 
-        public RailcarNewEditXtraForm(string railcarNumber)
+        public RailcarNewEditXtraForm(Guid id)
         {
             InitializeComponent();
-            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("railcarNumber", railcarNumber));
+            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
 
@@ -43,7 +43,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         }
 
         public RailcarNewEditXtraForm()
-            : this("")
+            : this(Guid.Empty)
         {
 
         }
@@ -148,8 +148,16 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm attachments = new ExternalFilesXtraForm();
-            attachments.ShowDialog();
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id);
+            if (viewModel.FilesFormViewModel == null)
+            {
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
+            }
+            else
+            {
+                filesForm.ViewModel = viewModel.FilesFormViewModel;
+            }
+            filesForm.ShowDialog();
         }
 
 

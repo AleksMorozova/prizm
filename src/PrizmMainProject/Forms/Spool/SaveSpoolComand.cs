@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Properties;
+using DevExpress.Mvvm.POCO;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -26,19 +28,53 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute() 
         {
-            repos.BeginTransaction();
-            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-            repos.Commit();
-            repos.SpoolRepo.Evict(viewModel.Spool);
-            viewModel.ModifiableView.IsModified = false;
-        }
+            if (viewModel.Spool.Length != 0)
+            {
+                if (viewModel.canCut)
+                {
+                    repos.BeginTransaction();
+                    repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                    repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                    repos.Commit();
+                    repos.PipeRepo.Evict(viewModel.Pipe);
+                    repos.SpoolRepo.Evict(viewModel.Spool);
+            //saving attached documents
+            if (viewModel.FilesFormViewModel != null)
+            {
+               viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
+               viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+               viewModel.FilesFormViewModel = null;
+            }
+                    viewModel.ModifiableView.IsModified = false;
+                    notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+                    string oldPipeNumber = viewModel.Pipe.Number;
+                    viewModel.NewSpool();
+                    viewModel.PipeNumber = oldPipeNumber;
 
-
-        public bool CanExecute()
-        {
-            return true;
+                }
+                else 
+                {
+                    notify.ShowError(Resources.Wrong_Spool_Lengs_MorePipeLength, Resources.Cut_Spool_from_pipe_Header);
+                }
+            }
+            else
+            {
+                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
+                
+            }
         }
 
         public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+        }
+
+        public bool CanExecute()
+        {
+            bool condition = viewModel.ModifiableView.IsEditMode;
+            return condition;
+        }
     }
 }

@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Domain.Entity;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Controls
 {
    public partial class WeldersSelectionControl : UserControl
    {
+       private bool checkNotActiveSelection;
       public WeldersSelectionControl()
       {
          InitializeComponent();
@@ -42,7 +45,7 @@ namespace Prizm.Main.Controls
             foreach (int idx in selected)
             {
                Welder w = DataSource[gridViewWelders.GetDataSourceRowIndex(idx)] as Welder;
-               result.Add(w);
+                result.Add(w);
             }
 
             return result;
@@ -56,6 +59,7 @@ namespace Prizm.Main.Controls
 
       public void SelectWelders(IList<Welder> welders)
       {
+          this.checkNotActiveSelection = false;
          gridViewWelders.ClearSelection();
 
          foreach (Welder w in welders)
@@ -63,7 +67,33 @@ namespace Prizm.Main.Controls
             int rowHandle = gridViewWelders.GetRowHandle(DataSource.IndexOf(w));
             gridViewWelders.SelectRow(rowHandle);
          }
+         this.checkNotActiveSelection = true;
       }
 
+      private void gridViewWelders_RowCellStyle(object sender, RowCellStyleEventArgs e)
+      {
+          GridView v = sender as GridView;
+          var data = v.GetRow(e.RowHandle) as Welder;
+          if (data != null)
+          {
+              if (!data.IsActive || data.Certificate.ExpirationDate < DateTime.Now)
+              {
+                  e.Appearance.ForeColor = Color.Gray;
+              }
+          }
+      }
+
+      private void gridViewWelders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+      {
+          if (this.checkNotActiveSelection)
+          {
+              GridView v = sender as GridView;
+              var data = v.GetRow(e.ControllerRow) as Welder;
+              if (!data.IsActive || data.Certificate.ExpirationDate < DateTime.Now.Date)
+              {
+                  v.UnselectRow(e.ControllerRow);
+              }
+          }
+      }
    }
 }

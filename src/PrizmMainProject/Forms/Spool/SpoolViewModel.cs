@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -22,7 +23,6 @@ namespace Prizm.Main.Forms.Spool
     {
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
-        readonly ICommand cutCommand;
         readonly ICommand saveCommand;
         public string pipeNumber;
         public string spoolNumber;
@@ -33,9 +33,11 @@ namespace Prizm.Main.Forms.Spool
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
         public bool canCut = false;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
+        public bool editMode = false;
 
         [Inject]
-        public SpoolViewModel(ISpoolRepositories repos, Guid spoolId, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
         {
             this.repos = repos;
 
@@ -44,9 +46,6 @@ namespace Prizm.Main.Forms.Spool
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
               () => new EditPipeForCutCommand(this, repos, notify));
-
-            cutCommand = ViewModelSource.Create<CutSpoolCommand>(
-             () => new CutSpoolCommand(this, repos, notify));
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
             () => new SaveSpoolCommand(this, repos, notify));
@@ -58,26 +57,22 @@ namespace Prizm.Main.Forms.Spool
                 allPipes.Add(p);
             }
 
-            if (spoolId == Guid.Empty)
+            if(id == Guid.Empty)
             {
-                Spool = new Prizm.Domain.Entity.Construction.Spool();
-
-                this.Spool.IsActive = true;
-                this.Spool.IsAvailableToJoint = true;
-
-                Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
-                Spool.Pipe = new Pipe();
-                Pipe = new Pipe();
+                NewSpool();
             }
             else
             {
-                Spool = repos.SpoolRepo.Get(spoolId);
+                Spool = repos.SpoolRepo.Get(id);
             }
         }
 
         public string SpoolNumber
         {
-            get { return Spool.Number; }
+            get 
+            { 
+                return Spool.Number;
+            }
             set
             {
                 if (value != Spool.Number)
@@ -99,12 +94,6 @@ namespace Prizm.Main.Forms.Spool
                 if (value != Spool.PipeNumber)
                 {
                     Spool.PipeNumber = value;
-
-                    StringBuilder number = new StringBuilder();
-                    int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(Spool.PipeNumber).Count + 1;
-                    number.Append(Spool.PipeNumber + "/" + spoolNumber.ToString());
-                    Spool.Number = number.ToString();
-
                     RaisePropertyChanged("PipeNumber");
                 }
             }
@@ -149,9 +138,9 @@ namespace Prizm.Main.Forms.Spool
                     Spool.Length = value;
                     if ((Pipe.Length - Spool.Length) > 0)
                     {
-                        Pipe.Length = Pipe.Length - Spool.Length;
                         canCut = true;
                     }
+                    Pipe.Length = Pipe.Length - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
                 }
@@ -234,17 +223,25 @@ namespace Prizm.Main.Forms.Spool
         {
             repos.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
+        public void NewSpool() 
+        {
+            Spool = new Prizm.Domain.Entity.Construction.Spool();
+            Spool.Number = string.Empty;
+            Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
+            Spool.Pipe = new Pipe();
+            Pipe = new Pipe();
+            
+        }
         #region ---- Commands ----
         public ICommand SearchCommand
         {
             get { return searchCommand; }
-        }
-
-        public ICommand CutCommand
-        {
-            get { return cutCommand; }
         }
 
         public ICommand SaveCommand

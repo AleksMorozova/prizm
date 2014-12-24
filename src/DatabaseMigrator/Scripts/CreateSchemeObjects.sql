@@ -62,7 +62,7 @@ CREATE TABLE [dbo].[Connector](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[diameter] [int] NULL,
-	[wallThickness] [int] NULL,
+	[wallThickness] [float] NULL,
 	[jointId] [uniqueidentifier] NULL,
 	[componentId] [uniqueidentifier] NULL,
 
@@ -187,7 +187,7 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
-	[wallThickness] [int] NULL,
+	[wallThickness] [float] NULL,
 	[diameter] [int] NULL,
 	[weight] [real] NULL,
 	[mill] [nvarchar](250) NULL,
@@ -304,7 +304,7 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Plate](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [nvarchar](20) NULL,
-	[thickness] [int] NULL,
+	[thickness] [float] NULL,
 	[heatId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
@@ -742,3 +742,18 @@ GO
 ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
 GO
 
+CREATE TABLE [dbo].[File](
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NOT NULL,
+	[fileName] [nvarchar](300) NOT NULL,
+	[description] [nvarchar](100) NULL,
+	[uploadDate] [date] NULL,
+	[item] [uniqueidentifier] NOT NULL,
+	[newName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO

@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL.Mill;
+﻿using DevExpress.XtraRichEdit.Model;
+using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.POCO;
 using Ninject;
 using Prizm.Main.Commands;
@@ -16,6 +17,7 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Properties;
 using Prizm.Main.Common;
 using Prizm.Main.Documents;
+using Prizm.Main.Forms.ExternalFile;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -41,6 +43,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly GetProjectCommand getProjectCommand;
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
@@ -72,11 +75,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
-        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid pipeId, IUserNotify notify)
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
         {
             this.repoMill = repoMill;
             this.notify = notify;
-            this.PipeId = pipeId;
+            this.PipeId = id;
 
             #region Commands creation
             pipeDeactivationCommand =
@@ -107,7 +110,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.GetProjectCommand.Execute();
             this.mill = Project.MillName;
 
-            if (pipeId == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 NewPipe();
             }
@@ -323,12 +326,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int WallThickness
+        public float WallThickness
         {
             get { return Pipe.WallThickness; }
             set
             {
-                if (value != Pipe.WallThickness)
+                if (Math.Abs(value - Math.Round(Pipe.WallThickness, 2)) > Constants.WallThicknessPrecision)
                 {
                     Pipe.WallThickness = value;
                     recalculateWeight = true;
@@ -441,12 +444,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int PlateThickness
+        public float PlateThickness
         {
             get { return Plate.Thickness; }
             set
             {
-                if (value != Plate.Thickness)
+                if (Math.Abs(value - Plate.Thickness) > Constants.WallThicknessPrecision)
                 {
                     Plate.Thickness = value;
                     RaisePropertyChanged("PlateThickness");
@@ -679,6 +682,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             repoMill.Dispose();
             ModifiableView = null;
+            if (FilesFormViewModel != null)
+            {
+                FilesFormViewModel.Dispose();
+            }
         }
 
         /// <summary>
