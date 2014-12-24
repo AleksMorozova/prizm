@@ -31,11 +31,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            DateTime previousProductionDate = viewModel.Pipe.ProductionDate;
             viewModel.SavePipeCommand.Execute();
 
              if (viewModel.Number != string.Empty)
             {
                 viewModel.NewPipe();
+                viewModel.ProductionDate = previousProductionDate;
             }
         }
 
