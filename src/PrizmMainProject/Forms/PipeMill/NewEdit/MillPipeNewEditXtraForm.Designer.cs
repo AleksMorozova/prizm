@@ -85,11 +85,6 @@
             this.weldingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.coatingParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.coatingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.heatPlateParametersPage = new DevExpress.XtraTab.XtraTabPage();
-            this.tabPagesLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.heatLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.tensileTestsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.steelGradeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
@@ -145,7 +140,8 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -193,11 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).BeginInit();
-            this.heatPlateParametersPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabPagesLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steelGradeEmptySpace)).BeginInit();
             this.inspectionPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).BeginInit();
             this.generalInspectionsLayout.SuspendLayout();
@@ -349,7 +340,6 @@
             this.pipe.TabIndex = 0;
             this.pipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParametersPage,
-            this.heatPlateParametersPage,
             this.inspectionPage});
             // 
             // generalParametersPage
@@ -827,57 +817,6 @@
             this.coatingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
             this.coatingHistoryLayout.TextToControlDistance = 0;
             this.coatingHistoryLayout.TextVisible = false;
-            // 
-            // heatPlateParametersPage
-            // 
-            this.heatPlateParametersPage.Controls.Add(this.tabPagesLayout);
-            this.heatPlateParametersPage.Name = "heatPlateParametersPage";
-            this.heatPlateParametersPage.Size = new System.Drawing.Size(1236, 412);
-            this.heatPlateParametersPage.Text = "&Параметры плавки и листа";
-            // 
-            // tabPagesLayout
-            // 
-            this.tabPagesLayout.Location = new System.Drawing.Point(0, 0);
-            this.tabPagesLayout.Name = "tabPagesLayout";
-            this.tabPagesLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(44, 231, 535, 581);
-            this.tabPagesLayout.Root = this.heatLayoutGroup;
-            this.tabPagesLayout.Size = new System.Drawing.Size(1236, 406);
-            this.tabPagesLayout.TabIndex = 0;
-            this.tabPagesLayout.Text = "layoutControl3";
-            // 
-            // heatLayoutGroup
-            // 
-            this.heatLayoutGroup.CustomizationFormText = "Root";
-            this.heatLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.heatLayoutGroup.GroupBordersVisible = false;
-            this.heatLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.tensileTestsLayoutGroup});
-            this.heatLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.heatLayoutGroup.Name = "Root";
-            this.heatLayoutGroup.Size = new System.Drawing.Size(1236, 406);
-            this.heatLayoutGroup.Text = "Root";
-            this.heatLayoutGroup.TextVisible = false;
-            // 
-            // tensileTestsLayoutGroup
-            // 
-            this.tensileTestsLayoutGroup.CustomizationFormText = "Параметры листа";
-            this.tensileTestsLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.steelGradeEmptySpace});
-            this.tensileTestsLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.tensileTestsLayoutGroup.Name = "tensileTestsLayoutGroup";
-            this.tensileTestsLayoutGroup.Size = new System.Drawing.Size(1216, 386);
-            this.tensileTestsLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 8, 15);
-            this.tensileTestsLayoutGroup.Text = "Механические параметры";
-            // 
-            // steelGradeEmptySpace
-            // 
-            this.steelGradeEmptySpace.AllowHotTrack = false;
-            this.steelGradeEmptySpace.CustomizationFormText = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.Location = new System.Drawing.Point(0, 0);
-            this.steelGradeEmptySpace.Name = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.Size = new System.Drawing.Size(1166, 324);
-            this.steelGradeEmptySpace.Text = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // inspectionPage
             // 
@@ -1576,11 +1515,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).EndInit();
-            this.heatPlateParametersPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabPagesLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steelGradeEmptySpace)).EndInit();
             this.inspectionPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).EndInit();
             this.generalInspectionsLayout.ResumeLayout(false);
@@ -1645,7 +1579,6 @@
         private DevExpress.XtraLayout.LayoutControlItem creationDateLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeParametersLayout;
-        private DevExpress.XtraTab.XtraTabPage heatPlateParametersPage;
         private DevExpress.XtraLayout.LayoutControl pipeGeneralParametersLayout;
         private DevExpress.XtraEditors.TextEdit length;
         private DevExpress.XtraLayout.LayoutControlGroup generalParametersLayoutGroup;
@@ -1667,8 +1600,6 @@
         private DevExpress.XtraLayout.LayoutControlItem coatingHistoryLayout;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraLayout.LayoutControl tabPagesLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup heatLayoutGroup;
         private DevExpress.XtraEditors.CheckEdit deactivate;
         private DevExpress.XtraTab.XtraTabPage inspectionPage;
         private DevExpress.XtraEditors.TextEdit shippedDate;
@@ -1681,7 +1612,6 @@
         private DevExpress.XtraLayout.LayoutControlItem certificateLayout;
         private DevExpress.XtraLayout.LayoutControlItem shiptedDateLayout;
         private DevExpress.XtraLayout.EmptySpaceItem certificateEmptySpace;
-        private DevExpress.XtraLayout.LayoutControlGroup tensileTestsLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
@@ -1722,7 +1652,6 @@
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayout;
         private DevExpress.XtraEditors.TextEdit plateThickness;
         private DevExpress.XtraLayout.LayoutControlItem plateThicknessLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem steelGradeEmptySpace;
         private DevExpress.XtraEditors.SimpleButton saveAndNewButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndNewButtonLayout;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit testResultValue;
