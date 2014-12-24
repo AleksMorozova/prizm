@@ -22,6 +22,7 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
         public void TestNewSaveComponent()
         {
             var modifiableView = new Mock<IModifiable>();
+            var validatableView = new Mock<IValidatable>();
             var notify = new Mock<IUserNotify>();
 
 
@@ -44,6 +45,8 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
 
             modifiableView.SetupGet(x => x.IsModified).Returns(false);
 
+            validatableView.Setup(t => t.Validate()).Returns(true);
+
 
 
             var viewModel = new ComponentNewEditViewModel(
@@ -53,6 +56,7 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
 
             viewModel.Component = component;
             viewModel.ModifiableView = modifiableView.Object;
+            viewModel.ValidatableView = validatableView.Object;
 
             var command = new NewSaveComponentCommand(
                 viewModel,
