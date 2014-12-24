@@ -27,6 +27,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
+
             if (viewModel.Joint.LoweringDate == DateTime.MinValue)
             {
                 viewModel.Joint.LoweringDate = null;
