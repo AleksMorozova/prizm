@@ -184,6 +184,7 @@
     <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documents\IValidatable.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
