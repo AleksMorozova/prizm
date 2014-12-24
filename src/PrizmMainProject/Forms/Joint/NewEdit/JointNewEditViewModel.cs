@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
 using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -82,7 +83,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 FirstElement = SetPartConnectors(Joint.FirstElement);
                 SecondElement = SetPartConnectors(Joint.SecondElement);
 
-                Disconnection();
+                JointDisconnection();
 
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
@@ -415,6 +416,52 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return true;
         }
 
+        public void JointDisconnection()
+        {
+            DisconnectTheElement(GetPart(FirstElement));
+            DisconnectTheElement(GetPart(SecondElement));
+        }
+
+        private bool DisconnectTheElement(Part part)
+        {
+            if (part == null)
+            {
+                return false;
+            }
+
+            if (part is construction.Component)
+            {
+                var component = part as construction.Component;
+
+                foreach (var connector in component.Connectors)
+                {
+                    if (connector.Joint != null)
+                    {
+                        if (connector.Joint.Id == this.Joint.Id &&
+                            connector.Joint.Id != Guid.Empty ||
+                            connector.Joint == this.Joint)
+                        {
+                            connector.Joint = null;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (part.IsAvailableToJoint == false)
+                {
+                    part.IsAvailableToJoint = true;
+                }
+                else
+                {
+                    part.ConstructionStatus = PartConstructionStatus.Pending;
+                }
+            }
+
+            return true;
+        }
+
         private Part GetPart(PartData partData)
         {
             Part part;
@@ -434,6 +481,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             return part;
         }
+
+        #region ---- Intersect of diameters ----
 
         private int GetCommonDiameter(PartData firstElement, PartData secondElement)
         {
@@ -464,54 +513,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
             }
         }
-
-        private bool DisconnectTheElement(Part part)
-        {
-            if (part == null)
-            {
-                return false;
-            }
-
-            if (part is construction.Component)
-            {
-                var component = part as construction.Component;
-                
-                foreach(var connector in component.Connectors)
-                {
-                    if (connector.Joint != null)
-                    {
-                        if (connector.Joint.Id == this.Joint.Id &&
-                            connector.Joint.Id != Guid.Empty ||
-                            connector.Joint == this.Joint)
-                        {
-                            connector.Joint = null;
-                            break;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (part.IsAvailableToJoint == false)
-                {
-                    part.IsAvailableToJoint = true;
-                }
-                else
-                {
-                    part.ConstructionStatus = PartConstructionStatus.Pending;
-                }
-            }
-
-            return true;
-        }
-
-        public void Disconnection()
-        {
-            DisconnectTheElement(GetPart(FirstElement));
-            DisconnectTheElement(GetPart(SecondElement));
-        }
-
-        #region ---- Intersect of diameters ----
 
         private class ConnectorComparer : IEqualityComparer<construction.Connector>
         {
@@ -557,7 +558,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             IsCanDeactivate = JointDeactivationCommand.CanExecute();
         }
-
         #endregion
 
         public DataTable Pieces
@@ -632,7 +632,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         #region ---- PartsData creation at loading ---- 
-
         private PartData CreatePartDataByRow(DataRow row)
         {
             return
@@ -643,7 +642,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
                     Length = row.Field<int>("length"),
                     PartTypeDescription = row.Field<string>("typeTranslated"),
-                    WallThickness = row.Field<int>("wallThickness"),
+                    WallThickness = Convert.ToSingle(row.Field<double>("wallThickness")),
                     Diameter = row.Field<int>("diameter"),
 
                     ConstructionStatus = (PartConstructionStatus)Enum
@@ -652,9 +651,54 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 };
         }
 
-        private PartData SetPartConnectors(PartData part)
+        private PartData CreatePartDataByPart(Part part)
         {
-            return PartDataList.First<PartData>(x => x.Id == part.Id);
+
+            PartData partData = new PartData()
+                {
+                    Id = part.Id,
+                    Number = part.Number,
+                    ConstructionStatus =  part.ConstructionStatus
+                };
+
+            if (part is construction.Component)
+            {
+                partData.PartType = PartType.Component;
+                partData.Length = part.Length;
+
+                partData.PartTypeDescription
+                    = ((construction.Component)part).Type.Name;
+            }
+            else if (part is Pipe)
+            {
+                partData.PartType = PartType.Pipe;
+                partData.Length = part.Length;
+
+                partData.PartTypeDescription
+                    = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Pipe));
+            }
+            else
+            {
+                partData.PartType = PartType.Spool;
+                partData.Length = part.Length;
+
+                partData.PartTypeDescription
+                    = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
+            }
+
+            return partData;
+        }
+
+        private PartData SetPartConnectors(PartData partData)
+        {
+            var part = GetPart(partData);
+
+            if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
+            {
+                PartDataList.Add(CreatePartDataByPart(part));
+            }
+
+            return PartDataList.First<PartData>(x => x.Id == partData.Id);
         }
 
         private void SetPartConnectors(PartData part, DataRow row)
@@ -705,9 +749,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             part.ConnectorsCount = string.Concat(part.Connectors.Count, "(", diameterList, ")");
         }
-
         #endregion
-
 
         public void NewJoint()
         {
@@ -722,9 +764,5 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.LoweringDate = DateTime.MinValue;
 
         }
-
-
-
-
     }
 }

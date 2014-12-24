@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                         viewModel.ModifiableView.IsModified = false;
 
-                        viewModel.Disconnection();
+                        viewModel.JointDisconnection();
 
                         //saving attached documents
                         if (viewModel.FilesFormViewModel != null)
