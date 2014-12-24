@@ -233,7 +233,6 @@ namespace Prizm.Main.Forms.Spool
         {
             Spool = new Prizm.Domain.Entity.Construction.Spool();
             Spool.Number = string.Empty;
-            Spool.IsActive = true;
             Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
             Spool.Pipe = new Pipe();
             Pipe = new Pipe();
