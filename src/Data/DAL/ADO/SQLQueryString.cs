@@ -49,7 +49,7 @@ FROM AuditLog
         public const string GetPipelinePieces =
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName FROM pipe WHERE isActive = 1
             UNION ALL
-            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName FROM spool s 
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, s.length,'' as componentTypeName FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id WHERE s.isActive = 1
             UNION ALL
             SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length, ct.name as componentTypeName 
