@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
         {
             int selectedPipe = pipesSearchResultView.GetFocusedDataSourceRowIndex();
-            if (selectedPipe > 0)
+            if (selectedPipe >= 0)
             {
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
 

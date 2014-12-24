@@ -83,7 +83,7 @@ namespace Prizm.Main.Forms.Parts.Search
         private void partsView_DoubleClick(object sender, EventArgs e)
         {
             int selectedPart = partsView.GetFocusedDataSourceRowIndex();
-            if (selectedPart > 0)
+            if (selectedPart >= 0)
             {
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
                 switch (viewModel.Parts[selectedPart].Type.Value)
