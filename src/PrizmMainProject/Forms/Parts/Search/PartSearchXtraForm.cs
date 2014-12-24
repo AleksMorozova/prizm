@@ -83,36 +83,37 @@ namespace Prizm.Main.Forms.Parts.Search
         private void partsView_DoubleClick(object sender, EventArgs e)
         {
             int selectedPart = partsView.GetFocusedDataSourceRowIndex();
-
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-            switch (viewModel.Parts[selectedPart].Type.Value)
+            if (selectedPart > 0)
             {
-                case PartType.Component:
-                    {
-                        parent.CreateChildForm(
-                            typeof(ComponentNewEditXtraForm),
-                            new ConstructorArgument(
-                                "id",
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
+                switch (viewModel.Parts[selectedPart].Type.Value)
+                {
+                    case PartType.Component:
+                        {
+                            parent.CreateChildForm(
+                                typeof(ComponentNewEditXtraForm),
+                                new ConstructorArgument(
+                                    "id",
+                                    viewModel.Parts[selectedPart].Id));
+                        } break;
+                    case PartType.Pipe:
+                        {
+                            parent.CreateChildForm
+                                (typeof(MillPipeNewEditXtraForm),
+                                new ConstructorArgument("id",
                                 viewModel.Parts[selectedPart].Id));
-                    } break;
-                case PartType.Pipe:
-                    {
-                        parent.CreateChildForm
-                            (typeof(MillPipeNewEditXtraForm),
-                            new ConstructorArgument("id",
-                            viewModel.Parts[selectedPart].Id));
-                    } break;
-                case PartType.Spool:
-                    {
-                        parent.CreateChildForm(
-                            typeof(SpoolsXtraForm),
-                            new ConstructorArgument("id",
-                                viewModel.Parts[selectedPart].Id)
-                            );
-                    } break;
-                default: break;
+                        } break;
+                    case PartType.Spool:
+                        {
+                            parent.CreateChildForm(
+                                typeof(SpoolsXtraForm),
+                                new ConstructorArgument("id",
+                                    viewModel.Parts[selectedPart].Id)
+                                );
+                        } break;
+                    default: break;
+                }
             }
-
         }
 
         private void partsView_KeyDown(object sender, KeyEventArgs e)
