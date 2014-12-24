@@ -41,6 +41,8 @@
             this.progressPanel.AppearanceCaption.Options.UseFont = true;
             this.progressPanel.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.progressPanel.AppearanceDescription.Options.UseFont = true;
+            this.progressPanel.Caption = "Ожидайте";
+            this.progressPanel.Description = "Идет загрузка ...";
             this.progressPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.progressPanel.ImageHorzOffset = 20;
             this.progressPanel.Location = new System.Drawing.Point(0, 17);
