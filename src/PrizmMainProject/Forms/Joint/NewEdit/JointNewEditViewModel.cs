@@ -23,7 +23,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
         private const int connectedElementsCount = 2;
-        private IList<Part> connectedElements = new List<Part>(connectedElementsCount);
+        private Part[] connectedElements = new Part[connectedElementsCount];
 
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
@@ -45,7 +45,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
-        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid id, Prizm.Data.DAL.IMillReportsRepository adoRepo)
+        public JointNewEditViewModel(
+            IConstructionRepository repoConstruction, 
+            IUserNotify notify, 
+            Guid id, 
+            Prizm.Data.DAL.IMillReportsRepository adoRepo)
         {
             this.repoConstruction = repoConstruction;
             this.JointId = id;
@@ -74,6 +78,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             else
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
+
+                FirstElement = SetPartConnectors(Joint.FirstElement);
+                SecondElement = SetPartConnectors(Joint.SecondElement);
+
+                Disconnection();
+
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                 {
@@ -353,15 +363,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool MakeTheConnection()
         {
-            if (FirstElement == null || SecondElement == null)
+            connectedElements[0] = GetPart(FirstElement);
+            connectedElements[1] = GetPart(SecondElement);
+
+            if (FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
             {
                 return false;
             }
 
             int commonDiameter = -1;
-
-            AddPart(FirstElement);
-            AddPart(SecondElement);
 
             foreach (var part in connectedElements)
             {
@@ -371,7 +381,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     if (commonDiameter < 0)
                     {
-                        commonDiameter = GetCommonDiameter();
+                        commonDiameter = GetCommonDiameter(FirstElement, SecondElement);
                     }
 
                     if (commonDiameter != -1)
@@ -381,6 +391,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             if (con.Diameter == commonDiameter)
                             {
                                 con.Joint = Joint;
+                                break;
                             }
                         }
                     }
@@ -404,7 +415,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return true;
         }
 
-        private void AddPart(PartData partData)
+        private Part GetPart(PartData partData)
         {
             Part part;
 
@@ -421,14 +432,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 part = repoConstruction.RepoSpool.Get(partData.Id);
             }
 
-            connectedElements.Add(part);
+            return part;
         }
 
-        private int GetCommonDiameter()
+        private int GetCommonDiameter(PartData firstElement, PartData secondElement)
         {
             var duplicates =
-                FirstElement.Connectors
-                .Intersect(SecondElement.Connectors, new ConnectorComparer())
+                firstElement.Connectors
+                .Intersect(secondElement.Connectors, new ConnectorComparer())
                 .ToList<construction.Connector>();
 
             if (duplicates.Count == 0)
@@ -452,6 +463,52 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     return -1;
                 }
             }
+        }
+
+        private bool DisconnectTheElement(Part part)
+        {
+            if (part == null)
+            {
+                return false;
+            }
+
+            if (part is construction.Component)
+            {
+                var component = part as construction.Component;
+                
+                foreach(var connector in component.Connectors)
+                {
+                    if (connector.Joint != null)
+                    {
+                        if (connector.Joint.Id == this.Joint.Id &&
+                            connector.Joint.Id != Guid.Empty ||
+                            connector.Joint == this.Joint)
+                        {
+                            connector.Joint = null;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (part.IsAvailableToJoint == false)
+                {
+                    part.IsAvailableToJoint = true;
+                }
+                else
+                {
+                    part.ConstructionStatus = PartConstructionStatus.Pending;
+                }
+            }
+
+            return true;
+        }
+
+        public void Disconnection()
+        {
+            DisconnectTheElement(GetPart(FirstElement));
+            DisconnectTheElement(GetPart(SecondElement));
         }
 
         #region ---- Intersect of diameters ----
@@ -593,6 +650,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     .Parse(typeof(PartConstructionStatus), 
                     row.Field<string>("constructionStatus"))
                 };
+        }
+
+        private PartData SetPartConnectors(PartData part)
+        {
+            return PartDataList.First<PartData>(x => x.Id == part.Id);
         }
 
         private void SetPartConnectors(PartData part, DataRow row)
