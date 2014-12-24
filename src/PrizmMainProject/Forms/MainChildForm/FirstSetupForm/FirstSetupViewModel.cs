@@ -123,6 +123,22 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 if(value != project.MillPipeNumberMask)
                 {
                     project.MillPipeNumberMask = value;
+                    StringBuilder mask = new StringBuilder();
+                    foreach (char ch in project.MillPipeNumberMask)
+                    {
+                        string convertedToRegex = "";
+                        switch (ch)
+                        {
+                            case '#': convertedToRegex = @"\d"; break;
+                            case '@': convertedToRegex = @"\p{Lu}"; break;
+                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
+                            case '&': convertedToRegex = @"\w"; break;
+                            default: convertedToRegex = ch.ToString(); break;
+
+                        }
+                        mask.Append(convertedToRegex);
+                    }
+                    project.MillPipeNumberMaskRegexp = mask.ToString();
                     RaisePropertyChanged("MillPipeNumberMask");
                 }
             }
