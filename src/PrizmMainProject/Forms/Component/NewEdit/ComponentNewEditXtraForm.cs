@@ -83,7 +83,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             foreach(var t in viewModel.ComponentTypes)
             {
-                type.Properties.Items.Add(t);
+                if (t.IsActive)
+                {
+                    type.Properties.Items.Add(t);
+                }
             }
 
             #region   ---- Prizm.Data Bindings ----
