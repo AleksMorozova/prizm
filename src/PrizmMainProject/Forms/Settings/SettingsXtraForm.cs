@@ -90,7 +90,6 @@ namespace Prizm.Main.Forms.Settings
             pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             viewModel.ModifiableView = this;
-            viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
             viewModel.LoadData();
