@@ -32,6 +32,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
+
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
             foreach (var pipe in p)
             {
