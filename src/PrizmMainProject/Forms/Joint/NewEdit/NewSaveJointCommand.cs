@@ -26,6 +26,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
+
             viewModel.SaveJointCommand.Execute();
 
             if (viewModel.Number != string.Empty)

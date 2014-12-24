@@ -31,6 +31,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
             DateTime previousProductionDate = viewModel.Pipe.ProductionDate;
             viewModel.SavePipeCommand.Execute();
 

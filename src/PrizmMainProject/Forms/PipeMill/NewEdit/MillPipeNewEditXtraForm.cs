@@ -26,11 +26,12 @@ using System.Text.RegularExpressions;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using DevExpress.XtraGrid;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillPipeNewEditXtraForm : ChildForm
+    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable
     {
         ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
@@ -48,6 +49,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Get<MillPipeNewEditViewModel>(
                 new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            viewModel.ValidatableView = this;
 
 
             pipeCreationDate.Properties.NullDate = DateTime.MinValue;
@@ -286,7 +288,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 e.DisplayText = string.Empty;
 
             IList<Welder> welders = e.Value as IList<Welder>;
-            e.DisplayText = viewModel.FormatWeldersList(welders);
+            if (viewModel != null)
+            {
+                e.DisplayText = viewModel.FormatWeldersList(welders);
+            }
         }
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
@@ -387,7 +392,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 e.DisplayText = string.Empty;
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            if (viewModel != null)
+            {
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            }
         }
 
         /// <summary>
@@ -673,6 +681,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.Dispose();
             viewModel = null;
         }
-    
+
+
+        #region IValidatable Members
+
+        bool IValidatable.Validate()
+        {
+            return dxValidationProvider.Validate();
+        }
+
+        #endregion
     }
 }
