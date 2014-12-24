@@ -422,7 +422,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
                             Length = row.Field<int>("length"),
                             PartTypeDescription = row.Field<string>("typeTranslated"),
-                            WallThickness = row.Field<int>("wallThickness"),
+                            WallThickness = Convert.ToSingle(row.Field<double>("wallThickness")),
                             Diameter = row.Field<int>("diameter")
                         };
                         list.Add(p);
