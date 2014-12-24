@@ -34,7 +34,8 @@ namespace Prizm.Main.Forms.ExternalFile
         {
             Guid newNameId = Guid.NewGuid();
             OpenFileDialog openFileDlg = new OpenFileDialog();
-            openFileDlg.InitialDirectory = Directory.GetCurrentDirectory();
+            // TODO Save new files position to user settings.
+            openFileDlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDlg.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fileInfo = new FileInfo(openFileDlg.FileName);
@@ -61,6 +62,8 @@ namespace Prizm.Main.Forms.ExternalFile
                 viewModel.SelectedFile = selectedFile;
                 SaveFileDialog saveFileDlg = new SaveFileDialog();
                 saveFileDlg.FileName = selectedFile.FileName;
+                // TODO Save new files position to user settings.
+                saveFileDlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 if (saveFileDlg.ShowDialog() == DialogResult.OK)
                 {
                     viewModel.SelectedPath = saveFileDlg.FileName;
