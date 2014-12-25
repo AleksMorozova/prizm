@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private NewSaveComponentCommand newSaveCommand;
         private ComponentDeactivationCommand deactivationCommand;
         private IModifiable modifiableView;
+        private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
@@ -110,6 +111,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
             set
             {
                 modifiableView = value;
+            }
+        }
+
+        public Documents.IValidatable ValidatableView
+        {
+            get
+            {
+                return validatableView;
+            }
+            set
+            {
+                validatableView = value;
             }
         }
 

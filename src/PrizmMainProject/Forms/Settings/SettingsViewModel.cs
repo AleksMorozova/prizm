@@ -37,6 +37,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
+        public IValidatable validatableView { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly ExtractCategoriesCommand extractCategoriesCommand;

@@ -32,6 +32,11 @@ namespace Prizm.Main.Forms.Settings
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.validatableView.Validate())
+            {
+                return;
+            }
+
             repos.BeginTransaction();
             SaveWelders();
             SaveInspectors();

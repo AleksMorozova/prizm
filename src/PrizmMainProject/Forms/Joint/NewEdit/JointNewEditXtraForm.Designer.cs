@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveAndCreateButton = new DevExpress.XtraEditors.SimpleButton();
@@ -92,10 +95,14 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+
+
             this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
             this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -152,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -164,6 +172,9 @@
             this.jointNumber.Size = new System.Drawing.Size(239, 20);
             this.jointNumber.StyleController = this.newJointLayoutControl;
             this.jointNumber.TabIndex = 0;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.jointNumber, conditionValidationRule3);
             this.jointNumber.EditValueChanged += new System.EventHandler(this.jointNumber_EditValueChanged);
             // 
             // newJointLayoutControl
@@ -572,6 +583,7 @@
             this.secondJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+
             this.secondJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
@@ -581,6 +593,9 @@
             this.secondJointElement.Size = new System.Drawing.Size(242, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
             this.secondJointElement.TabIndex = 3;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
             this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
             // 
             // firstJointElement
@@ -592,6 +607,7 @@
             this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+
             this.firstJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
@@ -601,6 +617,9 @@
             this.firstJointElement.Size = new System.Drawing.Size(239, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
             this.firstJointElement.TabIndex = 2;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.firstJointElement, conditionValidationRule2);
             this.firstJointElement.EditValueChanged += new System.EventHandler(this.firstJointElement_EditValueChanged);
             // 
             // loweringDate
@@ -1003,6 +1022,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipelinePiecesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1075,6 +1095,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ResultValueTextEdit;
         private DevExpress.XtraEditors.SimpleButton saveAndCreateButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndCreateLayout;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
 
     }
 }

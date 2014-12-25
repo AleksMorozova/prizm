@@ -22,11 +22,12 @@ using System.Resources;
 using System.Collections;
 using System.Threading;
 using System.Linq;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class JointNewEditXtraForm : ChildForm
+    public partial class JointNewEditXtraForm : ChildForm, IValidatable
     {
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
@@ -46,6 +47,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Get<JointNewEditViewModel>(
                new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            viewModel.ValidatableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
 
@@ -404,5 +406,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 e.Valid = false;
             }
         }
+
+        #region IValidatable Members
+
+        bool IValidatable.Validate()
+        {
+            return dxValidationProvider.Validate();
+        }
+
+        #endregion
     }
 }

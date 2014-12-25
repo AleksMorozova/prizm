@@ -31,6 +31,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.validatableView.Validate())
+            {
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);

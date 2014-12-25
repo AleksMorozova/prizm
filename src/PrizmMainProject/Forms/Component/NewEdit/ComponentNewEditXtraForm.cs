@@ -13,11 +13,12 @@ using Prizm.Main.Controls;
 using System.Windows.Forms;
 using Prizm.Domain.Entity;
 using Prizm.Main.Commands;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class ComponentNewEditXtraForm : ChildForm
+    public partial class ComponentNewEditXtraForm : ChildForm , IValidatable
     {
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -35,6 +36,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                .Get<ComponentNewEditViewModel>(new ConstructorArgument("id", id));
 
             viewModel.ModifiableView = this;
+            viewModel.ValidatableView = this;
+
             IsEditMode = true;
 
             #region --- Colouring of required controls ---
@@ -80,7 +83,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             foreach(var t in viewModel.ComponentTypes)
             {
-                type.Properties.Items.Add(t);
+                if (t.IsActive)
+                {
+                    type.Properties.Items.Add(t);
+                }
             }
 
             #region   ---- Prizm.Data Bindings ----
@@ -264,5 +270,14 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.Dispose();
             viewModel = null;
         }
+
+        #region IValidatable Members
+
+        bool IValidatable.Validate()
+        {
+            return dxValidationProvider.Validate();
+        }
+
+        #endregion
     }
 }

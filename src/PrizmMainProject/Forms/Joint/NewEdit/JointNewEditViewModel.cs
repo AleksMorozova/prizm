@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private readonly JointDeactivationCommand jointdeactivationCommand;
         private IModifiable modifiableView;
+        private IValidatable validatableView;
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
@@ -134,6 +135,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 modifiableView = value;
             }
+        }
+
+        public IValidatable ValidatableView
+        {
+            get { return validatableView; }
+            set { validatableView = value; }
         }
 
         #region Commands
@@ -603,7 +610,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     {
                         if (tempId != row.Field<Guid>("id")
                         && tempNumber != row.Field<string>("number"))
-                        {
                             p = CreatePartDataByRow(row);
 
                             SetPartConnectors(p, row);
