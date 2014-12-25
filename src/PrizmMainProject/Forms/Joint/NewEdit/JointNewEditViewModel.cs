@@ -609,7 +609,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     foreach (DataRow row in Pieces.Rows)
                     {
                         if (tempId != row.Field<Guid>("id")
-                        && tempNumber != row.Field<string>("number"))
+                            && tempNumber != row.Field<string>("number"))
+                        {
                             p = CreatePartDataByRow(row);
 
                             SetPartConnectors(p, row);
