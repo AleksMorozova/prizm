@@ -367,38 +367,29 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             connectedElements[0] = GetPart(FirstElement);
             connectedElements[1] = GetPart(SecondElement);
 
-            if (FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
+            int commonDiameter = GetCommonDiameter(FirstElement, SecondElement);
+
+            if (FirstElement.Id == Guid.Empty ||
+                SecondElement.Id == Guid.Empty ||
+                commonDiameter == -1)
             {
                 return false;
             }
-
-            int commonDiameter = -1;
 
             foreach (var part in connectedElements)
             {
                 if (part is construction.Component)
                 {
-                    var component = part as construction.Component;
+                    construction.Component component = part as construction.Component;
 
-                    if (commonDiameter < 0)
+                    foreach (var con in component.Connectors)
                     {
-                        commonDiameter = GetCommonDiameter(FirstElement, SecondElement);
-                    }
-
-                    if (commonDiameter != -1)
-                    {
-                        foreach (var con in component.Connectors)
+                        if (con.Diameter == commonDiameter &&
+                            (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
-                            if (con.Diameter == commonDiameter)
-                            {
-                                con.Joint = Joint;
-                                break;
-                            }
+                            con.Joint = Joint;
+                            break;
                         }
-                    }
-                    else
-                    {
-                        return false;
                     }
                 }
                 else
@@ -413,6 +404,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     }
                 }
             }
+
             return true;
         }
 
@@ -629,6 +621,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 return list;
             }
+
+            set { list = value; }
         }
 
         #region ---- PartsData creation at loading ---- 
@@ -653,12 +647,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private PartData CreatePartDataByPart(Part part)
         {
-
             PartData partData = new PartData()
                 {
                     Id = part.Id,
                     Number = part.Number,
-                    ConstructionStatus =  part.ConstructionStatus
+                    ConstructionStatus =  part.ConstructionStatus,
                 };
 
             if (part is construction.Component)
@@ -692,6 +685,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private PartData SetPartConnectors(PartData partData)
         {
             var part = GetPart(partData);
+
+            if (PartDataList == null)
+            {
+                PartDataList = new BindingList<PartData>();
+            }
 
             if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
             {
