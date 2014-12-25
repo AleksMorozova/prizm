@@ -123,6 +123,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 if(value != project.MillPipeNumberMask)
                 {
                     project.MillPipeNumberMask = value;
+                    project.MillPipeNumberMaskRegexp = Project.FormRegExp(project.MillPipeNumberMask);
                     RaisePropertyChanged("MillPipeNumberMask");
                 }
             }
