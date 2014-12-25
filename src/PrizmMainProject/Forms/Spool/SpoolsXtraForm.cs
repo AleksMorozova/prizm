@@ -184,7 +184,20 @@ namespace Prizm.Main.Forms.Spool
                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
             if (inspectionTestResult == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (inspectionTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+                }
+            }
         }
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)

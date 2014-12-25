@@ -249,12 +249,26 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            InspectionTestResult inspectionTestResult 
-                = inspectionHistoryGridView
-                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+            InspectionTestResult inspectionTestResult
+               = inspectionHistoryGridView
+               .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
             if (inspectionTestResult == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (inspectionTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+                }
+            }
         }
 
         private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)

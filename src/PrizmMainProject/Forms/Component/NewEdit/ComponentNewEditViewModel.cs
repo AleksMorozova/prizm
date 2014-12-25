@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -299,7 +300,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
             if (inspectors == null)
-                return String.Empty;
+            {
+                return string.Empty;
+            }
+            else if (inspectors.Count == 0)
+            {
+                return Resources.DateFirst;
+            }
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }

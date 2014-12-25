@@ -18,6 +18,7 @@ namespace Prizm.Main.Controls
    public partial class WeldersSelectionControl : UserControl
    {
        private bool checkNotActiveSelection;
+       public DateTime weldDate = DateTime.Now.Date;
       public WeldersSelectionControl()
       {
          InitializeComponent();
@@ -76,10 +77,15 @@ namespace Prizm.Main.Controls
           var data = v.GetRow(e.RowHandle) as Welder;
           if (data != null)
           {
-              if (!data.IsActive || data.Certificate.ExpirationDate < DateTime.Now)
+              if (!data.IsActive)
               {
                   e.Appearance.ForeColor = Color.Gray;
               }
+              if (data.Certificate.ExpirationDate < weldDate.Date)
+              {
+                  e.Appearance.ForeColor = Color.Red;
+              }
+
           }
       }
 
@@ -89,7 +95,7 @@ namespace Prizm.Main.Controls
           {
               GridView v = sender as GridView;
               var data = v.GetRow(e.ControllerRow) as Welder;
-              if (!data.IsActive || data.Certificate.ExpirationDate < DateTime.Now.Date)
+              if (!data.IsActive || data.Certificate.ExpirationDate < weldDate.Date)
               {
                   v.UnselectRow(e.ControllerRow);
               }

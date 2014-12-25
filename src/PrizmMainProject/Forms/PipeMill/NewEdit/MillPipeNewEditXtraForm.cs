@@ -298,7 +298,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if (weld == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (weld.Date == null)
+                {
+                    weldersSelectionControl.weldDate = weld.Date;
+                }
+            }
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
@@ -691,5 +700,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         #endregion
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+            if (pipeTestResult == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+               if( pipeTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+               else
+               {
+                inspectorSelectionControl.inspectionDate = pipeTestResult.Date;
+               }
+            }
+        }
     }
 }

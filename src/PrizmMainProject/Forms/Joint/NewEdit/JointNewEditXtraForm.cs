@@ -23,6 +23,7 @@ using System.Collections;
 using System.Threading;
 using System.Linq;
 using Prizm.Main.Documents;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -422,5 +423,48 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         #endregion
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            JointTestResult jointTestResult
+               = controlOperationsView
+               .GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
+
+            if (jointTestResult == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if (jointTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = jointTestResult.Date;
+                }
+            }
+        }
+
+        private void weldersPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            JointWeldResult weld = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            if (weld == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if (weld.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else 
+                { 
+                    weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date; 
+                }
+            }
+        }
     }
 }
