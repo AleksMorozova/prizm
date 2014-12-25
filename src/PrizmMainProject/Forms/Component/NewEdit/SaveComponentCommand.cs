@@ -33,7 +33,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            
+            if(!viewModel.ValidatableView.Validate())
+            {
+                return;
+            }
+
             var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
             foreach (var component in c)
             {
@@ -86,7 +90,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public bool CanExecute()
         {
-            return
+            return 
                 !string.IsNullOrEmpty(viewModel.Number) &&
                 viewModel.Type != null;
         }

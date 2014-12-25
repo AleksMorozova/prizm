@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
             this.componentNumber = new DevExpress.XtraEditors.TextEdit();
             this.newEditPipeLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -69,6 +71,7 @@
             this.emptySpaceUnderButtons = new DevExpress.XtraLayout.EmptySpaceItem();
             this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -101,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // componentNumber
@@ -110,6 +114,9 @@
             this.componentNumber.Size = new System.Drawing.Size(148, 20);
             this.componentNumber.StyleController = this.newEditPipeLayout;
             this.componentNumber.TabIndex = 0;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.componentNumber, conditionValidationRule2);
             this.componentNumber.EditValueChanged += new System.EventHandler(this.componentNumber_EditValueChanged);
             // 
             // newEditPipeLayout
@@ -152,6 +159,9 @@
             this.type.Size = new System.Drawing.Size(143, 20);
             this.type.StyleController = this.newEditPipeLayout;
             this.type.TabIndex = 17;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.type, conditionValidationRule1);
             this.type.SelectedIndexChanged += new System.EventHandler(this.type_SelectedIndexChanged);
             // 
             // componentDeactivated
@@ -581,6 +591,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -626,5 +637,6 @@
         private DevExpress.XtraLayout.LayoutControlItem componentLengthLayout;
         private System.Windows.Forms.BindingSource inspectorsDataSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
     }
 }

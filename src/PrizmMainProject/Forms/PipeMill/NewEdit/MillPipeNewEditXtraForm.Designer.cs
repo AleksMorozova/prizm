@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -81,11 +85,6 @@
             this.weldingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.coatingParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.coatingHistoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.heatPlateParametersPage = new DevExpress.XtraTab.XtraTabPage();
-            this.tabPagesLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.heatLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.tensileTestsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.steelGradeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
@@ -141,7 +140,8 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -189,11 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).BeginInit();
-            this.heatPlateParametersPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabPagesLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steelGradeEmptySpace)).BeginInit();
             this.inspectionPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).BeginInit();
             this.generalInspectionsLayout.SuspendLayout();
@@ -238,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -264,6 +260,14 @@
             this.lastNameGridColumn.Name = "lastNameGridColumn";
             this.lastNameGridColumn.Visible = true;
             this.lastNameGridColumn.VisibleIndex = 1;
+            // 
+            // isActiveGridColumn
+            // 
+            this.isActiveGridColumn.Caption = "Active";
+            this.isActiveGridColumn.FieldName = "IsActive";
+            this.isActiveGridColumn.Name = "isActiveGridColumn";
+            this.isActiveGridColumn.Visible = true;
+            this.isActiveGridColumn.VisibleIndex = 2;
             // 
             // weldingHistory
             // 
@@ -336,7 +340,6 @@
             this.pipe.TabIndex = 0;
             this.pipe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.generalParametersPage,
-            this.heatPlateParametersPage,
             this.inspectionPage});
             // 
             // generalParametersPage
@@ -398,6 +401,9 @@
             this.plateNumber.Size = new System.Drawing.Size(254, 20);
             this.plateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.plateNumber.TabIndex = 25;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.plateNumber, conditionValidationRule1);
             // 
             // shippedDate
             // 
@@ -812,57 +818,6 @@
             this.coatingHistoryLayout.TextToControlDistance = 0;
             this.coatingHistoryLayout.TextVisible = false;
             // 
-            // heatPlateParametersPage
-            // 
-            this.heatPlateParametersPage.Controls.Add(this.tabPagesLayout);
-            this.heatPlateParametersPage.Name = "heatPlateParametersPage";
-            this.heatPlateParametersPage.Size = new System.Drawing.Size(1236, 412);
-            this.heatPlateParametersPage.Text = "&Параметры плавки и листа";
-            // 
-            // tabPagesLayout
-            // 
-            this.tabPagesLayout.Location = new System.Drawing.Point(0, 0);
-            this.tabPagesLayout.Name = "tabPagesLayout";
-            this.tabPagesLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(44, 231, 535, 581);
-            this.tabPagesLayout.Root = this.heatLayoutGroup;
-            this.tabPagesLayout.Size = new System.Drawing.Size(1236, 406);
-            this.tabPagesLayout.TabIndex = 0;
-            this.tabPagesLayout.Text = "layoutControl3";
-            // 
-            // heatLayoutGroup
-            // 
-            this.heatLayoutGroup.CustomizationFormText = "Root";
-            this.heatLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.heatLayoutGroup.GroupBordersVisible = false;
-            this.heatLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.tensileTestsLayoutGroup});
-            this.heatLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.heatLayoutGroup.Name = "Root";
-            this.heatLayoutGroup.Size = new System.Drawing.Size(1236, 406);
-            this.heatLayoutGroup.Text = "Root";
-            this.heatLayoutGroup.TextVisible = false;
-            // 
-            // tensileTestsLayoutGroup
-            // 
-            this.tensileTestsLayoutGroup.CustomizationFormText = "Параметры листа";
-            this.tensileTestsLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.steelGradeEmptySpace});
-            this.tensileTestsLayoutGroup.Location = new System.Drawing.Point(0, 0);
-            this.tensileTestsLayoutGroup.Name = "tensileTestsLayoutGroup";
-            this.tensileTestsLayoutGroup.Size = new System.Drawing.Size(1216, 386);
-            this.tensileTestsLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 8, 15);
-            this.tensileTestsLayoutGroup.Text = "Механические параметры";
-            // 
-            // steelGradeEmptySpace
-            // 
-            this.steelGradeEmptySpace.AllowHotTrack = false;
-            this.steelGradeEmptySpace.CustomizationFormText = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.Location = new System.Drawing.Point(0, 0);
-            this.steelGradeEmptySpace.Name = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.Size = new System.Drawing.Size(1166, 324);
-            this.steelGradeEmptySpace.Text = "steelGradeEmptySpace";
-            this.steelGradeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // inspectionPage
             // 
             this.inspectionPage.Controls.Add(this.generalInspectionsLayout);
@@ -1256,6 +1211,9 @@
             this.pipeCreationDate.Size = new System.Drawing.Size(99, 20);
             this.pipeCreationDate.StyleController = this.generalPipeLayout;
             this.pipeCreationDate.TabIndex = 3;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeCreationDate, conditionValidationRule2);
             this.pipeCreationDate.EditValueChanged += new System.EventHandler(this.pipeCreationDate_EditValueChanged);
             // 
             // pipeNumber
@@ -1267,6 +1225,9 @@
             this.pipeNumber.Size = new System.Drawing.Size(174, 20);
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeNumber, conditionValidationRule3);
             this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
             this.pipeNumber.Validating += new System.ComponentModel.CancelEventHandler(this.pipeNumber_Validating);
             // 
@@ -1495,14 +1456,6 @@
             // 
             this.weldingDs.DataSource = typeof(Prizm.Main.DummyData.WeldersDummy);
             // 
-            // isActiveGridColumn
-            // 
-            this.isActiveGridColumn.Caption = "Active";
-            this.isActiveGridColumn.FieldName = "IsActive";
-            this.isActiveGridColumn.Name = "isActiveGridColumn";
-            this.isActiveGridColumn.Visible = true;
-            this.isActiveGridColumn.VisibleIndex = 2;
-            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1562,11 +1515,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryLayout)).EndInit();
-            this.heatPlateParametersPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabPagesLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tensileTestsLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.steelGradeEmptySpace)).EndInit();
             this.inspectionPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalInspectionsLayout)).EndInit();
             this.generalInspectionsLayout.ResumeLayout(false);
@@ -1611,6 +1559,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1630,7 +1579,6 @@
         private DevExpress.XtraLayout.LayoutControlItem creationDateLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeParametersLayout;
-        private DevExpress.XtraTab.XtraTabPage heatPlateParametersPage;
         private DevExpress.XtraLayout.LayoutControl pipeGeneralParametersLayout;
         private DevExpress.XtraEditors.TextEdit length;
         private DevExpress.XtraLayout.LayoutControlGroup generalParametersLayoutGroup;
@@ -1652,8 +1600,6 @@
         private DevExpress.XtraLayout.LayoutControlItem coatingHistoryLayout;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraLayout.LayoutControl tabPagesLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup heatLayoutGroup;
         private DevExpress.XtraEditors.CheckEdit deactivate;
         private DevExpress.XtraTab.XtraTabPage inspectionPage;
         private DevExpress.XtraEditors.TextEdit shippedDate;
@@ -1666,7 +1612,6 @@
         private DevExpress.XtraLayout.LayoutControlItem certificateLayout;
         private DevExpress.XtraLayout.LayoutControlItem shiptedDateLayout;
         private DevExpress.XtraLayout.EmptySpaceItem certificateEmptySpace;
-        private DevExpress.XtraLayout.LayoutControlGroup tensileTestsLayoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
@@ -1707,7 +1652,6 @@
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayout;
         private DevExpress.XtraEditors.TextEdit plateThickness;
         private DevExpress.XtraLayout.LayoutControlItem plateThicknessLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem steelGradeEmptySpace;
         private DevExpress.XtraEditors.SimpleButton saveAndNewButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndNewButtonLayout;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit testResultValue;
@@ -1729,6 +1673,7 @@
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelGradeLayout;
         private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
 
     }
 }

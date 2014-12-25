@@ -25,6 +25,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly UnshipRailcarCommand unshipCommand;
         private List<Pipe> allPipes;
         IModifiable modifiableView;
+        public IValidatable validatableView { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
