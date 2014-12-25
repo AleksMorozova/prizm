@@ -61,6 +61,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeCreationDate.SetRequiredText();
             heatsLookUp.SetRequiredGridLookUp();
             ordersLookUp.SetRequiredText();
+            plateNumber.SetRequiredText();
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---

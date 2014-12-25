@@ -1,4 +1,5 @@
 ﻿using Prizm.Domain.Entity.Setup;
+using System.Text;
 namespace Prizm.Domain.Entity
 {
     // FIX: remove??
@@ -11,5 +12,27 @@ namespace Prizm.Domain.Entity
         public virtual WorkstationType WorkstationType { get; set; }
         public virtual string MillPipeNumberMask { get; set; }
         public virtual string MillPipeNumberMaskRegexp { get; set; }
+
+        public static string FormRegExp(string millPipeNumberMask)
+        {
+            StringBuilder mask = new StringBuilder();
+            if (millPipeNumberMask != string.Empty && millPipeNumberMask != null)
+            {          
+             foreach (char ch in millPipeNumberMask)
+                    {
+                        string convertedToRegex = "";
+                        switch (ch)
+                        {
+                           case '#': convertedToRegex = @"\d"; break;
+                           case '@': convertedToRegex = @"\p{Lu}"; break;
+                           case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
+                           case '&': convertedToRegex = @"\w"; break;
+                           default: convertedToRegex = ch.ToString(); break;
+                        }
+                        mask.Append(convertedToRegex);
+                    }
+            }
+            return mask.ToString();
+        }
     }
 }
