@@ -202,11 +202,28 @@ namespace Prizm.Main.Forms.Spool
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            InspectionTestResult inspectionTestResult
+                      = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+            if (inspectionTestResult != null)
+            {
+                if (inspectionTestResult.Date != null)
+                {
+                    if (e.Value == null)
+                        e.DisplayText = string.Empty;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                    IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                    e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                }
+                else
+                {
+                    e.DisplayText = Resources.DateFirst;
+                }
+            }
+
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         private void pipeLength_TextChanged(object sender, EventArgs e)

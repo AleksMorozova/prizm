@@ -303,10 +303,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 return string.Empty;
             }
-            else if (inspectors.Count == 0)
-            {
-                return Resources.DateFirst;
-            }
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }
