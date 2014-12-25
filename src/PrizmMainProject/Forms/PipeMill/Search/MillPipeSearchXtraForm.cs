@@ -63,14 +63,16 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
         {
             int selectedPipe = pipesSearchResultView.GetFocusedDataSourceRowIndex();
+            if (selectedPipe >= 0)
+            {
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
 
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-
-            parent.CreateChildForm(
-                    typeof(MillPipeNewEditXtraForm),
-                    new ConstructorArgument(
-                        "id",
-                        viewModel.Pipes[selectedPipe].Id));
+                parent.CreateChildForm(
+                        typeof(MillPipeNewEditXtraForm),
+                        new ConstructorArgument(
+                            "id",
+                            viewModel.Pipes[selectedPipe].Id));
+            }
         }
 
         private void pipesSearchResultView_DoubleClick(object sender, EventArgs e)
