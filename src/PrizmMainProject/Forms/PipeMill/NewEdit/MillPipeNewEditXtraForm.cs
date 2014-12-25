@@ -398,13 +398,30 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
-                e.DisplayText = string.Empty;
+            PipeTestResult pipeTestResult
+                     = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            if (viewModel != null)
+            if (pipeTestResult != null)
             {
-                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                if (pipeTestResult.Date != null)
+                {
+                    if (e.Value == null)
+                        e.DisplayText = string.Empty;
+
+                    IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                    if (viewModel != null)
+                    {
+                        e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                    }
+                }
+                else
+                {
+                    e.DisplayText = Resources.DateFirst; ;
+                }
+            }
+            else 
+            {
+                e.DisplayText = Resources.DateFirst; ;
             }
         }
 
