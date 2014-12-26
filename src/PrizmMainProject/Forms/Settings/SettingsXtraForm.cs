@@ -27,6 +27,7 @@ using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 using Prizm.Main.Documents;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -47,6 +48,7 @@ namespace Prizm.Main.Forms.Settings
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+
         }
 
         #region Role Setting
@@ -104,6 +106,12 @@ namespace Prizm.Main.Forms.Settings
 
             RefreshUserRoles(0);
             RefreshRolePermissions(0);
+
+            NullOrNotEmptyValidationRule projectValidationRule = new NullOrNotEmptyValidationRule();
+            projectValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
         }
 
         private void BindToViewModel()
@@ -165,6 +173,8 @@ namespace Prizm.Main.Forms.Settings
 
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
+
+            projectTitle.Refresh();
         }
 
         private void BindCommands()
@@ -691,7 +701,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-        
+
         private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
@@ -731,9 +741,9 @@ namespace Prizm.Main.Forms.Settings
 
             var certp = view.DataSource as BindingList<InspectorCertificateType>;
 
-            if (certp != null)
+            if(certp != null)
             {
-                if ((bool)certp[e.ListSourceRow].IsNotActive)
+                if((bool)certp[e.ListSourceRow].IsNotActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
@@ -749,5 +759,13 @@ namespace Prizm.Main.Forms.Settings
         }
 
         #endregion
+
+        private void projectPage_Enter(object sender, EventArgs e)
+        {
+            projectTitle.Tag = "visited";
+        }
+
+
+
     }
 }
