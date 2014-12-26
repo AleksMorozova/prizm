@@ -256,7 +256,7 @@
             // 
             // inspectorColumn
             // 
-            this.inspectorColumn.Caption = "Инспектор";
+            this.inspectorColumn.Caption = "Инспекторы";
             this.inspectorColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.inspectorColumn.FieldName = "Inspectors";
             this.inspectorColumn.Name = "inspectorColumn";
