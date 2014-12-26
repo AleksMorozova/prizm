@@ -531,7 +531,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void OnNotificationRefresh(object sender, EventArgs e)
         { 
             int NotificationCount = NotificationManager.Instance.NotificationCount;
-            barButtonStatusNotifications.Caption = string.Format("{0}({1})", Resources.SystemNotification, NotificationCount);
+            barButtonStatusNotifications.Caption = string.Format("{0} ({1})", Resources.SystemNotification, NotificationCount);
         }
 
     }
