@@ -150,6 +150,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -265,6 +266,18 @@
     </Compile>
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\CreationDialog.Designer.cs">
+      <DependentUpon>CreationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\NumbersDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\NumbersDialog.Designer.cs">
+      <DependentUpon>NumbersDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.cs">
       <SubType>Form</SubType>
