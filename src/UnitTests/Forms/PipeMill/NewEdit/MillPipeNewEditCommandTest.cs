@@ -64,7 +64,9 @@ namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
                 millRepos.Object,
                 Guid.Empty, 
                 notify.Object);
-
+            var validatable = new Mock<IValidatable>();
+            validatable.Setup(x => x.Validate()).Returns(true);
+            viewModel.ValidatableView = validatable.Object;
             viewModel.Pipe = pipe;
             viewModel.ModifiableView = modifiableView.Object;
 

@@ -28,6 +28,9 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
 
             var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
+            var validatable = new Mock<IValidatable>();
+            validatable.Setup(x => x.Validate()).Returns(true);
+            viewModel.validatableView = validatable.Object;
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.ModifiableView = view.Object;
             viewModel.Railcar.Pipes.Add(new Pipe());

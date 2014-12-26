@@ -36,7 +36,6 @@
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -140,8 +139,7 @@
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
             this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -240,8 +238,7 @@ this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidat
             // 
             this.weldersListGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.firstNameGridColumn,
-            this.lastNameGridColumn,
-            this.isActiveGridColumn});
+            this.lastNameGridColumn});
             this.weldersListGridView.GridControl = this.weldingHistory;
             this.weldersListGridView.Name = "weldersListGridView";
             // 
@@ -260,14 +257,6 @@ this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidat
             this.lastNameGridColumn.Name = "lastNameGridColumn";
             this.lastNameGridColumn.Visible = true;
             this.lastNameGridColumn.VisibleIndex = 1;
-            // 
-            // isActiveGridColumn
-            // 
-            this.isActiveGridColumn.Caption = "Active";
-            this.isActiveGridColumn.FieldName = "IsActive";
-            this.isActiveGridColumn.Name = "isActiveGridColumn";
-            this.isActiveGridColumn.Visible = true;
-            this.isActiveGridColumn.VisibleIndex = 2;
             // 
             // weldingHistory
             // 
@@ -1672,7 +1661,6 @@ this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidat
         private DevExpress.XtraGrid.Columns.GridColumn heatsNumberCol;
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelGradeLayout;
-        private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
 
     }

@@ -55,6 +55,10 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             var viewModel = new JointNewEditViewModel(repoConstruction.Object, notify.Object, Guid.Empty, repoAdo.Object);
             viewModel.Joint = joint;
             viewModel.ModifiableView = modifiableView.Object;
+            var validatable = new Mock<IValidatable>();
+            validatable.Setup(x => x.Validate()).Returns(true);
+            viewModel.ValidatableView = validatable.Object;
+
             var command = new SaveJointCommand(repoConstruction.Object,viewModel, notify.Object);
             command.Execute();
             repoConstruction.Verify(_ => _.BeginTransaction(), Times.Once());

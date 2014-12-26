@@ -61,6 +61,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeCreationDate.SetRequiredText();
             heatsLookUp.SetRequiredGridLookUp();
             ordersLookUp.SetRequiredText();
+            plateNumber.SetRequiredText();
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
@@ -73,6 +74,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(weight);
+            SetAlwaysReadOnly(millStatus);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
 
