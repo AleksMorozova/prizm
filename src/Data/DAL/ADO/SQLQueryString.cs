@@ -100,11 +100,30 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
     /// <summary>
     /// Factory for creating objects to setup SQL-queries
     /// </summary>
-    static class SQLProvider
+    public static class SQLProvider
     {
+
+        //enumerated names for static SQL-templates
+        public enum SQLStatic
+        {
+            GettAllKP,
+            GetAllActivePipesByDate,
+            GetAllShipped,
+            GetAllProduced,
+            GetAudit,
+            GetPipelinePieces,
+            GetAllPipesFromInspection,
+            GetAllUsedPipe,
+            GetAllUsedSpool,
+            GetAllUsedComponent 
+        }
+        
         /// <summary>
         /// string constants keeping SQL-query templates
         /// </summary>
+
+        private const string GettAllKP = @"Select distinct(numberKP) From Joint";
+        
         private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
@@ -134,26 +153,110 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
 	            WHERE productionDate >=  @startDate and productionDate <= @finalDate
                 {where_options}";
 
+        private const string GetAudit =
+            @"SELECT [user], auditDate, oldValue, newValue, tableName, fieldName
+FROM AuditLog 
+                WHERE auditDate >= @startDate and auditDate <= @finalDate
+                AND [user] LIKE @user";
+
+        private const string GetPipelinePieces =
+          @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName FROM pipe WHERE isActive = 1
+            UNION ALL
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, s.length,'' as componentTypeName FROM spool s 
+            INNER JOIN pipe p ON s.pipeId = p.id WHERE s.isActive = 1
+            UNION ALL
+            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length, ct.name as componentTypeName 
+            FROM component c 
+            inner join ComponentType ct on ct.Id = c.componentTypeId
+            INNER JOIN connector con ON c.id = con.componentId WHERE c.isActive = 1
+            ORDER BY number";
+
+        private const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
+          from  InspectionTestResult InspectionTestResult
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
+          left join Plate on (Plate.id = Pipe.plateId)
+          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+          left  join Heat on (Heat.id = Plate.heatId)
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+
+        private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        private const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union 
+select Spool.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Spool on (Spool.id = Joint.[part2Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+
+        private const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part1Id]) 
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  union
+select Component.number as number, Joint.part2Type as type, Joint.numberKP
+          from  Joint Joint
+		  inner join Component on (Component.id = Joint.[part2Id])
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
+
         /// <summary>
         /// public method accepting queryName and returning object ready to be setup via interface methods
         /// </summary>
         /// <param name="queryName">queryName</param>
         /// <returns>ISQLFlexible</returns>
-        public static ISQLFlexible GetQuery(string queryName)
+        public static ISQLFlexible GetQuery(SQLStatic queryName)
         {
             string queryText;
             switch (queryName)
             {
-                case "GetAllActivePipesByDate":
+                case SQLStatic.GettAllKP:
+                    queryText = GettAllKP;
+                    break;
+
+                case SQLStatic.GetAllActivePipesByDate:
                     queryText = GetAllActivePipesByDate;
                     break;
 
-                case "GetAllShipped":
+                case SQLStatic.GetAllShipped:
                     queryText = GetAllShipped;
                     break;
 
-                case "GetAllProduced":
+                case SQLStatic.GetAllProduced:
                     queryText = GetAllProduced;
+                    break;
+
+                case SQLStatic.GetAudit:
+                    queryText = GetAllProduced;
+                    break;
+
+                case SQLStatic.GetPipelinePieces:
+                    queryText = GetPipelinePieces;
+                    break;
+
+                case SQLStatic.GetAllPipesFromInspection:
+                    queryText = GetAllPipesFromInspection;
+                    break;
+
+                case SQLStatic.GetAllUsedPipe:
+                    queryText = GetAllUsedPipe;
+                    break;
+
+                case SQLStatic.GetAllUsedSpool:
+                    queryText = GetAllUsedSpool;
+                    break;
+
+                case SQLStatic.GetAllUsedComponent:
+                    queryText = GetAllUsedComponent;
                     break;
 
                 default:

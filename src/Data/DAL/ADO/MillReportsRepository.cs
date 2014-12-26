@@ -59,7 +59,7 @@ namespace Prizm.Data.DAL.ADO
                                         command.Parameters.AddWithValue(statusParameters[j], statuses[j]);
                                     }
 
-                                    tempSQLObject = SQLProvider.GetQuery("GetAllActivePipesByDate").WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.isRequired", "=", "1");
+                                    tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllActivePipesByDate).WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.isRequired", "=", "1");
 
                                     if (previewFlag)
                                     {
@@ -75,7 +75,7 @@ namespace Prizm.Data.DAL.ADO
 
                                 }; break;
                             case ReportType.ByProducing:
-                                tempSQLObject = SQLProvider.GetQuery("GetAllProduced").WhereAnd().Where("PipeMillStatus","=","'Produced'").WhereAnd().Where("Pipe.isActive","=","1");
+                                tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllProduced).WhereAnd().Where("PipeMillStatus", "=", "'Produced'").WhereAnd().Where("Pipe.isActive", "=", "1");
                                 if (previewFlag)
                                     {
                                         tempSQLObject.Top(1);
@@ -83,7 +83,7 @@ namespace Prizm.Data.DAL.ADO
                                 command.CommandText =tempSQLObject.ToString(); 
                                 break;
                             case ReportType.ByShipped:
-                                tempSQLObject = SQLProvider.GetQuery("GetAllShipped").WhereAnd().Where("PipeMillStatus","=","'Shipped'").WhereAnd().Where("Pipe.isActive","=","1");
+                                tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllShipped).WhereAnd().Where("PipeMillStatus", "=", "'Shipped'").WhereAnd().Where("Pipe.isActive", "=", "1");
                                     if (previewFlag)
                                     {
                                         tempSQLObject.Top(1);
@@ -131,7 +131,7 @@ namespace Prizm.Data.DAL.ADO
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);
                         command.Parameters.AddWithValue("@user", user);
-                        command.CommandText = SQLQueryString.GetAudit;
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAudit).ToString();
                         adapter.SelectCommand = command;
                         adapter.Fill(auditDataTable);
                     }
@@ -168,7 +168,7 @@ namespace Prizm.Data.DAL.ADO
                         command.Connection = connection;
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);
-                        command.CommandText = SQLQueryString.GetAllPipesFromInspection;
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllPipesFromInspection).ToString();
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
                     }
@@ -242,7 +242,7 @@ namespace Prizm.Data.DAL.ADO
                     {
                         connection.Open();
                         command.Connection = connection;
-                        command.CommandText = SQLQueryString.GetPipelinePieces;
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipelinePieces).ToString();
                         adapter.SelectCommand = command;
                         adapter.Fill(resultsTable);
                     }
@@ -284,7 +284,7 @@ namespace Prizm.Data.DAL.ADO
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = SQLQueryString.GettAllKP;
+                    command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GettAllKP).ToString();
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
                     {  
