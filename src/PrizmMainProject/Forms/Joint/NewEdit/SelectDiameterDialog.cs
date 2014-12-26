@@ -12,18 +12,18 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public partial class ChoiceConnectedDiameter : DevExpress.XtraEditors.XtraForm
+    public partial class SelectDiameterDialog : DevExpress.XtraEditors.XtraForm
     {
 
         public int Diameter { get; set; }
 
-        public ChoiceConnectedDiameter()
+        public SelectDiameterDialog()
         {
             InitializeComponent();
             saveChosenDiameter.Enabled = false;
         }
 
-        public ChoiceConnectedDiameter(List<Connector> duplicates): this()
+        public SelectDiameterDialog(List<Connector> duplicates): this()
         {
             foreach (var t in duplicates)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    partial class ChoiceConnectedDiameter
+    partial class SelectDiameterDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChoiceConnectedDiameter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectDiameterDialog));
             this.diameterChoiceLayout = new DevExpress.XtraLayout.LayoutControl();
             this.diametersIntersection = new DevExpress.XtraEditors.ComboBoxEdit();
             this.saveChosenDiameter = new DevExpress.XtraEditors.SimpleButton();

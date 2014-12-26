@@ -597,7 +597,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Невозможно сохранить стык.
+        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
         /// </summary>
         internal static string DLG_JOINT_INCORRECT_DIAMETER_HEADER {
             get {

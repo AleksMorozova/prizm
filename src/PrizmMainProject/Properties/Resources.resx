@@ -690,6 +690,6 @@
     <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
   </data>
   <data name="DLG_JOINT_INCORRECT_DIAMETER_HEADER" xml:space="preserve">
-    <value>Невозможно сохранить стык</value>
+    <value>Не совпадают диаметры стыкуемых элементов</value>
   </data>
 </root>
