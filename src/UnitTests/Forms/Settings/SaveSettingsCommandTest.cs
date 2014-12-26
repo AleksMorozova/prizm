@@ -87,6 +87,9 @@ namespace Prizm.UnitTests.Forms.Settings
             viewModel.ModifiableView = modifiableView.Object;
             viewModel.LoadData();
             viewModel.ModifiableView = modifiableView.Object;
+            var validatable = new Mock<IValidatable>();
+            validatable.Setup(x => x.Validate()).Returns(true);
+            viewModel.validatableView = validatable.Object;
 
             var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
 

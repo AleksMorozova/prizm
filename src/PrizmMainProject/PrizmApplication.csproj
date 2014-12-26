@@ -150,6 +150,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -166,6 +167,7 @@
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
@@ -184,6 +186,7 @@
     <Compile Include="Controls\WeldersSelectionControl.Designer.cs">
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documents\IValidatable.cs" />
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
@@ -263,6 +266,18 @@
     </Compile>
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\CreationDialog.Designer.cs">
+      <DependentUpon>CreationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\NumbersDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Parts\Inspection\NumbersDialog.Designer.cs">
+      <DependentUpon>NumbersDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.cs">
       <SubType>Form</SubType>

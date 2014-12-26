@@ -37,6 +37,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
+        public IValidatable validatableView { get; set; }
 
         readonly SaveSettingsCommand saveCommand;
         readonly ExtractCategoriesCommand extractCategoriesCommand;
@@ -221,22 +222,7 @@ namespace Prizm.Main.Forms.Settings
                 if (value != CurrentProjectSettings.MillPipeNumberMask)
                 {
                     CurrentProjectSettings.MillPipeNumberMask = value;
-                    StringBuilder mask = new StringBuilder();
-                    foreach (char ch in CurrentProjectSettings.MillPipeNumberMask)
-                    {
-                        string convertedToRegex = "";
-                        switch (ch)
-                        { 
-                            case '#': convertedToRegex = @"\d";break;
-                            case '@': convertedToRegex = @"\p{Lu}"; break;
-                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
-                            case '&': convertedToRegex = @"\w"; break;
-                            default: convertedToRegex = ch.ToString(); break;
-
-                        }
-                        mask.Append(convertedToRegex);
-                    }
-                    CurrentProjectSettings.MillPipeNumberMaskRegexp = mask.ToString();
+                    CurrentProjectSettings.MillPipeNumberMaskRegexp = Project.FormRegExp(CurrentProjectSettings.MillPipeNumberMask);
                     RaisePropertiesChanged("MillPipeNumberMask");
                 }
             }

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,8 +69,9 @@
             this.layoutControlNewRailcarButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -99,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesList
@@ -304,6 +308,9 @@
             this.railcarNumber.Size = new System.Drawing.Size(180, 20);
             this.railcarNumber.StyleController = this.generalLayout;
             this.railcarNumber.TabIndex = 7;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.railcarNumber, conditionValidationRule1);
             // 
             // pipeNumberLookUp
             // 
@@ -616,6 +623,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemRailcar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -662,5 +670,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlDestination;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
     }
 }

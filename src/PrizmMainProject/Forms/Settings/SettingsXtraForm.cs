@@ -26,11 +26,12 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Construction;
 using System.Drawing;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.Settings
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class SettingsXtraForm : ChildForm
+    public partial class SettingsXtraForm : ChildForm, IValidatable
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
@@ -89,6 +90,7 @@ namespace Prizm.Main.Forms.Settings
             pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             viewModel.ModifiableView = this;
+            viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
             viewModel.LoadData();
@@ -739,6 +741,13 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        #region IValidatable Members
 
+        bool IValidatable.Validate()
+        {
+            return dxValidationProvider.Validate();
+        }
+
+        #endregion
     }
 }
