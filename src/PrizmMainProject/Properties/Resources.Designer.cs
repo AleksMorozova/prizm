@@ -1585,6 +1585,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сообщения системы.
+        /// </summary>
+        internal static string SystemNotification {
+            get {
+                return ResourceManager.GetString("SystemNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контрольная операция.
         /// </summary>
         internal static string Test {

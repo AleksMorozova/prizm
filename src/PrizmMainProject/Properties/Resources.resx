@@ -695,4 +695,7 @@
   <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
     <value>Заканчивается срок сертификата</value>
   </data>
+  <data name="SystemNotification" xml:space="preserve">
+    <value>Сообщения системы</value>
+  </data>
 </root>
