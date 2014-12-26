@@ -257,15 +257,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
                 Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
-
-
-                weld.Welders.Clear();
-                foreach(Welder w in selectedWelders)
+                if (weld != null)
                 {
-                    weld.Welders.Add(w);
-                    w.Welds.Add(weld);
+                    weld.Welders.Clear();
+                    foreach (Welder w in selectedWelders)
+                    {
+                        weld.Welders.Add(w);
+                        w.Welds.Add(weld);
+                    }
                 }
             }
 
@@ -277,39 +276,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
             {
                 Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
+                if (weld != null)
+                { 
+                    weldersSelectionControl.SelectWelders(weld.Welders);
+                }
 
-                weldersSelectionControl.SelectWelders(weld.Welders);
+                
             }
         }
 
         private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-            if (weld != null)
+            if (weld != null && weld.Date != null)
             {
-                if (weld.Date != null)
-                {
-                    if(e.Value == null)
-                        e.DisplayText = string.Empty;
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-                    IList<Welder> welders = e.Value as IList<Welder>;
-                    if (viewModel != null)
-                    {
-                        e.DisplayText = viewModel.FormatWeldersList(welders);
-                    }
-                }
-                else 
+                IList<Welder> welders = e.Value as IList<Welder>;
+                if (viewModel != null)
                 {
-                    e.DisplayText = Resources.DateFirst;
+                    e.DisplayText = viewModel.FormatWeldersList(welders);
                 }
             }
             else
             {
                 e.DisplayText = Resources.DateFirst;
             }
-
         }
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
@@ -406,10 +399,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
-                if(pipeTestResult == null)
-                    return;
-
-                inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+                if (pipeTestResult != null)
+                { 
+                    inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+                }
             }
         }
 
@@ -418,10 +411,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             PipeTestResult pipeTestResult
                      = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
 
-            if (pipeTestResult != null)
+            if (pipeTestResult != null && pipeTestResult.Date != null)
             {
-                if (pipeTestResult.Date != null)
-                {
                     if (e.Value == null)
                         e.DisplayText = string.Empty;
 
@@ -430,11 +421,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     {
                         e.DisplayText = viewModel.FormatInspectorList(inspectors);
                     }
-                }
-                else
-                {
-                    e.DisplayText = Resources.DateFirst; ;
-                }
+
             }
             else 
             {
@@ -523,11 +510,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 currentTestResult.Order = viewModel.PipeTestResults.Max(test => test.Order) + 1;
                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
             }
-        }
-
-        private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
-        {
-
         }
 
         private void deactivate_Modified(object sender, EventArgs e)

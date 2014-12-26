@@ -244,20 +244,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
 
-            if (jointTestResult != null)
+            if (jointTestResult != null && jointTestResult.Date != null)
             {
-                if (jointTestResult.Date != null)
-                {
-                    if (e.Value == null)
-                        e.DisplayText = string.Empty;
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-                    IList<Inspector> inspectors = e.Value as IList<Inspector>;
-                    e.DisplayText = viewModel.FormatInspectorList(inspectors);
-                }
-                else
-                {
-                    e.DisplayText = Resources.DateFirst;
-                }
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
             }
 
             else
@@ -349,20 +342,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void weldersPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
             JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
-            if (jointWeldResult != null)
+            if (jointWeldResult != null && jointWeldResult.Date != null)
             {
-                if (jointWeldResult.Date != null)
-                {
-                    if (e.Value == null)
-                        e.DisplayText = string.Empty;
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-                    IList<Welder> welders = e.Value as IList<Welder>;
-                    e.DisplayText = viewModel.FormatWelderList(welders);
-                }
-                else
-                {
-                    e.DisplayText = Resources.DateFirst;
-                }
+                IList<Welder> welders = e.Value as IList<Welder>;
+                e.DisplayText = viewModel.FormatWelderList(welders);
             }
             else
             {

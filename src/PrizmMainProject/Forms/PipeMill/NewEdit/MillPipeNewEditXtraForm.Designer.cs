@@ -934,7 +934,7 @@
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
-            this.inspectorsGridColumn.VisibleIndex = 6;
+            this.inspectorsGridColumn.VisibleIndex = 7;
             this.inspectorsGridColumn.Width = 245;
             // 
             // inspectorsPopupContainerEdit
@@ -955,7 +955,7 @@
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
-            this.controlDateGridColumn.VisibleIndex = 7;
+            this.controlDateGridColumn.VisibleIndex = 6;
             this.controlDateGridColumn.Width = 142;
             // 
             // inspectionCodeGridColumn
