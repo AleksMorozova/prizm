@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ninject.Parameters;
 using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
@@ -40,6 +41,27 @@ namespace PrizmMain.Forms.Notifications
         {
             notificationBindingSource.DataSource = viewModel;
             gridControlMessage.DataBindings.Add("DataSource", notificationBindingSource, "Notification");
+        }
+
+        private void gridControlMessage_DoubleClick(object sender, EventArgs e)
+        {
+            int selectedItem = gridViewNotification.GetFocusedDataSourceRowIndex();
+
+            Type typeEditor = viewModel.Notification[selectedItem].Editor;
+
+            var parent = this.MdiParent as PrizmApplicationXtraForm;
+
+            parent.CreateChildForm(
+                   typeEditor,
+                    new ConstructorArgument(
+                        "id",
+                         viewModel.Notification[selectedItem].Id));
+        }
+
+        private void NotificationXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            viewModel.Dispose();
+            viewModel = null;
         }
 
 

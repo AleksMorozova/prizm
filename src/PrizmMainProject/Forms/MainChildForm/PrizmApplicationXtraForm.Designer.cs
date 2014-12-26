@@ -495,7 +495,7 @@
             // barButtonStatusNotifications
             // 
             this.barButtonStatusNotifications.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonStatusNotifications.Caption = "Сообщения системы(3)";
+            this.barButtonStatusNotifications.Caption = "Сообщения системы(0)";
             this.barButtonStatusNotifications.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
             this.barButtonStatusNotifications.Id = 59;
             this.barButtonStatusNotifications.Name = "barButtonStatusNotifications";
