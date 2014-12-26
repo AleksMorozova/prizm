@@ -297,7 +297,7 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionReportsXtraForm";
-            this.Text = "Отчет";
+            this.Text = "Отчет по входному контролю";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.InspectionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
