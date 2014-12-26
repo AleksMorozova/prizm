@@ -688,5 +688,16 @@
   </data>
   <data name="DateFirst" xml:space="preserve">
     <value>Выберите дату</value>
+  <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера труб</value>
+  </data>
+  <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
+    <value>Сертификат просрочен</value>
+  </data>
+  <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
+  </data>
+  <data name="SystemNotification" xml:space="preserve">
+    <value>Сообщения системы</value>
   </data>
 </root>

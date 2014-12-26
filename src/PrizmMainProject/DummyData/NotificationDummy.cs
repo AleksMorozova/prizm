@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Forms.PipeMill.NewEdit;
+using Prizm.Main.Forms.Settings;
 using Prizm.Main.Properties;
 
 
@@ -14,33 +16,116 @@ namespace PrizmMain.DummyData
 {
     public class NotificationDummy
     {
+
+
         // Methods
-        public BindingList<NotificationOwners> GetAllOwners()
+        public static List<Notification> QueryNotification(TypeNotification typeNotification)
         {
-            BindingList<Notification> notifications = this.GetNotifications();
-            BindingList<NotificationOwners> listOwners = new BindingList<NotificationOwners>();
-            NotificationOwners item = new NotificationOwners
+            List<Notification> list = null;
+            switch (typeNotification)
             {
-                Id = Guid.NewGuid(),
+                case TypeNotification.DublicatePipeNumber:
+                    list = GetDublicatePipeNumber();
+                    break;
+                case TypeNotification.ExpiredCertificate:
+                    list = GetExpiredCertificate();
+                    break;
+                default:
+                    break;
+            }
+            return list;
+        }
+
+
+        private static List<Notification> GetDublicatePipeNumber()
+        {
+            List<Notification> list = new List<Notification>();
+
+            Notification item = new Notification(TypeNotification.DublicatePipeNumber, NotificationStatus.Critical)
+            {
+                Id = new Guid("681EE872-C79F-4A0D-979D-636924C3516C"),
                 Name = "труба № 1356 Завод 1",
-                Notification = notifications[0]
+                Date = DateTime.Now.AddDays(10),
             };
-            listOwners.Add(item);
-            NotificationOwners owners2 = new NotificationOwners
+            list.Add(item);
+
+            Notification item1 = new Notification(TypeNotification.DublicatePipeNumber, NotificationStatus.Critical)
             {
-                Id = Guid.NewGuid(),
+                Id = new Guid("B20A4F5B-E578-491C-888B-914BDDE9DB09"),
                 Name = "труба № 1356 Завод 2",
-                Notification = notifications[0]
+                Date = DateTime.Now.AddDays(10),
             };
-            listOwners.Add(owners2);
-            NotificationOwners owners3 = new NotificationOwners
+            list.Add(item1);
+            return list;
+        }
+
+        private static List<Notification> GetExpiredCertificate()
+        {
+            List<Notification> list = new List<Notification>();
+
+            Notification notification2 = new Notification(TypeNotification.ExpiredCertificate, NotificationStatus.Warning)
             {
-                Id = Guid.NewGuid(),
+                Id = new Guid("7DA1EF56-C5DE-46A8-8298-167E17BF087A"),
                 Name = "Иванов И.С сертификат №155",
-                Notification = notifications[1]
+                Date = DateTime.Now,
             };
-            listOwners.Add(owners3);
-            return listOwners;
+            list.Add(notification2);
+
+            Notification notification3 = new Notification(TypeNotification.ExpiredCertificate, NotificationStatus.Critical)
+            {
+                Id = new Guid("7DA1EF56-C5DE-46A8-8298-167E17BF087A"),
+                Name = "Петров И.С сертификат №155",
+                Date = DateTime.Now,
+            };
+            list.Add(notification3);
+
+            return list;
+        }
+
+    }
+
+    public class Notification
+    {
+        // Fields
+        Type typeEditor;
+        byte[] image;
+        string message;
+
+        // Methods
+        public Notification(TypeNotification typeNotification, NotificationStatus staus)
+        {
+            typeEditor = GetTypeFormEditor(typeNotification);
+            message = GetResourceMessage(typeNotification, staus);
+            image = GetImage(staus);
+        }
+
+        public override string ToString()
+        {
+            return Date.ToString("MM.dd.yyyy") + "  " + this.Message;
+        }
+
+        private Type GetTypeFormEditor(TypeNotification type)
+        {
+            Type editor = null;
+
+            switch (type)
+            {
+                case TypeNotification.DublicatePipeNumber:
+                    editor = typeof(MillPipeNewEditXtraForm);
+                    break;
+                case TypeNotification.ExpiredCertificate:
+                    editor = typeof(SettingsXtraForm);
+                    break;
+                default:
+                    break;
+            }
+            return editor;
+        }
+
+        private string GetResourceMessage(TypeNotification type, NotificationStatus status)
+        {
+            string resourseName = string.Format("Notification_{0}_{1}", Enum.GetName(typeof(TypeNotification), type), Enum.GetName(typeof(NotificationStatus), status));
+            return Resources.ResourceManager.GetString(resourseName);
         }
 
         private byte[] GetImage(NotificationStatus status)
@@ -65,79 +150,34 @@ namespace PrizmMain.DummyData
             return stream.ToArray();
         }
 
-        private BindingList<Notification> GetNotifications()
-        {
-            BindingList<Notification> list = new BindingList<Notification>();
-            Notification item = new Notification
-            {
-                Id = Guid.NewGuid(),
-                Message = "Error : dublicate number of pipe",
-                Status = NotificationStatus.Critical,
-                Date = DateTime.Now.AddDays(10),
-                Image = this.GetImage(NotificationStatus.Critical)
-            };
-            list.Add(item);
-            Notification notification2 = new Notification
-            {
-                Id = Guid.NewGuid(),
-                Message = "Warning: Sertificate Expared",
-                Status = NotificationStatus.Warning,
-                Date = DateTime.Now,
-                Image = this.GetImage(NotificationStatus.Warning)
-            };
-            list.Add(notification2);
-            return list;
-        }
-    }
-
-
-    public class NotificationOwners
-    {
-        // Methods
-        public override string ToString()
-        {
-            return this.Name;
-        }
-
         // Properties
         public Guid Id { get; set; }
+
+        public string Name { get; set; }
 
         public byte[] Image
         {
             get
             {
-                byte[] icon = null;
-
-                if (this.Notification != null)
-                {
-                    icon = this.Notification.Image;
-                }
-                return icon;
+                return image;
             }
         }
 
-        public string Name { get; set; }
-
-        public Notification Notification { get; set; }
-    }
-
-
-    public class Notification
-    {
-        // Methods
-        public override string ToString()
+        public string Message
         {
-            return Date.ToString("MM.dd.yyyy") + "  " + this.Message;
+            get
+            {
+                return message;
+            }
         }
 
-        // Properties
-        public Guid Id { get; set; }
-
-        public byte[] Image { get; set; }
-
-        public string Message { get; set; }
-
-        public NotificationStatus Status { get; set; }
+        public Type Editor
+        {
+            get
+            {
+                return typeEditor;
+            }
+        }
 
         public DateTime Date { get; set; }
     }
@@ -146,6 +186,12 @@ namespace PrizmMain.DummyData
     {
         Warning,
         Critical
+    }
+
+    public enum TypeNotification
+    {
+        DublicatePipeNumber,
+        ExpiredCertificate
     }
 
 }

@@ -11,15 +11,15 @@ namespace Prizm.Main.Forms.Notifications
 {
     class NotificationViewModel : ViewModelBase, IDisposable
     {
-        private List<NotificationOwners> notification;
+        private List<Notification> notification;
 
-        [Inject]
+
         public NotificationViewModel()
         {
-            notification = new NotificationDummy().GetAllOwners().ToList();
+            notification =  NotificationManager.Instance.Notifications;
         }
 
-        public List<NotificationOwners> Notification
+        public List<Notification> Notification
         {
             get
             {
