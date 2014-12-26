@@ -204,20 +204,13 @@ namespace Prizm.Main.Forms.Spool
         {
             InspectionTestResult inspectionTestResult
                       = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
-            if (inspectionTestResult != null)
+            if (inspectionTestResult != null && inspectionTestResult.Date != null)
             {
-                if (inspectionTestResult.Date != null)
-                {
-                    if (e.Value == null)
-                        e.DisplayText = string.Empty;
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-                    IList<Inspector> inspectors = e.Value as IList<Inspector>;
-                    e.DisplayText = viewModel.FormatInspectorList(inspectors);
-                }
-                else
-                {
-                    e.DisplayText = Resources.DateFirst;
-                }
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
             }
 
             else
