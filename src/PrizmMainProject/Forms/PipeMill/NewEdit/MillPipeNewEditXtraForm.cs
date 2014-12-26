@@ -286,14 +286,30 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
-                e.DisplayText = string.Empty;
-
-            IList<Welder> welders = e.Value as IList<Welder>;
-            if (viewModel != null)
+            Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+            if (weld != null)
             {
-                e.DisplayText = viewModel.FormatWeldersList(welders);
+                if (weld.Date != null)
+                {
+                    if(e.Value == null)
+                        e.DisplayText = string.Empty;
+
+                    IList<Welder> welders = e.Value as IList<Welder>;
+                    if (viewModel != null)
+                    {
+                        e.DisplayText = viewModel.FormatWeldersList(welders);
+                    }
+                }
+                else 
+                {
+                    e.DisplayText = Resources.DateFirst;
+                }
             }
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
+
         }
 
         private void repositoryItemPopupWelders_QueryPopUp(object sender, CancelEventArgs e)
