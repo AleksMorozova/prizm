@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -109,7 +109,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -154,9 +154,9 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(807, 61);
+            this.searchButton.Location = new System.Drawing.Point(817, 61);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(67, 22);
+            this.searchButton.Size = new System.Drawing.Size(97, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
             this.searchButton.TabIndex = 40;
             this.searchButton.Text = "&Поиск";
@@ -339,7 +339,7 @@
             this.pipeActivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeActivity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.pipeActivity.Size = new System.Drawing.Size(147, 20);
+            this.pipeActivity.Size = new System.Drawing.Size(150, 20);
             this.pipeActivity.StyleController = this.PipeSearchLayoutControl;
             this.pipeActivity.TabIndex = 42;
             // 
@@ -408,9 +408,9 @@
             // 
             this.searchGroupTopEmptySpace.AllowHotTrack = false;
             this.searchGroupTopEmptySpace.CustomizationFormText = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(858, 0);
+            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(898, 0);
             this.searchGroupTopEmptySpace.Name = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(306, 46);
+            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(266, 46);
             this.searchGroupTopEmptySpace.Text = "searchGroupTopEmptySpace";
             this.searchGroupTopEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -476,8 +476,8 @@
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
             this.searchButtonLayout.Location = new System.Drawing.Point(777, 15);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(81, 31);
-            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.searchButtonLayout.Size = new System.Drawing.Size(121, 31);
+            this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextToControlDistance = 0;
@@ -489,7 +489,7 @@
             this.searchButtonEmptySpace.CustomizationFormText = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.Location = new System.Drawing.Point(777, 0);
             this.searchButtonEmptySpace.Name = "searchButtonEmptySpace";
-            this.searchButtonEmptySpace.Size = new System.Drawing.Size(81, 15);
+            this.searchButtonEmptySpace.Size = new System.Drawing.Size(121, 15);
             this.searchButtonEmptySpace.Text = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -512,7 +512,7 @@
             this.pipeActivityLayoutControl.Location = new System.Drawing.Point(604, 0);
             this.pipeActivityLayoutControl.Name = "pipeActivityLayoutControl";
             this.pipeActivityLayoutControl.Size = new System.Drawing.Size(173, 45);
-            this.pipeActivityLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 10, 0, 5);
+            this.pipeActivityLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 7, 0, 5);
             this.pipeActivityLayoutControl.Text = "Состояние трубы";
             this.pipeActivityLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeActivityLayoutControl.TextSize = new System.Drawing.Size(147, 13);

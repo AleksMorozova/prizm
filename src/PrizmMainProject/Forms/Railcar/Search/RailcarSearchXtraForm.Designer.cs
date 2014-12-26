@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,10 +39,11 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.railcarList = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.editGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isShipped = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dest = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +67,6 @@
             this.shippedDateLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.idCol = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unshipButton)).BeginInit();
@@ -169,6 +170,12 @@
             this.isShipped.FieldName = "IsShipped";
             this.isShipped.Name = "isShipped";
             // 
+            // idCol
+            // 
+            this.idCol.Caption = "Id";
+            this.idCol.FieldName = "Id";
+            this.idCol.Name = "idCol";
+            // 
             // number
             // 
             this.number.Caption = "Номер вагона";
@@ -244,7 +251,7 @@
             this.searchButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.searchButton.Location = new System.Drawing.Point(787, 60);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(96, 22);
+            this.searchButton.Size = new System.Drawing.Size(102, 22);
             this.searchButton.StyleController = this.generalLayout;
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "&Поиск";
@@ -369,7 +376,7 @@
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
             this.searchButtonLayout.Location = new System.Drawing.Point(750, 0);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(115, 45);
+            this.searchButtonLayout.Size = new System.Drawing.Size(121, 45);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextLocation = DevExpress.Utils.Locations.Bottom;
@@ -393,9 +400,9 @@
             // 
             this.searchLayoutGroupEmptySpace.AllowHotTrack = false;
             this.searchLayoutGroupEmptySpace.CustomizationFormText = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(865, 0);
+            this.searchLayoutGroupEmptySpace.Location = new System.Drawing.Point(871, 0);
             this.searchLayoutGroupEmptySpace.Name = "searchLayoutGroupEmptySpace";
-            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(360, 45);
+            this.searchLayoutGroupEmptySpace.Size = new System.Drawing.Size(354, 45);
             this.searchLayoutGroupEmptySpace.Text = "searchLayoutGroupEmptySpace";
             this.searchLayoutGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -434,12 +441,6 @@
             this.railcarsListLayout.TextSize = new System.Drawing.Size(0, 0);
             this.railcarsListLayout.TextToControlDistance = 0;
             this.railcarsListLayout.TextVisible = false;
-            // 
-            // idCol
-            // 
-            this.idCol.Caption = "Id";
-            this.idCol.FieldName = "Id";
-            this.idCol.Name = "idCol";
             // 
             // RailcarSearchXtraForm
             // 

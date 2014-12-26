@@ -838,7 +838,7 @@
             this.inspectorsPopupContainerEdit,
             this.testResultValue,
             this.inspectionCodeLookUpEdit});
-            this.inspections.Size = new System.Drawing.Size(1200, 381);
+            this.inspections.Size = new System.Drawing.Size(1208, 381);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
@@ -1011,7 +1011,7 @@
             this.inspectionsLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionsLayout.Name = "inspectionsLayout";
             this.inspectionsLayout.Size = new System.Drawing.Size(1216, 392);
-            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 10, 5, 2);
+            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 2);
             this.inspectionsLayout.Text = "inspectionsLayout";
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionsLayout.TextToControlDistance = 0;

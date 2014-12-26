@@ -80,9 +80,9 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(540, 63);
+            this.searchButton.Location = new System.Drawing.Point(530, 63);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(81, 22);
+            this.searchButton.Size = new System.Drawing.Size(97, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 7;
             this.searchButton.Text = "Поиск";
@@ -220,9 +220,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(600, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(621, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(613, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(592, 45);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -232,8 +232,8 @@
             this.searchBtnLayoutControl.CustomizationFormText = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.Location = new System.Drawing.Point(500, 0);
             this.searchBtnLayoutControl.Name = "searchBtnLayoutControl";
-            this.searchBtnLayoutControl.Size = new System.Drawing.Size(100, 45);
-            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
+            this.searchBtnLayoutControl.Size = new System.Drawing.Size(121, 45);
+            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 15, 0);
             this.searchBtnLayoutControl.Text = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.searchBtnLayoutControl.TextToControlDistance = 0;

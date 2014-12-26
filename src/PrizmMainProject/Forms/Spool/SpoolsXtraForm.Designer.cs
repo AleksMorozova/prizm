@@ -135,9 +135,9 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(802, 419);
+            this.saveButton.Location = new System.Drawing.Point(820, 419);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 22);
+            this.saveButton.Size = new System.Drawing.Size(102, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 46;
             this.saveButton.Text = "Сохранить";
@@ -148,7 +148,7 @@
             this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(18, 419);
             this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(116, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(102, 22);
             this.attachmentsButton.StyleController = this.mainLayoutControl;
             this.attachmentsButton.TabIndex = 45;
             this.attachmentsButton.Text = "Вложения";
@@ -493,8 +493,11 @@
             this.attachmentsButtonLayout.Control = this.attachmentsButton;
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 393);
+            this.attachmentsButtonLayout.MaxSize = new System.Drawing.Size(121, 33);
+            this.attachmentsButtonLayout.MinSize = new System.Drawing.Size(121, 33);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(135, 33);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(121, 33);
+            this.attachmentsButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 0);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -505,9 +508,12 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(769, 393);
+            this.saveButtonLayout.Location = new System.Drawing.Point(787, 393);
+            this.saveButtonLayout.MaxSize = new System.Drawing.Size(121, 33);
+            this.saveButtonLayout.MinSize = new System.Drawing.Size(121, 33);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(139, 33);
+            this.saveButtonLayout.Size = new System.Drawing.Size(121, 33);
+            this.saveButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -518,9 +524,9 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(135, 393);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(121, 393);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(634, 33);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(666, 33);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
