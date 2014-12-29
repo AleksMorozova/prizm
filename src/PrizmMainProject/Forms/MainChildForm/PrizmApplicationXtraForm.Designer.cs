@@ -498,7 +498,7 @@
             // 
             this.notifyBarStaticItem.Caption = "F4";
             this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
-            this.notifyBarStaticItem.Hint = "Список уведомлений";
+            this.notifyBarStaticItem.Hint = "уведомления о совершенных транзакциях";
             this.notifyBarStaticItem.Id = 6;
             this.notifyBarStaticItem.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F4);
             this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
