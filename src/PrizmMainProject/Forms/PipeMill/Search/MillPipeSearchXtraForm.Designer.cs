@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -109,7 +109,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -153,6 +153,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(817, 61);
             this.searchButton.Name = "searchButton";
@@ -554,6 +555,7 @@
             // 
             // MillPipeSearchXtraForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 471);

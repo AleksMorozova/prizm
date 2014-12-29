@@ -79,6 +79,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(530, 63);
             this.searchButton.Name = "searchButton";
@@ -245,6 +246,7 @@
             // 
             // PartSearchXtraForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1259, 511);
