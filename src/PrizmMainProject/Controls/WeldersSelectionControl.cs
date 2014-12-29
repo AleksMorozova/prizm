@@ -95,7 +95,7 @@ namespace Prizm.Main.Controls
           {
               GridView v = sender as GridView;
               var data = v.GetRow(e.ControllerRow) as Welder;
-              if (!data.IsActive || data.Certificate.ExpirationDate < weldDate.Date)
+              if (!data.IsActive)
               {
                   v.UnselectRow(e.ControllerRow);
               }
