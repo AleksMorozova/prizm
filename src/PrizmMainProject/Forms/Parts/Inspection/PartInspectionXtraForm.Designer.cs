@@ -32,6 +32,10 @@
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionsView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colResult = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReason = new DevExpress.XtraGrid.Columns.GridColumn();
             this.elementType = new DevExpress.XtraEditors.TextEdit();
             this.elementNumber = new DevExpress.XtraEditors.TextEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -46,6 +50,7 @@
             this.elementNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -63,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inspectionLayoutControl
@@ -94,9 +100,46 @@
             // 
             // inspectionsView
             // 
+            this.inspectionsView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colDate,
+            this.colResult,
+            this.colInspector,
+            this.colReason});
             this.inspectionsView.GridControl = this.inspections;
             this.inspectionsView.Name = "inspectionsView";
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
+            // 
+            // colDate
+            // 
+            this.colDate.Caption = "Дата";
+            this.colDate.FieldName = "Date";
+            this.colDate.Name = "colDate";
+            this.colDate.Visible = true;
+            this.colDate.VisibleIndex = 0;
+            // 
+            // colResult
+            // 
+            this.colResult.Caption = "Результат";
+            this.colResult.FieldName = "Status";
+            this.colResult.Name = "colResult";
+            this.colResult.Visible = true;
+            this.colResult.VisibleIndex = 1;
+            // 
+            // colInspector
+            // 
+            this.colInspector.Caption = "Инспектор";
+            this.colInspector.FieldName = "Inspectors";
+            this.colInspector.Name = "colInspector";
+            this.colInspector.Visible = true;
+            this.colInspector.VisibleIndex = 2;
+            // 
+            // colReason
+            // 
+            this.colReason.Caption = "Причина";
+            this.colReason.FieldName = "Value";
+            this.colReason.Name = "colReason";
+            this.colReason.Visible = true;
+            this.colReason.VisibleIndex = 3;
             // 
             // elementType
             // 
@@ -270,6 +313,7 @@
             this.Controls.Add(this.inspectionLayoutControl);
             this.Name = "PartInspectionXtraForm";
             this.Text = "Входной контроль";
+            this.Load += new System.EventHandler(this.PartInspectionXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).EndInit();
             this.inspectionLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
@@ -287,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +355,10 @@
         private DevExpress.XtraLayout.LayoutControlItem inspectionsLayout;
         private DevExpress.XtraLayout.EmptySpaceItem findElementEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private System.Windows.Forms.BindingSource bindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colResult;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspector;
+        private DevExpress.XtraGrid.Columns.GridColumn colReason;
     }
 }

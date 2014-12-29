@@ -78,9 +78,26 @@ namespace Prizm.Main.Forms.Parts.Search
             queries.ForEach(x => sb.Append(x));
 
             return sb.ToString();
+        }
+
+        internal static string BuildSqlForInspection(string number)
+        {
+            if (!string.IsNullOrWhiteSpace(number))
+            {
+                number = string.Format("WHERE number LIKE N'%{0}%' ", number);
+            }
+            return string.Format(
+                                @"SELECT id, number, '{1}' FROM Pipe {0}
+                                UNION ALL
+                                SELECT id, number, '{2}' FROM Spool {0}
+                                UNION ALL
+                                SELECT id, number, '{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
+                                );
 
 
 
+
+        
         }
     }
 }
