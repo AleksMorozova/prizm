@@ -30,6 +30,7 @@ using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Main.Forms.Common;
 using PrizmMain.Forms.Notifications;
 using DevExpress.XtraSplashScreen;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -52,6 +53,9 @@ namespace Prizm.Main.Forms.MainChildForm
             languageBarListItem.Strings.Add("Chinese (中國)");
             languageBarListItem.DataIndex = 2;
             //==========================================================
+
+            NotificationManager.Instance.NotificationReload += OnNotificationRefresh;
+            NotificationManager.Instance.RequestAllNotification();
         }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace Prizm.Main.Forms.MainChildForm
             switch (formTypeName)
             {
                 case "SettingsXtraForm":
+                case "NotificationXtraForm":
                     isSingle = true;
                     break;
                 default:
@@ -517,6 +522,16 @@ namespace Prizm.Main.Forms.MainChildForm
         private void barButtonStatusNotifications_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateChildForm(typeof(NotificationXtraForm));
+        }
+        /// <summary>
+        /// Update count system notification on status bar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnNotificationRefresh(object sender, EventArgs e)
+        { 
+            int NotificationCount = NotificationManager.Instance.NotificationCount;
+            barButtonStatusNotifications.Caption = string.Format("{0} ({1})", Resources.SystemNotification, NotificationCount);
         }
 
     }
