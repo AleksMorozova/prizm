@@ -35,7 +35,6 @@
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
             this.weldBindingSource = new System.Windows.Forms.BindingSource();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -238,8 +237,7 @@
             // 
             this.weldersListGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.firstNameGridColumn,
-            this.lastNameGridColumn,
-            this.isActiveGridColumn});
+            this.lastNameGridColumn});
             this.weldersListGridView.GridControl = this.weldingHistory;
             this.weldersListGridView.Name = "weldersListGridView";
             // 
@@ -258,14 +256,6 @@
             this.lastNameGridColumn.Name = "lastNameGridColumn";
             this.lastNameGridColumn.Visible = true;
             this.lastNameGridColumn.VisibleIndex = 1;
-            // 
-            // isActiveGridColumn
-            // 
-            this.isActiveGridColumn.Caption = "Active";
-            this.isActiveGridColumn.FieldName = "IsActive";
-            this.isActiveGridColumn.Name = "isActiveGridColumn";
-            this.isActiveGridColumn.Visible = true;
-            this.isActiveGridColumn.VisibleIndex = 2;
             // 
             // weldingHistory
             // 
@@ -1672,7 +1662,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn heatsNumberCol;
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelGradeLayout;
-        private DevExpress.XtraGrid.Columns.GridColumn isActiveGridColumn;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
 
     }
