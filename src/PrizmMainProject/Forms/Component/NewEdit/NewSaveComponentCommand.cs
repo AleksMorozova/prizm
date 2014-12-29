@@ -34,7 +34,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             viewModel.SaveCommand.Execute();
 
-            if (viewModel.Number != string.Empty)
+            if (viewModel.Number != string.Empty &&
+                viewModel.ValidatableView.Validate())
             {
                 viewModel.NewComponent();
             }
