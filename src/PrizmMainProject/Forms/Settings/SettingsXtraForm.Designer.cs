@@ -826,6 +826,7 @@
             this.categoryNameColumn.Name = "categoryNameColumn";
             this.categoryNameColumn.Visible = true;
             this.categoryNameColumn.VisibleIndex = 0;
+            this.categoryNameColumn.Width = 411;
             // 
             // categoryRepositoryTextEdit
             // 
@@ -840,6 +841,7 @@
             this.isActiveColumn.Name = "isActiveColumn";
             this.isActiveColumn.Visible = true;
             this.isActiveColumn.VisibleIndex = 1;
+            this.isActiveColumn.Width = 189;
             // 
             // repositoryIsActiveCheckEdit
             // 
@@ -1069,6 +1071,8 @@
             // 
             // millNameLayout
             // 
+            this.millNameLayout.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
+            this.millNameLayout.AppearanceItemCaption.Options.UseBackColor = true;
             this.millNameLayout.Control = this.millName;
             this.millNameLayout.CustomizationFormText = "Производитель";
             this.millNameLayout.Location = new System.Drawing.Point(0, 0);
@@ -1084,6 +1088,8 @@
             // 
             // categoryLayoutControl
             // 
+            this.categoryLayoutControl.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
+            this.categoryLayoutControl.AppearanceItemCaption.Options.UseBackColor = true;
             this.categoryLayoutControl.Control = this.categoriesGrid;
             this.categoryLayoutControl.CustomizationFormText = "Группы контрольных операций";
             this.categoryLayoutControl.Location = new System.Drawing.Point(0, 105);
@@ -1096,6 +1102,8 @@
             // 
             // pipeNumberMaskLayout
             // 
+            this.pipeNumberMaskLayout.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
+            this.pipeNumberMaskLayout.AppearanceItemCaption.Options.UseBackColor = true;
             this.pipeNumberMaskLayout.Control = this.pipeNumberMask;
             this.pipeNumberMaskLayout.CustomizationFormText = "Формат номера трубы";
             this.pipeNumberMaskLayout.Location = new System.Drawing.Point(0, 50);
