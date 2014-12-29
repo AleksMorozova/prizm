@@ -81,7 +81,7 @@ namespace Prizm.Main.Controls
               {
                   e.Appearance.ForeColor = Color.Gray;
               }
-              if (data.Certificate.ExpirationDate < weldDate.Date)
+              if (data.Certificate.ExpirationDate < weldDate.Date && data.IsActive)
               {
                   e.Appearance.ForeColor = Color.Red;
               }
