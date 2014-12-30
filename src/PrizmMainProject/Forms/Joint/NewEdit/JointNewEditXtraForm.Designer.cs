@@ -162,7 +162,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
             // jointNumber
@@ -973,16 +972,6 @@
             this.saveAndCreateLayout.TextToControlDistance = 0;
             this.saveAndCreateLayout.TextVisible = false;
             // 
-            // loweringEmptySpace
-            // 
-            this.loweringEmptySpace.AllowHotTrack = false;
-            this.loweringEmptySpace.CustomizationFormText = "loweringEmptySpace";
-            this.loweringEmptySpace.Location = new System.Drawing.Point(445, 48);
-            this.loweringEmptySpace.Name = "loweringEmptySpace";
-            this.loweringEmptySpace.Size = new System.Drawing.Size(210, 47);
-            this.loweringEmptySpace.Text = "loweringEmptySpace";
-            this.loweringEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // JointNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1056,7 +1045,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loweringEmptySpace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1130,7 +1118,6 @@
         private DevExpress.XtraLayout.LayoutControlItem saveAndCreateLayout;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraLayout.EmptySpaceItem jointNumberEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem loweringEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem loweringDateEmptySpace;
 
     }
