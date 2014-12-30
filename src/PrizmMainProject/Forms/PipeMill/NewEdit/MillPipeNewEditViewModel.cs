@@ -704,8 +704,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         internal string FormatWeldersList(IList<Welder> welders)
         {
-            if(welders == null)
-                return String.Empty;
+            if (welders == null)
+                return string.Empty;
 
             return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
         }
@@ -715,8 +715,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if(inspectors == null)
-                return String.Empty;
+            if (inspectors == null)
+                return string.Empty;
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }

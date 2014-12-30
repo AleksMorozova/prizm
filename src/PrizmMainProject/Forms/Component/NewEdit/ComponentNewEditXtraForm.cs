@@ -207,11 +207,20 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            InspectionTestResult inspectionTestResult
+                      = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+            if (inspectionTestResult != null && inspectionTestResult.Date != null)
+            {
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            }
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
@@ -250,12 +259,26 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            InspectionTestResult inspectionTestResult 
-                = inspectionHistoryGridView
-                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+            InspectionTestResult inspectionTestResult
+               = inspectionHistoryGridView
+               .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
             if (inspectionTestResult == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (inspectionTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+                }
+            }
         }
 
         private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)

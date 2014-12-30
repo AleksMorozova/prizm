@@ -314,6 +314,7 @@
             this.repositoryItemPopupWelders.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemPopupWelders.Name = "repositoryItemPopupWelders";
+            this.repositoryItemPopupWelders.NullText = "Date first";
             this.repositoryItemPopupWelders.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.repositoryItemPopupWelders_QueryPopUp);
             this.repositoryItemPopupWelders.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.repositoryItemPopupWelders_CloseUp);
             this.repositoryItemPopupWelders.Popup += new System.EventHandler(this.repositoryItemPopupWelders_Popup);
@@ -932,7 +933,7 @@
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
-            this.inspectorsGridColumn.VisibleIndex = 6;
+            this.inspectorsGridColumn.VisibleIndex = 7;
             this.inspectorsGridColumn.Width = 245;
             // 
             // inspectorsPopupContainerEdit
@@ -942,6 +943,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
             this.inspectorsPopupContainerEdit.PopupFormMinSize = new System.Drawing.Size(350, 0);
+            this.inspectorsPopupContainerEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.inspectorsPopupContainerEdit_QueryPopUp);
             this.inspectorsPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.inspectorsPopupContainerEdit_CloseUp);
             this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
             this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
@@ -952,7 +954,7 @@
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
-            this.controlDateGridColumn.VisibleIndex = 7;
+            this.controlDateGridColumn.VisibleIndex = 6;
             this.controlDateGridColumn.Width = 142;
             // 
             // inspectionCodeGridColumn

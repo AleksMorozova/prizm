@@ -23,6 +23,7 @@ using System.Collections;
 using System.Threading;
 using System.Linq;
 using Prizm.Main.Documents;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -234,11 +235,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            if (jointTestResult != null && jointTestResult.Date != null)
+            {
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
+
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            }
+
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
@@ -323,12 +334,19 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void weldersPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            if (jointWeldResult != null && jointWeldResult.Date != null)
+            {
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-            IList<Welder> welders = e.Value as IList<Welder>;
-            e.DisplayText = viewModel.FormatWelderList(welders);
-
+                IList<Welder> welders = e.Value as IList<Welder>;
+                e.DisplayText = viewModel.FormatWelderList(welders);
+            }
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         /// <summary>
@@ -415,5 +433,48 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         #endregion
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            JointTestResult jointTestResult
+               = controlOperationsView
+               .GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
+
+            if (jointTestResult == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if (jointTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = jointTestResult.Date;
+                }
+            }
+        }
+
+        private void weldersPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            JointWeldResult weld = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            if (weld == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if (weld.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else 
+                { 
+                    weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date; 
+                }
+            }
+        }
     }
 }

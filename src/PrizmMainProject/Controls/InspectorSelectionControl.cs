@@ -17,7 +17,7 @@ namespace Prizm.Main.Controls
     public partial class InspectorSelectionControl : UserControl
     {
         private bool checkNotActiveSelection = true;
-
+        public DateTime? inspectionDate = DateTime.Now.Date;
         public InspectorSelectionControl()
         {
             InitializeComponent();
@@ -75,7 +75,6 @@ namespace Prizm.Main.Controls
             {
                 GridView v = sender as GridView;
                 var data = v.GetRow(e.ControllerRow) as Inspector;
-                data.CheckExpirationDate();
                 if (!data.IsActive)
                 {
                     v.UnselectRow(e.ControllerRow);
@@ -87,12 +86,19 @@ namespace Prizm.Main.Controls
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as Inspector;
-            data.CheckExpirationDate();
             if (data != null)
             {
-                if (!data.IsActive)//IsActive
+                if (!data.IsActive)
                 {
                     e.Appearance.ForeColor = Color.Gray;
+                }
+
+                foreach (InspectorCertificate c in data.Certificates) 
+                {
+                    if (c.Certificate.ExpirationDate < inspectionDate && data.IsActive)
+                    {
+                        e.Appearance.ForeColor = Color.Red;
+                    }
                 }
             }
         }

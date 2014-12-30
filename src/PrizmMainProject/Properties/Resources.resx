@@ -686,6 +686,9 @@
   <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
     <value>Длинна катушки не может быть равна 0</value>
   </data>
+  <data name="DateFirst" xml:space="preserve">
+    <value>Выберите дату</value>
+      </data>
 
   <data name="DLG_JOINT_INCORRECT_DIAMETER" xml:space="preserve">
     <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
@@ -696,7 +699,7 @@
 
   <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
     <value>Дубликат номера труб</value>
-  </data>
+      </data>
   <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
     <value>Сертификат просрочен</value>
   </data>

@@ -388,6 +388,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выберите дату.
+        /// </summary>
+        internal static string DateFirst {
+            get {
+                return ResourceManager.GetString("DateFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Направление.
         /// </summary>
         internal static string Destination {
