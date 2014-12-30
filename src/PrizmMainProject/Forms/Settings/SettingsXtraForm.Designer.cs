@@ -439,10 +439,10 @@
             this.pipePage,
             this.pipelinePage,
             this.componentryPage,
-            this.usersPage,
-            this.rolesPage,
             this.weldersPage,
-            this.inspectorsPage});
+            this.inspectorsPage,
+            this.usersPage,
+            this.rolesPage});
             // 
             // pipePage
             // 
