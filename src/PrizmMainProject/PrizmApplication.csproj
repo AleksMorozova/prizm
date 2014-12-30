@@ -260,6 +260,10 @@
     <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Notifications\NotificationRequest\CertificateNotificationRequest.cs" />
+    <Compile Include="Forms\Notifications\NotificationRequest\INotificationRequest..cs" />
+    <Compile Include="Forms\Notifications\NotificationManager.cs" />
+    <Compile Include="Forms\Notifications\NotificationRequest\PipeNotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
@@ -573,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainChildForm\AppWaitForm.resx">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Notifications\NotificationXtraForm.resx">
+      <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\CreationDialog.resx">
       <DependentUpon>CreationDialog.cs</DependentUpon>

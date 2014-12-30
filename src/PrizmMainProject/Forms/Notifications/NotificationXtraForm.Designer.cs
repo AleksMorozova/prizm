@@ -117,10 +117,7 @@ namespace PrizmMain.Forms.Notifications
             this.gridControlMessage.TabIndex = 0;
             this.gridControlMessage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNotification});
-            // 
-            // notificationBindingSource
-            // 
-            this.notificationBindingSource.DataSource = typeof(PrizmMain.DummyData.NotificationOwners);
+            this.gridControlMessage.DoubleClick += new System.EventHandler(this.gridControlMessage_DoubleClick);
             // 
             // gridViewNotification
             // 
@@ -160,7 +157,7 @@ namespace PrizmMain.Forms.Notifications
             // colNotification
             // 
             this.colNotification.Caption = "Сообщение";
-            this.colNotification.FieldName = "Notification";
+            this.colNotification.FieldName = "Message";
             this.colNotification.Name = "colNotification";
             this.colNotification.Visible = true;
             this.colNotification.VisibleIndex = 2;
@@ -249,6 +246,7 @@ namespace PrizmMain.Forms.Notifications
             this.Name = "NotificationXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Окно уведомлений";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NotificationXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.NotificationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();

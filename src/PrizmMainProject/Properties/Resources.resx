@@ -686,14 +686,26 @@
   <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
     <value>Длинна катушки не может быть равна 0</value>
   </data>
+  <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера труб</value>
+  </data>
   <data name="ERROR_UnknownComponentType" xml:space="preserve">
     <value> неизвестный тип компонента</value>
   </data>
   <data name="DLG_INSPECTIONS_SAVED" xml:space="preserve">
     <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
   </data>
+  <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
+    <value>Сертификат просрочен</value>
+  </data>
   <data name="DLG_INSPECTIONS_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение контрольных операций</value>
+  </data>
+  <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
+  </data>
+  <data name="SystemNotification" xml:space="preserve">
+    <value>Сообщения системы</value>
   </data>
   <data name="SPOOL_EDIT_FORM_TEXT" xml:space="preserve">
     <value>Редактирование катушки</value>
