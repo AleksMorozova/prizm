@@ -130,6 +130,7 @@
             this.PipeSearchLayoutControl.Location = new System.Drawing.Point(1, 4);
             this.PipeSearchLayoutControl.Name = "PipeSearchLayoutControl";
             this.PipeSearchLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(92, 342, 250, 350);
+            this.PipeSearchLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.PipeSearchLayoutControl.Root = this.PipeSearchLayout;
             this.PipeSearchLayoutControl.Size = new System.Drawing.Size(1210, 461);
             this.PipeSearchLayoutControl.TabIndex = 51;
@@ -148,7 +149,7 @@
             this.pipeSize.Properties.SelectAllItemCaption = "(Выбрать все)";
             this.pipeSize.Size = new System.Drawing.Size(172, 20);
             this.pipeSize.StyleController = this.PipeSearchLayoutControl;
-            this.pipeSize.TabIndex = 41;
+            this.pipeSize.TabIndex = 1;
             this.pipeSize.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.pipeSize_CloseUp);
             // 
             // searchButton
@@ -159,7 +160,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(97, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
-            this.searchButton.TabIndex = 40;
+            this.searchButton.TabIndex = 8;
             this.searchButton.Text = "&Поиск";
             // 
             // externalCoatingDate
@@ -173,7 +174,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.externalCoatingDate.Size = new System.Drawing.Size(172, 20);
             this.externalCoatingDate.StyleController = this.PipeSearchLayoutControl;
-            this.externalCoatingDate.TabIndex = 39;
+            this.externalCoatingDate.TabIndex = 6;
             // 
             // weldingDate
             // 
@@ -186,7 +187,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.weldingDate.Size = new System.Drawing.Size(183, 20);
             this.weldingDate.StyleController = this.PipeSearchLayoutControl;
-            this.weldingDate.TabIndex = 38;
+            this.weldingDate.TabIndex = 5;
             // 
             // internalCoatingDate
             // 
@@ -199,7 +200,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.internalCoatingDate.Size = new System.Drawing.Size(172, 20);
             this.internalCoatingDate.StyleController = this.PipeSearchLayoutControl;
-            this.internalCoatingDate.TabIndex = 37;
+            this.internalCoatingDate.TabIndex = 7;
             // 
             // pipeNumber
             // 
@@ -207,7 +208,7 @@
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Size = new System.Drawing.Size(183, 20);
             this.pipeNumber.StyleController = this.PipeSearchLayoutControl;
-            this.pipeNumber.TabIndex = 34;
+            this.pipeNumber.TabIndex = 0;
             // 
             // pipesSearchResult
             // 
@@ -329,7 +330,7 @@
             this.pipeMillStatus.Properties.SelectAllItemCaption = "(Выбрать все)";
             this.pipeMillStatus.Size = new System.Drawing.Size(174, 20);
             this.pipeMillStatus.StyleController = this.PipeSearchLayoutControl;
-            this.pipeMillStatus.TabIndex = 35;
+            this.pipeMillStatus.TabIndex = 3;
             this.pipeMillStatus.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.pipeMillStatus_CloseUp);
             // 
             // pipeActivity
@@ -342,7 +343,7 @@
             this.pipeActivity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.pipeActivity.Size = new System.Drawing.Size(150, 20);
             this.pipeActivity.StyleController = this.PipeSearchLayoutControl;
-            this.pipeActivity.TabIndex = 42;
+            this.pipeActivity.TabIndex = 4;
             // 
             // PipeSearchLayout
             // 
