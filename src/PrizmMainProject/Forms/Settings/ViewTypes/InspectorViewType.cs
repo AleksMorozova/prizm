@@ -103,7 +103,6 @@ namespace Prizm.Main.Forms.Settings.ViewTypes
       {
          get
           {
-              inspector.CheckExpirationDate();
             return inspector.IsActive;
          }
          set

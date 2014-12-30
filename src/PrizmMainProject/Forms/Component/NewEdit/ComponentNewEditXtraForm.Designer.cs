@@ -333,6 +333,7 @@
             this.componentParametersView.OptionsBehavior.FocusLeaveOnTab = true;
             this.componentParametersView.OptionsNavigation.UseTabKey = false;
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentParametersView_ValidateRow);
             // 
             // diameterGridColumn
             // 

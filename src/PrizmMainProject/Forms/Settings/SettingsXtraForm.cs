@@ -27,6 +27,7 @@ using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 using Prizm.Main.Documents;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -47,6 +48,7 @@ namespace Prizm.Main.Forms.Settings
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+
         }
 
         #region Role Setting
@@ -104,6 +106,12 @@ namespace Prizm.Main.Forms.Settings
 
             RefreshUserRoles(0);
             RefreshRolePermissions(0);
+
+            ProjectTitleEditIfLoadValidationRule projectValidationRule = new ProjectTitleEditIfLoadValidationRule();
+            projectValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
         }
 
         private void BindToViewModel()
@@ -165,6 +173,8 @@ namespace Prizm.Main.Forms.Settings
 
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
+
+            projectTitle.Refresh();
         }
 
         private void BindCommands()
@@ -648,7 +658,7 @@ namespace Prizm.Main.Forms.Settings
             var data = v.GetRow(e.RowHandle) as WelderViewType;
             if(data != null)
             {
-                if(e.Column.FieldName == "CertificateExpiration" && data.CertificateExpiration.Date < DateTime.Now)
+                if ((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.Date < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
@@ -691,7 +701,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-        
+
         private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
@@ -731,15 +741,18 @@ namespace Prizm.Main.Forms.Settings
 
             var certp = view.DataSource as BindingList<InspectorCertificateType>;
 
-            if (certp != null)
+            if(certp != null)
             {
-                if ((bool)certp[e.ListSourceRow].IsNotActive)
+                if((bool)certp[e.ListSourceRow].IsNotActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
                 }
             }
         }
+
+
+
 
         #region IValidatable Members
 
@@ -749,5 +762,36 @@ namespace Prizm.Main.Forms.Settings
         }
 
         #endregion
+
+private void projectPage_Enter(object sender, EventArgs e)
+        {
+            // Title is required field but his value refreshed only after page enter.
+            // This tag is checking on 
+            projectTitle.Tag = "visited";
+        }
+        
+private void gridViewInspectors_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as InspectorViewType;
+            if (data != null)
+            {
+                foreach (InspectorCertificate c in data.Certificates)
+                {
+                    if (c.Certificate.ExpirationDate < DateTime.Now)
+                    {
+                        e.Appearance.ForeColor = Color.Red;
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    }
+                }
+            }
+        }
+                    {
+                        e.Appearance.ForeColor = Color.Red;
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    }
+                }
+            }
+        }
     }
 }
