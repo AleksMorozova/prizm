@@ -112,7 +112,7 @@
             this.pipesList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryGridLookUpEditStatus});
             this.pipesList.Size = new System.Drawing.Size(1228, 403);
-            this.pipesList.TabIndex = 8;
+            this.pipesList.TabIndex = 7;
             this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesListView});
             // 
@@ -127,6 +127,8 @@
             this.pipesListView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.pipesListView.OptionsBehavior.Editable = false;
             this.pipesListView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
+            this.pipesListView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.pipesListView.OptionsNavigation.UseTabKey = false;
             this.pipesListView.OptionsView.ShowGroupPanel = false;
             // 
             // pipeNumberGridColumn
@@ -170,7 +172,7 @@
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.Size = new System.Drawing.Size(102, 22);
             this.unshipButton.StyleController = this.generalLayout;
-            this.unshipButton.TabIndex = 15;
+            this.unshipButton.TabIndex = 10;
             this.unshipButton.Text = "От&клонить";
             // 
             // generalLayout
@@ -191,6 +193,7 @@
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
             this.generalLayout.Name = "generalLayout";
             this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 278, 250, 350);
+            this.generalLayout.OptionsFocus.EnableAutoTabOrder = false;
             this.generalLayout.Root = this.railcarLayoutGroup;
             this.generalLayout.ShowTemplates = true;
             this.generalLayout.Size = new System.Drawing.Size(1275, 510);
@@ -204,8 +207,8 @@
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Size = new System.Drawing.Size(95, 22);
             this.attachmentsButton.StyleController = this.generalLayout;
-            this.attachmentsButton.TabIndex = 24;
-            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.TabIndex = 8;
+            this.attachmentsButton.Text = "&Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // destination
@@ -214,7 +217,7 @@
             this.destination.Name = "destination";
             this.destination.Size = new System.Drawing.Size(216, 20);
             this.destination.StyleController = this.generalLayout;
-            this.destination.TabIndex = 23;
+            this.destination.TabIndex = 2;
             // 
             // saveButton
             // 
@@ -224,7 +227,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 22);
             this.saveButton.StyleController = this.generalLayout;
-            this.saveButton.TabIndex = 16;
+            this.saveButton.TabIndex = 11;
             this.saveButton.Text = "Со&хранить";
             // 
             // shipButton
@@ -235,7 +238,7 @@
             this.shipButton.Name = "shipButton";
             this.shipButton.Size = new System.Drawing.Size(110, 22);
             this.shipButton.StyleController = this.generalLayout;
-            this.shipButton.TabIndex = 21;
+            this.shipButton.TabIndex = 9;
             this.shipButton.Text = "О&тгрузить";
             // 
             // removePipe
@@ -245,7 +248,7 @@
             this.removePipe.Name = "removePipe";
             this.removePipe.Size = new System.Drawing.Size(114, 22);
             this.removePipe.StyleController = this.generalLayout;
-            this.removePipe.TabIndex = 17;
+            this.removePipe.TabIndex = 6;
             this.removePipe.Text = "&Удалить трубу";
             this.removePipe.Click += new System.EventHandler(this.removePipe_Click);
             // 
@@ -256,7 +259,7 @@
             this.addPipeButton.Name = "addPipeButton";
             this.addPipeButton.Size = new System.Drawing.Size(120, 22);
             this.addPipeButton.StyleController = this.generalLayout;
-            this.addPipeButton.TabIndex = 16;
+            this.addPipeButton.TabIndex = 5;
             this.addPipeButton.Text = "&Добавить трубу";
             this.addPipeButton.Click += new System.EventHandler(this.addPipeButton_Click);
             // 
@@ -274,7 +277,7 @@
             this.shippedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.shippedDate.Size = new System.Drawing.Size(101, 20);
             this.shippedDate.StyleController = this.generalLayout;
-            this.shippedDate.TabIndex = 12;
+            this.shippedDate.TabIndex = 1;
             // 
             // certificateNumber
             // 
@@ -282,7 +285,7 @@
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Size = new System.Drawing.Size(165, 20);
             this.certificateNumber.StyleController = this.generalLayout;
-            this.certificateNumber.TabIndex = 14;
+            this.certificateNumber.TabIndex = 3;
             // 
             // railcarNumber
             // 
@@ -290,7 +293,7 @@
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Size = new System.Drawing.Size(180, 20);
             this.railcarNumber.StyleController = this.generalLayout;
-            this.railcarNumber.TabIndex = 7;
+            this.railcarNumber.TabIndex = 0;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.railcarNumber, conditionValidationRule1);
@@ -310,7 +313,7 @@
             this.pipeNumberLookUp.Properties.View = this.pipeListLookUpView;
             this.pipeNumberLookUp.Size = new System.Drawing.Size(128, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
-            this.pipeNumberLookUp.TabIndex = 15;
+            this.pipeNumberLookUp.TabIndex = 4;
             // 
             // pipeListLookUpView
             // 
@@ -375,7 +378,7 @@
             this.railcarNumberLayout.Name = "railcarNumberLayout";
             this.railcarNumberLayout.Size = new System.Drawing.Size(199, 54);
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
-            this.railcarNumberLayout.Text = "&Номер вагона";
+            this.railcarNumberLayout.Text = "Номер ва&гона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -387,7 +390,7 @@
             this.shippedDateLayout.Name = "shippedDateLayout";
             this.shippedDateLayout.Size = new System.Drawing.Size(135, 54);
             this.shippedDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.shippedDateLayout.Text = "&Дата отгрузки";
+            this.shippedDateLayout.Text = "Дата отгрузк&и";
             this.shippedDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.shippedDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -399,7 +402,7 @@
             this.certificateNumberLayout.Name = "certificateNumberLayout";
             this.certificateNumberLayout.Size = new System.Drawing.Size(199, 54);
             this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.certificateNumberLayout.Text = "Номер &сертификата";
+            this.certificateNumberLayout.Text = "Номер се&ртификата";
             this.certificateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -420,12 +423,12 @@
             // pipeNumberLayout
             // 
             this.pipeNumberLayout.Control = this.pipeNumberLookUp;
-            this.pipeNumberLayout.CustomizationFormText = "Номер трубы";
+            this.pipeNumberLayout.CustomizationFormText = "Ном&ер трубы";
             this.pipeNumberLayout.Location = new System.Drawing.Point(783, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
             this.pipeNumberLayout.Size = new System.Drawing.Size(162, 54);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.pipeNumberLayout.Text = "Номер трубы";
+            this.pipeNumberLayout.Text = "Ном&ер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 

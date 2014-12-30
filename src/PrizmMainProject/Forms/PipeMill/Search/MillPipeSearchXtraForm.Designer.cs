@@ -220,7 +220,7 @@
             this.pipesSearchResult.MainView = this.pipesSearchResultView;
             this.pipesSearchResult.Name = "pipesSearchResult";
             this.pipesSearchResult.Size = new System.Drawing.Size(1150, 243);
-            this.pipesSearchResult.TabIndex = 33;
+            this.pipesSearchResult.TabIndex = 9;
             this.pipesSearchResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSearchResultView});
             // 
@@ -237,6 +237,8 @@
             this.externalCoatingDateGridColumn});
             this.pipesSearchResultView.GridControl = this.pipesSearchResult;
             this.pipesSearchResultView.Name = "pipesSearchResultView";
+            this.pipesSearchResultView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.pipesSearchResultView.OptionsNavigation.UseTabKey = false;
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
@@ -390,7 +392,7 @@
             this.pipeNumberLayout.Name = "pipeNumberLayout";
             this.pipeNumberLayout.Size = new System.Drawing.Size(204, 45);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.pipeNumberLayout.Text = "Номер трубы";
+            this.pipeNumberLayout.Text = "Номер тр&убы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -402,7 +404,7 @@
             this.pipeMillStatusLayout.Name = "pipeMillStatusLayout";
             this.pipeMillStatusLayout.Size = new System.Drawing.Size(200, 45);
             this.pipeMillStatusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 10, 0, 5);
-            this.pipeMillStatusLayout.Text = "Статус на заводе";
+            this.pipeMillStatusLayout.Text = "Статус на завод&е";
             this.pipeMillStatusLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeMillStatusLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -424,7 +426,7 @@
             this.weldingDateLayout.Name = "weldingDateLayout";
             this.weldingDateLayout.Size = new System.Drawing.Size(204, 45);
             this.weldingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.weldingDateLayout.Text = "Дата сварки";
+            this.weldingDateLayout.Text = "Дата с&варки";
             this.weldingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.weldingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -436,7 +438,7 @@
             this.externalCoatingDateLayout.Name = "externalCoatingDateLayout";
             this.externalCoatingDateLayout.Size = new System.Drawing.Size(200, 45);
             this.externalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.externalCoatingDateLayout.Text = "Дата наружного покрытия";
+            this.externalCoatingDateLayout.Text = "Дата нару&жного покрытия";
             this.externalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.externalCoatingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -448,7 +450,7 @@
             this.internalCoatingDateLayout.Name = "internalCoatingDateLayout";
             this.internalCoatingDateLayout.Size = new System.Drawing.Size(200, 45);
             this.internalCoatingDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.internalCoatingDateLayout.Text = "Дата внутреннего покрытия";
+            this.internalCoatingDateLayout.Text = "&Дата внутреннего покрытия";
             this.internalCoatingDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.internalCoatingDateLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -503,7 +505,7 @@
             this.PipeSizeLayoutControl.Name = "PipeSizeLayoutControl";
             this.PipeSizeLayoutControl.Size = new System.Drawing.Size(200, 45);
             this.PipeSizeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.PipeSizeLayoutControl.Text = "Типоразмер трубы";
+            this.PipeSizeLayoutControl.Text = "Типораз&мер трубы";
             this.PipeSizeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.PipeSizeLayoutControl.TextSize = new System.Drawing.Size(147, 13);
             // 
@@ -515,7 +517,7 @@
             this.pipeActivityLayoutControl.Name = "pipeActivityLayoutControl";
             this.pipeActivityLayoutControl.Size = new System.Drawing.Size(173, 45);
             this.pipeActivityLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 7, 0, 5);
-            this.pipeActivityLayoutControl.Text = "Состояние трубы";
+            this.pipeActivityLayoutControl.Text = "Состо&яние трубы";
             this.pipeActivityLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeActivityLayoutControl.TextSize = new System.Drawing.Size(147, 13);
             // 
