@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Prizm.Domain.Entity;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
+using System.Linq;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -208,11 +209,20 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            InspectionTestResult inspectionTestResult
+                      = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+            if (inspectionTestResult != null && inspectionTestResult.Date != null)
+            {
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            }
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
@@ -251,12 +261,26 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            InspectionTestResult inspectionTestResult 
-                = inspectionHistoryGridView
-                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+            InspectionTestResult inspectionTestResult
+               = inspectionHistoryGridView
+               .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
             if (inspectionTestResult == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (inspectionTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+                }
+            }
         }
 
         private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -277,9 +301,39 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            for (int i = 0; i < componentParametersView.RowCount; i++)
+            {
+                if (Convert.ToInt32(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
+                {
+                    componentParametersView.FocusedRowHandle = i;
+
+                    componentParametersView_ValidateRow(
+                        componentParametersView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, componentParametersView.GetDataRow(i)));
+
+                }
+            }
+
+            return dxValidationProvider.Validate() &&
+                viewModel.Component.Connectors
+                .Where<Connector>(x => x.Diameter <= 0)
+                .Count<Connector>() <= 0;
         }
 
         #endregion
+
+        private void componentParametersView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            var diameter = (int)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
+
+            if (diameter <= 0)
+            {
+                gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
+                e.Valid = false;
+            }
+        }
     }
 }

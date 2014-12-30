@@ -327,6 +327,7 @@
             this.componentParametersView.GridControl = this.componentParameters;
             this.componentParametersView.Name = "componentParametersView";
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentParametersView_ValidateRow);
             // 
             // diameterGridColumn
             // 
