@@ -706,4 +706,7 @@
   <data name="SystemNotification" xml:space="preserve">
     <value>Сообщения системы</value>
   </data>
+  <data name="DIAMETER_VALUE_VALIDATION" xml:space="preserve">
+    <value>Величина диаметра должна быть больше нуля</value>
+  </data>
 </root>
