@@ -150,6 +150,8 @@
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
             this.resultView.OptionsBehavior.Editable = false;
+            this.resultView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.resultView.OptionsNavigation.UseTabKey = false;
             this.resultView.OptionsView.ShowGroupPanel = false;
             this.resultView.OptionsView.ShowIndicator = false;
             this.resultView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.resultView_CustomUnboundColumnData);

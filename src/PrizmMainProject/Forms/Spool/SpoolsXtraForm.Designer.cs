@@ -109,7 +109,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(116, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
-            this.searchButton.TabIndex = 39;
+            this.searchButton.TabIndex = 1;
             this.searchButton.Text = "&Редактировать";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
@@ -127,6 +127,7 @@
             this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControl.Name = "mainLayoutControl";
             this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(340, 129, 250, 350);
+            this.mainLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.mainLayoutControl.Root = this.layoutRootGroup;
             this.mainLayoutControl.Size = new System.Drawing.Size(940, 450);
             this.mainLayoutControl.TabIndex = 44;
@@ -139,7 +140,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(102, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
-            this.saveButton.TabIndex = 46;
+            this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Сохранить";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -150,7 +151,7 @@
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Size = new System.Drawing.Size(102, 22);
             this.attachmentsButton.StyleController = this.mainLayoutControl;
-            this.attachmentsButton.TabIndex = 45;
+            this.attachmentsButton.TabIndex = 6;
             this.attachmentsButton.Text = "Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
@@ -166,7 +167,7 @@
             this.inspectorsPopupContainerEdit,
             this.reasonTextEdit});
             this.inspectionHistory.Size = new System.Drawing.Size(528, 346);
-            this.inspectionHistory.TabIndex = 44;
+            this.inspectionHistory.TabIndex = 5;
             this.inspectionHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
             // 
@@ -179,6 +180,8 @@
             this.reasonGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
+            this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
@@ -264,7 +267,7 @@
             this.pipeLength.Properties.ReadOnly = true;
             this.pipeLength.Size = new System.Drawing.Size(126, 20);
             this.pipeLength.StyleController = this.mainLayoutControl;
-            this.pipeLength.TabIndex = 13;
+            this.pipeLength.TabIndex = 3;
             this.pipeLength.TextChanged += new System.EventHandler(this.pipeLength_TextChanged);
             // 
             // spoolNumber
@@ -273,7 +276,7 @@
             this.spoolNumber.Name = "spoolNumber";
             this.spoolNumber.Size = new System.Drawing.Size(213, 20);
             this.spoolNumber.StyleController = this.mainLayoutControl;
-            this.spoolNumber.TabIndex = 41;
+            this.spoolNumber.TabIndex = 2;
             // 
             // pipeNumber
             // 
@@ -290,7 +293,7 @@
             this.pipeNumber.Properties.ValueMember = "Number";
             this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
-            this.pipeNumber.TabIndex = 38;
+            this.pipeNumber.TabIndex = 0;
             // 
             // spoolLength
             // 
@@ -307,7 +310,7 @@
             this.spoolLength.Properties.Mask.EditMask = "d";
             this.spoolLength.Size = new System.Drawing.Size(120, 20);
             this.spoolLength.StyleController = this.mainLayoutControl;
-            this.spoolLength.TabIndex = 16;
+            this.spoolLength.TabIndex = 4;
             // 
             // layoutRootGroup
             // 

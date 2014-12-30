@@ -120,7 +120,9 @@
             this.partsView.GridControl = this.parts;
             this.partsView.Name = "partsView";
             this.partsView.OptionsBehavior.Editable = false;
+            this.partsView.OptionsBehavior.FocusLeaveOnTab = true;
             this.partsView.OptionsCustomization.AllowFilter = false;
+            this.partsView.OptionsNavigation.UseTabKey = false;
             this.partsView.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
