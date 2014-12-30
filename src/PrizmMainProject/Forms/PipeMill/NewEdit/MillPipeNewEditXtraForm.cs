@@ -736,7 +736,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 inspectorSelectionControl.inspectionDate = pipeTestResult.Date;
                }
             }
-        }        
+        }
+
+        private void heatsLookUp_Validated(object sender, EventArgs e)
+        {
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+        }
+
         private void ordersLookUp_Validated(object sender, EventArgs e)
         {
             commandManager["SaveAndNew"].RefreshState();
