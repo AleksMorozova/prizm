@@ -290,22 +290,22 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 7);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 7);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemComponentry_ItemClick(object sender, ItemClickEventArgs e)

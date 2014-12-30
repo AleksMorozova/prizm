@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -79,10 +80,10 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
@@ -350,10 +351,10 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemComponentry),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsWelders),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 

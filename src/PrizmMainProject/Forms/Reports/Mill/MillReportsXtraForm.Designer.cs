@@ -97,6 +97,7 @@
             this.previewReportDocument.Location = new System.Drawing.Point(29, 201);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(1089, 203);
+            this.previewReportDocument.Status = "Документ не содержит каких-либо страниц.";
             this.previewReportDocument.TabIndex = 78;
             // 
             // previewButton

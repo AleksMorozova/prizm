@@ -53,11 +53,12 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox.Image = global::Prizm.Main.Properties.Resources.main_logo_03;
             this.pictureBox.Location = new System.Drawing.Point(86, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(255, 164);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.Size = new System.Drawing.Size(276, 164);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox.TabIndex = 10;
             this.pictureBox.TabStop = false;
             // 
@@ -69,6 +70,7 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.marqueeProgressBarControl);
+            this.DoubleBuffered = true;
             this.Name = "AppSplashScreen";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl.Properties)).EndInit();

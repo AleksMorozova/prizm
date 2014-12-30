@@ -110,11 +110,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             pipesList.RefreshDataSource();
         }
 
-        private void newRailcarButton_Click(object sender, EventArgs e)
-        {
-            viewModel.NewRailcar();
-        }
-
         private void repositoryGridLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             if (e.Value is PipeMillStatus)

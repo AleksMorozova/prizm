@@ -186,6 +186,7 @@
             this.previewReportDocument.Location = new System.Drawing.Point(24, 169);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(892, 257);
+            this.previewReportDocument.Status = "Документ не содержит каких-либо страниц.";
             this.previewReportDocument.TabIndex = 56;
             // 
             // type
@@ -398,7 +399,7 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
-            this.Text = "Строительство - отчет";
+            this.Text = "Отчет по строительству";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConstructionReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.ConstructionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
