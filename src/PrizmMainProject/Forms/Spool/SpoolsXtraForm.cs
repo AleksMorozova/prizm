@@ -27,18 +27,32 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public SpoolsXtraForm(Guid id)
+        public SpoolsXtraForm(Guid id, string number)
         {
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            if (number != string.Empty)
+            {
+                viewModel.SpoolNumber = number;
+            }
             SetAlwaysReadOnly(pipeLength);
-            SetExceptionReadOnly(pipeNumber);
+            if (id == Guid.Empty)
+            {
+                SetExceptionReadOnly(pipeNumber);
+            }
+            else
+            {
+                this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
+                SetAlwaysReadOnly(pipeNumber); 
+            }
             IsEditMode = true;
 
         }
 
-        public SpoolsXtraForm() : this(Guid.Empty) {  }
+        public SpoolsXtraForm() : this(Guid.Empty, string.Empty) {  }
+        public SpoolsXtraForm(Guid id) : this(id, string.Empty) { }
+        public SpoolsXtraForm(string number) : this(Guid.Empty, number) { }
 
         private void BindToViewModel()
         {
@@ -93,9 +107,9 @@ namespace Prizm.Main.Forms.Spool
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
             BindToViewModel();
-            attachmentsButton.Enabled = false;
+            attachmentsButton.Enabled = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = false;
+            IsEditMode = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
             BindCommands();
         }
 

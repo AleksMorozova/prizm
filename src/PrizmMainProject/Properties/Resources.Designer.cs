@@ -570,6 +570,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Результаты контрольных операций успешно сохранены. Номер элемента: .
+        /// </summary>
+        internal static string DLG_INSPECTIONS_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение контрольных операций.
+        /// </summary>
+        internal static string DLG_INSPECTIONS_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
         /// </summary>
         internal static string DLG_JOINT_DEACTIVATION {
@@ -818,6 +836,15 @@ namespace Prizm.Main.Properties {
         internal static string DocumentSizeLimit {
             get {
                 return ResourceManager.GetString("DocumentSizeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  неизвестный тип компонента.
+        /// </summary>
+        internal static string ERROR_UnknownComponentType {
+            get {
+                return ResourceManager.GetString("ERROR_UnknownComponentType", resourceCulture);
             }
         }
         
@@ -1581,6 +1608,15 @@ namespace Prizm.Main.Properties {
         internal static string Spool {
             get {
                 return ResourceManager.GetString("Spool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирование катушки.
+        /// </summary>
+        internal static string SPOOL_EDIT_FORM_TEXT {
+            get {
+                return ResourceManager.GetString("SPOOL_EDIT_FORM_TEXT", resourceCulture);
             }
         }
         

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Mapping
 {
@@ -15,7 +16,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(x => x.Date).Column("inspectionDate");
             Map(x => x.Value).Column("value");
             Map(x => x.Status).Column("status");
-            Map(x => x.Order).Column("[order]");
+            References<Part>(_ => _.Part).Column("partId");
 
             HasManyToMany(_ => _.Inspectors)
                     .Table("[TestResult_Inspector]")

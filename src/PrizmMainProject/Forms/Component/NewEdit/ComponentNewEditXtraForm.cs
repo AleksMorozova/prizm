@@ -27,9 +27,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
        
-        public ComponentNewEditXtraForm() : this(Guid.Empty) { }
+        public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
+        public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
+        public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
 
-        public ComponentNewEditXtraForm(Guid id)
+        public ComponentNewEditXtraForm(Guid id, string number)
         {
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
@@ -38,7 +40,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
-
+            viewModel.Number = number;
             IsEditMode = true;
 
             #region --- Colouring of required controls ---
