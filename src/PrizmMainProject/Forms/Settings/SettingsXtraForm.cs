@@ -107,7 +107,7 @@ namespace Prizm.Main.Forms.Settings
             RefreshUserRoles(0);
             RefreshRolePermissions(0);
 
-            NullOrNotEmptyValidationRule projectValidationRule = new NullOrNotEmptyValidationRule();
+            ProjectTitleEditIfLoadValidationRule projectValidationRule = new ProjectTitleEditIfLoadValidationRule();
             projectValidationRule.ErrorText = Resources.VALUE_REQUIRED;
             projectValidationRule.ErrorType = ErrorType.Critical;
 
@@ -762,6 +762,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void projectPage_Enter(object sender, EventArgs e)
         {
+            // Title is required field but his value refreshed only after page enter.
+            // This tag is checking on 
             projectTitle.Tag = "visited";
         }
 
