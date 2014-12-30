@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Properties;
+using Prizm.Main.Controls;
+using Prizm.Domain.Entity;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -18,6 +23,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
     {
         private PartInspectionViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
+        private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
+        private Dictionary<PartInspectionStatus, string> inspectionStatusDict
+            = new Dictionary<PartInspectionStatus, string>();
         public PartInspectionXtraForm()
         {
             InitializeComponent();
@@ -26,6 +34,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
+            viewModel.CurrentForm = this;
             BindCommands();
             BindToViewModel();
         }
@@ -33,15 +42,118 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            commandManager["Save"].Executor(viewModel.SaveInspectionTestResultsCommand).AttachTo(saveButton);
+            commandManager["SavaAndClear"].Executor(viewModel.SaveAndClearTestResultsCommand).AttachTo(saveAndClearButton);
         }
 
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
             searchNumber.DataBindings.Add("Editvalue", bindingSource, "SearchNumber");
-            elementNumber.DataBindings.Add("Text", bindingSource, "SelectedElement.Number");
-            elementType.DataBindings.Add("Text", bindingSource, "SelectedElement.Type");
+            elementNumber.DataBindings.Add("Text", bindingSource, "ElementNumber");
+            elementType.DataBindings.Add("Text", bindingSource, "ElementType");
             inspections.DataBindings.Add("DataSource", bindingSource, "InspectionTestResults");
+
+            inspectionStatusDict.Clear();
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            resultStatusLookUpEdit.DataSource = inspectionStatusDict;
+
+            inspectorsDataSource.DataSource = viewModel.Inspectors;
+            inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
+            inspectorSelectionControl.DataSource = inspectorsDataSource;
+            var inspectorsPopup = new PopupContainerControl();
+            inspectorsPopup.Controls.Add(inspectorSelectionControl);
+            inspectorSelectionControl.Dock = DockStyle.Fill;
+            inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
+            inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
         }
+
+        private void resultStatusLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value is PartInspectionStatus)
+            {
+                e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
+            }
+        }
+
+        private void resultStatusLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lookup = sender as LookUpEdit;
+
+            if (!(lookup.EditValue is PartInspectionStatus))
+            {
+                KeyValuePair<PartInspectionStatus, string> val
+                    = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
+                lookup.EditValue = val.Key;
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
+
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+        }
+
+        private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
+        {
+            inspectionsView.ClearSelection();
+            if (inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
+            {
+                InspectionTestResult inspectionTestResult
+                    = inspectionsView.GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
+
+                if (inspectionTestResult != null)
+                {
+                    inspectorSelectionControl.SelectInspectors(inspectionTestResult.Inspectors);
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            if (inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
+            {
+                IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
+                InspectionTestResult inspectionTestResult
+                    = inspectionsView.GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
+
+                if (inspectionTestResult != null)
+                {
+                    inspectionTestResult.Inspectors.Clear();
+                    foreach (Inspector i in selectedInspectors)
+                    {
+                        inspectionTestResult.Inspectors.Add(i);
+                    }
+                }
+            }
+        }
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            InspectionTestResult inspectionTestResult
+                = inspectionsView
+                .GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
+
+            if (inspectionTestResult == null)
+                e.Cancel = true;
+        }
+
+        private void inspectionsView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            InspectionTestResult inspectionTestResult
+                = v.GetRow(e.RowHandle) as InspectionTestResult;
+
+            inspectionTestResult.IsActive = true;
+            inspectionTestResult.Status = PartInspectionStatus.Pending;
+            inspectionTestResult.Part = viewModel.ConvertedPart;
+        }
+            
     }
 }

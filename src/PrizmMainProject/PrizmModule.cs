@@ -33,6 +33,7 @@ using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Forms.Parts.Inspection;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -81,6 +82,7 @@ namespace Prizm.Main
             Bind<IInspectorRepository>().To<InspectorRepository>();
             Bind<IFileRepository>().To<FileRepository>();
             Bind<IInspectionTestResultRepository>().To<InspectionTestResultRepository>();
+            Bind<IPartInspectionRepository>().To<PartInspectionRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 

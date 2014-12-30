@@ -34,7 +34,9 @@
             this.inspectionsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colResult = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.colReason = new DevExpress.XtraGrid.Columns.GridColumn();
             this.elementType = new DevExpress.XtraEditors.TextEdit();
             this.elementNumber = new DevExpress.XtraEditors.TextEdit();
@@ -49,12 +51,20 @@
             this.elementTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.elementNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.elementEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchNumber.Properties)).BeginInit();
@@ -67,12 +77,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndClearLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
             this.SuspendLayout();
             // 
             // inspectionLayoutControl
             // 
+            this.inspectionLayoutControl.Controls.Add(this.saveAndClearButton);
+            this.inspectionLayoutControl.Controls.Add(this.saveButton);
             this.inspectionLayoutControl.Controls.Add(this.inspections);
             this.inspectionLayoutControl.Controls.Add(this.elementType);
             this.inspectionLayoutControl.Controls.Add(this.elementNumber);
@@ -90,10 +106,13 @@
             // inspections
             // 
             this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspections.Location = new System.Drawing.Point(24, 187);
+            this.inspections.Location = new System.Drawing.Point(29, 187);
             this.inspections.MainView = this.inspectionsView;
             this.inspections.Name = "inspections";
-            this.inspections.Size = new System.Drawing.Size(853, 282);
+            this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.resultStatusLookUpEdit,
+            this.inspectorsPopupContainerEdit});
+            this.inspections.Size = new System.Drawing.Size(848, 256);
             this.inspections.TabIndex = 8;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsView});
@@ -107,7 +126,10 @@
             this.colReason});
             this.inspectionsView.GridControl = this.inspections;
             this.inspectionsView.Name = "inspectionsView";
+            this.inspectionsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
+            this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
             // 
             // colDate
             // 
@@ -120,18 +142,44 @@
             // colResult
             // 
             this.colResult.Caption = "Результат";
+            this.colResult.ColumnEdit = this.resultStatusLookUpEdit;
             this.colResult.FieldName = "Status";
             this.colResult.Name = "colResult";
             this.colResult.Visible = true;
             this.colResult.VisibleIndex = 1;
             // 
+            // resultStatusLookUpEdit
+            // 
+            this.resultStatusLookUpEdit.AutoHeight = false;
+            this.resultStatusLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultStatusLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Статус")});
+            this.resultStatusLookUpEdit.DisplayMember = "Value";
+            this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
+            this.resultStatusLookUpEdit.NullText = "";
+            this.resultStatusLookUpEdit.EditValueChanged += new System.EventHandler(this.resultStatusLookUpEdit_EditValueChanged);
+            this.resultStatusLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultStatusLookUpEdit_CustomDisplayText);
+            // 
             // colInspector
             // 
             this.colInspector.Caption = "Инспектор";
+            this.colInspector.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.colInspector.FieldName = "Inspectors";
             this.colInspector.Name = "colInspector";
             this.colInspector.Visible = true;
             this.colInspector.VisibleIndex = 2;
+            // 
+            // inspectorsPopupContainerEdit
+            // 
+            this.inspectorsPopupContainerEdit.AutoHeight = false;
+            this.inspectorsPopupContainerEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
+            this.inspectorsPopupContainerEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.inspectorsPopupContainerEdit_QueryPopUp);
+            this.inspectorsPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.inspectorsPopupContainerEdit_CloseUp);
+            this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
+            this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
             // 
             // colReason
             // 
@@ -247,7 +295,10 @@
             this.elementTypeLayout,
             this.elementNumberLayout,
             this.inspectionsLayout,
-            this.emptySpaceItem1});
+            this.elementEmptySpaceItem,
+            this.saveButtonLayout,
+            this.saveAndClearLayout,
+            this.buttonsEmptySpaceItem});
             this.inspectionControlGroup.Location = new System.Drawing.Point(0, 89);
             this.inspectionControlGroup.Name = "inspectionControlGroup";
             this.inspectionControlGroup.Size = new System.Drawing.Size(881, 384);
@@ -287,23 +338,79 @@
             this.inspectionsLayout.CustomizationFormText = "inspectionsLayout";
             this.inspectionsLayout.Location = new System.Drawing.Point(0, 40);
             this.inspectionsLayout.Name = "inspectionsLayout";
-            this.inspectionsLayout.Size = new System.Drawing.Size(857, 301);
-            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
+            this.inspectionsLayout.Size = new System.Drawing.Size(857, 275);
+            this.inspectionsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 15, 0);
             this.inspectionsLayout.Text = "inspectionsLayout";
             this.inspectionsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionsLayout.TextToControlDistance = 0;
             this.inspectionsLayout.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // elementEmptySpaceItem
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(358, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(499, 40);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.elementEmptySpaceItem.AllowHotTrack = false;
+            this.elementEmptySpaceItem.CustomizationFormText = "elementEmptySpaceItem";
+            this.elementEmptySpaceItem.Location = new System.Drawing.Point(358, 0);
+            this.elementEmptySpaceItem.Name = "elementEmptySpaceItem";
+            this.elementEmptySpaceItem.Size = new System.Drawing.Size(499, 40);
+            this.elementEmptySpaceItem.Text = "elementEmptySpaceItem";
+            this.elementEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(635, 447);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(85, 22);
+            this.saveButton.StyleController = this.inspectionLayoutControl;
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Сохранить";
+            // 
+            // saveButtonLayout
+            // 
+            this.saveButtonLayout.Control = this.saveButton;
+            this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
+            this.saveButtonLayout.Location = new System.Drawing.Point(611, 315);
+            this.saveButtonLayout.Name = "saveButtonLayout";
+            this.saveButtonLayout.Size = new System.Drawing.Size(94, 26);
+            this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
+            this.saveButtonLayout.Text = "saveButtonLayout";
+            this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveButtonLayout.TextToControlDistance = 0;
+            this.saveButtonLayout.TextVisible = false;
+            // 
+            // saveAndClearButton
+            // 
+            this.saveAndClearButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndClearButton.Image")));
+            this.saveAndClearButton.Location = new System.Drawing.Point(739, 447);
+            this.saveAndClearButton.Name = "saveAndClearButton";
+            this.saveAndClearButton.Size = new System.Drawing.Size(138, 22);
+            this.saveAndClearButton.StyleController = this.inspectionLayoutControl;
+            this.saveAndClearButton.TabIndex = 10;
+            this.saveAndClearButton.Text = "Сохранить/Очистить";
+            // 
+            // saveAndClearLayout
+            // 
+            this.saveAndClearLayout.Control = this.saveAndClearButton;
+            this.saveAndClearLayout.CustomizationFormText = "saveAndClearLayout";
+            this.saveAndClearLayout.Location = new System.Drawing.Point(705, 315);
+            this.saveAndClearLayout.Name = "saveAndClearLayout";
+            this.saveAndClearLayout.Size = new System.Drawing.Size(152, 26);
+            this.saveAndClearLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
+            this.saveAndClearLayout.Text = "saveAndClearLayout";
+            this.saveAndClearLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveAndClearLayout.TextToControlDistance = 0;
+            this.saveAndClearLayout.TextVisible = false;
+            // 
+            // buttonsEmptySpaceItem
+            // 
+            this.buttonsEmptySpaceItem.AllowHotTrack = false;
+            this.buttonsEmptySpaceItem.CustomizationFormText = "buttonsEmptySpaceItem";
+            this.buttonsEmptySpaceItem.Location = new System.Drawing.Point(0, 315);
+            this.buttonsEmptySpaceItem.Name = "buttonsEmptySpaceItem";
+            this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(611, 26);
+            this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
+            this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PartInspectionXtraForm
             // 
@@ -318,6 +425,8 @@
             this.inspectionLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchNumber.Properties)).EndInit();
@@ -330,8 +439,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveAndClearLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,11 +467,19 @@
         private DevExpress.XtraLayout.LayoutControlItem elementNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem inspectionsLayout;
         private DevExpress.XtraLayout.EmptySpaceItem findElementEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem elementEmptySpaceItem;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
         private DevExpress.XtraGrid.Columns.GridColumn colResult;
         private DevExpress.XtraGrid.Columns.GridColumn colInspector;
         private DevExpress.XtraGrid.Columns.GridColumn colReason;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultStatusLookUpEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
+        private System.Windows.Forms.BindingSource inspectorsDataSource;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
+        private DevExpress.XtraEditors.SimpleButton saveAndClearButton;
+        private DevExpress.XtraLayout.LayoutControlItem saveAndClearLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
     }
 }

@@ -8,8 +8,6 @@ namespace Prizm.Domain.Entity.Construction
 {
     public class InspectionTestResult : TestResult<PartInspectionStatus>
     {
-        public InspectionTestResult()
-        {
-        }
+        public virtual Part Part { get; set; }
     }
 }

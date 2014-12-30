@@ -279,6 +279,7 @@
     <Compile Include="Forms\Parts\Inspection\NumbersDialog.Designer.cs">
       <DependentUpon>NumbersDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Parts\Inspection\PartInspectionRepository.cs" />
     <Compile Include="Forms\Parts\Inspection\PartInspectionViewModel.cs" />
     <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.cs">
       <SubType>Form</SubType>
@@ -286,7 +287,10 @@
     <Compile Include="Forms\Parts\Inspection\PartInspectionXtraForm.Designer.cs">
       <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Parts\Inspection\SaveAndClearTestResultsCommand.cs" />
+    <Compile Include="Forms\Parts\Inspection\SaveInspectionTestResultsCommand.cs" />
     <Compile Include="Forms\Parts\Inspection\SearchPartForInspectionCommand.cs" />
+    <Compile Include="Forms\Parts\Inspection\IPartInspectionRepository.cs" />
     <Compile Include="Forms\Parts\Search\Part.cs" />
     <Compile Include="Forms\Parts\Search\PartQuery.cs" />
     <Compile Include="Forms\Parts\Search\PartSearchCommand.cs" />
@@ -569,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainChildForm\AppWaitForm.resx">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Parts\Inspection\CreationDialog.resx">
+      <DependentUpon>CreationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\NumbersDialog.resx">
       <DependentUpon>NumbersDialog.cs</DependentUpon>

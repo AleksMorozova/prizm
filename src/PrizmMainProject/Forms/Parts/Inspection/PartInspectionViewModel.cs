@@ -3,9 +3,11 @@ using DevExpress.Mvvm.POCO;
 using NHibernate;
 using Ninject;
 using Prizm.Data.DAL;
+using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,19 +20,29 @@ namespace Prizm.Main.Forms.Parts.Inspection
     public class PartInspectionViewModel : ViewModelBase, IDisposable
     {
         SearchPartForInspectionCommand searchCommand;
+        SaveInspectionTestResultsCommand saveInspectionTestResultsCommand;
+        SaveAndClearTestResultsCommand saveAndClearTestResultsCommand;
         ISession session;
-        private readonly IInspectionTestResultRepository repo;
+        private readonly IPartInspectionRepository repos;
         private string searchNumber = string.Empty;
-        private BindingList<Part> parts = new BindingList<Part>();
-        private Part selectedElement;
+        private BindingList<Main.Forms.Parts.Search.Part> parts = new BindingList<Main.Forms.Parts.Search.Part>();
+        private Main.Forms.Parts.Search.Part selectedElement;
+        private Domain.Entity.Part convertedPart;
         private BindingList<InspectionTestResult> inspectionTestResults;
+        public IList<Inspector> Inspectors { get; set; }
+        private readonly IUserNotify notify;
 
         [Inject]
-        public PartInspectionViewModel(ISession session, IInspectionTestResultRepository repo)
+        public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify)
         {
             this.session = session;
-            this.repo = repo;
+            this.repos = repos;
+            this.notify = notify;
+            this.Inspectors = repos.RepoInspector.GetAll();
             searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session));
+            saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify));
+            saveAndClearTestResultsCommand = ViewModelSource.Create(() => new SaveAndClearTestResultsCommand(this));
+            this.Inspectors = repos.RepoInspector.GetAll();
         }
 
 
@@ -46,13 +58,13 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 }
             }
         }
-    
-        public BindingList<Part> Parts
+
+        public BindingList<Main.Forms.Parts.Search.Part> Parts
         {
             get { return parts; }
             set
             {
-                if (value != parts)
+                if (parts != value)
                 {
                     parts = value;
                     RaisePropertyChanged("Parts");
@@ -60,23 +72,52 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
         }
 
-        public Part SelectedElement
+        public string ElementNumber
+        {
+            get { return (selectedElement != null)? selectedElement.Number : string.Empty; }
+        }
+
+        public string ElementType
+        {
+            get { return (selectedElement != null)? selectedElement.Type.ToString() : string.Empty; }
+        }
+
+        public Main.Forms.Parts.Search.Part SelectedElement
         {
             get { return selectedElement; }
             set
             {
-                if (value != selectedElement)
+                if (selectedElement != value)
                 {
                     selectedElement = value;
-
-                    var results = repo.GetByPartId(selectedElement.Id);
-                    if (results != null)
+                    if (selectedElement != null)
                     {
-                        InspectionTestResults = new BindingList<InspectionTestResult>(results);
+                        switch (selectedElement.Type.Value)
+                        {
+                            case PartType.Pipe: convertedPart = (Domain.Entity.Part)repos.RepoPipe.Get(selectedElement.Id);
+                                break;
+                            case PartType.Spool: convertedPart = (Domain.Entity.Part)repos.RepoSpool.Get(selectedElement.Id);
+                                break;
+                            case PartType.Component: convertedPart = (Domain.Entity.Part)repos.RepoComponent.Get(selectedElement.Id);
+                                break;
+                            default: notify.ShowError(Resources.DLG_ERROR_HEADER, Resources.IDS_ERROR + Resources.ERROR_UnknownComponentType);
+                                break;
+
+                        }
+                        var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);
+                        if (results != null)
+                        {
+                            InspectionTestResults = new BindingList<InspectionTestResult>(results);
+                        }
                     }
                     RaisePropertyChanged("SelectedElement");
                 }
             }
+        }
+
+        public Domain.Entity.Part ConvertedPart
+        {
+            get { return convertedPart; }
         }
 
         public BindingList<InspectionTestResult> InspectionTestResults
@@ -84,7 +125,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return inspectionTestResults; }
             set
             {
-                if (value != inspectionTestResults)
+                if (inspectionTestResults != value)
                 {
                     inspectionTestResults = value;
                     RaisePropertyChanged("InspectionTestResults");
@@ -92,14 +133,37 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
         }
 
+        internal string FormatInspectorList(IList<Inspector> inspectors)
+        {
+            if (inspectors == null)
+                return String.Empty;
+
+            return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
+        }
+
         public void Dispose()
         {
             session.Dispose();
+            repos.Dispose();
         }
 
+        #region Commands
         public ICommand SearchCommand
         {
             get { return searchCommand; }
         }
+
+        public ICommand SaveInspectionTestResultsCommand
+        {
+            get { return saveInspectionTestResultsCommand; }
+        }
+
+        public ICommand SaveAndClearTestResultsCommand
+        {
+            get { return saveAndClearTestResultsCommand; }
+        }
+        #endregion
+
+        public PartInspectionXtraForm CurrentForm { get; set; }
     }
 }
