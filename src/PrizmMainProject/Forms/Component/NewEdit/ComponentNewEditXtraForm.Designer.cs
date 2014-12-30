@@ -134,7 +134,8 @@
             this.newEditPipeLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newEditPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.newEditPipeLayout.Name = "newEditPipeLayout";
-            this.newEditPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(295, 163, 250, 350);
+            this.newEditPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(271, 163, 361, 432);
+            this.newEditPipeLayout.OptionsFocus.EnableAutoTabOrder = false;
             this.newEditPipeLayout.Root = this.componentNewLayoutGroup;
             this.newEditPipeLayout.Size = new System.Drawing.Size(1009, 485);
             this.newEditPipeLayout.TabIndex = 8;
@@ -148,7 +149,7 @@
             this.componentLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.componentLength.Size = new System.Drawing.Size(143, 20);
             this.componentLength.StyleController = this.newEditPipeLayout;
-            this.componentLength.TabIndex = 18;
+            this.componentLength.TabIndex = 3;
             // 
             // type
             // 
@@ -158,7 +159,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.type.Size = new System.Drawing.Size(143, 20);
             this.type.StyleController = this.newEditPipeLayout;
-            this.type.TabIndex = 17;
+            this.type.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.type, conditionValidationRule1);
@@ -181,8 +182,8 @@
             this.newSaveComponentButton.Name = "newSaveComponentButton";
             this.newSaveComponentButton.Size = new System.Drawing.Size(145, 22);
             this.newSaveComponentButton.StyleController = this.newEditPipeLayout;
-            this.newSaveComponentButton.TabIndex = 14;
-            this.newSaveComponentButton.Text = "Сохранить / Создать";
+            this.newSaveComponentButton.TabIndex = 8;
+            this.newSaveComponentButton.Text = "Сох&ранить / Создать";
             // 
             // saveComponentButton
             // 
@@ -191,8 +192,8 @@
             this.saveComponentButton.Name = "saveComponentButton";
             this.saveComponentButton.Size = new System.Drawing.Size(94, 22);
             this.saveComponentButton.StyleController = this.newEditPipeLayout;
-            this.saveComponentButton.TabIndex = 13;
-            this.saveComponentButton.Text = "Сохранить";
+            this.saveComponentButton.TabIndex = 7;
+            this.saveComponentButton.Text = "Со&хранить";
             // 
             // attachmentsButton
             // 
@@ -201,8 +202,8 @@
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Size = new System.Drawing.Size(91, 22);
             this.attachmentsButton.StyleController = this.newEditPipeLayout;
-            this.attachmentsButton.TabIndex = 12;
-            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.TabIndex = 6;
+            this.attachmentsButton.Text = "В&ложения";
             this.attachmentsButton.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // inspectionHistoryGrid
@@ -216,7 +217,7 @@
             this.repositoryInspectionStatus,
             this.inspectorsPopupContainerEdit});
             this.inspectionHistoryGrid.Size = new System.Drawing.Size(558, 373);
-            this.inspectionHistoryGrid.TabIndex = 9;
+            this.inspectionHistoryGrid.TabIndex = 5;
             this.inspectionHistoryGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
             // 
@@ -230,6 +231,8 @@
             this.inspectionHistoryGridView.GridControl = this.inspectionHistoryGrid;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
@@ -327,6 +330,8 @@
             this.wallThicknessGridColumn});
             this.componentParametersView.GridControl = this.componentParameters;
             this.componentParametersView.Name = "componentParametersView";
+            this.componentParametersView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.componentParametersView.OptionsNavigation.UseTabKey = false;
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
             // 
             // diameterGridColumn
@@ -421,7 +426,7 @@
             this.componentNumberLayout.Name = "componentNumberLayout";
             this.componentNumberLayout.Size = new System.Drawing.Size(182, 54);
             this.componentNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.componentNumberLayout.Text = "Номер изделия";
+            this.componentNumberLayout.Text = "Ном&ер изделия";
             this.componentNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentNumberLayout.TextSize = new System.Drawing.Size(143, 13);
             // 
@@ -433,7 +438,7 @@
             this.certificateLayout.Name = "certificateLayout";
             this.certificateLayout.Size = new System.Drawing.Size(182, 54);
             this.certificateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.certificateLayout.Text = "Номер сертификата";
+            this.certificateLayout.Text = "Номер серт&ификата";
             this.certificateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.certificateLayout.TextSize = new System.Drawing.Size(143, 13);
             // 
@@ -459,7 +464,7 @@
             this.typeLayoutControl.Name = "typeLayoutControl";
             this.typeLayoutControl.Size = new System.Drawing.Size(177, 54);
             this.typeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.typeLayoutControl.Text = "Тип изделия";
+            this.typeLayoutControl.Text = "&Тип изделия";
             this.typeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.typeLayoutControl.TextSize = new System.Drawing.Size(143, 13);
             // 
@@ -471,7 +476,7 @@
             this.componentLengthLayout.Name = "componentLengthLayout";
             this.componentLengthLayout.Size = new System.Drawing.Size(177, 54);
             this.componentLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.componentLengthLayout.Text = "Длина комплектующего, мм";
+            this.componentLengthLayout.Text = "Длина комплектую&щего, мм";
             this.componentLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.componentLengthLayout.TextSize = new System.Drawing.Size(143, 13);
             // 
