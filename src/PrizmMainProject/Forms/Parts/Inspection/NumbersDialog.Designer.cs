@@ -184,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(417, 261);
             this.Controls.Add(this.dialogLayout);
             this.Name = "NumbersDialog";
-            this.Text = "NumbersDialog";
+            this.Text = "Выбор элемента";
             this.Load += new System.EventHandler(this.NumbersDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dialogLayout)).EndInit();
             this.dialogLayout.ResumeLayout(false);

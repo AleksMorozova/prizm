@@ -6,6 +6,7 @@ using Prizm.Data.DAL;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
+using Prizm.Main.Documents;
 using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Properties;
 using System;
@@ -31,6 +32,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private BindingList<InspectionTestResult> inspectionTestResults;
         public IList<Inspector> Inspectors { get; set; }
         private readonly IUserNotify notify;
+        private IModifiable modifiableView;
 
         [Inject]
         public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify)
@@ -92,6 +94,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                     selectedElement = value;
                     if (selectedElement != null)
                     {
+                        modifiableView.IsEditMode = true;
                         switch (selectedElement.Type.Value)
                         {
                             case PartType.Pipe: convertedPart = (Domain.Entity.Part)repos.RepoPipe.Get(selectedElement.Id);
@@ -102,7 +105,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
                                 break;
                             default: notify.ShowError(Resources.DLG_ERROR_HEADER, Resources.IDS_ERROR + Resources.ERROR_UnknownComponentType);
                                 break;
-
                         }
                         var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);
                         if (results != null)
@@ -147,6 +149,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
             repos.Dispose();
         }
 
+        public Documents.IModifiable ModifiableView
+        {
+            get
+            {
+                return modifiableView;
+            }
+            set
+            {
+                modifiableView = value;
+            }
+        }
+
         #region Commands
         public ICommand SearchCommand
         {
@@ -164,6 +178,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
         #endregion
 
+       /// <summary>
+       /// Is used in SearchPartInspectionCommand to get MDIParent 
+       /// </summary>
         public PartInspectionXtraForm CurrentForm { get; set; }
     }
 }

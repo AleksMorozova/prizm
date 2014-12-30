@@ -25,16 +25,15 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public void Execute()
         {
             viewModel.SaveInspectionTestResultsCommand.Execute();
-
             viewModel.InspectionTestResults = null;
             viewModel.SelectedElement = null;
-            
-               
+                           
         }
         public virtual bool IsExecutable { get; set; }
         public bool CanExecute()
         {
-            return viewModel.InspectionTestResults == null;
+            bool condition = (viewModel.InspectionTestResults == null) ? false : true;
+            return condition;
         }
     }
 }

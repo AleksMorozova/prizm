@@ -18,6 +18,9 @@ namespace Prizm.Data.DAL.Hibernate
         {
         }
 
+        /// <summary>
+        /// Is used SQL query instead of queryOver because we cannot form instance on Domain.Entity.Part class with defined id
+        /// </summary>
         public IList<InspectionTestResult> GetByPartId(Guid partId)
         {
             ISQLQuery query = session.CreateSQLQuery(

@@ -29,14 +29,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public PartInspectionXtraForm()
         {
             InitializeComponent();
+            SetExceptionReadOnly(searchNumber);
+            IsEditMode = true;
         }
 
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
+            viewModel.ModifiableView = this;
             BindCommands();
             BindToViewModel();
+            IsEditMode = false;
         }
 
         private void BindCommands()
@@ -44,6 +48,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
             commandManager["Save"].Executor(viewModel.SaveInspectionTestResultsCommand).AttachTo(saveButton);
             commandManager["SavaAndClear"].Executor(viewModel.SaveAndClearTestResultsCommand).AttachTo(saveAndClearButton);
+            commandManager["Save"].RefreshState();
+            commandManager["SavaAndClear"].RefreshState();
+
         }
 
         private void BindToViewModel()
@@ -154,6 +161,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectionTestResult.Status = PartInspectionStatus.Pending;
             inspectionTestResult.Part = viewModel.ConvertedPart;
         }
+
+        private void elementNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            commandManager["Save"].RefreshState();
+            commandManager["SavaAndClear"].RefreshState();
+        }            
             
     }
 }

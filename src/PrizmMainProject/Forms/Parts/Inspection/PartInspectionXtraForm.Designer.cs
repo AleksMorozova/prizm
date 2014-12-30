@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartInspectionXtraForm));
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,13 +54,11 @@
             this.elementNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.elementEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -78,11 +78,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementEmptySpaceItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndClearLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             this.SuspendLayout();
             // 
             // inspectionLayoutControl
@@ -102,6 +102,26 @@
             this.inspectionLayoutControl.Size = new System.Drawing.Size(901, 493);
             this.inspectionLayoutControl.TabIndex = 0;
             this.inspectionLayoutControl.Text = "layoutControl1";
+            // 
+            // saveAndClearButton
+            // 
+            this.saveAndClearButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndClearButton.Image")));
+            this.saveAndClearButton.Location = new System.Drawing.Point(739, 447);
+            this.saveAndClearButton.Name = "saveAndClearButton";
+            this.saveAndClearButton.Size = new System.Drawing.Size(138, 22);
+            this.saveAndClearButton.StyleController = this.inspectionLayoutControl;
+            this.saveAndClearButton.TabIndex = 10;
+            this.saveAndClearButton.Text = "Сохранить/Очистить";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(635, 447);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(85, 22);
+            this.saveButton.StyleController = this.inspectionLayoutControl;
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Сохранить";
             // 
             // inspections
             // 
@@ -138,6 +158,7 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 0;
+            this.colDate.Width = 107;
             // 
             // colResult
             // 
@@ -147,6 +168,7 @@
             this.colResult.Name = "colResult";
             this.colResult.Visible = true;
             this.colResult.VisibleIndex = 1;
+            this.colResult.Width = 148;
             // 
             // resultStatusLookUpEdit
             // 
@@ -169,6 +191,7 @@
             this.colInspector.Name = "colInspector";
             this.colInspector.Visible = true;
             this.colInspector.VisibleIndex = 2;
+            this.colInspector.Width = 360;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -188,6 +211,7 @@
             this.colReason.Name = "colReason";
             this.colReason.Visible = true;
             this.colReason.VisibleIndex = 3;
+            this.colReason.Width = 175;
             // 
             // elementType
             // 
@@ -206,6 +230,7 @@
             this.elementNumber.Size = new System.Drawing.Size(200, 20);
             this.elementNumber.StyleController = this.inspectionLayoutControl;
             this.elementNumber.TabIndex = 6;
+            this.elementNumber.EditValueChanged += new System.EventHandler(this.elementNumber_EditValueChanged);
             // 
             // searchButton
             // 
@@ -356,16 +381,6 @@
             this.elementEmptySpaceItem.Text = "elementEmptySpaceItem";
             this.elementEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // saveButton
-            // 
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(635, 447);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(85, 22);
-            this.saveButton.StyleController = this.inspectionLayoutControl;
-            this.saveButton.TabIndex = 9;
-            this.saveButton.Text = "Сохранить";
-            // 
             // saveButtonLayout
             // 
             this.saveButtonLayout.Control = this.saveButton;
@@ -378,16 +393,6 @@
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
-            // 
-            // saveAndClearButton
-            // 
-            this.saveAndClearButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndClearButton.Image")));
-            this.saveAndClearButton.Location = new System.Drawing.Point(739, 447);
-            this.saveAndClearButton.Name = "saveAndClearButton";
-            this.saveAndClearButton.Size = new System.Drawing.Size(138, 22);
-            this.saveAndClearButton.StyleController = this.inspectionLayoutControl;
-            this.saveAndClearButton.TabIndex = 10;
-            this.saveAndClearButton.Text = "Сохранить/Очистить";
             // 
             // saveAndClearLayout
             // 
@@ -440,11 +445,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementEmptySpaceItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveAndClearLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             this.ResumeLayout(false);
 
         }
