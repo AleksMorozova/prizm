@@ -257,15 +257,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
                 Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
-
-
-                weld.Welders.Clear();
-                foreach(Welder w in selectedWelders)
+                if (weld != null)
                 {
-                    weld.Welders.Add(w);
-                    w.Welds.Add(weld);
+                    weld.Welders.Clear();
+                    foreach (Welder w in selectedWelders)
+                    {
+                        weld.Welders.Add(w);
+                        w.Welds.Add(weld);
+                    }
                 }
             }
 
@@ -277,22 +276,32 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
             {
                 Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
-                if(weld == null)
-                    return;
+                if (weld != null)
+                { 
+                    weldersSelectionControl.SelectWelders(weld.Welders);
+                }
 
-                weldersSelectionControl.SelectWelders(weld.Welders);
+                
             }
         }
 
         private void repositoryItemPopupWelders_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
-                e.DisplayText = string.Empty;
-
-            IList<Welder> welders = e.Value as IList<Welder>;
-            if (viewModel != null)
+            Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
+            if (weld != null && weld.Date != null)
             {
-                e.DisplayText = viewModel.FormatWeldersList(welders);
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
+
+                IList<Welder> welders = e.Value as IList<Welder>;
+                if (viewModel != null)
+                {
+                    e.DisplayText = viewModel.FormatWeldersList(welders);
+                }
+            }
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
             }
         }
 
@@ -300,7 +309,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if (weld == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (weld.Date == null)
+                {
+                    weldersSelectionControl.weldDate = weld.Date;
+                }
+            }
         }
 
         private void pipeNumber_EditValueChanged(object sender, EventArgs e)
@@ -381,22 +399,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(inspectionsGridView.IsValidRowHandle(inspectionsGridView.FocusedRowHandle))
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
-                if(pipeTestResult == null)
-                    return;
-
-                inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+                if (pipeTestResult != null)
+                { 
+                    inspectorSelectionControl.SelectInspectors(pipeTestResult.Inspectors);
+                }
             }
         }
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if(e.Value == null)
-                e.DisplayText = string.Empty;
+            PipeTestResult pipeTestResult
+                     = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            if (viewModel != null)
+            if (pipeTestResult != null && pipeTestResult.Date != null)
             {
-                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                    if (e.Value == null)
+                        e.DisplayText = string.Empty;
+
+                    IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                    if (viewModel != null)
+                    {
+                        e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                    }
+
+            }
+            else 
+            {
+                e.DisplayText = Resources.DateFirst; ;
             }
         }
 
@@ -481,11 +510,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 currentTestResult.Order = viewModel.PipeTestResults.Max(test => test.Order) + 1;
                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
             }
-        }
-
-        private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
-        {
-
         }
 
         private void deactivate_Modified(object sender, EventArgs e)
@@ -693,5 +717,37 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         #endregion
+
+        private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
+            if (pipeTestResult == null)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+               if( pipeTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+               else
+               {
+                inspectorSelectionControl.inspectionDate = pipeTestResult.Date;
+               }
+            }
+        }
+
+        private void heatsLookUp_Validated(object sender, EventArgs e)
+        {
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+        }
+
+        private void ordersLookUp_Validated(object sender, EventArgs e)
+        {
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+        }
     }
 }

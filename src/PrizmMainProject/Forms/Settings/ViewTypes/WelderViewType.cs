@@ -80,7 +80,6 @@ namespace Prizm.Main.Forms.Settings.ViewTypes
       { 
          get
          {
-             welder.CheckExpirationDate();
             return welder.Certificate;
          }
          set
@@ -88,7 +87,6 @@ namespace Prizm.Main.Forms.Settings.ViewTypes
              CheckCertificate();
              if (value != welder.Certificate)
             {
-                welder.Certificate = value;
                FirePropertyChanged("Certificate");
             }
          }

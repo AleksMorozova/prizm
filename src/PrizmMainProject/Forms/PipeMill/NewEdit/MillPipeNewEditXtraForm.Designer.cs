@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
-            this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldBindingSource = new System.Windows.Forms.BindingSource();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             this.pipe = new DevExpress.XtraTab.XtraTabControl();
             this.generalParametersPage = new DevExpress.XtraTab.XtraTabPage();
             this.pipeGeneralParametersLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -54,7 +53,7 @@
             this.destination = new DevExpress.XtraEditors.TextEdit();
             this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
             this.coatingHistory = new DevExpress.XtraGrid.GridControl();
-            this.coatDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coatDataSource = new System.Windows.Forms.BindingSource();
             this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +86,7 @@
             this.inspectionPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalInspectionsLayout = new DevExpress.XtraLayout.LayoutControl();
             this.inspections = new DevExpress.XtraGrid.GridControl();
-            this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionOperation = new System.Windows.Forms.BindingSource();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -136,10 +135,10 @@
             this.ordersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeParametersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.weldingDs = new System.Windows.Forms.BindingSource();
+            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -315,6 +314,7 @@
             this.repositoryItemPopupWelders.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemPopupWelders.Name = "repositoryItemPopupWelders";
+            this.repositoryItemPopupWelders.NullText = "Date first";
             this.repositoryItemPopupWelders.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.repositoryItemPopupWelders_QueryPopUp);
             this.repositoryItemPopupWelders.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.repositoryItemPopupWelders_CloseUp);
             this.repositoryItemPopupWelders.Popup += new System.EventHandler(this.repositoryItemPopupWelders_Popup);
@@ -390,9 +390,9 @@
             this.plateNumber.Size = new System.Drawing.Size(254, 20);
             this.plateNumber.StyleController = this.pipeGeneralParametersLayout;
             this.plateNumber.TabIndex = 25;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider.SetValidationRule(this.plateNumber, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.plateNumber, conditionValidationRule4);
             // 
             // shippedDate
             // 
@@ -933,7 +933,7 @@
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
             this.inspectorsGridColumn.Visible = true;
-            this.inspectorsGridColumn.VisibleIndex = 6;
+            this.inspectorsGridColumn.VisibleIndex = 7;
             this.inspectorsGridColumn.Width = 245;
             // 
             // inspectorsPopupContainerEdit
@@ -943,6 +943,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.inspectorsPopupContainerEdit.Name = "inspectorsPopupContainerEdit";
             this.inspectorsPopupContainerEdit.PopupFormMinSize = new System.Drawing.Size(350, 0);
+            this.inspectorsPopupContainerEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.inspectorsPopupContainerEdit_QueryPopUp);
             this.inspectorsPopupContainerEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.inspectorsPopupContainerEdit_CloseUp);
             this.inspectorsPopupContainerEdit.Popup += new System.EventHandler(this.inspectorsPopupContainerEdit_Popup);
             this.inspectorsPopupContainerEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.inspectorsPopupContainerEdit_CustomDisplayText);
@@ -953,7 +954,7 @@
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
             this.controlDateGridColumn.Visible = true;
-            this.controlDateGridColumn.VisibleIndex = 7;
+            this.controlDateGridColumn.VisibleIndex = 6;
             this.controlDateGridColumn.Width = 142;
             // 
             // inspectionCodeGridColumn
@@ -1073,6 +1074,7 @@
             this.ordersLookUp.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.ordersLookUp_ProcessNewValue);
             this.ordersLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.ordersLookUp_QueryPopUp);
             this.ordersLookUp.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ordersLookUp_ButtonClick);
+            this.ordersLookUp.Validated += new System.EventHandler(this.ordersLookUp_Validated);
             // 
             // gridLookUpEdit2View
             // 
@@ -1118,6 +1120,7 @@
             this.heatsLookUp.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.heatsLookUp_ProcessNewValue);
             this.heatsLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.heatsLookUp_QueryPopUp);
             this.heatsLookUp.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.heatsLookUp_ButtonClick);
+            this.heatsLookUp.Validated += new System.EventHandler(this.heatsLookUp_Validated);
             // 
             // gridLookUpEdit1View
             // 
@@ -1200,9 +1203,9 @@
             this.pipeCreationDate.Size = new System.Drawing.Size(99, 20);
             this.pipeCreationDate.StyleController = this.generalPipeLayout;
             this.pipeCreationDate.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider.SetValidationRule(this.pipeCreationDate, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeCreationDate, conditionValidationRule1);
             this.pipeCreationDate.EditValueChanged += new System.EventHandler(this.pipeCreationDate_EditValueChanged);
             // 
             // pipeNumber
@@ -1214,9 +1217,9 @@
             this.pipeNumber.Size = new System.Drawing.Size(174, 20);
             this.pipeNumber.StyleController = this.generalPipeLayout;
             this.pipeNumber.TabIndex = 0;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.dxValidationProvider.SetValidationRule(this.pipeNumber, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeNumber, conditionValidationRule2);
             this.pipeNumber.EditValueChanged += new System.EventHandler(this.pipeNumber_EditValueChanged);
             this.pipeNumber.Validating += new System.ComponentModel.CancelEventHandler(this.pipeNumber_Validating);
             // 
