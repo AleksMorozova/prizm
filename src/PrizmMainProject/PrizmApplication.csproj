@@ -368,6 +368,7 @@
       <DependentUpon>TestReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Construction\TracingCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\TracingData.cs" />
     <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>

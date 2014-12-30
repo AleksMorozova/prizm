@@ -19,7 +19,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly ConstructionReportViewModel viewModel;
         private readonly IUserNotify notify;
 
-        private DataTable data;
+
 
         public TracingCommand(
             ConstructionReportViewModel viewModel,
@@ -35,16 +35,10 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            this.data = repo.GetPipelineElements(SQLQueryString.GetWeldedParts);
-
-
-            var partDataList = FormWeldedParts(data);
-
-
-
+            
             var graph = new PipelineGraph();
 
-            foreach(var partData in partDataList)
+            foreach (var partData in viewModel.PartDataList)
             {
                 graph.AddPipelineVertex(partData);
             }
@@ -54,49 +48,28 @@ namespace Prizm.Main.Forms.Reports.Construction
                 graph.AddJointEdge(joint);
             }
 
-            var path = graph.Pathfinder(partDataList[0], partDataList[partDataList.Count - 1]);
+            var path = graph.Pathfinder(
+                viewModel.StartJoint.FirstElement,
+                viewModel.EndJoint.SecondElement);
 
-        }
+            var tracingDataList = new List<TracingData>();
 
-
-
-
-        private IList<PartData> FormWeldedParts(DataTable dataTable)
-        {
-            List<PartData> list = new List<PartData>();
-
-            dataTable.Columns.Add("typeTranslated", typeof(String));
-
-            foreach (DataRow row in dataTable.Rows)
+            // - 2 ?
+            for (int i = 0;  i < path[0].Count - 2; ++i)
             {
-                if (row.Field<string>("type") != "Component")
-                {
-                    row.SetField(
-                        "typeTranslated", 
-                        Resources.ResourceManager.GetString(row.Field<string>("type")));
-                }
-                else
-                {
-                    row.SetField(
-                        "typeTranslated", 
-                        row.Field<string>("componentTypeName"));
-                }
-
-                PartData p = new PartData()
-                {
-                    Id = row.Field<Guid>("id"),
-                    Number = row.Field<string>("number"),
-                    PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
-                    Length = row.Field<int>("length"),
-                    PartTypeDescription = row.Field<string>("typeTranslated")
-                };
-
-                list.Add(p);
+                tracingDataList.Add(new TracingData()
+                    {
+                        PartNumber = path[0][i].Data.Number,
+                        PartTypeDescription = path[0][i].Data.PartTypeDescription,
+                        Length = path[0][i].Data.Length,
+                        JointNumber = path[0][i].GetCommonJoint(path[0][i + 1]).Data.Number
+                    });
             }
 
-            return list;
-        }
 
+
+
+        }
 
         public bool CanExecute() { return true; }
 

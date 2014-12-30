@@ -17,6 +17,9 @@ using System.Threading.Tasks;
 using Prizm.Data.DAL.Construction;
 
 using construct = Prizm.Domain.Entity.Construction;
+using System.Data;
+using Prizm.Main.Properties;
+using Prizm.Data.DAL.ADO;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -30,6 +33,11 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly PreviewReportCommand previewCommand;
         private readonly TracingCommand tracingCommand;
 
+        private DataTable data;
+        private construct.Joint startJoint;
+        private construct.Joint endJoint;
+        private IList<PartData> partDataList;
+
         public int startPK;
         public int endPK;
 
@@ -40,6 +48,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public IList<construct.Joint> Joints { get; set; }
 
+
         [Inject]
         public ConstructionReportViewModel(
             IMillReportsRepository repo, 
@@ -48,7 +57,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             this.repo = repo;
             this.notify = notify;
-
+            this.data = repo.GetPipelineElements(SQLQueryString.GetWeldedParts);
             this.Joints = repoJoint.GetAll();
 
             createCommand = ViewModelSource
@@ -150,6 +159,41 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
+
+
+        public construct.Joint StartJoint
+        {
+            get
+            {
+                return startJoint;
+            }
+            set
+            {
+                if (value != startJoint)
+                {
+                    startJoint = value;
+                    RaisePropertyChanged("StartJoint");
+                }
+            }
+        }
+
+        public construct.Joint EndJoint
+        {
+            get
+            {
+                return endJoint;
+            }
+            set
+            {
+                if (value != endJoint)
+                {
+                    endJoint = value;
+                    RaisePropertyChanged("EndJoint");
+                }
+            }
+        }
+
+
         public ICommand CreateCommand
         {
             get
@@ -160,7 +204,62 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public ICommand PreviewCommand
         {
-            get { return previewCommand; }
+            get 
+            { 
+                return previewCommand; 
+            }
+        }
+
+        public IList<PartData> PartDataList 
+        {
+            get
+            {
+                return partDataList;
+            }
+            set
+            {
+                if (value != partDataList)
+                {
+                    partDataList = value;
+                    RaisePropertyChanged("PartDataList");
+                }
+            }
+        }
+
+        private IList<PartData> FormWeldedParts(DataTable dataTable)
+        {
+            List<PartData> list = new List<PartData>();
+
+            dataTable.Columns.Add("typeTranslated", typeof(String));
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row.Field<string>("type") != "Component")
+                {
+                    row.SetField(
+                        "typeTranslated",
+                        Resources.ResourceManager.GetString(row.Field<string>("type")));
+                }
+                else
+                {
+                    row.SetField(
+                        "typeTranslated",
+                        row.Field<string>("componentTypeName"));
+                }
+
+                PartData p = new PartData()
+                {
+                    Id = row.Field<Guid>("id"),
+                    Number = row.Field<string>("number"),
+                    PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
+                    Length = row.Field<int>("length"),
+                    PartTypeDescription = row.Field<string>("typeTranslated")
+                };
+
+                list.Add(p);
+            }
+
+            return list;
         }
     }
 }

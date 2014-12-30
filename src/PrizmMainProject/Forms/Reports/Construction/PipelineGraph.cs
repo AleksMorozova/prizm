@@ -36,15 +36,19 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             try
             {
-                jointEdge.PartsVertex.Add(piecesVertex[joint.FirstElement.Id]);
-                jointEdge.PartsVertex.Add(piecesVertex[joint.SecondElement.Id]);
+                if (piecesVertex.ContainsKey(joint.FirstElement.Id) &&
+                    piecesVertex.ContainsKey(joint.SecondElement.Id))
+                {
+                    jointEdge.PartsVertex.Add(piecesVertex[joint.FirstElement.Id]);
+                    jointEdge.PartsVertex.Add(piecesVertex[joint.SecondElement.Id]);
 
-                piecesVertex[joint.FirstElement.Id].JointsEdge.Add(jointEdge);
-                piecesVertex[joint.SecondElement.Id].JointsEdge.Add(jointEdge);
+                    piecesVertex[joint.FirstElement.Id].JointsEdge.Add(jointEdge);
+                    piecesVertex[joint.SecondElement.Id].JointsEdge.Add(jointEdge);
+                }
             }
             catch
             {
-
+                //TODO: NullReference
             }
         }
 
@@ -143,9 +147,27 @@ namespace Prizm.Main.Forms.Reports.Construction
         }
 
 
-        public override string ToString()
+
+        public JointEdge GetCommonJoint(PipelineVertex pipelineVertex)
         {
-            return this.Data.Number;
+            JointEdge commonJoint = null;
+
+            foreach (var thisJoint in this.JointsEdge)
+            {
+                if (commonJoint == null)
+                {
+                    foreach (var thatJoint in pipelineVertex.JointsEdge)
+                    {
+                        if (thatJoint == thisJoint)
+                        {
+                            commonJoint = thisJoint;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return commonJoint;
         }
     }
 }

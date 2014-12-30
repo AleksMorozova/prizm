@@ -48,8 +48,11 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void BindCommands()
         {
-            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
-            commandManager["PreviewButton"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
+            commandManager["CreateReport"]
+                .Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+
+            commandManager["PreviewButton"]
+                .Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void RefreshTypes()
