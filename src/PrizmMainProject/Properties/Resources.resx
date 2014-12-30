@@ -686,6 +686,14 @@
   <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
     <value>Длинна катушки не может быть равна 0</value>
   </data>
+
+  <data name="DLG_JOINT_INCORRECT_DIAMETER" xml:space="preserve">
+    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
+  </data>
+  <data name="DLG_JOINT_INCORRECT_DIAMETER_HEADER" xml:space="preserve">
+    <value>Не совпадают диаметры стыкуемых элементов</value>
+  </data>
+
   <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
     <value>Дубликат номера труб</value>
   </data>
