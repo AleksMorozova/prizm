@@ -78,10 +78,11 @@
             // 
             // searchButton
             // 
+            this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(540, 63);
+            this.searchButton.Location = new System.Drawing.Point(530, 63);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(81, 22);
+            this.searchButton.Size = new System.Drawing.Size(97, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 7;
             this.searchButton.Text = "Поиск";
@@ -118,7 +119,9 @@
             this.partsView.GridControl = this.parts;
             this.partsView.Name = "partsView";
             this.partsView.OptionsBehavior.Editable = false;
+            this.partsView.OptionsBehavior.FocusLeaveOnTab = true;
             this.partsView.OptionsCustomization.AllowFilter = false;
+            this.partsView.OptionsNavigation.UseTabKey = false;
             this.partsView.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
@@ -219,9 +222,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(600, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(621, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(613, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(592, 45);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -231,8 +234,8 @@
             this.searchBtnLayoutControl.CustomizationFormText = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.Location = new System.Drawing.Point(500, 0);
             this.searchBtnLayoutControl.Name = "searchBtnLayoutControl";
-            this.searchBtnLayoutControl.Size = new System.Drawing.Size(100, 45);
-            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
+            this.searchBtnLayoutControl.Size = new System.Drawing.Size(121, 45);
+            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 15, 0);
             this.searchBtnLayoutControl.Text = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.searchBtnLayoutControl.TextToControlDistance = 0;
@@ -244,12 +247,13 @@
             // 
             // PartSearchXtraForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1259, 511);
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "PartSearchXtraForm";
-            this.Text = "Строительство - поиск компонентов";
+            this.Text = "Поиск элементов трубопровода";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PartSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();

@@ -27,6 +27,7 @@ using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 using Prizm.Main.Documents;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -47,6 +48,7 @@ namespace Prizm.Main.Forms.Settings
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+
         }
 
         #region Role Setting
@@ -104,6 +106,12 @@ namespace Prizm.Main.Forms.Settings
 
             RefreshUserRoles(0);
             RefreshRolePermissions(0);
+
+            ProjectTitleEditIfLoadValidationRule projectValidationRule = new ProjectTitleEditIfLoadValidationRule();
+            projectValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
         }
 
         private void BindToViewModel()
@@ -165,6 +173,8 @@ namespace Prizm.Main.Forms.Settings
 
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
             #endregion
+
+            projectTitle.Refresh();
         }
 
         private void BindCommands()
@@ -186,7 +196,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             object sizeType = v.GetRow(e.FocusedRowHandle);
 
-            if(sizeType != null)
+            if (sizeType != null)
             {
                 viewModel.UpdatePipeTests(sizeType);
             }
@@ -196,12 +206,12 @@ namespace Prizm.Main.Forms.Settings
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
         {
-            if(CurrentPipeMillSizeType != null)
+            if (CurrentPipeMillSizeType != null)
             {
                 var clone = new PipeMillSizeType();
                 var tests = new List<PipeTest>();
 
-                foreach(var item in CurrentPipeMillSizeType.PipeTests)
+                foreach (var item in CurrentPipeMillSizeType.PipeTests)
                 {
                     tests.Add(new PipeTest()
                     {
@@ -241,7 +251,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
-            if(CurrentPipeMillSizeType != null)
+            if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
             }
@@ -265,7 +275,7 @@ namespace Prizm.Main.Forms.Settings
         private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
 
-            if(inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
+            if (inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
             {
                 ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
             }
@@ -279,13 +289,13 @@ namespace Prizm.Main.Forms.Settings
 
             view.ClearColumnErrors();
 
-            if(string.IsNullOrWhiteSpace(certName))
+            if (string.IsNullOrWhiteSpace(certName))
             {
                 view.SetColumnError(certNameColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
 
-            if(certExpDate < DateTime.Now)
+            if (certExpDate < DateTime.Now)
             {
                 view.SetColumnError(expDateColumn, Resources.DATA_EXPIRED);
                 e.Valid = false;
@@ -300,13 +310,13 @@ namespace Prizm.Main.Forms.Settings
 
             view.ClearColumnErrors();
 
-            if(String.IsNullOrEmpty(firstName))
+            if (String.IsNullOrEmpty(firstName))
             {
                 view.SetColumnError(firstNameColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
 
-            if(String.IsNullOrEmpty(lastName))
+            if (String.IsNullOrEmpty(lastName))
             {
                 view.SetColumnError(lastNameColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
@@ -389,11 +399,11 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView; //cert Grid
 
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
                 InspectorCertificate cert = view.GetRow(e.RowHandle) as InspectorCertificate; //certif from certif grid 
-                if(cert != null)
+                if (cert != null)
                 {
                     cert.Inspector = insp.Inspector;
                     cert.IsActive = true;
@@ -428,7 +438,7 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView;
 
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 Role role = view.GetRow(e.RowHandle) as Role;
 
@@ -440,9 +450,9 @@ namespace Prizm.Main.Forms.Settings
             var view = sender as GridView;
             view.ClearColumnErrors();
             Role role = e.Row as Role;
-            if(role != null)
+            if (role != null)
             {
-                if(String.IsNullOrEmpty(role.Name))
+                if (String.IsNullOrEmpty(role.Name))
                 {
                     e.Valid = false;
                     view.SetColumnError(colRoleSetupName, Resources.VALUE_REQUIRED);
@@ -459,16 +469,16 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = gridViewRole;
 
-            if(view.IsValidRowHandle(rowIndex))
+            if (view.IsValidRowHandle(rowIndex))
             {
                 gridViewPermissions.ClearSelection();
                 var role = view.GetRow(rowIndex) as Role;
-                if(role != null)
+                if (role != null)
                 {
-                    for(int rowHandle = 0; rowHandle < gridViewPermissions.RowCount; rowHandle++)
+                    for (int rowHandle = 0; rowHandle < gridViewPermissions.RowCount; rowHandle++)
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
-                        if(viewModel.RoleHasPermission(role, perm))
+                        if (viewModel.RoleHasPermission(role, perm))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -487,12 +497,12 @@ namespace Prizm.Main.Forms.Settings
             var view = sender as GridView;
             var role = gridViewRole.GetFocusedRow() as Role;
 
-            if(role == null)
+            if (role == null)
                 return;
 
             Permission p = view.GetRow(e.ControllerRow) as Permission;
 
-            switch(e.Action)
+            switch (e.Action)
             {
                 case CollectionChangeAction.Add:
                     viewModel.AddPermissionToRole(role, p);
@@ -507,17 +517,17 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView;
 
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 view.ClearColumnErrors();
                 User user = view.GetRow(e.RowHandle) as User;
-                if(String.IsNullOrEmpty(user.Login))
+                if (String.IsNullOrEmpty(user.Login))
                 {
                     view.SetColumnError(colLogin, Resources.VALUE_REQUIRED);
                     e.Valid = false;
                     return;
                 }
-                if(String.IsNullOrEmpty(user.PasswordHash))
+                if (String.IsNullOrEmpty(user.PasswordHash))
                 {
                     view.SetColumnError(colUserPass, Resources.VALUE_REQUIRED);
                     e.Valid = false;
@@ -534,10 +544,10 @@ namespace Prizm.Main.Forms.Settings
         private void gridViewUsers_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             var view = sender as GridView;
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 User user = view.GetRow(e.RowHandle) as User;
-                if(user != null)
+                if (user != null)
                 {
                     user.IsActive = true;
                 }
@@ -547,13 +557,13 @@ namespace Prizm.Main.Forms.Settings
         private void repositoryItemButtonUserPass_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var view = gridViewUsers;
-            if(view.IsValidRowHandle(view.FocusedRowHandle))
+            if (view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 User user = view.GetRow(view.FocusedRowHandle) as User;
-                if(user != null)
+                if (user != null)
                 {
                     PasswordChangeDialog dlg = new PasswordChangeDialog();
-                    if(dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
+                    if (dlg.ShowPasswordDialog(user.PasswordHash) == System.Windows.Forms.DialogResult.OK)
                     {
                         user.PasswordHash = dlg.NewPasswordHash;
                         IsModified = true;
@@ -574,12 +584,12 @@ namespace Prizm.Main.Forms.Settings
             var view = sender as GridView;
             var user = gridViewUsers.GetRow(gridViewUsers.FocusedRowHandle) as User;
 
-            if(user != null)
+            if (user != null)
             {
                 var role = view.GetRow(e.ControllerRow) as Role;
-                if(role != null)
+                if (role != null)
                 {
-                    switch(e.Action)
+                    switch (e.Action)
                     {
                         case CollectionChangeAction.Add:
                             viewModel.AddRoleToUser(role, user);
@@ -596,16 +606,16 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = gridViewUsers;
 
-            if(view.IsValidRowHandle(currentRow))
+            if (view.IsValidRowHandle(currentRow))
             {
                 gridViewRoles.ClearSelection();
                 var user = view.GetRow(currentRow) as User;
-                if(user != null)
+                if (user != null)
                 {
-                    for(int rowHandle = 0; rowHandle < gridViewRoles.RowCount; rowHandle++)
+                    for (int rowHandle = 0; rowHandle < gridViewRoles.RowCount; rowHandle++)
                     {
                         var role = gridViewRoles.GetRow(rowHandle) as Role;
-                        if(role != null && viewModel.UserHasRole(user, role))
+                        if (role != null && viewModel.UserHasRole(user, role))
                         {
                             gridViewRoles.SelectRow(rowHandle);
                         }
@@ -632,9 +642,9 @@ namespace Prizm.Main.Forms.Settings
 
             var ct = view.DataSource as BindingList<Prizm.Domain.Entity.Mill.Category>;
 
-            if(ct != null)
+            if (ct != null)
             {
-                if((bool)ct[e.ListSourceRow].IsNotActive)
+                if ((bool)ct[e.ListSourceRow].IsNotActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
@@ -646,7 +656,7 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as WelderViewType;
-            if(data != null)
+            if (data != null)
             {
                 if ((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.Date < DateTime.Now)
                 {
@@ -660,9 +670,9 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as InspectorCertificate;
-            if(data != null)
+            if (data != null)
             {
-                if(data.Certificate.ExpirationDate < DateTime.Now)
+                if (data.Certificate.ExpirationDate < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
@@ -681,17 +691,17 @@ namespace Prizm.Main.Forms.Settings
 
             int selectedUser = gridViewUsers.GetFocusedDataSourceRowIndex();
 
-            if(selectedUser > -1
+            if (selectedUser > -1
                 && selectedUser < viewModel.Users.Count)
             {
-                if(view.FocusedColumn.FieldName == "IsActive" &&
+                if (view.FocusedColumn.FieldName == "IsActive" &&
                     viewModel.Users[selectedUser].Undeletable)
                 {
                     e.Cancel = true;
                 }
             }
         }
-        
+
         private void componentryTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
@@ -752,6 +762,13 @@ namespace Prizm.Main.Forms.Settings
         }
 
         #endregion
+
+        private void projectPage_Enter(object sender, EventArgs e)
+        {
+            // Title is required field but his value refreshed only after page enter.
+            // This tag is checking on 
+            projectTitle.Tag = "visited";
+        }
 
         private void gridViewInspectors_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {

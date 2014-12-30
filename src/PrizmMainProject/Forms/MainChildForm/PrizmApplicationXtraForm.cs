@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             bool isSingle = false;
 
-            switch (formTypeName)
+            switch(formTypeName)
             {
                 case "SettingsXtraForm":
                 case "NotificationXtraForm":
@@ -90,20 +90,20 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             ChildForm newlyCreatedForm = null;
 
-            if (typeof(ChildForm).IsAssignableFrom(formType))
+            if(typeof(ChildForm).IsAssignableFrom(formType))
             {
-                if (!childForms.ContainsKey(formType.Name))
+                if(!childForms.ContainsKey(formType.Name))
                 {
                     childForms.Add(formType.Name, new List<ChildForm>());
                 }
                 List<ChildForm> forms = childForms[formType.Name];
 
-                if (IsSingle(formType.Name) && forms.Count > 0)
+                if(IsSingle(formType.Name) && forms.Count > 0)
                 {
                     // no more forms could be created. activate existing form
                     forms[0].Activate();
                 }
-                else if (FramesCanOpen < 1)
+                else if(FramesCanOpen < 1)
                 {
                     this.ShowError(Resources.IDS_NO_MORE_DOCUMENTS, Resources.DLG_ERROR_HEADER);
                 }
@@ -130,11 +130,11 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="arguments"></param>
         public void ChildClosedEventHandler(object sender, EventArgs arguments)
         {
-            if (typeof(ChildForm).IsAssignableFrom(sender.GetType()))
+            if(typeof(ChildForm).IsAssignableFrom(sender.GetType()))
             {
-                foreach (var childType in childForms)
+                foreach(var childType in childForms)
                 {
-                    if (childType.Value.Remove((ChildForm)sender))
+                    if(childType.Value.Remove((ChildForm)sender))
                     {
                         FramesCanOpen++;
                         break;
@@ -174,7 +174,7 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 ShowProcessing();
                 ChildForm form = CreateReturnChildForm(formType, parameters);
-                if (form != null)
+                if(form != null)
                 {
                     ShowChildForm(form);
                 }
@@ -196,9 +196,9 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), parameters);
 
-                if (form != null)
+                if(form != null)
                 {
-                    if (form.settings.TabPages.Count > page)
+                    if(form.settings.TabPages.Count > page)
                     {
                         form.settings.SelectedTabPage = form.settings.TabPages[page];
                     }
@@ -208,12 +208,12 @@ namespace Prizm.Main.Forms.MainChildForm
                 {
                     var forms = childForms[typeof(SettingsXtraForm).Name];
 
-                    if (forms.Count > 0)
+                    if(forms.Count > 0)
                     {
                         SettingsXtraForm f = (SettingsXtraForm)forms[0];
                         f.settings.SelectedTabPage = f.settings.TabPages[page];
                         f.Activate();
-                    }      
+                    }
                 }
             }
             finally
@@ -290,22 +290,22 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            CreateSettingsChildForm(page: 6);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            CreateSettingsChildForm(page: 7);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            CreateSettingsChildForm(page: 4);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 7);
+            CreateSettingsChildForm(page: 5);
         }
 
         private void barButtonItemComponentry_ItemClick(object sender, ItemClickEventArgs e)
@@ -388,7 +388,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             DialogResult dlg = XtraMessageBox.Show(text, header, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             sbyte result;
-            switch (dlg)
+            switch(dlg)
             {
                 case DialogResult.Cancel:
                     result = -1;
@@ -400,7 +400,7 @@ namespace Prizm.Main.Forms.MainChildForm
                     result = 1;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(string.Format("Unknown dialog answer - {0}",dlg));
+                    throw new ArgumentOutOfRangeException(string.Format("Unknown dialog answer - {0}", dlg));
             }
             return result;
         }
@@ -456,9 +456,9 @@ namespace Prizm.Main.Forms.MainChildForm
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
             SplashScreenManager.ShowForm(this, typeof(AppWaitForm), false, false, false);
-            if (!string.IsNullOrEmpty(header))
+            if(!string.IsNullOrEmpty(header))
                 SplashScreenManager.Default.SetWaitFormCaption(header);
-            if (!string.IsNullOrEmpty(text))
+            if(!string.IsNullOrEmpty(text))
                 SplashScreenManager.Default.SetWaitFormDescription(text);
             this.Update();
         }
@@ -490,7 +490,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
 
-            if (!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
+            if(!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
@@ -508,7 +508,7 @@ namespace Prizm.Main.Forms.MainChildForm
             Application.Exit();
         }
 
-        public void UpdateStatusBar(string text) 
+        public void UpdateStatusBar(string text)
         {
             notifyBarStaticItem.Caption = text;
             notifyHistory.Items.Add(text);
@@ -516,22 +516,41 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            flyoutPanel.ShowPopup();
+            if(flyoutPanel.Visible)
+            {
+                flyoutPanel.HidePopup();
+            }
+            else
+            {
+                flyoutPanel.ShowPopup();
+            }
+
         }
 
         private void barButtonStatusNotifications_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ShowNotificationForm();
+        }
+
+        private void ShowNotificationForm()
+        {
             CreateChildForm(typeof(NotificationXtraForm));
         }
+
         /// <summary>
         /// Update count system notification on status bar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnNotificationRefresh(object sender, EventArgs e)
-        { 
+        {
             int NotificationCount = NotificationManager.Instance.NotificationCount;
             barButtonStatusNotifications.Caption = string.Format("{0} ({1})", Resources.SystemNotification, NotificationCount);
+        }
+
+        private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ShowNotificationForm();
         }
 
     }

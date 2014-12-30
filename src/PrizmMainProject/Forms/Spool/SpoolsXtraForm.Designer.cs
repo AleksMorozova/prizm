@@ -109,7 +109,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(116, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
-            this.searchButton.TabIndex = 39;
+            this.searchButton.TabIndex = 1;
             this.searchButton.Text = "&Редактировать";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
@@ -127,6 +127,7 @@
             this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutControl.Name = "mainLayoutControl";
             this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(340, 129, 250, 350);
+            this.mainLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.mainLayoutControl.Root = this.layoutRootGroup;
             this.mainLayoutControl.Size = new System.Drawing.Size(940, 450);
             this.mainLayoutControl.TabIndex = 44;
@@ -135,11 +136,11 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(802, 419);
+            this.saveButton.Location = new System.Drawing.Point(820, 419);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 22);
+            this.saveButton.Size = new System.Drawing.Size(102, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
-            this.saveButton.TabIndex = 46;
+            this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Сохранить";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -148,9 +149,9 @@
             this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(18, 419);
             this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(116, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(102, 22);
             this.attachmentsButton.StyleController = this.mainLayoutControl;
-            this.attachmentsButton.TabIndex = 45;
+            this.attachmentsButton.TabIndex = 6;
             this.attachmentsButton.Text = "Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
@@ -166,7 +167,7 @@
             this.inspectorsPopupContainerEdit,
             this.reasonTextEdit});
             this.inspectionHistory.Size = new System.Drawing.Size(528, 346);
-            this.inspectionHistory.TabIndex = 44;
+            this.inspectionHistory.TabIndex = 5;
             this.inspectionHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
             // 
@@ -179,6 +180,8 @@
             this.reasonGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
+            this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
@@ -225,7 +228,7 @@
             // 
             // inspectorsGridColumn
             // 
-            this.inspectorsGridColumn.Caption = "Инспектор";
+            this.inspectorsGridColumn.Caption = "Инспекторы";
             this.inspectorsGridColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
@@ -264,7 +267,7 @@
             this.pipeLength.Properties.ReadOnly = true;
             this.pipeLength.Size = new System.Drawing.Size(126, 20);
             this.pipeLength.StyleController = this.mainLayoutControl;
-            this.pipeLength.TabIndex = 13;
+            this.pipeLength.TabIndex = 3;
             this.pipeLength.TextChanged += new System.EventHandler(this.pipeLength_TextChanged);
             // 
             // spoolNumber
@@ -273,7 +276,7 @@
             this.spoolNumber.Name = "spoolNumber";
             this.spoolNumber.Size = new System.Drawing.Size(213, 20);
             this.spoolNumber.StyleController = this.mainLayoutControl;
-            this.spoolNumber.TabIndex = 41;
+            this.spoolNumber.TabIndex = 2;
             // 
             // pipeNumber
             // 
@@ -290,7 +293,7 @@
             this.pipeNumber.Properties.ValueMember = "Number";
             this.pipeNumber.Size = new System.Drawing.Size(172, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
-            this.pipeNumber.TabIndex = 38;
+            this.pipeNumber.TabIndex = 0;
             // 
             // spoolLength
             // 
@@ -307,7 +310,7 @@
             this.spoolLength.Properties.Mask.EditMask = "d";
             this.spoolLength.Size = new System.Drawing.Size(120, 20);
             this.spoolLength.StyleController = this.mainLayoutControl;
-            this.spoolLength.TabIndex = 16;
+            this.spoolLength.TabIndex = 4;
             // 
             // layoutRootGroup
             // 
@@ -493,8 +496,11 @@
             this.attachmentsButtonLayout.Control = this.attachmentsButton;
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 393);
+            this.attachmentsButtonLayout.MaxSize = new System.Drawing.Size(121, 33);
+            this.attachmentsButtonLayout.MinSize = new System.Drawing.Size(121, 33);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(135, 33);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(121, 33);
+            this.attachmentsButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 0);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -505,9 +511,12 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(769, 393);
+            this.saveButtonLayout.Location = new System.Drawing.Point(787, 393);
+            this.saveButtonLayout.MaxSize = new System.Drawing.Size(121, 33);
+            this.saveButtonLayout.MinSize = new System.Drawing.Size(121, 33);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(139, 33);
+            this.saveButtonLayout.Size = new System.Drawing.Size(121, 33);
+            this.saveButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -518,9 +527,9 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(135, 393);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(121, 393);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(634, 33);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(666, 33);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
