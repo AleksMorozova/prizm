@@ -85,12 +85,12 @@
             this.PKLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.PKNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.distanceFromPKLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.loweringDateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.jointParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.secondJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.jointNumberEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.extraFilesLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -146,12 +146,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.PKLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPKLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumberEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
@@ -714,7 +714,7 @@
             this.PKLabelLayout,
             this.PKNumberLayout,
             this.distanceFromPKLayout,
-            this.emptySpaceItem1});
+            this.loweringDateEmptySpace});
             this.loweringLayoutGroup.Location = new System.Drawing.Point(588, 0);
             this.loweringLayoutGroup.Name = "loweringLayoutGroup";
             this.loweringLayoutGroup.Size = new System.Drawing.Size(647, 138);
@@ -829,15 +829,15 @@
             this.distanceFromPKLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.distanceFromPKLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
-            // emptySpaceItem1
+            // loweringDateEmptySpace
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(23, 47);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.loweringDateEmptySpace.AllowHotTrack = false;
+            this.loweringDateEmptySpace.CustomizationFormText = "loweringDateEmptySpace";
+            this.loweringDateEmptySpace.Location = new System.Drawing.Point(0, 0);
+            this.loweringDateEmptySpace.Name = "loweringDateEmptySpace";
+            this.loweringDateEmptySpace.Size = new System.Drawing.Size(23, 47);
+            this.loweringDateEmptySpace.Text = "loweringDateEmptySpace";
+            this.loweringDateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // jointParametersLayoutGroup
             // 
@@ -846,7 +846,7 @@
             this.jointNumberLayout,
             this.firstJointElementLayout,
             this.secondJointElementLayout,
-            this.emptySpaceItem2});
+            this.jointNumberEmptySpace});
             this.jointParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.jointParametersLayoutGroup.Name = "jointParametersLayoutGroup";
             this.jointParametersLayoutGroup.Size = new System.Drawing.Size(588, 138);
@@ -894,15 +894,15 @@
             this.secondJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.secondJointElementLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
-            // emptySpaceItem2
+            // jointNumberEmptySpace
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(277, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(287, 47);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.jointNumberEmptySpace.AllowHotTrack = false;
+            this.jointNumberEmptySpace.CustomizationFormText = "jointNumberEmptySpace";
+            this.jointNumberEmptySpace.Location = new System.Drawing.Point(277, 0);
+            this.jointNumberEmptySpace.Name = "jointNumberEmptySpace";
+            this.jointNumberEmptySpace.Size = new System.Drawing.Size(287, 47);
+            this.jointNumberEmptySpace.Text = "jointNumberEmptySpace";
+            this.jointNumberEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // extraFilesLayout
             // 
@@ -1040,12 +1040,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.PKLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceFromPKLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loweringDateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointNumberEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
@@ -1129,9 +1129,9 @@
         private DevExpress.XtraEditors.SimpleButton saveAndCreateButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndCreateLayout;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem jointNumberEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem loweringEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem loweringDateEmptySpace;
 
     }
 }
