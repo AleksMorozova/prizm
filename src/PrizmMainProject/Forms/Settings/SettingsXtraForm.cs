@@ -648,7 +648,7 @@ namespace Prizm.Main.Forms.Settings
             var data = v.GetRow(e.RowHandle) as WelderViewType;
             if(data != null)
             {
-                if ((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.Date < DateTime.Now)
+                if ((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.AddDays(-Constants.ReminderPeriodInDays) < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
@@ -662,7 +662,7 @@ namespace Prizm.Main.Forms.Settings
             var data = v.GetRow(e.RowHandle) as InspectorCertificate;
             if(data != null)
             {
-                if(data.Certificate.ExpirationDate < DateTime.Now)
+                if (data.Certificate.ExpirationDate.AddDays(-Constants.ReminderPeriodInDays) < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
@@ -761,7 +761,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 foreach (InspectorCertificate c in data.Certificates)
                 {
-                    if (c.Certificate.ExpirationDate < DateTime.Now)
+                    if (c.Certificate.ExpirationDate.AddDays(-Constants.ReminderPeriodInDays) < DateTime.Now)
                     {
                         e.Appearance.ForeColor = Color.Red;
                         e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
