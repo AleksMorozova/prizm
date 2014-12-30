@@ -597,6 +597,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        /// </summary>
+        internal static string DLG_JOINT_INCORRECT_DIAMETER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        /// </summary>
+        internal static string DLG_JOINT_INCORRECT_DIAMETER_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
         /// </summary>
         internal static string DLG_JOINT_SAVED {

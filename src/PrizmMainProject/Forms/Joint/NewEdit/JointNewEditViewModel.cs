@@ -15,12 +15,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construction = Prizm.Domain.Entity.Construction;
+using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private const int connectedElementsCount = 2;
+        private Part[] connectedElements = new Part[connectedElementsCount];
+
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
@@ -42,7 +47,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         [Inject]
-        public JointNewEditViewModel(IConstructionRepository repoConstruction, IUserNotify notify, Guid id, Prizm.Data.DAL.IMillReportsRepository adoRepo)
+        public JointNewEditViewModel(
+            IConstructionRepository repoConstruction, 
+            IUserNotify notify, 
+            Guid id, 
+            Prizm.Data.DAL.IMillReportsRepository adoRepo)
         {
             this.repoConstruction = repoConstruction;
             this.JointId = id;
@@ -64,6 +73,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Welders = repoConstruction.RepoWelder.GetAll();
             Pieces = adoRepo.GetPipelineElements();
             extractOperationsCommand.Execute();
+
             if(id == Guid.Empty)
             {
                 NewJoint();
@@ -71,6 +81,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             else
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
+
+                connectedElements[0] = GetPart(FirstElement);
+                connectedElements[1] = GetPart(SecondElement);
+
+                FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
+                SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+
+                JointDisconnection();
+
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                 {
@@ -307,11 +326,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        private PartData FindElementById(Guid id)
-        {
-            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
-        }
-
         public Guid SecondElementId
         {
             get
@@ -351,6 +365,203 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
+        private PartData FindElementById(Guid id)
+        {
+            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
+        }
+
+
+        #region ===== Makeing The Connection =====
+        /// <summary>
+        /// This method joint FirstElement and SecondElement
+        /// </summary>
+        /// <returns>The method retuns ability of joint creation</returns>
+        public bool MakeTheConnection()
+        {
+            connectedElements[0] = GetPart(FirstElement);
+            connectedElements[1] = GetPart(SecondElement);
+
+            int commonDiameter = GetCommonDiameter(FirstElement, SecondElement);
+
+            if (FirstElement.Id == Guid.Empty ||
+                SecondElement.Id == Guid.Empty ||
+                commonDiameter == -1)
+            {
+                return false;
+            }
+
+            foreach (var part in connectedElements)
+            {
+                if (part is construction.Component)
+                {
+                    construction.Component component = part as construction.Component;
+
+                    foreach (var con in component.Connectors)
+                    {
+                        if (con.Diameter == commonDiameter &&
+                            (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        {
+                            con.Joint = Joint;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    {
+                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                    }
+                    else
+                    {
+                        part.IsAvailableToJoint = false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// This method Sets connectors of the Part elements correspond PartData FirstElement 
+        /// and SecondElement in "is available to joint" state. 
+        /// </summary>
+        public void JointDisconnection()
+        {
+            foreach (var part in connectedElements)
+            {
+                if (part == null) continue;
+
+                if (part is construction.Component)
+                {
+                    var component = part as construction.Component;
+
+                    foreach (var connector in component.Connectors)
+                    {
+                        if (connector.Joint != null)
+                        {
+                            if (connector.Joint.Id == this.Joint.Id &&
+                                connector.Joint.Id != Guid.Empty ||
+                                connector.Joint == this.Joint)
+                            {
+                                connector.Joint = null;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (part.IsAvailableToJoint == false)
+                    {
+                        part.IsAvailableToJoint = true;
+                    }
+                    else
+                    {
+                        part.ConstructionStatus = PartConstructionStatus.Pending;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method returns the element Part by the specified element 
+        /// PartData according to its type: Spool, Pipe or Component
+        /// </summary>
+        /// <param name="partData"></param>
+        /// <returns>corespond element Part</returns>
+        private Part GetPart(PartData partData)
+        {
+            Part part;
+
+            if (partData.PartType == PartType.Component)
+            {
+                part = repoConstruction.RepoComponent.Get(partData.Id);
+            }
+            else if (partData.PartType == PartType.Pipe)
+            {
+                part = repoConstruction.RepoPipe.Get(partData.Id);
+            }
+            else
+            {
+                part = repoConstruction.RepoSpool.Get(partData.Id);
+            }
+
+            return part;
+        }
+
+        /// <summary>
+        /// The method returns a value coinciding the diameter of joined elements. 
+        /// In the case of multiple coinciding diameters the joined diameter selects by user. 
+        /// If there is no coinciding the method returns -1.
+        /// </summary>
+        /// <param name="firstElement">the first connectable element</param>
+        /// <param name="secondElement">the second connectable element</param>
+        /// <returns></returns>
+        private int GetCommonDiameter(PartData firstElement, PartData secondElement)
+        {
+            int commonDiameter;
+
+            var duplicates =
+                firstElement.Connectors
+                .Intersect(secondElement.Connectors, new ConnectorComparer())
+                .ToList<construction.Connector>();
+
+            if (duplicates.Count == 0)
+            {
+                commonDiameter = - 1;
+            }
+            else if (duplicates.Count == 1)
+            {
+                commonDiameter = duplicates.First<construction.Connector>(x => true).Diameter;
+            }
+            else
+            {
+                var choiceDiameter = new SelectDiameterDialog(duplicates);
+
+                if (choiceDiameter.ShowDialog() == DialogResult.OK)
+                {
+                    commonDiameter = choiceDiameter.Diameter;
+                }
+                else
+                {
+                    commonDiameter = - 1;
+                }
+            }
+
+            return commonDiameter;
+        }
+
+        /// <summary>
+        /// The specific Comparer for Intersect method of connectors List,
+        /// which checks by the diameter value
+        /// </summary>
+        private class ConnectorComparer : IEqualityComparer<construction.Connector>
+        {
+            public bool Equals(construction.Connector x, construction.Connector y)
+            {
+                if (Object.ReferenceEquals(x, y))
+                    return true;
+
+                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                    return false;
+
+                return x.Diameter == y.Diameter;
+            }
+
+            public int GetHashCode(construction.Connector connector)
+            {
+                if (Object.ReferenceEquals(connector, null))
+                    return 0;
+
+                return connector.Diameter.GetHashCode();
+            }
+
+        }
+
+        #endregion ===============================
+
+
         private bool isCanDeactivate;
         public bool IsCanDeactivate
         {
@@ -368,8 +579,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             IsCanDeactivate = JointDeactivationCommand.CanExecute();
         }
-
         #endregion
+
 
         public DataTable Pieces
         {
@@ -403,33 +614,105 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        BindingList<PartData> list = null;
+        private BindingList<PartData> list = null;
 
         public BindingList<PartData> PartDataList
         {
             get
             {
-                if (list == null)
+                if (list == null && Pieces != null)
                 {
+                    Guid tempId = Guid.Empty;
+                    string tempNumber = string.Empty;
+
                     list = new BindingList<PartData>();
+
+                    PartData partData = new PartData();
 
                     foreach (DataRow row in Pieces.Rows)
                     {
-                        PartData p = new PartData()
+                        if (tempId != row.Field<Guid>("id")
+                            && tempNumber != row.Field<string>("number"))
                         {
-                            Id = row.Field<Guid>("id"),
-                            Number = row.Field<string>("number"),
-                            PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
-                            Length = row.Field<int>("length"),
-                            PartTypeDescription = row.Field<string>("typeTranslated"),
-                            WallThickness = Convert.ToSingle(row.Field<double>("wallThickness")),
-                            Diameter = row.Field<int>("diameter")
-                        };
-                        list.Add(p);
+                            partData = new PartData(row);
+
+                            partData.SetPartConnectors(row);
+
+                            list.Add(partData);
+
+                            tempId = row.Field<Guid>("id");
+                            tempNumber = row.Field<string>("number");
+                        }
+                        else
+                        {
+                            partData.SetPartConnectors(row);
+                        }
                     }
                 }
                 return list;
             }
+
+            set { list = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="partData"></param>
+        /// <param name="part"></param>
+        /// <returns></returns>
+        private PartData GetPartDataFromList(PartData partData, Part part)
+        {
+            PartData p;
+
+            if (PartDataList == null)
+            {
+                PartDataList = new BindingList<PartData>();
+            }
+
+            if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
+            {
+                p = new PartData(part, this.Joint.Id);
+
+                if (partData.PartType == PartType.Pipe)
+                {
+                    p.PartTypeDescription
+                        = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Pipe));
+                }
+                else if (partData.PartType == PartType.Spool)
+                {
+                    p.PartTypeDescription
+                        = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
+                }
+
+                PartDataList.Add(p);
+            }
+            else
+            {
+                var connector = new Connector();
+
+                if (part is construction.Component)
+                {
+                    connector.Diameter = ((construction.Component)part)
+                        .Connectors
+                        .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
+                        .Diameter;
+                }
+                else if (part is Pipe)
+                {
+                    connector.Diameter = ((Pipe)part).Diameter;
+                }
+                else
+                {
+                    connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
+                }
+
+                p = PartDataList.First<PartData>(x => x.Id == partData.Id);
+
+                p.Connectors.Add(connector);
+            }
+
+            return p;
         }
 
         public void NewJoint()
@@ -445,5 +728,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.LoweringDate = DateTime.MinValue;
 
         }
+
     }
 }
