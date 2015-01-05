@@ -11,6 +11,9 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Properties;
 
+
+using construct = Prizm.Domain.Entity.Construction;
+
 namespace Prizm.Main.Forms.Reports.Construction
 {
     [System.ComponentModel.DesignerCategory("Form")] 
@@ -22,28 +25,22 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-
-            var item1 = new RadioGroupItem(0, Resources.KP);
-            var item2 = new RadioGroupItem(1, Resources.Joint);
-            countPoints.Properties.Items.Add(item1);
-            countPoints.Properties.Items.Add(item2);
-            countPoints.SelectedIndex = 0;
-
-            countPointsLayout.ContentVisible = false;
             typeLayout.ContentVisible = false;
-            reportPeriodLabelLayout.ContentVisible = false;
-            startLayout.ContentVisible = false;
-            endLayout.ContentVisible = false;
-
+            start.SetRequiredText();
+            end.SetRequiredText();
         }
 
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
             previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
-            start.DataBindings.Add("EditValue", bindingSource, "StartPK");
-            end.DataBindings.Add("EditValue", bindingSource, "EndPK");
+            reportType.DataBindings.Add("EditValue", bindingSource, "ReportType");
             viewModel.LoadData();
+
+            start.DataBindings.Add("EditValue", bindingSource, "StartJoint");
+            end.DataBindings.Add("EditValue", bindingSource, "EndJoint");
+            startKPComboBox.DataBindings.Add("EditValue", bindingSource, "StartPK");
+            endKPComboBox.DataBindings.Add("EditValue", bindingSource, "EndPK");
         }
 
         private void BindCommands()
@@ -92,6 +89,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             reportType.Properties.Items.Add(length);
             reportType.Properties.Items.Add(highway);
 
+            foreach (var joint in viewModel.Joints)
+            {
+                start.Properties.Items.Add(joint);
+                end.Properties.Items.Add(joint);
+            }
+
             RefreshTypes();
             reportType.SelectedIndex = 0;
         }
@@ -101,28 +104,11 @@ namespace Prizm.Main.Forms.Reports.Construction
             if (reportType.SelectedItem.ToString() == Resources.UsedProductReport)
             {
                 viewModel.report = new UsedProductsXtraReport();
-                reportPeriodLabel.Text = Resources.Constraction_UsedProductReport_label;
-                reportPeriodLabelLayout.ContentVisible = true;
-                startLayout.ContentVisible = true;
-                endLayout.ContentVisible = true;
-                countPointsLayout.ContentVisible = false;
                 typeLayout.ContentVisible = true;
-
-                foreach (int KP in viewModel.AllKP)
-                {
-                    start.Properties.Items.Add(KP);
-                    end.Properties.Items.Add(KP);
-                }
             }
-
             else
             {
-                viewModel.report = new testReport();
-                reportPeriodLabel.Text = Resources.Constraction_Report_label;
-                reportPeriodLabelLayout.ContentVisible = true;
-                startLayout.ContentVisible = true;
-                endLayout.ContentVisible = true;
-                countPointsLayout.ContentVisible = true;
+                viewModel.report = new TracingReporn();
                 typeLayout.ContentVisible = false;
             }
         }
@@ -142,5 +128,29 @@ namespace Prizm.Main.Forms.Reports.Construction
             commandManager.Dispose();
             viewModel = null;
         }
+
+
+        private void reportType_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ReportType = reportType.EditValue as EnumWrapper<ReportType>;
+            commandManager["PreviewButton"].RefreshState();
+            commandManager["CreateReport"].RefreshState();
+        }
+
+        private void start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.StartJoint = start.EditValue as construct.Joint;
+            commandManager["PreviewButton"].RefreshState();
+            commandManager["CreateReport"].RefreshState();
+        }
+
+        private void end_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.EndJoint = start.EditValue as construct.Joint;
+            commandManager["PreviewButton"].RefreshState();
+            commandManager["CreateReport"].RefreshState();
+        }
+
+
     }
 }

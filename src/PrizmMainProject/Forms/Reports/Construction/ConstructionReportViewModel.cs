@@ -20,22 +20,23 @@ using construct = Prizm.Domain.Entity.Construction;
 using System.Data;
 using Prizm.Main.Properties;
 using Prizm.Data.DAL.ADO;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
     public class ConstructionReportViewModel : ViewModelBase
     {
-        private readonly IJointRepository repoJoint;
         private readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
 
         private readonly CreateReportCommand createCommand;
         private readonly PreviewReportCommand previewCommand;
-        private readonly TracingCommand tracingCommand;
+        private readonly ReportCommand reportCommand;
 
         private DataTable data;
         private construct.Joint startJoint;
         private construct.Joint endJoint;
+        private EnumWrapper<ReportType> reportType;
         private IList<PartData> partDataList;
 
         public int startPK;
@@ -57,7 +58,10 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             this.repo = repo;
             this.notify = notify;
+
             this.data = repo.GetPipelineElements(SQLQueryString.GetWeldedParts);
+            this.partDataList = FormWeldedParts(data);
+
             this.Joints = repoJoint.GetAll();
 
             createCommand = ViewModelSource
@@ -66,16 +70,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             previewCommand = ViewModelSource
                 .Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
 
-            tracingCommand = ViewModelSource
-                .Create<TracingCommand>(() => new TracingCommand(this, repo, notify));
-
-
-
-            tracingCommand.Execute();
-
+            reportCommand = ViewModelSource
+                .Create<ReportCommand>(() => new ReportCommand(this, repo, notify));
 
         }
-
 
 
         public void LoadData()
@@ -159,8 +157,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-
-
         public construct.Joint StartJoint
         {
             get
@@ -193,6 +189,18 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
+        public EnumWrapper<ReportType> ReportType
+        {
+            get { return reportType; }
+            set
+            {
+                if (value != reportType)
+                {
+                    reportType = value;
+                    RaisePropertyChanged("ReportType");
+                }
+            }
+        }
 
         public ICommand CreateCommand
         {
@@ -207,6 +215,14 @@ namespace Prizm.Main.Forms.Reports.Construction
             get 
             { 
                 return previewCommand; 
+            }
+        }
+
+        public ICommand ReportCommand
+        {
+            get
+            {
+                return reportCommand;
             }
         }
 

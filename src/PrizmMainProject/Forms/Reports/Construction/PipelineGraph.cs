@@ -12,18 +12,15 @@ namespace Prizm.Main.Forms.Reports.Construction
     {
         private Dictionary<Guid, PipelineVertex> piecesVertex;
 
-
-        public PipelineGraph() 
+        public PipelineGraph(int capacity) 
         {
-            this.piecesVertex = new Dictionary<Guid, PipelineVertex>();
+            this.piecesVertex = new Dictionary<Guid, PipelineVertex>(capacity);
         }
 
         public PipelineGraph(Dictionary<Guid, PipelineVertex> piecesVertex)
         {
             this.piecesVertex = piecesVertex;
         }
-
-
 
         public void AddPipelineVertex(construct.PartData partData)
         {
@@ -51,8 +48,6 @@ namespace Prizm.Main.Forms.Reports.Construction
                 //TODO: NullReference
             }
         }
-
-
 
         public List<List<PipelineVertex>> Pathfinder(
             construct.PartData startPartData,
@@ -113,6 +108,21 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
             return paths;
         }
+
+        public List<PipelineVertex> ShortestPath(List<List<PipelineVertex>> paths)
+        {
+            var shortestPath = paths.First();
+
+            foreach (var p in paths)
+            {
+                if (p.Count < shortestPath.Count)
+                {
+                    shortestPath = p;
+                }
+            }
+
+            return shortestPath;
+        }
     }
 
 
@@ -122,9 +132,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         public construct.Joint Data { get; set; }
         public List<PipelineVertex> PartsVertex { get; set; }
 
-        public JointEdge() { }
         public JointEdge(construct.Joint data)
-            : this()
         {
             Data = data;
             PartsVertex = new List<PipelineVertex>();
@@ -137,16 +145,11 @@ namespace Prizm.Main.Forms.Reports.Construction
         public construct.PartData Data { get; set; }
         public List<JointEdge> JointsEdge { get; set; }
 
-        public PipelineVertex() { }
-
         public PipelineVertex(construct.PartData data)
-            : this()
         {
             Data = data;
             JointsEdge = new List<JointEdge>();
         }
-
-
 
         public JointEdge GetCommonJoint(PipelineVertex pipelineVertex)
         {
