@@ -388,6 +388,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выберите дату.
+        /// </summary>
+        internal static string DateFirst {
+            get {
+                return ResourceManager.GetString("DateFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Направление.
         /// </summary>
         internal static string Destination {
@@ -402,6 +411,15 @@ namespace Prizm.Main.Properties {
         internal static string Diameter {
             get {
                 return ResourceManager.GetString("Diameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Величина диаметра должна быть больше нуля.
+        /// </summary>
+        internal static string DIAMETER_VALUE_VALIDATION {
+            get {
+                return ResourceManager.GetString("DIAMETER_VALUE_VALIDATION", resourceCulture);
             }
         }
         
@@ -552,6 +570,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Результаты контрольных операций успешно сохранены. Номер элемента: .
+        /// </summary>
+        internal static string DLG_INSPECTIONS_SAVED {
+            get {
+                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение контрольных операций.
+        /// </summary>
+        internal static string DLG_INSPECTIONS_SAVED_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
         /// </summary>
         internal static string DLG_JOINT_DEACTIVATION {
@@ -584,6 +620,24 @@ namespace Prizm.Main.Properties {
         internal static string DLG_JOINT_DUPLICATE_HEADER {
             get {
                 return ResourceManager.GetString("DLG_JOINT_DUPLICATE_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        /// </summary>
+        internal static string DLG_JOINT_INCORRECT_DIAMETER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        /// </summary>
+        internal static string DLG_JOINT_INCORRECT_DIAMETER_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER_HEADER", resourceCulture);
             }
         }
         
@@ -782,6 +836,15 @@ namespace Prizm.Main.Properties {
         internal static string DocumentSizeLimit {
             get {
                 return ResourceManager.GetString("DocumentSizeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  неизвестный тип компонента.
+        /// </summary>
+        internal static string ERROR_UnknownComponentType {
+            get {
+                return ResourceManager.GetString("ERROR_UnknownComponentType", resourceCulture);
             }
         }
         
@@ -1186,6 +1249,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дубликат номера труб.
+        /// </summary>
+        internal static string Notification_DublicatePipeNumber_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DublicatePipeNumber_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сертификат просрочен.
+        /// </summary>
+        internal static string Notification_ExpiredCertificate_Critical {
+            get {
+                return ResourceManager.GetString("Notification_ExpiredCertificate_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заканчивается срок сертификата.
+        /// </summary>
+        internal static string Notification_ExpiredCertificate_Warning {
+            get {
+                return ResourceManager.GetString("Notification_ExpiredCertificate_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер.
         /// </summary>
         internal static string Number {
@@ -1522,6 +1612,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Редактирование катушки.
+        /// </summary>
+        internal static string SPOOL_EDIT_FORM_TEXT {
+            get {
+                return ResourceManager.GetString("SPOOL_EDIT_FORM_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Клеймо.
         /// </summary>
         internal static string Stamp {
@@ -1554,6 +1653,15 @@ namespace Prizm.Main.Properties {
         internal static string StringExpected {
             get {
                 return ResourceManager.GetString("StringExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщения системы.
+        /// </summary>
+        internal static string SystemNotification {
+            get {
+                return ResourceManager.GetString("SystemNotification", resourceCulture);
             }
         }
         

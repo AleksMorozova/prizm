@@ -33,6 +33,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             try
             {
                 StringBuilder GetAllUsedProducts = new StringBuilder();
+
                 foreach (var item in viewModel.Types)
                 {
                     switch (item)
@@ -41,16 +42,16 @@ namespace Prizm.Main.Forms.Reports.Construction
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Pipe:
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe).ToString());
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Spool:
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool).ToString());
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Component:
                             GetAllUsedProducts.Append(" ");
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent).ToString());
                             break;
                         default:
                             GetAllUsedProducts.Append(" ");

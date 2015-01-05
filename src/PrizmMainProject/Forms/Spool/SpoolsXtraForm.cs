@@ -27,18 +27,32 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public SpoolsXtraForm(Guid id)
+        public SpoolsXtraForm(Guid id, string number)
         {
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            if (number != string.Empty)
+            {
+                viewModel.SpoolNumber = number;
+            }
             SetAlwaysReadOnly(pipeLength);
-            SetExceptionReadOnly(pipeNumber);
+            if (id == Guid.Empty)
+            {
+                SetExceptionReadOnly(pipeNumber);
+            }
+            else
+            {
+                this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
+                SetAlwaysReadOnly(pipeNumber); 
+            }
             IsEditMode = true;
 
         }
 
-        public SpoolsXtraForm() : this(Guid.Empty) {  }
+        public SpoolsXtraForm() : this(Guid.Empty, string.Empty) {  }
+        public SpoolsXtraForm(Guid id) : this(id, string.Empty) { }
+        public SpoolsXtraForm(string number) : this(Guid.Empty, number) { }
 
         private void BindToViewModel()
         {
@@ -93,9 +107,9 @@ namespace Prizm.Main.Forms.Spool
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
             BindToViewModel();
-            attachmentsButton.Enabled = false;
+            attachmentsButton.Enabled = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = false;
+            IsEditMode = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
             BindCommands();
         }
 
@@ -184,16 +198,39 @@ namespace Prizm.Main.Forms.Spool
                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
             if (inspectionTestResult == null)
+            {
                 e.Cancel = true;
+            }
+            else
+            {
+                if (inspectionTestResult.Date == null)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+                }
+            }
         }
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+            InspectionTestResult inspectionTestResult
+                      = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+            if (inspectionTestResult != null && inspectionTestResult.Date != null)
+            {
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            }
+
+            else
+            {
+                e.DisplayText = Resources.DateFirst;
+            }
         }
 
         private void pipeLength_TextChanged(object sender, EventArgs e)
