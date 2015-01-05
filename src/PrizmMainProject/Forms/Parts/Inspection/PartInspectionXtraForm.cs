@@ -147,8 +147,15 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 = inspectionsView
                 .GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null)
+            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
+            {
+                inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Resources.DateFirst);
                 e.Cancel = true;
+            }
+            else
+            {
+                inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+            }
         }
 
         private void inspectionsView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
