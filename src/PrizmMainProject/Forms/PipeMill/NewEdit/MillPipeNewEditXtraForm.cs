@@ -598,7 +598,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 case PipeTestResultStatus.Passed:
                 case PipeTestResultStatus.Failed:
-                    if(date == null || date > DateTime.Now)
+                case PipeTestResultStatus.Repair:
+                    if (date == null || date > DateTime.Now)
                     {
                         gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
                         e.Valid = false;
