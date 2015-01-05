@@ -141,7 +141,7 @@
             this.saveButton.Size = new System.Drawing.Size(102, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 7;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Сохранить";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // attachmentsButton
@@ -152,7 +152,7 @@
             this.attachmentsButton.Size = new System.Drawing.Size(102, 22);
             this.attachmentsButton.StyleController = this.mainLayoutControl;
             this.attachmentsButton.TabIndex = 6;
-            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Text = "&Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
             // inspectionHistory
@@ -377,7 +377,7 @@
             this.pipeNumberLabel.Name = "pipeNumberLabel";
             this.pipeNumberLabel.Size = new System.Drawing.Size(193, 54);
             this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 7, 7, 7);
-            this.pipeNumberLabel.Text = "Номер трубы";
+            this.pipeNumberLabel.Text = "Ном&ер трубы";
             this.pipeNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
@@ -390,16 +390,16 @@
             this.incomingInspectionLayoutGroup.Name = "incomingInspectionLayoutGroup";
             this.incomingInspectionLayoutGroup.Size = new System.Drawing.Size(569, 393);
             this.incomingInspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 2, 2, 2);
-            this.incomingInspectionLayoutGroup.Text = "Входной контроль";
+            this.incomingInspectionLayoutGroup.Text = "Входно&й контроль";
             // 
             // inspectionHistoryLayout
             // 
             this.inspectionHistoryLayout.Control = this.inspectionHistory;
-            this.inspectionHistoryLayout.CustomizationFormText = "inspectionHistoryLayout";
+            this.inspectionHistoryLayout.CustomizationFormText = "Входно&й контроль";
             this.inspectionHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionHistoryLayout.Name = "inspectionHistoryLayout";
             this.inspectionHistoryLayout.Size = new System.Drawing.Size(532, 350);
-            this.inspectionHistoryLayout.Text = "inspectionHistoryLayout";
+            this.inspectionHistoryLayout.Text = "Входно&й контроль";
             this.inspectionHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionHistoryLayout.TextToControlDistance = 0;
             this.inspectionHistoryLayout.TextVisible = false;
@@ -427,7 +427,7 @@
             this.spoolNumberLabel.Name = "spoolNumberLabel";
             this.spoolNumberLabel.Size = new System.Drawing.Size(244, 62);
             this.spoolNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 15, 7, 15);
-            this.spoolNumberLabel.Text = "Номер катушки";
+            this.spoolNumberLabel.Text = "Номер кат&ушки";
             this.spoolNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoolNumberLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
@@ -452,7 +452,7 @@
             this.pipelengthLabel.Name = "pipelengthLabel";
             this.pipelengthLabel.Size = new System.Drawing.Size(147, 54);
             this.pipelengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 7, 7, 7);
-            this.pipelengthLabel.Text = "Труба";
+            this.pipelengthLabel.Text = "&Труба";
             this.pipelengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipelengthLabel.TextSize = new System.Drawing.Size(78, 13);
             // 
@@ -467,7 +467,7 @@
             this.spoonlengthLabel.Size = new System.Drawing.Size(149, 54);
             this.spoonlengthLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.spoonlengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 7, 15);
-            this.spoonlengthLabel.Text = "Катушка";
+            this.spoonlengthLabel.Text = "Кату&шка";
             this.spoonlengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoonlengthLabel.TextSize = new System.Drawing.Size(78, 13);
             // 

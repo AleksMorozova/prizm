@@ -173,7 +173,7 @@
             this.unshipButton.Size = new System.Drawing.Size(102, 22);
             this.unshipButton.StyleController = this.generalLayout;
             this.unshipButton.TabIndex = 10;
-            this.unshipButton.Text = "От&клонить";
+            this.unshipButton.Text = "Отк&лонить";
             // 
             // generalLayout
             // 
@@ -228,7 +228,7 @@
             this.saveButton.Size = new System.Drawing.Size(108, 22);
             this.saveButton.StyleController = this.generalLayout;
             this.saveButton.TabIndex = 11;
-            this.saveButton.Text = "Со&хранить";
+            this.saveButton.Text = "&Сохранить";
             // 
             // shipButton
             // 

@@ -659,7 +659,7 @@
             this.railcarNumberLayout.Name = "railcarNumberLayout";
             this.railcarNumberLayout.Size = new System.Drawing.Size(325, 49);
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
-            this.railcarNumberLayout.Text = "Номер вагона";
+            this.railcarNumberLayout.Text = "Номер ва&гона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -722,7 +722,7 @@
             this.plateManufacturerLayout.Name = "plateManufacturerLayout";
             this.plateManufacturerLayout.Size = new System.Drawing.Size(278, 79);
             this.plateManufacturerLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 4, 5);
-            this.plateManufacturerLayout.Text = "Производитель";
+            this.plateManufacturerLayout.Text = "Производител&ь";
             this.plateManufacturerLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateManufacturerLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -772,17 +772,17 @@
             this.weldingParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.weldingParametersLayoutGroup.Size = new System.Drawing.Size(527, 167);
             this.weldingParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 14);
-            this.weldingParametersLayoutGroup.Text = "История сварки";
+            this.weldingParametersLayoutGroup.Text = "&История сварки";
             // 
             // weldingHistoryLayout
             // 
             this.weldingHistoryLayout.Control = this.weldingHistory;
-            this.weldingHistoryLayout.CustomizationFormText = "Сварщики";
+            this.weldingHistoryLayout.CustomizationFormText = "Сварщ&ики";
             this.weldingHistoryLayout.ImageToTextDistance = 0;
             this.weldingHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.weldingHistoryLayout.Name = "weldingHistoryLayout";
             this.weldingHistoryLayout.Size = new System.Drawing.Size(491, 128);
-            this.weldingHistoryLayout.Text = "Сварщики";
+            this.weldingHistoryLayout.Text = "С&варщики";
             this.weldingHistoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.weldingHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
             this.weldingHistoryLayout.TextToControlDistance = 0;
@@ -817,7 +817,7 @@
             this.inspectionPage.Controls.Add(this.generalInspectionsLayout);
             this.inspectionPage.Name = "inspectionPage";
             this.inspectionPage.Size = new System.Drawing.Size(1236, 412);
-            this.inspectionPage.Text = "&Контрольные операции";
+            this.inspectionPage.Text = "Контрольные опера&ции";
             // 
             // generalInspectionsLayout
             // 
@@ -867,6 +867,8 @@
             this.inspectionsGridView.Name = "inspectionsGridView";
             this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionsGridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.inspectionsGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectionsGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionsGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsGridView_InitNewRow);
@@ -1161,7 +1163,7 @@
             this.saveAndNewButton.Size = new System.Drawing.Size(145, 22);
             this.saveAndNewButton.StyleController = this.generalPipeLayout;
             this.saveAndNewButton.TabIndex = 29;
-            this.saveAndNewButton.Text = "Сох&ранить / Создать";
+            this.saveAndNewButton.Text = "Со&хранить / Создать";
             // 
             // deactivate
             // 
@@ -1182,7 +1184,7 @@
             this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalPipeLayout;
             this.saveButton.TabIndex = 26;
-            this.saveButton.Text = "Со&хранить";
+            this.saveButton.Text = "&Сохранить";
             // 
             // attachmentsButton
             // 
@@ -1193,7 +1195,7 @@
             this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
             this.attachmentsButton.StyleController = this.generalPipeLayout;
             this.attachmentsButton.TabIndex = 25;
-            this.attachmentsButton.Text = "В&ложения";
+            this.attachmentsButton.Text = "&Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
             // pipeCreationDate
@@ -1326,7 +1328,7 @@
             this.creationDateLayout.Name = "creationDateLayout";
             this.creationDateLayout.Size = new System.Drawing.Size(133, 54);
             this.creationDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.creationDateLayout.Text = "Дата &изготовления";
+            this.creationDateLayout.Text = "&Дата изготовления";
             this.creationDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.creationDateLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
@@ -1399,7 +1401,7 @@
             this.purchaseOrderDateLayoutControl.Name = "purchaseOrderDateLayoutControl";
             this.purchaseOrderDateLayoutControl.Size = new System.Drawing.Size(133, 54);
             this.purchaseOrderDateLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
-            this.purchaseOrderDateLayoutControl.Text = "&Дата наряд-заказа";
+            this.purchaseOrderDateLayoutControl.Text = "Дата наряд-заказа";
             this.purchaseOrderDateLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.purchaseOrderDateLayoutControl.TextSize = new System.Drawing.Size(99, 13);
             // 
