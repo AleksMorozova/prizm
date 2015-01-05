@@ -46,7 +46,7 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             if(!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format("WHERE number LIKE N'%{0}%' ",number);
+                number = string.Format("WHERE number LIKE N'%{0}%' ",number.Replace("'","''"));
             }
 
             StringBuilder sb = new StringBuilder();
@@ -84,7 +84,7 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             if (!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format("WHERE number LIKE N'%{0}%' ", number);
+                number = string.Format("WHERE number LIKE N'%{0}%' ", number.Replace("'","''"));
             }
             return string.Format(
                                 @"SELECT id, number, '{1}' FROM Pipe {0}

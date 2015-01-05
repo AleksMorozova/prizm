@@ -130,7 +130,7 @@ namespace Prizm.Data.DAL.ADO
                         command.Connection = connection;
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);
-                        command.Parameters.AddWithValue("@user", user);
+                        command.Parameters.AddWithValue("@user", user.Replace("'","''"));
                         command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAudit).ToString();
                         adapter.SelectCommand = command;
                         adapter.Fill(auditDataTable);

@@ -38,7 +38,7 @@ using Prizm.Main.Properties;
         public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
 
 
-        private string pipeNumber; 
+        private string pipeNumber = String.Empty; 
 
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
 
