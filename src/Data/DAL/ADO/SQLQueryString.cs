@@ -44,7 +44,7 @@ namespace Prizm.Data.DAL.ADO
             @"SELECT [user], auditDate, oldValue, newValue, tableName, fieldName
                 FROM AuditLog 
                 WHERE auditDate >= @startDate and auditDate <= @finalDate
-                AND [user] LIKE @user";
+                AND [user] LIKE @user ESCAPE '\' ";
 
 
 
@@ -180,7 +180,7 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
             @"SELECT [user], auditDate, oldValue, newValue, tableName, fieldName
 FROM AuditLog 
                 WHERE auditDate >= @startDate and auditDate <= @finalDate
-                AND [user] LIKE @user";
+                AND [user] LIKE @user ESCAPE '\' ";
 
         private const string GetPipelinePieces =
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName FROM pipe WHERE isActive = 1

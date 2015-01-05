@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -37,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.Search
             {
                 if(!string.IsNullOrWhiteSpace(viewModel.Number))
                 {
-                    criteria.Add(Restrictions.Like("Number", viewModel.Number.Replace("'","''"), MatchMode.Anywhere));
+                    criteria.Add(Restrictions.Like("Number", viewModel.Number, MatchMode.Anywhere));
                 }
                 if(!string.IsNullOrWhiteSpace(viewModel.PegNumber))
                 {

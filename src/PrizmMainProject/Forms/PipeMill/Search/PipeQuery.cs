@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                          left join [PurchaseOrder] on ([PurchaseOrder].[id] = [Pipe].[purchaseOrderId])
                          left join [PipeMillSizeType] on ([PipeMillSizeType].[id] = [Pipe].[typeId]) ");
 
-            sb.Append(string.Format(" WHERE [Pipe].[number] LIKE N'%{0}%' ", Number.Replace("'","''")));
+            sb.Append(string.Format(@" WHERE [Pipe].[number] LIKE N'%{0}%' ESCAPE '\' ", Number.EscapeCharacters()));
 
             if (CheckedPipeTypes.Count > 0)
             {
