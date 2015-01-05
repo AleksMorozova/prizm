@@ -195,7 +195,6 @@
             this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 278, 250, 350);
             this.generalLayout.OptionsFocus.EnableAutoTabOrder = false;
             this.generalLayout.Root = this.railcarLayoutGroup;
-            this.generalLayout.ShowTemplates = true;
             this.generalLayout.Size = new System.Drawing.Size(1275, 510);
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";

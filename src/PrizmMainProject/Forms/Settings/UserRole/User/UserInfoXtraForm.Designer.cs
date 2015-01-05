@@ -95,7 +95,6 @@
             this.rootLayout.Name = "rootLayout";
             this.rootLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(402, 135, 496, 350);
             this.rootLayout.Root = this.rootLayoutControlGroup;
-            this.rootLayout.ShowTemplates = true;
             this.rootLayout.Size = new System.Drawing.Size(539, 516);
             this.rootLayout.TabIndex = 0;
             this.rootLayout.Text = "dataLayoutControl1";

@@ -63,25 +63,25 @@ Source: "..\src\bin\Release\*.exe"; Excludes: "*vshost*"; DestDir: "{app}"; Flag
 Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.config"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.manifest"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "{#DevExpressPath}DevExpress.Charts.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Data.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Mvvm.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Office.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.PivotGrid.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Printing.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.RichEdit.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Sparkline.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Utils.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Utils.v14.1.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraBars.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraGauges.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraGrid.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Charts.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Data.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Mvvm.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Office.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.PivotGrid.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Printing.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.RichEdit.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Sparkline.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.2.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraBars.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGauges.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGrid.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PrizmExternalPath}\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed

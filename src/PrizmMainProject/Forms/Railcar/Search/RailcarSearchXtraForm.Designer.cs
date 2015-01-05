@@ -272,7 +272,6 @@
             this.generalLayout.Name = "generalLayout";
             this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(15, 412, 250, 350);
             this.generalLayout.Root = this.generalLayoutGroup;
-            this.generalLayout.ShowTemplates = true;
             this.generalLayout.Size = new System.Drawing.Size(1265, 540);
             this.generalLayout.TabIndex = 30;
             this.generalLayout.Text = "layoutControl1";
