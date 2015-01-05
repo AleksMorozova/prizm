@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
@@ -57,10 +58,10 @@
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
             this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
@@ -88,6 +89,7 @@
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
+            this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -389,20 +391,6 @@
             this.barButtonItemComponentry.Name = "barButtonItemComponentry";
             this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
             // 
-            // barButtonItemSettingsUsers
-            // 
-            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
-            this.barButtonItemSettingsUsers.Id = 4;
-            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
-            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
-            // 
-            // barButtonItemRoles
-            // 
-            this.barButtonItemRoles.Caption = "Р&оли";
-            this.barButtonItemRoles.Id = 47;
-            this.barButtonItemRoles.Name = "barButtonItemRoles";
-            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
-            // 
             // barButtonItemSettingsWelders
             // 
             this.barButtonItemSettingsWelders.Caption = "&Сварщики";
@@ -416,6 +404,20 @@
             this.barButtonItemSettingsInspectors.Id = 55;
             this.barButtonItemSettingsInspectors.Name = "barButtonItemSettingsInspectors";
             this.barButtonItemSettingsInspectors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsInspectors_ItemClick);
+            // 
+            // barButtonItemSettingsUsers
+            // 
+            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
+            this.barButtonItemSettingsUsers.Id = 4;
+            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
+            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
+            // 
+            // barButtonItemRoles
+            // 
+            this.barButtonItemRoles.Caption = "Р&оли";
+            this.barButtonItemRoles.Id = 47;
+            this.barButtonItemRoles.Name = "barButtonItemRoles";
+            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
             // 
             // barSubItemLanguage
             // 
@@ -642,6 +644,11 @@
             this.notifyHistory.SortOrder = System.Windows.Forms.SortOrder.Descending;
             this.notifyHistory.TabIndex = 0;
             // 
+            // workspaceManager
+            // 
+            this.workspaceManager.TargetControl = this;
+            this.workspaceManager.TransitionType = pushTransition1;
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,6 +741,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
         private DevExpress.XtraBars.BarButtonItem importantMessages;
+        private DevExpress.Utils.WorkspaceManager workspaceManager;
 
 
 
