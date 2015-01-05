@@ -27,6 +27,7 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using DevExpress.XtraGrid;
 using Prizm.Main.Documents;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -748,6 +749,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
+        }
+
+        private void simpleButtonSave_Click(object sender, EventArgs e)
+        {
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+            var user = ctx.GetLoggedPerson();
+            var name = user.LastName + DateTime.Now.ToString("-hh-mm-ss");
+            workspaceManager.CaptureWorkspace(name);
+            workspaceManager.SaveWorkspace(name, @"D:\" + name + ".xml");
+
+        }
+
+        private void simpleButtonLoad_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var name = openFileDialog.SafeFileName;
+                workspaceManager.LoadWorkspace(name, openFileDialog.FileName);
+                workspaceManager.ApplyWorkspace(name);
+            }
         }
     }
 }
