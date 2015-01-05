@@ -665,6 +665,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Pipe.IsActive = true;
             this.Pipe.IsAvailableToJoint = true;
             this.Pipe.Status = PipeMillStatus.Produced;
+            this.Pipe.ConstructionStatus = Domain.Entity.Construction.PartConstructionStatus.Pending;
+            this.Pipe.InspectionStatus = Domain.Entity.Construction.PartInspectionStatus.Pending;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
