@@ -37,9 +37,9 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if (viewModel.ReportType.Value == ReportType.HighwayReport)
+            if (viewModel.ReportType.Value == ReportType.TracingReport)
             {
-                PipelineTracing();
+                viewModel.report.DataSource = PipelineTracing();
             }
             else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport)
             {
@@ -47,13 +47,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
             else
             {
-                GetUsedProduct();
+                viewModel.report.DataSource = GetUsedProduct();
             }
 
         }
 
-
-        private void GetUsedProduct()
+        private DataSet GetUsedProduct()
         {
             try
             {
@@ -84,28 +83,25 @@ namespace Prizm.Main.Forms.Reports.Construction
                 }
 
                 data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
-
-                viewModel.report.DataSource = data;
-
             }
             catch (RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            return data;
         }
 
-
-        private void PipelineTracing()
+        private List<TracingData> PipelineTracing()
         {
+            var graph = new PipelineGraph(viewModel.PartDataList.Count);
+            var tracingDataList = new List<TracingData>();
+
             if (viewModel.PartDataList != null)
             {
-                var graph = new PipelineGraph(viewModel.PartDataList.Count);
-
                 foreach (var partData in viewModel.PartDataList)
                 {
                     graph.AddPipelineVertex(partData);
                 }
-
                 foreach (var joint in viewModel.Joints)
                 {
                     graph.AddJointEdge(joint);
@@ -115,16 +111,13 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                 var path = graph.ShortestPath(paths);
 
-                var tracingDataList = new List<TracingData>();
-
-
                 for (int i = path.Count - 1; i >= 0; --i)
                 {
                     var tracingDataItem = new TracingData()
                     {
                         PartNumber = path[i].Data.Number,
                         PartTypeDescription = path[i].Data.PartTypeDescription,
-                        Length = path[i].Data.Length,
+                        Length = path[i].Data.Length
                     };
 
                     if (i >= 1)
@@ -134,20 +127,16 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                     tracingDataList.Add(tracingDataItem);
                 }
-
-                viewModel.report.DataSource = tracingDataList;
-
             }
+            return tracingDataList;
         }
-
-
 
         public bool CanExecute()
         {
             return
                 viewModel.ReportType != null &&
                 viewModel.StartJoint != null &&
-                viewModel.EndJoint != null; ;
+                viewModel.EndJoint != null;
         }
 
         public bool IsExecutable { get; set; }

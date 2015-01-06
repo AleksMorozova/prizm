@@ -218,7 +218,7 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to По отгруженным.
         /// </summary>
-        internal static string ByShipped {
+        internal static string gh {
             get {
                 return ResourceManager.GetString("ByShipped", resourceCulture);
             }
@@ -824,7 +824,7 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Трассовка.
         /// </summary>
-        internal static string HighwayReport {
+        internal static string TracingReport {
             get {
                 return ResourceManager.GetString("HighwayReport", resourceCulture);
             }

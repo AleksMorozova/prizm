@@ -171,7 +171,6 @@
             this.createReportButton.StyleController = this.generalLayout;
             this.createReportButton.TabIndex = 64;
             this.createReportButton.Text = "Соз&дать отчет";
-            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
             // 
             // previewButton
             // 
@@ -182,7 +181,6 @@
             this.previewButton.StyleController = this.generalLayout;
             this.previewButton.TabIndex = 65;
             this.previewButton.Text = "&Предпросмотр";
-            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
             // previewReportDocument
             // 
@@ -204,6 +202,7 @@
             this.type.Size = new System.Drawing.Size(186, 20);
             this.type.StyleController = this.generalLayout;
             this.type.TabIndex = 63;
+            this.type.EditValueChanged += new System.EventHandler(this.type_EditValueChanged);
             // 
             // generalLayoutGroup
             // 

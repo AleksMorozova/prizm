@@ -62,7 +62,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.data = repo.GetPipelineElements(SQLQueryString.GetWeldedParts);
             this.partDataList = FormWeldedParts(data);
 
-            this.Joints = repoJoint.GetAll();
+            this.Joints = repoJoint.GetAll()
+                .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null)
+                .ToList<construct.Joint>();
+
 
             createCommand = ViewModelSource
                 .Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));

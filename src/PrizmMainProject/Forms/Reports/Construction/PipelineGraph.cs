@@ -10,6 +10,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public class PipelineGraph
     {
+        private const int maximumPathsNumber = 2;
         private Dictionary<Guid, PipelineVertex> piecesVertex;
 
         public PipelineGraph(int capacity) 
@@ -68,7 +69,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             int k = 0;
 
-            while (stack.Count > 0 && paths.Count < 2)
+            while (stack.Count > 0 && paths.Count < maximumPathsNumber)
             {
                 while (k < joints.Count)
                 {
@@ -125,8 +126,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         }
     }
 
-
-
     public class JointEdge
     {
         public construct.Joint Data { get; set; }
@@ -138,7 +137,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             PartsVertex = new List<PipelineVertex>();
         }
     }
-
 
     public class PipelineVertex
     {
