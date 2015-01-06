@@ -197,40 +197,24 @@ namespace Prizm.Main.Forms.Spool
                = inspectionHistoryGridView
                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null)
+            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
                 e.Cancel = true;
             }
             else
             {
-                if (inspectionTestResult.Date == null)
-                {
-                    e.Cancel = true;
-                }
-                else
-                {
-                    inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
-                }
+                inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
             }
         }
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            InspectionTestResult inspectionTestResult
-                      = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
-            if (inspectionTestResult != null && inspectionTestResult.Date != null)
-            {
-                if (e.Value == null)
+            if (e.Value == null)
                     e.DisplayText = string.Empty;
 
                 IList<Inspector> inspectors = e.Value as IList<Inspector>;
                 e.DisplayText = viewModel.FormatInspectorList(inspectors);
-            }
-
-            else
-            {
-                e.DisplayText = Resources.DateFirst;
-            }
         }
 
         private void pipeLength_TextChanged(object sender, EventArgs e)
