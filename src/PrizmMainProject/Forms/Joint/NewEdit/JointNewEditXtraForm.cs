@@ -235,21 +235,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-            JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-
-            if (jointTestResult != null && jointTestResult.Date != null)
-            {
                 if (e.Value == null)
                     e.DisplayText = string.Empty;
 
                 IList<Inspector> inspectors = e.Value as IList<Inspector>;
                 e.DisplayText = viewModel.FormatInspectorList(inspectors);
-            }
-
-            else
-            {
-                e.DisplayText = Resources.DateFirst;
-            }
         }
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
@@ -334,19 +324,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void weldersPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-            JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
-            if (jointWeldResult != null && jointWeldResult.Date != null)
-            {
                 if (e.Value == null)
                     e.DisplayText = string.Empty;
 
                 IList<Welder> welders = e.Value as IList<Welder>;
                 e.DisplayText = viewModel.FormatWelderList(welders);
-            }
-            else
-            {
-                e.DisplayText = Resources.DateFirst;
-            }
         }
 
         /// <summary>
@@ -440,40 +422,29 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                = controlOperationsView
                .GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
 
-            if (jointTestResult == null)
+            if (jointTestResult == null || (jointTestResult != null && jointTestResult.Date == null))
             {
+                controlOperationsView.SetColumnError(inspectionsGridView.VisibleColumns[2], Resources.DateFirst);
                 e.Cancel = true;
             }
             else
             {
-                if (jointTestResult.Date == null)
-                {
-                    e.Cancel = true;
-                }
-                else
-                {
-                    inspectorSelectionControl.inspectionDate = jointTestResult.Date;
-                }
+                inspectorSelectionControl.inspectionDate = jointTestResult.Date;
+               
             }
         }
 
         private void weldersPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
         {
             JointWeldResult weld = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
-            if (weld == null)
+            if (weld == null || (weld != null && weld.Date == null))
             {
+                repairOperationsView.SetColumnError(repairOperationsView.VisibleColumns[1], Resources.DateFirst);
                 e.Cancel = true;
             }
             else
             {
-                if (weld.Date == null)
-                {
-                    e.Cancel = true;
-                }
-                else 
-                { 
-                    weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date; 
-                }
+                weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date;
             }
         }
     }

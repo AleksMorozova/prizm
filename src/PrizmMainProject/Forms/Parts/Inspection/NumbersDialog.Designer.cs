@@ -70,7 +70,7 @@
             this.acceptButton.Size = new System.Drawing.Size(180, 22);
             this.acceptButton.StyleController = this.dialogLayout;
             this.acceptButton.TabIndex = 6;
-            this.acceptButton.Text = "Контроль";
+            this.acceptButton.Text = "Конт&роль";
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // cancelButton
@@ -81,7 +81,7 @@
             this.cancelButton.Size = new System.Drawing.Size(179, 22);
             this.cancelButton.StyleController = this.dialogLayout;
             this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "О&тменить";
             // 
             // searchResults
             // 
@@ -103,7 +103,9 @@
             this.searchResultsView.GridControl = this.searchResults;
             this.searchResultsView.Name = "searchResultsView";
             this.searchResultsView.OptionsBehavior.Editable = false;
+            this.searchResultsView.OptionsBehavior.FocusLeaveOnTab = true;
             this.searchResultsView.OptionsBehavior.ReadOnly = true;
+            this.searchResultsView.OptionsNavigation.UseTabKey = false;
             this.searchResultsView.OptionsView.ShowGroupPanel = false;
             this.searchResultsView.OptionsView.ShowIndicator = false;
             // 
@@ -141,7 +143,7 @@
             // searchResultsLayout
             // 
             this.searchResultsLayout.Control = this.searchResults;
-            this.searchResultsLayout.CustomizationFormText = "Результаты поиска";
+            this.searchResultsLayout.CustomizationFormText = "Рез&ультаты поиска";
             this.searchResultsLayout.Location = new System.Drawing.Point(0, 0);
             this.searchResultsLayout.Name = "searchResultsLayout";
             this.searchResultsLayout.Size = new System.Drawing.Size(397, 200);

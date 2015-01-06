@@ -63,7 +63,6 @@
     <Compile Include="Entity\Mill\Coat.cs" />
     <Compile Include="Entity\Mill\CoatingType.cs" />
     <Compile Include="Entity\Mill\PipeTestResultStatus.cs" />
-    <Compile Include="Entity\Mill\PipeTestResultStatusWrapper.cs" />
     <Compile Include="Entity\Mill\PipeMillStatus.cs" />
     <Compile Include="Entity\ItemExtensions.cs" />
     <Compile Include="Entity\Security\Permission.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
     <Compile Include="Entity\Mill\PipeTestResult.cs" />
-    <Compile Include="Entity\Setup\PipeTestControlTypeWrapper.cs" />
     <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />
@@ -93,9 +91,6 @@
     <Compile Include="Entity\Part.cs" />
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
-    <Compile Include="Entity\Setup\PipeTestResultTypeWrapper.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Entity\Setup\Project.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\Setup\WorkstationType.cs" />

@@ -144,8 +144,8 @@
   <data name="DLG_SETUP_SAVED" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
   </data>
-  <data name="Passed" xml:space="preserve">
-    <value>Пройден</value>
+  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
+    <value>Годен</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -154,8 +154,8 @@
   <data name="Weight" xml:space="preserve">
     <value>Вес</value>
   </data>
-  <data name="Failed" xml:space="preserve">
-    <value>Не пройден</value>
+  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
+    <value>Брак</value>
   </data>
   <data name="Filled" xml:space="preserve">
     <value>Засыпан</value>
@@ -229,7 +229,7 @@
   <data name="Wrong_pipe_number_for_cutting_Header" xml:space="preserve">
     <value>Неверный номер трубы</value>
   </data>
-  <data name="InspectionControlType_Hold" xml:space="preserve">
+  <data name="PipeTestControlType_Hold" xml:space="preserve">
     <value>Обязательный</value>
   </data>
   <data name="PlateManufacturer" xml:space="preserve">
@@ -244,7 +244,7 @@
   <data name="IsRequired" xml:space="preserve">
     <value>Обязательный</value>
   </data>
-  <data name="InspectionResultType_String" xml:space="preserve">
+  <data name="PipeTestResultType_String" xml:space="preserve">
     <value>Строка</value>
   </data>
   <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
@@ -280,10 +280,10 @@
   <data name="Code" xml:space="preserve">
     <value>Код</value>
   </data>
-  <data name="InspectionResultType_Diapason" xml:space="preserve">
+  <data name="PipeTestResultType_Diapason" xml:space="preserve">
     <value>Диапазон</value>
   </data>
-  <data name="InspectionResultType_Boolean" xml:space="preserve">
+  <data name="PipeTestResultType_Boolean" xml:space="preserve">
     <value>Логический</value>
   </data>
   <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
@@ -304,7 +304,7 @@
   <data name="Thickness" xml:space="preserve">
     <value>Толщина</value>
   </data>
-  <data name="InspectionControlType_Witness" xml:space="preserve">
+  <data name="PipeTestControlType_Witness" xml:space="preserve">
     <value>Присутствие</value>
   </data>
   <data name="BoolExpected" xml:space="preserve">
@@ -313,7 +313,7 @@
   <data name="Master" xml:space="preserve">
     <value>Главный</value>
   </data>
-  <data name="InspectionControlType_Monitor" xml:space="preserve">
+  <data name="PipeTestControlType_Monitor" xml:space="preserve">
     <value>Визуальный</value>
   </data>
   <data name="Welded" xml:space="preserve">
@@ -331,7 +331,7 @@
   <data name="Pending" xml:space="preserve">
     <value>Ожидает контроль</value>
   </data>
-  <data name="Repair" xml:space="preserve">
+  <data name="PipeTestResultStatus_Repair" xml:space="preserve">
     <value>Ремонт</value>
   </data>
   <data name="VALUE_REQUIRED" xml:space="preserve">
@@ -367,7 +367,7 @@
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
   </data>
-  <data name="Accepted" xml:space="preserve">
+  <data name="PartInspectionStatus_Accepted" xml:space="preserve">
     <value>Принято</value>
   </data>
   <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
@@ -415,7 +415,7 @@
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
   </data>
-  <data name="InspectionControlType_Review" xml:space="preserve">
+  <data name="PipeTestControlType_Review" xml:space="preserve">
     <value>По документации</value>
   </data>
   <data name="Action" xml:space="preserve">
@@ -465,7 +465,7 @@
   <data name="MillName" xml:space="preserve">
     <value>Название завода</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
+  <data name="JointTestResultStatus_Withdraw" xml:space="preserve">
     <value>Вырезка</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
@@ -578,7 +578,7 @@
   <data name="Date" xml:space="preserve">
     <value>Дата</value>
   </data>
-  <data name="Scheduled" xml:space="preserve">
+  <data name="PipeTestResultStatus_Scheduled" xml:space="preserve">
     <value>Ожидается</value>
   </data>
   <data name="PRIZM" xml:space="preserve">
@@ -688,18 +688,16 @@
   </data>
   <data name="DateFirst" xml:space="preserve">
     <value>Выберите дату</value>
-      </data>
-
+  </data>
   <data name="DLG_JOINT_INCORRECT_DIAMETER" xml:space="preserve">
     <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
   </data>
   <data name="DLG_JOINT_INCORRECT_DIAMETER_HEADER" xml:space="preserve">
     <value>Не совпадают диаметры стыкуемых элементов</value>
   </data>
-
   <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
     <value>Дубликат номера труб</value>
-      </data>
+  </data>
   <data name="ERROR_UnknownComponentType" xml:space="preserve">
     <value> неизвестный тип компонента</value>
   </data>
@@ -723,5 +721,11 @@
   </data>
   <data name="DIAMETER_VALUE_VALIDATION" xml:space="preserve">
     <value>Величина диаметра должна быть больше нуля</value>
+  </data>
+  <data name="JointTestResultStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="JointTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
   </data>
 </root>

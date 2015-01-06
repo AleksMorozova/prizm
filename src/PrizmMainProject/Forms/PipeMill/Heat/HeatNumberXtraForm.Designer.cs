@@ -81,7 +81,7 @@
             this.saveButton.Size = new System.Drawing.Size(96, 23);
             this.saveButton.StyleController = this.layoutControl1;
             this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Сохранить";
             // 
             // cancelButton
             // 
@@ -92,7 +92,7 @@
             this.cancelButton.Size = new System.Drawing.Size(96, 23);
             this.cancelButton.StyleController = this.layoutControl1;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "О&тменить";
             // 
             // rootLayoutControlGroup
             // 
@@ -114,7 +114,7 @@
             // numberLayoutControl
             // 
             this.numberLayoutControl.Control = this.number;
-            this.numberLayoutControl.CustomizationFormText = "Номер плавки";
+            this.numberLayoutControl.CustomizationFormText = "Ном&ер плавки";
             this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.numberLayoutControl.Name = "numberLayoutControl";
             this.numberLayoutControl.Size = new System.Drawing.Size(338, 54);

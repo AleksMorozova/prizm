@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartInspectionXtraForm));
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
@@ -57,8 +58,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -106,22 +107,22 @@
             // saveAndClearButton
             // 
             this.saveAndClearButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAndClearButton.Image")));
-            this.saveAndClearButton.Location = new System.Drawing.Point(739, 447);
+            this.saveAndClearButton.Location = new System.Drawing.Point(732, 447);
             this.saveAndClearButton.Name = "saveAndClearButton";
-            this.saveAndClearButton.Size = new System.Drawing.Size(138, 22);
+            this.saveAndClearButton.Size = new System.Drawing.Size(145, 22);
             this.saveAndClearButton.StyleController = this.inspectionLayoutControl;
             this.saveAndClearButton.TabIndex = 10;
-            this.saveAndClearButton.Text = "Сохранить/Очистить";
+            this.saveAndClearButton.Text = "Со&хранить/Очистить";
             // 
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(635, 447);
+            this.saveButton.Location = new System.Drawing.Point(621, 447);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(85, 22);
+            this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.inspectionLayoutControl;
             this.saveButton.TabIndex = 9;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Сохранить";
             // 
             // inspections
             // 
@@ -147,6 +148,8 @@
             this.inspectionsView.GridControl = this.inspections;
             this.inspectionsView.Name = "inspectionsView";
             this.inspectionsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.inspectionsView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectionsView.OptionsNavigation.UseTabKey = false;
             this.inspectionsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
@@ -237,10 +240,10 @@
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(263, 58);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(225, 22);
+            this.searchButton.Size = new System.Drawing.Size(232, 22);
             this.searchButton.StyleController = this.inspectionLayoutControl;
             this.searchButton.TabIndex = 5;
-            this.searchButton.Text = "Найти и редактировать для контроля";
+            this.searchButton.Text = "Найти и &редактировать для контроля";
             // 
             // searchNumber
             // 
@@ -282,7 +285,7 @@
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
             this.searchButtonLayout.Location = new System.Drawing.Point(224, 0);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(259, 46);
+            this.searchButtonLayout.Size = new System.Drawing.Size(266, 46);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -292,14 +295,14 @@
             // searchNumberLayout
             // 
             this.searchNumberLayout.Control = this.searchNumber;
-            this.searchNumberLayout.CustomizationFormText = "Номер искомого элемента";
+            this.searchNumberLayout.CustomizationFormText = "Ном&ер искомого элемента";
             this.searchNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.searchNumberLayout.MinSize = new System.Drawing.Size(224, 45);
             this.searchNumberLayout.Name = "searchNumberLayout";
             this.searchNumberLayout.Size = new System.Drawing.Size(224, 46);
             this.searchNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.searchNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
-            this.searchNumberLayout.Text = "Номер искомого элемента";
+            this.searchNumberLayout.Text = "Ном&ер искомого элемента";
             this.searchNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.searchNumberLayout.TextSize = new System.Drawing.Size(130, 13);
             // 
@@ -307,9 +310,9 @@
             // 
             this.findElementEmptySpace.AllowHotTrack = false;
             this.findElementEmptySpace.CustomizationFormText = "findElementEmptySpace";
-            this.findElementEmptySpace.Location = new System.Drawing.Point(483, 0);
+            this.findElementEmptySpace.Location = new System.Drawing.Point(490, 0);
             this.findElementEmptySpace.Name = "findElementEmptySpace";
-            this.findElementEmptySpace.Size = new System.Drawing.Size(374, 46);
+            this.findElementEmptySpace.Size = new System.Drawing.Size(367, 46);
             this.findElementEmptySpace.Text = "findElementEmptySpace";
             this.findElementEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -339,21 +342,21 @@
             this.elementTypeLayout.Size = new System.Drawing.Size(134, 40);
             this.elementTypeLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elementTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
-            this.elementTypeLayout.Text = "Тип элемента";
+            this.elementTypeLayout.Text = "&Тип элемента";
             this.elementTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.elementTypeLayout.TextSize = new System.Drawing.Size(130, 13);
             // 
             // elementNumberLayout
             // 
             this.elementNumberLayout.Control = this.elementNumber;
-            this.elementNumberLayout.CustomizationFormText = "Номер элемента";
+            this.elementNumberLayout.CustomizationFormText = "Номер &элемента";
             this.elementNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.elementNumberLayout.MinSize = new System.Drawing.Size(224, 40);
             this.elementNumberLayout.Name = "elementNumberLayout";
             this.elementNumberLayout.Size = new System.Drawing.Size(224, 40);
             this.elementNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elementNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 0);
-            this.elementNumberLayout.Text = "Номер элемента";
+            this.elementNumberLayout.Text = "Номер &элемента";
             this.elementNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.elementNumberLayout.TextSize = new System.Drawing.Size(130, 13);
             // 
@@ -385,9 +388,9 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(611, 315);
+            this.saveButtonLayout.Location = new System.Drawing.Point(597, 315);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(94, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(101, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -398,9 +401,9 @@
             // 
             this.saveAndClearLayout.Control = this.saveAndClearButton;
             this.saveAndClearLayout.CustomizationFormText = "saveAndClearLayout";
-            this.saveAndClearLayout.Location = new System.Drawing.Point(705, 315);
+            this.saveAndClearLayout.Location = new System.Drawing.Point(698, 315);
             this.saveAndClearLayout.Name = "saveAndClearLayout";
-            this.saveAndClearLayout.Size = new System.Drawing.Size(152, 26);
+            this.saveAndClearLayout.Size = new System.Drawing.Size(159, 26);
             this.saveAndClearLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.saveAndClearLayout.Text = "saveAndClearLayout";
             this.saveAndClearLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -413,7 +416,7 @@
             this.buttonsEmptySpaceItem.CustomizationFormText = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.Location = new System.Drawing.Point(0, 315);
             this.buttonsEmptySpaceItem.Name = "buttonsEmptySpaceItem";
-            this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(611, 26);
+            this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(597, 26);
             this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 

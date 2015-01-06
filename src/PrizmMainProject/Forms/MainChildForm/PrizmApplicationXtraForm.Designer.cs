@@ -57,10 +57,10 @@
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
             this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
@@ -272,7 +272,7 @@
             // 
             // barSubItemConstruction
             // 
-            this.barSubItemConstruction.Caption = "Входной контроль и &строительство";
+            this.barSubItemConstruction.Caption = "Входной &контроль и строительство";
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
@@ -389,20 +389,6 @@
             this.barButtonItemComponentry.Name = "barButtonItemComponentry";
             this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
             // 
-            // barButtonItemSettingsUsers
-            // 
-            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
-            this.barButtonItemSettingsUsers.Id = 4;
-            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
-            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
-            // 
-            // barButtonItemRoles
-            // 
-            this.barButtonItemRoles.Caption = "Р&оли";
-            this.barButtonItemRoles.Id = 47;
-            this.barButtonItemRoles.Name = "barButtonItemRoles";
-            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
-            // 
             // barButtonItemSettingsWelders
             // 
             this.barButtonItemSettingsWelders.Caption = "&Сварщики";
@@ -416,6 +402,20 @@
             this.barButtonItemSettingsInspectors.Id = 55;
             this.barButtonItemSettingsInspectors.Name = "barButtonItemSettingsInspectors";
             this.barButtonItemSettingsInspectors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsInspectors_ItemClick);
+            // 
+            // barButtonItemSettingsUsers
+            // 
+            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
+            this.barButtonItemSettingsUsers.Id = 4;
+            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
+            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
+            // 
+            // barButtonItemRoles
+            // 
+            this.barButtonItemRoles.Caption = "Р&оли";
+            this.barButtonItemRoles.Id = 47;
+            this.barButtonItemRoles.Name = "barButtonItemRoles";
+            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
             // 
             // barSubItemLanguage
             // 
