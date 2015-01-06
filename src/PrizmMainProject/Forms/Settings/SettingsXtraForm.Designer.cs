@@ -936,11 +936,15 @@
             this.seemTypeIsActiveColumn});
             this.seemTypeGridView.GridControl = this.seemType;
             this.seemTypeGridView.Name = "seemTypeGridView";
+            this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
+            this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
+            this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
             // seemTypeColumn
             // 
             this.seemTypeColumn.Caption = "Тип шва";
+            this.seemTypeColumn.FieldName = "Name";
             this.seemTypeColumn.Name = "seemTypeColumn";
             this.seemTypeColumn.Visible = true;
             this.seemTypeColumn.VisibleIndex = 0;
@@ -948,6 +952,7 @@
             // seemTypeIsActiveColumn
             // 
             this.seemTypeIsActiveColumn.Caption = "Активен";
+            this.seemTypeIsActiveColumn.FieldName = "IsActive";
             this.seemTypeIsActiveColumn.Name = "seemTypeIsActiveColumn";
             this.seemTypeIsActiveColumn.Visible = true;
             this.seemTypeIsActiveColumn.VisibleIndex = 1;
@@ -1257,20 +1262,6 @@
             this.millNameLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.millNameLayout.TextSize = new System.Drawing.Size(251, 13);
             // 
-// categoryLayoutControl
-            // 
-            this.categoryLayoutControl.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
-            this.categoryLayoutControl.AppearanceItemCaption.Options.UseBackColor = true;
-            this.categoryLayoutControl.Control = this.categoriesGrid;
-            this.categoryLayoutControl.CustomizationFormText = "Группы контрольных операций";
-            this.categoryLayoutControl.Location = new System.Drawing.Point(0, 105);
-            this.categoryLayoutControl.Name = "categoryLayoutControl";
-            this.categoryLayoutControl.Size = new System.Drawing.Size(634, 307);
-            this.categoryLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 7, 0, 0);
-            this.categoryLayoutControl.Text = "Группы контрольных опера&ций";
-            this.categoryLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.categoryLayoutControl.TextSize = new System.Drawing.Size(251, 13);
-            //             this.categoryLayoutControl.Text = "Группы контрольных опера&ций";
             // pipeNumberMaskLayout
             // 
             this.pipeNumberMaskLayout.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;

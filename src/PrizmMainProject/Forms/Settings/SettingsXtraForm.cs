@@ -141,6 +141,8 @@ namespace Prizm.Main.Forms.Settings
             repositoryLookUpCertificateType.DataSource = viewModel.CertificateTypes;
             certificateTypes.DataSource = viewModel.CertificateTypes;
 
+            seemType.DataSource = viewModel.SeemTypes;
+
             componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
             rolesBindingSource.DataSource = viewModel.Roles;
@@ -786,5 +788,22 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        private void seemTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            SeemType seemType = v.GetRow(e.RowHandle) as SeemType;
+            seemType.IsActive = true;
+        }
+
+        private void seemTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<SeemType>(
+                e,
+                viewModel.SeemTypes,
+                (_) => _.IsNew());
+        }
+
     }
 }
