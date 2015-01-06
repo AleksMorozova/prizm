@@ -530,7 +530,7 @@
             this.searchResultLayoutGroup.Name = "searchResultLayoutGroup";
             this.searchResultLayoutGroup.Size = new System.Drawing.Size(1190, 310);
             this.searchResultLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 7, 7);
-            this.searchResultLayoutGroup.Text = "Результаты поиска";
+            this.searchResultLayoutGroup.Text = "Резул&ьтаты поиска";
             // 
             // PipeSearchGridLayout
             // 
@@ -540,7 +540,7 @@
             this.PipeSearchGridLayout.Name = "PipeSearchGridLayout";
             this.PipeSearchGridLayout.Size = new System.Drawing.Size(1164, 257);
             this.PipeSearchGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.PipeSearchGridLayout.Text = "Результаты поиска";
+            this.PipeSearchGridLayout.Text = "Резул&ьтаты поиска";
             this.PipeSearchGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.PipeSearchGridLayout.TextSize = new System.Drawing.Size(0, 0);
             this.PipeSearchGridLayout.TextToControlDistance = 0;

@@ -274,7 +274,7 @@
             // 
             // barSubItemConstruction
             // 
-            this.barSubItemConstruction.Caption = "Входной контроль и &строительство";
+            this.barSubItemConstruction.Caption = "Входной &контроль и строительство";
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),

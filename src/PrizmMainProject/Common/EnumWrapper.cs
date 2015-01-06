@@ -46,7 +46,9 @@ namespace Prizm.Main.Common
         {
             get
             {
-                return Resources.ResourceManager.GetString(Name);
+                string result = Resources.ResourceManager.GetString(typeof(TEnum).Name + "_" + Name);
+                result = String.IsNullOrEmpty(result) ? Resources.ResourceManager.GetString(Name) : result;
+                return result;
             }
         }
 
