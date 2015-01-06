@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public Project Project { get; set; }
 
         public IList<Welder> Welders { get; set; }
-        public BindingList<PipeTestResultStatusWrapper> TestResultStatuses = new BindingList<PipeTestResultStatusWrapper>();
+        public BindingList<EnumWrapper<PipeTestResultStatus>> TestResultStatuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
         bool recalculateWeight = false;
@@ -135,10 +135,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             foreach(string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
                 if(controlTypeName != Enum.GetName(typeof(PipeTestResultStatus), PipeTestResultStatus.Undef))
-                    TestResultStatuses.Add(new PipeTestResultStatusWrapper()
+                    TestResultStatuses.Add(new EnumWrapper<PipeTestResultStatus>()
                     {
-                        Value = (PipeTestResultStatus)Enum.Parse(typeof(PipeTestResultStatus), controlTypeName),
-                        Text = Resources.ResourceManager.GetString(controlTypeName)
+                        Value = (PipeTestResultStatus)Enum.Parse(typeof(PipeTestResultStatus), controlTypeName)
                     }
                     );
             }
@@ -663,7 +662,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;
+            this.Pipe.IsAvailableToJoint = true;
             this.Pipe.Status = PipeMillStatus.Produced;
+            this.Pipe.ConstructionStatus = Domain.Entity.Construction.PartConstructionStatus.Pending;
+            this.Pipe.InspectionStatus = Domain.Entity.Construction.PartInspectionStatus.Pending;
 
             this.Number = string.Empty;
             this.Mill = string.Empty;
@@ -703,8 +705,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         internal string FormatWeldersList(IList<Welder> welders)
         {
-            if(welders == null)
-                return String.Empty;
+            if (welders == null)
+                return string.Empty;
 
             return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
         }
@@ -714,8 +716,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if(inspectors == null)
-                return String.Empty;
+            if (inspectors == null)
+                return string.Empty;
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
         }
@@ -755,8 +757,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             int count = 0;
             foreach(PipeTestResult test in pipeTestResults)
             {
-                if((test.Status == PipeTestResultStatus.Failed) ||
-                    (test.Status == PipeTestResultStatus.Passed))
+                if((test.Status == PipeTestResultStatus.Failed)
+                    || (test.Status == PipeTestResultStatus.Passed)
+                    || (test.Status == PipeTestResultStatus.Repair)
+                    )
                 {
                     count++;
                 }
@@ -806,7 +810,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if(Pipe.Railcar != null)
                 {
-                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
+                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) 
+                        || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
+                        || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
+                        )
                     {
                         resultValue = false;
                     }
@@ -837,7 +844,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
-            if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString()))
+            if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) 
+                || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
+                || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
+                )
             {
                 Pipe.Status = PipeMillStatus.Produced;
             }

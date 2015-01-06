@@ -136,6 +136,7 @@
             this.previewReportDocument.Location = new System.Drawing.Point(29, 140);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(882, 281);
+            this.previewReportDocument.Status = "Документ не содержит каких-либо страниц.";
             this.previewReportDocument.TabIndex = 50;
             // 
             // startDate
@@ -297,7 +298,7 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InspectionReportsXtraForm";
-            this.Text = "Отчет";
+            this.Text = "Отчет по входному контролю";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.InspectionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();

@@ -46,6 +46,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.searchBtnLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBtnLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
@@ -79,13 +81,14 @@
             // 
             // searchButton
             // 
+            this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(540, 63);
+            this.searchButton.Location = new System.Drawing.Point(530, 63);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(81, 22);
+            this.searchButton.Size = new System.Drawing.Size(97, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 7;
-            this.searchButton.Text = "Поиск";
+            this.searchButton.Text = "&Поиск";
             // 
             // type
             // 
@@ -103,10 +106,10 @@
             // parts
             // 
             this.parts.Cursor = System.Windows.Forms.Cursors.Default;
-            this.parts.Location = new System.Drawing.Point(12, 126);
+            this.parts.Location = new System.Drawing.Point(24, 141);
             this.parts.MainView = this.partsView;
             this.parts.Name = "parts";
-            this.parts.Size = new System.Drawing.Size(1235, 373);
+            this.parts.Size = new System.Drawing.Size(1211, 346);
             this.parts.TabIndex = 5;
             this.parts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.partsView});
@@ -119,7 +122,9 @@
             this.partsView.GridControl = this.parts;
             this.partsView.Name = "partsView";
             this.partsView.OptionsBehavior.Editable = false;
+            this.partsView.OptionsBehavior.FocusLeaveOnTab = true;
             this.partsView.OptionsCustomization.AllowFilter = false;
+            this.partsView.OptionsNavigation.UseTabKey = false;
             this.partsView.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
@@ -159,8 +164,8 @@
             this.rootLayoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.rootLayoutControlGroup.GroupBordersVisible = false;
             this.rootLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.gridlayoutControl,
-            this.searchLayoutControlGroup});
+            this.searchLayoutControlGroup,
+            this.searchResultLayoutGroup});
             this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
             this.rootLayoutControlGroup.Size = new System.Drawing.Size(1259, 511);
@@ -171,12 +176,14 @@
             // 
             this.gridlayoutControl.Control = this.parts;
             this.gridlayoutControl.CustomizationFormText = "Компоненты";
-            this.gridlayoutControl.Location = new System.Drawing.Point(0, 98);
+            this.gridlayoutControl.Location = new System.Drawing.Point(0, 0);
             this.gridlayoutControl.Name = "gridlayoutControl";
-            this.gridlayoutControl.Size = new System.Drawing.Size(1239, 393);
-            this.gridlayoutControl.Text = "Компоненты";
+            this.gridlayoutControl.Size = new System.Drawing.Size(1215, 350);
+            this.gridlayoutControl.Text = "Резул&ьтаты поиска";
             this.gridlayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.gridlayoutControl.TextSize = new System.Drawing.Size(63, 13);
+            this.gridlayoutControl.TextSize = new System.Drawing.Size(0, 0);
+            this.gridlayoutControl.TextToControlDistance = 0;
+            this.gridlayoutControl.TextVisible = false;
             // 
             // searchLayoutControlGroup
             // 
@@ -200,9 +207,9 @@
             this.numberLayoutControl.Name = "numberLayoutControl";
             this.numberLayoutControl.Size = new System.Drawing.Size(250, 45);
             this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
-            this.numberLayoutControl.Text = "Номер";
+            this.numberLayoutControl.Text = "Ном&ер";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayoutControl.TextSize = new System.Drawing.Size(63, 13);
+            this.numberLayoutControl.TextSize = new System.Drawing.Size(31, 13);
             // 
             // typeLayoutControl
             // 
@@ -212,17 +219,17 @@
             this.typeLayoutControl.Name = "typeLayoutControl";
             this.typeLayoutControl.Size = new System.Drawing.Size(250, 45);
             this.typeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
-            this.typeLayoutControl.Text = "Тип";
+            this.typeLayoutControl.Text = "&Тип";
             this.typeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.typeLayoutControl.TextSize = new System.Drawing.Size(63, 13);
+            this.typeLayoutControl.TextSize = new System.Drawing.Size(31, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(600, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(621, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(613, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(592, 45);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -232,8 +239,8 @@
             this.searchBtnLayoutControl.CustomizationFormText = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.Location = new System.Drawing.Point(500, 0);
             this.searchBtnLayoutControl.Name = "searchBtnLayoutControl";
-            this.searchBtnLayoutControl.Size = new System.Drawing.Size(100, 45);
-            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
+            this.searchBtnLayoutControl.Size = new System.Drawing.Size(121, 45);
+            this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 15, 0);
             this.searchBtnLayoutControl.Text = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.searchBtnLayoutControl.TextToControlDistance = 0;
@@ -243,14 +250,25 @@
             // 
             this.bindingSource.AllowNew = false;
             // 
+            // searchResultLayoutGroup
+            // 
+            this.searchResultLayoutGroup.CustomizationFormText = "Резул&ьтаты поиска";
+            this.searchResultLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.gridlayoutControl});
+            this.searchResultLayoutGroup.Location = new System.Drawing.Point(0, 98);
+            this.searchResultLayoutGroup.Name = "searchResultLayoutGroup";
+            this.searchResultLayoutGroup.Size = new System.Drawing.Size(1239, 393);
+            this.searchResultLayoutGroup.Text = "Резул&ьтаты поиска";
+            // 
             // PartSearchXtraForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1259, 511);
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "PartSearchXtraForm";
-            this.Text = "Строительство - поиск компонентов";
+            this.Text = "Поиск элементов трубопровода";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PartSearchXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.PartsSearchXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
@@ -267,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBtnLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,5 +308,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn numberCol;
         private DevExpress.XtraGrid.Columns.GridColumn typeCol;
         private System.Windows.Forms.BindingSource bindingSource;
+        private DevExpress.XtraLayout.LayoutControlGroup searchResultLayoutGroup;
     }
 }

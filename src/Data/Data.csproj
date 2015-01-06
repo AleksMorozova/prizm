@@ -70,6 +70,7 @@
     <Compile Include="DAL\Hibernate\FileRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
+    <Compile Include="DAL\Hibernate\InspectionTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\InspectorCertificateTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
     <Compile Include="DAL\Hibernate\JointOperationRepository.cs" />
@@ -93,9 +94,11 @@
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
     <Compile Include="DAL\IFileRepository.cs" />
+    <Compile Include="DAL\IInspectionTestResultRepository.cs" />
     <Compile Include="DAL\IMillReportsRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\ISQLFlexible.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\CategoryMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />

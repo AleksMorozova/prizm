@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -56,15 +57,16 @@
             this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
             this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
+            this.importantMessages = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
@@ -79,10 +81,10 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
@@ -159,9 +161,10 @@
             this.barButtonItemSettingsInspectors,
             this.barButtonStatusNotifications,
             this.barButtonItemComponentry,
-            this.barButtonItemPartIncomingInspection});
+            this.barButtonItemPartIncomingInspection,
+            this.importantMessages});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 62;
+            this.barManager1.MaxItemId = 63;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -269,7 +272,7 @@
             // 
             // barSubItemConstruction
             // 
-            this.barSubItemConstruction.Caption = "Входной контроль и &строительство";
+            this.barSubItemConstruction.Caption = "Входной &контроль и строительство";
             this.barSubItemConstruction.Id = 26;
             this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
@@ -350,10 +353,10 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemComponentry),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsWelders),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsInspectors),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
             this.barSubItemSettings.Name = "barSubItemSettings";
             // 
@@ -386,20 +389,6 @@
             this.barButtonItemComponentry.Name = "barButtonItemComponentry";
             this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
             // 
-            // barButtonItemSettingsUsers
-            // 
-            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
-            this.barButtonItemSettingsUsers.Id = 4;
-            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
-            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
-            // 
-            // barButtonItemRoles
-            // 
-            this.barButtonItemRoles.Caption = "Р&оли";
-            this.barButtonItemRoles.Id = 47;
-            this.barButtonItemRoles.Name = "barButtonItemRoles";
-            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
-            // 
             // barButtonItemSettingsWelders
             // 
             this.barButtonItemSettingsWelders.Caption = "&Сварщики";
@@ -413,6 +402,20 @@
             this.barButtonItemSettingsInspectors.Id = 55;
             this.barButtonItemSettingsInspectors.Name = "barButtonItemSettingsInspectors";
             this.barButtonItemSettingsInspectors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsInspectors_ItemClick);
+            // 
+            // barButtonItemSettingsUsers
+            // 
+            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
+            this.barButtonItemSettingsUsers.Id = 4;
+            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
+            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
+            // 
+            // barButtonItemRoles
+            // 
+            this.barButtonItemRoles.Caption = "Р&оли";
+            this.barButtonItemRoles.Id = 47;
+            this.barButtonItemRoles.Name = "barButtonItemRoles";
+            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
             // 
             // barSubItemLanguage
             // 
@@ -430,11 +433,12 @@
             // 
             // barSubItemReports
             // 
-            this.barSubItemReports.Caption = "&Отчеты";
+            this.barSubItemReports.Caption = "Разн&ое";
             this.barSubItemReports.Id = 14;
             this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAudit)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAudit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.importantMessages)});
             this.barSubItemReports.Name = "barSubItemReports";
             // 
             // barButtonItemCustomReport
@@ -450,6 +454,14 @@
             this.barButtonItemAudit.Id = 45;
             this.barButtonItemAudit.Name = "barButtonItemAudit";
             this.barButtonItemAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAudit_ItemClick_1);
+            // 
+            // importantMessages
+            // 
+            this.importantMessages.Caption = "&Важные сообщения";
+            this.importantMessages.Id = 62;
+            this.importantMessages.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.importantMessages.Name = "importantMessages";
+            this.importantMessages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.importantMessages_ItemClick);
             // 
             // barSubItemHelp
             // 
@@ -485,10 +497,14 @@
             // 
             // notifyBarStaticItem
             // 
+            this.notifyBarStaticItem.Caption = "F4";
             this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
+            this.notifyBarStaticItem.Hint = "уведомления о совершенных транзакциях";
             this.notifyBarStaticItem.Id = 6;
+            this.notifyBarStaticItem.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F4);
             this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
             this.notifyBarStaticItem.Name = "notifyBarStaticItem";
+            this.notifyBarStaticItem.ShortcutKeyDisplayString = "Список уведомлений";
             this.notifyBarStaticItem.TextAlignment = System.Drawing.StringAlignment.Near;
             this.notifyBarStaticItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.notifyBarStaticItem_ItemClick);
             // 
@@ -717,6 +733,7 @@
         private DevExpress.XtraEditors.ListBoxControl notifyHistory;
         private DevExpress.XtraBars.BarButtonItem barButtonItemComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
+        private DevExpress.XtraBars.BarButtonItem importantMessages;
 
 
 

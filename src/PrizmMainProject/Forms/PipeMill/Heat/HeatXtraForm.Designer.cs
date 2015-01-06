@@ -97,7 +97,7 @@
             this.saveButton.Size = new System.Drawing.Size(102, 22);
             this.saveButton.StyleController = this.masterLayoutControl;
             this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Сохранить";
             // 
             // cancelButton
             // 
@@ -108,7 +108,7 @@
             this.cancelButton.Size = new System.Drawing.Size(97, 22);
             this.cancelButton.StyleController = this.masterLayoutControl;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "О&тменить";
             // 
             // number
             // 
@@ -201,7 +201,7 @@
             this.numberLayoutControl.Name = "numberLayoutControl";
             this.numberLayoutControl.Size = new System.Drawing.Size(206, 40);
             this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
-            this.numberLayoutControl.Text = "Номер плавки";
+            this.numberLayoutControl.Text = "Ном&ер плавки";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayoutControl.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -213,7 +213,7 @@
             this.steelLayoutControl.Name = "steelLayoutControl";
             this.steelLayoutControl.Size = new System.Drawing.Size(226, 40);
             this.steelLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
-            this.steelLayoutControl.Text = "Марка стали";
+            this.steelLayoutControl.Text = "&Марка стали";
             this.steelLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.steelLayoutControl.TextSize = new System.Drawing.Size(111, 13);
             // 
@@ -225,7 +225,7 @@
             this.plateManufacturerLayoutControl.Name = "plateManufacturerLayoutControl";
             this.plateManufacturerLayoutControl.Size = new System.Drawing.Size(432, 40);
             this.plateManufacturerLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
-            this.plateManufacturerLayoutControl.Text = "Производитель листа";
+            this.plateManufacturerLayoutControl.Text = "&Производитель листа";
             this.plateManufacturerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(111, 13);
             // 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -62,7 +61,7 @@
             this.eldingDateLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -150,6 +149,8 @@
             this.resultView.GridControl = this.gridControlSerchResult;
             this.resultView.Name = "resultView";
             this.resultView.OptionsBehavior.Editable = false;
+            this.resultView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.resultView.OptionsNavigation.UseTabKey = false;
             this.resultView.OptionsView.ShowGroupPanel = false;
             this.resultView.OptionsView.ShowIndicator = false;
             this.resultView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.resultView_CustomUnboundColumnData);
@@ -252,6 +253,8 @@
             // 
             this.pegNumber.Location = new System.Drawing.Point(981, 54);
             this.pegNumber.Name = "pegNumber";
+            this.pegNumber.Properties.Mask.EditMask = "n0";
+            this.pegNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pegNumber.Size = new System.Drawing.Size(144, 20);
             this.pegNumber.StyleController = this.searchLayoutControl;
             this.pegNumber.TabIndex = 5;
@@ -271,6 +274,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(1156, 53);
             this.searchButton.Name = "searchButton";
@@ -323,16 +327,16 @@
             this.searchResultLayoutGroup.Location = new System.Drawing.Point(0, 100);
             this.searchResultLayoutGroup.Name = "searchResultLayoutGroup";
             this.searchResultLayoutGroup.Size = new System.Drawing.Size(1271, 446);
-            this.searchResultLayoutGroup.Text = "Результаты поиска";
+            this.searchResultLayoutGroup.Text = "Резул&ьтаты поиска";
             // 
             // searchResultLayout
             // 
             this.searchResultLayout.Control = this.gridControlSerchResult;
-            this.searchResultLayout.CustomizationFormText = "searchResultLayout";
+            this.searchResultLayout.CustomizationFormText = "Резул&ьтат поиска";
             this.searchResultLayout.Location = new System.Drawing.Point(0, 0);
             this.searchResultLayout.Name = "searchResultLayout";
             this.searchResultLayout.Size = new System.Drawing.Size(1247, 403);
-            this.searchResultLayout.Text = "searchResultLayout";
+            this.searchResultLayout.Text = "Резул&ьтат поиска";
             this.searchResultLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchResultLayout.TextToControlDistance = 0;
             this.searchResultLayout.TextVisible = false;
@@ -364,7 +368,7 @@
             this.KMlayout.Size = new System.Drawing.Size(172, 47);
             this.KMlayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.KMlayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 7);
-            this.KMlayout.Text = "Номер пикета";
+            this.KMlayout.Text = "Номер п&икета";
             this.KMlayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.KMlayout.TextSize = new System.Drawing.Size(70, 13);
             // 
@@ -378,7 +382,7 @@
             this.jointNumberLayout.Size = new System.Drawing.Size(278, 47);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.jointNumberLayout.Text = "Номер стыка";
+            this.jointNumberLayout.Text = "Ном&ер стыка";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.jointNumberLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
@@ -437,7 +441,7 @@
             this.controlStateLayout.Size = new System.Drawing.Size(307, 47);
             this.controlStateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.controlStateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.controlStateLayout.Text = "Статус";
+            this.controlStateLayout.Text = "С&татус";
             this.controlStateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.controlStateLayout.TextSize = new System.Drawing.Size(70, 13);
             // 
@@ -467,6 +471,7 @@
             // 
             // JointSearchXtraForm
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 550);

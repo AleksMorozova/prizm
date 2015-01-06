@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Prizm.Domain.Entity;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
+using System.Linq;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -26,9 +27,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
        
-        public ComponentNewEditXtraForm() : this(Guid.Empty) { }
+        public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
+        public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
+        public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
 
-        public ComponentNewEditXtraForm(Guid id)
+        public ComponentNewEditXtraForm(Guid id, string number)
         {
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
@@ -37,7 +40,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
-
+            viewModel.Number = number;
             IsEditMode = true;
 
             #region --- Colouring of required controls ---
@@ -116,7 +119,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             #endregion
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
             inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
             inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
             inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
@@ -206,11 +209,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                e.DisplayText = string.Empty;
+                if (e.Value == null)
+                    e.DisplayText = string.Empty;
 
-            IList<Inspector> inspectors = e.Value as IList<Inspector>;
-            e.DisplayText = viewModel.FormatInspectorList(inspectors);
+                IList<Inspector> inspectors = e.Value as IList<Inspector>;
+                e.DisplayText = viewModel.FormatInspectorList(inspectors);
         }
 
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
@@ -249,12 +252,20 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            InspectionTestResult inspectionTestResult 
-                = inspectionHistoryGridView
-                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null)
+            InspectionTestResult inspectionTestResult
+               = inspectionHistoryGridView
+               .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
+
+            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
+            {
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
                 e.Cancel = true;
+            }
+            else
+            {
+                inspectorSelectionControl.inspectionDate = inspectionTestResult.Date;
+            }
         }
 
         private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)
@@ -275,9 +286,39 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            for (int i = 0; i < componentParametersView.RowCount; i++)
+            {
+                if (Convert.ToInt32(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
+                {
+                    componentParametersView.FocusedRowHandle = i;
+
+                    componentParametersView_ValidateRow(
+                        componentParametersView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, componentParametersView.GetDataRow(i)));
+
+                }
+            }
+
+            return dxValidationProvider.Validate() &&
+                viewModel.Component.Connectors
+                .Where<Connector>(x => x.Diameter <= 0)
+                .Count<Connector>() <= 0;
         }
 
         #endregion
+
+        private void componentParametersView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            var diameter = (int)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
+
+            if (diameter <= 0)
+            {
+                gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
+                e.Valid = false;
+            }
+        }
     }
 }
