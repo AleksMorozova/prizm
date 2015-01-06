@@ -96,14 +96,11 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-
-
             this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
             this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -216,7 +213,7 @@
             this.saveAndCreateButton.Size = new System.Drawing.Size(220, 22);
             this.saveAndCreateButton.StyleController = this.newJointLayoutControl;
             this.saveAndCreateButton.TabIndex = 14;
-            this.saveAndCreateButton.Text = "Сохранить/Создать";
+            this.saveAndCreateButton.Text = "Сох&ранить/Создать";
             // 
             // repairOperations
             // 
@@ -352,7 +349,7 @@
             this.extraFiles.Size = new System.Drawing.Size(100, 22);
             this.extraFiles.StyleController = this.newJointLayoutControl;
             this.extraFiles.TabIndex = 16;
-            this.extraFiles.Text = "В&ложения";
+            this.extraFiles.Text = "&Вложения";
             this.extraFiles.Click += new System.EventHandler(this.extraFiles_Click);
             // 
             // deactivated
@@ -591,7 +588,6 @@
             this.secondJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
-
             this.secondJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
@@ -615,7 +611,6 @@
             this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
-
             this.firstJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
@@ -685,7 +680,7 @@
             this.repairOperationLayout.Name = "repairOperationLayout";
             this.repairOperationLayout.Size = new System.Drawing.Size(487, 281);
             this.repairOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
-            this.repairOperationLayout.Text = "Сварка и ремонт";
+            this.repairOperationLayout.Text = "Сварка и ре&монт";
             this.repairOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.repairOperationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -697,7 +692,7 @@
             this.controlOperationsLayout.Name = "controlOperationsLayout";
             this.controlOperationsLayout.Size = new System.Drawing.Size(724, 281);
             this.controlOperationsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 0, 0, 0);
-            this.controlOperationsLayout.Text = "Контрольные операции";
+            this.controlOperationsLayout.Text = "Контрольные опера&ции";
             this.controlOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.controlOperationsLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -730,7 +725,7 @@
             this.GPSLatLayout.Size = new System.Drawing.Size(195, 48);
             this.GPSLatLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLatLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.GPSLatLayout.Text = "Широта";
+            this.GPSLatLayout.Text = "&Широта";
             this.GPSLatLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.GPSLatLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -744,7 +739,7 @@
             this.GPSLongLayout.Size = new System.Drawing.Size(195, 48);
             this.GPSLongLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLongLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.GPSLongLayout.Text = "Долгота";
+            this.GPSLongLayout.Text = "До&лгота";
             this.GPSLongLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.GPSLongLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -758,7 +753,7 @@
             this.elevationLayout.Size = new System.Drawing.Size(197, 48);
             this.elevationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.elevationLayout.Text = "Высота";
+            this.elevationLayout.Text = "В&ысота";
             this.elevationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.elevationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -785,7 +780,7 @@
             this.loweringDateLayout.Size = new System.Drawing.Size(172, 47);
             this.loweringDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 60, 0, 7);
-            this.loweringDateLayout.Text = "Дата укладки";
+            this.loweringDateLayout.Text = "Дата &укладки";
             this.loweringDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.loweringDateLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -810,7 +805,7 @@
             this.PKNumberLayout.Name = "PKNumberLayout";
             this.PKNumberLayout.Size = new System.Drawing.Size(195, 47);
             this.PKNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.PKNumberLayout.Text = "Номер пикета";
+            this.PKNumberLayout.Text = "Номер п&икета";
             this.PKNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.PKNumberLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -824,7 +819,7 @@
             this.distanceFromPKLayout.Size = new System.Drawing.Size(197, 47);
             this.distanceFromPKLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.distanceFromPKLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.distanceFromPKLayout.Text = "Расстояние от пикета";
+            this.distanceFromPKLayout.Text = "Рассто&яние от пикета";
             this.distanceFromPKLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.distanceFromPKLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -861,7 +856,7 @@
             this.jointNumberLayout.Size = new System.Drawing.Size(277, 47);
             this.jointNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.jointNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.jointNumberLayout.Text = "Номер стыка";
+            this.jointNumberLayout.Text = "Ном&ер стыка";
             this.jointNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.jointNumberLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -875,7 +870,7 @@
             this.firstJointElementLayout.Size = new System.Drawing.Size(277, 48);
             this.firstJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.firstJointElementLayout.Text = "Первый элемент стыка";
+            this.firstJointElementLayout.Text = "&Первый элемент стыка";
             this.firstJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.firstJointElementLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
@@ -889,7 +884,7 @@
             this.secondJointElementLayout.Size = new System.Drawing.Size(287, 48);
             this.secondJointElementLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.secondJointElementLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.secondJointElementLayout.Text = "Второй элемент стыка";
+            this.secondJointElementLayout.Text = "В&торой элемент стыка";
             this.secondJointElementLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.secondJointElementLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
