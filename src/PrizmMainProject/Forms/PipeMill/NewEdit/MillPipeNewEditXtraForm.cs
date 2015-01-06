@@ -194,7 +194,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("DataSource", pipeNewEditBindingSource, "Welds");
 
 
-            ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
+            resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
@@ -486,7 +486,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
             steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            ResultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
+            resultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             //TODO: limit fields for Plate and heat parameters tab
         }
