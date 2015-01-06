@@ -39,10 +39,9 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     criteria.Add(Restrictions.Like("Number", viewModel.Number, MatchMode.Anywhere));
                 }
-                if(!string.IsNullOrWhiteSpace(viewModel.PegNumber))
-                {
-                    criteria.Add(Restrictions.Like("NumberKP", viewModel.PegNumber, MatchMode.Anywhere));
-                }
+                
+                criteria.Add(Restrictions.Eq("NumberKP", viewModel.PegNumber));
+
                 if(viewModel.FromDate > DateTime.MinValue)
                 {
                     criteria.Add(Restrictions.Gt("LoweringDate", viewModel.FromDate));
