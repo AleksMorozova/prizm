@@ -238,6 +238,8 @@ namespace Prizm.Main.Forms.Spool
             Spool.Number = string.Empty;
             Spool.InspectionTestResults = new BindingList<InspectionTestResult>();
             Spool.Pipe = new Pipe();
+            Spool.ConstructionStatus = PartConstructionStatus.Pending;
+            Spool.InspectionStatus = PartInspectionStatus.Pending;
             Pipe = new Pipe();
             
         }

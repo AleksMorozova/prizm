@@ -42,8 +42,8 @@ namespace Prizm.Main.Forms.Joint.Search
             }
         }
 
-        private string pegNumber = "";
-        public string PegNumber
+        private int pegNumber;
+        public int PegNumber
         {
             get { return pegNumber; }
             set
