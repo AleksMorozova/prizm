@@ -460,7 +460,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 SplashScreenManager.Default.SetWaitFormCaption(header);
             if(!string.IsNullOrEmpty(text))
                 SplashScreenManager.Default.SetWaitFormDescription(text);
-            this.Update();
+            Application.DoEvents();
         }
 
         /// <summary>
