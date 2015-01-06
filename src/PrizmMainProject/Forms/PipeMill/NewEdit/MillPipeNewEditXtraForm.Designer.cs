@@ -364,7 +364,7 @@
             this.generalPipeLayout.Controls.Add(this.millStatus);
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
-            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(441, 98, 593, 560);
+            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 181, 593, 560);
             this.generalPipeLayout.Root = this.generalLayoutGroup;
             this.generalPipeLayout.Size = new System.Drawing.Size(1275, 545);
             this.generalPipeLayout.TabIndex = 24;
@@ -1132,8 +1132,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Таб";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeTabLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 430);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,
@@ -1153,11 +1153,11 @@
             // inspectionsGridLayoutControlItem
             // 
             this.inspectionsGridLayoutControlItem.Control = this.inspections;
-            this.inspectionsGridLayoutControlItem.CustomizationFormText = "layoutControlItem17";
+            this.inspectionsGridLayoutControlItem.CustomizationFormText = "Таблица контрольных операций";
             this.inspectionsGridLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.inspectionsGridLayoutControlItem.Name = "inspectionsGridLayoutControlItem";
             this.inspectionsGridLayoutControlItem.Size = new System.Drawing.Size(1237, 384);
-            this.inspectionsGridLayoutControlItem.Text = "inspectionsGridLayoutControlItem";
+            this.inspectionsGridLayoutControlItem.Text = "Таблица контрольных операций";
             this.inspectionsGridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionsGridLayoutControlItem.TextVisible = false;
             this.inspectionsGridLayoutControlItem.TrimClientAreaToControl = false;
@@ -1193,7 +1193,7 @@
             // plateNumberLayoutControlItem
             // 
             this.plateNumberLayoutControlItem.Control = this.plateNumber;
-            this.plateNumberLayoutControlItem.CustomizationFormText = "layoutControlItem3";
+            this.plateNumberLayoutControlItem.CustomizationFormText = "Номер";
             this.plateNumberLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.plateNumberLayoutControlItem.Name = "plateNumberLayoutControlItem";
             this.plateNumberLayoutControlItem.Size = new System.Drawing.Size(176, 50);
@@ -1205,7 +1205,7 @@
             // plateManufacturerLayoutControlItem
             // 
             this.plateManufacturerLayoutControlItem.Control = this.plateManufacturer;
-            this.plateManufacturerLayoutControlItem.CustomizationFormText = "layoutControlItem4";
+            this.plateManufacturerLayoutControlItem.CustomizationFormText = "Производитель";
             this.plateManufacturerLayoutControlItem.Location = new System.Drawing.Point(0, 50);
             this.plateManufacturerLayoutControlItem.Name = "plateManufacturerLayoutControlItem";
             this.plateManufacturerLayoutControlItem.Size = new System.Drawing.Size(176, 86);
@@ -1217,7 +1217,7 @@
             // plateThicknessLayoutControlItem
             // 
             this.plateThicknessLayoutControlItem.Control = this.plateThickness;
-            this.plateThicknessLayoutControlItem.CustomizationFormText = "layoutControlItem15";
+            this.plateThicknessLayoutControlItem.CustomizationFormText = "Толщина";
             this.plateThicknessLayoutControlItem.Location = new System.Drawing.Point(176, 0);
             this.plateThicknessLayoutControlItem.Name = "plateThicknessLayoutControlItem";
             this.plateThicknessLayoutControlItem.Size = new System.Drawing.Size(109, 50);
@@ -1229,7 +1229,7 @@
             // steelGradeLayoutControlItem
             // 
             this.steelGradeLayoutControlItem.Control = this.steelGrade;
-            this.steelGradeLayoutControlItem.CustomizationFormText = "layoutControlItem16";
+            this.steelGradeLayoutControlItem.CustomizationFormText = "Марка стали";
             this.steelGradeLayoutControlItem.Location = new System.Drawing.Point(176, 50);
             this.steelGradeLayoutControlItem.Name = "steelGradeLayoutControlItem";
             this.steelGradeLayoutControlItem.Size = new System.Drawing.Size(109, 86);
@@ -1255,7 +1255,7 @@
             // thicknessLayoutControlItem
             // 
             this.thicknessLayoutControlItem.Control = this.thickness;
-            this.thicknessLayoutControlItem.CustomizationFormText = "layoutControlItem5";
+            this.thicknessLayoutControlItem.CustomizationFormText = "Толщина";
             this.thicknessLayoutControlItem.Location = new System.Drawing.Point(0, 68);
             this.thicknessLayoutControlItem.Name = "thicknessLayoutControlItem";
             this.thicknessLayoutControlItem.Size = new System.Drawing.Size(289, 34);
@@ -1266,7 +1266,7 @@
             // weightLayoutControlItem
             // 
             this.weightLayoutControlItem.Control = this.weight;
-            this.weightLayoutControlItem.CustomizationFormText = "layoutControlItem6";
+            this.weightLayoutControlItem.CustomizationFormText = "Вес";
             this.weightLayoutControlItem.Location = new System.Drawing.Point(0, 102);
             this.weightLayoutControlItem.Name = "weightLayoutControlItem";
             this.weightLayoutControlItem.Size = new System.Drawing.Size(289, 34);
@@ -1277,7 +1277,7 @@
             // lengthLayoutControlItem
             // 
             this.lengthLayoutControlItem.Control = this.length;
-            this.lengthLayoutControlItem.CustomizationFormText = "layoutControlItem7";
+            this.lengthLayoutControlItem.CustomizationFormText = "Длина";
             this.lengthLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.lengthLayoutControlItem.Name = "lengthLayoutControlItem";
             this.lengthLayoutControlItem.Size = new System.Drawing.Size(289, 34);
@@ -1288,7 +1288,7 @@
             // diameterLayoutControlItem
             // 
             this.diameterLayoutControlItem.Control = this.diameter;
-            this.diameterLayoutControlItem.CustomizationFormText = "layoutControlItem8";
+            this.diameterLayoutControlItem.CustomizationFormText = "Диаметр";
             this.diameterLayoutControlItem.Location = new System.Drawing.Point(0, 34);
             this.diameterLayoutControlItem.Name = "diameterLayoutControlItem";
             this.diameterLayoutControlItem.Size = new System.Drawing.Size(289, 34);
@@ -1358,7 +1358,7 @@
             // railcarLayoutControlItem
             // 
             this.railcarLayoutControlItem.Control = this.railcarNumber;
-            this.railcarLayoutControlItem.CustomizationFormText = "layoutControlItem11";
+            this.railcarLayoutControlItem.CustomizationFormText = "Номер вагона";
             this.railcarLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutControlItem.Name = "railcarLayoutControlItem";
             this.railcarLayoutControlItem.Size = new System.Drawing.Size(143, 50);
@@ -1370,7 +1370,7 @@
             // destinationLayoutControlItem
             // 
             this.destinationLayoutControlItem.Control = this.destination;
-            this.destinationLayoutControlItem.CustomizationFormText = "layoutControlItem12";
+            this.destinationLayoutControlItem.CustomizationFormText = "Получатель";
             this.destinationLayoutControlItem.Location = new System.Drawing.Point(0, 100);
             this.destinationLayoutControlItem.Name = "destinationLayoutControlItem";
             this.destinationLayoutControlItem.Size = new System.Drawing.Size(289, 50);
@@ -1382,7 +1382,7 @@
             // certificateLayoutControlItem
             // 
             this.certificateLayoutControlItem.Control = this.certificateNumber;
-            this.certificateLayoutControlItem.CustomizationFormText = "layoutControlItem13";
+            this.certificateLayoutControlItem.CustomizationFormText = "Номер сертификата";
             this.certificateLayoutControlItem.Location = new System.Drawing.Point(0, 50);
             this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
             this.certificateLayoutControlItem.Size = new System.Drawing.Size(289, 50);
@@ -1394,7 +1394,7 @@
             // shippedDateLayoutControlItem
             // 
             this.shippedDateLayoutControlItem.Control = this.shippedDate;
-            this.shippedDateLayoutControlItem.CustomizationFormText = "layoutControlItem14";
+            this.shippedDateLayoutControlItem.CustomizationFormText = "Дата";
             this.shippedDateLayoutControlItem.Location = new System.Drawing.Point(143, 0);
             this.shippedDateLayoutControlItem.Name = "shippedDateLayoutControlItem";
             this.shippedDateLayoutControlItem.Size = new System.Drawing.Size(146, 50);
