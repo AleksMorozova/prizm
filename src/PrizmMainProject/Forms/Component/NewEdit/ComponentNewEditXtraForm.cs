@@ -119,7 +119,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             #endregion
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.Accepted);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
             inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
             inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
             inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);

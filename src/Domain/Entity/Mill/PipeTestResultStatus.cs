@@ -11,6 +11,7 @@ namespace Prizm.Domain.Entity.Mill
         Scheduled = 1,
         Passed = 2,
         Failed = 3,
+        Repair = 4,
 
         Undef = 0
     }
