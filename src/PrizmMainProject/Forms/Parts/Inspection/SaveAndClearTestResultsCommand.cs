@@ -27,6 +27,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             viewModel.SaveInspectionTestResultsCommand.Execute();
             viewModel.InspectionTestResults = null;
             viewModel.SelectedElement = null;
+            viewModel.ModifiableView.IsEditMode = false;
                            
         }
         public virtual bool IsExecutable { get; set; }
