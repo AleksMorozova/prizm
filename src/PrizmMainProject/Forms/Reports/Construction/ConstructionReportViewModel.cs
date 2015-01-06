@@ -59,7 +59,8 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.repo = repo;
             this.notify = notify;
 
-            this.data = repo.GetPipelineElements(SQLQueryString.GetWeldedParts);
+            this.data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
+
             this.partDataList = FormWeldedParts(data);
 
             this.Joints = repoJoint.GetAll()
