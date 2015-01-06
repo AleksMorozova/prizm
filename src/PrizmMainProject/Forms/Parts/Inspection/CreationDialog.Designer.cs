@@ -66,7 +66,7 @@
             this.cancelButton.Size = new System.Drawing.Size(129, 22);
             this.cancelButton.StyleController = this.generalLayoutControl;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отмена";
+            this.cancelButton.Text = "О&тмена";
             // 
             // acceptButton
             // 
@@ -75,7 +75,7 @@
             this.acceptButton.Size = new System.Drawing.Size(129, 22);
             this.acceptButton.StyleController = this.generalLayoutControl;
             this.acceptButton.TabIndex = 5;
-            this.acceptButton.Text = "Создать";
+            this.acceptButton.Text = "&Создать";
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // partRadioGroup
