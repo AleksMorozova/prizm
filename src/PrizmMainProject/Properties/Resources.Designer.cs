@@ -180,6 +180,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вход для пользователя {0} заблокирован.
+        /// </summary>
+        internal static string AuthenticationFailedUserInactive {
+            get {
+                return ResourceManager.GetString("AuthenticationFailedUserInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Булевый ожидаемый результат.
         /// </summary>
         internal static string BoolExpected {
@@ -209,7 +218,7 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to По отгруженным.
         /// </summary>
-        internal static string gh {
+        internal static string ByShipped {
             get {
                 return ResourceManager.GetString("ByShipped", resourceCulture);
             }
@@ -863,15 +872,6 @@ namespace Prizm.Main.Properties {
         internal static string Heat {
             get {
                 return ResourceManager.GetString("Heat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Трассовка.
-        /// </summary>
-        internal static string TracingReport {
-            get {
-                return ResourceManager.GetString("HighwayReport", resourceCulture);
             }
         }
         
@@ -1725,6 +1725,15 @@ namespace Prizm.Main.Properties {
         internal static string Thickness {
             get {
                 return ResourceManager.GetString("Thickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Трассовка.
+        /// </summary>
+        internal static string TracingReport {
+            get {
+                return ResourceManager.GetString("TracingReport", resourceCulture);
             }
         }
         
