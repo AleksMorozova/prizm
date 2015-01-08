@@ -27,7 +27,7 @@ namespace Prizm.Main.Forms.Settings
     {
         public PipeMillSizeType CurrentPipeMillSizeType;
 
-        public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
+        public BindingList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
         public BindingList<InspectorViewType> Inspectors { get; set; }
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<User> Users { get; set; }
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
         public BindingList<SeemType> SeemTypes { get; set; }
-        public IList<JointOperation> JointOperations { get; set; }
+        public BindingList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
         public IValidatable validatableView { get; set; }
 
@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Settings
 
         readonly ISettingsRepositories repos;
         readonly IUserNotify notify;
-        private IList<PlateManufacturer> plateManufacturers;
+        private BindingList<PlateManufacturer> plateManufacturers;
         private IModifiable modifiable;
 
 
@@ -65,6 +65,7 @@ namespace Prizm.Main.Forms.Settings
                 .Create<ExtractCategoriesCommand>(() => new ExtractCategoriesCommand(this, repos, notify));
 
             this.ExtractCategoriesCommand.Execute();
+            CategoryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void LoadData()
@@ -247,7 +248,7 @@ namespace Prizm.Main.Forms.Settings
         #endregion
 
         #region Plate Manufacturers
-        public IList<PlateManufacturer> PlateManufacturers
+        public BindingList<PlateManufacturer> PlateManufacturers
         {
             get 
             {
@@ -278,6 +279,7 @@ namespace Prizm.Main.Forms.Settings
         {
             var allSizeType = repos.PipeSizeTypeRepo.GetAll().ToList();
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
+            PipeMillSizeType.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllJointOperations()
@@ -360,7 +362,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if (PipeMillSizeType == null)
             {
-                PipeMillSizeType = new List<PipeMillSizeType>();
+                PipeMillSizeType = new BindingList<PipeMillSizeType>();
             }
         }
 
@@ -374,6 +376,7 @@ namespace Prizm.Main.Forms.Settings
         {
            var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
            PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
+           PlateManufacturers.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllComponentryTypes()
