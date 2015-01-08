@@ -25,8 +25,8 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
-        public PipeMillSizeType CurrentPipeMillSizeType;
-
+        public int length;
+        private PipeMillSizeType currentPipeMillSizeType;
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
@@ -141,7 +141,6 @@ namespace Prizm.Main.Forms.Settings
               Roles.Add(r);
            }
         }
-
        
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
         public BindingList<PipeTest> PipeTests 
@@ -161,6 +160,7 @@ namespace Prizm.Main.Forms.Settings
         }
 
         public BindingList<Category> CategoryTypes { get; set; }
+
         public BindingList<ComponentType> ComponentryTypes { get; set; }
 
         #region Current Project Settings
@@ -303,7 +303,6 @@ namespace Prizm.Main.Forms.Settings
            Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
-
         void GetAllCertificateTypes()
         {
             if (CertificateTypes == null)
@@ -337,7 +336,6 @@ namespace Prizm.Main.Forms.Settings
 
             SeemTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
-
 
         void GetAllInspectors()
         {
@@ -420,6 +418,12 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        internal void UpdateSizeParameters(object sizeType)
+        {
+            PipeMillSizeType type = sizeType as PipeMillSizeType;
+            Length = type.Length;
+        }
+
         public IModifiable ModifiableView
         {
            get
@@ -496,6 +500,25 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        public PipeMillSizeType CurrentPipeMillSizeType
+        {
+            get
+            {
+                return currentPipeMillSizeType;
+            }
+            set
+            {
+                if (value != currentPipeMillSizeType)
+                {
+                    currentPipeMillSizeType = value;
+                    RaisePropertyChanged("CurrentPipeMillSizeType");
+                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("Diameter");
+                    RaisePropertyChanged("Thickness");
+                }
+            }
+        }
+
         public int Length
         {
             get
@@ -511,6 +534,54 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        public int Diameter
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Diameter;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.Diameter)
+                {
+                    CurrentPipeMillSizeType.Diameter = value;
+                    RaisePropertyChanged("Diameter");
+                }
+            }
+        }
+
+        public int Thickness
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Thickness;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.Thickness)
+                {
+                    CurrentPipeMillSizeType.Thickness = value;
+                    RaisePropertyChanged("Thickness");
+                }
+            }
+        }
+        //public string SeamType
+        //{
+        //    get
+        //    {
+        //        return CurrentPipeMillSizeType.SeamType.Name;
+        //    }
+        //    set
+        //    {
+        //        if (value != CurrentPipeMillSizeType.SeamType.Name)
+        //        {
+        //            CurrentPipeMillSizeType.SeamType.Name = value;
+        //            RaisePropertyChanged("SeamType");
+        //        }
+        //    }
+        //}
+//-----------------------------------------
 
     }
 }

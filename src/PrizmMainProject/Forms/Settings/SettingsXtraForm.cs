@@ -28,6 +28,7 @@ using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 using Prizm.Main.Documents;
 using DevExpress.XtraEditors.DXErrorProvider;
+using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -35,7 +36,7 @@ namespace Prizm.Main.Forms.Settings
     public partial class SettingsXtraForm : ChildForm, IValidatable
     {
         private SettingsViewModel viewModel;
-        private PipeMillSizeType CurrentPipeMillSizeType;
+        private PipeMillSizeType CurrentPipeMillSizeType = new PipeMillSizeType();
         ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
@@ -94,7 +95,7 @@ namespace Prizm.Main.Forms.Settings
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-
+            //viewModel.currentPipeMillSizeType=CurrentPipeMillSizeType;
             viewModel.LoadData();
             BindToViewModel();
 
@@ -118,7 +119,8 @@ namespace Prizm.Main.Forms.Settings
         {
             #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
-            CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
+
+            //CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
@@ -174,7 +176,15 @@ namespace Prizm.Main.Forms.Settings
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
 
+            pipeLength.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Length" );
+           
+            wallThickness.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Thickness");
+
+            pipeDiameter.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Diameter");
+            //seamType.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "SeamType");
+            
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
+
             #endregion
 
             projectTitle.Refresh();
@@ -205,7 +215,8 @@ namespace Prizm.Main.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
-            pipeDiameter.Text = CurrentPipeMillSizeType.Length.ToString();
+            viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
+
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
