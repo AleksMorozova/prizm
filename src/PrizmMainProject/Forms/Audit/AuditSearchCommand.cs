@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Prizm.Domain.Entity;
-using System.Diagnostics;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -26,12 +25,8 @@ namespace Prizm.Main.Forms.Audit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             var results = repo.GetRecords(viewModel.SelectedUser,viewModel.StartDate, viewModel.EndDate);
             viewModel.AuditResults = new BindingList<AuditLog>(results);
-            stopWatch.Stop();
-            viewModel.TS = stopWatch.Elapsed;
         }
         public bool CanExecute()
         {
