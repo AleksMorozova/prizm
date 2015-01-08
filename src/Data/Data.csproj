@@ -88,6 +88,7 @@
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
     <Compile Include="DAL\Hibernate\RoleRepository.cs" />
+    <Compile Include="DAL\Hibernate\SeemTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\SpoolRepository.cs" />
     <Compile Include="DAL\Hibernate\UserRepository.cs" />
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
     <Compile Include="DAL\Mapping\RoleMap.cs" />
+    <Compile Include="DAL\Mapping\SeemTypeMap.cs" />
     <Compile Include="DAL\Mapping\SpoolMap.cs" />
     <Compile Include="DAL\Mapping\UserMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
@@ -153,6 +155,7 @@
     <Compile Include="DAL\Setup\IJointOperationRepository.cs" />
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
+    <Compile Include="DAL\Setup\ISeemTypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IUserRepository userRepo;
         private readonly IProjectRepository projectRepo;
         private readonly ICertificateTypeRepository certificateTypeRepo;
+        private readonly ISeemTypeRepository seemTypeRepo;
 
         public FirstSetupRepo()
         {
@@ -24,6 +25,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.userRepo = new UserRepository(session);
             this.projectRepo = new ProjectRepository(session);
             this.certificateTypeRepo = new InspectorCertificateTypeRepository(session);
+            this.seemTypeRepo = new SeemTypeRepository(session);
         }
 
         public IUserRepository UserRepo
@@ -54,6 +56,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public void Dispose()
         {
             session.Dispose();
+        }
+
+
+        public ISeemTypeRepository SeemTypeRepo
+        {
+            get { return seemTypeRepo; }
         }
     }
 }
