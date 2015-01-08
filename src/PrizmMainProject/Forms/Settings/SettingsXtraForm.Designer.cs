@@ -77,8 +77,8 @@
             this.seamTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.projectPage = new DevExpress.XtraTab.XtraTabPage();
             this.generalProjectLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.seemType = new DevExpress.XtraGrid.GridControl();
-            this.seemTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.seamTypes = new DevExpress.XtraGrid.GridControl();
+            this.seamTypesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.seemTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seemTypeIsActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeNumberMaskRulesLabel = new DevExpress.XtraEditors.LabelControl();
@@ -279,8 +279,8 @@
             this.projectPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalProjectLayout)).BeginInit();
             this.generalProjectLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seemType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).BeginInit();
@@ -902,7 +902,7 @@
             // 
             // generalProjectLayout
             // 
-            this.generalProjectLayout.Controls.Add(this.seemType);
+            this.generalProjectLayout.Controls.Add(this.seamTypes);
             this.generalProjectLayout.Controls.Add(this.pipeNumberMaskRulesLabel);
             this.generalProjectLayout.Controls.Add(this.categoriesGrid);
             this.generalProjectLayout.Controls.Add(this.pipeNumberMask);
@@ -920,28 +920,28 @@
             this.generalProjectLayout.TabIndex = 16;
             this.generalProjectLayout.Text = "layoutControl1";
             // 
-            // seemType
+            // seamTypes
             // 
-            this.seemType.Cursor = System.Windows.Forms.Cursors.Default;
-            this.seemType.Location = new System.Drawing.Point(910, 157);
-            this.seemType.MainView = this.seemTypeGridView;
-            this.seemType.Name = "seemType";
-            this.seemType.Size = new System.Drawing.Size(312, 287);
-            this.seemType.TabIndex = 17;
-            this.seemType.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.seemTypeGridView});
+            this.seamTypes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.seamTypes.Location = new System.Drawing.Point(910, 157);
+            this.seamTypes.MainView = this.seamTypesGridView;
+            this.seamTypes.Name = "seamTypes";
+            this.seamTypes.Size = new System.Drawing.Size(312, 287);
+            this.seamTypes.TabIndex = 17;
+            this.seamTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.seamTypesGridView});
             // 
-            // seemTypeGridView
+            // seamTypesGridView
             // 
-            this.seemTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.seamTypesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.seemTypeColumn,
             this.seemTypeIsActiveColumn});
-            this.seemTypeGridView.GridControl = this.seemType;
-            this.seemTypeGridView.Name = "seemTypeGridView";
-            this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
-            this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
-            this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
+            this.seamTypesGridView.GridControl = this.seamTypes;
+            this.seamTypesGridView.Name = "seamTypesGridView";
+            this.seamTypesGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.seamTypesGridView.OptionsView.ShowGroupPanel = false;
+            this.seamTypesGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
+            this.seamTypesGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
             // seemTypeColumn
             // 
@@ -1310,7 +1310,7 @@
             // 
             this.layoutControlItem5.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent;
             this.layoutControlItem5.AppearanceItemCaption.Options.UseBackColor = true;
-            this.layoutControlItem5.Control = this.seemType;
+            this.layoutControlItem5.Control = this.seamTypes;
             this.layoutControlItem5.CustomizationFormText = "Типы сварочных швов";
             this.layoutControlItem5.Location = new System.Drawing.Point(364, 105);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -2681,8 +2681,8 @@
             this.projectPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generalProjectLayout)).EndInit();
             this.generalProjectLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.seemType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).EndInit();
@@ -3020,8 +3020,8 @@
         private DevExpress.XtraLayout.LayoutControlItem pipeDiameterLayout;
         private DevExpress.XtraLayout.LayoutControlItem seamTypeLayout;
         private DevExpress.XtraLayout.LayoutControlItem pipeLengthLayout;
-        private DevExpress.XtraGrid.GridControl seemType;
-        private DevExpress.XtraGrid.Views.Grid.GridView seemTypeGridView;
+        private DevExpress.XtraGrid.GridControl seamTypes;
+        private DevExpress.XtraGrid.Views.Grid.GridView seamTypesGridView;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;

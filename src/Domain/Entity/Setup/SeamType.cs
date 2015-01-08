@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity.Setup
 {
-    public class SeemType : Item
+    public class SeamType : Item
     {
-        public SeemType()
+        public SeamType()
         {
-            this.SeamTypes = new List<SeemType>();
+            this.SeamTypes = new List<SeamType>();
         }
 
         public virtual string Name { get; set; }
 
-        public virtual IList<SeemType> SeamTypes { get; set; }
+        public virtual IList<SeamType> SeamTypes { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
-        public BindingList<SeemType> SeemTypes { get; set; }
+        public BindingList<SeamType> SeamTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
         public IValidatable validatableView { get; set; }
@@ -70,7 +70,7 @@ namespace Prizm.Main.Forms.Settings
         public void LoadData()
         {
            GetAllCertificateTypes();
-           GetAllSeemTypes();
+           GetAllSeamTypes();
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
@@ -320,21 +320,21 @@ namespace Prizm.Main.Forms.Settings
             CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
-        void GetAllSeemTypes()
+        void GetAllSeamTypes()
         {
-            if (SeemTypes == null)
-                SeemTypes = new BindingList<SeemType>();
+            if (SeamTypes == null)
+                SeamTypes = new BindingList<SeamType>();
 
-            var foundSeemTypes = repos.SeemTypeRepo.GetAll();
-            if (foundSeemTypes != null)
+            var foundSeamTypes = repos.SeamTypeRepo.GetAll();
+            if (foundSeamTypes != null)
             {
-                foreach (var s in foundSeemTypes)
+                foreach (var s in foundSeamTypes)
                 {
-                    SeemTypes.Add(s);
+                    SeamTypes.Add(s);
                 }
             }
 
-            SeemTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            SeamTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllInspectors()

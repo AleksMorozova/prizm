@@ -19,7 +19,7 @@ namespace Prizm.Domain.Entity.Setup
         public virtual int Diameter { get; set; }
         public virtual int Thickness { get; set; }
 
-        public virtual SeemType SeamType { get; set; }
+        public virtual SeamType SeamType { get; set; }
 
 
         public virtual IList<PipeTest> PipeTests { get; set; }

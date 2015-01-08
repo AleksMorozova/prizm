@@ -144,7 +144,7 @@ namespace Prizm.Main.Forms.Settings
             repositoryLookUpCertificateType.DataSource = viewModel.CertificateTypes;
             certificateTypes.DataSource = viewModel.CertificateTypes;
 
-            seemType.DataSource = viewModel.SeemTypes;
+            seamTypes.DataSource = viewModel.SeamTypes;
 
             componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
@@ -806,16 +806,16 @@ namespace Prizm.Main.Forms.Settings
         private void seemTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            SeemType seemType = v.GetRow(e.RowHandle) as SeemType;
+            SeamType seemType = v.GetRow(e.RowHandle) as SeamType;
             seemType.IsActive = true;
         }
 
         private void seemTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<SeemType>(
+            view.RemoveSelectedItem<SeamType>(
                 e,
-                viewModel.SeemTypes,
+                viewModel.SeamTypes,
                 (_) => _.IsNew());
         }
 

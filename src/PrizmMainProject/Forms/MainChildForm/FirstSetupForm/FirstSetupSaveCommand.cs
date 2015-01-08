@@ -72,9 +72,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private void SaveSeemTypes()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel. SeamTypes)
             {
-                firstSetupRepo.SeemTypeRepo.Save(seem);
+                firstSetupRepo.SeemTypeRepo.Save(seam);
             }
         }
 
@@ -88,9 +88,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private void EvictSeemTypes()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel.SeamTypes)
             {
-                firstSetupRepo.SeemTypeRepo.Evict(seem);
+                firstSetupRepo.SeemTypeRepo.Evict(seam);
             }
         }
 
