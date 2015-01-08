@@ -181,7 +181,8 @@ namespace Prizm.Main.Forms.Settings
             wallThickness.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Thickness");
 
             pipeDiameter.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Diameter");
-            //seamType.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "SeamType");
+            
+            seamType.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "SeamType");
             
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
 

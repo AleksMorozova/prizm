@@ -10,11 +10,11 @@ namespace Prizm.Domain.Entity.Setup
     {
         public SeemType()
         {
-            //this.SeeamTypes = new List<SeemType>();
+            this.SeamTypes = new List<SeemType>();
         }
 
         public virtual string Name { get; set; }
 
-       // public virtual IList<SeemType> SeeamTypes { get; set; }
+        public virtual IList<SeemType> SeamTypes { get; set; }
     }
 }

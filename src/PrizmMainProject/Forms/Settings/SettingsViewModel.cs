@@ -515,6 +515,7 @@ namespace Prizm.Main.Forms.Settings
                     RaisePropertyChanged("Length");
                     RaisePropertyChanged("Diameter");
                     RaisePropertyChanged("Thickness");
+                    RaisePropertyChanged("SeamType");
                 }
             }
         }
@@ -566,22 +567,21 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-        //public string SeamType
-        //{
-        //    get
-        //    {
-        //        return CurrentPipeMillSizeType.SeamType.Name;
-        //    }
-        //    set
-        //    {
-        //        if (value != CurrentPipeMillSizeType.SeamType.Name)
-        //        {
-        //            CurrentPipeMillSizeType.SeamType.Name = value;
-        //            RaisePropertyChanged("SeamType");
-        //        }
-        //    }
-        //}
-//-----------------------------------------
 
+        public string SeamType
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.SeamType.Name;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.SeamType.Name)
+                {
+                    CurrentPipeMillSizeType.SeamType.Name = value;
+                    RaisePropertyChanged("SeamType");
+                }
+            }
+        }
     }
 }
