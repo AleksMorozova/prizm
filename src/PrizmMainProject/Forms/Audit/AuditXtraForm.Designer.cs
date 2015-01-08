@@ -382,6 +382,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuditXtraForm";
             this.Text = "AuditXtraForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuditXtraForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();

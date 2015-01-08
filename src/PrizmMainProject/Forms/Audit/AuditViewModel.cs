@@ -21,6 +21,7 @@ namespace Prizm.Main.Forms.Audit
         private DateTime endDate = DateTime.Now.Date;
         public IEnumerable<string> UsersList;
         private string selectedUser = "";
+        public TimeSpan TS;
 
         [Inject]
         public AuditViewModel(IAuditLogRepository repo, IMillReportsRepository adoRepo)

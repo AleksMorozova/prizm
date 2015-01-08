@@ -55,5 +55,10 @@ namespace Prizm.Main.Forms.Audit
             viewModel = null;
         }
 
+        private void AuditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            XtraMessageBox.Show(viewModel.TS.ToString());
+        }
+
     }
 }
