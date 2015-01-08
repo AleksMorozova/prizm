@@ -728,4 +728,7 @@
   <data name="JointTestResultStatus_Repair" xml:space="preserve">
     <value>Ремонт</value>
   </data>
+  <data name="AuthenticationFailedUserInactive" xml:space="preserve">
+    <value>Вход для пользователя {0} заблокирован</value>
+  </data>
 </root>
