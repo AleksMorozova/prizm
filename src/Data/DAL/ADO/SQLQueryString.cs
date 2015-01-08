@@ -274,10 +274,6 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                     queryText = GetAllProduced;
                     break;
 
-                case SQLStatic.GetAudit:
-                    queryText = GetAllProduced;
-                    break;
-
                 case SQLStatic.GetPipelinePieces:
                     queryText = GetPipelinePieces;
                     break;
