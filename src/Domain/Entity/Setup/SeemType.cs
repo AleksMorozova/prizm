@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity.Setup
 {
-    public class PipeTestControlTypeWrapper
+    public class SeemType : Item
     {
-        public PipeTestControlType Value {get;set;}
-        public string Text {get;set;}
+        public virtual string Name { get; set; }
     }
 }

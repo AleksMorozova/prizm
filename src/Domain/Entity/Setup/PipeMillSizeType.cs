@@ -15,7 +15,8 @@ namespace Prizm.Domain.Entity.Setup
             Pipes = new List<Pipe>();
         }
         public virtual string Type { get; set; }
-        
+        public virtual int Length { get; set; }
+
         public virtual IList<PipeTest> PipeTests { get; set; }
         public virtual IList<Pipe> Pipes { get; set; }
 

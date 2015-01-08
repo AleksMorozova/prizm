@@ -118,6 +118,7 @@ namespace Prizm.Main.Forms.Settings
         {
             #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
@@ -140,6 +141,8 @@ namespace Prizm.Main.Forms.Settings
 
             repositoryLookUpCertificateType.DataSource = viewModel.CertificateTypes;
             certificateTypes.DataSource = viewModel.CertificateTypes;
+
+            seemType.DataSource = viewModel.SeemTypes;
 
             componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
@@ -202,6 +205,7 @@ namespace Prizm.Main.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+            pipeDiameter.Text = CurrentPipeMillSizeType.Length.ToString();
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
@@ -786,5 +790,22 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        private void seemTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            SeemType seemType = v.GetRow(e.RowHandle) as SeemType;
+            seemType.IsActive = true;
+        }
+
+        private void seemTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<SeemType>(
+                e,
+                viewModel.SeemTypes,
+                (_) => _.IsNew());
+        }
+
     }
 }

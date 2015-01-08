@@ -100,7 +100,7 @@
             this.search.Size = new System.Drawing.Size(100, 22);
             this.search.StyleController = this.searchGroupLayout;
             this.search.TabIndex = 9;
-            this.search.Text = "Поиск";
+            this.search.Text = "&Поиск";
             // 
             // user
             // 
@@ -146,6 +146,8 @@
             this.auditResultsView.GroupCount = 2;
             this.auditResultsView.Name = "auditResultsView";
             this.auditResultsView.OptionsBehavior.Editable = false;
+            this.auditResultsView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.auditResultsView.OptionsNavigation.UseTabKey = false;
             this.auditResultsView.OptionsView.BestFitUseErrorInfo = DevExpress.Utils.DefaultBoolean.False;
             this.auditResultsView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.userGridColumn, DevExpress.Data.ColumnSortOrder.Ascending),
@@ -282,7 +284,7 @@
             // startDateLayout
             // 
             this.startDateLayout.Control = this.startDate;
-            this.startDateLayout.CustomizationFormText = "С";
+            this.startDateLayout.CustomizationFormText = "&С";
             this.startDateLayout.Location = new System.Drawing.Point(0, 17);
             this.startDateLayout.MaxSize = new System.Drawing.Size(118, 24);
             this.startDateLayout.MinSize = new System.Drawing.Size(118, 24);
@@ -311,7 +313,7 @@
             // userLayout
             // 
             this.userLayout.Control = this.user;
-            this.userLayout.CustomizationFormText = "Пользователь";
+            this.userLayout.CustomizationFormText = "По&льзователь";
             this.userLayout.Location = new System.Drawing.Point(260, 0);
             this.userLayout.MinSize = new System.Drawing.Size(204, 40);
             this.userLayout.Name = "userLayout";
@@ -372,13 +374,14 @@
             // 
             // AuditXtraForm
             // 
+            this.AcceptButton = this.search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 436);
             this.Controls.Add(this.searchGroupLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuditXtraForm";
-            this.Text = "AuditXtraForm";
+            this.Text = "Аудит";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();

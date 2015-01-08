@@ -25,16 +25,19 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        public PipeMillSizeType CurrentPipeMillSizeType;
+
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
         public BindingList<InspectorViewType> Inspectors { get; set; }
-        public BindingList<PipeTestControlTypeWrapper> ControlType { get; set; }
-        public BindingList<PipeTestResultTypeWrapper> ResultType { get; set; }
+        public BindingList<EnumWrapper<PipeTestControlType>> ControlType { get; set; }
+        public BindingList<EnumWrapper<PipeTestResultType>> ResultType { get; set; }
         public BindingList<Role> Roles { get; set; }
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
+        public BindingList<SeemType> SeemTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
         public IValidatable validatableView { get; set; }
@@ -67,6 +70,7 @@ namespace Prizm.Main.Forms.Settings
         public void LoadData()
         {
            GetAllCertificateTypes();
+           GetAllSeemTypes();
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
@@ -78,16 +82,15 @@ namespace Prizm.Main.Forms.Settings
            GetAllJointOperations();
            LoadJointOperationTypes();
            GetAllComponentryTypes();
-           ControlType = new BindingList<PipeTestControlTypeWrapper>();
-           ResultType = new BindingList<PipeTestResultTypeWrapper>();
+           ControlType = new BindingList<EnumWrapper<PipeTestControlType>>();
+           ResultType = new BindingList<EnumWrapper<PipeTestResultType>>();
 
            foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
            {
                if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undef))
-               ControlType.Add(new PipeTestControlTypeWrapper()
+               ControlType.Add(new EnumWrapper<PipeTestControlType>()
                {
-                   Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName),
-                   Text = Resources.ResourceManager.GetString("InspectionControlType_" + controlTypeName)
+                   Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName)
                }
                );
            }
@@ -95,10 +98,9 @@ namespace Prizm.Main.Forms.Settings
            foreach (string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
            {
                if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undef))
-               ResultType.Add(new PipeTestResultTypeWrapper()
+               ResultType.Add(new EnumWrapper<PipeTestResultType>()
                {
-                   Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName),
-                   Text = Resources.ResourceManager.GetString("InspectionResultType_" + resultTypeName)
+                   Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName)
                }
                );
            }
@@ -319,6 +321,24 @@ namespace Prizm.Main.Forms.Settings
             CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
+        void GetAllSeemTypes()
+        {
+            if (SeemTypes == null)
+                SeemTypes = new BindingList<SeemType>();
+
+            var foundSeemTypes = repos.SeemTypeRepo.GetAll();
+            if (foundSeemTypes != null)
+            {
+                foreach (var s in foundSeemTypes)
+                {
+                    SeemTypes.Add(s);
+                }
+            }
+
+            SeemTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+        }
+
+
         void GetAllInspectors()
         {
            if (Inspectors == null)
@@ -475,5 +495,22 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        public int Length
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Length;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.Length)
+                {
+                    CurrentPipeMillSizeType.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
     }
 }
