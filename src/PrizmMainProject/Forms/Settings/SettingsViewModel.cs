@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        public PipeMillSizeType CurrentPipeMillSizeType;
+
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
@@ -493,5 +495,22 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        public int Length
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Length;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.Length)
+                {
+                    CurrentPipeMillSizeType.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
     }
 }

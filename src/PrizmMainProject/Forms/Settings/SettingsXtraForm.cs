@@ -118,6 +118,7 @@ namespace Prizm.Main.Forms.Settings
         {
             #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
+            CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
@@ -204,6 +205,7 @@ namespace Prizm.Main.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
+            pipeDiameter.Text = CurrentPipeMillSizeType.Length.ToString();
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
