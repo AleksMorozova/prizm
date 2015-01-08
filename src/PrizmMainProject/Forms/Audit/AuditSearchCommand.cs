@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -24,11 +23,7 @@ namespace Prizm.Main.Forms.Audit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             viewModel.AuditResults = repo.GetAuditResults(viewModel.StartDate, viewModel.EndDate, viewModel.SelectedUser);
-            stopWatch.Stop();
-            viewModel.TS = stopWatch.Elapsed;
         }
         public bool CanExecute()
         {
