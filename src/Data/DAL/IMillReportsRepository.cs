@@ -14,6 +14,7 @@ namespace Prizm.Data.DAL
     {
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses, bool previewFlag = false);
         DataTable GetPipelineElements();
+        DataTable GetPipelineElements(string sqlQueryString);
         DataSet GetUsedProducts(int startPK, int endPK, string queryString);
         DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate);
 

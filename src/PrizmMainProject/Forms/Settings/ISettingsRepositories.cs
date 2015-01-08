@@ -26,6 +26,7 @@ namespace Prizm.Main.Forms.Settings
       ICategoryRepository СategoryRepo { get; }
       IComponentTypeRepository ComponentTypeRepo { get; }
       ICertificateTypeRepository CertificateTypeRepo { get; }
+      ISeemTypeRepository SeemTypeRepo { get; }
 
       void Commit();
       void BeginTransaction();

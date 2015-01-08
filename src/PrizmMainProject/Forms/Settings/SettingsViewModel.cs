@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        public PipeMillSizeType CurrentPipeMillSizeType;
+
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
         public BindingList<WelderViewType> Welders { get; set; }
@@ -35,6 +37,7 @@ namespace Prizm.Main.Forms.Settings
         public BindingList<Permission> Permissions { get; set; }
         public BindingList<User> Users { get; set; }
         public BindingList<InspectorCertificateType> CertificateTypes { get; set; }
+        public BindingList<SeemType> SeemTypes { get; set; }
         public IList<JointOperation> JointOperations { get; set; }
         public IList<EnumWrapper<JointOperationType>> JointOperationTypes;
         public IValidatable validatableView { get; set; }
@@ -67,6 +70,7 @@ namespace Prizm.Main.Forms.Settings
         public void LoadData()
         {
            GetAllCertificateTypes();
+           GetAllSeemTypes();
            GetAllPipeMillSizeType();
            GetAllWelders();
            GetAllInspectors();
@@ -317,6 +321,24 @@ namespace Prizm.Main.Forms.Settings
             CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
+        void GetAllSeemTypes()
+        {
+            if (SeemTypes == null)
+                SeemTypes = new BindingList<SeemType>();
+
+            var foundSeemTypes = repos.SeemTypeRepo.GetAll();
+            if (foundSeemTypes != null)
+            {
+                foreach (var s in foundSeemTypes)
+                {
+                    SeemTypes.Add(s);
+                }
+            }
+
+            SeemTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+        }
+
+
         void GetAllInspectors()
         {
            if (Inspectors == null)
@@ -473,5 +495,22 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        public int Length
+        {
+            get
+            {
+                return CurrentPipeMillSizeType.Length;
+            }
+            set
+            {
+                if (value != CurrentPipeMillSizeType.Length)
+                {
+                    CurrentPipeMillSizeType.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
     }
 }

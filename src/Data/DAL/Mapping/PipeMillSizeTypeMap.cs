@@ -13,6 +13,7 @@ namespace Prizm.Data.DAL.Mapping
         public PipeMillSizeTypeMap() 
         {
             Map(_ => _.Type, "type");
+            Map(_=>_.Length, "length");
 
             HasMany(x => x.Pipes).KeyColumn("typeId");
             HasMany(_ => _.PipeTests).KeyColumn("pipeMillSizeTypeId").Cascade.All().Inverse().Not.LazyLoad();

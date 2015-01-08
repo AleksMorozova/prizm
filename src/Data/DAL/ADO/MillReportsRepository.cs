@@ -195,7 +195,12 @@ namespace Prizm.Data.DAL.ADO
 
         public DataTable GetPipelineElements()
         { 
-         CreateConnection();
+            return GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipelinePieces).ToString());
+        }
+
+        public DataTable GetPipelineElements(string sqlQueryString)
+        {
+            CreateConnection();
             DataTable resultsTable = new DataTable();
             try
             {
@@ -206,7 +211,7 @@ namespace Prizm.Data.DAL.ADO
                     {
                         connection.Open();
                         command.Connection = connection;
-                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipelinePieces).ToString();
+                        command.CommandText = sqlQueryString;
                         adapter.SelectCommand = command;
                         adapter.Fill(resultsTable);
                     }

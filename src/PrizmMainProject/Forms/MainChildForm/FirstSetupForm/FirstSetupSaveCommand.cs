@@ -45,10 +45,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
             SaveInspectorCertificateTypes();
+            SaveSeemTypes();
             firstSetupRepo.Commit();
             firstSetupRepo.UserRepo.Evict(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
             EvictInspectorCertificateTypes();
+            EvictSeemTypes();
 
             viewModel.IsSaved = true;
         }
@@ -68,11 +70,27 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
+        private void SaveSeemTypes()
+        {
+            foreach (var seem in viewModel.SeemTypes)
+            {
+                firstSetupRepo.SeemTypeRepo.Save(seem);
+            }
+        }
+
         private void EvictInspectorCertificateTypes()
         {
             foreach (var ct in viewModel.InspectorCertificateTypes)
             {
                 firstSetupRepo.CertificateTypeRepo.Evict(ct);
+            }
+        }
+
+        private void EvictSeemTypes()
+        {
+            foreach (var seem in viewModel.SeemTypes)
+            {
+                firstSetupRepo.SeemTypeRepo.Evict(seem);
             }
         }
 
