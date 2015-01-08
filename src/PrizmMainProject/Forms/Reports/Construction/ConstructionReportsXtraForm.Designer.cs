@@ -109,7 +109,6 @@
             this.reportType.StyleController = this.generalLayout;
             this.reportType.TabIndex = 68;
             this.reportType.SelectedIndexChanged += new System.EventHandler(this.reportType_SelectedIndexChanged);
-            this.reportType.EditValueChanged += new System.EventHandler(this.reportType_EditValueChanged);
             // 
             // generalLayout
             // 
@@ -142,7 +141,6 @@
             this.start.Size = new System.Drawing.Size(116, 20);
             this.start.StyleController = this.generalLayout;
             this.start.TabIndex = 74;
-            this.start.SelectedIndexChanged += new System.EventHandler(this.start_SelectedIndexChanged);
             // 
 
             // end
@@ -154,7 +152,6 @@
             this.end.Size = new System.Drawing.Size(116, 20);
             this.end.StyleController = this.generalLayout;
             this.end.TabIndex = 73;
-            this.end.SelectedIndexChanged += new System.EventHandler(this.end_SelectedIndexChanged);
             // 
             // endKPComboBox
             // 

@@ -25,8 +25,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-            start.SetRequiredText();
-            end.SetRequiredText();
         }
 
         private void BindToViewModel()
@@ -80,8 +78,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
-            BindToViewModel();
-            BindCommands();
+
 
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
@@ -105,21 +102,30 @@ namespace Prizm.Main.Forms.Reports.Construction
                 end.Properties.Items.Add(joint);
             }
 
+            BindToViewModel();
+            BindCommands();
             RefreshTypes();
+
             reportType.SelectedIndex = 0;
+            viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (((EnumWrapper<ReportType>)reportType.SelectedItem).Value == ReportType.UsedProductReport)
+            var wrapReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
+            
+            if (wrapReportType != null)
             {
-                viewModel.report = new UsedProductsXtraReport();
-                typeLayout.ContentVisible = true;
-            }
-            else 
-            {
-                viewModel.report = new TracingReporn();
-                typeLayout.ContentVisible = false;
+                if (wrapReportType.Value == ReportType.UsedProductReport)
+                {
+                    viewModel.report = new UsedProductsXtraReport();
+                    typeLayout.ContentVisible = true;
+                }
+                else
+                {
+                    viewModel.report = new TracingReporn();
+                    typeLayout.ContentVisible = false;
+                }
             }
         }
 
@@ -127,27 +133,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             commandManager.Dispose();
             viewModel = null;
-        }
-
-        private void reportType_EditValueChanged(object sender, EventArgs e)
-        {
-            viewModel.ReportType = reportType.EditValue as EnumWrapper<ReportType>;
-            commandManager["PreviewButton"].RefreshState();
-            commandManager["CreateReport"].RefreshState();
-        }
-
-        private void start_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            viewModel.StartJoint = start.EditValue as construct.Joint;
-            commandManager["PreviewButton"].RefreshState();
-            commandManager["CreateReport"].RefreshState();
-        }
-
-        private void end_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            viewModel.EndJoint = start.EditValue as construct.Joint;
-            commandManager["PreviewButton"].RefreshState();
-            commandManager["CreateReport"].RefreshState();
         }
 
         private void type_EditValueChanged(object sender, EventArgs e)

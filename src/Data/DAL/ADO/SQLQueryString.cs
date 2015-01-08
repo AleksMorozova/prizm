@@ -120,54 +120,6 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
 		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
 
 
-
-        public const string GetWeldedParts =
-            @"SELECT 
-                id, 
-                number, 
-                length,
-                N'Pipe' as type,
-                '' as componentTypeName 
-            FROM 
-                Pipe 
-            WHERE isActive = 1 
-                AND constructionStatus 
-                    IN (N'Welded', N'Lowered', N'Filled', N'AlongTrench', N'Undefined')
-
-            UNION ALL
-
-            SELECT 
-                S.id, 
-                S.number, 
-                S.length,
-                N'Spool' as type,
-                '' as componentTypeName 
-            FROM 
-                Spool S 
-            INNER JOIN 
-                Pipe P ON S.pipeId = P.id 
-            WHERE S.isActive = 1 
-                AND S.constructionStatus 
-                    IN (N'Welded', N'Lowered', N'Filled', N'AlongTrench', N'Undefined')
-
-            UNION ALL
-
-            SELECT 
-                C.id, 
-                C.number, 
-                C.length, 
-                N'Component' as type,
-                CT.name as componentTypeName 
-            FROM 
-                Component c 
-            INNER JOIN 
-                ComponentType CT ON CT.Id = C.componentTypeId
-            WHERE C.isActive = 1 
-                AND C.constructionStatus 
-                    IN (N'Welded', N'Lowered', N'Filled', N'AlongTrench', N'Undefined')
-
-            ORDER BY number";
-
        
     }
 

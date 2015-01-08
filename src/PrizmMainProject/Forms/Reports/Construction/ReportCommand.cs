@@ -35,7 +35,9 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if (viewModel.ReportType.Value == ReportType.TracingReport)
+            if (viewModel.ReportType.Value == ReportType.TracingReport 
+                && viewModel.StartJoint != null
+                && viewModel.EndJoint != null)
             {
                 viewModel.report.DataSource = PipelineTracing();
             }
@@ -43,7 +45,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
 
             }
-            else
+            else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
             {
                 viewModel.report.DataSource = GetUsedProduct();
             }
@@ -107,23 +109,26 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                 var paths = graph.Pathfinder(viewModel.StartJoint.SecondElement, viewModel.EndJoint.FirstElement);
 
-                var path = graph.ShortestPath(paths);
-
-                for (int i = path.Count - 1; i >= 0; --i)
+                if (paths.Count != 0)
                 {
-                    var tracingDataItem = new TracingData()
-                    {
-                        PartNumber = path[i].Data.Number,
-                        PartTypeDescription = path[i].Data.PartTypeDescription,
-                        Length = path[i].Data.Length
-                    };
+                    var path = graph.ShortestPath(paths);
 
-                    if (i >= 1)
+                    for (int i = path.Count - 1; i >= 0; --i)
                     {
-                        tracingDataItem.JointNumber = path[i].GetCommonJoint(path[i - 1]).Data.Number;
+                        var tracingDataItem = new TracingData()
+                        {
+                            PartNumber = path[i].Data.Number,
+                            PartTypeDescription = path[i].Data.PartTypeDescription,
+                            Length = path[i].Data.Length
+                        };
+
+                        if (i >= 1)
+                        {
+                            tracingDataItem.JointNumber = path[i].GetCommonJoint(path[i - 1]).Data.Number;
+                        }
+
+                        tracingDataList.Add(tracingDataItem);
                     }
-
-                    tracingDataList.Add(tracingDataItem);
                 }
             }
             return tracingDataList;
@@ -131,10 +136,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public bool CanExecute()
         {
-            return
-                viewModel.ReportType != null &&
-                viewModel.StartJoint != null &&
-                viewModel.EndJoint != null;
+            return true;
         }
 
         public bool IsExecutable { get; set; }
