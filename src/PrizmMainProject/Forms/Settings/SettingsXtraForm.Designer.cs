@@ -244,6 +244,8 @@
             this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -402,6 +404,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentPipeMillSizeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -412,7 +416,7 @@
             this.pipesSizeList.Name = "pipesSizeList";
             this.pipesSizeList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.typeRepositoryTextEdit});
-            this.pipesSizeList.Size = new System.Drawing.Size(265, 386);
+            this.pipesSizeList.Size = new System.Drawing.Size(265, 319);
             this.pipesSizeList.TabIndex = 11;
             this.pipesSizeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSizeListGridView});
@@ -461,7 +465,7 @@
             this.settings.Name = "settings";
             this.settings.Padding = new System.Windows.Forms.Padding(5);
             this.settings.SelectedTabPage = this.pipePage;
-            this.settings.Size = new System.Drawing.Size(1247, 491);
+            this.settings.Size = new System.Drawing.Size(1246, 424);
             this.settings.TabIndex = 0;
             this.settings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.projectPage,
@@ -478,7 +482,7 @@
             // 
             this.pipePage.Controls.Add(this.generalPipeLayout);
             this.pipePage.Name = "pipePage";
-            this.pipePage.Size = new System.Drawing.Size(1241, 463);
+            this.pipePage.Size = new System.Drawing.Size(1240, 396);
             this.pipePage.Text = "&Труба";
             // 
             // generalPipeLayout
@@ -495,13 +499,13 @@
             this.generalPipeLayout.Name = "generalPipeLayout";
             this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(39, 197, 250, 350);
             this.generalPipeLayout.Root = this.pipeParametersLayoutGroup;
-            this.generalPipeLayout.Size = new System.Drawing.Size(1241, 463);
+            this.generalPipeLayout.Size = new System.Drawing.Size(1240, 396);
             this.generalPipeLayout.TabIndex = 10;
             this.generalPipeLayout.Text = "layoutControl2";
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(834, 419);
+            this.pipeLength.Location = new System.Drawing.Point(834, 352);
             this.pipeLength.MaximumSize = new System.Drawing.Size(90, 0);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Size = new System.Drawing.Size(90, 20);
@@ -510,15 +514,15 @@
             // 
             // seamType
             // 
-            this.seamType.Location = new System.Drawing.Point(989, 419);
+            this.seamType.Location = new System.Drawing.Point(989, 352);
             this.seamType.Name = "seamType";
-            this.seamType.Size = new System.Drawing.Size(228, 20);
+            this.seamType.Size = new System.Drawing.Size(227, 20);
             this.seamType.StyleController = this.generalPipeLayout;
             this.seamType.TabIndex = 14;
             // 
             // pipeDiameter
             // 
-            this.pipeDiameter.Location = new System.Drawing.Point(387, 419);
+            this.pipeDiameter.Location = new System.Drawing.Point(387, 352);
             this.pipeDiameter.MaximumSize = new System.Drawing.Size(90, 0);
             this.pipeDiameter.Name = "pipeDiameter";
             this.pipeDiameter.Size = new System.Drawing.Size(90, 20);
@@ -527,7 +531,7 @@
             // 
             // wallThickness
             // 
-            this.wallThickness.Location = new System.Drawing.Point(584, 419);
+            this.wallThickness.Location = new System.Drawing.Point(584, 352);
             this.wallThickness.MaximumSize = new System.Drawing.Size(90, 0);
             this.wallThickness.Name = "wallThickness";
             this.wallThickness.Size = new System.Drawing.Size(90, 20);
@@ -537,7 +541,7 @@
             // cloneTypeSizeButton
             // 
             this.cloneTypeSizeButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneTypeSizeButton.Image")));
-            this.cloneTypeSizeButton.Location = new System.Drawing.Point(14, 427);
+            this.cloneTypeSizeButton.Location = new System.Drawing.Point(14, 360);
             this.cloneTypeSizeButton.Name = "cloneTypeSizeButton";
             this.cloneTypeSizeButton.Size = new System.Drawing.Size(265, 22);
             this.cloneTypeSizeButton.StyleController = this.generalPipeLayout;
@@ -560,7 +564,7 @@
             this.controlNameRepositoryTextEdit,
             this.subjectRepositoryItemEdit,
             this.repositoryItemsСategory});
-            this.inspectionOperation.Size = new System.Drawing.Size(934, 349);
+            this.inspectionOperation.Size = new System.Drawing.Size(933, 282);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
@@ -781,7 +785,7 @@
             this.pipeParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeParametersLayoutGroup.Name = "pipeParametersLayoutGroup";
             this.pipeParametersLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.pipeParametersLayoutGroup.Size = new System.Drawing.Size(1241, 463);
+            this.pipeParametersLayoutGroup.Size = new System.Drawing.Size(1240, 396);
             this.pipeParametersLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 5);
             this.pipeParametersLayoutGroup.Text = "pipeParametersLayoutGroup";
             this.pipeParametersLayoutGroup.TextVisible = false;
@@ -792,7 +796,7 @@
             this.inspectionOperationLayout.CustomizationFormText = "Список контрольных операций";
             this.inspectionOperationLayout.Location = new System.Drawing.Point(279, 0);
             this.inspectionOperationLayout.Name = "inspectionOperationLayout";
-            this.inspectionOperationLayout.Size = new System.Drawing.Size(948, 379);
+            this.inspectionOperationLayout.Size = new System.Drawing.Size(947, 312);
             this.inspectionOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.inspectionOperationLayout.Text = "Список контрольных опера&ций для выбранного типоразмера";
             this.inspectionOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -805,7 +809,7 @@
             this.pipesSizeListLayout.Location = new System.Drawing.Point(0, 0);
             this.pipesSizeListLayout.MinSize = new System.Drawing.Size(214, 50);
             this.pipesSizeListLayout.Name = "pipesSizeListLayout";
-            this.pipesSizeListLayout.Size = new System.Drawing.Size(279, 416);
+            this.pipesSizeListLayout.Size = new System.Drawing.Size(279, 349);
             this.pipesSizeListLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipesSizeListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipesSizeListLayout.Text = "Список типораз&меров";
@@ -816,13 +820,12 @@
             // 
             this.copyButtonLayoutControl.Control = this.cloneTypeSizeButton;
             this.copyButtonLayoutControl.CustomizationFormText = "Copy Button";
-            this.copyButtonLayoutControl.Location = new System.Drawing.Point(0, 416);
+            this.copyButtonLayoutControl.Location = new System.Drawing.Point(0, 349);
             this.copyButtonLayoutControl.Name = "copyButtonLayoutControl";
             this.copyButtonLayoutControl.Size = new System.Drawing.Size(279, 36);
             this.copyButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.copyButtonLayoutControl.Text = "Кнопка копирования";
             this.copyButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.copyButtonLayoutControl.TextToControlDistance = 0;
             this.copyButtonLayoutControl.TextVisible = false;
             // 
             // pipeSizetypeParameterLayoutGroup
@@ -833,9 +836,9 @@
             this.pipeDiameterLayout,
             this.pipeLengthLayout,
             this.seamTypeLayout});
-            this.pipeSizetypeParameterLayoutGroup.Location = new System.Drawing.Point(279, 379);
+            this.pipeSizetypeParameterLayoutGroup.Location = new System.Drawing.Point(279, 312);
             this.pipeSizetypeParameterLayoutGroup.Name = "pipeSizetypeParameterLayoutGroup";
-            this.pipeSizetypeParameterLayoutGroup.Size = new System.Drawing.Size(948, 73);
+            this.pipeSizetypeParameterLayoutGroup.Size = new System.Drawing.Size(947, 73);
             this.pipeSizetypeParameterLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeSizetypeParameterLayoutGroup.Text = "Параметры типоразмера";
             // 
@@ -883,7 +886,7 @@
             this.seamTypeLayout.CustomizationFormText = "Тип шва";
             this.seamTypeLayout.Location = new System.Drawing.Point(625, 0);
             this.seamTypeLayout.Name = "seamTypeLayout";
-            this.seamTypeLayout.Size = new System.Drawing.Size(293, 24);
+            this.seamTypeLayout.Size = new System.Drawing.Size(292, 24);
             this.seamTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
             this.seamTypeLayout.Text = "Тип шва";
             this.seamTypeLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -1303,7 +1306,6 @@
             this.pipeNumberMaskRulesLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 0, 0);
             this.pipeNumberMaskRulesLabelLayout.Text = "pipeNumberMaskRulesLabelLayout";
             this.pipeNumberMaskRulesLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.pipeNumberMaskRulesLabelLayout.TextToControlDistance = 0;
             this.pipeNumberMaskRulesLabelLayout.TextVisible = false;
             // 
             // layoutControlItem5
@@ -1805,7 +1807,6 @@
             this.layoutControlItemWelders.Size = new System.Drawing.Size(1221, 443);
             this.layoutControlItemWelders.Text = "layoutControlItemWelders";
             this.layoutControlItemWelders.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemWelders.TextToControlDistance = 0;
             this.layoutControlItemWelders.TextVisible = false;
             // 
             // inspectorsPage
@@ -2522,11 +2523,10 @@
             // 
             this.settingsTabPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.settingsTabPanel.Controls.Add(this.generalSettingsLayout);
-            this.settingsTabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settingsTabPanel.Location = new System.Drawing.Point(0, 0);
+            this.settingsTabPanel.Location = new System.Drawing.Point(0, 560);
             this.settingsTabPanel.Name = "settingsTabPanel";
             this.settingsTabPanel.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.settingsTabPanel.Size = new System.Drawing.Size(1275, 550);
+            this.settingsTabPanel.Size = new System.Drawing.Size(1274, 483);
             this.settingsTabPanel.TabIndex = 1;
             // 
             // generalSettingsLayout
@@ -2540,14 +2540,14 @@
             this.generalSettingsLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(340, 221, 250, 350);
             this.generalSettingsLayout.OptionsFocus.EnableAutoTabOrder = false;
             this.generalSettingsLayout.Root = this.generalSettingsLayoutGroup;
-            this.generalSettingsLayout.Size = new System.Drawing.Size(1275, 535);
+            this.generalSettingsLayout.Size = new System.Drawing.Size(1274, 468);
             this.generalSettingsLayout.TabIndex = 1;
             this.generalSettingsLayout.Text = "layoutControl1";
             // 
             // closeButton
             // 
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1164, 504);
+            this.closeButton.Location = new System.Drawing.Point(1163, 437);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(92, 22);
             this.closeButton.StyleController = this.generalSettingsLayout;
@@ -2558,7 +2558,7 @@
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(1058, 504);
+            this.saveButton.Location = new System.Drawing.Point(1057, 437);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(92, 22);
             this.saveButton.StyleController = this.generalSettingsLayout;
@@ -2578,7 +2578,7 @@
             this.generalSettingsLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalSettingsLayoutGroup.Name = "generalSettingsLayoutGroup";
             this.generalSettingsLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.generalSettingsLayoutGroup.Size = new System.Drawing.Size(1275, 535);
+            this.generalSettingsLayoutGroup.Size = new System.Drawing.Size(1274, 468);
             this.generalSettingsLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 0, 5);
             this.generalSettingsLayoutGroup.Text = "generalSettingsLayoutGroup";
             this.generalSettingsLayoutGroup.TextVisible = false;
@@ -2589,32 +2589,30 @@
             this.settingsLayout.CustomizationFormText = "settingsLayout";
             this.settingsLayout.Location = new System.Drawing.Point(0, 0);
             this.settingsLayout.Name = "settingsLayout";
-            this.settingsLayout.Size = new System.Drawing.Size(1251, 495);
+            this.settingsLayout.Size = new System.Drawing.Size(1250, 428);
             this.settingsLayout.Text = "settingsLayout";
             this.settingsLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.settingsLayout.TextToControlDistance = 0;
             this.settingsLayout.TextVisible = false;
             // 
             // closeButtonLayout
             // 
             this.closeButtonLayout.Control = this.closeButton;
             this.closeButtonLayout.CustomizationFormText = "closeButtonLayout";
-            this.closeButtonLayout.Location = new System.Drawing.Point(1145, 495);
+            this.closeButtonLayout.Location = new System.Drawing.Point(1144, 428);
             this.closeButtonLayout.Name = "closeButtonLayout";
             this.closeButtonLayout.Size = new System.Drawing.Size(106, 31);
             this.closeButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.closeButtonLayout.Text = "closeButtonLayout";
             this.closeButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.closeButtonLayout.TextToControlDistance = 0;
             this.closeButtonLayout.TextVisible = false;
             // 
             // buttonEmptySpaceItem
             // 
             this.buttonEmptySpaceItem.AllowHotTrack = false;
             this.buttonEmptySpaceItem.CustomizationFormText = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 495);
+            this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 428);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(1039, 31);
+            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(1038, 31);
             this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -2622,24 +2620,54 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(1039, 495);
+            this.saveButtonLayout.Location = new System.Drawing.Point(1038, 428);
             this.saveButtonLayout.Name = "saveButtonLayout";
             this.saveButtonLayout.Size = new System.Drawing.Size(106, 31);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
             // jointOperationsBindingSource
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
+            // rootLayoutControl
+            // 
+            this.rootLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.rootLayoutControl.Name = "rootLayoutControl";
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rootLayoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rootLayoutControl.Root = this.RootGroup;
+            this.rootLayoutControl.Size = new System.Drawing.Size(1275, 550);
+            this.rootLayoutControl.TabIndex = 2;
+            this.rootLayoutControl.Text = "layoutControl3";
+            // 
+            // RootGroup
+            // 
+            this.RootGroup.CustomizationFormText = "RootGroup";
+            this.RootGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.RootGroup.GroupBordersVisible = false;
+            this.RootGroup.Location = new System.Drawing.Point(0, 0);
+            this.RootGroup.Name = "RootGroup";
+            this.RootGroup.Size = new System.Drawing.Size(1275, 550);
+            this.RootGroup.Text = "RootGroup";
+            this.RootGroup.TextVisible = false;
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 550);
+            this.ClientSize = new System.Drawing.Size(1275, 1044);
+            this.Controls.Add(this.rootLayoutControl);
             this.Controls.Add(this.settingsTabPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsXtraForm";
@@ -2804,6 +2832,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentPipeMillSizeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3026,5 +3056,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private System.Windows.Forms.BindingSource CurrentPipeMillSizeTypeBindingSource;
+        private DevExpress.XtraLayout.LayoutControl rootLayoutControl;
+        private DevExpress.XtraLayout.LayoutControlGroup RootGroup;
     }
 }
