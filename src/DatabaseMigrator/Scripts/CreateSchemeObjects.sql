@@ -238,6 +238,9 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[PipeMillSizeType](
 	[id] [uniqueidentifier] NOT NULL,
 	[type] [nvarchar](50) NULL,
+	[length] [int]  NULL,
+	[diameter] [int] NULL,
+	[thickness] [int]  NULL,
 
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 
