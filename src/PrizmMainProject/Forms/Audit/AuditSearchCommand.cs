@@ -6,15 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Audit
 {
     public class AuditSearchCommand : ICommand
     {
-        readonly IMillReportsRepository repo;
+        readonly IAuditLogRepository repo;
         readonly AuditViewModel viewModel;
 
-        public AuditSearchCommand(AuditViewModel viewModel, IMillReportsRepository repo)
+        public AuditSearchCommand(AuditViewModel viewModel, IAuditLogRepository repo)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -23,7 +25,9 @@ namespace Prizm.Main.Forms.Audit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.AuditResults = repo.GetAuditResults(viewModel.StartDate, viewModel.EndDate, viewModel.SelectedUser);
+            
+                 var results = repo.GetRecords(viewModel.SelectedUser,viewModel.StartDate, viewModel.EndDate);
+                 viewModel.AuditResults = new BindingList<AuditLog>(results);
         }
         public bool CanExecute()
         {

@@ -21,5 +21,12 @@ namespace Prizm.Data.DAL.Hibernate
         {
             return (from b in session.QueryOver<AuditLog>() select b.User).List<string>().Distinct();
         }
+
+        public IList<AuditLog> GetRecords(string user, DateTime startDate, DateTime endDate)
+        {
+
+            return session.QueryOver<AuditLog>().Where(_ => _.AuditDate <= endDate && _.AuditDate >= startDate).WhereRestrictionOn(x => x.User).IsLike(user).List<AuditLog>();
+
+        }
     }
 }
