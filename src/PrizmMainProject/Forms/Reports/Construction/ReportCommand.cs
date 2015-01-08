@@ -107,11 +107,18 @@ namespace Prizm.Main.Forms.Reports.Construction
                     graph.AddJointEdge(joint);
                 }
 
-                var paths = graph.Pathfinder(viewModel.StartJoint.SecondElement, viewModel.EndJoint.FirstElement);
+                var paths = graph.Pathfinder(
+                    viewModel.StartJoint.FirstElement, 
+                    viewModel.EndJoint.FirstElement);
 
                 if (paths.Count != 0)
                 {
                     var path = graph.ShortestPath(paths);
+
+                    path = graph.RemovalExternalComponents(
+                        viewModel.StartJoint,
+                        viewModel.EndJoint, 
+                        path);
 
                     for (int i = path.Count - 1; i >= 0; --i)
                     {
