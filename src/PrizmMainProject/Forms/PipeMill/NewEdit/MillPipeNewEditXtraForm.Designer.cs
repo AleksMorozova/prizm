@@ -111,7 +111,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveNewLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.pipeTabLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.plateLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.plateNumberLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -199,7 +199,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveNewLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTabLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayoutControlItem)).BeginInit();
@@ -364,7 +364,7 @@
             this.generalPipeLayout.Controls.Add(this.millStatus);
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
-            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(350, 176, 593, 560);
+            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(359, 69, 593, 560);
             this.generalPipeLayout.Root = this.generalLayoutGroup;
             this.generalPipeLayout.Size = new System.Drawing.Size(1275, 545);
             this.generalPipeLayout.TabIndex = 24;
@@ -924,7 +924,7 @@
             // 
             // generalLayoutGroup
             // 
-            this.generalLayoutGroup.CustomizationFormText = "pipeGeneralLayoutGroup";
+            this.generalLayoutGroup.CustomizationFormText = "Основная форма";
             this.generalLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.generalLayoutGroup.GroupBordersVisible = false;
             this.generalLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -942,13 +942,13 @@
             this.emptySpaceItem1,
             this.saveButtonLayout,
             this.saveNewLayoutControlItem,
-            this.tabbedControlGroup1});
+            this.tabbedControlGroup});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "Root";
             this.generalLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.generalLayoutGroup.Size = new System.Drawing.Size(1275, 545);
             this.generalLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 5);
-            this.generalLayoutGroup.Text = "Root";
+            this.generalLayoutGroup.Text = "Основная форма";
             this.generalLayoutGroup.TextVisible = false;
             // 
             // pipeNumberLayout
@@ -1128,18 +1128,18 @@
             this.saveNewLayoutControlItem.TextVisible = false;
             this.saveNewLayoutControlItem.TrimClientAreaToControl = false;
             // 
-            // tabbedControlGroup1
+            // tabbedControlGroup
             // 
-            this.tabbedControlGroup1.CustomizationFormText = "tabbedControlGroup1";
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 54);
-            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.pipeTabLayoutControlGroup;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(1261, 456);
-            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tabbedControlGroup.CustomizationFormText = "Вкладки";
+            this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
+            this.tabbedControlGroup.Name = "tabbedControlGroup";
+            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 456);
+            this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,
             this.inspectionsTabLayoutControlGroup});
-            this.tabbedControlGroup1.Text = "tabbedControlGroup1";
+            this.tabbedControlGroup.Text = "Вкладки";
             // 
             // pipeTabLayoutControlGroup
             // 
@@ -1505,7 +1505,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveNewLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTabLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayoutControlItem)).EndInit();
@@ -1627,7 +1627,7 @@
         private DevExpress.XtraLayout.LayoutControlItem saveNewLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionsTabLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem inspectionsGridLayoutControlItem;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
+        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup;
         private DevExpress.XtraLayout.LayoutControlGroup pipeTabLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlGroup plateLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem plateNumberLayoutControlItem;
