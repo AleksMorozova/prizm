@@ -66,6 +66,7 @@ namespace Prizm.Main.Forms.Settings
 
             this.ExtractCategoriesCommand.Execute();
             CategoryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            PipeTests.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void LoadData()
@@ -286,6 +287,7 @@ namespace Prizm.Main.Forms.Settings
         {
             var foundOperations = repos.JointRepo.GetAll().ToList();
             JointOperations = new BindingList<JointOperation>(foundOperations);
+            JointOperations.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllWelders()
