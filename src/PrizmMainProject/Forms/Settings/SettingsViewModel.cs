@@ -25,7 +25,6 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
-        public int length;
         private PipeMillSizeType currentPipeMillSizeType;
         public IList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
@@ -418,12 +417,6 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        internal void UpdateSizeParameters(object sizeType)
-        {
-            PipeMillSizeType type = sizeType as PipeMillSizeType;
-            Length = type.Length;
-        }
-
         public IModifiable ModifiableView
         {
            get
@@ -572,7 +565,11 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                return CurrentPipeMillSizeType.SeamType.Name;
+                if (CurrentPipeMillSizeType.SeamType != null)
+                {
+                    return CurrentPipeMillSizeType.SeamType.Name;
+                }
+                else { return string.Empty; }
             }
             set
             {
