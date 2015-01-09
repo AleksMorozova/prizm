@@ -13,9 +13,6 @@ namespace Prizm.Data.DAL.Mapping
         public SeamTypeMap()
         {
             Map(x => x.Name).Column("name");
-
-            HasMany<SeamType>(x => x.SeamTypes)
-                .KeyColumn("seamType");
         }
     }
 }

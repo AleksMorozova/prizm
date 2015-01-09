@@ -40,7 +40,6 @@
             this.pipePage = new DevExpress.XtraTab.XtraTabPage();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
-            this.seamType = new DevExpress.XtraEditors.TextEdit();
             this.pipeDiameter = new DevExpress.XtraEditors.TextEdit();
             this.wallThickness = new DevExpress.XtraEditors.TextEdit();
             this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -66,6 +65,7 @@
             this.repositoryItemsСategoryView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.subjectRepositoryItemEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.pipeParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectionOperationLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesSizeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -253,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
@@ -267,6 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).BeginInit();
@@ -484,12 +484,12 @@
             // generalPipeLayout
             // 
             this.generalPipeLayout.Controls.Add(this.pipeLength);
-            this.generalPipeLayout.Controls.Add(this.seamType);
             this.generalPipeLayout.Controls.Add(this.pipeDiameter);
             this.generalPipeLayout.Controls.Add(this.wallThickness);
             this.generalPipeLayout.Controls.Add(this.cloneTypeSizeButton);
             this.generalPipeLayout.Controls.Add(this.pipesSizeList);
             this.generalPipeLayout.Controls.Add(this.inspectionOperation);
+            this.generalPipeLayout.Controls.Add(this.seamType);
             this.generalPipeLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
@@ -507,14 +507,6 @@
             this.pipeLength.Size = new System.Drawing.Size(90, 20);
             this.pipeLength.StyleController = this.generalPipeLayout;
             this.pipeLength.TabIndex = 15;
-            // 
-            // seamType
-            // 
-            this.seamType.Location = new System.Drawing.Point(989, 419);
-            this.seamType.Name = "seamType";
-            this.seamType.Size = new System.Drawing.Size(228, 20);
-            this.seamType.StyleController = this.generalPipeLayout;
-            this.seamType.TabIndex = 14;
             // 
             // pipeDiameter
             // 
@@ -767,6 +759,16 @@
             // 
             this.subjectRepositoryItemEdit.AutoHeight = false;
             this.subjectRepositoryItemEdit.Name = "subjectRepositoryItemEdit";
+            // 
+            // seamType
+            // 
+            this.seamType.Location = new System.Drawing.Point(989, 419);
+            this.seamType.Name = "seamType";
+            this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seamType.Size = new System.Drawing.Size(228, 20);
+            this.seamType.StyleController = this.generalPipeLayout;
+            this.seamType.TabIndex = 14;
             // 
             // pipeParametersLayoutGroup
             // 
@@ -2655,7 +2657,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
@@ -2669,6 +2670,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectRepositoryItemEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperationLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListLayout)).EndInit();
@@ -3012,7 +3014,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateTypeColumn;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraEditors.TextEdit pipeLength;
-        private DevExpress.XtraEditors.TextEdit seamType;
         private DevExpress.XtraEditors.TextEdit pipeDiameter;
         private DevExpress.XtraEditors.TextEdit wallThickness;
         private DevExpress.XtraLayout.LayoutControlGroup pipeSizetypeParameterLayoutGroup;
@@ -3026,5 +3027,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private System.Windows.Forms.BindingSource CurrentPipeMillSizeTypeBindingSource;
+        private DevExpress.XtraEditors.ComboBoxEdit seamType;
     }
 }

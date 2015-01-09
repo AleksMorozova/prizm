@@ -517,7 +517,8 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                return CurrentPipeMillSizeType.Length;
+                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Length; } else { return 0; }
+                
             }
             set
             {
@@ -533,7 +534,7 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                return CurrentPipeMillSizeType.Diameter;
+                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Diameter; } else { return 0; }
             }
             set
             {
@@ -549,7 +550,7 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                return CurrentPipeMillSizeType.Thickness;
+                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Thickness; } else { return 0; }
             }
             set
             {
@@ -561,21 +562,28 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public string SeamType
+        public SeamType SeamType
         {
             get
             {
-                if (CurrentPipeMillSizeType.SeamType != null)
+                if (CurrentPipeMillSizeType != null)
                 {
-                    return CurrentPipeMillSizeType.SeamType.Name;
+                    if (CurrentPipeMillSizeType != null || CurrentPipeMillSizeType.SeamType != null)
+                    {
+                        return CurrentPipeMillSizeType.SeamType;
+                    }
+                    else 
+                    {
+                        return new SeamType(); 
+                    }
                 }
-                else { return string.Empty; }
+                else { return new SeamType(); }
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.SeamType.Name)
+                if (value != CurrentPipeMillSizeType.SeamType)
                 {
-                    CurrentPipeMillSizeType.SeamType.Name = value;
+                    CurrentPipeMillSizeType.SeamType = value;
                     RaisePropertyChanged("SeamType");
                 }
             }

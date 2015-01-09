@@ -43,7 +43,6 @@ CREATE TABLE [dbo].[SeamType](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[name] [nvarchar](30) NULL,
-	[seamTypeId][uniqueidentifier] NULL,
 
  CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (
@@ -242,6 +241,7 @@ CREATE TABLE [dbo].[PipeMillSizeType](
 	[length] [int]  NULL,
 	[diameter] [int] NULL,
 	[thickness] [int]  NULL,
+	[seamTypeId][uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 

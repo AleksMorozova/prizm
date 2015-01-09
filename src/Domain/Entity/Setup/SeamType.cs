@@ -16,5 +16,10 @@ namespace Prizm.Domain.Entity.Setup
         public virtual string Name { get; set; }
 
         public virtual IList<SeamType> SeamTypes { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

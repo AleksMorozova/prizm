@@ -95,9 +95,16 @@ namespace Prizm.Main.Forms.Settings
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            //viewModel.currentPipeMillSizeType=CurrentPipeMillSizeType;
             viewModel.LoadData();
             BindToViewModel();
+
+            foreach (SeamType t in viewModel.SeamTypes)
+            {
+                if (t.IsActive)
+                {
+                    seamType.Properties.Items.Add(t);
+                }
+            }
 
             IsModified = false;
             BindCommands();
@@ -119,8 +126,6 @@ namespace Prizm.Main.Forms.Settings
         {
             #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
-
-            //CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
@@ -267,6 +272,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
+            CurrentPipeMillSizeType.SeamType = new SeamType();
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
@@ -818,6 +824,5 @@ namespace Prizm.Main.Forms.Settings
                 viewModel.SeamTypes,
                 (_) => _.IsNew());
         }
-
     }
 }
