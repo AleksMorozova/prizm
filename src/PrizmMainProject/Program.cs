@@ -60,6 +60,9 @@ namespace Prizm.Main
                 while (!CreateProject())
                 { }
 
+                //Permissions setup
+                CreatePermissions();
+
                 //Login
                 string failMessage = String.Empty;
                 LoginResult loginResult = LoginResult.None;
@@ -198,6 +201,15 @@ namespace Prizm.Main
             }
 
             return result;
+        }
+
+        private static void CreatePermissions()
+        {
+            IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
+            if (repo.GetAll().Count == 0)
+            {
+                repo.SeedPermissions();
+            }
         }
 
 

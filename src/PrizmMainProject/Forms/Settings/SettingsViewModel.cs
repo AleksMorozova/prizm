@@ -126,7 +126,8 @@ namespace Prizm.Main.Forms.Settings
            IList<Permission> perms = repos.PermissionRepo.GetAll();
            foreach (var p in perms)
            {
-              Permissions.Add(p);
+               p.Name = Resources.ResourceManager.GetString("SecurityPrivilege_" + p.Name);
+               Permissions.Add(p);
            }
         }
 

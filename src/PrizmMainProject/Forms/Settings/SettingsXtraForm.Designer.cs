@@ -2412,7 +2412,7 @@
             // colPermissionDesc
             // 
             this.colPermissionDesc.Caption = "Описание";
-            this.colPermissionDesc.FieldName = "Description";
+            this.colPermissionDesc.FieldName = "Name";
             this.colPermissionDesc.Name = "colPermissionDesc";
             this.colPermissionDesc.OptionsColumn.ReadOnly = true;
             this.colPermissionDesc.Visible = true;

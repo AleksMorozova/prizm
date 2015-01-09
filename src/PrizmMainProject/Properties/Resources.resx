@@ -731,4 +731,49 @@
   <data name="AuthenticationFailedUserInactive" xml:space="preserve">
     <value>Вход для пользователя {0} заблокирован</value>
   </data>
+  <data name="SecurityPrivilege_Audit" xml:space="preserve">
+    <value>Аудит</value>
+  </data>
+  <data name="SecurityPrivilege_DeactivateComponent" xml:space="preserve">
+    <value>Деактивация комплектующего</value>
+  </data>
+  <data name="SecurityPrivilege_DeactivateJoint" xml:space="preserve">
+    <value>Деактивация стыка</value>
+  </data>
+  <data name="SecurityPrivilege_DeactivatePipe" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="SecurityPrivilege_DeactivateSpool" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
+  <data name="SecurityPrivilege_EditData" xml:space="preserve">
+    <value>Редактирование данных</value>
+  </data>
+  <data name="SecurityPrivilege_EditSettings" xml:space="preserve">
+    <value>Изменение настроек</value>
+  </data>
+  <data name="SecurityPrivilege_ExportDataFromMaster" xml:space="preserve">
+    <value>Экспорт данных из Мастер</value>
+  </data>
+  <data name="SecurityPrivilege_ImportData" xml:space="preserve">
+    <value>Импорт данных</value>
+  </data>
+  <data name="SecurityPrivilege_ImportDataAtInspectionConstruction" xml:space="preserve">
+    <value>Импорт данных на входном контроле/строительстве</value>
+  </data>
+  <data name="SecurityPrivilege_ImportDataAtProduction" xml:space="preserve">
+    <value>Импорт данных на заводе</value>
+  </data>
+  <data name="SecurityPrivilege_NewDataEntry" xml:space="preserve">
+    <value>Ввод данных</value>
+  </data>
+  <data name="SecurityPrivilege_PrintReports" xml:space="preserve">
+    <value>Печать отчетов</value>
+  </data>
+  <data name="SecurityPrivilege_UnshipAtMaster" xml:space="preserve">
+    <value>Отмена разрешения на отгрузку на Мастер</value>
+  </data>
+  <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
+    <value>Просмотр настроек</value>
+  </data>
 </root>

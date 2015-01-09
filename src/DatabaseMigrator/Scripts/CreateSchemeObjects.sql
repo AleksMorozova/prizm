@@ -637,8 +637,7 @@ GO
 
 CREATE TABLE [dbo].[Permission] (
   [id] [uniqueidentifier] NOT NULL,
-  [name] [nvarchar](30) NOT NULL,
-  [description] [nvarchar](255),
+  [name] [nvarchar](50) NOT NULL,
   PRIMARY KEY(id)
 );
 
