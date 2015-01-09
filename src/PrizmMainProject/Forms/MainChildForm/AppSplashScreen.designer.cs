@@ -40,6 +40,8 @@
             this.marqueeProgressBarControl.EditValue = 0;
             this.marqueeProgressBarControl.Location = new System.Drawing.Point(23, 231);
             this.marqueeProgressBarControl.Name = "marqueeProgressBarControl";
+            this.marqueeProgressBarControl.Properties.LookAndFeel.SkinName = "Office 2013 Light Gray";
+            this.marqueeProgressBarControl.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.marqueeProgressBarControl.Size = new System.Drawing.Size(404, 12);
             this.marqueeProgressBarControl.TabIndex = 5;
             // 
@@ -53,6 +55,7 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox.Image = global::Prizm.Main.Properties.Resources.main_logo_03;
             this.pictureBox.Location = new System.Drawing.Point(86, 12);
