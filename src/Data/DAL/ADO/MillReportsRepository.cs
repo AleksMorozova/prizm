@@ -114,43 +114,7 @@ namespace Prizm.Data.DAL.ADO
             return pipeDataSet;
         }
 
-        public DataTable GetAuditResults(DateTime startDate, DateTime finalDate, string user)
-        {
-            CreateConnection();
-            DataTable auditDataTable = new DataTable();
-            try
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter())
-                {
-
-                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
-                    {
-                        connection.Open();
-                        adapter.TableMappings.Add("Table", "AuditLog");
-                        command.Connection = connection;
-                        command.Parameters.AddWithValue("@startDate", startDate);
-                        command.Parameters.AddWithValue("@finalDate", finalDate);
-                        command.Parameters.AddWithValue("@user", user);
-                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAudit).ToString();
-                        adapter.SelectCommand = command;
-                        adapter.Fill(auditDataTable);
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw new RepositoryException("GetAuditResults", ex);
-            }
-            finally
-            {
-                if (connection.State == System.Data.ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-            return auditDataTable;
-        }
-
+       
         public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
