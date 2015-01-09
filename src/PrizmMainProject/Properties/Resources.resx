@@ -647,7 +647,7 @@
   <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
     <value>Добавление вложений</value>
   </data>
-  <data name="HighwayReport" xml:space="preserve">
+  <data name="TracingReport" xml:space="preserve">
     <value>Трассовка</value>
   </data>
   <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
@@ -727,5 +727,8 @@
   </data>
   <data name="JointTestResultStatus_Repair" xml:space="preserve">
     <value>Ремонт</value>
+  </data>
+  <data name="AuthenticationFailedUserInactive" xml:space="preserve">
+    <value>Вход для пользователя {0} заблокирован</value>
   </data>
 </root>

@@ -156,7 +156,7 @@
             // userGridColumn
             // 
             this.userGridColumn.Caption = "Пользователь";
-            this.userGridColumn.FieldName = "user";
+            this.userGridColumn.FieldName = "User";
             this.userGridColumn.Name = "userGridColumn";
             this.userGridColumn.Visible = true;
             this.userGridColumn.VisibleIndex = 0;
@@ -167,7 +167,7 @@
             this.dateGridColumn.Caption = "Дата";
             this.dateGridColumn.DisplayFormat.FormatString = "g";
             this.dateGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateGridColumn.FieldName = "auditDate";
+            this.dateGridColumn.FieldName = "AuditDate";
             this.dateGridColumn.Name = "dateGridColumn";
             this.dateGridColumn.Visible = true;
             this.dateGridColumn.VisibleIndex = 0;
@@ -176,7 +176,7 @@
             // entityGridColumn
             // 
             this.entityGridColumn.Caption = "Изменяемый объект";
-            this.entityGridColumn.FieldName = "tableName";
+            this.entityGridColumn.FieldName = "TableName";
             this.entityGridColumn.Name = "entityGridColumn";
             this.entityGridColumn.Visible = true;
             this.entityGridColumn.VisibleIndex = 0;
@@ -185,7 +185,7 @@
             // oldValueGridColumn
             // 
             this.oldValueGridColumn.Caption = "Старое значение";
-            this.oldValueGridColumn.FieldName = "oldValue";
+            this.oldValueGridColumn.FieldName = "OldValue";
             this.oldValueGridColumn.Name = "oldValueGridColumn";
             this.oldValueGridColumn.Visible = true;
             this.oldValueGridColumn.VisibleIndex = 2;
@@ -194,7 +194,7 @@
             // newValueGridColumn
             // 
             this.newValueGridColumn.Caption = "Новое значение";
-            this.newValueGridColumn.FieldName = "newValue";
+            this.newValueGridColumn.FieldName = "NewValue";
             this.newValueGridColumn.Name = "newValueGridColumn";
             this.newValueGridColumn.Visible = true;
             this.newValueGridColumn.VisibleIndex = 3;
@@ -203,7 +203,7 @@
             // fieldGridColumn
             // 
             this.fieldGridColumn.Caption = "Поле";
-            this.fieldGridColumn.FieldName = "fieldName";
+            this.fieldGridColumn.FieldName = "FieldName";
             this.fieldGridColumn.Name = "fieldGridColumn";
             this.fieldGridColumn.Visible = true;
             this.fieldGridColumn.VisibleIndex = 1;
@@ -381,7 +381,7 @@
             this.Controls.Add(this.searchGroupLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuditXtraForm";
-            this.Text = "AuditXtraForm";
+            this.Text = "Аудит";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();

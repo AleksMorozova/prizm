@@ -11,6 +11,9 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Properties;
 
+
+using construct = Prizm.Domain.Entity.Construction;
+
 namespace Prizm.Main.Forms.Reports.Construction
 {
     [System.ComponentModel.DesignerCategory("Form")] 
@@ -22,34 +25,40 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
-
-            var item1 = new RadioGroupItem(0, Resources.KP);
-            var item2 = new RadioGroupItem(1, Resources.Joint);
-            countPoints.Properties.Items.Add(item1);
-            countPoints.Properties.Items.Add(item2);
-            countPoints.SelectedIndex = 0;
-
-            countPointsLayout.ContentVisible = false;
-            typeLayout.ContentVisible = false;
-            reportPeriodLabelLayout.ContentVisible = false;
-            startLayout.ContentVisible = false;
-            endLayout.ContentVisible = false;
-
         }
 
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-            previewReportDocument.DataBindings.Add("DocumentSource", bindingSource, "PreviewSource");
-            start.DataBindings.Add("EditValue", bindingSource, "StartPK");
-            end.DataBindings.Add("EditValue", bindingSource, "EndPK");
+
+            previewReportDocument.DataBindings
+                .Add("DocumentSource", bindingSource, "PreviewSource");
+
+            reportType.DataBindings
+                .Add("EditValue", bindingSource, "ReportType");
+
+            start.DataBindings
+                .Add("EditValue", bindingSource, "StartJoint");
+
+            end.DataBindings
+                .Add("EditValue", bindingSource, "EndJoint");
+
+            startKPComboBox.DataBindings
+                .Add("EditValue", bindingSource, "StartPK");
+
+            endKPComboBox.DataBindings
+                .Add("EditValue", bindingSource, "EndPK");
+
             viewModel.LoadData();
         }
 
         private void BindCommands()
         {
-            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
-            commandManager["PreviewButton"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
+            commandManager["CreateReport"]
+                .Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+
+            commandManager["PreviewButton"]
+                .Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void RefreshTypes()
@@ -69,8 +78,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
-            BindToViewModel();
-            BindCommands();
+
 
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
@@ -80,64 +88,56 @@ namespace Prizm.Main.Forms.Reports.Construction
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
 
-
             var usedProduct = new EnumWrapper<ReportType> { Value = ReportType.UsedProductReport };
             var length = new EnumWrapper<ReportType> { Value = ReportType.PipelineLengthReport };
-            var highway = new EnumWrapper<ReportType> { Value = ReportType.HighwayReport };
+            var highway = new EnumWrapper<ReportType> { Value = ReportType.TracingReport };
 
             reportType.Properties.Items.Add(usedProduct);
             reportType.Properties.Items.Add(length);
             reportType.Properties.Items.Add(highway);
 
+            foreach (var joint in viewModel.Joints)
+            {
+                start.Properties.Items.Add(joint);
+                end.Properties.Items.Add(joint);
+            }
+
+            BindToViewModel();
+            BindCommands();
             RefreshTypes();
+
             reportType.SelectedIndex = 0;
+            viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (reportType.SelectedItem.ToString() == Resources.UsedProductReport)
+            var wrapReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
+            
+            if (wrapReportType != null)
             {
-                viewModel.report = new UsedProductsXtraReport();
-                reportPeriodLabel.Text = Resources.Constraction_UsedProductReport_label;
-                reportPeriodLabelLayout.ContentVisible = true;
-                startLayout.ContentVisible = true;
-                endLayout.ContentVisible = true;
-                countPointsLayout.ContentVisible = false;
-                typeLayout.ContentVisible = true;
-
-                foreach (int KP in viewModel.AllKP)
+                if (wrapReportType.Value == ReportType.UsedProductReport)
                 {
-                    start.Properties.Items.Add(KP);
-                    end.Properties.Items.Add(KP);
+                    viewModel.report = new UsedProductsXtraReport();
+                    typeLayout.ContentVisible = true;
+                }
+                else
+                {
+                    viewModel.report = new TracingReporn();
+                    typeLayout.ContentVisible = false;
                 }
             }
-
-            else
-            {
-                viewModel.report = new testReport();
-                reportPeriodLabel.Text = Resources.Constraction_Report_label;
-                reportPeriodLabelLayout.ContentVisible = true;
-                startLayout.ContentVisible = true;
-                endLayout.ContentVisible = true;
-                countPointsLayout.ContentVisible = true;
-                typeLayout.ContentVisible = false;
-            }
-        }
-
-        private void createReportButton_Click(object sender, EventArgs e)
-        {
-            RefreshTypes();
-        }
-
-        private void previewButton_Click(object sender, EventArgs e)
-        {
-            RefreshTypes();
         }
 
         private void ConstructionReportsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
             viewModel = null;
+        }
+
+        private void type_EditValueChanged(object sender, EventArgs e)
+        {
+            RefreshTypes();
         }
     }
 }
