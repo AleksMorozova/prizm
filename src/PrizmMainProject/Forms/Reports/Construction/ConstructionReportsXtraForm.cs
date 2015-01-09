@@ -48,8 +48,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             endKPComboBox.DataBindings
                 .Add("EditValue", bindingSource, "EndPK");
-
-            viewModel.LoadData();
         }
 
         private void BindCommands()
@@ -79,7 +77,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
             var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
@@ -96,10 +93,18 @@ namespace Prizm.Main.Forms.Reports.Construction
             reportType.Properties.Items.Add(length);
             reportType.Properties.Items.Add(highway);
 
+            viewModel.LoadData();
+
             foreach (var joint in viewModel.Joints)
             {
                 start.Properties.Items.Add(joint);
                 end.Properties.Items.Add(joint);
+            }
+
+            foreach (var kp in viewModel.AllKP)
+            {
+                startKPComboBox.Properties.Items.Add(kp);
+                endKPComboBox.Properties.Items.Add(kp);
             }
 
             BindToViewModel();
@@ -120,6 +125,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                 {
                     viewModel.report = new UsedProductsXtraReport();
                     typeLayout.ContentVisible = true;
+                }
+                else if (wrapReportType.Value == ReportType.PipelineLengthReport)
+                {
+                    viewModel.report = new PipelineLengthReport();
+                    typeLayout.ContentVisible = false;
                 }
                 else
                 {

@@ -21,6 +21,10 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly IUserNotify notify;
         private DataSet data;
 
+        private PipelineGraph graph;
+        private List<TracingData> tracingDataList;
+        private List<PipelineVertex> path;
+
         public ReportCommand(
             ConstructionReportViewModel viewModel,
             IMillReportsRepository repo, 
@@ -31,28 +35,29 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.notify = notify;
         }
 
-
-
         public void Execute()
         {
             if (viewModel.ReportType.Value == ReportType.TracingReport 
                 && viewModel.StartJoint != null
                 && viewModel.EndJoint != null)
             {
-                viewModel.report.DataSource = PipelineTracing();
+                PipelineTracing();
+                viewModel.report.DataSource = tracingDataList;
             }
-            else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport)
+            else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport
+                && viewModel.StartJoint != null
+                && viewModel.EndJoint != null)
             {
-
+                PipelineLenghtCalculation();
             }
             else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
             {
-                viewModel.report.DataSource = GetUsedProduct();
+                GetUsedProduct();
+                viewModel.report.DataSource = data;
             }
-
         }
 
-        private DataSet GetUsedProduct()
+        private void GetUsedProduct()
         {
             try
             {
@@ -88,13 +93,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-            return data;
         }
 
-        private List<TracingData> PipelineTracing()
+        private void PipelineTracing()
         {
-            var graph = new PipelineGraph(viewModel.PartDataList.Count);
-            var tracingDataList = new List<TracingData>();
+            graph = new PipelineGraph(viewModel.PartDataList.Count);
+            tracingDataList = new List<TracingData>();
 
             if (viewModel.PartDataList != null)
             {
@@ -113,7 +117,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                 if (paths.Count != 0)
                 {
-                    var path = graph.ShortestPath(paths);
+                    path = graph.ShortestPath(paths);
 
                     path = graph.RemovalExternalComponents(
                         viewModel.StartJoint,
@@ -138,13 +142,31 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
                 }
             }
-            return tracingDataList;
         }
 
-        public bool CanExecute()
+        private void PipelineLenghtCalculation()
         {
-            return true;
+            PipelineTracing();
+
+            ((PipelineLengthReport)viewModel.report).PipelinePartCount = 
+                path.Count;
+
+            ((PipelineLengthReport)viewModel.report).PipelineLength = 
+                path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
+
+            ((PipelineLengthReport)viewModel.report).PipelineJointCount = 
+                path.Count - 1;
+
+            ((PipelineLengthReport)viewModel.report).CoordinatesFrom =
+                viewModel.StartJoint.NumberKP.ToString() + " + " +
+                viewModel.StartJoint.DistanceFromKP.ToString();
+                
+            ((PipelineLengthReport)viewModel.report).CoordinatesTo =
+                viewModel.EndJoint.NumberKP.ToString() + " + " +
+                viewModel.EndJoint.DistanceFromKP.ToString();
         }
+
+        public bool CanExecute() { return true; }
 
         public bool IsExecutable { get; set; }
     }

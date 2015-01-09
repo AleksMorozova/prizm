@@ -11,6 +11,7 @@ namespace Prizm.Main.Forms.Reports.Construction
     public class PipelineGraph
     {
         private const int maximumPathsNumber = 2;
+        private const int jointPartVertexCount = 2;
         private Dictionary<Guid, PipelineVertex> piecesVertex;
 
         public PipelineGraph(int capacity) 
@@ -73,7 +74,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 while (k < joints.Count)
                 {
-                    for (int i = 0; i < 2; ++i)
+                    for (int i = 0; i < jointPartVertexCount; ++i)
                     {
                         if (!stack.Contains(joints[k].PartsVertex[i]))
                         {
