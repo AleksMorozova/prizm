@@ -98,14 +98,6 @@ namespace Prizm.Main.Forms.Settings
             viewModel.LoadData();
             BindToViewModel();
 
-            foreach (SeamType t in viewModel.SeamTypes)
-            {
-                if (t.IsActive)
-                {
-                    seamType.Properties.Items.Add(t);
-                }
-            }
-
             IsModified = false;
             BindCommands();
 
@@ -823,6 +815,18 @@ namespace Prizm.Main.Forms.Settings
                 e,
                 viewModel.SeamTypes,
                 (_) => _.IsNew());
+        }
+
+        private void pipePage_Enter(object sender, EventArgs e)
+        {
+            seamType.Properties.Items.Clear();
+            foreach (SeamType t in viewModel.SeamTypes)
+            {
+                if (t.IsActive)
+                {
+                    seamType.Properties.Items.Add(t);
+                }
+            }
         }
     }
 }

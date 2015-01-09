@@ -412,7 +412,7 @@
             this.pipesSizeList.Name = "pipesSizeList";
             this.pipesSizeList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.typeRepositoryTextEdit});
-            this.pipesSizeList.Size = new System.Drawing.Size(265, 386);
+            this.pipesSizeList.Size = new System.Drawing.Size(200, 386);
             this.pipesSizeList.TabIndex = 11;
             this.pipesSizeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesSizeListGridView});
@@ -480,6 +480,7 @@
             this.pipePage.Name = "pipePage";
             this.pipePage.Size = new System.Drawing.Size(1241, 463);
             this.pipePage.Text = "&Труба";
+            this.pipePage.Enter += new System.EventHandler(this.pipePage_Enter);
             // 
             // generalPipeLayout
             // 
@@ -501,7 +502,7 @@
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(834, 419);
+            this.pipeLength.Location = new System.Drawing.Point(769, 419);
             this.pipeLength.MaximumSize = new System.Drawing.Size(90, 0);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Size = new System.Drawing.Size(90, 20);
@@ -510,7 +511,7 @@
             // 
             // pipeDiameter
             // 
-            this.pipeDiameter.Location = new System.Drawing.Point(387, 419);
+            this.pipeDiameter.Location = new System.Drawing.Point(322, 419);
             this.pipeDiameter.MaximumSize = new System.Drawing.Size(90, 0);
             this.pipeDiameter.Name = "pipeDiameter";
             this.pipeDiameter.Size = new System.Drawing.Size(90, 20);
@@ -519,7 +520,7 @@
             // 
             // wallThickness
             // 
-            this.wallThickness.Location = new System.Drawing.Point(584, 419);
+            this.wallThickness.Location = new System.Drawing.Point(519, 419);
             this.wallThickness.MaximumSize = new System.Drawing.Size(90, 0);
             this.wallThickness.Name = "wallThickness";
             this.wallThickness.Size = new System.Drawing.Size(90, 20);
@@ -531,7 +532,7 @@
             this.cloneTypeSizeButton.Image = ((System.Drawing.Image)(resources.GetObject("cloneTypeSizeButton.Image")));
             this.cloneTypeSizeButton.Location = new System.Drawing.Point(14, 427);
             this.cloneTypeSizeButton.Name = "cloneTypeSizeButton";
-            this.cloneTypeSizeButton.Size = new System.Drawing.Size(265, 22);
+            this.cloneTypeSizeButton.Size = new System.Drawing.Size(200, 22);
             this.cloneTypeSizeButton.StyleController = this.generalPipeLayout;
             this.cloneTypeSizeButton.TabIndex = 6;
             this.cloneTypeSizeButton.Text = "Копироват&ь типоразмер";
@@ -541,7 +542,7 @@
             // 
             this.inspectionOperation.Cursor = System.Windows.Forms.Cursors.Default;
             this.inspectionOperation.DataSource = this.inspectionBindingSource;
-            this.inspectionOperation.Location = new System.Drawing.Point(293, 27);
+            this.inspectionOperation.Location = new System.Drawing.Point(228, 27);
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -552,7 +553,7 @@
             this.controlNameRepositoryTextEdit,
             this.subjectRepositoryItemEdit,
             this.repositoryItemsСategory});
-            this.inspectionOperation.Size = new System.Drawing.Size(934, 349);
+            this.inspectionOperation.Size = new System.Drawing.Size(999, 349);
             this.inspectionOperation.TabIndex = 9;
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
@@ -762,11 +763,11 @@
             // 
             // seamType
             // 
-            this.seamType.Location = new System.Drawing.Point(989, 419);
+            this.seamType.Location = new System.Drawing.Point(924, 419);
             this.seamType.Name = "seamType";
             this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seamType.Size = new System.Drawing.Size(228, 20);
+            this.seamType.Size = new System.Drawing.Size(293, 20);
             this.seamType.StyleController = this.generalPipeLayout;
             this.seamType.TabIndex = 14;
             // 
@@ -792,9 +793,9 @@
             // 
             this.inspectionOperationLayout.Control = this.inspectionOperation;
             this.inspectionOperationLayout.CustomizationFormText = "Список контрольных операций";
-            this.inspectionOperationLayout.Location = new System.Drawing.Point(279, 0);
+            this.inspectionOperationLayout.Location = new System.Drawing.Point(214, 0);
             this.inspectionOperationLayout.Name = "inspectionOperationLayout";
-            this.inspectionOperationLayout.Size = new System.Drawing.Size(948, 379);
+            this.inspectionOperationLayout.Size = new System.Drawing.Size(1013, 379);
             this.inspectionOperationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.inspectionOperationLayout.Text = "Список контрольных опера&ций для выбранного типоразмера";
             this.inspectionOperationLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -807,7 +808,7 @@
             this.pipesSizeListLayout.Location = new System.Drawing.Point(0, 0);
             this.pipesSizeListLayout.MinSize = new System.Drawing.Size(214, 50);
             this.pipesSizeListLayout.Name = "pipesSizeListLayout";
-            this.pipesSizeListLayout.Size = new System.Drawing.Size(279, 416);
+            this.pipesSizeListLayout.Size = new System.Drawing.Size(214, 416);
             this.pipesSizeListLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipesSizeListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipesSizeListLayout.Text = "Список типораз&меров";
@@ -820,7 +821,7 @@
             this.copyButtonLayoutControl.CustomizationFormText = "Copy Button";
             this.copyButtonLayoutControl.Location = new System.Drawing.Point(0, 416);
             this.copyButtonLayoutControl.Name = "copyButtonLayoutControl";
-            this.copyButtonLayoutControl.Size = new System.Drawing.Size(279, 36);
+            this.copyButtonLayoutControl.Size = new System.Drawing.Size(214, 36);
             this.copyButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.copyButtonLayoutControl.Text = "Кнопка копирования";
             this.copyButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -835,9 +836,9 @@
             this.pipeDiameterLayout,
             this.pipeLengthLayout,
             this.seamTypeLayout});
-            this.pipeSizetypeParameterLayoutGroup.Location = new System.Drawing.Point(279, 379);
+            this.pipeSizetypeParameterLayoutGroup.Location = new System.Drawing.Point(214, 379);
             this.pipeSizetypeParameterLayoutGroup.Name = "pipeSizetypeParameterLayoutGroup";
-            this.pipeSizetypeParameterLayoutGroup.Size = new System.Drawing.Size(948, 73);
+            this.pipeSizetypeParameterLayoutGroup.Size = new System.Drawing.Size(1013, 73);
             this.pipeSizetypeParameterLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeSizetypeParameterLayoutGroup.Text = "Параметры типоразмера";
             // 
@@ -885,7 +886,7 @@
             this.seamTypeLayout.CustomizationFormText = "Тип шва";
             this.seamTypeLayout.Location = new System.Drawing.Point(625, 0);
             this.seamTypeLayout.Name = "seamTypeLayout";
-            this.seamTypeLayout.Size = new System.Drawing.Size(293, 24);
+            this.seamTypeLayout.Size = new System.Drawing.Size(358, 24);
             this.seamTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
             this.seamTypeLayout.Text = "Тип шва";
             this.seamTypeLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
