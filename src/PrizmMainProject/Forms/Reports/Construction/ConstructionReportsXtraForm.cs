@@ -111,6 +111,8 @@ namespace Prizm.Main.Forms.Reports.Construction
             BindCommands();
             RefreshTypes();
 
+            tracingModeRadioGroup.SelectedIndex = 0;
+
             reportType.SelectedIndex = 0;
             viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
         }
@@ -148,6 +150,32 @@ namespace Prizm.Main.Forms.Reports.Construction
         private void type_EditValueChanged(object sender, EventArgs e)
         {
             RefreshTypes();
+        }
+
+        private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadioGroup edit = sender as RadioGroup;
+
+            if (edit.SelectedIndex == 0)
+            {
+                start.Enabled = true;
+                end.Enabled = true;
+
+                startKPComboBox.Enabled = false;
+                endKPComboBox.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByJoints;
+            }
+            else
+            {
+                start.Enabled = false;
+                end.Enabled = false;
+
+                startKPComboBox.Enabled = true;
+                endKPComboBox.Enabled = true;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByJoints;
+            }
         }
     }
 }

@@ -381,6 +381,7 @@
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
+    <Compile Include="Forms\Reports\Construction\TracingModeEnum.cs" />
     <Compile Include="Forms\Reports\Construction\TracingReporn.cs">
       <SubType>Component</SubType>
     </Compile>

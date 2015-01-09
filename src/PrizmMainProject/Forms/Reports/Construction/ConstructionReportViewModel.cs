@@ -79,7 +79,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         }
 
-
         public void LoadData()
         {
             AllKP = repo.GetAllKP();
@@ -205,6 +204,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 }
             }
         }
+
+        public TracingModeEnum TracingMode { get; set; }
 
         public ICommand CreateCommand
         {
