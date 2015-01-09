@@ -174,7 +174,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 startKPComboBox.Enabled = true;
                 endKPComboBox.Enabled = true;
 
-                viewModel.TracingMode = TracingModeEnum.TracingByJoints;
+                viewModel.TracingMode = TracingModeEnum.TracingByKP;
             }
         }
     }

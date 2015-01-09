@@ -37,6 +37,25 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
+            if (viewModel.TracingMode == TracingModeEnum.TracingByKP)
+            {
+                viewModel.StartJoint =
+                    viewModel.Joints
+                    .First<construct.Joint>(
+                    x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP == 
+                        viewModel.Joints
+                        .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
+                        .Min<construct.Joint>(z => z.DistanceFromKP));
+                
+                viewModel.EndJoint =
+                    viewModel.Joints
+                    .First<construct.Joint>(
+                    x => x.NumberKP == viewModel.EndPK && x.DistanceFromKP ==
+                        viewModel.Joints
+                        .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
+                        .Min<construct.Joint>(z => z.DistanceFromKP));
+            }
+            
             if (viewModel.ReportType.Value == ReportType.TracingReport 
                 && viewModel.StartJoint != null
                 && viewModel.EndJoint != null)
