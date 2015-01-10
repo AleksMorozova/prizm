@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Domain.Entity;
 using Prizm.Main.Forms.PipeMill.NewEdit.Inspections;
+using Prizm.Main.Common;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -18,16 +20,28 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     {
         InspectionAddEditViewModel viewModel;
 
-        public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTest current)
+        public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             InitializeComponent();
 
-            viewModel = new InspectionAddEditViewModel(tests, inspectors, current);
+            viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
         }
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
+
+            foreach(var item in viewModel.statuses)
+            {
+                if(item.Value != PipeTestResultStatus.Undef )
+                {
+                    status.Properties.Items.Add(item.Text);
+                }
+            }
+
+
             BindToViewModel();
+
+            status.Text = string.Empty;
         }
 
         private void BindToViewModel()
@@ -40,6 +54,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             code.Properties.DataSource = testsBindingSource;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
+            expected.DataBindings.Add("EditValue", bindingSource, "Expected");
+
+            status.DataBindings.Add("EditValue", bindingSource, "Status");
         }
 
         private void code_EditValueChanged(object sender, EventArgs e)

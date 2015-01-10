@@ -725,12 +725,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
-            AddInspection(viewModel.AvailableTests, viewModel.Inspectors);
+            AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
         }
 
-        private void AddInspection(IList<PipeTest> tests, IList<Inspector> inspectors)
+        private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            var addForm = new InspectionAddEditXtraForm(tests, inspectors, null);
+            var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses);
             addForm.ShowDialog();
         }
 

@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
@@ -14,23 +15,29 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
     {
         private IList<PipeTest> tests = new BindingList<PipeTest>();
         private IList<Inspector> inspectors = new BindingList<Inspector>();
-        private PipeTest test;
+        private PipeTest test = new PipeTest() { Category = new Domain.Entity.Mill.Category()};
+        private PipeTestResult result;
+        public IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses;
 
-        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTest current)
+
+        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors, 
+            PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
             this.tests = tests;
             this.inspectors = inspectors;
+            this.statuses = statuses;
             if(current == null)
             {
-                test = new PipeTest() { Category = new Domain.Entity.Mill.Category()};
+                this.result = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
             }
             else
             {
-                test = current;
+                this.result = current;
             }
         }
 
-        public IList<Inspector> Inspectors
+   #region Test
+		     public IList<Inspector> Inspectors
         {
             get { return inspectors; }
             set
@@ -94,6 +101,52 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
             }
         }
+
+        public string Expected
+        {
+            get 
+            {
+                string result = string.Empty;
+                switch(test.ResultType)
+                {
+                    case PipeTestResultType.Boolean:
+                        result = test.BoolExpected.ToString();
+                        break;
+                    case PipeTestResultType.String:
+                        result = test.StringExpected;
+                        break;
+                    case PipeTestResultType.Diapason:
+                        result = test.MinExpected + " - " + test.MaxExpected;
+                        break;
+                    case PipeTestResultType.Undef:
+                        break;
+                    default:
+                        break;
+                }
+                return result;
+            }
+            set { }
+        } 
+	#endregion
+
+        #region Result
+
+        //TODO: wrapper for translit
+        public PipeTestResultStatus Status
+        {
+            get { return result.Status; }
+            set
+            {
+                if(value != result.Status)
+                {
+                    result.Status = value;
+                    RaisePropertyChanged("Status");
+                }
+            }
+        }
+	#endregion
+
+
 
 
 
