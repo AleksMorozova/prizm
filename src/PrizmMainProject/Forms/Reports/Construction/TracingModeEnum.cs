@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Domain.Entity.Setup
+namespace Prizm.Main.Forms.Reports.Construction
 {
-    public class SeemType : Item
+    public enum TracingModeEnum
     {
-        public virtual string Name { get; set; }
+        TracingByJoints = 0,
+        TracingByKP = 1
     }
 }

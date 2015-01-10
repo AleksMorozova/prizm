@@ -1,4 +1,5 @@
-﻿namespace Prizm.Main.Forms.Settings
+﻿using Prizm.Main.Properties;
+namespace Prizm.Main.Forms.Settings
 {
     partial class SettingsXtraForm
     {
@@ -28,24 +29,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.typeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -121,7 +127,7 @@
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
-            this.seemType = new DevExpress.XtraGrid.GridControl();
+            this.seamTypes = new DevExpress.XtraGrid.GridControl();
             this.seemTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.seemTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seemTypeIsActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,13 +139,12 @@
             this.isActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryIsActiveCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.pipeNumberMaskRulesLabel = new DevExpress.XtraEditors.LabelControl();
-            this.seamType = new DevExpress.XtraEditors.TextEdit();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumberMask = new DevExpress.XtraEditors.TextEdit();
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.codeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -167,6 +172,7 @@
             this.client = new DevExpress.XtraEditors.TextEdit();
             this.wallThickness = new DevExpress.XtraEditors.TextEdit();
             this.pipeDiameter = new DevExpress.XtraEditors.TextEdit();
+            this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.pipeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -220,14 +226,14 @@
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -273,13 +279,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seemType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryIsActiveCheckEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millName.Properties)).BeginInit();
@@ -301,6 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeDiameter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLayoutControlGroup)).BeginInit();
@@ -1272,11 +1278,10 @@
             this.rootLayoutControl.Controls.Add(this.gridControlInspectors);
             this.rootLayoutControl.Controls.Add(this.jointOperations);
             this.rootLayoutControl.Controls.Add(this.externalDocumentSize);
-            this.rootLayoutControl.Controls.Add(this.seemType);
+            this.rootLayoutControl.Controls.Add(this.seamTypes);
             this.rootLayoutControl.Controls.Add(this.cloneTypeSizeButton);
             this.rootLayoutControl.Controls.Add(this.categoriesGrid);
             this.rootLayoutControl.Controls.Add(this.pipeNumberMaskRulesLabel);
-            this.rootLayoutControl.Controls.Add(this.seamType);
             this.rootLayoutControl.Controls.Add(this.pipeLength);
             this.rootLayoutControl.Controls.Add(this.pipeNumberMask);
             this.rootLayoutControl.Controls.Add(this.pipesSizeList);
@@ -1287,6 +1292,7 @@
             this.rootLayoutControl.Controls.Add(this.client);
             this.rootLayoutControl.Controls.Add(this.wallThickness);
             this.rootLayoutControl.Controls.Add(this.pipeDiameter);
+            this.rootLayoutControl.Controls.Add(this.seamType);
             this.rootLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutControl.Name = "rootLayoutControl";
@@ -1327,15 +1333,15 @@
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "&Сохранить";
             // 
-            // seemType
+            // seamTypes
             // 
-            this.seemType.Cursor = System.Windows.Forms.Cursors.Default;
-            this.seemType.Location = new System.Drawing.Point(832, 201);
-            this.seemType.MainView = this.seemTypeGridView;
-            this.seemType.Name = "seemType";
-            this.seemType.Size = new System.Drawing.Size(399, 279);
-            this.seemType.TabIndex = 17;
-            this.seemType.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.seamTypes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.seamTypes.Location = new System.Drawing.Point(832, 201);
+            this.seamTypes.MainView = this.seemTypeGridView;
+            this.seamTypes.Name = "seamTypes";
+            this.seamTypes.Size = new System.Drawing.Size(399, 279);
+            this.seamTypes.TabIndex = 17;
+            this.seamTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.seemTypeGridView});
             // 
             // seemTypeGridView
@@ -1343,7 +1349,7 @@
             this.seemTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.seemTypeColumn,
             this.seemTypeIsActiveColumn});
-            this.seemTypeGridView.GridControl = this.seemType;
+            this.seemTypeGridView.GridControl = this.seamTypes;
             this.seemTypeGridView.Name = "seemTypeGridView";
             this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
@@ -1445,14 +1451,6 @@
             this.pipeNumberMaskRulesLabel.StyleController = this.rootLayoutControl;
             this.pipeNumberMaskRulesLabel.TabIndex = 16;
             // 
-            // seamType
-            // 
-            this.seamType.Location = new System.Drawing.Point(1042, 464);
-            this.seamType.Name = "seamType";
-            this.seamType.Size = new System.Drawing.Size(189, 20);
-            this.seamType.StyleController = this.rootLayoutControl;
-            this.seamType.TabIndex = 14;
-            // 
             // pipeLength
             // 
             this.pipeLength.Location = new System.Drawing.Point(864, 464);
@@ -1460,6 +1458,10 @@
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
             // pipeNumberMask
             // 
@@ -1765,6 +1767,10 @@
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule2);
             // 
             // pipeDiameter
             // 
@@ -1773,6 +1779,24 @@
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule3.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule3);
+            // 
+            // seamType
+            // 
+            this.seamType.Location = new System.Drawing.Point(1042, 464);
+            this.seamType.Name = "seamType";
+            this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seamType.Size = new System.Drawing.Size(189, 20);
+            this.seamType.StyleController = this.rootLayoutControl;
+            this.seamType.TabIndex = 14;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.Value1 = "<Null>";
+            this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
             // RootGroup
             // 
@@ -1795,8 +1819,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.rolesLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 7;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -1908,7 +1932,7 @@
             this.seamTypeLayoutControlItem.Control = this.seamType;
             this.seamTypeLayoutControlItem.CustomizationFormText = "Тип шва";
             this.seamTypeLayoutControlItem.Location = new System.Drawing.Point(561, 0);
-            this.seamTypeLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
+            this.seamTypeLayoutControlItem.MinSize = new System.Drawing.Size(50, 25);
             this.seamTypeLayoutControlItem.Name = "seamTypeLayoutControlItem";
             this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(203, 46);
             this.seamTypeLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
@@ -2086,7 +2110,7 @@
             // 
             // seamsLayoutControlItem
             // 
-            this.seamsLayoutControlItem.Control = this.seemType;
+            this.seamsLayoutControlItem.Control = this.seamTypes;
             this.seamsLayoutControlItem.CustomizationFormText = "Типы сварочных швов";
             this.seamsLayoutControlItem.Location = new System.Drawing.Point(346, 100);
             this.seamsLayoutControlItem.Name = "seamsLayoutControlItem";
@@ -2456,13 +2480,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.externalDocumentSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.seemType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryIsActiveCheckEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeNumberMask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millName.Properties)).EndInit();
@@ -2484,6 +2507,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.client.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeDiameter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLayoutControlGroup)).EndInit();
@@ -2691,10 +2715,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn inspectorCertificateTypeColumn;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraEditors.TextEdit pipeLength;
-        private DevExpress.XtraEditors.TextEdit seamType;
         private DevExpress.XtraEditors.TextEdit pipeDiameter;
         private DevExpress.XtraEditors.TextEdit wallThickness;
-        private DevExpress.XtraGrid.GridControl seemType;
+        private DevExpress.XtraGrid.GridControl seamTypes;
         private DevExpress.XtraGrid.Views.Grid.GridView seemTypeGridView;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
@@ -2751,5 +2774,6 @@
         private DevExpress.XtraLayout.SplitterItem partsSplitterItem;
         private DevExpress.XtraLayout.SplitterItem inspectorSplitterItem;
         private DevExpress.XtraLayout.SplitterItem userSplitterItem;
+        private DevExpress.XtraEditors.ComboBoxEdit seamType;
     }
 }
