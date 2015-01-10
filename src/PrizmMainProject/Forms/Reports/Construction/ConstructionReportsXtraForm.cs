@@ -113,10 +113,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             RefreshTypes();
 
             startKPComboBox.SelectedIndex = 0;
-            viewModel.StartPK = (int)startKPComboBox.EditValue;
+            viewModel.StartPK = (startKPComboBox.EditValue != null) ? (int)startKPComboBox.EditValue: default(int);
 
             endKPComboBox.SelectedIndex = 0;
-            viewModel.EndPK = (int)endKPComboBox.EditValue;
+            viewModel.EndPK = (endKPComboBox.EditValue != null) ? (int)endKPComboBox.EditValue : default(int);
 
             tracingModeRadioGroup.SelectedIndex = 0;
             reportType.SelectedIndex = 0;
