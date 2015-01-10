@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ninject;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;

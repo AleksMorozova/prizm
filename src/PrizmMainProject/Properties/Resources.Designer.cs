@@ -1846,6 +1846,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Суперпользователь.
+        /// </summary>
+        internal static string superUser {
+            get {
+                return ResourceManager.GetString("superUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сообщения системы.
         /// </summary>
         internal static string SystemNotification {

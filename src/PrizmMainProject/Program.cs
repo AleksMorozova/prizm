@@ -57,11 +57,11 @@ namespace Prizm.Main
                 // Hide splash screen
                 SplashScreenManager.CloseForm(false);
 
-                while (!CreateProject())
-                { }
-
                 //Permissions setup
                 CreatePermissions();
+
+                while (!CreateProject())
+                { }               
 
                 //Login
                 string failMessage = String.Empty;

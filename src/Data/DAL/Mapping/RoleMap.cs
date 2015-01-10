@@ -18,7 +18,7 @@ namespace Prizm.Data.DAL.Mapping
          HasManyToMany<Permission>(_ => _.Permissions)
             .Table("Role_Permission")
             .ParentKeyColumn("roleId")
-            .ChildKeyColumn("permissionId").Not.LazyLoad();
+            .ChildKeyColumn("permissionId").Cascade.SaveUpdate().Not.LazyLoad();
       }
    }
 }
