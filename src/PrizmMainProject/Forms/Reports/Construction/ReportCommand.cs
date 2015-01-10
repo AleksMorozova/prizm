@@ -19,8 +19,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly IMillReportsRepository repo;
         private readonly ConstructionReportViewModel viewModel;
         private readonly IUserNotify notify;
-        private DataSet data;
 
+        private DataSet data;
         private PipelineGraph graph;
         private List<TracingData> tracingDataList;
         private List<PipelineVertex> path;
@@ -37,7 +37,9 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if (viewModel.TracingMode == TracingModeEnum.TracingByKP)
+            if (viewModel.TracingMode == TracingModeEnum.TracingByKP
+                && viewModel.AllKP.Contains(viewModel.StartPK)
+                && viewModel.AllKP.Contains(viewModel.EndPK))
             {
                 viewModel.StartJoint =
                     viewModel.Joints

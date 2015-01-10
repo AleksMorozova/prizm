@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Properties;
+using System.Linq;
 
 
 using construct = Prizm.Domain.Entity.Construction;
@@ -111,8 +112,13 @@ namespace Prizm.Main.Forms.Reports.Construction
             BindCommands();
             RefreshTypes();
 
-            tracingModeRadioGroup.SelectedIndex = 0;
+            startKPComboBox.SelectedIndex = 0;
+            viewModel.StartPK = (int)startKPComboBox.EditValue;
 
+            endKPComboBox.SelectedIndex = 0;
+            viewModel.EndPK = (int)endKPComboBox.EditValue;
+
+            tracingModeRadioGroup.SelectedIndex = 0;
             reportType.SelectedIndex = 0;
             viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
         }
