@@ -49,7 +49,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public IList<construct.Joint> Joints { get; set; }
 
-
         [Inject]
         public ConstructionReportViewModel(
             IMillReportsRepository repo, 
@@ -79,10 +78,16 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         }
 
-
         public void LoadData()
         {
-            AllKP = repo.GetAllKP();
+            this.AllKP = new BindingList<int>();
+            foreach(var kp in Joints.Select<construct.Joint, int>(x => x.NumberKP))
+            {
+                if (!AllKP.Contains(kp))
+                {
+                    AllKP.Add(kp);
+                }
+            }
         }
 
         private BindingList<Part> parts = new BindingList<Part>();
@@ -205,6 +210,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 }
             }
         }
+
+        public TracingModeEnum TracingMode { get; set; }
 
         public ICommand CreateCommand
         {

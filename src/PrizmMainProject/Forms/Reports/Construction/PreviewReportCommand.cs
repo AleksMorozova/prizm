@@ -35,7 +35,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         public void Execute()
         {
             viewModel.ReportCommand.Execute();
-
             viewModel.report.CreateDocument();
             viewModel.PreviewSource = viewModel.report;
         }
@@ -46,7 +45,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             return viewModel.ReportCommand.CanExecute();
         }
 
-        public bool IsExecutable
-        { get; set; }
+        public bool IsExecutable { get; set; }
     }
 }
