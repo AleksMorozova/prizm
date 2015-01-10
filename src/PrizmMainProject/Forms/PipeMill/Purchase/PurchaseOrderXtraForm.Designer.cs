@@ -69,7 +69,6 @@
             this.purchaseOrderLayout.Name = "purchaseOrderLayout";
             this.purchaseOrderLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(694, 114, 250, 350);
             this.purchaseOrderLayout.Root = this.purchaseOrderLayoutGroup;
-            this.purchaseOrderLayout.ShowTemplates = true;
             this.purchaseOrderLayout.Size = new System.Drawing.Size(389, 129);
             this.purchaseOrderLayout.TabIndex = 0;
             this.purchaseOrderLayout.Text = "layoutControl1";
