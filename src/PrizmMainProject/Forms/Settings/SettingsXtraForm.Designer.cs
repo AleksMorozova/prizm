@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -508,6 +512,9 @@
             this.pipeLength.Size = new System.Drawing.Size(90, 20);
             this.pipeLength.StyleController = this.generalPipeLayout;
             this.pipeLength.TabIndex = 15;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
             // pipeDiameter
             // 
@@ -517,6 +524,9 @@
             this.pipeDiameter.Size = new System.Drawing.Size(90, 20);
             this.pipeDiameter.StyleController = this.generalPipeLayout;
             this.pipeDiameter.TabIndex = 13;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule2);
             // 
             // wallThickness
             // 
@@ -526,6 +536,9 @@
             this.wallThickness.Size = new System.Drawing.Size(90, 20);
             this.wallThickness.StyleController = this.generalPipeLayout;
             this.wallThickness.TabIndex = 12;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule3);
             // 
             // cloneTypeSizeButton
             // 
@@ -770,6 +783,9 @@
             this.seamType.Size = new System.Drawing.Size(293, 20);
             this.seamType.StyleController = this.generalPipeLayout;
             this.seamType.TabIndex = 14;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
             // pipeParametersLayoutGroup
             // 
