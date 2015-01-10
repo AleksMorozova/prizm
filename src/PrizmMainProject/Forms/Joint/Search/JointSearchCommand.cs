@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Joint.Search
 {

@@ -29,6 +29,8 @@ namespace Prizm.Main
         /// </summary>
         private const int monthsCountPasswordProlongation = 3;
 
+        private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
+
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
@@ -59,9 +61,18 @@ namespace Prizm.Main
                 { }
 
                 //Login
-                while (!Login())
+                string failMessage = String.Empty;
+                LoginResult loginResult = LoginResult.None;
+                while (loginResult != LoginResult.LoggedIn)
                 {
-                    MessageBox.Show(Resources.AuthenticationFailed, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    loginResult = Login(ref failMessage);
+                    switch (loginResult)
+                    {
+                        case LoginResult.Failed:
+                        case LoginResult.FailedUserInactive:
+                            MessageBox.Show(failMessage, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
                 }
 
                 mainForm = new PrizmApplicationXtraForm();
@@ -86,8 +97,9 @@ namespace Prizm.Main
             }
         }
 
-        static bool Login()
+        static LoginResult Login(ref string failMessage)
         {
+           failMessage = Resources.AuthenticationFailed;
            LoginForm dlg = new LoginForm();
            if (dlg.ShowDialog() == DialogResult.OK)
            {
@@ -96,7 +108,7 @@ namespace Prizm.Main
               string password = dlg.Password;
 
                #if DEBUG
-              if(string.IsNullOrWhiteSpace(dlg.Login) || string.IsNullOrWhiteSpace(dlg.Password))
+              if(string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
               {
                   login = "admin";
                   password = "admin";
@@ -113,8 +125,13 @@ namespace Prizm.Main
               {
                   user = userRepo.FindByLogin(login);
 
-                  if (user == null || !user.IsActive)
-                      return false;
+                  if (user == null)
+                      return LoginResult.Failed;
+                  if (!user.IsActive)
+                  {
+                      failMessage = string.Format(Resources.AuthenticationFailedUserInactive, login);
+                      return LoginResult.FailedUserInactive;
+                  }
               }
 
               userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
@@ -122,7 +139,7 @@ namespace Prizm.Main
               string hash = PasswordEncryptor.EncryptPassword(password);
 
               if (user.PasswordHash != hash)
-                 return false;
+                 return LoginResult.Failed;
 
               if (user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
               {
@@ -141,7 +158,7 @@ namespace Prizm.Main
                   }
                   else
                   {
-                      return false;
+                      return LoginResult.Failed;
                   }
               }
               
@@ -149,14 +166,14 @@ namespace Prizm.Main
               ctx.LoggedUser = user;
 
               HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
-              return true;
+              return LoginResult.LoggedIn;
            }
            else
            {
               System.Environment.Exit(0);
            }
 
-           return false;
+           return LoginResult.Failed;
         }
 
         static bool CreateProject()

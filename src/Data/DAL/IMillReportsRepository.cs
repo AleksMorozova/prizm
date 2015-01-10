@@ -13,8 +13,8 @@ namespace Prizm.Data.DAL
     public interface IMillReportsRepository
     {
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses, bool previewFlag = false);
-        DataTable GetAuditResults(DateTime startDate, DateTime finalDate, string user);
         DataTable GetPipelineElements();
+        DataTable GetPipelineElements(string sqlQueryString);
         DataSet GetUsedProducts(int startPK, int endPK, string queryString);
         DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate);
 

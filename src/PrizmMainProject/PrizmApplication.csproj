@@ -172,6 +172,7 @@
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Directories.cs" />
+    <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
@@ -371,15 +372,18 @@
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
     <Compile Include="Forms\Railcar\Search\Railcar.cs" />
     <Compile Include="Forms\Railcar\Search\RailcarQuery.cs" />
+    <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
-    <Compile Include="Forms\Reports\Construction\TestReport.cs">
+    <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\TracingData.cs" />
+    <Compile Include="Forms\Reports\Construction\TracingReporn.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Reports\Construction\TestReport.Designer.cs">
-      <DependentUpon>TestReport.cs</DependentUpon>
+    <Compile Include="Forms\Reports\Construction\TracingReporn.Designer.cs">
+      <DependentUpon>TracingReporn.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
       <SubType>Component</SubType>
@@ -619,11 +623,12 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\TestReport.resx">
-      <DependentUpon>TestReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
+      <DependentUpon>TracingReporn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
@@ -699,6 +704,7 @@
     <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.TracingData.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />

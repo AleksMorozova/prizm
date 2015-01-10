@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
-    public partial class testReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class TracingReporn : DevExpress.XtraReports.UI.XtraReport
     {
-        public testReport()
+        public TracingReporn()
         {
             InitializeComponent();
         }

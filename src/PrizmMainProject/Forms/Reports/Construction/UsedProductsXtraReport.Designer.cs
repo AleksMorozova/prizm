@@ -86,7 +86,7 @@
             this.GroupHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.productTypeLabel,
             this.productNumberLabel});
-            this.GroupHeader.HeightF = 39.66666F;
+            this.GroupHeader.HeightF = 42.79166F;
             this.GroupHeader.KeepTogether = true;
             this.GroupHeader.Name = "GroupHeader";
             this.GroupHeader.RepeatEveryPage = true;
@@ -125,7 +125,7 @@
             // 
             // TableHeader
             // 
-            this.TableHeader.Font = new System.Drawing.Font("Californian FB", 18F, System.Drawing.FontStyle.Bold);
+            this.TableHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.TableHeader.Name = "TableHeader";
             this.TableHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TableHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -143,7 +143,7 @@
             // 
             // Header
             // 
-            this.Header.Font = new System.Drawing.Font("Poor Richard", 48F);
+            this.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
             this.Header.Name = "Header";
             this.Header.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Header.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
