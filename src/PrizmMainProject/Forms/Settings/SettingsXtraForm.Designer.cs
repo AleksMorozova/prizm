@@ -1,4 +1,5 @@
-﻿namespace Prizm.Main.Forms.Settings
+﻿using Prizm.Main.Properties;
+namespace Prizm.Main.Forms.Settings
 {
     partial class SettingsXtraForm
     {
@@ -512,8 +513,9 @@
             this.pipeLength.Size = new System.Drawing.Size(90, 20);
             this.pipeLength.StyleController = this.generalPipeLayout;
             this.pipeLength.TabIndex = 15;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
             // pipeDiameter
@@ -524,8 +526,9 @@
             this.pipeDiameter.Size = new System.Drawing.Size(90, 20);
             this.pipeDiameter.StyleController = this.generalPipeLayout;
             this.pipeDiameter.TabIndex = 13;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.Value1 = 0;
             this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule2);
             // 
             // wallThickness
@@ -536,8 +539,9 @@
             this.wallThickness.Size = new System.Drawing.Size(90, 20);
             this.wallThickness.StyleController = this.generalPipeLayout;
             this.wallThickness.TabIndex = 12;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule3.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule3);
             // 
             // cloneTypeSizeButton
@@ -783,8 +787,10 @@
             this.seamType.Size = new System.Drawing.Size(293, 20);
             this.seamType.StyleController = this.generalPipeLayout;
             this.seamType.TabIndex = 14;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.CaseSensitive = true;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotContains;
+            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.Value1 = "<Null>";
             this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
             // pipeParametersLayoutGroup

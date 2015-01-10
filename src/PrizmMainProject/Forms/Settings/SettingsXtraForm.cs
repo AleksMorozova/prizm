@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Settings
     public partial class SettingsXtraForm : ChildForm, IValidatable
     {
         private SettingsViewModel viewModel;
-        private PipeMillSizeType CurrentPipeMillSizeType = new PipeMillSizeType();
+        private PipeMillSizeType CurrentPipeMillSizeType;
         ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
@@ -97,7 +97,6 @@ namespace Prizm.Main.Forms.Settings
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             viewModel.LoadData();
             BindToViewModel();
-
             IsModified = false;
             BindCommands();
 
@@ -112,6 +111,11 @@ namespace Prizm.Main.Forms.Settings
             projectValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
+
+            seamType.SetRequiredCombo();
+            pipeLength.SetRequiredText();
+            pipeDiameter.SetRequiredText();
+            wallThickness.SetRequiredText();
         }
 
         private void BindToViewModel()

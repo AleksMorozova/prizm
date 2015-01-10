@@ -555,7 +555,11 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Thickness; } else { return 0; }
+                if (CurrentPipeMillSizeType != null)
+                {
+                    return CurrentPipeMillSizeType.Thickness;
+                }
+                else { return 0; }
             }
             set
             {
