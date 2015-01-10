@@ -20,7 +20,7 @@ namespace Domain.Entity.Security
         ExportDataFromConstruction,
         ImportDataAtMaster,
         ImportDataAtConstruction,
-        UnshipAtMaster,
+        UnshipAtMill,
         DeactivatePipe,
         DeactivateJoint,
         DeactivateSpool,

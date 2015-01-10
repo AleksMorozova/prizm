@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Security;
+using Ninject;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -17,6 +19,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public PipeDeactivationCommand(
             MillPipeNewEditViewModel viewModel, 
@@ -71,9 +74,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            return 
+            return
                 viewModel.Pipe.Status != PipeMillStatus.Shipped &&
-                viewModel.Pipe.IsActive;  
+                viewModel.Pipe.IsActive &&
+                ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivatePipe);
         }
     }
 }

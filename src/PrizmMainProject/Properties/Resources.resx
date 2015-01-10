@@ -770,8 +770,8 @@
   <data name="SecurityPrivilege_PrintReports" xml:space="preserve">
     <value>Печать отчетов</value>
   </data>
-  <data name="SecurityPrivilege_UnshipAtMaster" xml:space="preserve">
-    <value>Отмена разрешения на отгрузку на Мастер</value>
+  <data name="SecurityPrivilege_UnshipAtMill" xml:space="preserve">
+    <value>Отмена разрешения на отгрузку на заводе</value>
   </data>
   <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
     <value>Просмотр настроек</value>

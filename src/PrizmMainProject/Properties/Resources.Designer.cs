@@ -1756,11 +1756,11 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отмена разрешения на отгрузку на Мастер.
+        ///   Looks up a localized string similar to Отмена разрешения на отгрузку на заводе.
         /// </summary>
-        internal static string SecurityPrivilege_UnshipAtMaster {
+        internal static string SecurityPrivilege_UnshipAtMill {
             get {
-                return ResourceManager.GetString("SecurityPrivilege_UnshipAtMaster", resourceCulture);
+                return ResourceManager.GetString("SecurityPrivilege_UnshipAtMill", resourceCulture);
             }
         }
         

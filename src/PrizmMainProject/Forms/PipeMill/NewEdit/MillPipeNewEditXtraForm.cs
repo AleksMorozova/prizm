@@ -27,6 +27,7 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using DevExpress.XtraGrid;
 using Prizm.Main.Documents;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -39,6 +40,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public MillPipeNewEditXtraForm(Guid id)
         {
@@ -76,6 +78,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(weight);
             SetAlwaysReadOnly(millStatus);
             IsEditMode = true;
+            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion //--- Read-only controls ---
 
             #region --- Set Properties.CharacterCasing to Upper ---

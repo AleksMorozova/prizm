@@ -65,16 +65,16 @@ namespace Prizm.Main.Forms.Reports.Construction
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Pipe:
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedPipe);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe));
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Spool:
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedSpool);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool));
                             GetAllUsedProducts.Append(" ");
                             break;
                         case PartType.Component:
                             GetAllUsedProducts.Append(" ");
-                            GetAllUsedProducts.Append(SQLQueryString.GetAllUsedComponent);
+                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent));
                             break;
                         default:
                             GetAllUsedProducts.Append(" ");
