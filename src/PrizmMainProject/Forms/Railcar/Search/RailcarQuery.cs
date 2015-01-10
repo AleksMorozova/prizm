@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Railcar.Search
 {
@@ -56,9 +57,9 @@ namespace Prizm.Main.Forms.Railcar.Search
                     FROM 
                         [Railcar] ");
 
-            sb.Append(string.Format(" WHERE [number] LIKE N'%{0}%' ", RailcarNumber));
-            sb.Append(string.Format("AND [certificate] LIKE N'%{0}%' ", Certificate));
-            sb.Append(string.Format("AND [destination] LIKE N'%{0}%' ", Receiver));
+            sb.Append(string.Format(@" WHERE [number] LIKE N'%{0}%' ESCAPE '\' ", RailcarNumber.EscapeCharacters()));
+            sb.Append(string.Format(@"AND [certificate] LIKE N'%{0}%' ESCAPE '\' ", Certificate.EscapeCharacters()));
+            sb.Append(string.Format(@"AND [destination] LIKE N'%{0}%' ESCAPE '\' ", Receiver.EscapeCharacters()));
 
             if (ShippingDate != DateTime.MinValue)
             {
