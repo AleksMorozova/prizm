@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Properties;
+using System.Linq;
 
 
 using construct = Prizm.Domain.Entity.Construction;
@@ -48,8 +49,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             endKPComboBox.DataBindings
                 .Add("EditValue", bindingSource, "EndPK");
-
-            viewModel.LoadData();
         }
 
         private void BindCommands()
@@ -79,7 +78,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
             var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
@@ -96,16 +94,31 @@ namespace Prizm.Main.Forms.Reports.Construction
             reportType.Properties.Items.Add(length);
             reportType.Properties.Items.Add(highway);
 
+            viewModel.LoadData();
+
             foreach (var joint in viewModel.Joints)
             {
                 start.Properties.Items.Add(joint);
                 end.Properties.Items.Add(joint);
             }
 
+            foreach (var kp in viewModel.AllKP)
+            {
+                startKPComboBox.Properties.Items.Add(kp);
+                endKPComboBox.Properties.Items.Add(kp);
+            }
+
             BindToViewModel();
             BindCommands();
             RefreshTypes();
 
+            startKPComboBox.SelectedIndex = 0;
+            viewModel.StartPK = (int)startKPComboBox.EditValue;
+
+            endKPComboBox.SelectedIndex = 0;
+            viewModel.EndPK = (int)endKPComboBox.EditValue;
+
+            tracingModeRadioGroup.SelectedIndex = 0;
             reportType.SelectedIndex = 0;
             viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
         }
@@ -120,6 +133,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                 {
                     viewModel.report = new UsedProductsXtraReport();
                     typeLayout.ContentVisible = true;
+                }
+                else if (wrapReportType.Value == ReportType.PipelineLengthReport)
+                {
+                    viewModel.report = new PipelineLengthReport();
+                    typeLayout.ContentVisible = false;
                 }
                 else
                 {
@@ -138,6 +156,32 @@ namespace Prizm.Main.Forms.Reports.Construction
         private void type_EditValueChanged(object sender, EventArgs e)
         {
             RefreshTypes();
+        }
+
+        private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadioGroup edit = sender as RadioGroup;
+
+            if (edit.SelectedIndex == 0)
+            {
+                start.Enabled = true;
+                end.Enabled = true;
+
+                startKPComboBox.Enabled = false;
+                endKPComboBox.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByJoints;
+            }
+            else
+            {
+                start.Enabled = false;
+                end.Enabled = false;
+
+                startKPComboBox.Enabled = true;
+                endKPComboBox.Enabled = true;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByKP;
+            }
         }
     }
 }

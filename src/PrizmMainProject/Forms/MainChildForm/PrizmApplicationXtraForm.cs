@@ -200,9 +200,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
                 if(form != null)
                 {
-                    if(form.settings.TabPages.Count > page)
+                    if(form.tabbedControlGroup.TabPages.Count > page)
                     {
-                        form.settings.SelectedTabPage = form.settings.TabPages[page];
+                        form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
                     }
                     ShowChildForm(form);
                 }
@@ -213,7 +213,7 @@ namespace Prizm.Main.Forms.MainChildForm
                     if(forms.Count > 0)
                     {
                         SettingsXtraForm f = (SettingsXtraForm)forms[0];
-                        f.settings.SelectedTabPage = f.settings.TabPages[page];
+                        f.tabbedControlGroup.SelectedTabPage = f.tabbedControlGroup.TabPages[page];
                         f.Activate();
                     }
                 }

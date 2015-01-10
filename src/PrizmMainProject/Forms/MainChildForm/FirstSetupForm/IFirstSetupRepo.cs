@@ -14,7 +14,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IUserRepository UserRepo { get; }
         IProjectRepository ProjectRepo { get; }
         ICertificateTypeRepository CertificateTypeRepo { get; }
-        ISeemTypeRepository SeemTypeRepo { get; }
+        ISeamTypeRepository SeemTypeRepo { get; }
         IPermissionRepository PermissionRepo { get; }
         IRoleRepository RoleRepo { get; }
 

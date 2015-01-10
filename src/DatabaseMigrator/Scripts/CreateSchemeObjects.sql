@@ -34,17 +34,17 @@ CREATE TABLE [dbo].[InspectorCertificateType](
 
 SET ANSI_PADDING OFF
 
-/****** Object:  Table [dbo].[SeemType]    Script Date: 11/4/2014 4:35:49 PM ******/
+/****** Object:  Table [dbo].[SeamType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
-CREATE TABLE [dbo].[SeemType](
+CREATE TABLE [dbo].[SeamType](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[name] [nvarchar](30) NULL,
 
- CONSTRAINT [PK_SeemType] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -241,6 +241,7 @@ CREATE TABLE [dbo].[PipeMillSizeType](
 	[length] [int]  NULL,
 	[diameter] [int] NULL,
 	[thickness] [int]  NULL,
+	[seamTypeId][uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 

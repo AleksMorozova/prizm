@@ -29,6 +29,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
+            viewModel.ReportCommand.Execute();
             var tool = new ReportPrintTool(viewModel.report);
             tool.AutoShowParametersPanel = false;
             tool.ShowPreview();

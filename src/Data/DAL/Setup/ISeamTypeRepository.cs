@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.Setup
 {
-    public interface ISeemTypeRepository : IRepository<Guid, SeemType>
+    public interface ISeamTypeRepository : IRepository<Guid, SeamType>
     {
     }
 }

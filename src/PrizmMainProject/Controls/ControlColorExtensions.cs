@@ -14,7 +14,7 @@ namespace Prizm.Main.Common
 
         private static void SwitchRequired(this TextEdit edit)
         {
-            edit.BackColor = String.IsNullOrEmpty(edit.Text) ? requiredFieldColor : Color.Empty;
+            edit.BackColor = (String.IsNullOrEmpty(edit.Text) || edit.Text == "0") ? requiredFieldColor : Color.Empty;
         }
 
         private static void OnSelectedIndexChanged(object sender, EventArgs e)

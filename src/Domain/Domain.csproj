@@ -93,7 +93,7 @@
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
     <Compile Include="Entity\Setup\Project.cs" />
-    <Compile Include="Entity\Setup\SeemType.cs" />
+    <Compile Include="Entity\Setup\SeamType.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\Setup\WorkstationType.cs" />
     <Compile Include="Entity\TestResult.cs" />

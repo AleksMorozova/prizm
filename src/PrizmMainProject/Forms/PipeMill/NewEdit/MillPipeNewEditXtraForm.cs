@@ -196,7 +196,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("DataSource", pipeNewEditBindingSource, "Welds");
 
 
-            ResultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
+            resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             millStatus.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
@@ -467,7 +467,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
             steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            ResultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
+            resultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             //TODO: limit fields for Plate and heat parameters tab
         }
@@ -725,6 +725,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
+        }
+
+        private void simpleButtonSave_Click(object sender, EventArgs e)
+        {
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+            var user = ctx.GetLoggedPerson();
+            var name = user.LastName + DateTime.Now.ToString("-hh-mm-ss");
+            workspaceManager.CaptureWorkspace(name);
+            workspaceManager.SaveWorkspace(name, @"D:\" + name + ".xml");
+
+        }
+
+        private void simpleButtonLoad_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var name = openFileDialog.SafeFileName;
+                workspaceManager.LoadWorkspace(name, openFileDialog.FileName);
+                workspaceManager.ApplyWorkspace(name);
+            }
         }
     }
 }

@@ -75,7 +75,6 @@
             this.masterLayoutControl.Name = "masterLayoutControl";
             this.masterLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(580, 118, 423, 437);
             this.masterLayoutControl.Root = this.rootLayoutGroup;
-            this.masterLayoutControl.ShowTemplates = true;
             this.masterLayoutControl.Size = new System.Drawing.Size(472, 173);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";

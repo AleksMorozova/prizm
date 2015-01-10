@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.Mapping
 {
-    public class SeemTypeMap : SubclassMap<SeemType>
+    public class SeamTypeMap : SubclassMap<SeamType>
     {
-        public SeemTypeMap()
+        public SeamTypeMap()
         {
             Map(x => x.Name).Column("name");
         }
