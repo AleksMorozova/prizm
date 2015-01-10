@@ -24,8 +24,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] inspectorCertificateTypesName
             = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
 
-        private IList<SeemType> seemTypes;
-        private string[] seemTypesName
+        private IList<SeamType> seamTypes;
+        private string[] seamTypesName
            = new[] { "Прямой", "Спиральный", "Без шва"};
 
         private readonly IFirstSetupRepo firstSetupRepo;
@@ -72,19 +72,19 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
-        public IList<SeemType> SeemTypes
+        public IList<SeamType> SeamTypes
         {
             get
             {
-                if (seemTypes == null)
+                if (seamTypes == null)
                 {
-                    seemTypes = new List<SeemType>();
-                    foreach (string str in seemTypesName)
+                    seamTypes = new List<SeamType>();
+                    foreach (string str in seamTypesName)
                     {
-                        seemTypes.Add(new SeemType() { Name = str, IsActive = true });
+                        seamTypes.Add(new SeamType() { Name = str, IsActive = true });
                     }
                 }
-                return seemTypes;
+                return seamTypes;
             }
         }
 

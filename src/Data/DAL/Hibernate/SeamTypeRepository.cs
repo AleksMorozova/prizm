@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.Hibernate
 {
-    public class SeemTypeRepository: AbstractHibernateRepository<Guid, SeemType>, ISeemTypeRepository
+    public class SeamTypeRepository: AbstractHibernateRepository<Guid, SeamType>, ISeamTypeRepository
     {
         [Inject]
-        public SeemTypeRepository(ISession session)
+        public SeamTypeRepository(ISession session)
             : base(session)
         { }
     }
