@@ -758,11 +758,11 @@
   <data name="SecurityPrivilege_ImportData" xml:space="preserve">
     <value>Импорт данных</value>
   </data>
-  <data name="SecurityPrivilege_ImportDataAtInspectionConstruction" xml:space="preserve">
-    <value>Импорт данных на входном контроле/строительстве</value>
+  <data name="SecurityPrivilege_ImportDataAtConstruction" xml:space="preserve">
+    <value>Импорт данных на строительстве</value>
   </data>
-  <data name="SecurityPrivilege_ImportDataAtProduction" xml:space="preserve">
-    <value>Импорт данных на заводе</value>
+  <data name="SecurityPrivilege_ImportDataAtMaster" xml:space="preserve">
+    <value>Импорт данных на Мастер</value>
   </data>
   <data name="SecurityPrivilege_NewDataEntry" xml:space="preserve">
     <value>Ввод данных</value>
@@ -775,5 +775,14 @@
   </data>
   <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
     <value>Просмотр настроек</value>
+  </data>
+  <data name="SecurityPrivilege_AddAttachments" xml:space="preserve">
+    <value>Добавление вложений</value>
+  </data>
+  <data name="SecurityPrivilege_ExportDataFromConstruction" xml:space="preserve">
+    <value>Экспорт данных на строительстве</value>
+  </data>
+  <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
+    <value>Экспорт данных на заводе</value>
   </data>
 </root>

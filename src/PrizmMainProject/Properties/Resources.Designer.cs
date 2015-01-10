@@ -1612,6 +1612,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление вложений.
+        /// </summary>
+        internal static string SecurityPrivilege_AddAttachments {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_AddAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Аудит.
         /// </summary>
         internal static string SecurityPrivilege_Audit {
@@ -1675,11 +1684,29 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Экспорт данных на строительстве.
+        /// </summary>
+        internal static string SecurityPrivilege_ExportDataFromConstruction {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ExportDataFromConstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Экспорт данных из Мастер.
         /// </summary>
         internal static string SecurityPrivilege_ExportDataFromMaster {
             get {
                 return ResourceManager.GetString("SecurityPrivilege_ExportDataFromMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт данных на заводе.
+        /// </summary>
+        internal static string SecurityPrivilege_ExportDataFromMill {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ExportDataFromMill", resourceCulture);
             }
         }
         
@@ -1693,20 +1720,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Импорт данных на входном контроле/строительстве.
+        ///   Looks up a localized string similar to Импорт данных на строительстве.
         /// </summary>
-        internal static string SecurityPrivilege_ImportDataAtInspectionConstruction {
+        internal static string SecurityPrivilege_ImportDataAtConstruction {
             get {
-                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtInspectionConstruction", resourceCulture);
+                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtConstruction", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Импорт данных на заводе.
+        ///   Looks up a localized string similar to Импорт данных на Мастер.
         /// </summary>
-        internal static string SecurityPrivilege_ImportDataAtProduction {
+        internal static string SecurityPrivilege_ImportDataAtMaster {
             get {
-                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtProduction", resourceCulture);
+                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtMaster", resourceCulture);
             }
         }
         
