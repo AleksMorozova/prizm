@@ -11,6 +11,7 @@ namespace Prizm.Main.Forms.Reports.Construction
     public class PipelineGraph
     {
         private const int maximumPathsNumber = 2;
+        private const int jointPartVertexCount = 2;
         private Dictionary<Guid, PipelineVertex> piecesVertex;
 
         public PipelineGraph(int capacity) 
@@ -73,7 +74,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 while (k < joints.Count)
                 {
-                    for (int i = 0; i < 2; ++i)
+                    for (int i = 0; i < jointPartVertexCount; ++i)
                     {
                         if (!stack.Contains(joints[k].PartsVertex[i]))
                         {
@@ -123,6 +124,44 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
 
             return shortestPath;
+        }
+
+        public List<PipelineVertex> RemovalExternalComponents(
+            construct.Joint startJoint,
+            construct.Joint endJoint,
+            List<PipelineVertex> path)
+        {
+            var joints = new construct.Joint[] { startJoint, endJoint };
+
+            var parts = new PipelineVertex[] { path.First(), path.Last() };
+
+            foreach (var part in parts)
+            {
+                if (part.JointsEdge.Count == 1)
+                {
+                    path.Remove(part);
+                }
+                else
+                {
+                    foreach (var jointEdge in part.JointsEdge)
+                    {
+                        if (!joints.Contains<construct.Joint>(jointEdge.Data))
+                        {
+                            foreach (var p in jointEdge.PartsVertex)
+                            {
+                                if (p != part
+                                    && !path.Contains<PipelineVertex>(p)
+                                    && path.Contains<PipelineVertex>(part))
+                                {
+                                    path.Remove(part);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return path;
         }
     }
 
