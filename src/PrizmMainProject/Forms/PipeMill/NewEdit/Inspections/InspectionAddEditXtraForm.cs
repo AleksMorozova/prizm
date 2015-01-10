@@ -18,11 +18,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     {
         InspectionAddEditViewModel viewModel;
 
-        public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors)
+        public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTest current)
         {
             InitializeComponent();
 
-            viewModel = new InspectionAddEditViewModel(tests, inspectors);
+            viewModel = new InspectionAddEditViewModel(tests, inspectors, current);
         }
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
@@ -33,11 +33,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
+            testsBindingSource.DataSource = viewModel.Tests;
+            inspectorsBindingSource.DataSource = viewModel.Inspectors;
 
-            inspectors.DataSource = bindingSource;
-            code.Properties.DataSource = viewModel.Tests;
-            //category.DataBindings.Add("EditValue", bindingSource, "Category");
-            //code.DataBindings.Add("EditValue", bindingSource, "Test");
+            inspectors.DataSource = inspectorsBindingSource;
+            code.Properties.DataSource = testsBindingSource;
+            category.DataBindings.Add("EditValue", bindingSource, "Category");
+            name.DataBindings.Add("EditValue", bindingSource, "Name");
         }
     }
 }

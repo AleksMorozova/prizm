@@ -730,7 +730,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(IList<PipeTest> tests, IList<Inspector> inspectors)
         {
-            var addForm = new InspectionAddEditXtraForm(tests, inspectors);
+            var addForm = new InspectionAddEditXtraForm(tests, inspectors, null);
             addForm.ShowDialog();
         }
 

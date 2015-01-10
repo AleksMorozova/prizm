@@ -14,12 +14,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
     {
         private IList<PipeTest> tests = new BindingList<PipeTest>();
         private IList<Inspector> inspectors = new BindingList<Inspector>();
-        private PipeTest test = new PipeTest();
+        private PipeTest test;
 
-        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors)
+        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTest current)
         {
             this.tests = tests;
             this.inspectors = inspectors;
+            if(current == null)
+            {
+                test = new PipeTest() { Category = new Domain.Entity.Mill.Category()};
+            }
+            else
+            {
+                test = current;
+            }
         }
 
         public IList<Inspector> Inspectors
@@ -49,16 +57,45 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         }
 
         public PipeTest Test
-        { get { return test; }
+        { 
+            get { return test; }
             set
             {
                 if(value != test)
                 {
                     test = value;
-                    RaisePropertyChanged("Tests");
+                    RaisePropertyChanged("Test");
                 }
             }
         }
+
+        public string Category
+        {
+            get { return test.Category.Name; }
+            set
+            {
+                if(value != test.Category.Name)
+                {
+                    test.Category.Name = value;
+                    RaisePropertyChanged("Category");
+                }
+            }
+        }
+
+        public string Name
+        {
+            get { return test.Name; }
+            set
+            {
+                if(value != test.Name)
+                {
+                    test.Name = value;
+                    RaisePropertyChanged("Name");
+                }
+            }
+        }
+
+
 
         #region IDisposable Members
 
