@@ -43,7 +43,7 @@ namespace Prizm.Main.Forms.Settings
         {
             InitializeComponent();
             SetControlsTextLength();
-            viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectionView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
@@ -91,7 +91,7 @@ namespace Prizm.Main.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
-            //viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
+            viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -116,8 +116,6 @@ namespace Prizm.Main.Forms.Settings
             pipeLength.SetRequiredText();
             pipeDiameter.SetRequiredText();
             wallThickness.SetRequiredText();
-
-            UpdateSeamTypesComboBox();
         }
 
         private void BindToViewModel()
@@ -778,7 +776,6 @@ namespace Prizm.Main.Forms.Settings
 
         bool IValidatable.Validate()
         {
-            UpdateSeamTypesComboBox();
             return dxValidationProvider.Validate();
         }
 
@@ -824,7 +821,7 @@ namespace Prizm.Main.Forms.Settings
                 (_) => _.IsNew());
         }
 
-        private void UpdateSeamTypesComboBox()
+        private void pipePage_Enter(object sender, EventArgs e)
         {
             seamType.Properties.Items.Clear();
             foreach (SeamType t in viewModel.SeamTypes)
@@ -835,6 +832,5 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-
     }
 }
