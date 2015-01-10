@@ -56,23 +56,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public BindingList<PipeTest> AvailableTests;
         bool recalculateWeight = false;
 
-        private bool canDeactivatePipe = false;
-        public bool CanDeactivatePipe
-        {
-            get
-            {
-                return canDeactivatePipe;
-            }
-            set
-            {
-                if(value != canDeactivatePipe)
-                {
-                    canDeactivatePipe = value;
-                    RaisePropertyChanged("CanDeactivatePipe");
-                }
-            }
-        }
-
         public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
 
         [Inject]
@@ -122,7 +105,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 extractPipeTypeCommand.Execute();
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
-                this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
             }
 
 
@@ -676,7 +658,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Diameter = 0;
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
-            this.CanDeactivatePipe = false;
             this.Pipe.Mill = mill;
         }
 

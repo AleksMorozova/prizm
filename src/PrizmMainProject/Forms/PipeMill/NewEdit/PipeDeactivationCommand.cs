@@ -72,8 +72,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public bool CanExecute()
         {
             return 
-                viewModel.Pipe.Status != PipeMillStatus.Shipped &&
-                viewModel.Pipe.IsActive;  
+                viewModel.Pipe.Status != PipeMillStatus.Shipped
+                && viewModel.Pipe.IsActive
+                && !viewModel.IsNew;
         }
     }
 }
