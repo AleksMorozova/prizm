@@ -41,5 +41,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
         }
+
+        private void code_EditValueChanged(object sender, EventArgs e)
+        {
+            var look = sender as GridLookUpEdit;
+            var item = look.EditValue as PipeTest;
+            viewModel.Test = item;
+        }
     }
 }
