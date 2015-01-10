@@ -8,27 +8,26 @@ using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.ComponentModel;
 
 namespace Prizm.Main.Forms.Audit
 {
     public class AuditViewModel : ViewModelBase, IDisposable
     {
         private readonly IAuditLogRepository repo;
-        private readonly IMillReportsRepository adoRepo;
         private readonly AuditSearchCommand searchCommand;
-        private DataTable auditResults;
+        private BindingList<AuditLog> auditResults;
         private DateTime startDate = DateTime.Now.Date;
         private DateTime endDate = DateTime.Now.Date;
         public IEnumerable<string> UsersList;
         private string selectedUser = "";
 
         [Inject]
-        public AuditViewModel(IAuditLogRepository repo, IMillReportsRepository adoRepo)
+        public AuditViewModel(IAuditLogRepository repo)
         {
             this.repo = repo;
-            this.adoRepo = adoRepo;
             UsersList = repo.GetAllUsers();
-            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand (this, adoRepo));
+            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand (this, repo));
         }
 
         public ICommand SearchCommand
@@ -73,7 +72,7 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
-        public DataTable AuditResults
+       public BindingList<AuditLog> AuditResults
         {
             get
             {
@@ -83,13 +82,10 @@ namespace Prizm.Main.Forms.Audit
             {
                 if (value != auditResults)
                 {
-
-                    foreach (DataRow record in value.Rows)
+                    foreach (AuditLog record in value)
                     {
-                        string tableResourceValue = Resources.ResourceManager.GetString(record.Field<string>("tableName")) == null ? record.Field<string>("tableName") : Resources.ResourceManager.GetString(record.Field<string>("tableName"));
-                        string fieldResourceValue = Resources.ResourceManager.GetString(record.Field<string>("fieldName")) == null ? record.Field<string>("fieldName") : Resources.ResourceManager.GetString(record.Field<string>("fieldName"));
-                        record.SetField("tableName", tableResourceValue);
-                        record.SetField("fieldName", fieldResourceValue);
+                        record.TableName = Resources.ResourceManager.GetString(record.TableName) == null ? record.TableName : Resources.ResourceManager.GetString(record.TableName);
+                        record.FieldName = Resources.ResourceManager.GetString(record.FieldName) == null ? record.FieldName : Resources.ResourceManager.GetString(record.FieldName);
                     }
                     auditResults = value;
                     RaisePropertyChanged("AuditResults");

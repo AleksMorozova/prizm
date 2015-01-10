@@ -49,8 +49,7 @@ namespace Prizm.Main.Forms.Settings
             SaveJointOperations();
             SaveComponentryType();
             SaveInspectorCertificateType();
-            //add
-            SaveSeemType();
+            SaveSeamType();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -63,8 +62,7 @@ namespace Prizm.Main.Forms.Settings
             EvictCategories();
             EvictComponentryType();
             EvictInspectorCertificateType();
-            //add
-            EvictSeemType();
+            EvictSeamType();
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
@@ -245,20 +243,20 @@ namespace Prizm.Main.Forms.Settings
         }
 
 
-        private void EvictSeemType()
+        private void EvictSeamType()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel.SeamTypes)
             {
-                repos.SeemTypeRepo.Evict(seem);
+                repos.SeamTypeRepo.Evict(seam);
             }
         }
 
 
-        private void SaveSeemType()
+        private void SaveSeamType()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel.SeamTypes)
             {
-                repos.SeemTypeRepo.SaveOrUpdate(seem);
+                repos.SeamTypeRepo.SaveOrUpdate(seam);
             }
         }
 

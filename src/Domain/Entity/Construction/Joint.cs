@@ -22,7 +22,11 @@ namespace Prizm.Domain.Entity.Construction
         public virtual PartData FirstElement { get; set; }
         public virtual PartData SecondElement { get; set; }
         public virtual IList<JointTestResult> JointTestResults { get; set; }
-        public virtual IList<JointWeldResult> JointWeldResults { get; set; } 
+        public virtual IList<JointWeldResult> JointWeldResults { get; set; }
 
+        public override string ToString()
+        {
+            return Number;
+        }
     }
 }

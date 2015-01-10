@@ -10,6 +10,6 @@ namespace Prizm.Main.Forms.Reports.Construction
     {
         UsedProductReport = 1,
         PipelineLengthReport = 2,
-        HighwayReport = 3
+        TracingReport = 3
     }
 }

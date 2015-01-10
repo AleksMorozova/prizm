@@ -28,6 +28,7 @@ using Prizm.Domain.Entity.Construction;
 using System.Drawing;
 using Prizm.Main.Documents;
 using DevExpress.XtraEditors.DXErrorProvider;
+using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -94,10 +95,8 @@ namespace Prizm.Main.Forms.Settings
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-
             viewModel.LoadData();
             BindToViewModel();
-
             IsModified = false;
             BindCommands();
 
@@ -112,13 +111,17 @@ namespace Prizm.Main.Forms.Settings
             projectValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
+
+            seamType.SetRequiredCombo();
+            pipeLength.SetRequiredText();
+            pipeDiameter.SetRequiredText();
+            wallThickness.SetRequiredText();
         }
 
         private void BindToViewModel()
         {
             #region Prizm.Data Source
             pipeMillSizeTypeBindingSource.DataSource = viewModel;
-            CurrentPipeMillSizeTypeBindingSource.DataSource = viewModel.CurrentPipeMillSizeType;
 
             inspectorBindingSource.DataSource = viewModel.Inspectors;
             inspectorCertificateBindingSource.DataSource = inspectorBindingSource;
@@ -142,7 +145,7 @@ namespace Prizm.Main.Forms.Settings
             repositoryLookUpCertificateType.DataSource = viewModel.CertificateTypes;
             certificateTypes.DataSource = viewModel.CertificateTypes;
 
-            seemType.DataSource = viewModel.SeemTypes;
+            seamTypes.DataSource = viewModel.SeamTypes;
 
             componentryTypeGridControl.DataSource = viewModel.ComponentryTypes;
 
@@ -174,7 +177,16 @@ namespace Prizm.Main.Forms.Settings
 
             externalDocumentSize.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "DocumentSizeLimit");
 
+            pipeLength.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Length" );
+           
+            wallThickness.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Thickness");
+
+            pipeDiameter.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "Diameter");
+            
+            seamType.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "SeamType");
+            
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
+
             #endregion
 
             projectTitle.Refresh();
@@ -205,7 +217,8 @@ namespace Prizm.Main.Forms.Settings
             }
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
-            pipeDiameter.Text = CurrentPipeMillSizeType.Length.ToString();
+            viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
+
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
@@ -255,6 +268,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
+            CurrentPipeMillSizeType.SeamType = new SeamType();
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
@@ -794,18 +808,29 @@ namespace Prizm.Main.Forms.Settings
         private void seemTypeGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            SeemType seemType = v.GetRow(e.RowHandle) as SeemType;
+            SeamType seemType = v.GetRow(e.RowHandle) as SeamType;
             seemType.IsActive = true;
         }
 
         private void seemTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<SeemType>(
+            view.RemoveSelectedItem<SeamType>(
                 e,
-                viewModel.SeemTypes,
+                viewModel.SeamTypes,
                 (_) => _.IsNew());
         }
 
+        private void pipePage_Enter(object sender, EventArgs e)
+        {
+            seamType.Properties.Items.Clear();
+            foreach (SeamType t in viewModel.SeamTypes)
+            {
+                if (t.IsActive)
+                {
+                    seamType.Properties.Items.Add(t);
+                }
+            }
+        }
     }
 }

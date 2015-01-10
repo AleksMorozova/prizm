@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using construct = Prizm.Domain.Entity.Construction;
+
 namespace Prizm.Main.Forms.Reports.Construction
 {
     public class PreviewReportCommand : ICommand
@@ -19,9 +21,11 @@ namespace Prizm.Main.Forms.Reports.Construction
         readonly IMillReportsRepository repo;
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
-        DataSet data;
 
-        public PreviewReportCommand(ConstructionReportViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
+        public PreviewReportCommand(
+            ConstructionReportViewModel viewModel, 
+            IMillReportsRepository repo, 
+            IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
@@ -30,53 +34,17 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            try
-            {
-                StringBuilder GetAllUsedProducts = new StringBuilder();
-
-                foreach (var item in viewModel.Types)
-                {
-                    switch (item)
-                    {
-                        case PartType.Undefined:
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Pipe:
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe).ToString());
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Spool:
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool).ToString());
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Component:
-                            GetAllUsedProducts.Append(" ");
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent).ToString());
-                            break;
-                        default:
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                    }
-                }
-
-                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
-                viewModel.report.DataSource = data;
-                viewModel.report.CreateDocument();
-                viewModel.PreviewSource = viewModel.report;
-            }
-            catch (RepositoryException ex)
-            {
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
-            }
-
+            viewModel.ReportCommand.Execute();
+            viewModel.report.CreateDocument();
+            viewModel.PreviewSource = viewModel.report;
         }
 
+    
         public bool CanExecute()
         {
-            return true;
+            return viewModel.ReportCommand.CanExecute();
         }
 
-        public bool IsExecutable
-        { get; set; }
+        public bool IsExecutable { get; set; }
     }
 }

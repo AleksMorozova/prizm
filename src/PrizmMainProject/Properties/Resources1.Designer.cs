@@ -180,15 +180,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Вход для пользователя {0} заблокирован.
-        /// </summary>
-        internal static string AuthenticationFailedUserInactive {
-            get {
-                return ResourceManager.GetString("AuthenticationFailedUserInactive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Булевый ожидаемый результат.
         /// </summary>
         internal static string BoolExpected {
@@ -1084,7 +1075,10 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть.
+        ///   Looks up a localized string similar to Правила задания формата : # - цифра, 
+        ///@ - буква, % - цифра или буква, ? - любой 
+        ///печатный символ, все остальные символы 
+        ///принимаются как есть.
         /// </summary>
         internal static string Mask_Label {
             get {
