@@ -94,7 +94,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
 
-
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
             BindCommands();
@@ -250,7 +249,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             SaveCommand = viewModel.SavePipeCommand;
         }
-
 
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
@@ -682,13 +680,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             ordersLookUp.Properties.DataSource = null;
             ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
+
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }
-
 
         #region IValidatable Members
 
@@ -725,30 +723,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["Save"].RefreshState();
         }
 
-        private void simpleButtonSave_Click(object sender, EventArgs e)
-        {
-            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            var user = ctx.GetLoggedPerson();
-            var name = user.LastName + DateTime.Now.ToString("-hh-mm-ss");
-            workspaceManager.CaptureWorkspace(name);
-            workspaceManager.SaveWorkspace(name, @"D:\" + name + ".xml");
-
-        }
-
-        private void simpleButtonLoad_Click(object sender, EventArgs e)
-        {
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var name = openFileDialog.SafeFileName;
-                workspaceManager.LoadWorkspace(name, openFileDialog.FileName);
-                workspaceManager.ApplyWorkspace(name);
-            }
-        }
-
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
-            var newInspection = new InspectionAddEditXtraForm();
-            newInspection.ShowDialog();
+            AddInspection(viewModel.AvailableTests, viewModel.Inspectors);
         }
+
+        private void AddInspection(IList<PipeTest> tests, IList<Inspector> inspectors)
+        {
+            var addForm = new InspectionAddEditXtraForm(tests, inspectors);
+            addForm.ShowDialog();
+        }
+
+ 
     }
 }

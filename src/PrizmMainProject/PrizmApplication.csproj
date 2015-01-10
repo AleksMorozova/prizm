@@ -349,10 +349,11 @@
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetProjectCommand.cs" />
-    <Compile Include="Forms\PipeMill\NewEdit\InspectionAddEditXtraForm.cs">
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditViewModel.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PipeMill\NewEdit\InspectionAddEditXtraForm.Designer.cs">
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.Designer.cs">
       <DependentUpon>InspectionAddEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
@@ -626,7 +627,7 @@
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PipeMill\NewEdit\InspectionAddEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.resx">
       <DependentUpon>InspectionAddEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.resx">
