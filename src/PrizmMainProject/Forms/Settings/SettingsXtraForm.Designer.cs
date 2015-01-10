@@ -514,7 +514,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLength.StyleController = this.generalPipeLayout;
             this.pipeLength.TabIndex = 15;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule1.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
@@ -527,7 +527,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeDiameter.StyleController = this.generalPipeLayout;
             this.pipeDiameter.TabIndex = 13;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule2.Value1 = 0;
             this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule2);
             // 
@@ -540,7 +540,7 @@ namespace Prizm.Main.Forms.Settings
             this.wallThickness.StyleController = this.generalPipeLayout;
             this.wallThickness.TabIndex = 12;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule3.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule3.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule3);
             // 
@@ -789,7 +789,7 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.TabIndex = 14;
             conditionValidationRule4.CaseSensitive = true;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotContains;
-            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule4.Value1 = "<Null>";
             this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
