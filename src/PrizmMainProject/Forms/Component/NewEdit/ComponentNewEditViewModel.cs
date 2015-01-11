@@ -21,8 +21,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
 
-        private bool canDeactivateComponent;
-
         private BindingList<ComponentType> componentTypes;
 
         private SaveComponentCommand saveCommand;
@@ -61,27 +59,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             else
             {
                 this.Component = repos.ComponentRepo.Get(id);
-                this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
 
         public Prizm.Domain.Entity.Construction.Component Component { get; set; }
-
-        public bool CanDeactivateComponent
-        {
-            get
-            {
-                return canDeactivateComponent;
-            }
-            set
-            {
-                if (value != canDeactivateComponent)
-                {
-                    canDeactivateComponent = value;
-                    RaisePropertyChanged("CanDeactivateComponent");
-                }
-            }
-        }
 
         public IList<Inspector> Inspectors { get; set; }
 
@@ -280,9 +261,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Number = string.Empty;
             this.Certificate = string.Empty;
             this.Type = null;
-
-            this.CanDeactivateComponent = false;
-
         }
 
         public void Dispose()

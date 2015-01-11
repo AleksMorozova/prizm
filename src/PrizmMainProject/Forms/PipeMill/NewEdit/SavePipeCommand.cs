@@ -73,9 +73,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         }
 
                         viewModel.ModifiableView.IsModified = false;
-                        // this double switch is necessary to renew the state of conditional controls (f.e. deactivation checkbox):
-                        viewModel.ModifiableView.IsEditMode = false;
-                        viewModel.ModifiableView.IsEditMode = true;
+                        viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
                             Resources.DLG_PIPE_SAVED_HEADER);

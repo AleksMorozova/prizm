@@ -149,6 +149,17 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
+        /// <summary>
+        /// manual updating the state of child controls
+        /// </summary>
+        public void UpdateState()
+        {
+            SetEditModeAllChildren(this, isEditMode);
+        }
+
+        /// <summary>
+        /// helper class for managing control states
+        /// </summary>
         private class ControlsCollection
         {
             private Dictionary<Control, Tuple<ControlCondition, Func<bool, bool>>> collection = new Dictionary<Control, Tuple<ControlCondition, Func<bool, bool>>>();

@@ -55,7 +55,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public bool CanExecute()
         {
             return 
-                viewModel.Component.IsActive && ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateComponent);
+                viewModel.Component.IsActive &&
+                viewModel.Component.Id != Guid.Empty &&
+                ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateComponent);
         }
     }
 }
