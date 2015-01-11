@@ -15,6 +15,7 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using System.Linq;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -26,6 +27,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
@@ -42,6 +44,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ValidatableView = this;
             viewModel.Number = number;
             IsEditMode = true;
+            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();

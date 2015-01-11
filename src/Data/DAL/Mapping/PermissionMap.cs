@@ -14,7 +14,6 @@ namespace Prizm.Data.DAL.Mapping
       {
          Id(_ => _.Id);
          Map(_ => _.Name, "name");
-         Map(_ => _.Description, "description");
       }
    }
 }

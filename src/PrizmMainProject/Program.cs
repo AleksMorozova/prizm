@@ -57,8 +57,11 @@ namespace Prizm.Main
                 // Hide splash screen
                 SplashScreenManager.CloseForm(false);
 
+                //Permissions setup
+                CreatePermissions();
+
                 while (!CreateProject())
-                { }
+                { }               
 
                 //Login
                 string failMessage = String.Empty;
@@ -198,6 +201,15 @@ namespace Prizm.Main
             }
 
             return result;
+        }
+
+        private static void CreatePermissions()
+        {
+            IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
+            if (repo.GetAll().Count == 0)
+            {
+                repo.SeedPermissions();
+            }
         }
 
 

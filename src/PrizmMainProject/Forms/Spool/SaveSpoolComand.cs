@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Properties;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Security;
+using Ninject;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -17,6 +19,7 @@ namespace Prizm.Main.Forms.Spool
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
@@ -73,7 +76,15 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanExecute()
         {
-            bool condition = viewModel.ModifiableView.IsEditMode;
+            bool condition;
+            if (viewModel.Spool.Id == Guid.Empty)
+            {
+                condition = viewModel.ModifiableView.IsEditMode && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            }
+            else
+            {
+                condition = viewModel.ModifiableView.IsEditMode && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+            }
             return condition;
         }
     }
