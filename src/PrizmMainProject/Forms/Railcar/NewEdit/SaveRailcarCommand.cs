@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Ninject;
 using Prizm.Data.DAL;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -19,6 +20,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         [Inject]
         public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
@@ -77,7 +79,17 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            return !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
+            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
+            bool conditionAndPermission;
+            if (viewModel.Railcar.Id == Guid.Empty)
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            }
+            else
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+            }
+            return conditionAndPermission;
         }
         public virtual bool IsExecutable { get; set; }
 

@@ -24,6 +24,7 @@ using System.Threading;
 using System.Linq;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -37,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
-
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public JointNewEditXtraForm(Guid id)
         {
@@ -58,6 +59,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
+            extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }
 

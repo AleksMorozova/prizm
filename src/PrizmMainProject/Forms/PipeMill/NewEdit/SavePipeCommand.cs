@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Ninject;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -18,6 +19,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public SavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
@@ -106,8 +108,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 !string.IsNullOrEmpty(viewModel.Number) &&
                 viewModel.ProductionDate != DateTime.MinValue &&
                 viewModel.ModifiableView.IsEditMode;
-
-            return condition;
+            bool conditionAndPermission;
+            if (viewModel.Pipe.Id == Guid.Empty)
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            }
+            else
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+            }
+            return conditionAndPermission;
         }
     
     }
