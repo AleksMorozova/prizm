@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.date = new DevExpress.XtraEditors.DateEdit();
@@ -36,13 +37,10 @@
             this.expected = new DevExpress.XtraEditors.TextEdit();
             this.name = new DevExpress.XtraEditors.TextEdit();
             this.category = new DevExpress.XtraEditors.TextEdit();
-            this.code = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -55,12 +53,12 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.testsBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.code = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
-            this.testCodeCol = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.testNameCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
@@ -71,11 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
@@ -91,11 +86,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
             // 
+            this.rootLayoutControl.Controls.Add(this.code);
             this.rootLayoutControl.Controls.Add(this.inspectors);
             this.rootLayoutControl.Controls.Add(this.date);
             this.rootLayoutControl.Controls.Add(this.status);
@@ -103,7 +101,6 @@
             this.rootLayoutControl.Controls.Add(this.expected);
             this.rootLayoutControl.Controls.Add(this.name);
             this.rootLayoutControl.Controls.Add(this.category);
-            this.rootLayoutControl.Controls.Add(this.code);
             this.rootLayoutControl.Controls.Add(this.simpleButton1);
             this.rootLayoutControl.Controls.Add(this.simpleButton2);
             this.rootLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -167,45 +164,21 @@
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(326, 67);
+            this.name.Location = new System.Drawing.Point(402, 67);
             this.name.Name = "name";
             this.name.Properties.ReadOnly = true;
-            this.name.Size = new System.Drawing.Size(350, 20);
+            this.name.Size = new System.Drawing.Size(274, 20);
             this.name.StyleController = this.rootLayoutControl;
             this.name.TabIndex = 6;
             // 
             // category
             // 
-            this.category.Location = new System.Drawing.Point(154, 67);
+            this.category.Location = new System.Drawing.Point(150, 67);
             this.category.Name = "category";
             this.category.Properties.ReadOnly = true;
-            this.category.Size = new System.Drawing.Size(158, 20);
+            this.category.Size = new System.Drawing.Size(238, 20);
             this.category.StyleController = this.rootLayoutControl;
             this.category.TabIndex = 5;
-            // 
-            // code
-            // 
-            this.code.EditValue = "";
-            this.code.Location = new System.Drawing.Point(32, 67);
-            this.code.Name = "code";
-            this.code.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.code.Properties.DisplayMember = "Code";
-            this.code.Properties.View = this.gridLookUpEdit1View;
-            this.code.Size = new System.Drawing.Size(108, 20);
-            this.code.StyleController = this.rootLayoutControl;
-            this.code.TabIndex = 4;
-            this.code.EditValueChanged += new System.EventHandler(this.code_EditValueChanged);
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.testCodeCol,
-            this.testNameCol});
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // simpleButton1
             // 
@@ -251,34 +224,22 @@
             // 
             this.layoutControlGroup1.CustomizationFormText = "Контрольная операция";
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem11});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(688, 99);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup1.Text = "Контрольная операция";
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.code;
-            this.layoutControlItem1.CustomizationFormText = "Код";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(122, 50);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem1.Text = "Код";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(104, 13);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.category;
             this.layoutControlItem2.CustomizationFormText = "Категория";
-            this.layoutControlItem2.Location = new System.Drawing.Point(122, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(118, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(172, 50);
+            this.layoutControlItem2.Size = new System.Drawing.Size(252, 50);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem2.Text = "Категория";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
@@ -288,9 +249,9 @@
             // 
             this.layoutControlItem3.Control = this.name;
             this.layoutControlItem3.CustomizationFormText = "Название";
-            this.layoutControlItem3.Location = new System.Drawing.Point(294, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(370, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(364, 50);
+            this.layoutControlItem3.Size = new System.Drawing.Size(288, 50);
             this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem3.Text = "Название";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
@@ -417,6 +378,29 @@
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // code
+            // 
+            this.code.Location = new System.Drawing.Point(32, 67);
+            this.code.Name = "code";
+            this.code.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.code.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.code.Size = new System.Drawing.Size(104, 20);
+            this.code.StyleController = this.rootLayoutControl;
+            this.code.TabIndex = 12;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.code;
+            this.layoutControlItem11.CustomizationFormText = "Код";
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(118, 50);
+            this.layoutControlItem11.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem11.Text = "Код";
+            this.layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(104, 13);
+            // 
             // inspectors
             // 
             this.inspectors.DataSource = null;
@@ -424,22 +408,6 @@
             this.inspectors.Name = "inspectors";
             this.inspectors.Size = new System.Drawing.Size(354, 238);
             this.inspectors.TabIndex = 11;
-            // 
-            // testCodeCol
-            // 
-            this.testCodeCol.Caption = "Код";
-            this.testCodeCol.FieldName = "Code";
-            this.testCodeCol.Name = "testCodeCol";
-            this.testCodeCol.Visible = true;
-            this.testCodeCol.VisibleIndex = 0;
-            // 
-            // testNameCol
-            // 
-            this.testNameCol.Caption = "Название";
-            this.testNameCol.FieldName = "Name";
-            this.testNameCol.Name = "testNameCol";
-            this.testNameCol.Visible = true;
-            this.testNameCol.VisibleIndex = 1;
             // 
             // layoutControlItem8
             // 
@@ -471,11 +439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
@@ -491,6 +456,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
@@ -507,12 +474,9 @@
         private DevExpress.XtraEditors.TextEdit expected;
         private DevExpress.XtraEditors.TextEdit name;
         private DevExpress.XtraEditors.TextEdit category;
-        private DevExpress.XtraEditors.GridLookUpEdit code;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
@@ -527,9 +491,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn testCodeCol;
-        private DevExpress.XtraGrid.Columns.GridColumn testNameCol;
         private System.Windows.Forms.BindingSource testsBindingSource;
         private System.Windows.Forms.BindingSource inspectorsBindingSource;
+        private DevExpress.XtraEditors.ComboBoxEdit code;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
     }
 }

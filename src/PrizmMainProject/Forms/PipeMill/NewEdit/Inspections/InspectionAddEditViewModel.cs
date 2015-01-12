@@ -2,6 +2,7 @@
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,31 +14,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 {
     public class InspectionAddEditViewModel : ViewModelBase, IDisposable
     {
-        private IList<PipeTest> tests = new BindingList<PipeTest>();
+        private IList<PipeTest> availableTests = new BindingList<PipeTest>();
         private IList<Inspector> inspectors = new BindingList<Inspector>();
-        private PipeTest test = new PipeTest() { Category = new Domain.Entity.Mill.Category()};
-        private PipeTestResult result;
-        public IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses;
+        private PipeTestResult testResult;
+        public IList<EnumWrapper<PipeTestResultStatus>> statuses;
 
 
-        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors, 
+        public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            this.tests = tests;
+            this.availableTests = tests;
             this.inspectors = inspectors;
             this.statuses = statuses;
             if(current == null)
             {
-                this.result = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
+                testResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled};
+                testResult.Operation = new PipeTest();
+                testResult.Operation = this.availableTests[0];
+
             }
             else
             {
-                this.result = current;
+                this.testResult = current;
             }
         }
 
-   #region Test
-		     public IList<Inspector> Inspectors
+        #region Test
+        public IList<Inspector> Inspectors
         {
             get { return inspectors; }
             set
@@ -52,38 +55,51 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public IList<PipeTest> Tests
         {
-            get { return tests; }
+            get { return availableTests; }
             set
             {
-                if(value != tests)
+                if(value != availableTests)
                 {
-                    tests = value;
+                    availableTests = value;
                     RaisePropertyChanged("Tests");
                 }
             }
         }
 
         public PipeTest Test
-        { 
-            get { return test; }
+        {
+            get { return testResult.Operation; }
             set
             {
-                if(value != test)
+                if(value != testResult.Operation)
                 {
-                    test = value;
+                    testResult.Operation = value;
                     RaisePropertyChanged("Test");
+                }
+            }
+        }
+
+        public string Code
+        {
+            get { return testResult.Operation.Code; }
+            set
+            {
+                if(value != testResult.Operation.Code)
+                {
+                    testResult.Operation.Code = value;
+                    RaisePropertyChanged("Code");
                 }
             }
         }
 
         public string Category
         {
-            get { return test.Category.Name; }
+            get { return testResult.Operation.Category.Name; }
             set
             {
-                if(value != test.Category.Name)
+                if(value != testResult.Operation.Category.Name)
                 {
-                    test.Category.Name = value;
+                    testResult.Operation.Category.Name = value;
                     RaisePropertyChanged("Category");
                 }
             }
@@ -91,12 +107,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public string Name
         {
-            get { return test.Name; }
+            get { return testResult.Operation.Name; }
             set
             {
-                if(value != test.Name)
+                if(value != testResult.Operation.Name)
                 {
-                    test.Name = value;
+                    testResult.Operation.Name = value;
                     RaisePropertyChanged("Name");
                 }
             }
@@ -104,47 +120,60 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public string Expected
         {
-            get 
+            get
             {
-                string result = string.Empty;
-                switch(test.ResultType)
+                string expStr = string.Empty;
+                switch(testResult.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
-                        result = test.BoolExpected.ToString();
+                        expStr = testResult.Operation.BoolExpected.ToString();
                         break;
                     case PipeTestResultType.String:
-                        result = test.StringExpected;
+                        expStr = testResult.Operation.StringExpected;
                         break;
                     case PipeTestResultType.Diapason:
-                        result = test.MinExpected + " - " + test.MaxExpected;
+                        expStr = testResult.Operation.MinExpected + " - " + testResult.Operation.MaxExpected;
                         break;
                     case PipeTestResultType.Undef:
                         break;
                     default:
                         break;
                 }
-                return result;
+                return expStr;
             }
             set { }
-        } 
-	#endregion
+        }
+        #endregion
 
         #region Result
 
         //TODO: wrapper for translit
-        public PipeTestResultStatus Status
+        public EnumWrapper<PipeTestResultStatus> Status
         {
-            get { return result.Status; }
+            get { return new EnumWrapper<PipeTestResultStatus>() { Value = testResult.Status }; }
             set
             {
-                if(value != result.Status)
+                if(value != new EnumWrapper<PipeTestResultStatus>() { Value = testResult.Status })
                 {
-                    result.Status = value;
+                    testResult.Status = value.Value;
                     RaisePropertyChanged("Status");
                 }
             }
         }
-	#endregion
+
+        public DateTime? Date
+        {
+            get { return testResult.Date; }
+            set
+            {
+                if(value != testResult.Date)
+                {
+                    testResult.Date = value;
+                    RaisePropertyChanged("Date");
+                }
+            }
+        }
+        #endregion
 
 
 
@@ -154,7 +183,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public void Dispose()
         {
-            
+
         }
 
         #endregion

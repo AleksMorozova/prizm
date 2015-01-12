@@ -723,7 +723,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Creates predefined pipe test results for all active required tests for concrete pipe mill size type
+        /// Creates predefined pipe test results for all active required availableTests for concrete pipe mill size type
         /// </summary>
         /// <param name="millSizeType"></param>
         public BindingList<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)

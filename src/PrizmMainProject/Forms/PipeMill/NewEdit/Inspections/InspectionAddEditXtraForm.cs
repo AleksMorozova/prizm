@@ -23,47 +23,42 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             InitializeComponent();
-
             viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
+
+            if(current != null)
+            {
+                code.Properties.ReadOnly = true;
+                code.Text = viewModel.Code;
+            }
+            else
+            {
+                foreach(var item in viewModel.Tests)
+                {
+                    code.Properties.Items.Add(item.Code);
+                }
+            }
+            
         }
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
-
-            foreach(var item in viewModel.statuses)
-            {
-                if(item.Value != PipeTestResultStatus.Undef )
-                {
-                    status.Properties.Items.Add(item.Text);
-                }
-            }
-
-
             BindToViewModel();
-
             status.Text = string.Empty;
+            code.RefreshEditValue();
         }
 
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
-            testsBindingSource.DataSource = viewModel.Tests;
             inspectorsBindingSource.DataSource = viewModel.Inspectors;
 
             inspectors.DataSource = inspectorsBindingSource;
-            code.Properties.DataSource = testsBindingSource;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
             expected.DataBindings.Add("EditValue", bindingSource, "Expected");
 
             status.DataBindings.Add("EditValue", bindingSource, "Status");
-        }
-
-        private void code_EditValueChanged(object sender, EventArgs e)
-        {
-            var look = sender as GridLookUpEdit;
-            var item = look.EditValue as PipeTest;
-            viewModel.Test = item;
+            date.DataBindings.Add("EditValue", bindingSource, "Date");
         }
     }
 }

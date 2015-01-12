@@ -28,6 +28,7 @@ using Prizm.Main.Commands;
 using DevExpress.XtraGrid;
 using Prizm.Main.Documents;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -408,7 +409,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        ///Customizes data shown in Expected result column
+        ///Customizes data shown in Expected testResult column
         /// </summary>
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
@@ -419,7 +420,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Returns data shown in Expected result column depending on expected result type
+        /// Returns data shown in Expected testResult column depending on expected testResult type
         /// </summary>
         private string getExpectedValue(GridView view, int listSourceRowIndex)
         {
@@ -733,6 +734,35 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses);
             addForm.ShowDialog();
         }
+
+        private static void EditInspections(PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        {
+            var editForm = new InspectionAddEditXtraForm(null, insp, row, status);
+            editForm.ShowDialog();
+        }
+
+        private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
+        {
+            GridView view = (GridView)sender;
+            Point pt = view.GridControl.PointToClient(Control.MousePosition);
+            var row = DoRowDoubleClick(view, pt);
+            EditInspections(row, viewModel.Inspectors, viewModel.TestResultStatuses);
+            
+        }
+
+        private PipeTestResult DoRowDoubleClick(GridView view, Point pt)
+        {
+            PipeTestResult row = null;
+            GridHitInfo info = view.CalcHitInfo(pt);
+            if(info.InRow || info.InRowCell)
+            {
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+                row = (PipeTestResult)view.GetRow(info.RowHandle);
+            }
+            return row;
+        }
+
+        
 
  
     }
