@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public ShipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
@@ -57,21 +59,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     viewModel.IsShipped = true;
                     viewModel.SaveCommand.Execute();
                     notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
-                    viewModel.ShipCommand.IsExecutable ^= true;
-                    viewModel.UnshipCommand.IsExecutable ^= true;
-                    viewModel.SaveCommand.IsExecutable ^= true;
             }
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
             return (!viewModel.Railcar.IsShipped && !string.IsNullOrWhiteSpace(viewModel.Number) && viewModel.Pipes.Count != 0);
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
         }
     }
 }

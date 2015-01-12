@@ -46,6 +46,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public IList<Welder> Welders { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
+        public bool IsNew { get { return this.Joint.IsNew(); } }
+
         [Inject]
         public JointNewEditViewModel(
             IConstructionRepository repoConstruction, 
@@ -170,18 +172,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         #endregion
 
         # region Joint
-        public bool IsNotActive
+
+        public bool JointIsActive
         {
-            get
-            {
-                return Joint.IsNotActive;
-            }
+            get { return Joint.IsActive; }
             set
             {
-                if (value != Joint.IsNotActive)
+                if (value != Joint.IsActive)
                 {
-                    Joint.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Joint.IsActive = value;
+                    RaisePropertyChanged("JointIsActive");
                 }
             }
         }

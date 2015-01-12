@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.ExternalFile
         private readonly ExternalFilesViewModel viewModel;
         private readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public AddExternalFileCommand(IFileRepository repo, ExternalFilesViewModel viewModel, IUserNotify notify)
         {
             this.repo = repo;
@@ -58,8 +60,6 @@ namespace Prizm.Main.Forms.ExternalFile
                 notify.ShowNotify(Resources.DLG_FILE_ATTACH_SUCCESS, Resources.DLG_FILE_ATTACH_SUCCESS_HEADER);
             }
         }
-
-        public virtual bool IsExecutable { get; set; }
 
         public bool CanExecute()
         {

@@ -51,6 +51,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
             commandManager["Save"].RefreshState();
             commandManager["SavaAndClear"].RefreshState();
 
+            viewModel.SaveInspectionTestResultsCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SaveAndClearTestResultsCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         private void BindToViewModel()

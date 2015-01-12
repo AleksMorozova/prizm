@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public SaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify)
         {
             this.repo = repo;
@@ -90,13 +92,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Resources.DLG_JOINT_INCORRECT_DIAMETER_HEADER);
                 }
             }
-        }
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
@@ -105,7 +101,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                  && viewModel.FirstElement != null 
                  && viewModel.SecondElement != null
                  && viewModel.Joint.IsActive
-                 && ctx.HasAccess(viewModel.Joint.Id == Guid.Empty 
+                 && ctx.HasAccess(viewModel.IsNew 
                                     ? global::Domain.Entity.Security.Privileges.NewDataEntry
                                     : global::Domain.Entity.Security.Privileges.EditData);
         }
