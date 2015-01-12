@@ -746,9 +746,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             addForm.ShowDialog();
         }
 
-        private static void EditInspections(PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        private static void EditInspections(BindingList<PipeTest> tests,PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
-            var editForm = new InspectionAddEditXtraForm(null, insp, row, status);
+            var editForm = new InspectionAddEditXtraForm(tests, insp, row, status);
             editForm.ShowDialog();
         }
 
@@ -757,7 +757,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             GridView view = (GridView)sender;
             Point pt = view.GridControl.PointToClient(Control.MousePosition);
             var row = DoRowDoubleClick(view, pt);
-            EditInspections(row, viewModel.Inspectors, viewModel.TestResultStatuses);
+            EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
             
         }
 

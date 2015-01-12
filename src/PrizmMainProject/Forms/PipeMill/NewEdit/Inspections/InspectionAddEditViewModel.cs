@@ -28,14 +28,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             this.statuses = statuses;
             if(current == null)
             {
-                testResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled};
-                testResult.Operation = new PipeTest();
-                testResult.Operation = this.availableTests[0];
+                TestResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
+                TestResult.Operation = new PipeTest();
+                TestResult.Operation = this.availableTests[0];
 
             }
             else
             {
-                this.testResult = current;
+                TestResult = current;
             }
         }
 
@@ -143,19 +143,54 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
             set { }
         }
+
+        private string GetResult()
+        {
+            string expStr = string.Empty;
+            switch(testResult.Operation.ResultType)
+            {
+                case PipeTestResultType.Boolean:
+                    expStr = testResult.Operation.BoolExpected.ToString();
+                    break;
+                case PipeTestResultType.String:
+                    expStr = testResult.Operation.StringExpected;
+                    break;
+                case PipeTestResultType.Diapason:
+                    expStr = testResult.Operation.MinExpected + " - " + testResult.Operation.MaxExpected;
+                    break;
+                case PipeTestResultType.Undef:
+                    break;
+                default:
+                    break;
+            }
+            return expStr;
+
+        }
         #endregion
 
         #region Result
-
-        //TODO: wrapper for translit
-        public EnumWrapper<PipeTestResultStatus> Status
+        public PipeTestResult TestResult
         {
-            get { return new EnumWrapper<PipeTestResultStatus>() { Value = testResult.Status }; }
+            get { return testResult; }
             set
             {
-                if(value != new EnumWrapper<PipeTestResultStatus>() { Value = testResult.Status })
+                if(value != testResult)
                 {
-                    testResult.Status = value.Value;
+                    testResult = value;
+                    RaisePropertyChanged("TestResult");
+                }
+            }
+        }
+
+        //TODO: wrapper for translit
+        public PipeTestResultStatus Status
+        {
+            get { return testResult.Status; }
+            set
+            {
+                if(value != testResult.Status)
+                {
+                    testResult.Status = value;
                     RaisePropertyChanged("Status");
                 }
             }
@@ -173,11 +208,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
             }
         }
+
+        public PipeTest Operation
+        {
+            get { return testResult.Operation; }
+            set
+            {
+                if(value != testResult.Operation)
+                {
+                    testResult.Operation = value;
+                    RaisePropertyChanged("Operation");
+                }
+            }
+        }
         #endregion
-
-
-
-
 
         #region IDisposable Members
 
@@ -187,5 +231,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         }
 
         #endregion
+
+        internal void ChangeTest(string code)
+        {
+            var test = availableTests.FirstOrDefault(x => x.Code == code);
+            Operation = test;
+        }
     }
 }

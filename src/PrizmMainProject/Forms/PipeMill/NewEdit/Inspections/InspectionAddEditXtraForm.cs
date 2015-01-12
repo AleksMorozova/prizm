@@ -27,6 +27,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if(current != null)
             {
+                switch(current.Operation.ResultType)
+                {
+                    case PipeTestResultType.Boolean:
+                        factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        break;
+                    case PipeTestResultType.String:
+                        factStringLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        break;
+                    case PipeTestResultType.Diapason:
+                        factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        break;
+                    case PipeTestResultType.Undef:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if(current != null)
+            {
                 code.Properties.ReadOnly = true;
                 code.Text = viewModel.Code;
             }
@@ -44,7 +64,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             BindToViewModel();
             status.Text = string.Empty;
-            code.RefreshEditValue();
+            status.EditValue = viewModel.Status;
         }
 
         private void BindToViewModel()
@@ -53,12 +73,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             inspectorsBindingSource.DataSource = viewModel.Inspectors;
 
             inspectors.DataSource = inspectorsBindingSource;
+            code.DataBindings.Add("EditValue", bindingSource, "Code");
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
             expected.DataBindings.Add("EditValue", bindingSource, "Expected");
 
+            status.Properties.DataSource = viewModel.statuses;
             status.DataBindings.Add("EditValue", bindingSource, "Status");
             date.DataBindings.Add("EditValue", bindingSource, "Date");
+        }
+
+        private void code_EditValueChanged(object sender, EventArgs e)
+        {
+            var cd = code.EditValue;
+            viewModel.ChangeTest(cd.ToString());
         }
     }
 }

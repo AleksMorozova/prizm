@@ -13,7 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if(disposing && (components != null))
             {
                 components.Dispose();
             }
@@ -46,10 +46,9 @@
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
-this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
             this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
-                        this.pipeLength = new DevExpress.XtraEditors.TextEdit();
-            this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -340,13 +339,12 @@ this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
             // 
             // generalPipeLayout
             // 
-            this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-this.generalPipeLayout.Controls.Add(this.editInspectionButton);
+            this.generalPipeLayout.Controls.Add(this.editInspectionButton);
             this.generalPipeLayout.Controls.Add(this.addInspectionButton);
-                        this.generalPipeLayout.Controls.Add(this.pipeLength);
-            this.generalPipeLayout.Controls.Add(this.addInspectionButton);
+            this.generalPipeLayout.Controls.Add(this.pipeLength);
             this.generalPipeLayout.Controls.Add(this.inspections);
             this.generalPipeLayout.Controls.Add(this.steelGrade);
             this.generalPipeLayout.Controls.Add(this.plateThickness);
@@ -381,7 +379,7 @@ this.generalPipeLayout.Controls.Add(this.editInspectionButton);
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
             // 
-// 
+            // 
             // pipeLength
             // 
             this.pipeLength.Location = new System.Drawing.Point(528, 131);
@@ -391,7 +389,7 @@ this.generalPipeLayout.Controls.Add(this.editInspectionButton);
             this.pipeLength.TabIndex = 59;
             // 
             // 
-// 
+            // 
             // editInspectionButton
             // 
             this.editInspectionButton.Image = ((System.Drawing.Image)(resources.GetObject("editInspectionButton.Image")));
@@ -1720,7 +1718,7 @@ this.generalPipeLayout.Controls.Add(this.editInspectionButton);
         private DevExpress.XtraEditors.SimpleButton editInspectionButton;
         private DevExpress.XtraEditors.SimpleButton addInspectionButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-                private DevExpress.XtraEditors.TextEdit pipeLength;
+        private DevExpress.XtraEditors.TextEdit pipeLength;
         private DevExpress.XtraLayout.LayoutControlItem pipeLengthLayout;
         private DevExpress.XtraLayout.LayoutControlGroup typeSizeaParametersLyoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
