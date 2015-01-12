@@ -6,6 +6,7 @@ CREATE TABLE [dbo].[Category](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
+	[fixed] [bit] NULL,
 	[name] [nvarchar](20) NULL,
 
  CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
