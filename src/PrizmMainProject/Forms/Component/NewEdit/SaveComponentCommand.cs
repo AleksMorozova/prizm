@@ -60,7 +60,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
                     repos.Commit();
                     repos.ComponentRepo.Evict(viewModel.Component);
-                    viewModel.CanDeactivateComponent = viewModel.DeactivationCommand.CanExecute();
                     viewModel.ModifiableView.IsModified = false;
 
                     //saving attached documents
@@ -70,7 +69,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
                         viewModel.FilesFormViewModel = null;
                     }
-
+                    viewModel.ModifiableView.UpdateState();
                     notify.ShowSuccess(
                          string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
                          Resources.DLG_COMPONENT_SAVED_HEADER);
@@ -91,17 +90,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public bool CanExecute()
         {
-            bool condition;
-            bool emptyFields =  !string.IsNullOrEmpty(viewModel.Number) && viewModel.Type != null;
-            if (viewModel.Component.Id == Guid.Empty)
-            { 
-                condition = emptyFields && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
-            }
-            else 
-            {
-                condition = emptyFields && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
-            }
-            return condition;
+            return !string.IsNullOrEmpty(viewModel.Number)
+                && viewModel.Type != null
+                && viewModel.Component.IsActive
+                && ctx.HasAccess(viewModel.Component.Id == Guid.Empty
+                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                                    : global::Domain.Entity.Security.Privileges.EditData);
         }
                
     }

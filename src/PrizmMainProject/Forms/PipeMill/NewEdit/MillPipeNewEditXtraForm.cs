@@ -67,7 +67,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
-            SetExceptionReadOnly(deactivate);
+            SetConditional(deactivate, 
+                delegate(bool editMode) { 
+                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode; 
+                });
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
@@ -155,9 +158,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             deactivate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
-
-            deactivate.DataBindings
-                .Add("Enabled", pipeNewEditBindingSource, "CanDeactivatePipe");
 
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");

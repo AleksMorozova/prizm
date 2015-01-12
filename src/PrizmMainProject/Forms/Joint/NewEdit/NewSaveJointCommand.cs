@@ -40,7 +40,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.NewJoint();
             }
-            viewModel.CheckDeactivation();
         }
         public virtual bool IsExecutable { get; set; }
 
@@ -51,7 +50,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-            return viewModel.SaveJointCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            return viewModel.SaveJointCommand.CanExecute() 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }
 }
