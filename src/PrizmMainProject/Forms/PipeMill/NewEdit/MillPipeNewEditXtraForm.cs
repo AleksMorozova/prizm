@@ -75,6 +75,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(weight);
+            SetAlwaysReadOnly(length);
+            SetAlwaysReadOnly(diameter);
+            SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
             IsEditMode = true;
             #endregion //--- Read-only controls ---
@@ -145,7 +148,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "Diameter");
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
-
+            pipeLength.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeLength");
 
             deactivate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
@@ -559,6 +563,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Prizm.Domain.Entity.Setup.PipeMillSizeType currentPipeType
                 = cb.SelectedItem as Prizm.Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
+
+            if (currentPipeType!=null) 
+            {
+                viewModel.CurrentType = currentPipeType;
+            }
         }
 
         private void inspectionsGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)

@@ -24,6 +24,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private PipeMillSizeType currentType;
+
         private string mill;
         private readonly IMillRepository repoMill;
 
@@ -278,26 +280,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int Diameter
-        {
-            get { return Pipe.Diameter; }
-            set
-            {
-                if(value != Pipe.Diameter)
-                {
-                    Pipe.Diameter = value;
-                    recalculateWeight = true;
-                    RaisePropertyChanged("Diameter");
-                }
-            }
-        }
-
-        public int Length
+        public int PipeLength
         {
             get { return Pipe.Length; }
             set
             {
-                if(value != Pipe.Length)
+                if (value != Pipe.Length)
                 {
                     Pipe.Length = value;
                     recalculateWeight = true;
@@ -322,20 +310,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     Pipe.Weight = value;
                     RaisePropertyChanged("Weight");
-                }
-            }
-        }
-
-        public float WallThickness
-        {
-            get { return Pipe.WallThickness; }
-            set
-            {
-                if (Math.Abs(value - Math.Round(Pipe.WallThickness, 2)) > Constants.WallThicknessPrecision)
-                {
-                    Pipe.WallThickness = value;
-                    recalculateWeight = true;
-                    RaisePropertyChanged("WallThickness");
                 }
             }
         }
@@ -652,6 +626,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public void NewPipe()
         {
+            currentType = new PipeMillSizeType();
             extractPurchaseOrderCommand.Execute();
             extractHeatsCommand.Execute();
             extractPipeTypeCommand.Execute();
@@ -659,7 +634,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
             this.PipePurchaseOrder = null;
             this.Heat = null;
-
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;
             this.Pipe.IsAvailableToJoint = true;
@@ -903,5 +877,79 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             return testsResults;
         }
+
+        public PipeMillSizeType CurrentType
+        {
+            get
+            {
+                return currentType;
+            }
+            set
+            {
+                if (value != currentType)
+                {
+                    currentType = value;
+                    RaisePropertyChanged("CurrentType");
+                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("Diameter");
+                    RaisePropertyChanged("Thickness");
+                    RaisePropertyChanged("SeamType");
+                }
+            }
+        }
+
+        public int Length
+        {
+            get
+            {
+                if (CurrentType != null) { return CurrentType.Length; } else { return 0; }
+
+            }
+            set
+            {
+                if (value != CurrentType.Length)
+                {
+                    CurrentType.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
+        public int Diameter
+        {
+            get
+            {
+                if (CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
+            }
+            set
+            {
+                if (value != CurrentType.Diameter)
+                {
+                    CurrentType.Diameter = value;
+                    RaisePropertyChanged("Diameter");
+                }
+            }
+        }
+
+        public int WallThickness
+        {
+            get
+            {
+                if (CurrentType != null)
+                {
+                    return CurrentType.Thickness;
+                }
+                else { return 0; }
+            }
+            set
+            {
+                if (value != CurrentType.Thickness)
+                {
+                    CurrentType.Thickness = value;
+                    RaisePropertyChanged("WallThickness");
+                }
+            }
+        }
+
     }
 }
