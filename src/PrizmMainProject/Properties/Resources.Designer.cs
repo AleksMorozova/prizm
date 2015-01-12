@@ -831,6 +831,25 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вагон не отгружен.
         /// </summary>
         internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
