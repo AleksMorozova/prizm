@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Security;
+using Ninject;
+
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -15,6 +18,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public JointDeactivationCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify)
         {
@@ -36,7 +40,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.IsNotActive = false;
             }
-            viewModel.CheckDeactivation();
         }
 
         public virtual bool IsExecutable { get; set; }
@@ -48,7 +51,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-            return viewModel.Joint.IsActive && viewModel.Joint.Id != Guid.Empty;
+            return viewModel.Joint.IsActive && 
+                   viewModel.Joint.Id != Guid.Empty &&
+                   ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateJoint);
         }
     }
 }

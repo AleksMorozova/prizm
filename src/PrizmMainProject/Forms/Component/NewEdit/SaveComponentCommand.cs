@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -18,6 +18,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         [Inject]
         public SaveComponentCommand(
@@ -59,7 +60,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
                     repos.Commit();
                     repos.ComponentRepo.Evict(viewModel.Component);
-                    viewModel.CanDeactivateComponent = viewModel.DeactivationCommand.CanExecute();
                     viewModel.ModifiableView.IsModified = false;
 
                     //saving attached documents
@@ -69,7 +69,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
                         viewModel.FilesFormViewModel = null;
                     }
-
+                    viewModel.ModifiableView.UpdateState();
                     notify.ShowSuccess(
                          string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
                          Resources.DLG_COMPONENT_SAVED_HEADER);
@@ -90,9 +90,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public bool CanExecute()
         {
-            return 
-                !string.IsNullOrEmpty(viewModel.Number) &&
-                viewModel.Type != null;
+            return !string.IsNullOrEmpty(viewModel.Number)
+                && viewModel.Type != null
+                && viewModel.Component.IsActive
+                && ctx.HasAccess(viewModel.Component.Id == Guid.Empty
+                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                                    : global::Domain.Entity.Security.Privileges.EditData);
         }
+               
     }
 }

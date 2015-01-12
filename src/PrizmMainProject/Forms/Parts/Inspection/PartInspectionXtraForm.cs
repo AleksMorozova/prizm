@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public PartInspectionXtraForm()
         {
             InitializeComponent();
-            SetExceptionReadOnly(searchNumber);
+            SetAlwaysEditable(searchNumber);
             IsEditMode = true;
         }
 

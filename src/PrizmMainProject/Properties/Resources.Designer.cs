@@ -81,6 +81,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Администратор.
+        /// </summary>
+        internal static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -1605,6 +1614,168 @@ namespace Prizm.Main.Properties {
         internal static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавление вложений.
+        /// </summary>
+        internal static string SecurityPrivilege_AddAttachments {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_AddAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Аудит.
+        /// </summary>
+        internal static string SecurityPrivilege_Audit {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_Audit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация комплектующего.
+        /// </summary>
+        internal static string SecurityPrivilege_DeactivateComponent {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_DeactivateComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация стыка.
+        /// </summary>
+        internal static string SecurityPrivilege_DeactivateJoint {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_DeactivateJoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы.
+        /// </summary>
+        internal static string SecurityPrivilege_DeactivatePipe {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_DeactivatePipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string SecurityPrivilege_DeactivateSpool {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_DeactivateSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирование данных.
+        /// </summary>
+        internal static string SecurityPrivilege_EditData {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_EditData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменение настроек.
+        /// </summary>
+        internal static string SecurityPrivilege_EditSettings {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_EditSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт данных на строительстве.
+        /// </summary>
+        internal static string SecurityPrivilege_ExportDataFromConstruction {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ExportDataFromConstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт данных из Мастер.
+        /// </summary>
+        internal static string SecurityPrivilege_ExportDataFromMaster {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ExportDataFromMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт данных на заводе.
+        /// </summary>
+        internal static string SecurityPrivilege_ExportDataFromMill {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ExportDataFromMill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт данных.
+        /// </summary>
+        internal static string SecurityPrivilege_ImportData {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ImportData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт данных на строительстве.
+        /// </summary>
+        internal static string SecurityPrivilege_ImportDataAtConstruction {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtConstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт данных на Мастер.
+        /// </summary>
+        internal static string SecurityPrivilege_ImportDataAtMaster {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ImportDataAtMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ввод данных.
+        /// </summary>
+        internal static string SecurityPrivilege_NewDataEntry {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_NewDataEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Печать отчетов.
+        /// </summary>
+        internal static string SecurityPrivilege_PrintReports {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_PrintReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отмена разрешения на отгрузку на заводе.
+        /// </summary>
+        internal static string SecurityPrivilege_UnshipAtMill {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_UnshipAtMill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просмотр настроек.
+        /// </summary>
+        internal static string SecurityPrivilege_ViewSettings {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ViewSettings", resourceCulture);
             }
         }
         

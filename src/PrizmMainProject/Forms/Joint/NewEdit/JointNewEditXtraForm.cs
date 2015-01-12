@@ -24,6 +24,7 @@ using System.Threading;
 using System.Linq;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -37,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
-
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public JointNewEditXtraForm(Guid id)
         {
@@ -56,8 +57,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointNumber.SetRequiredText();
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
+            SetConditional(deactivated,
+                delegate(bool editMode)
+                {
+                    return viewModel.JointDeactivationCommand.CanExecute() && editMode;
+                });
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
+            extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }
 
@@ -88,8 +95,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("EditValue", jointNewEditBindingSoure, "Number");
             deactivated.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "IsNotActive");
-            deactivated.DataBindings
-               .Add("Enabled", jointNewEditBindingSoure, "IsCanDeactivate");
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
             GPSLat.DataBindings
@@ -170,7 +175,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = !viewModel.IsNotActive;
             IsModified = false;
-            viewModel.CheckDeactivation();
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)

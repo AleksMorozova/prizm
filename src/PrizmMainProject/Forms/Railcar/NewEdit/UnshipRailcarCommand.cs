@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -19,6 +20,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         [Inject]
         public UnshipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
@@ -52,7 +54,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         }
         public bool CanExecute()
         {
-            return (viewModel.Railcar.IsShipped);
+            return (viewModel.Railcar.IsShipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.UnshipAtMill)) ;
         }
         public virtual bool IsExecutable { get; set; }
 

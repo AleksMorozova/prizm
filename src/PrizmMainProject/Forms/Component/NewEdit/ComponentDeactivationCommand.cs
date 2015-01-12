@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DevExpress.Mvvm.POCO;
 using Ninject;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -17,6 +17,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         [Inject]
         public ComponentDeactivationCommand(
@@ -54,7 +55,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public bool CanExecute()
         {
             return 
-                viewModel.Component.IsActive;
+                viewModel.Component.IsActive &&
+                viewModel.Component.Id != Guid.Empty &&
+                ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateComponent);
         }
     }
 }

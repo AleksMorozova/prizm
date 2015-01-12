@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Security;
+using Ninject;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -16,6 +18,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public SaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify)
         {
@@ -70,7 +73,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
                             viewModel.FilesFormViewModel = null;
                         }
-
+                        viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
                             Resources.DLG_JOINT_SAVED_HEADER);
@@ -87,7 +90,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Resources.DLG_JOINT_INCORRECT_DIAMETER_HEADER);
                 }
             }
-            viewModel.CheckDeactivation();
         }
 
         public virtual bool IsExecutable { get; set; }
@@ -99,11 +101,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-             bool condition = !string.IsNullOrEmpty(viewModel.Number) 
-                 && viewModel.FirstElement!=null 
-                 && viewModel.SecondElement !=null;
-
-             return condition;
+             return !string.IsNullOrEmpty(viewModel.Number) 
+                 && viewModel.FirstElement != null 
+                 && viewModel.SecondElement != null
+                 && viewModel.Joint.IsActive
+                 && ctx.HasAccess(viewModel.Joint.Id == Guid.Empty 
+                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                                    : global::Domain.Entity.Security.Privileges.EditData);
         }
     }
 }

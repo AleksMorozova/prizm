@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Prizm.Main.Properties;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
+using Prizm.Main.Security;
+using Ninject;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -21,6 +23,7 @@ namespace Prizm.Main.Forms.Settings
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify)
         {
@@ -136,7 +139,7 @@ namespace Prizm.Main.Forms.Settings
 
         public bool CanExecute()
         {
-            return true;
+            return ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
         }
 
         void SaveMillSizeTypes()

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -17,6 +18,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         [Inject]
         public NewSaveComponentCommand(
@@ -51,7 +53,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public bool CanExecute()
         {
             return 
-                viewModel.SaveCommand.CanExecute();
+                viewModel.SaveCommand.CanExecute() 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }
 }

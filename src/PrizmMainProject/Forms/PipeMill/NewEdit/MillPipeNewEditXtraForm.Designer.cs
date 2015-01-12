@@ -46,7 +46,9 @@
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+                        this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
@@ -131,10 +133,12 @@
             this.weldsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.weldsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factSizeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.thicknessLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.weightLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeLengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.typeSizeaParametersLyoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lengthLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.diameterLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.thicknessLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
@@ -152,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).BeginInit();
             this.generalPipeLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
@@ -220,10 +225,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factSizeLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLengthLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeSizeaParametersLyoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameterLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
@@ -260,12 +267,12 @@
             // 
             this.weldingHistory.Cursor = System.Windows.Forms.Cursors.Default;
             this.weldingHistory.DataSource = this.weldBindingSource;
-            this.weldingHistory.Location = new System.Drawing.Point(548, 325);
+            this.weldingHistory.Location = new System.Drawing.Point(448, 277);
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
             this.weldingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPopupWelders});
-            this.weldingHistory.Size = new System.Drawing.Size(696, 158);
+            this.weldingHistory.Size = new System.Drawing.Size(796, 206);
             this.weldingHistory.TabIndex = 40;
             this.weldingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.weldingHistoryGridView,
@@ -324,10 +331,10 @@
             // steelGrade
             // 
             this.steelGrade.EditValue = "";
-            this.steelGrade.Location = new System.Drawing.Point(343, 197);
+            this.steelGrade.Location = new System.Drawing.Point(291, 197);
             this.steelGrade.Name = "steelGrade";
             this.steelGrade.Properties.ReadOnly = true;
-            this.steelGrade.Size = new System.Drawing.Size(166, 20);
+            this.steelGrade.Size = new System.Drawing.Size(118, 20);
             this.steelGrade.StyleController = this.generalPipeLayout;
             this.steelGrade.TabIndex = 55;
             // 
@@ -336,7 +343,9 @@
             this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.generalPipeLayout.Controls.Add(this.editInspectionButton);
+this.generalPipeLayout.Controls.Add(this.editInspectionButton);
+            this.generalPipeLayout.Controls.Add(this.addInspectionButton);
+                        this.generalPipeLayout.Controls.Add(this.pipeLength);
             this.generalPipeLayout.Controls.Add(this.addInspectionButton);
             this.generalPipeLayout.Controls.Add(this.inspections);
             this.generalPipeLayout.Controls.Add(this.steelGrade);
@@ -372,6 +381,17 @@
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
             // 
+// 
+            // pipeLength
+            // 
+            this.pipeLength.Location = new System.Drawing.Point(528, 131);
+            this.pipeLength.Name = "pipeLength";
+            this.pipeLength.Size = new System.Drawing.Size(93, 20);
+            this.pipeLength.StyleController = this.generalPipeLayout;
+            this.pipeLength.TabIndex = 59;
+            // 
+            // 
+// 
             // editInspectionButton
             // 
             this.editInspectionButton.Image = ((System.Drawing.Image)(resources.GetObject("editInspectionButton.Image")));
@@ -381,6 +401,7 @@
             this.editInspectionButton.StyleController = this.generalPipeLayout;
             this.editInspectionButton.TabIndex = 60;
             this.editInspectionButton.Text = "Редактировать";
+
             // 
             // addInspectionButton
             // 
@@ -564,11 +585,11 @@
             // 
             // plateThickness
             // 
-            this.plateThickness.Location = new System.Drawing.Point(343, 147);
+            this.plateThickness.Location = new System.Drawing.Point(291, 147);
             this.plateThickness.Name = "plateThickness";
             this.plateThickness.Properties.Mask.EditMask = "f2";
             this.plateThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.plateThickness.Size = new System.Drawing.Size(166, 20);
+            this.plateThickness.Size = new System.Drawing.Size(118, 20);
             this.plateThickness.StyleController = this.generalPipeLayout;
             this.plateThickness.TabIndex = 58;
             // 
@@ -576,7 +597,7 @@
             // 
             this.plateNumber.Location = new System.Drawing.Point(46, 147);
             this.plateNumber.Name = "plateNumber";
-            this.plateNumber.Size = new System.Drawing.Size(283, 20);
+            this.plateNumber.Size = new System.Drawing.Size(231, 20);
             this.plateNumber.StyleController = this.generalPipeLayout;
             this.plateNumber.TabIndex = 25;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -585,10 +606,10 @@
             // 
             // shippedDate
             // 
-            this.shippedDate.Location = new System.Drawing.Point(1035, 147);
+            this.shippedDate.Location = new System.Drawing.Point(879, 197);
             this.shippedDate.Name = "shippedDate";
             this.shippedDate.Properties.ReadOnly = true;
-            this.shippedDate.Size = new System.Drawing.Size(204, 20);
+            this.shippedDate.Size = new System.Drawing.Size(101, 20);
             this.shippedDate.StyleController = this.generalPipeLayout;
             this.shippedDate.TabIndex = 56;
             // 
@@ -638,10 +659,10 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(893, 197);
+            this.certificateNumber.Location = new System.Drawing.Point(994, 147);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Properties.ReadOnly = true;
-            this.certificateNumber.Size = new System.Drawing.Size(346, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(245, 20);
             this.certificateNumber.StyleController = this.generalPipeLayout;
             this.certificateNumber.TabIndex = 55;
             // 
@@ -684,10 +705,10 @@
             // 
             // destination
             // 
-            this.destination.Location = new System.Drawing.Point(893, 247);
+            this.destination.Location = new System.Drawing.Point(994, 197);
             this.destination.Name = "destination";
             this.destination.Properties.ReadOnly = true;
-            this.destination.Size = new System.Drawing.Size(346, 20);
+            this.destination.Size = new System.Drawing.Size(245, 20);
             this.destination.StyleController = this.generalPipeLayout;
             this.destination.TabIndex = 54;
             // 
@@ -702,10 +723,10 @@
             // 
             // railcarNumber
             // 
-            this.railcarNumber.Location = new System.Drawing.Point(893, 147);
+            this.railcarNumber.Location = new System.Drawing.Point(879, 147);
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Properties.ReadOnly = true;
-            this.railcarNumber.Size = new System.Drawing.Size(128, 20);
+            this.railcarNumber.Size = new System.Drawing.Size(101, 20);
             this.railcarNumber.StyleController = this.generalPipeLayout;
             this.railcarNumber.TabIndex = 53;
             // 
@@ -724,12 +745,12 @@
             this.coatingHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.coatingHistory.Cursor = System.Windows.Forms.Cursors.Default;
             this.coatingHistory.DataSource = this.coatDataSource;
-            this.coatingHistory.Location = new System.Drawing.Point(41, 325);
+            this.coatingHistory.Location = new System.Drawing.Point(41, 277);
             this.coatingHistory.MainView = this.coatingHistoryGridView;
             this.coatingHistory.Name = "coatingHistory";
             this.coatingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEditCoatType});
-            this.coatingHistory.Size = new System.Drawing.Size(473, 158);
+            this.coatingHistory.Size = new System.Drawing.Size(373, 206);
             this.coatingHistory.TabIndex = 45;
             this.coatingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.coatingHistoryGridView});
@@ -808,11 +829,11 @@
             // 
             // diameter
             // 
-            this.diameter.Location = new System.Drawing.Point(657, 165);
+            this.diameter.Location = new System.Drawing.Point(740, 165);
             this.diameter.Name = "diameter";
             this.diameter.Properties.Mask.EditMask = "d";
             this.diameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.diameter.Size = new System.Drawing.Size(192, 20);
+            this.diameter.Size = new System.Drawing.Size(95, 20);
             this.diameter.StyleController = this.generalPipeLayout;
             this.diameter.TabIndex = 28;
             // 
@@ -830,22 +851,22 @@
             // 
             // length
             // 
-            this.length.Location = new System.Drawing.Point(657, 131);
+            this.length.Location = new System.Drawing.Point(740, 131);
             this.length.Name = "length";
             this.length.Properties.Mask.EditMask = "d";
             this.length.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.length.Size = new System.Drawing.Size(192, 20);
+            this.length.Size = new System.Drawing.Size(95, 20);
             this.length.StyleController = this.generalPipeLayout;
             this.length.TabIndex = 25;
             // 
             // weight
             // 
-            this.weight.Location = new System.Drawing.Point(657, 233);
+            this.weight.Location = new System.Drawing.Point(528, 165);
             this.weight.Name = "weight";
             this.weight.Properties.Mask.EditMask = "d";
             this.weight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.weight.Properties.ReadOnly = true;
-            this.weight.Size = new System.Drawing.Size(192, 20);
+            this.weight.Size = new System.Drawing.Size(93, 20);
             this.weight.StyleController = this.generalPipeLayout;
             this.weight.TabIndex = 27;
             // 
@@ -868,11 +889,11 @@
             // 
             // thickness
             // 
-            this.thickness.Location = new System.Drawing.Point(657, 199);
+            this.thickness.Location = new System.Drawing.Point(740, 199);
             this.thickness.Name = "thickness";
             this.thickness.Properties.Mask.EditMask = "f2";
             this.thickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.thickness.Size = new System.Drawing.Size(192, 20);
+            this.thickness.Size = new System.Drawing.Size(95, 20);
             this.thickness.StyleController = this.generalPipeLayout;
             this.thickness.TabIndex = 26;
             // 
@@ -897,7 +918,7 @@
             this.plateManufacturer.Location = new System.Drawing.Point(46, 197);
             this.plateManufacturer.Name = "plateManufacturer";
             this.plateManufacturer.Properties.ReadOnly = true;
-            this.plateManufacturer.Size = new System.Drawing.Size(283, 20);
+            this.plateManufacturer.Size = new System.Drawing.Size(231, 20);
             this.plateManufacturer.StyleController = this.generalPipeLayout;
             this.plateManufacturer.TabIndex = 57;
             // 
@@ -1110,8 +1131,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Вкладки";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 0;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 456);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,
@@ -1185,7 +1206,8 @@
             this.coverLayoutControlGroup,
             this.shippingLayoutControlGroup,
             this.weldsLayoutControlGroup,
-            this.factSizeLayoutControlGroup});
+            this.factSizeLayoutControlGroup,
+            this.typeSizeaParametersLyoutGroup});
             this.pipeTabLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeTabLayoutControlGroup.Name = "pipeTabLayoutControlGroup";
             this.pipeTabLayoutControlGroup.Size = new System.Drawing.Size(1237, 410);
@@ -1201,7 +1223,7 @@
             this.steelGradeLayoutControlItem});
             this.plateLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.plateLayoutControlGroup.Name = "plateLayoutControlGroup";
-            this.plateLayoutControlGroup.Size = new System.Drawing.Size(507, 199);
+            this.plateLayoutControlGroup.Size = new System.Drawing.Size(407, 151);
             this.plateLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.plateLayoutControlGroup.Text = "Параметры листа";
             // 
@@ -1211,7 +1233,7 @@
             this.plateNumberLayoutControlItem.CustomizationFormText = "Номер";
             this.plateNumberLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.plateNumberLayoutControlItem.Name = "plateNumberLayoutControlItem";
-            this.plateNumberLayoutControlItem.Size = new System.Drawing.Size(297, 50);
+            this.plateNumberLayoutControlItem.Size = new System.Drawing.Size(245, 50);
             this.plateNumberLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.plateNumberLayoutControlItem.Text = "Номер";
             this.plateNumberLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1223,7 +1245,7 @@
             this.plateManufacturerLayoutControlItem.CustomizationFormText = "Производитель";
             this.plateManufacturerLayoutControlItem.Location = new System.Drawing.Point(0, 50);
             this.plateManufacturerLayoutControlItem.Name = "plateManufacturerLayoutControlItem";
-            this.plateManufacturerLayoutControlItem.Size = new System.Drawing.Size(297, 100);
+            this.plateManufacturerLayoutControlItem.Size = new System.Drawing.Size(245, 52);
             this.plateManufacturerLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.plateManufacturerLayoutControlItem.Text = "Производитель";
             this.plateManufacturerLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1233,9 +1255,9 @@
             // 
             this.plateThicknessLayoutControlItem.Control = this.plateThickness;
             this.plateThicknessLayoutControlItem.CustomizationFormText = "Толщина";
-            this.plateThicknessLayoutControlItem.Location = new System.Drawing.Point(297, 0);
+            this.plateThicknessLayoutControlItem.Location = new System.Drawing.Point(245, 0);
             this.plateThicknessLayoutControlItem.Name = "plateThicknessLayoutControlItem";
-            this.plateThicknessLayoutControlItem.Size = new System.Drawing.Size(180, 50);
+            this.plateThicknessLayoutControlItem.Size = new System.Drawing.Size(132, 50);
             this.plateThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.plateThicknessLayoutControlItem.Text = "Толщина";
             this.plateThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1245,9 +1267,9 @@
             // 
             this.steelGradeLayoutControlItem.Control = this.steelGrade;
             this.steelGradeLayoutControlItem.CustomizationFormText = "Марка стали";
-            this.steelGradeLayoutControlItem.Location = new System.Drawing.Point(297, 50);
+            this.steelGradeLayoutControlItem.Location = new System.Drawing.Point(245, 50);
             this.steelGradeLayoutControlItem.Name = "steelGradeLayoutControlItem";
-            this.steelGradeLayoutControlItem.Size = new System.Drawing.Size(180, 100);
+            this.steelGradeLayoutControlItem.Size = new System.Drawing.Size(132, 52);
             this.steelGradeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.steelGradeLayoutControlItem.Text = "Марка стали";
             this.steelGradeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1258,9 +1280,9 @@
             this.coverLayoutControlGroup.CustomizationFormText = "Параметры покрытия";
             this.coverLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.coatsLayoutControlItem});
-            this.coverLayoutControlGroup.Location = new System.Drawing.Point(0, 199);
+            this.coverLayoutControlGroup.Location = new System.Drawing.Point(0, 151);
             this.coverLayoutControlGroup.Name = "coverLayoutControlGroup";
-            this.coverLayoutControlGroup.Size = new System.Drawing.Size(507, 211);
+            this.coverLayoutControlGroup.Size = new System.Drawing.Size(407, 259);
             this.coverLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.coverLayoutControlGroup.Text = "Параметры покрытия";
             // 
@@ -1270,7 +1292,7 @@
             this.coatsLayoutControlItem.CustomizationFormText = "Параметры покрытия";
             this.coatsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.coatsLayoutControlItem.Name = "coatsLayoutControlItem";
-            this.coatsLayoutControlItem.Size = new System.Drawing.Size(477, 162);
+            this.coatsLayoutControlItem.Size = new System.Drawing.Size(377, 210);
             this.coatsLayoutControlItem.Text = "coatsLayoutControlItem";
             this.coatsLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.coatsLayoutControlItem.TextVisible = false;
@@ -1284,9 +1306,9 @@
             this.destinationLayoutControlItem,
             this.certificateLayoutControlItem,
             this.shippedDateLayoutControlItem});
-            this.shippingLayoutControlGroup.Location = new System.Drawing.Point(847, 0);
+            this.shippingLayoutControlGroup.Location = new System.Drawing.Point(833, 0);
             this.shippingLayoutControlGroup.Name = "shippingLayoutControlGroup";
-            this.shippingLayoutControlGroup.Size = new System.Drawing.Size(390, 199);
+            this.shippingLayoutControlGroup.Size = new System.Drawing.Size(404, 151);
             this.shippingLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.shippingLayoutControlGroup.Text = "Параметры отгрузки";
             // 
@@ -1296,7 +1318,7 @@
             this.railcarLayoutControlItem.CustomizationFormText = "Номер вагона";
             this.railcarLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutControlItem.Name = "railcarLayoutControlItem";
-            this.railcarLayoutControlItem.Size = new System.Drawing.Size(142, 50);
+            this.railcarLayoutControlItem.Size = new System.Drawing.Size(115, 50);
             this.railcarLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.railcarLayoutControlItem.Text = "Номер вагона";
             this.railcarLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1306,9 +1328,9 @@
             // 
             this.destinationLayoutControlItem.Control = this.destination;
             this.destinationLayoutControlItem.CustomizationFormText = "Получатель";
-            this.destinationLayoutControlItem.Location = new System.Drawing.Point(0, 100);
+            this.destinationLayoutControlItem.Location = new System.Drawing.Point(115, 50);
             this.destinationLayoutControlItem.Name = "destinationLayoutControlItem";
-            this.destinationLayoutControlItem.Size = new System.Drawing.Size(360, 50);
+            this.destinationLayoutControlItem.Size = new System.Drawing.Size(259, 52);
             this.destinationLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.destinationLayoutControlItem.Text = "Получатель";
             this.destinationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1318,9 +1340,9 @@
             // 
             this.certificateLayoutControlItem.Control = this.certificateNumber;
             this.certificateLayoutControlItem.CustomizationFormText = "Номер сертификата";
-            this.certificateLayoutControlItem.Location = new System.Drawing.Point(0, 50);
+            this.certificateLayoutControlItem.Location = new System.Drawing.Point(115, 0);
             this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
-            this.certificateLayoutControlItem.Size = new System.Drawing.Size(360, 50);
+            this.certificateLayoutControlItem.Size = new System.Drawing.Size(259, 50);
             this.certificateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.certificateLayoutControlItem.Text = "Номер сертификата";
             this.certificateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1330,9 +1352,9 @@
             // 
             this.shippedDateLayoutControlItem.Control = this.shippedDate;
             this.shippedDateLayoutControlItem.CustomizationFormText = "Дата";
-            this.shippedDateLayoutControlItem.Location = new System.Drawing.Point(142, 0);
+            this.shippedDateLayoutControlItem.Location = new System.Drawing.Point(0, 50);
             this.shippedDateLayoutControlItem.Name = "shippedDateLayoutControlItem";
-            this.shippedDateLayoutControlItem.Size = new System.Drawing.Size(218, 50);
+            this.shippedDateLayoutControlItem.Size = new System.Drawing.Size(115, 52);
             this.shippedDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.shippedDateLayoutControlItem.Text = "Дата";
             this.shippedDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1343,9 +1365,9 @@
             this.weldsLayoutControlGroup.CustomizationFormText = "История сварки";
             this.weldsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.weldsLayoutControlItem});
-            this.weldsLayoutControlGroup.Location = new System.Drawing.Point(507, 199);
+            this.weldsLayoutControlGroup.Location = new System.Drawing.Point(407, 151);
             this.weldsLayoutControlGroup.Name = "weldsLayoutControlGroup";
-            this.weldsLayoutControlGroup.Size = new System.Drawing.Size(730, 211);
+            this.weldsLayoutControlGroup.Size = new System.Drawing.Size(830, 259);
             this.weldsLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.weldsLayoutControlGroup.Text = "История сварки";
             // 
@@ -1355,7 +1377,7 @@
             this.weldsLayoutControlItem.CustomizationFormText = "История сварки";
             this.weldsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.weldsLayoutControlItem.Name = "weldsLayoutControlItem";
-            this.weldsLayoutControlItem.Size = new System.Drawing.Size(700, 162);
+            this.weldsLayoutControlItem.Size = new System.Drawing.Size(800, 210);
             this.weldsLayoutControlItem.Text = "weldsLayoutControlItem";
             this.weldsLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.weldsLayoutControlItem.TextVisible = false;
@@ -1364,37 +1386,52 @@
             // 
             this.factSizeLayoutControlGroup.CustomizationFormText = "Фактический размер";
             this.factSizeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.thicknessLayoutControlItem,
             this.weightLayoutControlItem,
-            this.lengthLayoutControlItem,
-            this.diameterLayoutControlItem});
-            this.factSizeLayoutControlGroup.Location = new System.Drawing.Point(507, 0);
+            this.pipeLengthLayout});
+            this.factSizeLayoutControlGroup.Location = new System.Drawing.Point(407, 0);
             this.factSizeLayoutControlGroup.Name = "factSizeLayoutControlGroup";
-            this.factSizeLayoutControlGroup.Size = new System.Drawing.Size(340, 199);
+            this.factSizeLayoutControlGroup.Size = new System.Drawing.Size(212, 151);
             this.factSizeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.factSizeLayoutControlGroup.Text = "Фактический размер";
-            // 
-            // thicknessLayoutControlItem
-            // 
-            this.thicknessLayoutControlItem.Control = this.thickness;
-            this.thicknessLayoutControlItem.CustomizationFormText = "Толщина";
-            this.thicknessLayoutControlItem.Location = new System.Drawing.Point(0, 68);
-            this.thicknessLayoutControlItem.Name = "thicknessLayoutControlItem";
-            this.thicknessLayoutControlItem.Size = new System.Drawing.Size(310, 34);
-            this.thicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.thicknessLayoutControlItem.Text = "Толщина";
-            this.thicknessLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
             // weightLayoutControlItem
             // 
             this.weightLayoutControlItem.Control = this.weight;
             this.weightLayoutControlItem.CustomizationFormText = "Вес";
-            this.weightLayoutControlItem.Location = new System.Drawing.Point(0, 102);
+            this.weightLayoutControlItem.Location = new System.Drawing.Point(0, 34);
             this.weightLayoutControlItem.Name = "weightLayoutControlItem";
-            this.weightLayoutControlItem.Size = new System.Drawing.Size(310, 48);
+            this.weightLayoutControlItem.Size = new System.Drawing.Size(182, 68);
             this.weightLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.weightLayoutControlItem.Text = "Вес";
-            this.weightLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
+            this.weightLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.weightLayoutControlItem.TextSize = new System.Drawing.Size(70, 13);
+            this.weightLayoutControlItem.TextToControlDistance = 5;
+            // 
+            // pipeLengthLayout
+            // 
+            this.pipeLengthLayout.Control = this.pipeLength;
+            this.pipeLengthLayout.CustomizationFormText = "Длина";
+            this.pipeLengthLayout.Location = new System.Drawing.Point(0, 0);
+            this.pipeLengthLayout.Name = "pipeLengthLayout";
+            this.pipeLengthLayout.Size = new System.Drawing.Size(182, 34);
+            this.pipeLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.pipeLengthLayout.Text = "Длина";
+            this.pipeLengthLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.pipeLengthLayout.TextSize = new System.Drawing.Size(70, 13);
+            this.pipeLengthLayout.TextToControlDistance = 5;
+            // 
+            // typeSizeaParametersLyoutGroup
+            // 
+            this.typeSizeaParametersLyoutGroup.CustomizationFormText = "Типоразмер";
+            this.typeSizeaParametersLyoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lengthLayoutControlItem,
+            this.diameterLayoutControlItem,
+            this.thicknessLayoutControlItem});
+            this.typeSizeaParametersLyoutGroup.Location = new System.Drawing.Point(619, 0);
+            this.typeSizeaParametersLyoutGroup.Name = "typeSizeaParametersLyoutGroup";
+            this.typeSizeaParametersLyoutGroup.Size = new System.Drawing.Size(214, 151);
+            this.typeSizeaParametersLyoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.typeSizeaParametersLyoutGroup.Text = "Типоразмер";
             // 
             // lengthLayoutControlItem
             // 
@@ -1402,10 +1439,12 @@
             this.lengthLayoutControlItem.CustomizationFormText = "Длина";
             this.lengthLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.lengthLayoutControlItem.Name = "lengthLayoutControlItem";
-            this.lengthLayoutControlItem.Size = new System.Drawing.Size(310, 34);
+            this.lengthLayoutControlItem.Size = new System.Drawing.Size(184, 34);
             this.lengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.lengthLayoutControlItem.Text = "Длина";
-            this.lengthLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
+            this.lengthLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.lengthLayoutControlItem.TextSize = new System.Drawing.Size(70, 13);
+            this.lengthLayoutControlItem.TextToControlDistance = 5;
             // 
             // diameterLayoutControlItem
             // 
@@ -1413,10 +1452,25 @@
             this.diameterLayoutControlItem.CustomizationFormText = "Диаметр";
             this.diameterLayoutControlItem.Location = new System.Drawing.Point(0, 34);
             this.diameterLayoutControlItem.Name = "diameterLayoutControlItem";
-            this.diameterLayoutControlItem.Size = new System.Drawing.Size(310, 34);
+            this.diameterLayoutControlItem.Size = new System.Drawing.Size(184, 34);
             this.diameterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.diameterLayoutControlItem.Text = "Диаметр";
-            this.diameterLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
+            this.diameterLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.diameterLayoutControlItem.TextSize = new System.Drawing.Size(70, 13);
+            this.diameterLayoutControlItem.TextToControlDistance = 5;
+            // 
+            // thicknessLayoutControlItem
+            // 
+            this.thicknessLayoutControlItem.Control = this.thickness;
+            this.thicknessLayoutControlItem.CustomizationFormText = "Толщина";
+            this.thicknessLayoutControlItem.Location = new System.Drawing.Point(0, 68);
+            this.thicknessLayoutControlItem.Name = "thicknessLayoutControlItem";
+            this.thicknessLayoutControlItem.Size = new System.Drawing.Size(184, 34);
+            this.thicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.thicknessLayoutControlItem.Text = "Толщина";
+            this.thicknessLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.thicknessLayoutControlItem.TextSize = new System.Drawing.Size(70, 13);
+            this.thicknessLayoutControlItem.TextToControlDistance = 5;
             // 
             // plateNumberLayout
             // 
@@ -1472,6 +1526,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalPipeLayout)).EndInit();
             this.generalPipeLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
@@ -1540,10 +1595,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factSizeLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeLengthLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeSizeaParametersLyoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameterLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
@@ -1663,6 +1720,9 @@
         private DevExpress.XtraEditors.SimpleButton editInspectionButton;
         private DevExpress.XtraEditors.SimpleButton addInspectionButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+                private DevExpress.XtraEditors.TextEdit pipeLength;
+        private DevExpress.XtraLayout.LayoutControlItem pipeLengthLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup typeSizeaParametersLyoutGroup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 
