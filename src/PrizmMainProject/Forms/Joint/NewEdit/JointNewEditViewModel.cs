@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using DevExpress.XtraCharts.Native;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
@@ -620,7 +621,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (list == null && Pieces != null)
+                if (Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
@@ -727,6 +728,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
 
+        }
+
+        public void RefreshJointComponents()
+        {
+            Pieces = adoRepo.GetPipelineElements();
         }
 
     }

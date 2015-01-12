@@ -600,6 +600,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
+           // this.secondJointElement.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.secondJointElement_ButtonClick);
             this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
             // 
             // firstJointElement
@@ -981,6 +982,7 @@
             this.ShowIcon = false;
             this.Text = "Стык";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
+            this.Activated += new System.EventHandler(this.JointNewEditXtraForm_Activated);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
