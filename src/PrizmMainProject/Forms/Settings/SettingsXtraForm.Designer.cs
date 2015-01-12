@@ -1455,11 +1455,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeLength.Location = new System.Drawing.Point(864, 464);
             this.pipeLength.Name = "pipeLength";
+            this.pipeLength.Properties.Mask.EditMask = "d";
+            this.pipeLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule1.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
@@ -1764,11 +1766,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThickness.Location = new System.Drawing.Point(672, 464);
             this.wallThickness.Name = "wallThickness";
+            this.wallThickness.Properties.Mask.EditMask = "f2";
+            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule2.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule2);
             // 
@@ -1776,11 +1780,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(481, 464);
             this.pipeDiameter.Name = "pipeDiameter";
+            this.pipeDiameter.Properties.Mask.EditMask = "d";
+            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule3.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule3.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule3);
             // 
@@ -1794,7 +1800,7 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule4.Value1 = "<Null>";
             this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
