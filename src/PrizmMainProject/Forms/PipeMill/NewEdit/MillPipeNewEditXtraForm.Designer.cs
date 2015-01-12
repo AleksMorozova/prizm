@@ -592,6 +592,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.plateNumber, conditionValidationRule1);
+            this.plateNumber.EditValueChanged += new System.EventHandler(this.plateNumber_EditValueChanged);
             // 
             // shippedDate
             // 
