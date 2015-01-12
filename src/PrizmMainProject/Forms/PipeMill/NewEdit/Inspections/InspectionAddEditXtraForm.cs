@@ -25,6 +25,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             InitializeComponent();
             viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
 
+            date.Properties.NullDate = DateTime.MinValue;
+            date.Properties.NullText = string.Empty;
+
             if(current != null)
             {
                 switch(current.Operation.ResultType)
@@ -33,7 +36,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         break;
                     case PipeTestResultType.String:
-                        factStringLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         break;
                     case PipeTestResultType.Diapason:
                         factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -81,6 +84,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             status.Properties.DataSource = viewModel.statuses;
             status.DataBindings.Add("EditValue", bindingSource, "Status");
             date.DataBindings.Add("EditValue", bindingSource, "Date");
+
+            factBool.DataBindings.Add("Checked", bindingSource, "FactBool");
         }
 
         private void code_EditValueChanged(object sender, EventArgs e)

@@ -30,12 +30,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             {
                 TestResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
                 TestResult.Operation = new PipeTest();
+                //TODO: Check availableTests is null
                 TestResult.Operation = this.availableTests[0];
-
             }
             else
             {
                 TestResult = current;
+            }
+            if(testResult.Value == null)
+            {
+                testResult.Value = string.Empty;
+            }
+            if(testResult.Date == null)
+            {
+                testResult.Date = DateTime.MinValue;
             }
         }
 
@@ -196,9 +204,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        public DateTime? Date
+        public DateTime Date
         {
-            get { return testResult.Date; }
+            get 
+            {
+                if(testResult.Date.HasValue)
+                {
+                    return testResult.Date.Value;
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            }
             set
             {
                 if(value != testResult.Date)
@@ -221,6 +239,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
             }
         }
+
+        public bool FactBool
+        {
+            get 
+            {
+                return (testResult.Value.Equals("True")) ? true : false; 
+            }
+            set
+            {
+                string input = value.ToString();
+                if(!testResult.Value.Equals(input))
+                {
+                    testResult.Value = input;
+                    RaisePropertyChanged("FactBool");
+                }
+            }
+        }
+
+
         #endregion
 
         #region IDisposable Members
