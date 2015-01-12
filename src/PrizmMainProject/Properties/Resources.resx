@@ -782,7 +782,7 @@
   <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
     <value>Экспорт данных на заводе</value>
   </data>
-  <data name="superUser" xml:space="preserve">
-    <value>Суперпользователь</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>Администратор</value>
   </data>
 </root>
