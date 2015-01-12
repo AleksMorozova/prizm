@@ -76,6 +76,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             inspectorsBindingSource.DataSource = viewModel.Inspectors;
 
             inspectors.DataSource = inspectorsBindingSource;
+            inspectors.SelectInspectors(viewModel.SelectInspectors());
+
             code.DataBindings.Add("EditValue", bindingSource, "Code");
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
@@ -86,6 +88,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             date.DataBindings.Add("EditValue", bindingSource, "Date");
 
             factBool.DataBindings.Add("Checked", bindingSource, "FactBool");
+            factString.DataBindings.Add("EditValue", bindingSource, "FactString");
         }
 
         private void code_EditValueChanged(object sender, EventArgs e)

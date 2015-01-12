@@ -266,6 +266,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
+        //SelectedInspectors
+        public IList<Inspector> SelectedInspectors
+        {
+            get { return testResult.Inspectors; }
+        }
+
+
 
         #endregion
 
@@ -282,6 +289,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         {
             var test = availableTests.FirstOrDefault(x => x.Code == code);
             Operation = test;
+        }
+
+        internal IList<Inspector> SelectInspectors()
+        {
+            return testResult.Inspectors;
         }
     }
 }
