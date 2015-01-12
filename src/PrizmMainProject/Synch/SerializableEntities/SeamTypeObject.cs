@@ -46,7 +46,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Name { get; set; }
 
       [XmlArray("SeamTypes")]
-      public IList<SeamTypeObject> SeamTypes { get; set; }
+      public List<SeamTypeObject> SeamTypes { get; set; }
 
    }
 }

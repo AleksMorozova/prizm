@@ -38,7 +38,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Number { get; set; }
 
       [XmlAttribute("Date")]
-      public DateTime? Date { get; set; }
+      public DateTime Date { get; set; }
 
 
    }

@@ -22,7 +22,10 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Number = railcar.Number;
          this.Certificate = railcar.Certificate;
          this.Destination = railcar.Destination;
-         this.ShippingDate = railcar.ShippingDate;
+         if (railcar.ShippingDate != null)
+         {
+            this.ShippingDate = railcar.ShippingDate.Value;
+         }
          this.IsShipped = railcar.IsShipped;
       }
 
@@ -47,7 +50,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Destination { get; set; }
 
       [XmlAttribute("ShippingDate")]
-      public DateTime? ShippingDate { get; set; }
+      public DateTime ShippingDate { get; set; }
 
       [XmlAttribute("IsShipped")]
       public bool IsShipped { get; set; }

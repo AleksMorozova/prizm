@@ -101,7 +101,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public PurchaseOrderObject PurchaseOrder { get; set; }
 
       [XmlArray("Spools")]
-      public IList<SpoolObject> Spools { get; set; }
+      public List<SpoolObject> Spools { get; set; }
 
       [XmlAttribute("Status")]
       public PipeMillStatus Status { get; set; }
