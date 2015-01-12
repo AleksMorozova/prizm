@@ -41,10 +41,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             {
                 testResult.Value = string.Empty;
             }
-            if(testResult.Date == null)
-            {
-                testResult.Date = DateTime.MinValue;
-            }
         }
 
         #region Test
@@ -253,6 +249,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 {
                     testResult.Value = input;
                     RaisePropertyChanged("FactBool");
+                }
+            }
+        }
+
+        public string FactString
+        {
+            get { return testResult.Value; }
+            set
+            {
+                if(value != testResult.Value)
+                {
+                    testResult.Value = value;
+                    RaisePropertiesChanged("FactString");
                 }
             }
         }
