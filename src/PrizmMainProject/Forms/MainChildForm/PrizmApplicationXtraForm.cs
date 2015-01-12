@@ -33,6 +33,7 @@ using DevExpress.XtraSplashScreen;
 using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Security;
 using Domain.Entity.Security;
+using System.Linq;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -61,25 +62,34 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Checks if given form type is single. Expected type name of the form derived from ChildForm and used as a child window.
-        /// Single means to have only one opened child window if this type at a time.
+        /// Gives the ChildForm index in corresponding childForms list that contains the element defined by id.
         /// </summary>
-        /// <param name="formTypeName">string representation of form type name, for example "SettingsXtraForm"</param>
-        /// <returns>true if form is "single" in terms of this application</returns>
-        private bool IsSingle(string formTypeName)
+        /// <param name="formTypeName">string representation of form type name, for example</param>
+        /// <param name="id"></param>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the
+        /// conditions defined by match, if found; otherwise, –1.</returns>
+        private int GetFormIndex(string formTypeName, Guid id)
         {
-            bool isSingle = false;
+            int index = 0;
 
-            switch(formTypeName)
+            if (id != Guid.Empty)
             {
-                case "SettingsXtraForm":
-                case "NotificationXtraForm":
-                    isSingle = true;
-                    break;
-                default:
-                    break;
+                index = childForms[formTypeName]
+                    .FindIndex(x => x is INewEditEntityForm && ((INewEditEntityForm)x).Id == id);
             }
-            return isSingle;
+            else
+            {
+                bool isSingleForm =
+                    formTypeName == typeof(SettingsXtraForm).Name ||
+                    formTypeName == typeof(NotificationXtraForm).Name;
+
+                if (!isSingleForm)
+                {
+                    index = -1;
+                }
+            }
+
+            return index;
         }
 
         /// <summary>
@@ -88,7 +98,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
         /// <param name="parameters">additional parameters for new child form</param>
         /// <returns>reference to newly created child form</returns>
-        private ChildForm CreateReturnChildForm(System.Type formType, params IParameter[] parameters)
+        private ChildForm CreateReturnChildForm(System.Type formType, Guid id, params IParameter[] parameters)
         {
             ChildForm newlyCreatedForm = null;
 
@@ -99,11 +109,12 @@ namespace Prizm.Main.Forms.MainChildForm
                     childForms.Add(formType.Name, new List<ChildForm>());
                 }
                 List<ChildForm> forms = childForms[formType.Name];
+                int index = GetFormIndex(formType.Name, id);
 
-                if(IsSingle(formType.Name) && forms.Count > 0)
+                if (index >= 0 && forms.Count > 0)
                 {
                     // no more forms could be created. activate existing form
-                    forms[0].Activate();
+                    forms[index].Activate();
                 }
                 else if(FramesCanOpen < 1)
                 {
@@ -172,11 +183,22 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="parameters">input parameters passed to the newly created form</param>
         public void CreateChildForm(System.Type formType, params IParameter[] parameters)
         {
+            CreateChildForm(formType, Guid.Empty, parameters);
+        }
+
+        /// <summary>
+        /// Creation of child form. Can be used from outside to pass some Guid of entity and parameters to newly created forms (i.e. pipe number).
+        /// </summary>
+        /// <param name="formType">exact type of form</param>
+        /// <param name="id">Guid of entity</param>
+        /// <param name="parameters">input parameters passed to the newly created form</param>
+        public void CreateChildForm(System.Type formType, Guid id, params IParameter[] parameters)
+        {
             try
             {
                 ShowProcessing();
-                ChildForm form = CreateReturnChildForm(formType, parameters);
-                if(form != null)
+                ChildForm form = CreateReturnChildForm(formType, id, parameters);
+                if (form != null)
                 {
                     ShowChildForm(form);
                 }
@@ -196,7 +218,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             try
             {
-                SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), parameters);
+                SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), Guid.Empty, parameters);
 
                 if(form != null)
                 {

@@ -50,12 +50,9 @@ namespace PrizmMain.Forms.Notifications
             Type typeEditor = viewModel.Notification[selectedItem].Editor;
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
+            var id = viewModel.Notification[selectedItem].Id;
 
-            parent.CreateChildForm(
-                   typeEditor,
-                    new ConstructorArgument(
-                        "id",
-                         viewModel.Notification[selectedItem].Id));
+            parent.CreateChildForm( typeEditor, id, new ConstructorArgument("id", id));
         }
 
         private void NotificationXtraForm_FormClosed(object sender, FormClosedEventArgs e)

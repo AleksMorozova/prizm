@@ -18,8 +18,8 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Spool
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class SpoolsXtraForm : ChildForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class SpoolsXtraForm : ChildForm, INewEditEntityForm
     {         
         private SpoolViewModel viewModel;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
@@ -29,8 +29,12 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
+        public Guid Id { get; private set; }
+
         public SpoolsXtraForm(Guid id, string number)
         {
+            this.Id = id;
+
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;

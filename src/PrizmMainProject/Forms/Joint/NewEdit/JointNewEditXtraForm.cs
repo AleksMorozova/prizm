@@ -29,7 +29,7 @@ using Prizm.Main.Security;
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class JointNewEditXtraForm : ChildForm, IValidatable
+    public partial class JointNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
@@ -40,8 +40,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public Guid Id { get; private set; }
+
         public JointNewEditXtraForm(Guid id)
         {
+            this.Id = id;
+
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (JointNewEditViewModel)Program

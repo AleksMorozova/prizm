@@ -32,7 +32,7 @@ using Prizm.Main.Security;
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable
+    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
@@ -42,8 +42,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private PipeTestResult currentTestResult;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public Guid Id { get; private set; }
+
         public MillPipeNewEditXtraForm(Guid id)
         {
+            this.Id = id;
+
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (MillPipeNewEditViewModel)Program

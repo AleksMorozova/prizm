@@ -19,8 +19,8 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         private ICommandManager commandManager = new CommandManager();
 
@@ -29,8 +29,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             = new Dictionary<PipeMillStatus, string>();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public Guid Id { get; private set; }
+
         public RailcarNewEditXtraForm(Guid id)
         {
+            this.Id = id;
+
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;

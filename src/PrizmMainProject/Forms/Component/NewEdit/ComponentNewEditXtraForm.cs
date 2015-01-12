@@ -19,8 +19,8 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class ComponentNewEditXtraForm : ChildForm , IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -28,6 +28,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public Guid Id { get; private set; }
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
@@ -35,6 +37,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
+            this.Id = id;
+
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
