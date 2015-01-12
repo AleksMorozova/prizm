@@ -9,5 +9,6 @@ namespace Prizm.Data.DAL.Security
 {
    public interface IPermissionRepository : IRepository<Guid, Permission>
    {
+       void SeedPermissions();
    }
 }

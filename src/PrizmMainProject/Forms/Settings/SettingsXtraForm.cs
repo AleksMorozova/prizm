@@ -197,7 +197,7 @@ namespace Prizm.Main.Forms.Settings
         private void BindCommands()
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
-
+            commandManager["Save"].RefreshState();
             SaveCommand = viewModel.SaveCommand;
         }
 

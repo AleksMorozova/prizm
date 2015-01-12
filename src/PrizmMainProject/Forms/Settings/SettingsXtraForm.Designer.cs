@@ -453,7 +453,7 @@ namespace Prizm.Main.Forms.Settings
             // colPermissionDesc
             // 
             this.colPermissionDesc.Caption = "Описание";
-            this.colPermissionDesc.FieldName = "Description";
+            this.colPermissionDesc.FieldName = "NameTranslation";
             this.colPermissionDesc.Name = "colPermissionDesc";
             this.colPermissionDesc.OptionsColumn.ReadOnly = true;
             this.colPermissionDesc.Visible = true;

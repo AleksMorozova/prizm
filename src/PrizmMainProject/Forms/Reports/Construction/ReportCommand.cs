@@ -37,6 +37,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
+            bool notNullJointsCondition = viewModel.StartJoint != null && viewModel.EndJoint != null;
+
             if (viewModel.TracingMode == TracingModeEnum.TracingByKP
                 && viewModel.AllKP.Contains(viewModel.StartPK)
                 && viewModel.AllKP.Contains(viewModel.EndPK))
@@ -44,11 +46,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                 viewModel.StartJoint =
                     viewModel.Joints
                     .First<construct.Joint>(
-                    x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP == 
+                    x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP ==
                         viewModel.Joints
                         .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
                         .Min<construct.Joint>(z => z.DistanceFromKP));
-                
+
                 viewModel.EndJoint =
                     viewModel.Joints
                     .First<construct.Joint>(
@@ -57,17 +59,18 @@ namespace Prizm.Main.Forms.Reports.Construction
                         .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
                         .Min<construct.Joint>(z => z.DistanceFromKP));
             }
-            
-            if (viewModel.ReportType.Value == ReportType.TracingReport 
-                && viewModel.StartJoint != null
-                && viewModel.EndJoint != null)
+            else if (notNullJointsCondition)
+            {
+                viewModel.StartPK = viewModel.StartJoint.NumberKP;
+                viewModel.EndPK = viewModel.EndJoint.NumberKP;
+            }
+
+            if (viewModel.ReportType.Value == ReportType.TracingReport && notNullJointsCondition)
             {
                 PipelineTracing();
                 viewModel.report.DataSource = tracingDataList;
             }
-            else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport
-                && viewModel.StartJoint != null
-                && viewModel.EndJoint != null)
+            else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport && notNullJointsCondition)
             {
                 PipelineLenghtCalculation();
             }
@@ -156,7 +159,13 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                         if (i >= 1)
                         {
-                            tracingDataItem.JointNumber = path[i].GetCommonJoint(path[i - 1]).Data.Number;
+                            var commonJoint = path[i].GetCommonJoint(path[i - 1]);
+
+                            tracingDataItem.JointNumber = commonJoint.Data.Number;
+
+                            tracingDataItem.JointСoordinates = 
+                                commonJoint.Data.NumberKP.ToString() + " + " + 
+                                commonJoint.Data.DistanceFromKP.ToString();
                         }
 
                         tracingDataList.Add(tracingDataItem);

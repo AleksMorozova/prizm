@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Ninject;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -17,6 +18,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public NewSavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
@@ -54,7 +56,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            return viewModel.SavePipeCommand.CanExecute();
+            return viewModel.SavePipeCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }
 }
