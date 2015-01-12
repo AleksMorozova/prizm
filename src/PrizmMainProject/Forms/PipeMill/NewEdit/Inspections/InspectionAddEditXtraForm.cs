@@ -96,6 +96,30 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var cd = code.EditValue;
             viewModel.ChangeTest(cd.ToString());
+            ChangeFact();
+        }
+
+        private void ChangeFact()
+        {
+            factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            switch(viewModel.TestResult.Operation.ResultType)
+            {
+                case PipeTestResultType.Boolean:
+                    factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case PipeTestResultType.String:
+                    factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case PipeTestResultType.Diapason:
+                    factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case PipeTestResultType.Undef:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void inspectors_Leave(object sender, EventArgs e)

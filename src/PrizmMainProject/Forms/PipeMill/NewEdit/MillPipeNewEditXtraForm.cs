@@ -744,13 +744,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses);
             addForm.ShowDialog();
-            //inspectionsGridView.AddNewRow();
-            //int newRowHandler = inspectionsGridView.FocusedRowHandle;
-            //var newRow = inspectionsGridView.GetRow(newRowHandler);
             viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
             inspections.RefreshDataSource();
-
-            int rrr;
         }
 
         private static void EditInspections(BindingList<PipeTest> tests,PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
