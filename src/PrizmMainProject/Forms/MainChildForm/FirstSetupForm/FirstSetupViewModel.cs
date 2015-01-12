@@ -30,7 +30,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
            = new[] { "Прямой", "Спиральный", "Без шва" };
 
         private readonly IFirstSetupRepo firstSetupRepo;
-        public Role SuperUser = new Role() { Name = "superUser", Description = Resources.superUser };
+        public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
 

@@ -18,12 +18,15 @@ namespace Prizm.Data.DAL.Hibernate
       {}
       public void SeedPermissions()
       {
+          BeginTransaction();
           foreach (string privilege in Enum.GetNames(typeof(Privileges)))
           {
-              Permission permission = new Permission() { Name = privilege };
-              BeginTransaction();
+              Permission permission = new Permission() { Name = privilege };          
               Save(permission);
-              Commit();
+          }
+          Commit();
+          foreach (Permission permission in GetAll())
+          {
               Evict(permission);
           }
       }
