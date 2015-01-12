@@ -58,6 +58,16 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
+        /// On closing. Free controls references.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            controls.Clear();
+            base.OnFormClosed(e);
+        }
+
+        /// <summary>
         /// modified state of document
         /// </summary>
         public virtual bool IsModified 
@@ -117,8 +127,6 @@ namespace Prizm.Main.Forms.MainChildForm
         #region --- Edit mode ---
 
         private bool isEditMode = false;
-        private HashSet<Control> alwaysReadOnly;
-        private HashSet<Control> exceptionsReadOnly;
 
         /// <summary>
         /// Set/clear edit mode for the form. It is about all form controls.
@@ -142,57 +150,87 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
+        /// manual updating the state of child controls
+        /// </summary>
+        public void UpdateState()
+        {
+            SetEditModeAllChildren(this, isEditMode);
+        }
+
+        /// <summary>
+        /// helper class for managing control states
+        /// </summary>
+        private class ControlsCollection
+        {
+            private Dictionary<Control, Tuple<ControlCondition, Func<bool, bool>>> collection = new Dictionary<Control, Tuple<ControlCondition, Func<bool, bool>>>();
+
+            public void Add(Control c, ControlCondition condition, Func<bool, bool> IsEditableMethod = null)
+            {
+                var t = Tuple.Create<ControlCondition, Func<bool, bool>>(condition, IsEditableMethod);
+                if (!collection.ContainsKey(c))
+                {
+                    collection.Add(c, t);
+                }
+                else
+                {
+                    collection[c] = t;
+                }
+            }
+            public ControlCondition GetCondition(Control c)
+            {
+                return collection.ContainsKey(c) ? collection[c].Item1 : ControlCondition.Undefined;
+            }
+
+            public bool CheckConditionEditable(Control c, bool argument)
+            {
+                return 
+                       collection.ContainsKey(c) && collection[c].Item1 == ControlCondition.Conditional
+                    && collection[c].Item2 != null && collection[c].Item2(argument);
+            }
+
+            public void Clear()
+            {
+                collection.Clear();
+            }
+        }
+
+        private enum ControlCondition { Undefined = 0, AlwaysReadOnly, AlwaysEditable, Conditional };
+
+        private ControlsCollection controls = new ControlsCollection();
+
+
+        /// <summary>
         /// Derived class can set some it's controls as always read only, and they won't be editable in edit mode.
+        /// Overrides previous setting for this control
         /// </summary>
         /// <param name="c">reference to control</param>
         protected void SetAlwaysReadOnly(Control c)
         {
-            if (exceptionsReadOnly != null && exceptionsReadOnly.Contains(c))
-            {
-                throw new ApplicationException("Control " + c.Name + " is already in list of exceptions of read-only controls");
-            }
-            if (alwaysReadOnly == null)
-            {
-                alwaysReadOnly = new HashSet<Control>();
-            }
-            alwaysReadOnly.Add(c);
+            controls.Add(c, ControlCondition.AlwaysReadOnly, null);
         }
         /// <summary>
         /// Derived class can set some it's controls as an exception to be not processed on switching edit mode.
+        /// Overrides previous setting for this control
         /// </summary>
         /// <param name="c">reference to control</param>
-        protected void SetExceptionReadOnly(Control c)
+        protected void SetAlwaysEditable(Control c)
         {
-            if (alwaysReadOnly != null && alwaysReadOnly.Contains(c))
+            controls.Add(c, ControlCondition.AlwaysEditable, null);
+        }
+        /// <summary>
+        /// Derived class can set some it's controls as conditional read/edit mode, depending on real mode
+        /// Overrides previous setting for this control
+        /// </summary>
+        /// <param name="c">reference to control</param>
+        /// <param name="method">reference to method which evaluates control read/edit mode. Method returns editable condition.
+        /// It's argument true if edit mode is on</param>
+        protected void SetConditional(Control c, Func<bool, bool> IsEditableMethod)
+        {
+            if (IsEditableMethod == null)
             {
-                throw new ApplicationException("Control " + c.Name + " is already in list of read-only controls");
+                throw new ApplicationException(String.Format("No method defined for conditional mode of control {0}", c.ToString()));
             }
-            if (exceptionsReadOnly == null)
-            { 
-                exceptionsReadOnly = new HashSet<Control>();
-            }
-            exceptionsReadOnly.Add(c);
-        }
-
-        /// <summary>
-        /// Is some control never read only for the form
-        /// </summary>
-        /// <param name="c">reference to control</param>
-        /// <returns>true if control shouldn't be read only</returns>
-        private bool IsExceptionReadOnly(Control c)
-        {
-            return exceptionsReadOnly != null ? exceptionsReadOnly.Contains(c) : false;
-        }
-
-
-        /// <summary>
-        /// Is some control read only for the form
-        /// </summary>
-        /// <param name="c">reference to control</param>
-        /// <returns>true if control should be always read only</returns>
-        private bool IsAlwaysReadOnly(Control c)
-        {
-            return alwaysReadOnly != null ? alwaysReadOnly.Contains(c) : false;
+            controls.Add(c, ControlCondition.Conditional, IsEditableMethod);
         }
 
         /// <summary>
@@ -204,7 +242,24 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             foreach (Control c in control.Controls)
             {
-                bool isControlReadOnly = !IsExceptionReadOnly(c) && (!editMode || IsAlwaysReadOnly(c));
+                bool isControlReadOnly = true;      // secure control availability by default
+
+                switch(controls.GetCondition(c))
+                {
+                    case ControlCondition.Undefined: // routine way. Depends on edit mode only.
+                        isControlReadOnly = !editMode;
+                        break;
+                    case ControlCondition.AlwaysEditable:
+                        isControlReadOnly = false;
+                        break;
+                    case ControlCondition.Conditional:
+                        isControlReadOnly = !controls.CheckConditionEditable(c, editMode);
+                        break;
+                    case ControlCondition.AlwaysReadOnly:
+                    default:
+                        isControlReadOnly = true;
+                        break;
+                }
                 if (c is TextEdit)
                 {
                     ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;

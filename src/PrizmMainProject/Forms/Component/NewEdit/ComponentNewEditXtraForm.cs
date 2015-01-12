@@ -43,6 +43,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
             viewModel.Number = number;
+            SetConditional(componentDeactivated,
+                delegate(bool editMode)
+                {
+                    return viewModel.DeactivationCommand.CanExecute() && editMode;
+                });
             IsEditMode = true;
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
@@ -110,9 +115,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             componentDeactivated.DataBindings
                 .Add("EditValue", componentBindingSource, "IsNotActive");
-
-            componentDeactivated.DataBindings
-                .Add("Enabled", componentBindingSource, "CanDeactivateComponent");
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
