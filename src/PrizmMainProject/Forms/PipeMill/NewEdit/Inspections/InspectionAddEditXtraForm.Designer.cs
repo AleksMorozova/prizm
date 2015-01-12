@@ -34,7 +34,9 @@
             this.factBool = new DevExpress.XtraEditors.CheckEdit();
             this.status = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.code = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
             this.date = new DevExpress.XtraEditors.DateEdit();
             this.factString = new DevExpress.XtraEditors.TextEdit();
             this.expected = new DevExpress.XtraEditors.TextEdit();
@@ -52,22 +54,20 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factDiapasonLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.factLimitLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.factBoolLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.factBoolLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.factStringLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
             this.testsBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
-            this.factStringLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factLimitMin.Properties)).BeginInit();
@@ -91,20 +91,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factDiapasonLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factLimitLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
@@ -187,6 +187,14 @@
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Статус";
+            this.gridColumn1.FieldName = "Text";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
             // code
             // 
             this.code.Location = new System.Drawing.Point(32, 67);
@@ -198,6 +206,15 @@
             this.code.StyleController = this.rootLayoutControl;
             this.code.TabIndex = 12;
             this.code.EditValueChanged += new System.EventHandler(this.code_EditValueChanged);
+            // 
+            // inspectors
+            // 
+            this.inspectors.DataSource = null;
+            this.inspectors.Location = new System.Drawing.Point(315, 166);
+            this.inspectors.Name = "inspectors";
+            this.inspectors.Size = new System.Drawing.Size(344, 340);
+            this.inspectors.TabIndex = 11;
+            this.inspectors.Leave += new System.EventHandler(this.inspectors_Leave);
             // 
             // date
             // 
@@ -403,19 +420,6 @@
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // factStringLayoutControlItem
-            // 
-            this.factStringLayoutControlItem.Control = this.factString;
-            this.factStringLayoutControlItem.CustomizationFormText = "Фактический";
-            this.factStringLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.factStringLayoutControlItem.Name = "factStringLayoutControlItem";
-            this.factStringLayoutControlItem.Size = new System.Drawing.Size(259, 34);
-            this.factStringLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.factStringLayoutControlItem.Text = "Фактический";
-            this.factStringLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.factStringLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.factStringLayoutControlItem.TextVisible = false;
-            // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.date;
@@ -427,6 +431,18 @@
             this.layoutControlItem7.Text = "Дата";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(62, 13);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.inspectors;
+            this.layoutControlItem8.CustomizationFormText = "Инспекторы";
+            this.layoutControlItem8.Location = new System.Drawing.Point(283, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(358, 370);
+            this.layoutControlItem8.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem8.Text = "Инспекторы";
+            this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(62, 13);
             // 
             // emptySpaceItem3
             // 
@@ -496,16 +512,6 @@
             this.factBoolLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.factBoolLayoutControlItem.TextVisible = false;
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 518);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(455, 27);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // factStringLayoutControlGroup
             // 
             this.factStringLayoutControlGroup.CustomizationFormText = "Фактический";
@@ -517,33 +523,28 @@
             this.factStringLayoutControlGroup.Text = "Фактический";
             this.factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // gridColumn1
+            // factStringLayoutControlItem
             // 
-            this.gridColumn1.Caption = "Статус";
-            this.gridColumn1.FieldName = "Text";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.factStringLayoutControlItem.Control = this.factString;
+            this.factStringLayoutControlItem.CustomizationFormText = "Фактический";
+            this.factStringLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.factStringLayoutControlItem.Name = "factStringLayoutControlItem";
+            this.factStringLayoutControlItem.Size = new System.Drawing.Size(259, 34);
+            this.factStringLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.factStringLayoutControlItem.Text = "Фактический";
+            this.factStringLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.factStringLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.factStringLayoutControlItem.TextVisible = false;
             // 
-            // inspectors
+            // emptySpaceItem2
             // 
-            this.inspectors.DataSource = null;
-            this.inspectors.Location = new System.Drawing.Point(315, 166);
-            this.inspectors.Name = "inspectors";
-            this.inspectors.Size = new System.Drawing.Size(344, 340);
-            this.inspectors.TabIndex = 11;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.inspectors;
-            this.layoutControlItem8.CustomizationFormText = "Инспекторы";
-            this.layoutControlItem8.Location = new System.Drawing.Point(283, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(358, 370);
-            this.layoutControlItem8.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem8.Text = "Инспекторы";
-            this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(62, 13);
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 518);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(455, 27);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // InspectionAddEditXtraForm
             // 
@@ -577,20 +578,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factDiapasonLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factLimitLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }

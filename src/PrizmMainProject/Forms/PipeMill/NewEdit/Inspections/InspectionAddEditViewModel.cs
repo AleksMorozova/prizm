@@ -266,14 +266,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        //SelectedInspectors
-        public IList<Inspector> SelectedInspectors
-        {
-            get { return testResult.Inspectors; }
-        }
-
-
-
         #endregion
 
         #region IDisposable Members

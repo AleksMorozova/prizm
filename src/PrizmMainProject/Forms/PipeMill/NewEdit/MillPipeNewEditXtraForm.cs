@@ -750,6 +750,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var editForm = new InspectionAddEditXtraForm(tests, insp, row, status);
             editForm.ShowDialog();
+            var i = editForm.viewModel.TestResult;
+            int rr;
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
@@ -758,7 +760,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Point pt = view.GridControl.PointToClient(Control.MousePosition);
             var row = DoRowDoubleClick(view, pt);
             EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
-            
         }
 
         private PipeTestResult DoRowDoubleClick(GridView view, Point pt)

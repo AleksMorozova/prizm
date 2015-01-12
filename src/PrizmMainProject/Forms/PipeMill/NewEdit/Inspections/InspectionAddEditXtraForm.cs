@@ -18,7 +18,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public partial class InspectionAddEditXtraForm : XtraForm
     {
-        InspectionAddEditViewModel viewModel;
+        public InspectionAddEditViewModel viewModel;
 
         public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
@@ -95,6 +95,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var cd = code.EditValue;
             viewModel.ChangeTest(cd.ToString());
+        }
+
+        private void inspectors_Leave(object sender, EventArgs e)
+        {
+            viewModel.TestResult.Inspectors = inspectors.SelectedInspectors;
         }
     }
 }
