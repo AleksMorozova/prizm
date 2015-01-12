@@ -266,6 +266,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
+        public string FactLimit
+        {
+            get { return testResult.Value; }
+            set
+            {
+                if(value != testResult.Value)
+                {
+                    testResult.Value = value;
+                    RaisePropertiesChanged("FactLimit");
+                }
+            }
+        }
+
         #endregion
 
         #region IDisposable Members

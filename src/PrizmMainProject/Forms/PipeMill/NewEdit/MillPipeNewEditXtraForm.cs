@@ -744,14 +744,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses);
             addForm.ShowDialog();
+            //inspectionsGridView.AddNewRow();
+            //int newRowHandler = inspectionsGridView.FocusedRowHandle;
+            //var newRow = inspectionsGridView.GetRow(newRowHandler);
+            viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
+            inspections.RefreshDataSource();
+
+            int rrr;
         }
 
         private static void EditInspections(BindingList<PipeTest> tests,PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
+            //TODO: Store row for rollback
             var editForm = new InspectionAddEditXtraForm(tests, insp, row, status);
             editForm.ShowDialog();
             var i = editForm.viewModel.TestResult;
-            int rr;
+            //TODO: Implement Accept button on dialog click
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
@@ -768,7 +776,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             GridHitInfo info = view.CalcHitInfo(pt);
             if(info.InRow || info.InRowCell)
             {
-                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
                 row = (PipeTestResult)view.GetRow(info.RowHandle);
             }
             return row;

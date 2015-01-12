@@ -89,6 +89,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             factBool.DataBindings.Add("Checked", bindingSource, "FactBool");
             factString.DataBindings.Add("EditValue", bindingSource, "FactString");
+            factLimit.DataBindings.Add("EditValue", bindingSource, "FactLimit");
         }
 
         private void code_EditValueChanged(object sender, EventArgs e)
