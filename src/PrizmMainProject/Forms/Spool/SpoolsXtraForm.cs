@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Spool
             SetAlwaysReadOnly(pipeLength);
             if (id == Guid.Empty)
             {
-                SetExceptionReadOnly(pipeNumber);
+                SetAlwaysEditable(pipeNumber);
             }
             else
             {

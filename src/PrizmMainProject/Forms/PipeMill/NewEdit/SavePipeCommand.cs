@@ -72,8 +72,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             viewModel.FilesFormViewModel = null;
                         }
 
-                        viewModel.CanDeactivatePipe = viewModel.PipeDeactivationCommand.CanExecute();
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
                             Resources.DLG_PIPE_SAVED_HEADER);

@@ -53,7 +53,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public bool CanExecute()
         {
             return 
-                viewModel.SaveCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+                viewModel.SaveCommand.CanExecute() 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }
 }
