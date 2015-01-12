@@ -563,14 +563,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityContext.cs" />
     <Compile Include="Synch\SerializableEntities\HeatObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PermissionObject.cs" />
     <Compile Include="Synch\SerializableEntities\PipeObject.cs" />
     <Compile Include="Synch\SerializableEntities\PlateManufacturerObject.cs" />
     <Compile Include="Synch\SerializableEntities\PlateObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ProjectObject.cs" />
     <Compile Include="Synch\SerializableEntities\PurchaseOrderObject.cs" />
     <Compile Include="Synch\SerializableEntities\RailcarObject.cs" />
+    <Compile Include="Synch\SerializableEntities\RoleObject.cs" />
     <Compile Include="Synch\SerializableEntities\SeamTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\SizeTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\SpoolObject.cs" />
+    <Compile Include="Synch\SerializableEntities\UserObject.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>

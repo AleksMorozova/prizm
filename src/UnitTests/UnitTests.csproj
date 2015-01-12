@@ -80,14 +80,18 @@
     <Compile Include="MainChildDocumentsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Synch\SerializableEntities\HeatObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PermissionObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PipeObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PlateManufacturerObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PlateObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\ProjectObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PurchaseOrderObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\RailcarObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\RoleObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\SeamTypeObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\SizeTypeObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\SpoolObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\UserObjectTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
