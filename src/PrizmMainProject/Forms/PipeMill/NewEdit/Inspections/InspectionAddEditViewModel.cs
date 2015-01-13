@@ -52,6 +52,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                     default:
                         break;
                 }
+                status = current.Status;
             }
             if(testResult.Value == null)
             {
@@ -146,7 +147,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 switch(testResult.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
-                        expStr = testResult.Operation.BoolExpected.ToString();
+                        expStr = (testResult.Operation.BoolExpected) ? "Да" : "Нет";
                         break;
                     case PipeTestResultType.String:
                         expStr = testResult.Operation.StringExpected;

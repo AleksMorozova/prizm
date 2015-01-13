@@ -164,6 +164,7 @@
             this.factBool.Size = new System.Drawing.Size(311, 19);
             this.factBool.StyleController = this.rootLayoutControl;
             this.factBool.TabIndex = 14;
+            this.factBool.CheckedChanged += new System.EventHandler(this.factBool_CheckedChanged);
             // 
             // status
             // 
@@ -549,8 +550,10 @@
             // 
             // InspectionAddEditXtraForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(816, 567);
             this.Controls.Add(this.rootLayoutControl);
             this.Name = "InspectionAddEditXtraForm";

@@ -52,6 +52,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             status.Text = string.Empty;
             status.EditValue = viewModel.Status;
+
+            factBool_CheckedChanged(null, null);
         }
 
         private void BindToViewModel()
@@ -129,6 +131,18 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void factBool_CheckedChanged(object sender, EventArgs e)
+        {
+            if(factBool.Checked)
+            {
+                factBool.Text = " [ Да ] ";
+            }
+            else
+            {
+                factBool.Text = " [ Нет ] ";
             }
         }
     }
