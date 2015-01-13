@@ -737,7 +737,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
         }
-}
+    }
 }
     
-}
