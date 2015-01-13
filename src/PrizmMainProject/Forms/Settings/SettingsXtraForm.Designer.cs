@@ -753,7 +753,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // certificateTypeColumn
             // 
-            this.certificateTypeColumn.Caption = "Тип";
+            this.certificateTypeColumn.Caption = "Вид контроля";
             this.certificateTypeColumn.ColumnEdit = this.repositoryLookUpCertificateType;
             this.certificateTypeColumn.FieldName = "Type";
             this.certificateTypeColumn.Name = "certificateTypeColumn";
@@ -789,13 +789,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             // inspectorCertificateExpirationCol
             // 
-            this.inspectorCertificateExpirationCol.Caption = "Дата окончания";
+            this.inspectorCertificateExpirationCol.Caption = "Действителен до";
             this.inspectorCertificateExpirationCol.FieldName = "Certificate.ExpirationDate";
-            this.inspectorCertificateExpirationCol.MaxWidth = 90;
+            this.inspectorCertificateExpirationCol.MaxWidth = 120;
             this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
             this.inspectorCertificateExpirationCol.Visible = true;
             this.inspectorCertificateExpirationCol.VisibleIndex = 2;
-            this.inspectorCertificateExpirationCol.Width = 50;
+            this.inspectorCertificateExpirationCol.Width = 90;
             // 
             // gridControlInspectors
             // 
