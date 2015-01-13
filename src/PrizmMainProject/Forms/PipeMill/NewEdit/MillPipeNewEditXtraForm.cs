@@ -755,5 +755,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 workspaceManager.ApplyWorkspace(name);
             }
         }
+
+        private void plateNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.PlateNumber = plateNumber.Text;
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
+        }
     }
 }

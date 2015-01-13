@@ -105,6 +105,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.PipePurchaseOrder != null &&
                 !string.IsNullOrEmpty(viewModel.Number) &&
                 viewModel.ProductionDate != DateTime.MinValue &&
+                !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                 viewModel.ModifiableView.IsEditMode;
             bool conditionAndPermission;
             if (viewModel.Pipe.Id == Guid.Empty)
