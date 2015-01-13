@@ -28,6 +28,7 @@ using Prizm.Main.Commands;
 using DevExpress.XtraGrid;
 using Prizm.Main.Documents;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -737,7 +738,70 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
         }
+
+        private void addInspectionButton_Click(object sender, EventArgs e)
+        {
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
+            }
+        }
+
+        private void editInspectionButton_Click(object sender, EventArgs e)
+        {
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                int rowHandler = inspectionsGridView.FocusedRowHandle;
+                if(rowHandler != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                {
+                    var row = (PipeTestResult)inspectionsGridView.GetRow(rowHandler);
+                    EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                }
+            }
+        }
+
+        private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
+            using(var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses))
+            {
+                if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
+                    inspections.RefreshDataSource();
+                }
+            }
+        }
+
+        private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        {
+            using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
+            {
+                editForm.ShowDialog();
+                inspections.RefreshDataSource();
+            }
+        }
+
+        private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
+        {
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                var row = DoRowDoubleClick(view, pt);
+                EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+            }
+        }
+
+        private PipeTestResult DoRowDoubleClick(GridView view, Point pt)
+        {
+            PipeTestResult row = null;
+            GridHitInfo info = view.CalcHitInfo(pt);
+            if(info.InRow || info.InRowCell)
+            {
+                row = (PipeTestResult)view.GetRow(info.RowHandle);
+            }
+            return row;
+        }
 }
 }
-    
-}
+   
