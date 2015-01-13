@@ -68,9 +68,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
-            SetConditional(deactivate, 
-                delegate(bool editMode) { 
-                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode; 
+            SetConditional(deactivate,
+                delegate(bool editMode)
+                {
+                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode;
                 });
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
@@ -565,7 +566,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 = cb.SelectedItem as Prizm.Domain.Entity.Setup.PipeMillSizeType;
             RefreshPipeTest(currentPipeType);
 
-            if (currentPipeType!=null) 
+            if(currentPipeType != null)
             {
                 viewModel.CurrentType = currentPipeType;
             }
@@ -737,7 +738,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
-            AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
+            }
         }
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
@@ -752,22 +756,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        private static void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
-            //TODO: Store row for rollback
-
             using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
             {
                 editForm.ShowDialog();
+                inspections.RefreshDataSource();
             }
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
         {
-            GridView view = (GridView)sender;
-            Point pt = view.GridControl.PointToClient(Control.MousePosition);
-            var row = DoRowDoubleClick(view, pt);
-            EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                var row = DoRowDoubleClick(view, pt);
+                EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+            }
         }
 
         private PipeTestResult DoRowDoubleClick(GridView view, Point pt)
@@ -781,8 +787,21 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return row;
         }
 
-        
+        private void editInspectionButton_Click(object sender, EventArgs e)
+        {
+            if(viewModel.AvailableTests.Count > 0)
+            {
+                int rowHandler = inspectionsGridView.FocusedRowHandle;
+                if(rowHandler != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                {
+                    var row = (PipeTestResult)inspectionsGridView.GetRow(rowHandler);
+                    EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                }
+            }
+        }
 
- 
+
+
+
     }
 }

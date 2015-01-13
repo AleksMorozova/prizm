@@ -36,6 +36,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             else
             {
                 TestResult = current;
+                switch(current.Operation.ResultType)
+                {
+                    case PipeTestResultType.Boolean:
+                        factBool = (current.Value != null && current.Value.Equals("True")) ? true : false;
+                        break;
+                    case PipeTestResultType.String:
+                        factString = current.Value;
+                        break;
+                    case PipeTestResultType.Diapason:
+                        factLimit = current.Value;
+                        break;
+                    case PipeTestResultType.Undef:
+                        break;
+                    default:
+                        break;
+                }
             }
             if(testResult.Value == null)
             {
@@ -213,7 +229,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        DateTime date;
+        DateTime date = DateTime.Now;
         public DateTime Date
         {
             get { return date; }
