@@ -38,6 +38,8 @@ namespace Prizm.Main.Forms.Spool
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         public bool editMode = false;
 
+        public bool IsNew { get { return this.Pipe.IsNew(); } }
+
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
         {
@@ -177,19 +179,6 @@ namespace Prizm.Main.Forms.Spool
             set
             {
                 modifiableView = value;
-            }
-        }
-
-        public bool IsNotActive
-        {
-            get { return Spool.IsNotActive; }
-            set
-            {
-                if (value != Spool.IsNotActive)
-                {
-                    Spool.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
-                }
             }
         }
 

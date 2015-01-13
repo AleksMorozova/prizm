@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify)
         {
             this.repo = repo;
@@ -48,8 +50,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            RefreshVisualStateEvent();
         }
-        public virtual bool IsExecutable { get; set; }
+
         public bool CanExecute()
         {
             return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData));

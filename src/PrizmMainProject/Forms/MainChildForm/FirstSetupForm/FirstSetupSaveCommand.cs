@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly FirstSetupViewModel viewModel;
         private readonly IFirstSetupRepo firstSetupRepo;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public FirstSetupSaveCommand(FirstSetupViewModel viewModel, IFirstSetupRepo firstSetupRepo)
         {
             this.viewModel = viewModel;
@@ -112,8 +114,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 firstSetupRepo.CategoryRepo.Evict(category);
             }
         }
-
-        public bool IsExecutable { get; set; }
 
         #endregion
     }

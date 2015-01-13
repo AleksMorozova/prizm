@@ -67,10 +67,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
-            SetConditional(deactivate, 
-                delegate(bool editMode) { 
-                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode; 
-                });
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
@@ -109,7 +105,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = !viewModel.IsNotActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
+            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
             if (IsEditMode)
@@ -156,8 +152,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeLength.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeLength");
 
-            deactivate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "IsNotActive");
+            deactivated.DataBindings
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                        "EditValue", pipeNewEditBindingSource, "PipeIsActive"));
 
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
@@ -250,11 +247,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
             commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
-
-            commandManager["SaveAndNew"].RefreshState();
-            commandManager["Save"].RefreshState();
+            commandManager["Deactivate"].Executor(viewModel.PipeDeactivationCommand).AttachTo(deactivated);
 
             SaveCommand = viewModel.SavePipeCommand;
+
+            viewModel.SavePipeCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.NewSavePipeCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.PipeDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
 
@@ -498,17 +499,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        private void deactivate_Modified(object sender, EventArgs e)
-        {
-            viewModel.IsNotActive = (bool)deactivate.EditValue;
-
-            if(viewModel.IsNotActive)
-            {
-                viewModel.PipeDeactivationCommand.Execute();
-                IsEditMode = !viewModel.IsNotActive;
-            }
-        }
-
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
         /// </summary>
@@ -735,25 +725,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
         }
-
-        private void simpleButtonSave_Click(object sender, EventArgs e)
-        {
-            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            var user = ctx.GetLoggedPerson();
-            var name = user.LastName + DateTime.Now.ToString("-hh-mm-ss");
-            workspaceManager.CaptureWorkspace(name);
-            workspaceManager.SaveWorkspace(name, @"D:\" + name + ".xml");
-
-        }
-
-        private void simpleButtonLoad_Click(object sender, EventArgs e)
-        {
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var name = openFileDialog.SafeFileName;
-                workspaceManager.LoadWorkspace(name, openFileDialog.FileName);
-                workspaceManager.ApplyWorkspace(name);
-            }
         }
         private void inspections_Leave(object sender, EventArgs e)
         {
@@ -764,6 +735,5 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.PlateNumber = plateNumber.Text;
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
-        }
     }
 }

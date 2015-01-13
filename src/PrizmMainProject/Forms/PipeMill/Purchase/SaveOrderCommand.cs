@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
         PurchaseOrderViewModel viewModel;
         IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public SaveOrderCommand(IPurchaseOrderRepository repo, PurchaseOrderViewModel viewModel, IUserNotify notify)
         {
@@ -48,6 +50,5 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
             return true;
         }
 
-        public bool IsExecutable { get; set; }
     }
 }

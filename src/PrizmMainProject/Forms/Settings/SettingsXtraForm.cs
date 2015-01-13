@@ -199,6 +199,8 @@ namespace Prizm.Main.Forms.Settings
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Save"].RefreshState();
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
@@ -677,7 +679,7 @@ namespace Prizm.Main.Forms.Settings
 
             if (ct != null)
             {
-                if ((bool)ct[e.ListSourceRow].IsNotActive)
+                if (!(bool)ct[e.ListSourceRow].IsActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
@@ -776,7 +778,7 @@ namespace Prizm.Main.Forms.Settings
 
             if (certp != null)
             {
-                if ((bool)certp[e.ListSourceRow].IsNotActive)
+                if (!(bool)certp[e.ListSourceRow].IsActive)
                 {
                     e.Visible = false;
                     e.Handled = true;

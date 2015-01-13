@@ -30,6 +30,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
+        public bool IsNew { get { return this.Component.IsNew(); } }
+
         [Inject]
         public ComponentNewEditViewModel(
             IComponentRepositories repos,
@@ -220,15 +222,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
         }
 
-        public bool IsNotActive
+        public bool ComponentIsActive
         {
-            get { return Component.IsNotActive; }
+            get { return Component.IsActive; }
             set
             {
-                if (value != Component.IsNotActive)
+                if (value != Component.IsActive)
                 {
-                    Component.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Component.IsActive = value;
+                    RaisePropertyChanged("ComponentIsActive");
                 }
             }
         }

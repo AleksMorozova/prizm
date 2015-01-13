@@ -8,20 +8,5 @@ namespace Prizm.Domain.Entity
 
         public virtual Guid Id { get; set; }
         public virtual bool IsActive { get { return isActive; } set {isActive=value ;} }
-
-        public virtual bool IsNotActive 
-        {
-            get
-            {
-                isActive = IsActive;
-                return !isActive;
-            }
-            set
-            {
-                isActive = !value;
-                IsActive = isActive;
-            }
-        }
-
     }
 }

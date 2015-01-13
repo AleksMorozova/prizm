@@ -173,6 +173,7 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
+    <Compile Include="Controls\BindingHelper.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />

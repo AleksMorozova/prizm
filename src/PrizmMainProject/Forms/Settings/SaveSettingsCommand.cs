@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.Settings
         readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -71,6 +73,8 @@ namespace Prizm.Main.Forms.Settings
             notify.ShowNotify(
                 Resources.DLG_SETUP_SAVED,
                 Resources.DLG_SETUP_SAVED_HEADER);
+
+            RefreshVisualStateEvent();
         }
 
         private void EvictUsers()
@@ -263,6 +267,5 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

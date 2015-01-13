@@ -58,7 +58,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public BindingList<PipeTest> AvailableTests;
         bool recalculateWeight = false;
 
-        public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
+        public bool IsNew { get { return this.Pipe.IsNew(); } }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
@@ -233,18 +233,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         #region Pipe
 
-        public bool IsNotActive
+        public bool PipeIsActive
         {
-            get
-            {
-                return Pipe.IsNotActive;
-            }
+            get { return Pipe.IsActive; }
             set
             {
-                if(value != Pipe.IsNotActive)
+                if (value != Pipe.IsActive)
                 {
-                    Pipe.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Pipe.IsActive = value;
+                    RaisePropertyChanged("PipeIsActive");
                 }
             }
         }
