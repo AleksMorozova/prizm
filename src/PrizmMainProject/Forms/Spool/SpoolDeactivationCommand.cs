@@ -42,5 +42,8 @@ namespace Prizm.Main.Forms.Spool
         {
             return ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateSpool);
         }
+
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent;
     }
 }
