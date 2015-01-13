@@ -755,10 +755,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 workspaceManager.ApplyWorkspace(name);
             }
         }
-
         private void inspections_Leave(object sender, EventArgs e)
         {
             viewModel.GetLengthFromOperation();
+        }
+        private void plateNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.PlateNumber = plateNumber.Text;
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
         }
     }
 }

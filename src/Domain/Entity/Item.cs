@@ -6,7 +6,7 @@ namespace Prizm.Domain.Entity
     {
         private bool isActive = true;
 
-        public virtual Guid Id { get; protected set; }
+        public virtual Guid Id { get; set; }
         public virtual bool IsActive { get { return isActive; } set {isActive=value ;} }
 
         public virtual bool IsNotActive 
