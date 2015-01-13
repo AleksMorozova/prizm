@@ -35,17 +35,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (notify.ShowYesNo(
                    Resources.DLG_JOINT_DEACTIVATION,
                    Resources.DLG_JOINT_DEACTIVATION_HEADER))
-            {              
+<<<<<<< HEAD
+            {
                 viewModel.JointIsActive = false;
+                viewModel.SaveJointCommand.Execute();
+                viewModel.ModifiableView.IsEditMode = false;
+=======
+            {              
                 repo.BeginTransaction();
                 repo.RepoJoint.Save(viewModel.Joint);
                 repo.Commit();
                 repo.RepoJoint.Evict(viewModel.Joint);
-                viewModel.ModifiableView.IsEditMode = false;
-            }
-            else
-            {
-                viewModel.JointIsActive = true;
+>>>>>>> master
             }
             RefreshVisualStateEvent();
         }

@@ -98,11 +98,6 @@
     <Compile Include="Entity\Setup\WorkstationType.cs" />
     <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializableHeat.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializablePipe.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializablePlate.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializableRailcar.cs" />
-    <Compile Include="SerializableEntity\Setup\SerializableProject.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
