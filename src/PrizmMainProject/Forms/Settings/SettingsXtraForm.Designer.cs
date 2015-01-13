@@ -1013,7 +1013,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // colWelderCertExp
             // 
-            this.colWelderCertExp.Caption = "Дата аттестации";
+            this.colWelderCertExp.Caption = "Действительно до";
             this.colWelderCertExp.FieldName = "CertificateExpiration";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
@@ -1037,7 +1037,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // colWelderGrade
             // 
-            this.colWelderGrade.Caption = "Разряд";
+            this.colWelderGrade.Caption = "Уровень";
             this.colWelderGrade.FieldName = "Grade";
             this.colWelderGrade.Name = "colWelderGrade";
             this.colWelderGrade.Visible = true;
@@ -1653,7 +1653,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // isRequiredGridColumn
             // 
-            this.isRequiredGridColumn.Caption = "Обязательна для отгрузки";
+            this.isRequiredGridColumn.Caption = "Обязательное";
             this.isRequiredGridColumn.ColumnEdit = this.isRequired;
             this.isRequiredGridColumn.FieldName = "IsRequired";
             this.isRequiredGridColumn.MaxWidth = 50;
