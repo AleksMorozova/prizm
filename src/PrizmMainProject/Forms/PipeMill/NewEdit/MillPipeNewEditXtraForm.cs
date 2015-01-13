@@ -68,10 +68,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
-            SetConditional(deactivate,
-                delegate(bool editMode)
-                {
-                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode;
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
@@ -728,7 +724,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
         }
+
         private void addInspectionButton_Click(object sender, EventArgs e)
+        {
             if(viewModel.AvailableTests.Count > 0)
             {
                 AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
