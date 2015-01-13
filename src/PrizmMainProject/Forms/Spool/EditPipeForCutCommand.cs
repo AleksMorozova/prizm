@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.Spool
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public EditPipeForCutCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -41,6 +43,7 @@ namespace Prizm.Main.Forms.Spool
             {
                 notify.ShowError(Resources.Wrong_pipe_number_for_cutting, Resources.Wrong_pipe_number_for_cutting_Header);
             }
+            RefreshVisualStateEvent();
         }
 
 
@@ -49,6 +52,5 @@ namespace Prizm.Main.Forms.Spool
             return true;
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

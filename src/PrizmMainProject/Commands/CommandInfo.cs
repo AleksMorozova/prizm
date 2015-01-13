@@ -21,7 +21,7 @@ namespace Prizm.Main.Commands
 
       public CommandInfo Executor(Action<object> exec, Func<object> argQuery, Func<bool> enabledPredicate)
       {
-         executor = new ClosureCommand(exec, enabledPredicate, argQuery);
+          executor = new ClosureCommand(exec, enabledPredicate, argQuery, this.RefreshState);
          return this;
       }
 
@@ -32,6 +32,15 @@ namespace Prizm.Main.Commands
 
          attacher = new SimpleButtonAttacher(executor, button);
          return this;
+      }
+
+      public CommandInfo AttachTo(CheckEdit check)
+      {
+          if (executor == null)
+              throw new InvalidOperationException("command executor is not specified");
+
+          attacher = new CheckEditAttacher(executor, check);
+          return this;
       }
 
       public CommandInfo AttachTo(IAttacher attacher)
@@ -132,7 +141,57 @@ namespace Prizm.Main.Commands
 
       }
 
-      #endregion
+      #endregion // SimpleButtonAttacher
+
+      #region CheckEditAttacher
+
+      class CheckEditAttacher : Attacher<CheckEdit>
+      {
+          public CheckEditAttacher(ICommand command, CheckEdit check)
+              : base(command, check)
+         {
+            Attach();
+         }
+
+         public override void Attach()
+         {
+            Detach();
+            component.Modified += check_Modified;
+         }
+
+         public override void Detach()
+         {
+            if (component != null)
+            {
+                component.Modified -= check_Modified;
+            }
+         }
+
+         public override void RefreshState()
+         {
+            component.Enabled = command.CanExecute();
+         }
+
+         void check_Modified(object sender, EventArgs e)
+         {
+            if (command == null)
+               throw new InvalidOperationException("command is null");
+
+            Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
+            try
+            {
+                notify.ShowProcessing();
+
+                command.Execute();
+            }
+            finally
+            {
+                notify.HideProcessing();
+            }
+         }
+      }
+
+      #endregion // CheckboxAttacher
 
       #region ClosureCommand
 
@@ -142,11 +201,14 @@ namespace Prizm.Main.Commands
          readonly Func<bool> canExecute;
          readonly Func<object> queryParameter;
 
-         public ClosureCommand(Action<object> execute, Func<bool> canExecute, Func<object> queryParameter)
+         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
+         public ClosureCommand(Action<object> execute, Func<bool> canExecute, Func<object> queryParameter, RefreshVisualStateEventHandler refreshHandler)
          {
             this.execute = execute;
             this.canExecute = canExecute;
             this.queryParameter = queryParameter;
+            RefreshVisualStateEvent += refreshHandler;
          }
 
          public void Execute()
@@ -156,6 +218,7 @@ namespace Prizm.Main.Commands
 
             object args = queryParameter != null ? queryParameter() : null;
             execute(args);
+            RefreshVisualStateEvent();
          }
 
          public bool CanExecute()
@@ -163,24 +226,12 @@ namespace Prizm.Main.Commands
             return canExecute != null ? canExecute() : false;
          }
 
-         //TODO: IsExecutable should be removed.
-         public bool IsExecutable
-         {
-            get
-            {
-               throw new NotImplementedException();
-            }
-            set
-            {
-               throw new NotImplementedException();
-            }
-         }
       }
 
-      #endregion
+      #endregion // ClosureCommand
 
-      #endregion
+      #endregion // Internal implementation
 
-      
+
    }
 }

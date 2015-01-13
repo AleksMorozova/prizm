@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Parts.Search
         PartSearchViewModel viewModel;
         ISession session;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public PartsSearchCommand(PartSearchViewModel vm, ISession sess)
         {
@@ -48,8 +50,6 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             return true;
         }
-
-        public bool IsExecutable { get; set; }
 
         #endregion
     }

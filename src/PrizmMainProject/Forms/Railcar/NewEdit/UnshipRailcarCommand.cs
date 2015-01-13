@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public UnshipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
@@ -47,20 +49,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 viewModel.IsShipped = false;
                 notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                 viewModel.SaveCommand.Execute();
-                viewModel.ShipCommand.IsExecutable ^= true;
-                viewModel.UnshipCommand.IsExecutable ^= true;
-                viewModel.SaveCommand.IsExecutable ^= true;
             }
+            RefreshVisualStateEvent();
         }
         public bool CanExecute()
         {
             return (viewModel.Railcar.IsShipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.UnshipAtMill)) ;
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
         }
     }
 }

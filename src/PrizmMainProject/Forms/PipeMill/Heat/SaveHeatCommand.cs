@@ -14,6 +14,8 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         private readonly HeatViewModel viewModel;
         private readonly IHeatRepositories repo;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public SaveHeatCommand(HeatViewModel viewModel, IHeatRepositories repo)
         {
             this.viewModel = viewModel;
@@ -35,6 +37,5 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         {
             return true;
         }
-        public virtual bool IsExecutable { get; set; }
     }
 }

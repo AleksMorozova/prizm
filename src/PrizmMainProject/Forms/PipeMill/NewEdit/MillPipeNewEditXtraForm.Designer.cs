@@ -82,7 +82,7 @@
             this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEditCoatType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.deactivate = new DevExpress.XtraEditors.CheckEdit();
+            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.diameter = new DevExpress.XtraEditors.TextEdit();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -172,7 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEditCoatType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).BeginInit();
@@ -347,7 +347,7 @@
             this.generalPipeLayout.Controls.Add(this.railcarNumber);
             this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
             this.generalPipeLayout.Controls.Add(this.coatingHistory);
-            this.generalPipeLayout.Controls.Add(this.deactivate);
+            this.generalPipeLayout.Controls.Add(this.deactivated);
             this.generalPipeLayout.Controls.Add(this.weldingHistory);
             this.generalPipeLayout.Controls.Add(this.saveButton);
             this.generalPipeLayout.Controls.Add(this.diameter);
@@ -563,6 +563,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.plateNumber, conditionValidationRule1);
+            this.plateNumber.EditValueChanged += new System.EventHandler(this.plateNumber_EditValueChanged);
             // 
             // shippedDate
             // 
@@ -766,16 +767,15 @@
             this.repositoryItemLookUpEditCoatType.EditValueChanged += new System.EventHandler(this.repositoryItemLookUpEditCoatType_EditValueChanged);
             this.repositoryItemLookUpEditCoatType.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryItemLookUpEditCoatType_CustomDisplayText);
             // 
-            // deactivate
+            // deactivated
             // 
-            this.deactivate.Location = new System.Drawing.Point(140, 517);
-            this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
-            this.deactivate.Name = "deactivate";
-            this.deactivate.Properties.Caption = "Труба деактивирована";
-            this.deactivate.Size = new System.Drawing.Size(194, 19);
-            this.deactivate.StyleController = this.generalPipeLayout;
-            this.deactivate.TabIndex = 28;
-            this.deactivate.Modified += new System.EventHandler(this.deactivate_Modified);
+            this.deactivated.Location = new System.Drawing.Point(140, 517);
+            this.deactivated.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.deactivated.Name = "deactivated";
+            this.deactivated.Properties.Caption = "Труба деактивирована";
+            this.deactivated.Size = new System.Drawing.Size(194, 19);
+            this.deactivated.StyleController = this.generalPipeLayout;
+            this.deactivated.TabIndex = 28;
             // 
             // saveButton
             // 
@@ -1034,7 +1034,7 @@
             // 
             // deactivateLayout
             // 
-            this.deactivateLayout.Control = this.deactivate;
+            this.deactivateLayout.Control = this.deactivated;
             this.deactivateLayout.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.deactivateLayout.CustomizationFormText = "Деактивация";
             this.deactivateLayout.Location = new System.Drawing.Point(101, 510);
@@ -1160,7 +1160,7 @@
             this.plateThicknessLayoutControlItem.Name = "plateThicknessLayoutControlItem";
             this.plateThicknessLayoutControlItem.Size = new System.Drawing.Size(132, 50);
             this.plateThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.plateThicknessLayoutControlItem.Text = "Толщина";
+            this.plateThicknessLayoutControlItem.Text = "Тол&щина";
             this.plateThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateThicknessLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -1185,7 +1185,7 @@
             this.coverLayoutControlGroup.Name = "coverLayoutControlGroup";
             this.coverLayoutControlGroup.Size = new System.Drawing.Size(407, 259);
             this.coverLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.coverLayoutControlGroup.Text = "Параметры покрытия";
+            this.coverLayoutControlGroup.Text = "Параметр&ы покрытия";
             // 
             // coatsLayoutControlItem
             // 
@@ -1211,7 +1211,7 @@
             this.shippingLayoutControlGroup.Name = "shippingLayoutControlGroup";
             this.shippingLayoutControlGroup.Size = new System.Drawing.Size(404, 151);
             this.shippingLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.shippingLayoutControlGroup.Text = "Параметры отгрузки";
+            this.shippingLayoutControlGroup.Text = "Параметры от&грузки";
             // 
             // railcarLayoutControlItem
             // 
@@ -1270,7 +1270,7 @@
             this.weldsLayoutControlGroup.Name = "weldsLayoutControlGroup";
             this.weldsLayoutControlGroup.Size = new System.Drawing.Size(830, 259);
             this.weldsLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.weldsLayoutControlGroup.Text = "История сварки";
+            this.weldsLayoutControlGroup.Text = "История с&варки";
             // 
             // weldsLayoutControlItem
             // 
@@ -1293,7 +1293,7 @@
             this.factSizeLayoutControlGroup.Name = "factSizeLayoutControlGroup";
             this.factSizeLayoutControlGroup.Size = new System.Drawing.Size(212, 151);
             this.factSizeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.factSizeLayoutControlGroup.Text = "Фактический размер";
+            this.factSizeLayoutControlGroup.Text = "Фак&тический размер";
             // 
             // weightLayoutControlItem
             // 
@@ -1332,7 +1332,7 @@
             this.typeSizeaParametersLyoutGroup.Name = "typeSizeaParametersLyoutGroup";
             this.typeSizeaParametersLyoutGroup.Size = new System.Drawing.Size(214, 151);
             this.typeSizeaParametersLyoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.typeSizeaParametersLyoutGroup.Text = "Типоразмер";
+            this.typeSizeaParametersLyoutGroup.Text = "Типораз&мер";
             // 
             // lengthLayoutControlItem
             // 
@@ -1471,7 +1471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEditCoatType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).EndInit();
@@ -1551,7 +1551,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView coatingHistoryGridView;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.CheckEdit deactivate;
+        private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraEditors.TextEdit shippedDate;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
         private DevExpress.XtraEditors.TextEdit destination;

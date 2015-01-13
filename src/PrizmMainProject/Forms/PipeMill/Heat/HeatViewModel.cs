@@ -13,6 +13,7 @@ using DevExpress.Mvvm.POCO;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Prizm.Main.Properties;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
@@ -20,6 +21,8 @@ namespace Prizm.Main.Forms.PipeMill.Heat
     {
         private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
+
+        public bool IsNew { get { return this.Heat.IsNew(); } }
 
         [Inject]
         public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
