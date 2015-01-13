@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.Railcar.Search
         private readonly IRailcarRepository repo;
         private readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public SearchRailcarCommand(
             RailcarSearchViewModel viewmodel, 
@@ -65,6 +67,5 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             return true;
         }
-        public virtual bool IsExecutable { get; set; }
     }
 }

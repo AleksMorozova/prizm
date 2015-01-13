@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         readonly IPurchaseOrderRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public ExtractPurchaseOrderCommand(MillPipeNewEditViewModel viewModel, IPurchaseOrderRepository repo)
         {
             this.viewModel = viewModel;
@@ -37,6 +39,5 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             return true;
         }
-        public virtual bool IsExecutable { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public NewSavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
             IMillRepository repo,
@@ -41,17 +43,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.SavePipeCommand.Execute();
 
              if (viewModel.Number != string.Empty)
-            {
+             {
                 viewModel.NewPipe();
                 viewModel.ProductionDate = previousProductionDate;
-            }
-        }
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+             }
+             RefreshVisualStateEvent();
         }
 
         public bool CanExecute()

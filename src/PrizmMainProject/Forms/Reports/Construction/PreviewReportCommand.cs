@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public PreviewReportCommand(
             ConstructionReportViewModel viewModel, 
             IMillReportsRepository repo, 
@@ -45,6 +47,5 @@ namespace Prizm.Main.Forms.Reports.Construction
             return viewModel.ReportCommand.CanExecute();
         }
 
-        public bool IsExecutable { get; set; }
     }
 }

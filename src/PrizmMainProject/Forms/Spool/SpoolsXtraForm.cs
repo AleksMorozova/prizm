@@ -102,16 +102,21 @@ namespace Prizm.Main.Forms.Spool
 
             commandManager["Save"].RefreshState();
 
-
             SaveCommand = viewModel.SaveCommand;
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
             BindToViewModel();
-            attachmentsButton.Enabled = ((viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) && ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments)) ? true : false;
+
+            attachmentsButton.Enabled = 
+                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) 
+                &&  ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
+
+            IsEditMode = !viewModel.IsNew || viewModel.SpoolNumber != String.Empty;
+
             BindCommands();
         }
 

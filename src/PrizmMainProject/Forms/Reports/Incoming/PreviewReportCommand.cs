@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
         readonly IUserNotify notify;
         DataSet data;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public PreviewReportCommand(InspectionReportsViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -55,7 +57,5 @@ namespace Prizm.Main.Forms.Reports.Incoming
             return true;
         }
 
-        public bool IsExecutable
-        { get; set; }
     }
 }
