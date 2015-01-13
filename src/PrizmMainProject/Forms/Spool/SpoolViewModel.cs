@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Spool
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         public bool editMode = false;
 
-        public bool IsNew { get { return this.Pipe.IsNew(); } }
+        public bool IsNew { get { return this.Spool.IsNew(); } }
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
@@ -150,6 +150,19 @@ namespace Prizm.Main.Forms.Spool
                     Pipe.Length = Pipe.Length - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
+                }
+            }
+        }
+
+        public bool SpoolIsActive
+        {
+            get { return Spool.IsActive; }
+            set 
+            {
+                if (value != Spool.IsActive)
+                {
+                    Spool.IsActive = value;
+                    RaisePropertyChanged("SpoolIsActive");
                 }
             }
         }

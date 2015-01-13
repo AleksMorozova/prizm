@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.Spool
                 this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
                 SetAlwaysReadOnly(pipeNumber); 
             }
-            IsEditMode = true;
+            IsEditMode = viewModel.SpoolIsActive;
 
         }
 
@@ -76,6 +76,10 @@ namespace Prizm.Main.Forms.Spool
 
             inspectionHistory.DataBindings
                .Add("DataSource", SpoolBindingSource, "InspectionTestResults");
+
+            deactivated.DataBindings
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                "EditValue", SpoolBindingSource, "SpoolIsActive"));
 
             inspectionStatusDict.Clear();
             inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
