@@ -17,7 +17,7 @@ namespace Prizm.Domain.Entity.Mill
         public virtual string Name { get; set; }
 
         public virtual bool Fixed { get; set; }
-
+        public virtual string ResultType { get; set; }
         public virtual IList<PipeTest> PipeTests { get; set; }
 
         public override string ToString()

@@ -271,6 +271,14 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
             CurrentPipeMillSizeType.SeamType = new SeamType();
+            foreach (Prizm.Domain.Entity.Mill.Category c in viewModel.CategoryTypes)
+            {
+                if (c.Fixed && c.ResultType=="int")
+                {
+                    CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason });
+                }
+            }
+
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);

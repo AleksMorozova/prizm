@@ -262,16 +262,18 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
+        //length from control operation
         public int PipeLength
         {
-            get { return Pipe.Length; }
+            get { GetLengthFromOperation(); return Pipe.Length; }
             set
             {
+                GetLengthFromOperation();
                 if (value != Pipe.Length)
                 {
                     Pipe.Length = value;
                     recalculateWeight = true;
-                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("PipeLength");
                 }
             }
         }
@@ -569,6 +571,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     pipeTestResults = value;
                     RaisePropertyChanged("PipeTestResults");
+                    RaisePropertyChanged("PipeLength");
                 }
             }
         }
@@ -879,6 +882,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
+        //Length from pipeMillsizeType parameters
         public int Length
         {
             get
@@ -932,5 +936,52 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
+
+        public int GetLengthFromOperation() 
+        {
+            List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
+            List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
+            List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
+
+            //group by category
+            foreach (PipeTestResult t in Pipe.PipeTestResult) 
+            {
+                if (t.Operation.Category.Name == "Измерение длины")
+                    lengthOperation.Add(t);
+            }
+
+            //group by date
+            foreach (PipeTestResult t in lengthOperation)
+            {
+                if (t.Date>=lengthOperation.Max(d=>d.Date))
+                    lengthOperation2.Add(t);
+            }
+
+            //group by order
+            if (lengthOperation2.Count() >= 2)
+            {
+                foreach (PipeTestResult t in lengthOperation2)
+                {
+                    if (t.Order >= lengthOperation2.Max(d => d.Order))
+                        lengthOperation3.Add(t);
+                }
+            }
+
+            else 
+            {
+                foreach (PipeTestResult t in lengthOperation2)
+                {
+                    Pipe.Length = Convert.ToInt32(t.Value);
+                }
+            }
+
+            foreach (PipeTestResult t in lengthOperation3)
+            {
+                Pipe.Length = Convert.ToInt32(t.Value);
+            }
+
+
+            return Pipe.Length;
+        }
     }
 }

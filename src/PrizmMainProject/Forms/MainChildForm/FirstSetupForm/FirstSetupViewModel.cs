@@ -109,7 +109,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     fixedCategoryes = new List<Category>();
                     foreach (string str in fixedCategoryesName)
                     {
-                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true}); 
+                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true, ResultType="int"}); 
                     }
                 }
                 return fixedCategoryes;

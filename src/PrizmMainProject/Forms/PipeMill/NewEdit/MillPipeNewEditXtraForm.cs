@@ -755,5 +755,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 workspaceManager.ApplyWorkspace(name);
             }
         }
+
+        private void inspections_Leave(object sender, EventArgs e)
+        {
+            viewModel.GetLengthFromOperation();
+        }
     }
 }

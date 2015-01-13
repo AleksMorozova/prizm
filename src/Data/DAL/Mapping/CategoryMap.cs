@@ -15,7 +15,7 @@ namespace Prizm.Data.DAL.Mapping
         {
             Map(x => x.Name).Column("name");
             Map(x => x.Fixed).Column("fixed");
-
+            Map(x => x.ResultType).Column("resultType");
             HasMany<PipeTest>(x => x.PipeTests).KeyColumn("categoryId");
 
         }
