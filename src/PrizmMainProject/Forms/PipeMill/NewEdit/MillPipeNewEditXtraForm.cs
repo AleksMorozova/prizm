@@ -742,7 +742,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     inspections.RefreshDataSource();
                 }
             }
-        }
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
@@ -792,5 +791,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
 
-    }
+}
+}
+    
 }
