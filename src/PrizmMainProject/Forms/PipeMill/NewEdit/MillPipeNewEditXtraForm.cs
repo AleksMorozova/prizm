@@ -766,6 +766,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                     inspections.RefreshDataSource();
                 }
@@ -802,5 +803,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             return row;
         }
+    }
 }
    
