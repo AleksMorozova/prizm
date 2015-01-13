@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.inspectionHistory = new DevExpress.XtraGrid.GridControl();
@@ -65,10 +65,12 @@
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.SpoolBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit)).BeginInit();
@@ -97,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +118,7 @@
             // 
             // mainLayoutControl
             // 
+            this.mainLayoutControl.Controls.Add(this.deactivated);
             this.mainLayoutControl.Controls.Add(this.saveButton);
             this.mainLayoutControl.Controls.Add(this.attachmentsButton);
             this.mainLayoutControl.Controls.Add(this.inspectionHistory);
@@ -133,6 +137,15 @@
             this.mainLayoutControl.TabIndex = 44;
             this.mainLayoutControl.Text = "layoutControl1";
             // 
+            // deactivated
+            // 
+            this.deactivated.Location = new System.Drawing.Point(164, 419);
+            this.deactivated.Name = "deactivated";
+            this.deactivated.Properties.Caption = "Катушка деактивирована";
+            this.deactivated.Size = new System.Drawing.Size(155, 19);
+            this.deactivated.StyleController = this.mainLayoutControl;
+            this.deactivated.TabIndex = 8;
+            // 
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
@@ -149,7 +162,7 @@
             this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(18, 419);
             this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(102, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(117, 22);
             this.attachmentsButton.StyleController = this.mainLayoutControl;
             this.attachmentsButton.TabIndex = 6;
             this.attachmentsButton.Text = "&Вложения";
@@ -323,7 +336,8 @@
             this.spoolLayoutGroup,
             this.attachmentsButtonLayout,
             this.saveButtonLayout,
-            this.buttonsEmptySpace});
+            this.buttonsEmptySpace,
+            this.deactivatedLayout});
             this.layoutRootGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutRootGroup.Name = "layoutRootGroup";
             this.layoutRootGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -366,7 +380,6 @@
             this.searchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 13, 7, 7);
             this.searchLayoutControlItem.Text = "searchLayoutControlItem";
             this.searchLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.searchLayoutControlItem.TextToControlDistance = 0;
             this.searchLayoutControlItem.TextVisible = false;
             // 
             // pipeNumberLabel
@@ -401,7 +414,6 @@
             this.inspectionHistoryLayout.Size = new System.Drawing.Size(532, 350);
             this.inspectionHistoryLayout.Text = "Входно&й контроль";
             this.inspectionHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionHistoryLayout.TextToControlDistance = 0;
             this.inspectionHistoryLayout.TextVisible = false;
             // 
             // spoolLayoutGroup
@@ -501,10 +513,9 @@
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Size = new System.Drawing.Size(121, 33);
             this.attachmentsButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 0);
+            this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 7, 0);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.attachmentsButtonLayout.TextToControlDistance = 0;
             this.attachmentsButtonLayout.TextVisible = false;
             // 
             // saveButtonLayout
@@ -520,18 +531,29 @@
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 7, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
             // buttonsEmptySpace
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(121, 393);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(305, 393);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(666, 33);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(482, 33);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // deactivatedLayout
+            // 
+            this.deactivatedLayout.Control = this.deactivated;
+            this.deactivatedLayout.CustomizationFormText = "deactivatedLayout";
+            this.deactivatedLayout.Location = new System.Drawing.Point(121, 393);
+            this.deactivatedLayout.Name = "deactivatedLayout";
+            this.deactivatedLayout.Size = new System.Drawing.Size(184, 33);
+            this.deactivatedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 0, 7, 0);
+            this.deactivatedLayout.Text = "deactivatedLayout";
+            this.deactivatedLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.deactivatedLayout.TextVisible = false;
             // 
             // SpoolsXtraForm
             // 
@@ -546,6 +568,7 @@
             this.Load += new System.EventHandler(this.SpoolsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionDateEdit.CalendarTimeProperties)).EndInit();
@@ -574,6 +597,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpoolBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             this.ResumeLayout(false);
@@ -619,5 +643,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit reasonTextEdit;
         private System.Windows.Forms.BindingSource inspectorsDataSource;
         private DevExpress.XtraEditors.SpinEdit spoolLength;
+        private DevExpress.XtraEditors.CheckEdit deactivated;
+        private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
     }
 }
