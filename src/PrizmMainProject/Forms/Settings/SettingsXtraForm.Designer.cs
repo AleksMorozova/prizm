@@ -30,12 +30,12 @@ namespace Prizm.Main.Forms.Settings
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -650,7 +650,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.repositoryItemButtonUserPass.AutoHeight = false;
             this.repositoryItemButtonUserPass.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.repositoryItemButtonUserPass.Name = "repositoryItemButtonUserPass";
             this.repositoryItemButtonUserPass.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonUserPass.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonUserPass_ButtonClick);
@@ -1458,10 +1458,10 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule1.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule4);
             // 
             // pipeNumberMask
             // 
@@ -1533,6 +1533,8 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionView.OptionsNavigation.UseTabKey = false;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
             this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
+            this.inspectionView.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.inspectionView_BeforeLeaveRow);
+            this.inspectionView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionView_ValidateRow);
             this.inspectionView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionView_KeyDown);
             // 
             // inspectionCodeGridColumn
@@ -1767,10 +1769,10 @@ namespace Prizm.Main.Forms.Settings
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule2.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule2);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule5.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule5.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule5);
             // 
             // pipeDiameter
             // 
@@ -1779,10 +1781,10 @@ namespace Prizm.Main.Forms.Settings
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule3.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule3);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.Value1 = "0";
+            this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule1);
             // 
             // seamType
             // 
@@ -1793,10 +1795,10 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.Size = new System.Drawing.Size(189, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule4.Value1 = "<Null>";
-            this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule2.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.Value1 = "<Null>";
+            this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule2);
             // 
             // RootGroup
             // 
