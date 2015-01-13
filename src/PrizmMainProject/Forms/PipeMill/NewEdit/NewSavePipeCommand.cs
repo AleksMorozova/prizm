@@ -37,13 +37,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 return;
             }
+
             DateTime previousProductionDate = viewModel.Pipe.ProductionDate;
+            var previousPipeMillSizeType = viewModel.PipeMillSizeType;
+            var previousHeat = viewModel.Heat;
+            var previousPurchaseOrder = viewModel.PipePurchaseOrder;
+
             viewModel.SavePipeCommand.Execute();
 
              if (viewModel.Number != string.Empty)
             {
                 viewModel.NewPipe();
+
                 viewModel.ProductionDate = previousProductionDate;
+
+                viewModel.PipeMillSizeType = previousPipeMillSizeType;
+                viewModel.PipeTestResults = viewModel.GetRequired(previousPipeMillSizeType);
+                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+
+                viewModel.Heat = previousHeat;
+                viewModel.PipePurchaseOrder = previousPurchaseOrder;
             }
         }
 
