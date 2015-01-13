@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.PipeMill.Purchase
 {
@@ -22,6 +23,8 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
 
         private PurchaseOrder order;
 
+        public bool IsNew { get { return this.order.IsNew(); } }
+        
         [Inject]
         public PurchaseOrderViewModel(IPurchaseOrderRepository repo, string number, IUserNotify notify)
         {

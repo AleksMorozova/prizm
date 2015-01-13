@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         private List<TracingData> tracingDataList;
         private List<PipelineVertex> path;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public ReportCommand(
             ConstructionReportViewModel viewModel,
             IMillReportsRepository repo, 

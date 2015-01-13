@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public PipeDeactivationCommand(
             MillPipeNewEditViewModel viewModel, 
             IMillRepository repo,
@@ -40,11 +42,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     Resources.DLG_PIPE_DEACTIVATION,
                     Resources.DLG_PIPE_DEACTIVATION_HEDER))
                 {
+                    viewModel.Pipe.IsActive = false;
                     viewModel.SavePipeCommand.Execute();
-                }
-                else
-                {
-                    viewModel.IsNotActive = false;
+                    viewModel.ModifiableView.IsEditMode = false;
                 }
             }
             else if (viewModel.PipeStatus.Value == PipeMillStatus.Shipped)
@@ -52,25 +52,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 notify.ShowInfo(
                     Resources.DLG_PIPE_IS_SHIPPED,
                     Resources.DLG_PIPE_IS_SHIPPED_HEDER);
-
-                viewModel.IsNotActive = false;
             }
             else
             {
                 notify.ShowInfo(
                     Resources.DLG_PIPE_IN_RAILCAR,
                     Resources.DLG_PIPE_IN_RAILCAR_HEDER);
-
-                viewModel.IsNotActive = false;
             }
+            RefreshVisualStateEvent();
         }
 
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
-        }
 
         public bool CanExecute()
         {
@@ -78,6 +69,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.Pipe.Status != PipeMillStatus.Shipped
                 && viewModel.Pipe.IsActive
                 && !viewModel.IsNew
+                && viewModel.ModifiableView.IsEditMode
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivatePipe);
         }
     }

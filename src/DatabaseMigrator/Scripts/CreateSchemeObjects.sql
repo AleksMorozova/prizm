@@ -222,6 +222,7 @@ CREATE TABLE [dbo].[Pipe](
 	[constructionStatus] [nvarchar](15) NULL,
 
 	[isAvailableToJoint] [bit] NULL,
+        [toExport] [bit] NOT NULL DEFAULT 0,
 
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
@@ -777,3 +778,33 @@ CREATE TABLE [dbo].[File](
 ) ON [PRIMARY]
 
 GO
+
+CREATE TABLE [dbo].[Portion] (
+  [id] [uniqueidentifier] NOT NULL,
+  [exportDateTime] [date] NOT NULL,
+CONSTRAINT [PK_Portion] PRIMARY KEY([id])
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Portion_Pipe] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [pipeId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Pipe] PRIMARY KEY([portionId],[pipeId]),
+CONSTRAINT [FK_Portion_Pipe_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Pipe_Pipe] FOREIGN KEY ([pipeId]) REFERENCES [dbo].[Pipe]([id])
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Portion_Project] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [projectId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Project] PRIMARY KEY([portionId],[projectId]),
+CONSTRAINT [FK_Portion_Project_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
+) ON [PRIMARY]
+
+GO
+
+

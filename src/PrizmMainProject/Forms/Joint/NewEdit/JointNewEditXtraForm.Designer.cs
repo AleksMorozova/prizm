@@ -361,7 +361,6 @@
             this.deactivated.Size = new System.Drawing.Size(131, 19);
             this.deactivated.StyleController = this.newJointLayoutControl;
             this.deactivated.TabIndex = 12;
-            this.deactivated.Modified += new System.EventHandler(this.deactivated_Modified);
             // 
             // distanceFromPK
             // 
@@ -981,6 +980,7 @@
             this.ShowIcon = false;
             this.Text = "Стык";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
+            this.Activated += new System.EventHandler(this.JointNewEditXtraForm_Activated);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();

@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
@@ -75,13 +77,14 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
             bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
             bool conditionAndPermission;
-            if (viewModel.Railcar.Id == Guid.Empty)
+            if (viewModel.IsNew)
             {
                 conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
             }
@@ -90,12 +93,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
             }
             return conditionAndPermission;
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
         }
     }
 }

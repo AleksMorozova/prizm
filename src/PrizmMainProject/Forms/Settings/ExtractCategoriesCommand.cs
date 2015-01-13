@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Settings
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public ExtractCategoriesCommand(
             SettingsViewModel viewModel, 
             ISettingsRepositories repos, 
@@ -39,6 +41,5 @@ namespace Prizm.Main.Forms.Settings
             return true;
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

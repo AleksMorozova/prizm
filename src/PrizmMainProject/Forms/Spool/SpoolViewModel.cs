@@ -25,6 +25,7 @@ namespace Prizm.Main.Forms.Spool
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand saveCommand;
+        readonly ICommand deactivateCommand;
         public string pipeNumber;
         public string spoolNumber;
         public int pipeLength;
@@ -36,6 +37,8 @@ namespace Prizm.Main.Forms.Spool
         public bool canCut = false;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         public bool editMode = false;
+
+        public bool IsNew { get { return this.Pipe.IsNew(); } }
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
@@ -50,6 +53,9 @@ namespace Prizm.Main.Forms.Spool
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
             () => new SaveSpoolCommand(this, repos, notify));
+
+            deactivateCommand = ViewModelSource.Create<SpoolDeactivationCommand>(
+                () => new SpoolDeactivationCommand(repos, this, notify));
 
             allPipes = new BindingList<Pipe>();
 
@@ -176,19 +182,6 @@ namespace Prizm.Main.Forms.Spool
             }
         }
 
-        public bool IsNotActive
-        {
-            get { return Spool.IsNotActive; }
-            set
-            {
-                if (value != Spool.IsNotActive)
-                {
-                    Spool.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
-                }
-            }
-        }
-
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<InspectionTestResult> InspectionTestResults
         {
@@ -252,6 +245,11 @@ namespace Prizm.Main.Forms.Spool
         public ICommand SaveCommand
         {
             get { return saveCommand; }
+        }
+
+        public ICommand DeactivateCommand
+        {
+            get { return deactivateCommand; }
         }
         #endregion
     }

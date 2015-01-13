@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate {};
+
         public SavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
             IMillRepository repo, 
@@ -88,34 +90,23 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     notify.ShowInfo(Resources.DLG_AddFailedControlOperation, Resources.DLG_PIPE_SAVED_HEADER);
                 }
             }
+
+            RefreshVisualStateEvent();
         }
 
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
-        }
 
         public bool CanExecute()
         {
-            bool condition = viewModel.Heat != null &&
-                viewModel.PipeMillSizeType != null &&
-                viewModel.PipePurchaseOrder != null &&
-                !string.IsNullOrEmpty(viewModel.Number) &&
-                viewModel.ProductionDate != DateTime.MinValue &&
-                viewModel.ModifiableView.IsEditMode;
-            bool conditionAndPermission;
-            if (viewModel.Pipe.Id == Guid.Empty)
-            {
-                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
-            }
-            else
-            {
-                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
-            }
-            return conditionAndPermission;
+            return  viewModel.Heat != null &&
+                    viewModel.PipeMillSizeType != null &&
+                    viewModel.PipePurchaseOrder != null &&
+                    !string.IsNullOrEmpty(viewModel.Number) &&
+                    !string.IsNullOrEmpty(viewModel.PlateNumber) &&
+                    viewModel.ProductionDate != DateTime.MinValue &&
+                    viewModel.ModifiableView.IsEditMode &&
+                    ctx.HasAccess(viewModel.IsNew
+                        ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                        : global::Domain.Entity.Security.Privileges.EditData);
         }
     
     }
