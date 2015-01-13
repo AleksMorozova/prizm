@@ -380,8 +380,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 viewModel.JointDeactivationCommand.Execute();
                 IsEditMode = false;
             }
-            commandManager["Save"].RefreshState();
-            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void JointNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
