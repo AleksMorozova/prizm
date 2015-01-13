@@ -803,5 +803,4 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return row;
         }
 }
-}
    
