@@ -9,7 +9,7 @@ using Ninject;
 using Ninject.Parameters;
 
 using Prizm.Domain.Entity.Setup;
-
+using Prizm.Main.Controls;
 using Prizm.Main.Forms.Settings.Dictionary;
 using Prizm.Main.Forms.Settings.UserRole.Role;
 using Prizm.Main.Forms.Settings.UserRole.User;
@@ -37,6 +37,7 @@ namespace Prizm.Main.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
@@ -49,7 +50,7 @@ namespace Prizm.Main.Forms.Settings
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
-
+            viewModel.ModifiableView = this;
         }
 
         #region Role Setting
@@ -116,8 +117,33 @@ namespace Prizm.Main.Forms.Settings
             pipeLength.SetRequiredText();
             pipeDiameter.SetRequiredText();
             wallThickness.SetRequiredText();
+            SetConditional(seamType, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+                        );
+            SetConditional(pipeLength, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
 
+            SetConditional(pipeDiameter, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
+
+            SetConditional(wallThickness, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
             UpdateSeamTypesComboBox();
+
+            IsEditMode = true;
+
+
         }
 
         private void BindToViewModel()
@@ -212,6 +238,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+
             GridView v = sender as GridView;
             object sizeType = v.GetRow(e.FocusedRowHandle);
 
@@ -222,6 +249,7 @@ namespace Prizm.Main.Forms.Settings
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
+            viewModel.ModifiableView.UpdateState();
 
         }
 
@@ -269,6 +297,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            viewModel.ModifiableView.UpdateState();
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
@@ -838,5 +867,9 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private bool CheckReadonly(bool editMode)
+        {
+            return (CurrentPipeMillSizeType !=null&& editMode);
+        }
     }
 }

@@ -1465,6 +1465,8 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeLength.Location = new System.Drawing.Point(864, 464);
             this.pipeLength.Name = "pipeLength";
+            this.pipeLength.Properties.Mask.EditMask = "d";
+            this.pipeLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
@@ -1774,6 +1776,8 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThickness.Location = new System.Drawing.Point(672, 464);
             this.wallThickness.Name = "wallThickness";
+            this.wallThickness.Properties.Mask.EditMask = "f2";
+            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
@@ -1786,6 +1790,8 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(481, 464);
             this.pipeDiameter.Name = "pipeDiameter";
+            this.pipeDiameter.Properties.Mask.EditMask = "d";
+            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
@@ -1800,6 +1806,7 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.Name = "seamType";
             this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seamType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.seamType.Size = new System.Drawing.Size(189, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
