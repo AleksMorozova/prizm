@@ -292,6 +292,10 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
             pipeTest.IsActive = true;
             pipeTest.pipeType = CurrentPipeMillSizeType;
+            foreach (PipeTest t in CurrentPipeMillSizeType.PipeTests) 
+            {
+                t.pipeType = CurrentPipeMillSizeType; 
+            }
             CurrentPipeMillSizeType.PipeTests.Add(pipeTest);
         }
 
@@ -302,9 +306,18 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
             CurrentPipeMillSizeType.SeamType = new SeamType();
+
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
+            }
+
+            foreach (Prizm.Domain.Entity.Mill.Category c in viewModel.CategoryTypes)
+            {
+                if (c.Fixed && c.ResultType == "int")
+                {
+                    CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason, pipeType=CurrentPipeMillSizeType, IsRequired=true });
+                }
             }
         }
 
@@ -807,11 +820,11 @@ namespace Prizm.Main.Forms.Settings
 
         #region IValidatable Members
 
-        bool IValidatable.Validate()
-        {
-            UpdateSeamTypesComboBox();
-            return dxValidationProvider.Validate();
-        }
+        //bool IValidatable.Validate()
+        //{
+        //    UpdateSeamTypesComboBox();
+        //    return dxValidationProvider.Validate();
+        //}
 
         #endregion
 
@@ -866,6 +879,69 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        private void inspectionView_BeforeLeaveRow(object sender, RowAllowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
+
+            foreach (PipeTest t in CurrentPipeMillSizeType.PipeTests)
+            {
+                t.pipeType = CurrentPipeMillSizeType;
+            }
+        }
+
+        bool IValidatable.Validate()
+        {
+            bool codeValidate = false;
+            UpdateSeamTypesComboBox();
+            for (int i = 0; i < inspectionView.RowCount; i++)
+            {
+                if (Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name"))==null)
+                {
+                    inspectionView.FocusedRowHandle = i;
+
+                    inspectionView_ValidateRow(
+                        inspectionView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                }
+            }
+
+            foreach (PipeTest t in viewModel.PipeTests)
+            {
+                if (t.Code != null && t.Name != null)
+                {
+                    codeValidate = true;
+                }
+                else
+                {
+                    codeValidate = false;
+                }
+            }
+            return dxValidationProvider.Validate() && codeValidate;
+        }
+
+        private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            var code = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
+            var name = (string)gv.GetRowCellValue(e.RowHandle, inspectionNameGridColumn);
+            if (code == null )
+            {
+                gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
+                e.Valid = false;
+            }
+
+            if (name == null)
+            {
+                gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
+                e.Valid = false;
+            }
+        }
+
+
 
         private bool CheckReadonly(bool editMode)
         {
