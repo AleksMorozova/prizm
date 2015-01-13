@@ -600,7 +600,6 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
-           // this.secondJointElement.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.secondJointElement_ButtonClick);
             this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
             // 
             // firstJointElement
