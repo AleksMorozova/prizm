@@ -729,7 +729,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void inspections_Leave(object sender, EventArgs e)
         {
-            viewModel.GetLengthFromOperation();
+           //TODO: Review that functionality
+            pipeLength.Text = viewModel.PipeLength.ToString();
         }
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
