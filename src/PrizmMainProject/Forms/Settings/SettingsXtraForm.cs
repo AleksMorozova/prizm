@@ -899,13 +899,13 @@ namespace Prizm.Main.Forms.Settings
             var name = (string)gv.GetRowCellValue(e.RowHandle, inspectionNameGridColumn);
             if (code == null )
             {
-                gv.SetColumnError(inspectionCodeGridColumn, "Enter operation code");
+                gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
                 e.Valid = false;
             }
 
             if (name == null)
             {
-                gv.SetColumnError(inspectionNameGridColumn, "Enter operation code");
+                gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
                 e.Valid = false;
             }
         }

@@ -980,7 +980,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 Pipe.Length = Convert.ToInt32(t.Value);
             }
 
-
             return Pipe.Length;
         }
     }

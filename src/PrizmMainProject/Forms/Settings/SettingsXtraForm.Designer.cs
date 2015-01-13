@@ -32,7 +32,6 @@ namespace Prizm.Main.Forms.Settings
             this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -176,8 +175,8 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.lineLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.jointOperationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.weldersLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -201,12 +200,12 @@ namespace Prizm.Main.Forms.Settings
             this.seamTypeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cloneButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeSplitterItem = new DevExpress.XtraLayout.SplitterItem();
+            this.lineLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.jointOperationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.partsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.partsTypeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.partsSplitterItem = new DevExpress.XtraLayout.SplitterItem();
-            this.weldersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.weldersLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.inspectorLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.certificateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -310,8 +309,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
@@ -335,12 +334,12 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloneButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSplitterItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).BeginInit();
@@ -1832,8 +1831,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.weldersLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 4;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -1846,26 +1845,26 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
             // 
-            // lineLayoutControlGroup
+            // weldersLayoutControlGroup
             // 
-            this.lineLayoutControlGroup.CustomizationFormText = "Тру&бопровод";
-            this.lineLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.jointOperationLayoutControlItem});
-            this.lineLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.lineLayoutControlGroup.Name = "lineLayoutControlGroup";
-            this.lineLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.lineLayoutControlGroup.Text = "Тру&бопровод";
+            this.weldersLayoutControlGroup.CustomizationFormText = "С&варщики";
+            this.weldersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.weldersLayoutControlItem});
+            this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
+            this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.weldersLayoutControlGroup.Text = "С&варщики";
             // 
-            // jointOperationLayoutControlItem
+            // weldersLayoutControlItem
             // 
-            this.jointOperationLayoutControlItem.Control = this.jointOperations;
-            this.jointOperationLayoutControlItem.CustomizationFormText = "Набор операций - условия приемки стыка для спуска";
-            this.jointOperationLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.jointOperationLayoutControlItem.Name = "jointOperationLayoutControlItem";
-            this.jointOperationLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
-            this.jointOperationLayoutControlItem.Text = "Набор операций - условия приемки стыка для спуска";
-            this.jointOperationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.jointOperationLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            this.weldersLayoutControlItem.Control = this.gridControlWelders;
+            this.weldersLayoutControlItem.CustomizationFormText = "Сварщики";
+            this.weldersLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.weldersLayoutControlItem.Name = "weldersLayoutControlItem";
+            this.weldersLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
+            this.weldersLayoutControlItem.Text = "Сварщики";
+            this.weldersLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.weldersLayoutControlItem.TextVisible = false;
             // 
             // projectLayoutControlGroup
             // 
@@ -2154,6 +2153,27 @@ namespace Prizm.Main.Forms.Settings
             this.pipeSplitterItem.Name = "pipeSplitterItem";
             this.pipeSplitterItem.Size = new System.Drawing.Size(5, 432);
             // 
+            // lineLayoutControlGroup
+            // 
+            this.lineLayoutControlGroup.CustomizationFormText = "Тру&бопровод";
+            this.lineLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.jointOperationLayoutControlItem});
+            this.lineLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.lineLayoutControlGroup.Name = "lineLayoutControlGroup";
+            this.lineLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.lineLayoutControlGroup.Text = "Тру&бопровод";
+            // 
+            // jointOperationLayoutControlItem
+            // 
+            this.jointOperationLayoutControlItem.Control = this.jointOperations;
+            this.jointOperationLayoutControlItem.CustomizationFormText = "Набор операций - условия приемки стыка для спуска";
+            this.jointOperationLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.jointOperationLayoutControlItem.Name = "jointOperationLayoutControlItem";
+            this.jointOperationLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
+            this.jointOperationLayoutControlItem.Text = "Набор операций - условия приемки стыка для спуска";
+            this.jointOperationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.jointOperationLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
             // partsLayoutControlGroup
             // 
             this.partsLayoutControlGroup.CustomizationFormText = "Комплектую&щие";
@@ -2194,27 +2214,6 @@ namespace Prizm.Main.Forms.Settings
             this.partsSplitterItem.Location = new System.Drawing.Point(614, 0);
             this.partsSplitterItem.Name = "partsSplitterItem";
             this.partsSplitterItem.Size = new System.Drawing.Size(5, 458);
-            // 
-            // weldersLayoutControlGroup
-            // 
-            this.weldersLayoutControlGroup.CustomizationFormText = "С&варщики";
-            this.weldersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.weldersLayoutControlItem});
-            this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
-            this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlGroup.Text = "С&варщики";
-            // 
-            // weldersLayoutControlItem
-            // 
-            this.weldersLayoutControlItem.Control = this.gridControlWelders;
-            this.weldersLayoutControlItem.CustomizationFormText = "Сварщики";
-            this.weldersLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.weldersLayoutControlItem.Name = "weldersLayoutControlItem";
-            this.weldersLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlItem.Text = "Сварщики";
-            this.weldersLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.weldersLayoutControlItem.TextVisible = false;
             // 
             // inspectorsLayoutControlGroup
             // 
@@ -2523,8 +2522,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
@@ -2548,12 +2547,12 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloneButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSplitterItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).EndInit();

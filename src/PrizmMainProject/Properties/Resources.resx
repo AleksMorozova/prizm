@@ -792,4 +792,10 @@
   <data name="DLG_SPOOL_DEACTIVATION_HEADER" xml:space="preserve">
     <value>Деактивация катушки</value>
   </data>
+  <data name="Empty_Operation_Code" xml:space="preserve">
+    <value>Введите код операции</value>
+  </data>
+  <data name="Empty_Operation_Name" xml:space="preserve">
+    <value>Введите название операции</value>
+  </data>
 </root>
