@@ -79,7 +79,11 @@
     <Compile Include="Forms\Spool\SaveSpoolCommandTest.cs" />
     <Compile Include="MainChildDocumentsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Synch\EncryptorTest.cs" />
+    <Compile Include="Synch\HasherTest.cs" />
+    <Compile Include="Synch\SerializableEntities\FileObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\HeatObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\Manifest.cs" />
     <Compile Include="Synch\SerializableEntities\PermissionObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PipeObjectTest.cs" />
     <Compile Include="Synch\SerializableEntities\PlateManufacturerObjectTest.cs" />

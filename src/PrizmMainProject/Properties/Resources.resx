@@ -785,4 +785,16 @@
   <data name="Administrator" xml:space="preserve">
     <value>Администратор</value>
   </data>
+  <data name="Export_ReadingData" xml:space="preserve">
+    <value>Чтение данных.</value>
+  </data>
+  <data name="Export_CreateTempStorage" xml:space="preserve">
+    <value>Создание временного хранилища.</value>
+  </data>
+  <data name="Export_WritingData" xml:space="preserve">
+    <value>Запись данных.</value>
+  </data>
+  <data name="Export_CreatingArchive" xml:space="preserve">
+    <value>Создание конечного архива.</value>
+  </data>
 </root>
