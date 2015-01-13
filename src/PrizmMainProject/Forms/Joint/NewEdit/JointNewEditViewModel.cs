@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using DevExpress.XtraCharts.Native;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
@@ -603,7 +604,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (list == null && Pieces != null)
+                if (Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
@@ -676,10 +677,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 if (part is construction.Component)
                 {
-                    connector.Diameter = ((construction.Component)part)
-                        .Connectors
-                        .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
-                        .Diameter;
+                    if (Joint.IsActive)
+                    {
+                        connector.Diameter = ((construction.Component)part)
+                            .Connectors
+                            .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
+                            .Diameter;
+                    }
                 }
                 else if (part is Pipe)
                 {
@@ -710,6 +714,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
 
+        }
+
+        public void RefreshJointComponents()
+        {
+            Pieces = adoRepo.GetPipelineElements();
         }
 
     }

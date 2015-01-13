@@ -443,5 +443,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date;
             }
         }
+
+        private void JointNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            viewModel.RefreshJointComponents();
+            pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
+            firstJointElement.Refresh();
+            secondJointElement.Refresh();
+        }
     }
 }

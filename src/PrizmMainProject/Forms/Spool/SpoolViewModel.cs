@@ -25,6 +25,7 @@ namespace Prizm.Main.Forms.Spool
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand saveCommand;
+        readonly ICommand deactivateCommand;
         public string pipeNumber;
         public string spoolNumber;
         public int pipeLength;
@@ -52,6 +53,9 @@ namespace Prizm.Main.Forms.Spool
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
             () => new SaveSpoolCommand(this, repos, notify));
+
+            deactivateCommand = ViewModelSource.Create<SpoolDeactivationCommand>(
+                () => new SpoolDeactivationCommand(repos, this, notify));
 
             allPipes = new BindingList<Pipe>();
 
@@ -241,6 +245,11 @@ namespace Prizm.Main.Forms.Spool
         public ICommand SaveCommand
         {
             get { return saveCommand; }
+        }
+
+        public ICommand DeactivateCommand
+        {
+            get { return deactivateCommand; }
         }
         #endregion
     }

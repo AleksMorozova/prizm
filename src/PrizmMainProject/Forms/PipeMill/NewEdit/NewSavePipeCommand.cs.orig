@@ -52,6 +52,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.NewPipe();
 
                 viewModel.ProductionDate = previousProductionDate;
+<<<<<<< HEAD
+             }
+             RefreshVisualStateEvent();
+=======
 
                 viewModel.PipeMillSizeType = previousPipeMillSizeType;
                 viewModel.PipeTestResults = viewModel.GetRequired(previousPipeMillSizeType);
@@ -59,8 +63,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                 viewModel.Heat = previousHeat;
                 viewModel.PipePurchaseOrder = previousPurchaseOrder;
-             }
-             RefreshVisualStateEvent();
+            }
+        }
+
+        public virtual bool IsExecutable { get; set; }
+
+        protected virtual void OnIsExecutableChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.Execute());
+>>>>>>> master
         }
 
         public bool CanExecute()
