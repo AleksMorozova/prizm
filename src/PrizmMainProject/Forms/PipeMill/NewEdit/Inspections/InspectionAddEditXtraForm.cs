@@ -106,9 +106,30 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        private void inspectors_Leave(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             viewModel.TestResult.Inspectors = inspectors.SelectedInspectors;
+            viewModel.TestResult.Status = viewModel.Status;
+            if(viewModel.Date != DateTime.MinValue)
+            {
+                viewModel.TestResult.Date = viewModel.Date;
+            }
+            switch(viewModel.TestResult.Operation.ResultType)
+            {
+                case PipeTestResultType.Boolean:
+                    viewModel.TestResult.Value = viewModel.FactBool.ToString();
+                    break;
+                case PipeTestResultType.String:
+                    viewModel.TestResult.Value = viewModel.FactString;
+                    break;
+                case PipeTestResultType.Diapason:
+                    viewModel.TestResult.Value = viewModel.FactLimit;
+                    break;
+                case PipeTestResultType.Undef:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

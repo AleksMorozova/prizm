@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.factLimit = new DevExpress.XtraEditors.SpinEdit();
@@ -52,7 +53,6 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factDiapasonLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -61,10 +61,11 @@
             this.factBoolLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factStringLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.testsBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factDiapasonLayoutControlGroup)).BeginInit();
@@ -100,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
@@ -257,6 +258,7 @@
             this.saveButton.StyleController = this.rootLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -403,18 +405,6 @@
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(62, 13);
             // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.date;
-            this.layoutControlItem7.CustomizationFormText = "Дата";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 260);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(339, 50);
-            this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem7.Text = "Дата";
-            this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(62, 13);
-            // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
@@ -507,6 +497,18 @@
             this.factStringLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.factStringLayoutControlItem.TextVisible = false;
             // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.date;
+            this.layoutControlItem7.CustomizationFormText = "Дата";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 260);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(339, 50);
+            this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem7.Text = "Дата";
+            this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(62, 13);
+            // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
@@ -532,7 +534,6 @@
             this.inspectors.Name = "inspectors";
             this.inspectors.Size = new System.Drawing.Size(413, 342);
             this.inspectors.TabIndex = 11;
-            this.inspectors.Leave += new System.EventHandler(this.inspectors_Leave);
             // 
             // layoutControlItem8
             // 
@@ -578,7 +579,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factDiapasonLayoutControlGroup)).EndInit();
@@ -587,6 +587,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();

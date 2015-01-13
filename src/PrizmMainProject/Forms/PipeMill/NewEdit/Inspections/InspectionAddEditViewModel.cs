@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 {
-    public class InspectionAddEditViewModel : ViewModelBase, IDisposable
+    public class InspectionAddEditViewModel : ViewModelBase
     {
         private IList<PipeTest> availableTests = new BindingList<PipeTest>();
         private IList<Inspector> inspectors = new BindingList<Inspector>();
@@ -186,43 +186,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        //TODO: wrapper for translit
-        public PipeTestResultStatus Status
-        {
-            get { return testResult.Status; }
-            set
-            {
-                if(value != testResult.Status)
-                {
-                    testResult.Status = value;
-                    RaisePropertyChanged("Status");
-                }
-            }
-        }
-
-        public DateTime Date
-        {
-            get 
-            {
-                if(testResult.Date.HasValue)
-                {
-                    return testResult.Date.Value;
-                }
-                else
-                {
-                    return DateTime.MinValue;
-                }
-            }
-            set
-            {
-                if(value != testResult.Date)
-                {
-                    testResult.Date = value;
-                    RaisePropertyChanged("Date");
-                }
-            }
-        }
-
         public PipeTest Operation
         {
             get { return testResult.Operation; }
@@ -236,57 +199,79 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
+        PipeTestResultStatus status;
+        public PipeTestResultStatus Status
+        {
+            get { return status; }
+            set
+            {
+                if(value != status)
+                {
+                    status = value;
+                    RaisePropertyChanged("Status");
+                }
+            }
+        }
+
+        DateTime date;
+        public DateTime Date
+        {
+            get { return date; }
+            set
+            {
+                if(value != date)
+                {
+                    date = value;
+                    RaisePropertyChanged("Date");
+                }
+            }
+        }
+
+        bool factBool;
         public bool FactBool
         {
-            get 
+            get
             {
-                return (testResult.Value.Equals("True")) ? true : false; 
+                return factBool;
             }
             set
             {
-                string input = value.ToString();
-                if(!testResult.Value.Equals(input))
+                if(factBool != value)
                 {
-                    testResult.Value = input;
+                    factBool = value;
                     RaisePropertyChanged("FactBool");
                 }
             }
         }
 
+        string factString;
         public string FactString
         {
-            get { return testResult.Value; }
+            get { return factString; }
             set
             {
-                if(value != testResult.Value)
+                if(value != factString)
                 {
-                    testResult.Value = value;
+                    factString = value;
                     RaisePropertiesChanged("FactString");
                 }
             }
         }
 
+        string factLimit;
         public string FactLimit
         {
-            get { return testResult.Value; }
+            get { return factLimit; }
             set
             {
-                if(value != testResult.Value)
+                if(value != factLimit)
                 {
-                    testResult.Value = value;
+                    factLimit = value;
                     RaisePropertiesChanged("FactLimit");
                 }
             }
         }
 
-        #endregion
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-
-        }
 
         #endregion
 
