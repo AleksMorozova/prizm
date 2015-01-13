@@ -40,8 +40,8 @@
             this.expected = new DevExpress.XtraEditors.TextEdit();
             this.name = new DevExpress.XtraEditors.TextEdit();
             this.category = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -119,8 +119,8 @@
             this.rootLayoutControl.Controls.Add(this.expected);
             this.rootLayoutControl.Controls.Add(this.name);
             this.rootLayoutControl.Controls.Add(this.category);
-            this.rootLayoutControl.Controls.Add(this.simpleButton1);
-            this.rootLayoutControl.Controls.Add(this.simpleButton2);
+            this.rootLayoutControl.Controls.Add(this.saveButton);
+            this.rootLayoutControl.Controls.Add(this.cancelButton);
             this.rootLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutControl.Name = "rootLayoutControl";
@@ -136,7 +136,7 @@
             this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rootLayoutControl.Root = this.rootLayoutGroup;
-            this.rootLayoutControl.Size = new System.Drawing.Size(708, 463);
+            this.rootLayoutControl.Size = new System.Drawing.Size(816, 567);
             this.rootLayoutControl.TabIndex = 0;
             this.rootLayoutControl.Text = "layoutControl1";
             // 
@@ -151,7 +151,7 @@
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.factLimit.Size = new System.Drawing.Size(255, 20);
+            this.factLimit.Size = new System.Drawing.Size(311, 20);
             this.factLimit.StyleController = this.rootLayoutControl;
             this.factLimit.TabIndex = 15;
             // 
@@ -160,21 +160,21 @@
             this.factBool.Location = new System.Drawing.Point(39, 303);
             this.factBool.Name = "factBool";
             this.factBool.Properties.Caption = "Результат";
-            this.factBool.Size = new System.Drawing.Size(255, 19);
+            this.factBool.Size = new System.Drawing.Size(311, 19);
             this.factBool.StyleController = this.rootLayoutControl;
             this.factBool.TabIndex = 14;
             // 
             // status
             // 
             this.status.EditValue = "";
-            this.status.Location = new System.Drawing.Point(32, 426);
+            this.status.Location = new System.Drawing.Point(32, 476);
             this.status.Name = "status";
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.status.Properties.DisplayMember = "Text";
             this.status.Properties.ValueMember = "Value";
             this.status.Properties.View = this.gridLookUpEdit1View;
-            this.status.Size = new System.Drawing.Size(269, 20);
+            this.status.Size = new System.Drawing.Size(325, 20);
             this.status.StyleController = this.rootLayoutControl;
             this.status.TabIndex = 13;
             // 
@@ -194,7 +194,7 @@
             this.code.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.code.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.code.Size = new System.Drawing.Size(101, 20);
+            this.code.Size = new System.Drawing.Size(123, 20);
             this.code.StyleController = this.rootLayoutControl;
             this.code.TabIndex = 12;
             this.code.EditValueChanged += new System.EventHandler(this.code_EditValueChanged);
@@ -202,13 +202,13 @@
             // date
             // 
             this.date.EditValue = null;
-            this.date.Location = new System.Drawing.Point(32, 476);
+            this.date.Location = new System.Drawing.Point(32, 426);
             this.date.Name = "date";
             this.date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date.Size = new System.Drawing.Size(269, 20);
+            this.date.Size = new System.Drawing.Size(325, 20);
             this.date.StyleController = this.rootLayoutControl;
             this.date.TabIndex = 10;
             // 
@@ -216,7 +216,7 @@
             // 
             this.factString.Location = new System.Drawing.Point(44, 231);
             this.factString.Name = "factString";
-            this.factString.Size = new System.Drawing.Size(245, 20);
+            this.factString.Size = new System.Drawing.Size(301, 20);
             this.factString.StyleController = this.rootLayoutControl;
             this.factString.TabIndex = 8;
             // 
@@ -225,49 +225,49 @@
             this.expected.Location = new System.Drawing.Point(32, 166);
             this.expected.Name = "expected";
             this.expected.Properties.ReadOnly = true;
-            this.expected.Size = new System.Drawing.Size(269, 20);
+            this.expected.Size = new System.Drawing.Size(325, 20);
             this.expected.StyleController = this.rootLayoutControl;
             this.expected.TabIndex = 7;
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(392, 67);
+            this.name.Location = new System.Drawing.Point(462, 67);
             this.name.Name = "name";
             this.name.Properties.ReadOnly = true;
-            this.name.Size = new System.Drawing.Size(267, 20);
+            this.name.Size = new System.Drawing.Size(322, 20);
             this.name.StyleController = this.rootLayoutControl;
             this.name.TabIndex = 6;
             // 
             // category
             // 
-            this.category.Location = new System.Drawing.Point(147, 67);
+            this.category.Location = new System.Drawing.Point(169, 67);
             this.category.Name = "category";
             this.category.Properties.ReadOnly = true;
-            this.category.Size = new System.Drawing.Size(231, 20);
+            this.category.Size = new System.Drawing.Size(279, 20);
             this.category.StyleController = this.rootLayoutControl;
             this.category.TabIndex = 5;
             // 
-            // simpleButton1
+            // saveButton
             // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(475, 530);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(86, 22);
-            this.simpleButton1.StyleController = this.rootLayoutControl;
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "Сохранить";
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(560, 532);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(105, 22);
+            this.saveButton.StyleController = this.rootLayoutControl;
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Сохранить";
             // 
-            // simpleButton2
+            // cancelButton
             // 
-            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(591, 530);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(80, 22);
-            this.simpleButton2.StyleController = this.rootLayoutControl;
-            this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Отменить";
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.Location = new System.Drawing.Point(695, 532);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(101, 22);
+            this.cancelButton.StyleController = this.rootLayoutControl;
+            this.cancelButton.TabIndex = 6;
+            this.cancelButton.Text = "Отменить";
             // 
             // rootLayoutGroup
             // 
@@ -283,7 +283,7 @@
             this.emptySpaceItem2});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "rootLayoutGroup";
-            this.rootLayoutGroup.Size = new System.Drawing.Size(691, 565);
+            this.rootLayoutGroup.Size = new System.Drawing.Size(816, 567);
             this.rootLayoutGroup.Text = "rootLayoutGroup";
             this.rootLayoutGroup.TextVisible = false;
             // 
@@ -296,7 +296,7 @@
             this.layoutControlItem11});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(671, 99);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(796, 99);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup1.Text = "Контрольная операция";
             // 
@@ -304,9 +304,9 @@
             // 
             this.layoutControlItem2.Control = this.category;
             this.layoutControlItem2.CustomizationFormText = "Категория";
-            this.layoutControlItem2.Location = new System.Drawing.Point(115, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(137, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(245, 50);
+            this.layoutControlItem2.Size = new System.Drawing.Size(293, 50);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem2.Text = "Категория";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
@@ -316,9 +316,9 @@
             // 
             this.layoutControlItem3.Control = this.name;
             this.layoutControlItem3.CustomizationFormText = "Название";
-            this.layoutControlItem3.Location = new System.Drawing.Point(360, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(430, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(281, 50);
+            this.layoutControlItem3.Size = new System.Drawing.Size(336, 50);
             this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem3.Text = "Название";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
@@ -330,7 +330,7 @@
             this.layoutControlItem11.CustomizationFormText = "Код";
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(115, 50);
+            this.layoutControlItem11.Size = new System.Drawing.Size(137, 50);
             this.layoutControlItem11.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem11.Text = "Код";
             this.layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
@@ -338,12 +338,12 @@
             // 
             // layoutControlItem9
             // 
-            this.layoutControlItem9.Control = this.simpleButton1;
+            this.layoutControlItem9.Control = this.saveButton;
             this.layoutControlItem9.CustomizationFormText = "Сохранить";
-            this.layoutControlItem9.Location = new System.Drawing.Point(455, 518);
+            this.layoutControlItem9.Location = new System.Drawing.Point(540, 520);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 2);
-            this.layoutControlItem9.Size = new System.Drawing.Size(106, 27);
+            this.layoutControlItem9.Size = new System.Drawing.Size(125, 27);
             this.layoutControlItem9.Text = "Сохранить";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
@@ -352,7 +352,7 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(561, 518);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(665, 520);
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(10, 27);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 27);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
@@ -363,12 +363,12 @@
             // 
             // layoutControlItem10
             // 
-            this.layoutControlItem10.Control = this.simpleButton2;
+            this.layoutControlItem10.Control = this.cancelButton;
             this.layoutControlItem10.CustomizationFormText = "Отменить";
-            this.layoutControlItem10.Location = new System.Drawing.Point(571, 518);
+            this.layoutControlItem10.Location = new System.Drawing.Point(675, 520);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 2);
-            this.layoutControlItem10.Size = new System.Drawing.Size(100, 27);
+            this.layoutControlItem10.Size = new System.Drawing.Size(121, 27);
             this.layoutControlItem10.Text = "Отменить";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
@@ -378,16 +378,16 @@
             this.layoutControlGroup2.CustomizationFormText = "Результат";
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
-            this.layoutControlItem7,
             this.layoutControlItem8,
             this.emptySpaceItem3,
             this.statusLayoutControlItem,
             this.factDiapasonLayoutControlGroup,
             this.factBoolLayoutControlGroup,
-            this.factStringLayoutControlGroup});
+            this.factStringLayoutControlGroup,
+            this.layoutControlItem7});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 99);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(671, 419);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(796, 421);
             this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup2.Text = "Результат";
             // 
@@ -397,7 +397,7 @@
             this.layoutControlItem4.CustomizationFormText = "Ожидаемый";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(283, 50);
+            this.layoutControlItem4.Size = new System.Drawing.Size(339, 50);
             this.layoutControlItem4.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem4.Text = "Ожидаемый";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
@@ -407,9 +407,9 @@
             // 
             this.layoutControlItem7.Control = this.date;
             this.layoutControlItem7.CustomizationFormText = "Дата";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 310);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 260);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(283, 50);
+            this.layoutControlItem7.Size = new System.Drawing.Size(339, 50);
             this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem7.Text = "Дата";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
@@ -421,7 +421,7 @@
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 360);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(283, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(339, 12);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -429,9 +429,9 @@
             // 
             this.statusLayoutControlItem.Control = this.status;
             this.statusLayoutControlItem.CustomizationFormText = "Статус";
-            this.statusLayoutControlItem.Location = new System.Drawing.Point(0, 260);
+            this.statusLayoutControlItem.Location = new System.Drawing.Point(0, 310);
             this.statusLayoutControlItem.Name = "statusLayoutControlItem";
-            this.statusLayoutControlItem.Size = new System.Drawing.Size(283, 50);
+            this.statusLayoutControlItem.Size = new System.Drawing.Size(339, 50);
             this.statusLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.statusLayoutControlItem.Text = "Статус";
             this.statusLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -444,7 +444,7 @@
             this.factLimitLayout});
             this.factDiapasonLayoutControlGroup.Location = new System.Drawing.Point(0, 193);
             this.factDiapasonLayoutControlGroup.Name = "factDiapasonLayoutControlGroup";
-            this.factDiapasonLayoutControlGroup.Size = new System.Drawing.Size(283, 67);
+            this.factDiapasonLayoutControlGroup.Size = new System.Drawing.Size(339, 67);
             this.factDiapasonLayoutControlGroup.Text = "Фактический";
             this.factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
@@ -454,7 +454,7 @@
             this.factLimitLayout.CustomizationFormText = "От";
             this.factLimitLayout.Location = new System.Drawing.Point(0, 0);
             this.factLimitLayout.Name = "factLimitLayout";
-            this.factLimitLayout.Size = new System.Drawing.Size(259, 24);
+            this.factLimitLayout.Size = new System.Drawing.Size(315, 24);
             this.factLimitLayout.Text = "От";
             this.factLimitLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.factLimitLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -468,7 +468,7 @@
             this.factBoolLayoutControlItem});
             this.factBoolLayoutControlGroup.Location = new System.Drawing.Point(0, 127);
             this.factBoolLayoutControlGroup.Name = "factBoolLayoutControlGroup";
-            this.factBoolLayoutControlGroup.Size = new System.Drawing.Size(283, 66);
+            this.factBoolLayoutControlGroup.Size = new System.Drawing.Size(339, 66);
             this.factBoolLayoutControlGroup.Text = "Фактический";
             this.factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
@@ -478,7 +478,7 @@
             this.factBoolLayoutControlItem.CustomizationFormText = "Логический";
             this.factBoolLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.factBoolLayoutControlItem.Name = "factBoolLayoutControlItem";
-            this.factBoolLayoutControlItem.Size = new System.Drawing.Size(259, 23);
+            this.factBoolLayoutControlItem.Size = new System.Drawing.Size(315, 23);
             this.factBoolLayoutControlItem.Text = "factBoolLayoutControlItem";
             this.factBoolLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.factBoolLayoutControlItem.TextVisible = false;
@@ -490,7 +490,7 @@
             this.factStringLayoutControlItem});
             this.factStringLayoutControlGroup.Location = new System.Drawing.Point(0, 50);
             this.factStringLayoutControlGroup.Name = "factStringLayoutControlGroup";
-            this.factStringLayoutControlGroup.Size = new System.Drawing.Size(283, 77);
+            this.factStringLayoutControlGroup.Size = new System.Drawing.Size(339, 77);
             this.factStringLayoutControlGroup.Text = "Фактический";
             this.factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
@@ -500,7 +500,7 @@
             this.factStringLayoutControlItem.CustomizationFormText = "Фактический";
             this.factStringLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.factStringLayoutControlItem.Name = "factStringLayoutControlItem";
-            this.factStringLayoutControlItem.Size = new System.Drawing.Size(259, 34);
+            this.factStringLayoutControlItem.Size = new System.Drawing.Size(315, 34);
             this.factStringLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.factStringLayoutControlItem.Text = "Фактический";
             this.factStringLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -511,9 +511,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 518);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 520);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(455, 27);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(540, 27);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -528,9 +528,9 @@
             // inspectors
             // 
             this.inspectors.DataSource = null;
-            this.inspectors.Location = new System.Drawing.Point(315, 166);
+            this.inspectors.Location = new System.Drawing.Point(371, 166);
             this.inspectors.Name = "inspectors";
-            this.inspectors.Size = new System.Drawing.Size(344, 340);
+            this.inspectors.Size = new System.Drawing.Size(413, 342);
             this.inspectors.TabIndex = 11;
             this.inspectors.Leave += new System.EventHandler(this.inspectors_Leave);
             // 
@@ -538,9 +538,9 @@
             // 
             this.layoutControlItem8.Control = this.inspectors;
             this.layoutControlItem8.CustomizationFormText = "Инспекторы";
-            this.layoutControlItem8.Location = new System.Drawing.Point(283, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(339, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(358, 370);
+            this.layoutControlItem8.Size = new System.Drawing.Size(427, 372);
             this.layoutControlItem8.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem8.Text = "Инспекторы";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
@@ -550,7 +550,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 463);
+            this.ClientSize = new System.Drawing.Size(816, 567);
             this.Controls.Add(this.rootLayoutControl);
             this.Name = "InspectionAddEditXtraForm";
             this.Text = "InspectionAddEditXtraForm";
@@ -606,8 +606,8 @@
         private DevExpress.XtraEditors.TextEdit expected;
         private DevExpress.XtraEditors.TextEdit name;
         private DevExpress.XtraEditors.TextEdit category;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;

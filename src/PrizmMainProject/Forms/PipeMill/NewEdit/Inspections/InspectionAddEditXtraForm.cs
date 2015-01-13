@@ -23,6 +23,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             InitializeComponent();
+
             viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
 
             date.Properties.NullDate = DateTime.MinValue;
@@ -30,28 +31,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if(current != null)
             {
-                switch(current.Operation.ResultType)
-                {
-                    case PipeTestResultType.Boolean:
-                        factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        break;
-                    case PipeTestResultType.String:
-                        factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        break;
-                    case PipeTestResultType.Diapason:
-                        factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        break;
-                    case PipeTestResultType.Undef:
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            if(current != null)
-            {
+                ChangeFact();
                 code.Properties.ReadOnly = true;
                 code.Text = viewModel.Code;
+                this.Text = current.Operation.Code + " - " + current.Operation.Name;
             }
             else
             {
@@ -59,6 +42,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     code.Properties.Items.Add(item.Code);
                 }
+                this.Text = "Добавление контрольной операции";
             }
             
         }

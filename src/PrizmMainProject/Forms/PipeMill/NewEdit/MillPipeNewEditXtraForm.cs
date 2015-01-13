@@ -742,19 +742,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses);
-            addForm.ShowDialog();
-            viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
-            inspections.RefreshDataSource();
+            using(var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses))
+            {
+                if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
+                    inspections.RefreshDataSource();
+                }
+            }
         }
 
-        private static void EditInspections(BindingList<PipeTest> tests,PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        private static void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
             //TODO: Store row for rollback
-            var editForm = new InspectionAddEditXtraForm(tests, insp, row, status);
-            editForm.ShowDialog();
-            var i = editForm.viewModel.TestResult;
-            //TODO: Implement Accept button on dialog click
+
+            using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
+            {
+                editForm.ShowDialog();
+            }
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
