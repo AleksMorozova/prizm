@@ -874,7 +874,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     RaisePropertyChanged("Length");
                     RaisePropertyChanged("Diameter");
                     RaisePropertyChanged("Thickness");
-                    RaisePropertyChanged("SeamType");
+
+                    Pipe.Diameter = Pipe.Type.Diameter;
+                    Pipe.WallThickness = Pipe.Type.Thickness;
                 }
             }
         }
