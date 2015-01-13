@@ -2636,7 +2636,6 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit controlTypeItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultTypeItems;
-        private DevExpress.XtraLayout.EmptySpaceItem roleEmptySpace;
         private DevExpress.XtraEditors.TextEdit projectTitle;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit manufacturerRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit typeRepositoryTextEdit;

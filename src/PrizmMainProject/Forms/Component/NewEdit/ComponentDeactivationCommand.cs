@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public ComponentDeactivationCommand(
             ComponentNewEditViewModel viewModel,
@@ -37,26 +39,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 Resources.DLG_COMPONENT_DEACTIVATION,
                 Resources.DLG_COMPONENT_DEACTIVATION_HEDER))
             {
+                viewModel.ComponentIsActive = false;
                 viewModel.SaveCommand.Execute();
+                viewModel.ModifiableView.IsEditMode = false;
             }
-            else
-            {
-                viewModel.IsNotActive = false;
-            }
-        }
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
             return 
                 viewModel.Component.IsActive &&
-                viewModel.Component.Id != Guid.Empty &&
+                !viewModel.IsNew &&
                 ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateComponent);
         }
     }
