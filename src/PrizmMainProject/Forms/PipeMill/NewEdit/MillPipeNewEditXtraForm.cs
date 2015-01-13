@@ -68,6 +68,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion //--- Colouring of required controls ---
 
             #region --- Read-only controls and edit mode ---
+            SetConditional(deactivate,
+                delegate(bool editMode)
+                {
+                    return viewModel.PipeDeactivationCommand.CanExecute() && editMode;
+                });
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
@@ -105,7 +110,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
+            IsEditMode = !viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
             if(IsEditMode)
@@ -152,9 +157,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeLength.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PipeLength");
 
-            deactivated.DataBindings
-                .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", pipeNewEditBindingSource, "PipeIsActive"));
+            deactivate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "PipeIsActive");
 
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
@@ -247,15 +251,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             commandManager["SaveAndNew"].Executor(viewModel.NewSavePipeCommand).AttachTo(saveAndNewButton);
             commandManager["Save"].Executor(viewModel.SavePipeCommand).AttachTo(saveButton);
-            commandManager["Deactivate"].Executor(viewModel.PipeDeactivationCommand).AttachTo(deactivated);
+
+            commandManager["SaveAndNew"].RefreshState();
+            commandManager["Save"].RefreshState();
 
             SaveCommand = viewModel.SavePipeCommand;
-
-            viewModel.SavePipeCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
-            viewModel.NewSavePipeCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
-            viewModel.PipeDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
-
-            commandManager.RefreshVisualState();
         }
 
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
@@ -498,6 +498,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
+        private void deactivate_Modified(object sender, EventArgs e)
+        {
+            viewModel.PipeIsActive = (bool)deactivate.EditValue;
+
+            if(viewModel.PipeIsActive)
+            {
+                viewModel.PipeDeactivationCommand.Execute();
+                IsEditMode = !viewModel.PipeIsActive;
+            }
+        }
+
         /// <summary>
         /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
         /// </summary>
@@ -732,6 +743,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
             }
         }
+
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             using(var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses))
@@ -742,12 +754,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     inspections.RefreshDataSource();
                 }
             }
+        }
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
             using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
             {
-            commandManager["SaveAndNew"].RefreshState();
                 editForm.ShowDialog();
                 inspections.RefreshDataSource();
             }
@@ -791,7 +803,5 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
 
-}
-}
-    
+    }
 }
