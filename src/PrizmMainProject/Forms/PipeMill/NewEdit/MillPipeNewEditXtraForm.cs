@@ -725,12 +725,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
         }
-        }
+        
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.PlateNumber = plateNumber.Text;
             commandManager["SaveAndNew"].RefreshState();
             commandManager["Save"].RefreshState();
-    }
+}
+}
+    
 }
