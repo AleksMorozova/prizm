@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.Joint.Search
             {
                 var id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.CreateChildForm(typeof(JointNewEditXtraForm), new ConstructorArgument("id", id));
+                parent.OpenChildForm(typeof(JointNewEditXtraForm), id);
             }
         }
 
