@@ -42,7 +42,7 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             if(partTypes.Count == 0)
             {
-                return string.Empty;
+                return " ";
             }
             if(!string.IsNullOrWhiteSpace(number))
             {
