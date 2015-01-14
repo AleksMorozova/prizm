@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public BindingList<EnumWrapper<PipeTestResultStatus>> TestResultStatuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
         public IList<Inspector> Inspectors { get; set; }
         public BindingList<PipeTest> AvailableTests;
-        bool recalculateWeight = false;
+        public bool recalculateWeight = false;
 
         public bool IsNew { get { return this.Pipe.IsNew(); } }
 
@@ -260,17 +260,21 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         //length from control operation
-        public int PipeLength
+        public int Length
         {
-            get { GetLengthFromOperation(); return Pipe.Length; }
+            get
+            {
+                return Pipe.Length; 
+            }
+
             set
             {
-                GetLengthFromOperation();
                 if (value != Pipe.Length)
                 {
+                    GetLengthFromOperation();
                     Pipe.Length = value;
                     recalculateWeight = true;
-                    RaisePropertyChanged("PipeLength");
+                    RaisePropertyChanged("Length");
                 }
             }
         }
@@ -568,7 +572,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     pipeTestResults = value;
                     RaisePropertyChanged("PipeTestResults");
-                    RaisePropertyChanged("PipeLength");
+                    RaisePropertyChanged("Length");
                 }
             }
         }
@@ -877,16 +881,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     Pipe.Diameter = Pipe.Type.Diameter;
                     Pipe.WallThickness = Pipe.Type.Thickness;
+                    Pipe.Length = this.Length;
                 }
             }
         }
 
         //Length from pipeMillsizeType parameters
-        public int Length
+        public int SizeTypeLength
         {
             get
             {
-                if (CurrentType != null) { return CurrentType.Length; } else { return 0; }
+                if (CurrentType != null) 
+                { 
+                    return CurrentType.Length; 
+                } 
+                else 
+                { 
+                    return 0;
+                }
 
             }
             set
@@ -894,7 +906,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (value != CurrentType.Length)
                 {
                     CurrentType.Length = value;
-                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("SizeTypeLength");
                 }
             }
         }
@@ -903,7 +915,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
+                if (CurrentType != null) 
+                {
+                    return CurrentType.Diameter; 
+                } 
+                else 
+                { 
+                    return 0; 
+                }
             }
             set
             {
@@ -923,7 +942,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     return CurrentType.Thickness;
                 }
-                else { return 0; }
+                else 
+                { 
+                    return 0; 
+                }
             }
             set
             {
@@ -935,7 +957,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-
         public int GetLengthFromOperation() 
         {
             List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
@@ -945,7 +966,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by category
             foreach (PipeTestResult t in Pipe.PipeTestResult) 
             {
-                if (t.Operation.Category.Name == "Измерение длины")
+                if (t.Operation.Category.Name == "Измерение длины" && t.Status == PipeTestResultStatus.Passed)
                     lengthOperation.Add(t);
             }
 
@@ -979,7 +1000,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 Pipe.Length = Convert.ToInt32(t.Value);
             }
 
-            return Pipe.Length;
+            return this.Length;
         }
     }
 }

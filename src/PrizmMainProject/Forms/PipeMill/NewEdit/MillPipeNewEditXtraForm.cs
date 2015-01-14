@@ -80,6 +80,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
+            SetAlwaysReadOnly(pipeLength);
             IsEditMode = true;
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion //--- Read-only controls ---
@@ -143,7 +144,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Number");
             length.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "Length");
+                .Add("EditValue", pipeNewEditBindingSource, "SizeTypeLength");
             weight.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "Weight");
             diameter.DataBindings
@@ -151,7 +152,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             thickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "WallThickness");
             pipeLength.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeLength");
+                .Add("EditValue", pipeNewEditBindingSource, "Length");
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
@@ -729,8 +730,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void inspections_Leave(object sender, EventArgs e)
         {
-           //TODO: Review that functionality
-            pipeLength.Text = viewModel.PipeLength.ToString();
+            //TODO: Review that functionality
+            //old version: pipeLength.Text = viewModel.Length.ToString();
+            viewModel.GetLengthFromOperation();
         }
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
