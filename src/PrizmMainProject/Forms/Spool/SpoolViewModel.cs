@@ -34,7 +34,6 @@ namespace Prizm.Main.Forms.Spool
         private IModifiable modifiableView;
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
-        public bool canCut = false;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         public bool editMode = false;
 
@@ -143,13 +142,10 @@ namespace Prizm.Main.Forms.Spool
                 if (value != Spool.Length)
                 {
                     Spool.Length = value;
-                    if ((Pipe.Length - Spool.Length) > 0)
-                    {
-                        canCut = true;
-                    }
                     Pipe.Length = Pipe.Length - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
+                    RaisePropertyChanged("CanCut");
                 }
             }
         }
@@ -193,6 +189,11 @@ namespace Prizm.Main.Forms.Spool
             {
                 modifiableView = value;
             }
+        }
+
+        public bool CanCut
+        {
+            get { return (Pipe.Length - Spool.Length) > 0; }
         }
 
         public IList<Inspector> Inspectors { get; set; }

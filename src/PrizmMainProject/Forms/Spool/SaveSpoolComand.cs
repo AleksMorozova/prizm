@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Spool
         {
             if (viewModel.Spool.Length != 0)
             {
-                if (viewModel.canCut)
+                if (viewModel.CanCut)
                 {
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Spool
                     string oldPipeNumber = viewModel.Pipe.Number;
                     viewModel.NewSpool();
                     viewModel.PipeNumber = oldPipeNumber;
-
+                    RefreshVisualStateEvent();
                 }
                 else 
                 {
@@ -64,15 +64,16 @@ namespace Prizm.Main.Forms.Spool
             }
             else
             {
-                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
-                
+                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);               
             }
-            RefreshVisualStateEvent();
+            
         }
 
         public bool CanExecute()
         {
             return viewModel.ModifiableView.IsEditMode 
+                &&viewModel.SpoolIsActive
+                &&!string.IsNullOrEmpty(viewModel.PipeNumber)
                 && ctx.HasAccess(viewModel.IsNew
                     ? global::Domain.Entity.Security.Privileges.NewDataEntry
                     : global::Domain.Entity.Security.Privileges.EditData);

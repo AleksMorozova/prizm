@@ -103,10 +103,14 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
-
-            commandManager["Save"].RefreshState();
-
+            commandManager["Deactivate"].Executor(viewModel.DeactivateCommand).AttachTo(deactivated);          
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.DeactivateCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
@@ -239,14 +243,12 @@ namespace Prizm.Main.Forms.Spool
         {
             IsEditMode = true;
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
-            commandManager["Save"].RefreshState();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             IsEditMode = false;
             attachmentsButton.Enabled = false;
-            commandManager["Save"].RefreshState();
         }
 
         private void SpoolsXtraForm_FormClosed(object sender, FormClosedEventArgs e)
