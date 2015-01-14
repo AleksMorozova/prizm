@@ -782,7 +782,20 @@
   <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
     <value>Экспорт данных на заводе</value>
   </data>
-  <data name="superUser" xml:space="preserve">
-    <value>Суперпользователь</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>Администратор</value>
+  </data>
+  <data name="DLG_SPOOL_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет в деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+Деактивировать комплектующий элемент?</value>
+  </data>
+  <data name="DLG_SPOOL_DEACTIVATION_HEADER" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
+  <data name="Empty_Operation_Code" xml:space="preserve">
+    <value>Введите код операции</value>
+  </data>
+  <data name="Empty_Operation_Name" xml:space="preserve">
+    <value>Введите название операции</value>
   </data>
 </root>

@@ -93,10 +93,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             jointNumber.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "Number");
+
             deactivated.DataBindings
-               .Add("EditValue", jointNewEditBindingSoure, "IsNotActive");
-            deactivated.DataBindings
-               .Add("Enabled", jointNewEditBindingSoure, "IsCanDeactivate");
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                        "EditValue", jointNewEditBindingSoure, "JointIsActive"));
+
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
             GPSLat.DataBindings
@@ -162,12 +163,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void BindCommands()
         {
-            commandManager["Save"].Executor(viewModel.SaveJointCommand)
-                .AttachTo(saveButton).RefreshState();
-            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand)
-                .AttachTo(saveAndCreateButton).RefreshState();
- 
+            commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
+            commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
+            commandManager["Deactivate"].Executor(viewModel.JointDeactivationCommand).AttachTo(deactivated);
+
             SaveCommand = viewModel.SaveJointCommand;
+
+            viewModel.SaveJointCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.NewSaveJointCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.JointDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
@@ -175,9 +181,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = !viewModel.IsNotActive;
+            IsEditMode = viewModel.JointIsActive;
             IsModified = false;
-            viewModel.CheckDeactivation();
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
@@ -374,17 +379,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             commandManager["SaveAndNew"].RefreshState();
         }
 
-        private void deactivated_Modified(object sender, EventArgs e)
-        {
-            deactivated.Enabled = viewModel.Joint.Id != Guid.Empty;
-            viewModel.IsNotActive = (bool)deactivated.EditValue;
-            if (viewModel.IsNotActive)
-            {
-                viewModel.JointDeactivationCommand.Execute();
-                IsEditMode = false;
-            }
-        }
-
         private void JointNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
@@ -453,6 +447,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 weldersSelectionControl.weldDate = weld.Date ?? DateTime.Now.Date;
             }
+        }
+
+        private void JointNewEditXtraForm_Activated(object sender, EventArgs e)
+        {
+            viewModel.RefreshJointComponents();
+            pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
+            firstJointElement.Refresh();
+            secondJointElement.Refresh();
         }
     }
 }

@@ -143,7 +143,7 @@
             this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(335, 289, 361, 350);
             this.layoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl.Root = this.rootLayoutControlGroup;
-            this.layoutControl.Size = new System.Drawing.Size(864, 511);
+            this.layoutControl.Size = new System.Drawing.Size(864, 403);
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
             // 
@@ -161,12 +161,14 @@
             // 
             this.pipeNumberMaskRulesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.pipeNumberMaskRulesLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.pipeNumberMaskRulesLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.pipeNumberMaskRulesLabel.Location = new System.Drawing.Point(617, 98);
             this.pipeNumberMaskRulesLabel.Name = "pipeNumberMaskRulesLabel";
             this.pipeNumberMaskRulesLabel.Size = new System.Drawing.Size(218, 13);
             this.pipeNumberMaskRulesLabel.StyleController = this.layoutControl;
             this.pipeNumberMaskRulesLabel.TabIndex = 17;
+            this.pipeNumberMaskRulesLabel.Text = " ";
             // 
             // fileSize
             // 
@@ -317,7 +319,7 @@
             this.adminLayoutControlGroup});
             this.rootLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutControlGroup.Name = "rootLayoutControlGroup";
-            this.rootLayoutControlGroup.Size = new System.Drawing.Size(864, 511);
+            this.rootLayoutControlGroup.Size = new System.Drawing.Size(864, 403);
             this.rootLayoutControlGroup.Text = "rootLayoutControlGroup";
             this.rootLayoutControlGroup.TextVisible = false;
             // 
@@ -329,11 +331,10 @@
             this.saveLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.saveLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
             this.saveLayoutControlItem.Name = "saveLayoutControlItem";
-            this.saveLayoutControlItem.Size = new System.Drawing.Size(125, 147);
+            this.saveLayoutControlItem.Size = new System.Drawing.Size(125, 39);
             this.saveLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.saveLayoutControlItem.Text = "layoutControlItem2";
             this.saveLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.saveLayoutControlItem.TextToControlDistance = 0;
             this.saveLayoutControlItem.TextVisible = false;
             // 
             // cancelLayoutControlItem
@@ -344,11 +345,10 @@
             this.cancelLayoutControlItem.MaxSize = new System.Drawing.Size(154, 27);
             this.cancelLayoutControlItem.MinSize = new System.Drawing.Size(104, 27);
             this.cancelLayoutControlItem.Name = "cancelLayoutControlItem";
-            this.cancelLayoutControlItem.Size = new System.Drawing.Size(126, 147);
+            this.cancelLayoutControlItem.Size = new System.Drawing.Size(126, 39);
             this.cancelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.cancelLayoutControlItem.Text = "layoutControlItem3";
             this.cancelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.cancelLayoutControlItem.TextToControlDistance = 0;
             this.cancelLayoutControlItem.TextVisible = false;
             // 
             // delimiterEmptySpaceItem
@@ -359,7 +359,7 @@
             this.delimiterEmptySpaceItem.MaxSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.MinSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.Name = "delimiterEmptySpaceItem";
-            this.delimiterEmptySpaceItem.Size = new System.Drawing.Size(10, 147);
+            this.delimiterEmptySpaceItem.Size = new System.Drawing.Size(10, 39);
             this.delimiterEmptySpaceItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.delimiterEmptySpaceItem.Text = "delimiterEmptySpaceItem";
             this.delimiterEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
@@ -370,7 +370,7 @@
             this.buttonEmptySpaceItem.CustomizationFormText = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 344);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
-            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(583, 147);
+            this.buttonEmptySpaceItem.Size = new System.Drawing.Size(583, 39);
             this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -451,7 +451,6 @@
             this.pipeNumberMaskLayoutItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeNumberMaskLayoutItem.Text = "pipeNumberMaskLayoutItem";
             this.pipeNumberMaskLayoutItem.TextSize = new System.Drawing.Size(0, 0);
-            this.pipeNumberMaskLayoutItem.TextToControlDistance = 0;
             this.pipeNumberMaskLayoutItem.TextVisible = false;
             // 
             // typeLayoutControlItem
@@ -561,7 +560,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(864, 511);
+            this.ClientSize = new System.Drawing.Size(864, 403);
             this.Controls.Add(this.layoutControl);
             this.Name = "FirstSetupXtraForm";
             this.Text = "Первичные настройки";

@@ -21,8 +21,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
 
-        private bool canDeactivateComponent;
-
         private BindingList<ComponentType> componentTypes;
 
         private SaveComponentCommand saveCommand;
@@ -31,6 +29,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private IModifiable modifiableView;
         private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+
+        public bool IsNew { get { return this.Component.IsNew(); } }
 
         [Inject]
         public ComponentNewEditViewModel(
@@ -61,27 +61,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             else
             {
                 this.Component = repos.ComponentRepo.Get(id);
-                this.CanDeactivateComponent = DeactivationCommand.CanExecute();
             }
         }
 
         public Prizm.Domain.Entity.Construction.Component Component { get; set; }
-
-        public bool CanDeactivateComponent
-        {
-            get
-            {
-                return canDeactivateComponent;
-            }
-            set
-            {
-                if (value != canDeactivateComponent)
-                {
-                    canDeactivateComponent = value;
-                    RaisePropertyChanged("CanDeactivateComponent");
-                }
-            }
-        }
 
         public IList<Inspector> Inspectors { get; set; }
 
@@ -239,15 +222,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
         }
 
-        public bool IsNotActive
+        public bool ComponentIsActive
         {
-            get { return Component.IsNotActive; }
+            get { return Component.IsActive; }
             set
             {
-                if (value != Component.IsNotActive)
+                if (value != Component.IsActive)
                 {
-                    Component.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Component.IsActive = value;
+                    RaisePropertyChanged("ComponentIsActive");
                 }
             }
         }
@@ -280,9 +263,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Number = string.Empty;
             this.Certificate = string.Empty;
             this.Type = null;
-
-            this.CanDeactivateComponent = false;
-
         }
 
         public void Dispose()

@@ -88,6 +88,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             commandManager["Unship"].RefreshState();
 
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             
             // TODO(odem): Is BindCommands() a correct method for initializing dictionary for lookup?
             statusTypeDict.Clear();

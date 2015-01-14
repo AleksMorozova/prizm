@@ -57,6 +57,8 @@
             this.colMiddleName});
             this.inspectorsGridView.GridControl = this.inspectorsGridControl;
             this.inspectorsGridView.Name = "inspectorsGridView";
+            this.inspectorsGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.inspectorsGridView.OptionsNavigation.UseTabKey = false;
             this.inspectorsGridView.OptionsSelection.CheckBoxSelectorColumnWidth = 25;
             this.inspectorsGridView.OptionsSelection.MultiSelect = true;
             this.inspectorsGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;

@@ -81,6 +81,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Администратор.
+        /// </summary>
+        internal static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
@@ -822,6 +831,25 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вагон не отгружен.
         /// </summary>
         internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
@@ -836,6 +864,24 @@ namespace Prizm.Main.Properties {
         internal static string DocumentSizeLimit {
             get {
                 return ResourceManager.GetString("DocumentSizeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите код операции.
+        /// </summary>
+        internal static string Empty_Operation_Code {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите название операции.
+        /// </summary>
+        internal static string Empty_Operation_Name {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Name", resourceCulture);
             }
         }
         
@@ -1839,15 +1885,6 @@ namespace Prizm.Main.Properties {
         internal static string StringExpected {
             get {
                 return ResourceManager.GetString("StringExpected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Суперпользователь.
-        /// </summary>
-        internal static string superUser {
-            get {
-                return ResourceManager.GetString("superUser", resourceCulture);
             }
         }
         

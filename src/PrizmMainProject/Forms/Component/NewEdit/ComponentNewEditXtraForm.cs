@@ -83,7 +83,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = !viewModel.IsNotActive;
+            IsEditMode = viewModel.ComponentIsActive;
 
             IsModified = false;
         }
@@ -113,11 +113,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
             type.DataBindings
                 .Add("EditValue", componentBindingSource, "Type");
 
-            componentDeactivated.DataBindings
-                .Add("EditValue", componentBindingSource, "IsNotActive");
-
-            componentDeactivated.DataBindings
-                .Add("Enabled", componentBindingSource, "CanDeactivateComponent");
+            deactivated.DataBindings
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                        "EditValue", componentBindingSource, "ComponentIsActive"));
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
@@ -148,12 +146,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
             commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
-
-            commandManager["NewSave"].RefreshState();
-            commandManager["Save"].RefreshState();
-
+            commandManager["Deactivate"].Executor(viewModel.DeactivationCommand).AttachTo(deactivated);
 
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.NewSaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.DeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
         private void componentNumber_EditValueChanged(object sender, EventArgs e)
@@ -172,17 +173,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             commandManager["NewSave"].RefreshState();
             commandManager["Save"].RefreshState();
-        }
-
-        private void componentDeactivated_Modified(object sender, EventArgs e)
-        {
-            viewModel.IsNotActive = (bool)componentDeactivated.EditValue;
-
-            if (viewModel.IsNotActive)
-            {
-                viewModel.DeactivationCommand.Execute();
-                IsEditMode = !viewModel.IsNotActive;
-            }
         }
 
         private void inspectionHistoryGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)

@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Joint.Search
         IJointRepository repo;
         JointSearchViewModel viewModel;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public JointSearchCommand(JointSearchViewModel vm, IJointRepository repo)
         {
@@ -66,8 +68,6 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             return true;
         }
-
-        public bool IsExecutable { get; set; }
 
         #endregion
     }

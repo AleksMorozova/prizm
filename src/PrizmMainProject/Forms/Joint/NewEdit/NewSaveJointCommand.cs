@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public NewSaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify)
         {
             this.repo = repo;
@@ -40,18 +42,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.NewJoint();
             }
-            viewModel.CheckDeactivation();
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
-            return viewModel.SaveJointCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            return viewModel.SaveJointCommand.CanExecute() 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }
 }

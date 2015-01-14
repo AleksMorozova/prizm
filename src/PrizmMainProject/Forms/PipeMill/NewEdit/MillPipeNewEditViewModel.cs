@@ -24,6 +24,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private PipeMillSizeType currentType;
+
         private string mill;
         private readonly IMillRepository repoMill;
 
@@ -56,24 +58,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public BindingList<PipeTest> AvailableTests;
         bool recalculateWeight = false;
 
-        private bool canDeactivatePipe = false;
-        public bool CanDeactivatePipe
-        {
-            get
-            {
-                return canDeactivatePipe;
-            }
-            set
-            {
-                if(value != canDeactivatePipe)
-                {
-                    canDeactivatePipe = value;
-                    RaisePropertyChanged("CanDeactivatePipe");
-                }
-            }
-        }
-
-        public bool IsNew { get { return (this.Pipe.Id == Guid.Empty); } }
+        public bool IsNew { get { return this.Pipe.IsNew(); } }
 
         [Inject]
         public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
@@ -122,7 +107,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 extractPipeTypeCommand.Execute();
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
-                this.CanDeactivatePipe = pipeDeactivationCommand.CanExecute();
             }
 
 
@@ -249,18 +233,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         #region Pipe
 
-        public bool IsNotActive
+        public bool PipeIsActive
         {
-            get
-            {
-                return Pipe.IsNotActive;
-            }
+            get { return Pipe.IsActive; }
             set
             {
-                if(value != Pipe.IsNotActive)
+                if (value != Pipe.IsActive)
                 {
-                    Pipe.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Pipe.IsActive = value;
+                    RaisePropertyChanged("PipeIsActive");
                 }
             }
         }
@@ -278,30 +259,18 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int Diameter
+        //length from control operation
+        public int PipeLength
         {
-            get { return Pipe.Diameter; }
+            get { GetLengthFromOperation(); return Pipe.Length; }
             set
             {
-                if(value != Pipe.Diameter)
-                {
-                    Pipe.Diameter = value;
-                    recalculateWeight = true;
-                    RaisePropertyChanged("Diameter");
-                }
-            }
-        }
-
-        public int Length
-        {
-            get { return Pipe.Length; }
-            set
-            {
-                if(value != Pipe.Length)
+                GetLengthFromOperation();
+                if (value != Pipe.Length)
                 {
                     Pipe.Length = value;
                     recalculateWeight = true;
-                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("PipeLength");
                 }
             }
         }
@@ -322,20 +291,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     Pipe.Weight = value;
                     RaisePropertyChanged("Weight");
-                }
-            }
-        }
-
-        public float WallThickness
-        {
-            get { return Pipe.WallThickness; }
-            set
-            {
-                if (Math.Abs(value - Math.Round(Pipe.WallThickness, 2)) > Constants.WallThicknessPrecision)
-                {
-                    Pipe.WallThickness = value;
-                    recalculateWeight = true;
-                    RaisePropertyChanged("WallThickness");
                 }
             }
         }
@@ -613,6 +568,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     pipeTestResults = value;
                     RaisePropertyChanged("PipeTestResults");
+                    RaisePropertyChanged("PipeLength");
                 }
             }
         }
@@ -652,6 +608,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public void NewPipe()
         {
+            currentType = new PipeMillSizeType();
             extractPurchaseOrderCommand.Execute();
             extractHeatsCommand.Execute();
             extractPipeTypeCommand.Execute();
@@ -659,7 +616,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Pipe = new Pipe();
             this.PipePurchaseOrder = null;
             this.Heat = null;
-
             this.PlateNumber = string.Empty;
             this.Pipe.IsActive = true;
             this.Pipe.IsAvailableToJoint = true;
@@ -676,7 +632,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Diameter = 0;
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
-            this.CanDeactivatePipe = false;
             this.Pipe.Mill = mill;
         }
 
@@ -723,7 +678,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Creates predefined pipe test results for all active required tests for concrete pipe mill size type
+        /// Creates predefined pipe test results for all active required availableTests for concrete pipe mill size type
         /// </summary>
         /// <param name="millSizeType"></param>
         public BindingList<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
@@ -902,6 +857,129 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             return testsResults;
+        }
+
+        public PipeMillSizeType CurrentType
+        {
+            get
+            {
+                return currentType;
+            }
+            set
+            {
+                if (value != currentType)
+                {
+                    currentType = value;
+                    RaisePropertyChanged("CurrentType");
+                    RaisePropertyChanged("Length");
+                    RaisePropertyChanged("Diameter");
+                    RaisePropertyChanged("Thickness");
+
+                    Pipe.Diameter = Pipe.Type.Diameter;
+                    Pipe.WallThickness = Pipe.Type.Thickness;
+                }
+            }
+        }
+
+        //Length from pipeMillsizeType parameters
+        public int Length
+        {
+            get
+            {
+                if (CurrentType != null) { return CurrentType.Length; } else { return 0; }
+
+            }
+            set
+            {
+                if (value != CurrentType.Length)
+                {
+                    CurrentType.Length = value;
+                    RaisePropertyChanged("Length");
+                }
+            }
+        }
+
+        public int Diameter
+        {
+            get
+            {
+                if (CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
+            }
+            set
+            {
+                if (value != CurrentType.Diameter)
+                {
+                    CurrentType.Diameter = value;
+                    RaisePropertyChanged("Diameter");
+                }
+            }
+        }
+
+        public int WallThickness
+        {
+            get
+            {
+                if (CurrentType != null)
+                {
+                    return CurrentType.Thickness;
+                }
+                else { return 0; }
+            }
+            set
+            {
+                if (value != CurrentType.Thickness)
+                {
+                    CurrentType.Thickness = value;
+                    RaisePropertyChanged("WallThickness");
+                }
+            }
+        }
+
+
+        public int GetLengthFromOperation() 
+        {
+            List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
+            List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
+            List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
+
+            //group by category
+            foreach (PipeTestResult t in Pipe.PipeTestResult) 
+            {
+                if (t.Operation.Category.Name == "Измерение длины")
+                    lengthOperation.Add(t);
+            }
+
+            //group by date
+            foreach (PipeTestResult t in lengthOperation)
+            {
+                if (t.Date>=lengthOperation.Max(d=>d.Date))
+                    lengthOperation2.Add(t);
+            }
+
+            //group by order
+            if (lengthOperation2.Count() >= 2)
+            {
+                foreach (PipeTestResult t in lengthOperation2)
+                {
+                    if (t.Order >= lengthOperation2.Max(d => d.Order))
+                        lengthOperation3.Add(t);
+                }
+            }
+
+            else 
+            {
+                foreach (PipeTestResult t in lengthOperation2)
+                {
+                    Pipe.Length = Convert.ToInt32(t.Value);
+                }
+            }
+
+            foreach (PipeTestResult t in lengthOperation3)
+            {
+                Pipe.Length = Convert.ToInt32(t.Value);
+            }
+
+            return Pipe.Length;
         }
     }
 }

@@ -523,6 +523,8 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewRoles.GridControl = this.gridControlRoles;
             this.gridViewRoles.Name = "gridViewRoles";
             this.gridViewRoles.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridViewRoles.OptionsBehavior.FocusLeaveOnTab = true;
+            this.gridViewRoles.OptionsNavigation.UseTabKey = false;
             this.gridViewRoles.OptionsSelection.MultiSelect = true;
             this.gridViewRoles.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridViewRoles.OptionsView.ShowColumnHeaders = false;
@@ -574,6 +576,8 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewUsers.GridControl = this.gridControlUsers;
             this.gridViewUsers.Name = "gridViewUsers";
             this.gridViewUsers.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewUsers.OptionsBehavior.FocusLeaveOnTab = true;
+            this.gridViewUsers.OptionsNavigation.UseTabKey = false;
             this.gridViewUsers.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewUsers.OptionsView.ShowGroupPanel = false;
             this.gridViewUsers.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridViewUsers_ShowingEditor);
@@ -676,6 +680,8 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypesView.GridControl = this.certificateTypes;
             this.certificateTypesView.Name = "certificateTypesView";
             this.certificateTypesView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.certificateTypesView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.certificateTypesView.OptionsNavigation.UseTabKey = false;
             this.certificateTypesView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.certificateTypesView.OptionsView.ShowGroupPanel = false;
             this.certificateTypesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.certificateTypesView_InitNewRow);
@@ -747,7 +753,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // certificateTypeColumn
             // 
-            this.certificateTypeColumn.Caption = "Тип";
+            this.certificateTypeColumn.Caption = "Вид контроля";
             this.certificateTypeColumn.ColumnEdit = this.repositoryLookUpCertificateType;
             this.certificateTypeColumn.FieldName = "Type";
             this.certificateTypeColumn.Name = "certificateTypeColumn";
@@ -783,13 +789,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             // inspectorCertificateExpirationCol
             // 
-            this.inspectorCertificateExpirationCol.Caption = "Дата окончания";
+            this.inspectorCertificateExpirationCol.Caption = "Действителен до";
             this.inspectorCertificateExpirationCol.FieldName = "Certificate.ExpirationDate";
-            this.inspectorCertificateExpirationCol.MaxWidth = 90;
+            this.inspectorCertificateExpirationCol.MaxWidth = 120;
             this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
             this.inspectorCertificateExpirationCol.Visible = true;
             this.inspectorCertificateExpirationCol.VisibleIndex = 2;
-            this.inspectorCertificateExpirationCol.Width = 50;
+            this.inspectorCertificateExpirationCol.Width = 90;
             // 
             // gridControlInspectors
             // 
@@ -1007,7 +1013,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // colWelderCertExp
             // 
-            this.colWelderCertExp.Caption = "Дата аттестации";
+            this.colWelderCertExp.Caption = "Действительно до";
             this.colWelderCertExp.FieldName = "CertificateExpiration";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
@@ -1031,7 +1037,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // colWelderGrade
             // 
-            this.colWelderGrade.Caption = "Разряд";
+            this.colWelderGrade.Caption = "Уровень";
             this.colWelderGrade.FieldName = "Grade";
             this.colWelderGrade.Name = "colWelderGrade";
             this.colWelderGrade.Visible = true;
@@ -1351,6 +1357,8 @@ namespace Prizm.Main.Forms.Settings
             this.seemTypeIsActiveColumn});
             this.seemTypeGridView.GridControl = this.seamTypes;
             this.seemTypeGridView.Name = "seemTypeGridView";
+            this.seemTypeGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.seemTypeGridView.OptionsNavigation.UseTabKey = false;
             this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
             this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
@@ -1404,6 +1412,8 @@ namespace Prizm.Main.Forms.Settings
             this.categoriesGridView.GridControl = this.categoriesGrid;
             this.categoriesGridView.Name = "categoriesGridView";
             this.categoriesGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.categoriesGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.categoriesGridView.OptionsNavigation.UseTabKey = false;
             this.categoriesGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.categoriesGridView.OptionsView.ShowGroupPanel = false;
             this.categoriesGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.categoryGridView_InitNewRow);
@@ -1455,11 +1465,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeLength.Location = new System.Drawing.Point(864, 464);
             this.pipeLength.Name = "pipeLength";
+            this.pipeLength.Properties.Mask.EditMask = "d";
+            this.pipeLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule1.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule1.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
@@ -1533,6 +1545,8 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionView.OptionsNavigation.UseTabKey = false;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
             this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
+            this.inspectionView.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.inspectionView_BeforeLeaveRow);
+            this.inspectionView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionView_ValidateRow);
             this.inspectionView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionView_KeyDown);
             // 
             // inspectionCodeGridColumn
@@ -1643,7 +1657,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // isRequiredGridColumn
             // 
-            this.isRequiredGridColumn.Caption = "Обязательна для отгрузки";
+            this.isRequiredGridColumn.Caption = "Обязательное";
             this.isRequiredGridColumn.ColumnEdit = this.isRequired;
             this.isRequiredGridColumn.FieldName = "IsRequired";
             this.isRequiredGridColumn.MaxWidth = 50;
@@ -1764,11 +1778,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThickness.Location = new System.Drawing.Point(672, 464);
             this.wallThickness.Name = "wallThickness";
+            this.wallThickness.Properties.Mask.EditMask = "f2";
+            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule2.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule2.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule2);
             // 
@@ -1776,11 +1792,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(481, 464);
             this.pipeDiameter.Name = "pipeDiameter";
+            this.pipeDiameter.Properties.Mask.EditMask = "d";
+            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule3.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule3.Value1 = "0";
             this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule3);
             // 
@@ -1790,11 +1808,12 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.Name = "seamType";
             this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seamType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.seamType.Size = new System.Drawing.Size(189, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule4.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+            conditionValidationRule4.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
             conditionValidationRule4.Value1 = "<Null>";
             this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
@@ -1819,8 +1838,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.SelectedTabPage = this.projectLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 0;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -1835,7 +1854,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // pipeLayoutControlGroup
             // 
-            this.pipeLayoutControlGroup.CustomizationFormText = "Труба";
+            this.pipeLayoutControlGroup.CustomizationFormText = "&Труба";
             this.pipeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.sizesLayoutControlItem,
             this.inspectionsLayoutControlItem,
@@ -1845,7 +1864,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeLayoutControlGroup.Name = "pipeLayoutControlGroup";
             this.pipeLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.pipeLayoutControlGroup.Text = "Труба";
+            this.pipeLayoutControlGroup.Text = "&Труба";
             // 
             // sizesLayoutControlItem
             // 
@@ -1867,7 +1886,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionsLayoutControlItem.Name = "inspectionsLayoutControlItem";
             this.inspectionsLayoutControlItem.Size = new System.Drawing.Size(794, 363);
             this.inspectionsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectionsLayoutControlItem.Text = "Список контрольных операций для выбранного типоразмера";
+            this.inspectionsLayoutControlItem.Text = "Список контрольных опера&ций для выбранного типоразмера";
             this.inspectionsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -1909,7 +1928,7 @@ namespace Prizm.Main.Forms.Settings
             this.wallThicknessLayoutControlItem.Size = new System.Drawing.Size(192, 46);
             this.wallThicknessLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.wallThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.wallThicknessLayoutControlItem.Text = "Толщина стенки";
+            this.wallThicknessLayoutControlItem.Text = "Толщина ст&енки";
             this.wallThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.wallThicknessLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -1923,7 +1942,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(178, 46);
             this.pipeLengthLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipeLengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeLengthLayoutControlItem.Text = "Номинальная длина трубы";
+            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы";
             this.pipeLengthLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeLengthLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -1937,7 +1956,7 @@ namespace Prizm.Main.Forms.Settings
             this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(203, 46);
             this.seamTypeLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.seamTypeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.seamTypeLayoutControlItem.Text = "Тип шва";
+            this.seamTypeLayoutControlItem.Text = "Тип &шва";
             this.seamTypeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.seamTypeLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2018,7 +2037,7 @@ namespace Prizm.Main.Forms.Settings
             this.plateManLayoutControlItem.Name = "plateManLayoutControlItem";
             this.plateManLayoutControlItem.Size = new System.Drawing.Size(412, 210);
             this.plateManLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.plateManLayoutControlItem.Text = "Производ&ители листов";
+            this.plateManLayoutControlItem.Text = "Произво&дители листов";
             this.plateManLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateManLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2080,7 +2099,7 @@ namespace Prizm.Main.Forms.Settings
             this.maskLayoutControlItem.Name = "maskLayoutControlItem";
             this.maskLayoutControlItem.Size = new System.Drawing.Size(346, 50);
             this.maskLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.maskLayoutControlItem.Text = "&Формат номера трубы";
+            this.maskLayoutControlItem.Text = "Формат но&мера трубы";
             this.maskLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.maskLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2143,7 +2162,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // partsLayoutControlGroup
             // 
-            this.partsLayoutControlGroup.CustomizationFormText = "Комплектующие";
+            this.partsLayoutControlGroup.CustomizationFormText = "Комплектую&щие";
             this.partsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.partsTypeLayoutControlItem,
             this.emptySpaceItem,
@@ -2151,7 +2170,7 @@ namespace Prizm.Main.Forms.Settings
             this.partsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.partsLayoutControlGroup.Name = "partsLayoutControlGroup";
             this.partsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.partsLayoutControlGroup.Text = "Комплектующие";
+            this.partsLayoutControlGroup.Text = "Комплектую&щие";
             // 
             // partsTypeLayoutControlItem
             // 
@@ -2184,13 +2203,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             // weldersLayoutControlGroup
             // 
-            this.weldersLayoutControlGroup.CustomizationFormText = "Сварщики";
+            this.weldersLayoutControlGroup.CustomizationFormText = "С&варщики";
             this.weldersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.weldersLayoutControlItem});
             this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
             this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlGroup.Text = "Сварщики";
+            this.weldersLayoutControlGroup.Text = "С&варщики";
             // 
             // weldersLayoutControlItem
             // 
@@ -2205,7 +2224,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             // inspectorsLayoutControlGroup
             // 
-            this.inspectorsLayoutControlGroup.CustomizationFormText = "Инспекторы";
+            this.inspectorsLayoutControlGroup.CustomizationFormText = "&Инспекторы";
             this.inspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectorLayoutControlGroup,
             this.certificateTypeLayoutControlGroup,
@@ -2213,7 +2232,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
             this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.inspectorsLayoutControlGroup.Text = "Инспекторы";
+            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
             // 
             // inspectorLayoutControlGroup
             // 
@@ -2292,7 +2311,7 @@ namespace Prizm.Main.Forms.Settings
             this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
             this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.usersLayoutControlGroup.Text = "Пользователи";
+            this.usersLayoutControlGroup.Text = "По&льзователи";
             // 
             // userLayoutControlItem
             // 
@@ -2336,7 +2355,7 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.rolesLayoutControlGroup.Name = "rolesLayoutControlGroup";
             this.rolesLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.rolesLayoutControlGroup.Text = "Роли";
+            this.rolesLayoutControlGroup.Text = "&Роли";
             // 
             // rolesTabLayoutControlItem
             // 
@@ -2626,7 +2645,6 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraGrid.Columns.GridColumn colInspectorActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit controlTypeItems;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit resultTypeItems;
-        private DevExpress.XtraLayout.EmptySpaceItem roleEmptySpace;
         private DevExpress.XtraEditors.TextEdit projectTitle;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit manufacturerRepositoryTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit typeRepositoryTextEdit;

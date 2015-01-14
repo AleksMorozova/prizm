@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Prizm.Main.Properties;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -29,8 +30,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] seamTypesName
            = new[] { "Прямой", "Спиральный", "Без шва" };
 
+        private IList<Category> fixedCategoryes;
+        private string[] fixedCategoryesName
+           = new[] { "Измерение длины" };
+
         private readonly IFirstSetupRepo firstSetupRepo;
-        public Role SuperUser = new Role() { Name = "superUser", Description = Resources.superUser };
+        public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
 
@@ -92,6 +97,22 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     }
                 }
                 return seamTypes;
+            }
+        }
+
+        public IList<Category> FixedCategoryes
+        {
+            get
+            {
+                if (fixedCategoryes == null)
+                {
+                    fixedCategoryes = new List<Category>();
+                    foreach (string str in fixedCategoryesName)
+                    {
+                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true, ResultType="int"}); 
+                    }
+                }
+                return fixedCategoryes;
             }
         }
 
