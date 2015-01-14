@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[Component](
 	[componentTypeId] [uniqueidentifier] NULL,
 
 	[isAvailableToJoint] [bit] NULL,
-
+	        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -403,7 +403,7 @@ CREATE TABLE [dbo].[Railcar](
 	[destination] [nvarchar](50) NULL,
 	[shippingDate] [date] NULL,
 	[isShipped] [bit] NULL,
-
+	 [toExport] [bit] NOT NULL DEFAULT 0,
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
@@ -676,6 +676,7 @@ CREATE TABLE [dbo].[Joint](
 	[part1Type] [nvarchar](20) NULL,
 	[part2Id] [uniqueidentifier] NULL,
 	[part2Type] [nvarchar](20) NULL,
+	        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
