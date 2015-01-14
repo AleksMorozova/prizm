@@ -579,6 +579,13 @@
     <Compile Include="Synch\Export\IExportRepository.cs" />
     <Compile Include="Synch\Export\MillExporter.cs" />
     <Compile Include="Synch\IHasher.cs" />
+    <Compile Include="Synch\Import\IImporter.cs" />
+    <Compile Include="Synch\Import\IImportRepository.cs" />
+    <Compile Include="Synch\Import\Importer.cs" />
+    <Compile Include="Synch\Import\ImportException.cs" />
+    <Compile Include="Synch\Import\ImportRepository.cs" />
+    <Compile Include="Synch\Import\ImportResult.cs" />
+    <Compile Include="Synch\Import\MasterImporter.cs" />
     <Compile Include="Synch\SerializableEntities\FileObject.cs" />
     <Compile Include="Synch\SerializableEntities\HeatObject.cs" />
     <Compile Include="Synch\SerializableEntities\Manifest.cs" />

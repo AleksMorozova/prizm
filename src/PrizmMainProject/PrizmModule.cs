@@ -38,6 +38,7 @@ using Prizm.Data.DAL.Synch;
 using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch;
 using Prizm.Main.Forms.Synch;
+using Prizm.Main.Synch.Import;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -89,6 +90,7 @@ namespace Prizm.Main
             Bind<IPartInspectionRepository>().To<PartInspectionRepository>();
             Bind<IPortionRepository>().To<PortionRepository>();
             Bind<IExportRepository>().To<ExportRepository>();
+            Bind<IImportRepository>().To<ImportRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
@@ -142,7 +144,7 @@ namespace Prizm.Main
             Bind<AuditInterceptor>().ToSelf();
 
             #region Synch
-            Bind<ExportRepository>().ToSelf();
+            
             Bind<IEncryptor>().To<Encryptor>();
             Bind<IHasher>().To<Hasher>();
 
