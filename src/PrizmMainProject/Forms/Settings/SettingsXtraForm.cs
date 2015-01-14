@@ -257,36 +257,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if(CurrentPipeMillSizeType != null)
             {
-                var clone = new PipeMillSizeType();
-                var tests = new List<PipeTest>();
-
-                foreach(var item in CurrentPipeMillSizeType.PipeTests)
-                {
-                    tests.Add(new PipeTest()
-                    {
-                        Category = item.Category,
-                        Code = item.Code,
-                        Name = item.Name,
-                        MinExpected = item.MinExpected,
-                        MaxExpected = item.MaxExpected,
-                        StringExpected = item.StringExpected,
-                        BoolExpected = item.BoolExpected,
-                        IsRequired = item.IsRequired,
-                        pipeType = clone,
-                        ControlType = item.ControlType,
-                        ResultType = item.ResultType,
-                        IsActive = item.IsActive
-                    });
-                }
-                clone.Type = CurrentPipeMillSizeType.Type + " Copy " + (viewModel.PipeMillSizeType.Count + 1);
-                clone.PipeTests = new BindingList<PipeTest>(tests);
-                clone.IsActive = CurrentPipeMillSizeType.IsActive;
-                clone.Diameter = CurrentPipeMillSizeType.Diameter;
-                clone.Thickness = CurrentPipeMillSizeType.Thickness;
-                clone.Length = CurrentPipeMillSizeType.Length;
-                clone.SeamType = CurrentPipeMillSizeType.SeamType;
-
-                viewModel.PipeMillSizeType.Add(clone);
+              viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using Prizm.Domain.Entity.Mill;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,39 @@ namespace Prizm.Domain.Entity.Setup
             return Type;
         }
 
+        public virtual PipeMillSizeType Clone()
+        {
+            PipeMillSizeType clone = new PipeMillSizeType();
+            var tests = new List<PipeTest>();
 
+            foreach(var item in this.PipeTests)
+            {
+                tests.Add(new PipeTest()
+                {
+                    Category = item.Category,
+                    Code = item.Code,
+                    Name = item.Name,
+                    MinExpected = item.MinExpected,
+                    MaxExpected = item.MaxExpected,
+                    StringExpected = item.StringExpected,
+                    BoolExpected = item.BoolExpected,
+                    IsRequired = item.IsRequired,
+                    pipeType = clone,
+                    ControlType = item.ControlType,
+                    ResultType = item.ResultType,
+                    IsActive = item.IsActive
+                });
+            }
+
+            clone.Type = this.Type + " Copy";
+            clone.PipeTests = new BindingList<PipeTest>(tests);
+            clone.IsActive = this.IsActive;
+            clone.Diameter = this.Diameter;
+            clone.Thickness = this.Thickness;
+            clone.Length = this.Length;
+            clone.SeamType = this.SeamType;
+
+            return clone;
+        }
     }
 }
