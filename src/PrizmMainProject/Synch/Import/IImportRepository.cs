@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL.Mill;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,6 @@ namespace Prizm.Main.Synch.Import
       IMillPipeSizeTypeRepository SizeTypeRepo { get; }
       ISeamTypeRepository SeamTypeRepo { get; }
       IPurchaseOrderRepository PurchaseOrderRepo { get; }
+      IFileRepository FileRepo { get; }
    }
 }

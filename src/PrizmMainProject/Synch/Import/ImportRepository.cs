@@ -1,5 +1,7 @@
 ﻿using NHibernate;
 using Ninject;
+using Prizm.DAL.Hibernate;
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
@@ -21,6 +23,7 @@ namespace Prizm.Main.Synch.Import
       readonly IMillPipeSizeTypeRepository sizeTypeRepo;
       readonly ISeamTypeRepository seamTypeRepo;
       readonly IPurchaseOrderRepository orderRepo;
+      readonly IFileRepository fileRepo;
 
       [Inject]
       public ImportRepository(ISession session)
@@ -33,6 +36,7 @@ namespace Prizm.Main.Synch.Import
          sizeTypeRepo = new MillPipeSizeTypeRepository(session);
          seamTypeRepo = new SeamTypeRepository(session);
          orderRepo = new PurchaseOrderRepository(session);
+         fileRepo = new FileRepository(session);
       }
 
       public IPipeRepository PipeRepo
@@ -75,6 +79,11 @@ namespace Prizm.Main.Synch.Import
          get { return orderRepo; }
       }
 
+      public Data.DAL.IFileRepository FileRepo
+      {
+         get { return fileRepo; }
+      }
+
       public void Dispose()
       {
          pipeRepo.Dispose();
@@ -85,6 +94,10 @@ namespace Prizm.Main.Synch.Import
          sizeTypeRepo.Dispose();
          seamTypeRepo.Dispose();
          orderRepo.Dispose();
+         fileRepo.Dispose();
       }
+
+
+      
    }
 }

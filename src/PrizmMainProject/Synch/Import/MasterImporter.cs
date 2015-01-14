@@ -63,6 +63,24 @@ namespace Prizm.Main.Synch.Import
             ImportPipes(millData.Pipes);
 
             importRepo.PipeRepo.Commit();
+
+            CopyAttachments(tempDir, millData.Pipes);
+         }
+      }
+
+      private void CopyAttachments(string tempDir, List<PipeObject> pipes)
+      {
+         foreach (var pipe in pipes)
+         {
+            if (pipe.Attachments != null)
+            {
+               foreach (var attachment in pipe.Attachments)
+               {
+                  string fileName = Path.Combine(tempDir, "Attachments", attachment.NewName);
+                  ValidateChecksum(fileName);
+                  System.IO.File.Copy(fileName, Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments", attachment.NewName), true);
+               }
+            }
          }
       }
 
@@ -98,6 +116,12 @@ namespace Prizm.Main.Synch.Import
 
                if (pipeObj.Attachments != null)
                {
+                  pipe.Attachments = new List<Prizm.Domain.Entity.File>();
+                  foreach (var fileObject in pipeObj.Attachments)
+                  {
+                     Prizm.Domain.Entity.File f = ImportFile(fileObject, pipe.Id);
+                     pipe.Attachments.Add(f);
+                  }
                }
 
                importRepo.PipeRepo.Save(pipe);
@@ -114,9 +138,13 @@ namespace Prizm.Main.Synch.Import
          if (plateObj == null)
             return null;
 
+         bool isNew = false;
          Plate plate = importRepo.PlateRepo.Get(plateObj.Id);
          if (plate == null)
+         {
             plate = new Plate();
+            isNew = true;
+         }
 
          plate.Id = plateObj.Id;
          plate.IsActive = plateObj.IsActive;
@@ -124,7 +152,11 @@ namespace Prizm.Main.Synch.Import
          plate.Thickness = plateObj.Thickness;
          plate.Heat = ImportHeat(plateObj.Heat);
 
-         importRepo.PlateRepo.SaveOrUpdate(plate);
+         if (isNew)
+            importRepo.PlateRepo.Save(plate);
+         else
+            importRepo.PlateRepo.SaveOrUpdate(plate);
+
          return plate;
       }
 
@@ -133,9 +165,13 @@ namespace Prizm.Main.Synch.Import
          if (heatObj == null)
             return null;
 
+         bool isNew = false;
          Heat heat = importRepo.HeatRepo.Get(heatObj.Id);
          if (heat == null)
+         {
             heat = new Heat();
+            isNew = true;
+         }
 
          heat.Id = heatObj.Id;
          heat.IsActive = heatObj.IsActive;
@@ -143,7 +179,11 @@ namespace Prizm.Main.Synch.Import
          heat.SteelGrade = heatObj.SteelGrade;
          heat.PlateManufacturer = ImportPlateManifacturer(heatObj.PlateManufacturer);
 
-         importRepo.HeatRepo.SaveOrUpdate(heat);
+         if (isNew)
+            importRepo.HeatRepo.Save(heat);
+         else
+            importRepo.HeatRepo.SaveOrUpdate(heat);
+
          return heat;
       }
 
@@ -152,15 +192,23 @@ namespace Prizm.Main.Synch.Import
          if (plateManufacturerObj == null)
             return null;
 
+         bool isNew = false;
          PlateManufacturer manufacturer = importRepo.PlateManufacturerRepo.Get(plateManufacturerObj.Id);
          if (manufacturer == null)
+         {
             manufacturer = new PlateManufacturer();
+            isNew = true;
+         }
 
          manufacturer.Id = plateManufacturerObj.Id;
          manufacturer.Name = plateManufacturerObj.Name;
          manufacturer.IsActive = plateManufacturerObj.IsActive;
 
-         importRepo.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
+         if (isNew)
+            importRepo.PlateManufacturerRepo.Save(manufacturer);
+         else
+            importRepo.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
+
          return manufacturer;
       }
 
@@ -169,9 +217,13 @@ namespace Prizm.Main.Synch.Import
          if (sizeTypeObj == null)
             return null;
 
+         bool isNew = false;
          PipeMillSizeType type = importRepo.SizeTypeRepo.Get(sizeTypeObj.Id);
          if (type == null)
+         {
             type = new PipeMillSizeType();
+            isNew = true;
+         }
 
          type.Id = sizeTypeObj.Id;
          type.IsActive = sizeTypeObj.IsActive;
@@ -181,7 +233,11 @@ namespace Prizm.Main.Synch.Import
          type.Thickness = sizeTypeObj.Thickness;
          type.SeamType = ImportSeamType(sizeTypeObj.SeamType);
 
-         importRepo.SizeTypeRepo.SaveOrUpdate(type);
+         if (isNew)
+            importRepo.SizeTypeRepo.Save(type);
+         else
+            importRepo.SizeTypeRepo.SaveOrUpdate(type);
+
          return type;
       }
 
@@ -190,9 +246,13 @@ namespace Prizm.Main.Synch.Import
          if (seamTypeObj == null)
             return null;
 
+         bool isNew = false;
          SeamType seamType = importRepo.SeamTypeRepo.Get(seamTypeObj.Id);
          if (seamType == null)
+         {
             seamType = new SeamType();
+            isNew = true;
+         }
 
          seamType.Id = seamTypeObj.Id;
          seamType.IsActive = seamTypeObj.IsActive;
@@ -206,7 +266,11 @@ namespace Prizm.Main.Synch.Import
             }
          }
 
-         importRepo.SeamTypeRepo.SaveOrUpdate(seamType);
+         if (isNew)
+            importRepo.SeamTypeRepo.Save(seamType);
+         else
+            importRepo.SeamTypeRepo.SaveOrUpdate(seamType);
+
          return seamType;
       }
 
@@ -215,9 +279,13 @@ namespace Prizm.Main.Synch.Import
          if (railcarObj == null)
             return null;
 
+         bool isNew = false;
          Railcar railcar = importRepo.RailcarRepo.Get(railcarObj.Id);
          if (railcar == null)
+         {
             railcar = new Railcar();
+            isNew = true;
+         }
 
          railcar.Id = railcarObj.Id;
          railcar.IsActive = railcarObj.IsActive;
@@ -227,7 +295,11 @@ namespace Prizm.Main.Synch.Import
          railcar.ShippingDate = railcarObj.ShippingDate;
          railcar.IsShipped = railcarObj.IsShipped;
 
-         importRepo.RailcarRepo.SaveOrUpdate(railcar);
+         if (isNew)
+            importRepo.RailcarRepo.Save(railcar);
+         else
+            importRepo.RailcarRepo.SaveOrUpdate(railcar);
+         
          return railcar;
       }
 
@@ -236,16 +308,24 @@ namespace Prizm.Main.Synch.Import
          if (purchaseOrderObj == null)
             return null;
 
+         bool isNew = false;
          PurchaseOrder order = importRepo.PurchaseOrderRepo.Get(purchaseOrderObj.Id);
          if (order == null)
+         {
             order = new PurchaseOrder();
+            isNew = true;
+         }
 
          order.Id = purchaseOrderObj.Id;
          order.IsActive = purchaseOrderObj.IsActive;
          order.Number = purchaseOrderObj.Number;
          order.Date = purchaseOrderObj.Date;
-
-         importRepo.PurchaseOrderRepo.SaveOrUpdate(order);
+         
+         if (isNew)
+            importRepo.PurchaseOrderRepo.Save(order);
+         else
+            importRepo.PurchaseOrderRepo.SaveOrUpdate(order);
+         
          return order;
       }
 
@@ -267,6 +347,35 @@ namespace Prizm.Main.Synch.Import
          T data = (T)serializer.Deserialize(sr);
 
          return data;
+      }
+
+      private Domain.Entity.File ImportFile(FileObject fileObj, Guid pipeId)
+      {
+         if (fileObj == null)
+            return null;
+
+         bool isNew = false;
+         Domain.Entity.File file = importRepo.FileRepo.Get(fileObj.Id);
+         if (file == null)
+         {
+            isNew = true;
+            file = new Domain.Entity.File();
+         }
+
+         file.Id = fileObj.Id;
+         file.IsActive = fileObj.IsActive;
+         file.FileName = fileObj.FileName;
+         file.Description = fileObj.Description;
+         file.UploadDate = fileObj.UploadDate;
+         file.NewName = fileObj.NewName;
+         file.Item = pipeId;
+
+         if (isNew)
+            importRepo.FileRepo.Save(file);
+         else
+            importRepo.FileRepo.SaveOrUpdate(file);
+
+         return file;
       }
 
       string CreateTempDir()
