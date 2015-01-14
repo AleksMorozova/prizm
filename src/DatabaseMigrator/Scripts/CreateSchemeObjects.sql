@@ -464,8 +464,8 @@ SET ANSI_PADDING OFF
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[TestResult_Inspector](
-	[inspectorId] [uniqueidentifier] NULL,
-	[resultId] [uniqueidentifier] NULL)
+	[inspectorId] [uniqueidentifier] NOT NULL,
+	[resultId] [uniqueidentifier]  NOT NULL)
 
 /****** Object:  Table [dbo].[Weld]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -485,8 +485,8 @@ CONSTRAINT [PK_weld] PRIMARY KEY CLUSTERED
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[Weld_Welder](
-	[weldId] [uniqueidentifier] NULL,
-	[welderId] [uniqueidentifier] NULL
+	[weldId] [uniqueidentifier] NOT NULL,
+	[welderId] [uniqueidentifier] NOT NULL
 ) ON [PRIMARY]
 
 /****** Object:  Table [dbo].[Welder]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -558,19 +558,20 @@ ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_PipeTest]
 ALTER TABLE [dbo].[PipeTestResult]  WITH CHECK ADD  CONSTRAINT [FK_PipeTestResult_TestResult] FOREIGN KEY([testResultId])
 REFERENCES [dbo].[TestResult] ([id])
 ALTER TABLE [dbo].[PipeTestResult] CHECK CONSTRAINT [FK_PipeTestResult_TestResult]
-
 ALTER TABLE [dbo].[Plate]  WITH CHECK ADD  CONSTRAINT [FK_Plate_heat] FOREIGN KEY([heatId])
 REFERENCES [dbo].[Heat] ([id])
 ALTER TABLE [dbo].[Plate] CHECK CONSTRAINT [FK_Plate_heat]
 ALTER TABLE [dbo].[TestResult_Inspector]  WITH CHECK ADD  CONSTRAINT [FK_TestResult_Inspector_Inspector] FOREIGN KEY([inspectorId])
 REFERENCES [dbo].[Inspector] ([id])
 ALTER TABLE [dbo].[TestResult_Inspector] CHECK CONSTRAINT [FK_TestResult_Inspector_Inspector]
+ALTER TABLE [dbo].[TestResult_Inspector] ADD CONSTRAINT PK_TestResultId_InspectorId PRIMARY KEY CLUSTERED([inspectorId], [resultId])
 ALTER TABLE [dbo].[Weld_Welder]  WITH CHECK ADD  CONSTRAINT [FK_Weld_Welder_weld] FOREIGN KEY([weldId])
 REFERENCES [dbo].[Weld] ([id])
 ALTER TABLE [dbo].[Weld_Welder] CHECK CONSTRAINT [FK_Weld_Welder_weld]
 ALTER TABLE [dbo].[Weld_Welder]  WITH CHECK ADD  CONSTRAINT [FK_Weld_Welder_welder] FOREIGN KEY([welderId])
 REFERENCES [dbo].[Welder] ([id])
 ALTER TABLE [dbo].[Weld_Welder] CHECK CONSTRAINT [FK_Weld_Welder_welder]
+ALTER TABLE [dbo].[Weld_Welder] ADD CONSTRAINT PK_WeldId_WelderId PRIMARY KEY CLUSTERED([weldId], [welderId])
 ALTER TABLE [dbo].[InspectorCertificate]  WITH CHECK ADD  CONSTRAINT [FK_InspectorCertificate_Inspector] FOREIGN KEY([inspectorId])
 REFERENCES [dbo].[Inspector] ([id])
 ALTER TABLE [dbo].[InspectorCertificate] CHECK CONSTRAINT [FK_InspectorCertificate_Inspector]
@@ -588,6 +589,10 @@ CREATE TABLE [dbo].[Coat](
 	[type] [nvarchar](20) NOT NULL,
 	[pipeId] [uniqueidentifier] NOT NULL,
     [isActive] [tinyint] NOT NULL DEFAULT 1,
+	CONSTRAINT [PK_Coat] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
  CONSTRAINT [Coat_Pipe_FK] FOREIGN KEY (pipeId) REFERENCES [dbo].[Pipe] (id)
 ) ON [PRIMARY]
 
@@ -606,9 +611,14 @@ CREATE TABLE [dbo].[AuditLog](
 	[tableName] [nvarchar](200) NULL,
 	[fieldName] [nvarchar](50) NULL,
 	[oldValue] [nvarchar](100) NULL,
-	[newValue] [nvarchar](100) NULL
+	[newValue] [nvarchar](100) NULL,
+	CONSTRAINT [PK_AuditLog] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
 GO
 
 /*************** Security **********************************/
@@ -743,8 +753,8 @@ ALTER TABLE [dbo].[JointWeldResult] CHECK CONSTRAINT [FK_JointWeldResult_JointOp
 GO
 
 CREATE TABLE [dbo].[WeldResult_Welder](
-	[welderId] [uniqueidentifier] NULL,
-	[resultId] [uniqueidentifier] NULL
+	[welderId] [uniqueidentifier] NOT NULL,
+	[resultId] [uniqueidentifier] NOT NULL
 ) ON [PRIMARY]
 
 GO
@@ -761,6 +771,9 @@ REFERENCES [dbo].[Welder] ([id])
 GO
 
 ALTER TABLE [dbo].[WeldResult_Welder] CHECK CONSTRAINT [FK_WeldResult_Welder_Welder]
+GO
+
+ALTER TABLE [dbo].[WeldResult_Welder] ADD CONSTRAINT PK_WeldResultId_WelderID PRIMARY KEY CLUSTERED ([welderId],[resultId])
 GO
 
 CREATE TABLE [dbo].[File](
