@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
@@ -66,9 +65,9 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -126,8 +125,8 @@
             this.pipesListView.Name = "pipesListView";
             this.pipesListView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.pipesListView.OptionsBehavior.Editable = false;
-            this.pipesListView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
             this.pipesListView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.pipesListView.OptionsBehavior.ReadOnly = true;
             this.pipesListView.OptionsNavigation.UseTabKey = false;
             this.pipesListView.OptionsView.ShowGroupPanel = false;
             // 
@@ -195,7 +194,6 @@
             this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 278, 250, 350);
             this.generalLayout.OptionsFocus.EnableAutoTabOrder = false;
             this.generalLayout.Root = this.railcarLayoutGroup;
-            this.generalLayout.ShowTemplates = true;
             this.generalLayout.Size = new System.Drawing.Size(1275, 510);
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";

@@ -31,6 +31,8 @@ using Prizm.Main.Forms.Common;
 using PrizmMain.Forms.Notifications;
 using DevExpress.XtraSplashScreen;
 using Prizm.Main.Forms.Notifications;
+using Prizm.Main.Security;
+using Domain.Entity.Security;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -198,9 +200,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
                 if(form != null)
                 {
-                    if(form.settings.TabPages.Count > page)
+                    if(form.tabbedControlGroup.TabPages.Count > page)
                     {
-                        form.settings.SelectedTabPage = form.settings.TabPages[page];
+                        form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
                     }
                     ShowChildForm(form);
                 }
@@ -211,7 +213,7 @@ namespace Prizm.Main.Forms.MainChildForm
                     if(forms.Count > 0)
                     {
                         SettingsXtraForm f = (SettingsXtraForm)forms[0];
-                        f.settings.SelectedTabPage = f.settings.TabPages[page];
+                        f.tabbedControlGroup.SelectedTabPage = f.tabbedControlGroup.TabPages[page];
                         f.Activate();
                     }
                 }
@@ -494,6 +496,7 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
+            ProvideAccessToMenuItems();
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
@@ -551,6 +554,43 @@ namespace Prizm.Main.Forms.MainChildForm
         private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)
         {
             ShowNotificationForm();
+        }
+
+        private void ProvideAccessToMenuItems()
+        {
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+            barButtonItemAudit.Enabled = ctx.HasAccess(Privileges.Audit);
+            barSubItemSettings.Enabled = ctx.HasAccess(Privileges.ViewSettings);
+            bool reportsPermission = ctx.HasAccess(Privileges.PrintReports);
+            barButtonItemMillReports.Enabled = reportsPermission;
+            barButtonItemConstructionReports.Enabled = reportsPermission;
+            barButtonItemInspectionReports.Enabled = reportsPermission;
+            bool newDataPermission = ctx.HasAccess(Privileges.NewDataEntry);
+            barButtonItemNewPipe.Enabled = newDataPermission;
+            barButtonItemNewRailcar.Enabled = newDataPermission;
+            barButtonItemNewJoint.Enabled = newDataPermission;
+            barButtonItemNewComponent.Enabled = newDataPermission;
+            barButtonItemSpool.Enabled = newDataPermission;
+
+            switch (viewModel.WorkstationType.Value)
+            {
+                case Domain.Entity.Setup.WorkstationType.Master: 
+                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster);
+                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster);
+                    break;
+                case Domain.Entity.Setup.WorkstationType.Inspection:
+                case Domain.Entity.Setup.WorkstationType.Construction:
+                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromConstruction);
+                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtConstruction);
+                    break;
+                case Domain.Entity.Setup.WorkstationType.Mill:
+                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMill);
+                    break;
+                default:
+                    barButtonItemExport.Enabled = false;
+                    barButtonItemImport.Enabled = false;
+                    break;
+            }
         }
 
     }

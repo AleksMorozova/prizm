@@ -15,6 +15,7 @@ using Prizm.Main.Common;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -26,6 +27,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private RailcarViewModel viewModel;
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public RailcarNewEditXtraForm(Guid id)
         {
@@ -42,6 +44,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
+            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 
         public RailcarNewEditXtraForm()
@@ -76,7 +79,15 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             commandManager["Ship"].Executor(viewModel.ShipCommand).AttachTo(shipButton);
             commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
 
+            commandManager["Save"].RefreshState();
+            commandManager["Ship"].RefreshState();
+            commandManager["Unship"].RefreshState();
+
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             
             // TODO(odem): Is BindCommands() a correct method for initializing dictionary for lookup?
             statusTypeDict.Clear();

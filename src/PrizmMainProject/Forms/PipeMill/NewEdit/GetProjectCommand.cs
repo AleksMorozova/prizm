@@ -14,6 +14,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         readonly IProjectRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public GetProjectCommand(MillPipeNewEditViewModel viewModel, IProjectRepository repo)
         {
             this.viewModel = viewModel;
@@ -31,6 +33,5 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             return true;
         }
-        public virtual bool IsExecutable { get; set; }
     }
 }

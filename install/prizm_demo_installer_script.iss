@@ -63,28 +63,30 @@ Source: "..\src\bin\Release\*.exe"; Excludes: "*vshost*"; DestDir: "{app}"; Flag
 Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.config"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.manifest"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "{#DevExpressPath}DevExpress.Charts.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Data.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Mvvm.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Office.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.PivotGrid.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Printing.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.RichEdit.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Sparkline.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Utils.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.Utils.v14.1.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraBars.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraGauges.v14.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraGrid.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#DevExpressPath}DevExpress.XtraReports.v14.1.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Charts.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Data.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Mvvm.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Office.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.PivotGrid.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Printing.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.RichEdit.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Sparkline.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Utils.v14.2.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraBars.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGauges.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraGrid.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PrizmExternalPath}\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed
+Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x86.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsMsOdbcSqlInstalled
+Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x64.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsMsOdbcSqlInstalled
 
 
 [Icons]
@@ -97,6 +99,7 @@ Name: "{group}\{cm:UninstallProgram,{#MyAppName}}-{code:GetProjectName}"; Filena
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}-{code:GetProjectName}"
 Filename: "{tmp}\dotnetfx45_full_x86_x64.exe"; Parameters: "/passive /norestart"; WorkingDir: "{tmp}"; Description: "Windows system requirements"; StatusMsg: "{cm:InstallingNet45}"; Check: not IsRequiredDotNetDetected
 Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\SqlLocalDB.MSI"" /qn IACCEPTSQLLOCALDBLICENSETERMS=YES"; WorkingDir: "{tmp}"; Description: "{cm:InstallingSQLLocalDb}"; StatusMsg: "{cm:InstallingSQLLocalDb}"; Check: not IsLocalDb11Installed
+Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\msodbcsql.msi"" /qn IACCEPTMSODBCSQLLICENSETERMS=YES"; WorkingDir: "{tmp}"; Description: "{cm:InstallingMsOdbcSql}"; StatusMsg: "{cm:InstallingMsOdbcSql}"; Check: not IsMsOdbcSqlInstalled
 Filename: "{app}\{#MyAppMigratorExeName}"; Parameters: "0"; WorkingDir: "{app}"; Flags: runhidden; Description: "{cm:CreatingPrizmDatabase}"; StatusMsg: "{cm:CreatingPrizmDatabase}"; BeforeInstall: UpdateConfig; AfterInstall: PrepareDatabase
 
 
@@ -171,6 +174,8 @@ english.ProjectNameValidation=Please, use English letters or digits. Don't start
 russian.ProjectNameValidation=Пожайлуста, используйте английские буквы и цифры. Не начинайте с цифры
 english.ConfirmDowngrade=Version of current installation (%1) is lower or the same as installed version (%2). Do you really want to continue update?
 russian.ConfirmDowngrade=Версия текущей инсталяции (%1) меньше либо равна уже установленной версии (%2). Вы действительно хотите продолжить?
+english.InstallingMsOdbcSql=Installing Microsoft ODBC Driver for SQL Server
+russian.InstallingMsOdbcSql=Установка Microsoft ODBC Driver for SQL Server
 
 
 [Registry]
@@ -683,6 +688,20 @@ end;
 function IsRequiredDotNetDetected(): Boolean;  
 begin
     result := IsDotNetDetected('v4.5', 0);
+end;
+
+
+// Check if MS ODBC SQL Driver installed on the target PC
+function IsMsOdbcSqlInstalled(): Boolean;
+begin
+  if RegKeyExists(HKLM, 'SOFTWARE\ODBC\ODBCINST.INI\ODBC Driver 11 for SQL Server') then
+  begin
+    Result := true;
+  end 
+  else 
+  begin
+    Result := false;
+  end;
 end;
 
 

@@ -30,12 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\DevExpress 14.1\Components\Bin\Framework\DevExpress.Mvvm.v14.1.dll</HintPath>
+    <Reference Include="DevExpress.Mvvm.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -79,6 +79,19 @@
     <Compile Include="Forms\Spool\SaveSpoolCommandTest.cs" />
     <Compile Include="MainChildDocumentsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Synch\SerializableEntities\HeatObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PermissionObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PipeObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PlateManufacturerObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PlateObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\ProjectObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\PurchaseOrderObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\RailcarObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\RoleObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\SeamTypeObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\SizeTypeObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\SpoolObjectTest.cs" />
+    <Compile Include="Synch\SerializableEntities\UserObjectTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

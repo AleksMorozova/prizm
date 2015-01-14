@@ -16,7 +16,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
     {
         private readonly PartInspectionViewModel viewModel;
 
-        public SaveAndClearTestResultsCommand( PartInspectionViewModel viewModel)
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
+        public SaveAndClearTestResultsCommand(PartInspectionViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -28,13 +30,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
             viewModel.InspectionTestResults = null;
             viewModel.SelectedElement = null;
             viewModel.ModifiableView.IsEditMode = false;
-                           
+            RefreshVisualStateEvent();
         }
-        public virtual bool IsExecutable { get; set; }
+
         public bool CanExecute()
         {
-            bool condition = (viewModel.InspectionTestResults == null) ? false : true;
-            return condition;
+            return viewModel.SaveInspectionTestResultsCommand.CanExecute();
         }
     }
 }

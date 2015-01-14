@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Ninject;
 using System.Text;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -24,6 +25,7 @@ namespace Prizm.Main.Forms.Spool
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
         ICommandManager commandManager = new CommandManager();
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
@@ -39,7 +41,7 @@ namespace Prizm.Main.Forms.Spool
             SetAlwaysReadOnly(pipeLength);
             if (id == Guid.Empty)
             {
-                SetExceptionReadOnly(pipeNumber);
+                SetAlwaysEditable(pipeNumber);
             }
             else
             {
@@ -100,16 +102,21 @@ namespace Prizm.Main.Forms.Spool
 
             commandManager["Save"].RefreshState();
 
-
             SaveCommand = viewModel.SaveCommand;
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
             BindToViewModel();
-            attachmentsButton.Enabled = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
+
+            attachmentsButton.Enabled = 
+                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) 
+                &&  ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = (viewModel.Spool.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) ? true : false;
+
+            IsEditMode = !viewModel.IsNew || viewModel.SpoolNumber != String.Empty;
+
             BindCommands();
         }
 
@@ -227,7 +234,7 @@ namespace Prizm.Main.Forms.Spool
         private void searchButton_Click(object sender, EventArgs e)
         {
             IsEditMode = true;
-            attachmentsButton.Enabled = true;
+            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             commandManager["Save"].RefreshState();
         }
 

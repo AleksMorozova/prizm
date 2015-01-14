@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Properties;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Security;
+using Ninject;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -17,6 +19,9 @@ namespace Prizm.Main.Forms.Spool
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
@@ -62,19 +67,15 @@ namespace Prizm.Main.Forms.Spool
                 notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
                 
             }
-        }
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
-            bool condition = viewModel.ModifiableView.IsEditMode;
-            return condition;
+            return viewModel.ModifiableView.IsEditMode 
+                && ctx.HasAccess(viewModel.IsNew
+                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                    : global::Domain.Entity.Security.Privileges.EditData);
         }
     }
 }

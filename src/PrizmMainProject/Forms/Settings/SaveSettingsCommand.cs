@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Prizm.Main.Properties;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
+using Prizm.Main.Security;
+using Ninject;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -21,6 +23,9 @@ namespace Prizm.Main.Forms.Settings
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify)
         {
@@ -49,8 +54,7 @@ namespace Prizm.Main.Forms.Settings
             SaveJointOperations();
             SaveComponentryType();
             SaveInspectorCertificateType();
-            //add
-            SaveSeemType();
+            SaveSeamType();
             repos.Commit();
             EvictMillSizeTypes();
             EvictWelders();
@@ -63,13 +67,14 @@ namespace Prizm.Main.Forms.Settings
             EvictCategories();
             EvictComponentryType();
             EvictInspectorCertificateType();
-            //add
-            EvictSeemType();
+            EvictSeamType();
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
                 Resources.DLG_SETUP_SAVED,
                 Resources.DLG_SETUP_SAVED_HEADER);
+
+            RefreshVisualStateEvent();
         }
 
         private void EvictUsers()
@@ -138,7 +143,7 @@ namespace Prizm.Main.Forms.Settings
 
         public bool CanExecute()
         {
-            return true;
+            return ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
         }
 
         void SaveMillSizeTypes()
@@ -245,23 +250,22 @@ namespace Prizm.Main.Forms.Settings
         }
 
 
-        private void EvictSeemType()
+        private void EvictSeamType()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel.SeamTypes)
             {
-                repos.SeemTypeRepo.Evict(seem);
+                repos.SeamTypeRepo.Evict(seam);
             }
         }
 
 
-        private void SaveSeemType()
+        private void SaveSeamType()
         {
-            foreach (var seem in viewModel.SeemTypes)
+            foreach (var seam in viewModel.SeamTypes)
             {
-                repos.SeemTypeRepo.SaveOrUpdate(seem);
+                repos.SeamTypeRepo.SaveOrUpdate(seam);
             }
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

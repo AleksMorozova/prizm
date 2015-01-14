@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         readonly ConstructionReportViewModel viewModel;
         readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public CreateReportCommand(ConstructionReportViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -29,6 +31,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
+            viewModel.ReportCommand.Execute();
             var tool = new ReportPrintTool(viewModel.report);
             tool.AutoShowParametersPanel = false;
             tool.ShowPreview();
@@ -39,6 +42,5 @@ namespace Prizm.Main.Forms.Reports.Construction
             return viewModel.ReportCommand.CanExecute();
         }
 
-        public bool IsExecutable { get; set; }
     }
 }

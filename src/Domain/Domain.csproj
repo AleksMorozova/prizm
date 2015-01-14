@@ -47,6 +47,7 @@
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
     <Compile Include="Entity\Construction\PartData.cs" />
     <Compile Include="Entity\Construction\PartType.cs" />
+    <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\InspectorCertificateType.cs" />
     <Compile Include="Entity\Setup\JointOperationType.cs" />
     <Compile Include="Entity\Construction\PartConstructionStatus.cs" />
@@ -92,16 +93,11 @@
     <Compile Include="Entity\Mill\Heat.cs" />
     <Compile Include="Entity\Mill\Railcar.cs" />
     <Compile Include="Entity\Setup\Project.cs" />
-    <Compile Include="Entity\Setup\SeemType.cs" />
+    <Compile Include="Entity\Setup\SeamType.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\Setup\WorkstationType.cs" />
     <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializableHeat.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializablePipe.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializablePlate.cs" />
-    <Compile Include="SerializableEntity\Mill\SerializableRailcar.cs" />
-    <Compile Include="SerializableEntity\Setup\SerializableProject.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

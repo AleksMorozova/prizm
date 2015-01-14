@@ -11,5 +11,6 @@ namespace Prizm.Main.Documents
         event Action<bool> Modified;
 
         bool IsEditMode { get; set; }
+        void UpdateState();
     }
 }

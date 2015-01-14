@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Ninject;
 using Prizm.Data.DAL;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -19,6 +20,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
         public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
@@ -73,17 +77,22 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
-            return !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
+            bool conditionAndPermission;
+            if (viewModel.IsNew)
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            }
+            else
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+            }
+            return conditionAndPermission;
         }
     }
 }

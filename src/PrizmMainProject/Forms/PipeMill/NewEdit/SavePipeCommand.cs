@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Ninject;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -18,6 +19,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate {};
 
         public SavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
@@ -56,7 +60,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     try
                     {
-
+                        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                         repo.BeginTransaction();
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
                         repo.Commit();
@@ -70,8 +74,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             viewModel.FilesFormViewModel = null;
                         }
 
-                        viewModel.CanDeactivatePipe = viewModel.PipeDeactivationCommand.CanExecute();
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
                             string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
                             Resources.DLG_PIPE_SAVED_HEADER);
@@ -86,26 +90,23 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     notify.ShowInfo(Resources.DLG_AddFailedControlOperation, Resources.DLG_PIPE_SAVED_HEADER);
                 }
             }
+
+            RefreshVisualStateEvent();
         }
 
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
-        }
 
         public bool CanExecute()
         {
-            bool condition = viewModel.Heat != null &&
-                viewModel.PipeMillSizeType != null &&
-                viewModel.PipePurchaseOrder != null &&
-                !string.IsNullOrEmpty(viewModel.Number) &&
-                viewModel.ProductionDate != DateTime.MinValue &&
-                viewModel.ModifiableView.IsEditMode;
-
-            return condition;
+            return  viewModel.Heat != null &&
+                    viewModel.PipeMillSizeType != null &&
+                    viewModel.PipePurchaseOrder != null &&
+                    !string.IsNullOrEmpty(viewModel.Number) &&
+                    !string.IsNullOrEmpty(viewModel.PlateNumber) &&
+                    viewModel.ProductionDate != DateTime.MinValue &&
+                    viewModel.ModifiableView.IsEditMode &&
+                    ctx.HasAccess(viewModel.IsNew
+                        ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                        : global::Domain.Entity.Security.Privileges.EditData);
         }
     
     }

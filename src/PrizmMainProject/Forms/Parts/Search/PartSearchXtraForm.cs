@@ -94,7 +94,11 @@ namespace Prizm.Main.Forms.Parts.Search
                                 typeof(ComponentNewEditXtraForm),
                                 new ConstructorArgument(
                                     "id",
-                                    viewModel.Parts[selectedPart].Id));
+                                    viewModel.Parts[selectedPart].Id), 
+                                new ConstructorArgument (
+                                    "number", 
+                                    viewModel.Parts[selectedPart].Number)
+                                                   );
                         } break;
                     case PartType.Pipe:
                         {

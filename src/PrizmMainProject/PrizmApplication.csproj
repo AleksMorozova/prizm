@@ -64,72 +64,76 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Office.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Utils.v14.2.UI, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v14.2.Wizard, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="FluentNHibernate">
@@ -150,6 +154,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -169,6 +175,8 @@
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Directories.cs" />
+    <Compile Include="Common\StringExtensions.cs" />
+    <Compile Include="Controls\BindingHelper.cs" />
     <Compile Include="Controls\ControlButtonsExtension.cs" />
     <Compile Include="Controls\ControlColorExtensions.cs" />
     <Compile Include="Controls\ControlMaskExtensions.cs" />
@@ -342,6 +350,13 @@
     <Compile Include="Forms\PipeMill\IMillRepository.cs" />
     <Compile Include="Forms\PipeMill\MillRepository.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetProjectCommand.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditViewModel.cs" />
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.Designer.cs">
+      <DependentUpon>InspectionAddEditXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PipeMill\NewEdit\PipeDeactivationCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\GetPipeCommand.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\ExtractHeatsCommand.cs" />
@@ -371,10 +386,17 @@
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.Designer.cs">
+      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
+    <Compile Include="Forms\Reports\Construction\TracingModeEnum.cs" />
     <Compile Include="Forms\Reports\Construction\TracingReporn.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -409,6 +431,7 @@
     <Compile Include="Forms\Spool\ISpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
+    <Compile Include="Forms\Spool\SpoolDeactivationCommand.cs" />
     <Compile Include="Forms\Spool\SpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -550,8 +573,20 @@
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\Privileges.cs" />
     <Compile Include="Security\SecurityContext.cs" />
+    <Compile Include="Synch\SerializableEntities\HeatObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PermissionObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PipeObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PlateManufacturerObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PlateObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ProjectObject.cs" />
+    <Compile Include="Synch\SerializableEntities\PurchaseOrderObject.cs" />
+    <Compile Include="Synch\SerializableEntities\RailcarObject.cs" />
+    <Compile Include="Synch\SerializableEntities\RoleObject.cs" />
+    <Compile Include="Synch\SerializableEntities\SeamTypeObject.cs" />
+    <Compile Include="Synch\SerializableEntities\SizeTypeObject.cs" />
+    <Compile Include="Synch\SerializableEntities\SpoolObject.cs" />
+    <Compile Include="Synch\SerializableEntities\UserObject.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -613,11 +648,17 @@
     <EmbeddedResource Include="Forms\PipeMill\Heat\HeatXtraForm.resx">
       <DependentUpon>HeatXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PipeMill\NewEdit\Inspections\InspectionAddEditXtraForm.resx">
+      <DependentUpon>InspectionAddEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PipeMill\Purchase\PurchaseOrderXtraForm.resx">
       <DependentUpon>PurchaseOrderXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\PipelineLengthReport.resx">
+      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
       <DependentUpon>TracingReporn.cs</DependentUpon>
@@ -693,7 +734,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources3.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
@@ -724,7 +765,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="DevExpress.Data.v14.1">
+    <PublishFile Include="DevExpress.Data.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -734,7 +775,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Office.v14.1.Core">
+    <PublishFile Include="DevExpress.Office.v14.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -744,7 +785,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Printing.v14.1.Core">
+    <PublishFile Include="DevExpress.Printing.v14.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -754,7 +795,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.RichEdit.v14.1.Core">
+    <PublishFile Include="DevExpress.RichEdit.v14.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -764,7 +805,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Sparkline.v14.1.Core">
+    <PublishFile Include="DevExpress.Sparkline.v14.2.Core">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -774,7 +815,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v14.1">
+    <PublishFile Include="DevExpress.Utils.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -784,7 +825,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraBars.v14.1">
+    <PublishFile Include="DevExpress.XtraBars.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -794,7 +835,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraEditors.v14.1">
+    <PublishFile Include="DevExpress.XtraEditors.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -804,7 +845,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraGrid.v14.1">
+    <PublishFile Include="DevExpress.XtraGrid.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -814,7 +855,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraLayout.v14.1">
+    <PublishFile Include="DevExpress.XtraLayout.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -824,7 +865,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraPrinting.v14.1">
+    <PublishFile Include="DevExpress.XtraPrinting.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -834,7 +875,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.XtraTreeList.v14.1">
+    <PublishFile Include="DevExpress.XtraTreeList.v14.2">
       <Visible>False</Visible>
       <Group>
       </Group>

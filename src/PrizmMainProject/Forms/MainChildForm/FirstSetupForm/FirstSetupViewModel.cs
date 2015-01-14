@@ -15,6 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Prizm.Main.Properties;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -24,12 +26,16 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] inspectorCertificateTypesName
             = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
 
-        private IList<SeemType> seemTypes;
-        private string[] seemTypesName
-           = new[] { "Прямой", "Спиральный", "Без шва"};
+        private IList<SeamType> seamTypes;
+        private string[] seamTypesName
+           = new[] { "Прямой", "Спиральный", "Без шва" };
+
+        private IList<Category> fixedCategoryes;
+        private string[] fixedCategoryesName
+           = new[] { "Измерение длины" };
 
         private readonly IFirstSetupRepo firstSetupRepo;
-
+        public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
 
@@ -43,13 +49,19 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
 
-            if(defaultStation == WorkstationType.Undef)
+            if (defaultStation == WorkstationType.Undef)
             {
                 defaultStation = WorkstationType.Mill;
             }
             project.WorkstationType = defaultStation;
             project.Title = defaultProjName;
             project.DocumentSizeLimit = 1024;
+           
+            foreach (Permission permission in firstSetupRepo.PermissionRepo.GetAll())
+            {
+                SuperUser.Permissions.Add(permission);
+            }
+            admin.Roles = new List<Role>() { SuperUser };            
         }
 
         private Project project = new Project();
@@ -58,12 +70,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public IList<InspectorCertificateType> InspectorCertificateTypes
         {
-            get 
-            { 
-                if(inspectorCertificateTypes == null)
+            get
+            {
+                if (inspectorCertificateTypes == null)
                 {
                     inspectorCertificateTypes = new List<InspectorCertificateType>();
-                    foreach(string str in inspectorCertificateTypesName)
+                    foreach (string str in inspectorCertificateTypesName)
                     {
                         inspectorCertificateTypes.Add(new InspectorCertificateType() { Name = str, IsActive = true });
                     }
@@ -72,19 +84,35 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
-        public IList<SeemType> SeemTypes
+        public IList<SeamType> SeamTypes
         {
             get
             {
-                if (seemTypes == null)
+                if (seamTypes == null)
                 {
-                    seemTypes = new List<SeemType>();
-                    foreach (string str in seemTypesName)
+                    seamTypes = new List<SeamType>();
+                    foreach (string str in seamTypesName)
                     {
-                        seemTypes.Add(new SeemType() { Name = str, IsActive = true });
+                        seamTypes.Add(new SeamType() { Name = str, IsActive = true });
                     }
                 }
-                return seemTypes;
+                return seamTypes;
+            }
+        }
+
+        public IList<Category> FixedCategoryes
+        {
+            get
+            {
+                if (fixedCategoryes == null)
+                {
+                    fixedCategoryes = new List<Category>();
+                    foreach (string str in fixedCategoryesName)
+                    {
+                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true, ResultType="int"}); 
+                    }
+                }
+                return fixedCategoryes;
             }
         }
 
@@ -96,7 +124,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.Title; }
             set
             {
-                if(value != project.Title)
+                if (value != project.Title)
                 {
                     project.Title = value;
                     RaisePropertyChanged("ProjectTitle");
@@ -114,7 +142,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.DocumentSizeLimit; }
             set
             {
-                if(value != project.DocumentSizeLimit)
+                if (value != project.DocumentSizeLimit)
                 {
                     project.DocumentSizeLimit = value;
                     RaisePropertyChanged("Size");
@@ -127,7 +155,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.MillName; }
             set
             {
-                if(value != project.MillName)
+                if (value != project.MillName)
                 {
                     project.MillName = value;
                     RaisePropertyChanged("MillName");
@@ -140,7 +168,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.MillPipeNumberMask; }
             set
             {
-                if(value != project.MillPipeNumberMask)
+                if (value != project.MillPipeNumberMask)
                 {
                     project.MillPipeNumberMask = value;
                     project.MillPipeNumberMaskRegexp = Project.FormRegExp(project.MillPipeNumberMask);
@@ -155,7 +183,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return admin.Login; }
             set
             {
-                if(value != admin.Login)
+                if (value != admin.Login)
                 {
                     admin.Login = value;
                     RaisePropertyChanged("Login");
@@ -169,7 +197,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return password; }
             set
             {
-                if(value != password)
+                if (value != password)
                 {
                     password = value;
                     RaisePropertyChanged("Password");
@@ -182,7 +210,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.LastName; }
             set
             {
-                if(value != name.LastName)
+                if (value != name.LastName)
                 {
                     name.LastName = value;
                     RaisePropertyChanged("LastName");
@@ -195,7 +223,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.FirstName; }
             set
             {
-                if(value != name.FirstName)
+                if (value != name.FirstName)
                 {
                     name.FirstName = value;
                     RaisePropertyChanged("FirstName");
@@ -208,7 +236,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.MiddleName; }
             set
             {
-                if(value != name.MiddleName)
+                if (value != name.MiddleName)
                 {
                     name.MiddleName = value;
                     RaisePropertyChanged("MiddleName");
@@ -225,7 +253,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project; }
             set
             {
-                if(value != project)
+                if (value != project)
                 {
                     project = value;
                 }
@@ -237,7 +265,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return admin; }
             set
             {
-                if(value != admin)
+                if (value != admin)
                 {
                     admin = value;
                 }
@@ -249,7 +277,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name; }
             set
             {
-                if(value != name)
+                if (value != name)
                 {
                     name = value;
                 }

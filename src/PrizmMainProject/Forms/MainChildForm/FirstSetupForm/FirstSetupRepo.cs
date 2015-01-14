@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
 using Prizm.Data.DAL.Setup;
 using System;
@@ -17,7 +18,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IUserRepository userRepo;
         private readonly IProjectRepository projectRepo;
         private readonly ICertificateTypeRepository certificateTypeRepo;
-        private readonly ISeemTypeRepository seemTypeRepo;
+        private readonly ISeamTypeRepository seemTypeRepo;
+        private readonly IPermissionRepository permissionRepo;
+        private readonly IRoleRepository roleRepo;
+        private readonly ICategoryRepository categoryRepo;
 
         public FirstSetupRepo()
         {
@@ -25,7 +29,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.userRepo = new UserRepository(session);
             this.projectRepo = new ProjectRepository(session);
             this.certificateTypeRepo = new InspectorCertificateTypeRepository(session);
-            this.seemTypeRepo = new SeemTypeRepository(session);
+            this.seemTypeRepo = new SeamTypeRepository(session);
+            this.permissionRepo = new PermissionRepository(session);
+            this.roleRepo = new RoleRepository(session);
+            this.categoryRepo = new CategoryRepository(session);
         }
 
         public IUserRepository UserRepo
@@ -58,10 +65,25 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             session.Dispose();
         }
 
-
-        public ISeemTypeRepository SeemTypeRepo
+        public ISeamTypeRepository SeemTypeRepo
         {
             get { return seemTypeRepo; }
+        }
+
+        public IPermissionRepository PermissionRepo
+        {
+            get { return permissionRepo; }
+        }
+
+        public IRoleRepository RoleRepo
+        {
+            get { return roleRepo; }
+        }
+
+
+        public ICategoryRepository CategoryRepo
+        {
+            get { return categoryRepo; }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entity.Security;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -14,7 +15,20 @@ namespace Prizm.Data.DAL.Hibernate
    {
       [Inject]
       public PermissionRepository(ISession session) : base(session)
+      {}
+      public void SeedPermissions()
       {
+          BeginTransaction();
+          foreach (string privilege in Enum.GetNames(typeof(Privileges)))
+          {
+              Permission permission = new Permission() { Name = privilege };          
+              Save(permission);
+          }
+          Commit();
+          foreach (Permission permission in GetAll())
+          {
+              Evict(permission);
+          }
       }
    }
 }

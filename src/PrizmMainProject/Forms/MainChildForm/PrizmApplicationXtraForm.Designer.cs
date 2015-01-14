@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
@@ -88,6 +89,7 @@
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
+            this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -642,6 +644,11 @@
             this.notifyHistory.SortOrder = System.Windows.Forms.SortOrder.Descending;
             this.notifyHistory.TabIndex = 0;
             // 
+            // workspaceManager
+            // 
+            this.workspaceManager.TargetControl = this;
+            this.workspaceManager.TransitionType = pushTransition1;
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,6 +741,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemComponentry;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
         private DevExpress.XtraBars.BarButtonItem importantMessages;
+        private DevExpress.Utils.WorkspaceManager workspaceManager;
 
 
 

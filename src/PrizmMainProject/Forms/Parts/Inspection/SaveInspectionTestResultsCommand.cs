@@ -3,11 +3,13 @@ using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -16,6 +18,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly IInspectionTestResultRepository repo;
         private readonly PartInspectionViewModel viewModel;
         private readonly IUserNotify notify;
+        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify)
         {
@@ -45,12 +50,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            RefreshVisualStateEvent();
         }
-        public virtual bool IsExecutable { get; set; }
+
         public bool CanExecute()
         {
-            bool condition = (viewModel.InspectionTestResults == null) ? false : true;
-            return condition;
+            return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData));
         }
     }
 }
