@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.Spool
                   Resources.DLG_SPOOL_DEACTIVATION,
                   Resources.DLG_SPOOL_DEACTIVATION_HEADER))
             {
+                viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;       
                 viewModel.Spool.IsActive = false;
                 viewModel.SaveCommand.Execute();
                 viewModel.ModifiableView.IsEditMode = false;

@@ -20,7 +20,7 @@ using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Spool
 {
-    public class SpoolViewModel : ViewModelBase, IDisposable
+    public class SpoolViewModel : ViewModelBase, IDisposable, ISupportModifiableView
     {
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
@@ -35,7 +35,6 @@ namespace Prizm.Main.Forms.Spool
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
-        public bool editMode = false;
 
         public bool IsNew { get { return this.Spool.IsNew(); } }
 

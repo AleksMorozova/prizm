@@ -21,6 +21,7 @@ namespace Prizm.Main.Forms.Spool
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class SpoolsXtraForm : ChildForm
     {         
+        
         private SpoolViewModel viewModel;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
@@ -48,7 +49,7 @@ namespace Prizm.Main.Forms.Spool
                 this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
                 SetAlwaysReadOnly(pipeNumber); 
             }
-            IsEditMode = viewModel.SpoolIsActive;
+            IsEditMode = true;
 
         }
 
@@ -122,9 +123,7 @@ namespace Prizm.Main.Forms.Spool
                 &&  ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-
-            IsEditMode = !viewModel.IsNew || viewModel.SpoolNumber != String.Empty;
-
+            IsEditMode =((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive) ;
             BindCommands();
         }
 
@@ -240,8 +239,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
         private void searchButton_Click(object sender, EventArgs e)
-        {
-            IsEditMode = true;
+        {          
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 

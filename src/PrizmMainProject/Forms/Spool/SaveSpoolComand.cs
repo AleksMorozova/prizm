@@ -60,11 +60,13 @@ namespace Prizm.Main.Forms.Spool
                 else 
                 {
                     notify.ShowError(Resources.Wrong_Spool_Lengs_MorePipeLength, Resources.Cut_Spool_from_pipe_Header);
+                    viewModel.ModifiableView.IsEditMode = true;
                 }
             }
             else
             {
-                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);               
+                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
+                viewModel.ModifiableView.IsEditMode = true;
             }
             
         }
