@@ -32,10 +32,6 @@ namespace Prizm.Main.Forms.Settings
             this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1470,10 +1466,6 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLength.Size = new System.Drawing.Size(164, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule1.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.pipeLength, conditionValidationRule1);
             // 
             // pipeNumberMask
             // 
@@ -1783,10 +1775,6 @@ namespace Prizm.Main.Forms.Settings
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule2.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.wallThickness, conditionValidationRule2);
             // 
             // pipeDiameter
             // 
@@ -1797,10 +1785,6 @@ namespace Prizm.Main.Forms.Settings
             this.pipeDiameter.Size = new System.Drawing.Size(177, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule3.Value1 = "0";
-            this.dxValidationProvider.SetValidationRule(this.pipeDiameter, conditionValidationRule3);
             // 
             // seamType
             // 
@@ -1812,10 +1796,6 @@ namespace Prizm.Main.Forms.Settings
             this.seamType.Size = new System.Drawing.Size(189, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
-            conditionValidationRule4.ErrorText = global::Prizm.Main.Properties.Resources.VALUE_DOESNT_MATCH_MASK;
-            conditionValidationRule4.Value1 = "<Null>";
-            this.dxValidationProvider.SetValidationRule(this.seamType, conditionValidationRule4);
             // 
             // RootGroup
             // 
@@ -1838,8 +1818,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.projectLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -1865,6 +1845,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLayoutControlGroup.Name = "pipeLayoutControlGroup";
             this.pipeLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
             this.pipeLayoutControlGroup.Text = "&Труба";
+            this.pipeLayoutControlGroup.Shown += new System.EventHandler(this.pipeLayoutControlGroup_Shown);
             // 
             // sizesLayoutControlItem
             // 
@@ -1990,6 +1971,7 @@ namespace Prizm.Main.Forms.Settings
             this.projectLayoutControlGroup.Name = "projectLayoutControlGroup";
             this.projectLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
             this.projectLayoutControlGroup.Text = "&Проект";
+            this.projectLayoutControlGroup.Shown += new System.EventHandler(this.projectLayoutControlGroup_Shown);
             // 
             // commonParamsLayoutControlGroup
             // 
