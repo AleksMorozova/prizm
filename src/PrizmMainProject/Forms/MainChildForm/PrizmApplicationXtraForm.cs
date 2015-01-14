@@ -95,10 +95,9 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Creates an instance of child form of given form type. Given 
+        /// Creates an instance of child form of given form type
         /// </summary>
         /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
-        /// <param name="parameters">additional parameters for new child form</param>
         /// <returns>reference to newly created child form</returns>
         private ChildForm CreateChildForm(Type formType, Guid id, string number)
         {
@@ -106,6 +105,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             if (FramesCanOpen < 1)
             {
+                HideProcessing();
                 this.ShowError(Resources.IDS_NO_MORE_DOCUMENTS, Resources.DLG_ERROR_HEADER);
             }
             else
@@ -142,7 +142,6 @@ namespace Prizm.Main.Forms.MainChildForm
 
             return newlyCreatedForm;
         }
-
 
         /// <summary>
         /// Cleans child form if it was closed
@@ -184,7 +183,7 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Creation of child form. Can be used from outside to pass some Guid of entity and parameters to newly created forms (i.e. pipe number).
+        /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
         /// </summary>
         /// <param name="formType">exact type of form</param>
         /// <param name="id">Guid of entity</param>
@@ -210,7 +209,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
                     if (index >= 0 && forms.Count > 0)
                     {
-                        forms[index].Activate();
+                        form = forms[index];
+                        form.Activate();
                     }
                     else
                     {
@@ -238,31 +238,15 @@ namespace Prizm.Main.Forms.MainChildForm
         /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
         /// </summary>
         /// <param name="page">number of starting page</param>
-        /// <param name="parameters">form input parameters if any</param>
         public void CreateSettingsChildForm(int page)
         {
             try
             {
                 SettingsXtraForm form = (SettingsXtraForm)OpenChildForm(typeof(SettingsXtraForm));
 
-                if(form != null)
+                if (form != null && form.tabbedControlGroup.TabPages.Count > page)
                 {
-                    if(form.tabbedControlGroup.TabPages.Count > page)
-                    {
-                        form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
-                    }
-                    ShowChildForm(form);
-                }
-                else
-                {
-                    var forms = childForms[typeof(SettingsXtraForm).Name];
-
-                    if(forms.Count > 0)
-                    {
-                        SettingsXtraForm f = (SettingsXtraForm)forms[0];
-                        f.tabbedControlGroup.SelectedTabPage = f.tabbedControlGroup.TabPages[page];
-                        f.Activate();
-                    }
+                    form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
                 }
             }
             finally
