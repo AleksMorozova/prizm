@@ -37,12 +37,14 @@ namespace Prizm.Main.Forms.Spool
             {
                 if (viewModel.canCut)
                 {
+                    viewModel.Pipe.ToExport = true;
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                     repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
                     repos.Commit();
                     repos.PipeRepo.Evict(viewModel.Pipe);
                     repos.SpoolRepo.Evict(viewModel.Spool);
+
             //saving attached documents
             if (viewModel.FilesFormViewModel != null)
             {

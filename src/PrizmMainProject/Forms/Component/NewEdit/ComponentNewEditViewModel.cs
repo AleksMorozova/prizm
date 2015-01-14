@@ -263,6 +263,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Number = string.Empty;
             this.Certificate = string.Empty;
             this.Type = null;
+            this.Component.ToExport = false;
         }
 
         public void Dispose()
