@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.Utils.Animation.FadeTransition fadeTransition1 = new DevExpress.Utils.Animation.FadeTransition();
@@ -46,6 +46,8 @@
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.editInspectionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
@@ -62,9 +64,7 @@
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionCodeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.simpleButtonLoad = new DevExpress.XtraEditors.SimpleButton();
             this.plateThickness = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonSave = new DevExpress.XtraEditors.SimpleButton();
             this.plateNumber = new DevExpress.XtraEditors.TextEdit();
             this.shippedDate = new DevExpress.XtraEditors.TextEdit();
             this.ordersLookUp = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -85,7 +85,7 @@
             this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEditCoatType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.deactivate = new DevExpress.XtraEditors.CheckEdit();
+            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.diameter = new DevExpress.XtraEditors.TextEdit();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -107,12 +107,16 @@
             this.ordersLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveNewLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.inspectionsTabLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.inspectionsGridLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.addButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeTabLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.plateLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.plateNumberLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -135,8 +139,6 @@
             this.lengthLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.diameterLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.thicknessLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectionsTabLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.inspectionsGridLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
@@ -177,7 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEditCoatType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).BeginInit();
@@ -198,12 +200,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveNewLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsTabLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTabLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayoutControlItem)).BeginInit();
@@ -226,8 +232,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameterLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsTabLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).BeginInit();
@@ -340,12 +344,12 @@
             this.generalPipeLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalPipeLayout.Controls.Add(this.editInspectionButton);
+            this.generalPipeLayout.Controls.Add(this.addInspectionButton);
             this.generalPipeLayout.Controls.Add(this.pipeLength);
             this.generalPipeLayout.Controls.Add(this.inspections);
             this.generalPipeLayout.Controls.Add(this.steelGrade);
-            this.generalPipeLayout.Controls.Add(this.simpleButtonLoad);
             this.generalPipeLayout.Controls.Add(this.plateThickness);
-            this.generalPipeLayout.Controls.Add(this.simpleButtonSave);
             this.generalPipeLayout.Controls.Add(this.plateNumber);
             this.generalPipeLayout.Controls.Add(this.shippedDate);
             this.generalPipeLayout.Controls.Add(this.ordersLookUp);
@@ -356,7 +360,7 @@
             this.generalPipeLayout.Controls.Add(this.railcarNumber);
             this.generalPipeLayout.Controls.Add(this.saveAndNewButton);
             this.generalPipeLayout.Controls.Add(this.coatingHistory);
-            this.generalPipeLayout.Controls.Add(this.deactivate);
+            this.generalPipeLayout.Controls.Add(this.deactivated);
             this.generalPipeLayout.Controls.Add(this.weldingHistory);
             this.generalPipeLayout.Controls.Add(this.saveButton);
             this.generalPipeLayout.Controls.Add(this.diameter);
@@ -371,11 +375,33 @@
             this.generalPipeLayout.Controls.Add(this.millStatus);
             this.generalPipeLayout.Location = new System.Drawing.Point(0, 0);
             this.generalPipeLayout.Name = "generalPipeLayout";
-            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 69, 593, 560);
+            this.generalPipeLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(5, 196, 593, 560);
             this.generalPipeLayout.Root = this.generalLayoutGroup;
             this.generalPipeLayout.Size = new System.Drawing.Size(1275, 545);
             this.generalPipeLayout.TabIndex = 24;
             this.generalPipeLayout.Text = "layoutControl1";
+            // 
+            // editInspectionButton
+            // 
+            this.editInspectionButton.Image = ((System.Drawing.Image)(resources.GetObject("editInspectionButton.Image")));
+            this.editInspectionButton.Location = new System.Drawing.Point(135, 97);
+            this.editInspectionButton.Name = "editInspectionButton";
+            this.editInspectionButton.Size = new System.Drawing.Size(109, 22);
+            this.editInspectionButton.StyleController = this.generalPipeLayout;
+            this.editInspectionButton.TabIndex = 61;
+            this.editInspectionButton.Text = "Редактировать";
+            this.editInspectionButton.Click += new System.EventHandler(this.editInspectionButton_Click);
+            // 
+            // addInspectionButton
+            // 
+            this.addInspectionButton.Image = ((System.Drawing.Image)(resources.GetObject("addInspectionButton.Image")));
+            this.addInspectionButton.Location = new System.Drawing.Point(31, 97);
+            this.addInspectionButton.Name = "addInspectionButton";
+            this.addInspectionButton.Size = new System.Drawing.Size(80, 22);
+            this.addInspectionButton.StyleController = this.generalPipeLayout;
+            this.addInspectionButton.TabIndex = 60;
+            this.addInspectionButton.Text = "Добавить";
+            this.addInspectionButton.Click += new System.EventHandler(this.addInspectionButton_Click);
             // 
             // pipeLength
             // 
@@ -390,7 +416,7 @@
             this.inspections.AccessibleDescription = "l";
             this.inspections.Cursor = System.Windows.Forms.Cursors.Default;
             this.inspections.DataSource = this.inspectionOperation;
-            this.inspections.Location = new System.Drawing.Point(26, 92);
+            this.inspections.Location = new System.Drawing.Point(31, 133);
             this.inspections.MainView = this.inspectionsGridView;
             this.inspections.Name = "inspections";
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -398,10 +424,11 @@
             this.inspectorsPopupContainerEdit,
             this.testResultValue,
             this.inspectionCodeLookUpEdit});
-            this.inspections.Size = new System.Drawing.Size(1233, 406);
+            this.inspections.Size = new System.Drawing.Size(1223, 360);
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
+            this.inspections.Leave += new System.EventHandler(this.inspections_Leave);
             // 
             // inspectionOperation
             // 
@@ -420,13 +447,14 @@
             this.categoryGridColumn});
             this.inspectionsGridView.GridControl = this.inspections;
             this.inspectionsGridView.Name = "inspectionsGridView";
-            this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.inspectionsGridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.inspectionsGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.inspectionsGridView.OptionsBehavior.Editable = false;
             this.inspectionsGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsGridView_InitNewRow);
             this.inspectionsGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsGridView_ValidateRow);
             this.inspectionsGridView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.inspectionsGridView_CustomUnboundColumnData);
+            this.inspectionsGridView.DoubleClick += new System.EventHandler(this.inspectionsGridView_DoubleClick);
             // 
             // inspectionNameGridColumn
             // 
@@ -455,6 +483,7 @@
             this.valueGridColumn.ColumnEdit = this.testResultValue;
             this.valueGridColumn.FieldName = "Value";
             this.valueGridColumn.Name = "valueGridColumn";
+            this.valueGridColumn.OptionsColumn.AllowEdit = false;
             this.valueGridColumn.Visible = true;
             this.valueGridColumn.VisibleIndex = 4;
             this.valueGridColumn.Width = 120;
@@ -470,6 +499,7 @@
             this.inspectionResultGridColumn.ColumnEdit = this.resultStatusLookUpEdit;
             this.inspectionResultGridColumn.FieldName = "Status";
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
+            this.inspectionResultGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionResultGridColumn.Visible = true;
             this.inspectionResultGridColumn.VisibleIndex = 5;
             this.inspectionResultGridColumn.Width = 120;
@@ -492,6 +522,7 @@
             this.inspectorsGridColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
+            this.inspectorsGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 7;
             this.inspectorsGridColumn.Width = 245;
@@ -513,6 +544,7 @@
             this.controlDateGridColumn.Caption = "Дата контроля";
             this.controlDateGridColumn.FieldName = "Date";
             this.controlDateGridColumn.Name = "controlDateGridColumn";
+            this.controlDateGridColumn.OptionsColumn.AllowEdit = false;
             this.controlDateGridColumn.Visible = true;
             this.controlDateGridColumn.VisibleIndex = 6;
             this.controlDateGridColumn.Width = 142;
@@ -523,6 +555,7 @@
             this.inspectionCodeGridColumn.ColumnEdit = this.inspectionCodeLookUpEdit;
             this.inspectionCodeGridColumn.FieldName = "Operation.Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
+            this.inspectionCodeGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
             this.inspectionCodeGridColumn.Width = 58;
@@ -548,19 +581,10 @@
             this.categoryGridColumn.Caption = "Категория";
             this.categoryGridColumn.FieldName = "Operation.Category.Name";
             this.categoryGridColumn.Name = "categoryGridColumn";
+            this.categoryGridColumn.OptionsColumn.AllowEdit = false;
             this.categoryGridColumn.Visible = true;
             this.categoryGridColumn.VisibleIndex = 2;
             this.categoryGridColumn.Width = 120;
-            // 
-            // simpleButtonLoad
-            // 
-            this.simpleButtonLoad.Location = new System.Drawing.Point(432, 514);
-            this.simpleButtonLoad.Name = "simpleButtonLoad";
-            this.simpleButtonLoad.Size = new System.Drawing.Size(78, 22);
-            this.simpleButtonLoad.StyleController = this.generalPipeLayout;
-            this.simpleButtonLoad.TabIndex = 36;
-            this.simpleButtonLoad.Text = "load";
-            this.simpleButtonLoad.Click += new System.EventHandler(this.simpleButtonLoad_Click);
             // 
             // plateThickness
             // 
@@ -571,16 +595,6 @@
             this.plateThickness.Size = new System.Drawing.Size(118, 20);
             this.plateThickness.StyleController = this.generalPipeLayout;
             this.plateThickness.TabIndex = 58;
-            // 
-            // simpleButtonSave
-            // 
-            this.simpleButtonSave.Location = new System.Drawing.Point(353, 514);
-            this.simpleButtonSave.Name = "simpleButtonSave";
-            this.simpleButtonSave.Size = new System.Drawing.Size(75, 22);
-            this.simpleButtonSave.StyleController = this.generalPipeLayout;
-            this.simpleButtonSave.TabIndex = 35;
-            this.simpleButtonSave.Text = "save";
-            this.simpleButtonSave.Click += new System.EventHandler(this.simpleButtonSave_Click);
             // 
             // plateNumber
             // 
@@ -796,16 +810,15 @@
             this.repositoryItemLookUpEditCoatType.EditValueChanged += new System.EventHandler(this.repositoryItemLookUpEditCoatType_EditValueChanged);
             this.repositoryItemLookUpEditCoatType.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryItemLookUpEditCoatType_CustomDisplayText);
             // 
-            // deactivate
+            // deactivated
             // 
-            this.deactivate.Location = new System.Drawing.Point(140, 517);
-            this.deactivate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
-            this.deactivate.Name = "deactivate";
-            this.deactivate.Properties.Caption = "Труба деактивирована";
-            this.deactivate.Size = new System.Drawing.Size(194, 19);
-            this.deactivate.StyleController = this.generalPipeLayout;
-            this.deactivate.TabIndex = 28;
-            this.deactivate.Modified += new System.EventHandler(this.deactivate_Modified);
+            this.deactivated.Location = new System.Drawing.Point(140, 517);
+            this.deactivated.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.deactivated.Name = "deactivated";
+            this.deactivated.Properties.Caption = "Труба деактивирована";
+            this.deactivated.Size = new System.Drawing.Size(194, 19);
+            this.deactivated.StyleController = this.generalPipeLayout;
+            this.deactivated.TabIndex = 28;
             // 
             // saveButton
             // 
@@ -953,9 +966,7 @@
             this.ordersLayout,
             this.attachmentsButtonLayout,
             this.deactivateLayout,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.emptySpaceItem1,
+            this.footerEmptySpaceItem,
             this.saveButtonLayout,
             this.saveNewLayoutControlItem,
             this.tabbedControlGroup});
@@ -1066,7 +1077,7 @@
             // 
             // deactivateLayout
             // 
-            this.deactivateLayout.Control = this.deactivate;
+            this.deactivateLayout.Control = this.deactivated;
             this.deactivateLayout.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.deactivateLayout.CustomizationFormText = "Деактивация";
             this.deactivateLayout.Location = new System.Drawing.Point(101, 510);
@@ -1078,43 +1089,17 @@
             this.deactivateLayout.TextVisible = false;
             this.deactivateLayout.TrimClientAreaToControl = false;
             // 
-            // layoutControlItem1
+            // footerEmptySpaceItem
             // 
-            this.layoutControlItem1.Control = this.simpleButtonSave;
-            this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(339, 510);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(79, 26);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            this.layoutControlItem1.TrimClientAreaToControl = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.simpleButtonLoad;
-            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(418, 510);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(82, 26);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            this.layoutControlItem2.TrimClientAreaToControl = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(500, 510);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(431, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.emptySpaceItem1.TrimClientAreaToControl = false;
+            this.footerEmptySpaceItem.AllowHotTrack = false;
+            this.footerEmptySpaceItem.ControlAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.footerEmptySpaceItem.CustomizationFormText = "Разделитель";
+            this.footerEmptySpaceItem.Location = new System.Drawing.Point(339, 510);
+            this.footerEmptySpaceItem.Name = "footerEmptySpaceItem";
+            this.footerEmptySpaceItem.Size = new System.Drawing.Size(592, 26);
+            this.footerEmptySpaceItem.Text = "Разделитель";
+            this.footerEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
+            this.footerEmptySpaceItem.TrimClientAreaToControl = false;
             // 
             // saveButtonLayout
             // 
@@ -1156,6 +1141,76 @@
             this.pipeTabLayoutControlGroup,
             this.inspectionsTabLayoutControlGroup});
             this.tabbedControlGroup.Text = "Вкладки";
+            // 
+            // inspectionsTabLayoutControlGroup
+            // 
+            this.inspectionsTabLayoutControlGroup.CustomizationFormText = "Вкладка контрольных операций";
+            this.inspectionsTabLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.inspectionsGridLayoutControlItem,
+            this.emptySpaceItem1,
+            this.addButtonLayoutControlItem,
+            this.layoutControlItem2,
+            this.emptySpaceItem2});
+            this.inspectionsTabLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectionsTabLayoutControlGroup.Name = "inspectionsTabLayoutControlGroup";
+            this.inspectionsTabLayoutControlGroup.Size = new System.Drawing.Size(1237, 410);
+            this.inspectionsTabLayoutControlGroup.Text = "Контрольные операции";
+            // 
+            // inspectionsGridLayoutControlItem
+            // 
+            this.inspectionsGridLayoutControlItem.Control = this.inspections;
+            this.inspectionsGridLayoutControlItem.CustomizationFormText = "Таблица контрольных операций";
+            this.inspectionsGridLayoutControlItem.Location = new System.Drawing.Point(0, 36);
+            this.inspectionsGridLayoutControlItem.Name = "inspectionsGridLayoutControlItem";
+            this.inspectionsGridLayoutControlItem.Size = new System.Drawing.Size(1237, 374);
+            this.inspectionsGridLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectionsGridLayoutControlItem.Text = "Таблица контрольных операций";
+            this.inspectionsGridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.inspectionsGridLayoutControlItem.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(227, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1010, 36);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // addButtonLayoutControlItem
+            // 
+            this.addButtonLayoutControlItem.Control = this.addInspectionButton;
+            this.addButtonLayoutControlItem.CustomizationFormText = "Добавить";
+            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
+            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(94, 36);
+            this.addButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.addButtonLayoutControlItem.Text = "Добавить";
+            this.addButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.addButtonLayoutControlItem.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.editInspectionButton;
+            this.layoutControlItem2.CustomizationFormText = "Редактировать";
+            this.layoutControlItem2.Location = new System.Drawing.Point(104, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(123, 36);
+            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem2.Text = "Редактировать";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(94, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 36);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // pipeTabLayoutControlGroup
             // 
@@ -1431,27 +1486,6 @@
             this.thicknessLayoutControlItem.TextSize = new System.Drawing.Size(70, 13);
             this.thicknessLayoutControlItem.TextToControlDistance = 5;
             // 
-            // inspectionsTabLayoutControlGroup
-            // 
-            this.inspectionsTabLayoutControlGroup.CustomizationFormText = "Вкладка контрольных операций";
-            this.inspectionsTabLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.inspectionsGridLayoutControlItem});
-            this.inspectionsTabLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectionsTabLayoutControlGroup.Name = "inspectionsTabLayoutControlGroup";
-            this.inspectionsTabLayoutControlGroup.Size = new System.Drawing.Size(1237, 410);
-            this.inspectionsTabLayoutControlGroup.Text = "Контрольные операции";
-            // 
-            // inspectionsGridLayoutControlItem
-            // 
-            this.inspectionsGridLayoutControlItem.Control = this.inspections;
-            this.inspectionsGridLayoutControlItem.CustomizationFormText = "Таблица контрольных операций";
-            this.inspectionsGridLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.inspectionsGridLayoutControlItem.Name = "inspectionsGridLayoutControlItem";
-            this.inspectionsGridLayoutControlItem.Size = new System.Drawing.Size(1237, 410);
-            this.inspectionsGridLayoutControlItem.Text = "Таблица контрольных операций";
-            this.inspectionsGridLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionsGridLayoutControlItem.TextVisible = false;
-            // 
             // plateNumberLayout
             // 
             this.plateNumberLayout.Control = this.plateNumber;
@@ -1529,7 +1563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.coatDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatingHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEditCoatType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deactivate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.length.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight.Properties)).EndInit();
@@ -1550,12 +1584,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveNewLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsTabLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTabLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayoutControlItem)).EndInit();
@@ -1578,8 +1616,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lengthLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diameterLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thicknessLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsTabLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingDs)).EndInit();
@@ -1611,7 +1647,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView coatingHistoryGridView;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.CheckEdit deactivate;
+        private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraEditors.TextEdit shippedDate;
         private DevExpress.XtraEditors.TextEdit certificateNumber;
         private DevExpress.XtraEditors.TextEdit destination;
@@ -1665,16 +1701,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn heatsNumberCol;
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonLoad;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonSave;
         private DevExpress.Utils.WorkspaceManager workspaceManager;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private DevExpress.XtraLayout.LayoutControlItem plateNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem deactivateLayout;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem footerEmptySpaceItem;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayout;
         private DevExpress.XtraLayout.LayoutControlItem saveNewLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup inspectionsTabLayoutControlGroup;
@@ -1703,6 +1735,12 @@
         private DevExpress.XtraEditors.TextEdit pipeLength;
         private DevExpress.XtraLayout.LayoutControlItem pipeLengthLayout;
         private DevExpress.XtraLayout.LayoutControlGroup typeSizeaParametersLyoutGroup;
+        private DevExpress.XtraEditors.SimpleButton editInspectionButton;
+        private DevExpress.XtraEditors.SimpleButton addInspectionButton;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem addButtonLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 
     }
 }

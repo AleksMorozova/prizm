@@ -24,6 +24,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         ISession session;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public SearchPartForInspectionCommand(PartInspectionViewModel viewModel, ISession session)
         {
@@ -64,7 +66,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                     parent.CreateChildForm(typeof(ComponentNewEditXtraForm), new ConstructorArgument("number", viewModel.SearchNumber));
                 }
             }
-
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
@@ -72,6 +74,5 @@ namespace Prizm.Main.Forms.Parts.Inspection
             return true;
         }
 
-        public bool IsExecutable { get; set; }
     }
 }

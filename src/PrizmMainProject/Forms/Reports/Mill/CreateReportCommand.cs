@@ -23,6 +23,8 @@ namespace Prizm.Main.Forms.Reports.Mill
         readonly IUserNotify notify;
         DataSet data;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+        
         public CreateReportCommand(MillReportsViewModel viewModel, IMillReportsRepository repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -58,9 +60,5 @@ namespace Prizm.Main.Forms.Reports.Mill
             return true;
         }
 
-        public bool IsExecutable
-        {
-            get; set;
-        }
     }
 }

@@ -868,6 +868,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Введите код операции.
+        /// </summary>
+        internal static string Empty_Operation_Code {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите название операции.
+        /// </summary>
+        internal static string Empty_Operation_Name {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  неизвестный тип компонента.
         /// </summary>
         internal static string ERROR_UnknownComponentType {

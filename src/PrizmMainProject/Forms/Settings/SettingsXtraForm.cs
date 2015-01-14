@@ -9,7 +9,7 @@ using Ninject;
 using Ninject.Parameters;
 
 using Prizm.Domain.Entity.Setup;
-
+using Prizm.Main.Controls;
 using Prizm.Main.Forms.Settings.Dictionary;
 using Prizm.Main.Forms.Settings.UserRole.Role;
 using Prizm.Main.Forms.Settings.UserRole.User;
@@ -37,6 +37,7 @@ namespace Prizm.Main.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
 
         public SettingsXtraForm()
@@ -49,7 +50,7 @@ namespace Prizm.Main.Forms.Settings
             inspectorCertificateGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
-
+            viewModel.ModifiableView = this;
         }
 
         #region Role Setting
@@ -116,8 +117,33 @@ namespace Prizm.Main.Forms.Settings
             pipeLength.SetRequiredText();
             pipeDiameter.SetRequiredText();
             wallThickness.SetRequiredText();
+            SetConditional(seamType, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+                        );
+            SetConditional(pipeLength, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
 
+            SetConditional(pipeDiameter, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
+
+            SetConditional(wallThickness, delegate(bool editMode)
+            {
+                return CheckReadonly(IsEditMode);
+            }
+            );
             UpdateSeamTypesComboBox();
+
+            IsEditMode = true;
+
+
         }
 
         private void BindToViewModel()
@@ -199,6 +225,8 @@ namespace Prizm.Main.Forms.Settings
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Save"].RefreshState();
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
@@ -210,6 +238,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+
             GridView v = sender as GridView;
             object sizeType = v.GetRow(e.FocusedRowHandle);
 
@@ -220,6 +249,7 @@ namespace Prizm.Main.Forms.Settings
 
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
+            viewModel.ModifiableView.UpdateState();
 
         }
 
@@ -262,18 +292,32 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
             pipeTest.IsActive = true;
             pipeTest.pipeType = CurrentPipeMillSizeType;
+            foreach (PipeTest t in CurrentPipeMillSizeType.PipeTests) 
+            {
+                t.pipeType = CurrentPipeMillSizeType; 
+            }
             CurrentPipeMillSizeType.PipeTests.Add(pipeTest);
         }
 
         private void pipesSizeListGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            viewModel.ModifiableView.UpdateState();
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
             CurrentPipeMillSizeType.SeamType = new SeamType();
+
             if (CurrentPipeMillSizeType != null)
             {
                 viewModel.UpdatePipeTests(CurrentPipeMillSizeType);
+            }
+
+            foreach (Prizm.Domain.Entity.Mill.Category c in viewModel.CategoryTypes)
+            {
+                if (c.Fixed && c.ResultType == "int")
+                {
+                    CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason, pipeType=CurrentPipeMillSizeType, IsRequired=true });
+                }
             }
         }
 
@@ -664,7 +708,7 @@ namespace Prizm.Main.Forms.Settings
 
             if (ct != null)
             {
-                if ((bool)ct[e.ListSourceRow].IsNotActive)
+                if (!(bool)ct[e.ListSourceRow].IsActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
@@ -763,7 +807,7 @@ namespace Prizm.Main.Forms.Settings
 
             if (certp != null)
             {
-                if ((bool)certp[e.ListSourceRow].IsNotActive)
+                if (!(bool)certp[e.ListSourceRow].IsActive)
                 {
                     e.Visible = false;
                     e.Handled = true;
@@ -776,11 +820,11 @@ namespace Prizm.Main.Forms.Settings
 
         #region IValidatable Members
 
-        bool IValidatable.Validate()
-        {
-            UpdateSeamTypesComboBox();
-            return dxValidationProvider.Validate();
-        }
+        //bool IValidatable.Validate()
+        //{
+        //    UpdateSeamTypesComboBox();
+        //    return dxValidationProvider.Validate();
+        //}
 
         #endregion
 
@@ -836,5 +880,72 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private void inspectionView_BeforeLeaveRow(object sender, RowAllowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
+
+            foreach (PipeTest t in CurrentPipeMillSizeType.PipeTests)
+            {
+                t.pipeType = CurrentPipeMillSizeType;
+            }
+        }
+
+        bool IValidatable.Validate()
+        {
+            bool codeValidate = false;
+            UpdateSeamTypesComboBox();
+            for (int i = 0; i < inspectionView.RowCount; i++)
+            {
+                if (Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name"))==null)
+                {
+                    inspectionView.FocusedRowHandle = i;
+
+                    inspectionView_ValidateRow(
+                        inspectionView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                }
+            }
+
+            foreach (PipeTest t in viewModel.PipeTests)
+            {
+                if (t.Code != null && t.Name != null)
+                {
+                    codeValidate = true;
+                }
+                else
+                {
+                    codeValidate = false;
+                }
+            }
+            return dxValidationProvider.Validate() && codeValidate;
+        }
+
+        private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            var code = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
+            var name = (string)gv.GetRowCellValue(e.RowHandle, inspectionNameGridColumn);
+            if (code == null )
+            {
+                gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
+                e.Valid = false;
+            }
+
+            if (name == null)
+            {
+                gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
+                e.Valid = false;
+            }
+        }
+
+
+
+        private bool CheckReadonly(bool editMode)
+        {
+            return (CurrentPipeMillSizeType !=null&& editMode);
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     try
                     {
-                        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+
                         repo.BeginTransaction();
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
                         repo.Commit();
@@ -97,16 +97,35 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
+<<<<<<< HEAD
             return  viewModel.Heat != null &&
                     viewModel.PipeMillSizeType != null &&
                     viewModel.PipePurchaseOrder != null &&
                     !string.IsNullOrEmpty(viewModel.Number) &&
-                    !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                     viewModel.ProductionDate != DateTime.MinValue &&
                     viewModel.ModifiableView.IsEditMode &&
                     ctx.HasAccess(viewModel.IsNew
                         ? global::Domain.Entity.Security.Privileges.NewDataEntry
                         : global::Domain.Entity.Security.Privileges.EditData);
+=======
+            bool condition = viewModel.Heat != null &&
+                viewModel.PipeMillSizeType != null &&
+                viewModel.PipePurchaseOrder != null &&
+                !string.IsNullOrEmpty(viewModel.Number) &&
+                viewModel.ProductionDate != DateTime.MinValue &&
+                !string.IsNullOrEmpty(viewModel.PlateNumber) &&
+                viewModel.ModifiableView.IsEditMode;
+            bool conditionAndPermission;
+            if (viewModel.Pipe.Id == Guid.Empty)
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            }
+            else
+            {
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+            }
+            return conditionAndPermission;
+>>>>>>> master
         }
     
     }

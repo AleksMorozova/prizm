@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Prizm.Data.DAL;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -27,6 +28,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         IModifiable modifiableView;
         public IValidatable validatableView { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+
+        public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
         public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify)
@@ -73,9 +76,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 {
                     Railcar.Number = value;
                     RaisePropertyChanged("Number");
-                    ShipCommand.IsExecutable ^= true;
-                    UnshipCommand.IsExecutable ^= true;
-                    SaveCommand.IsExecutable ^= true;
                 }
             }
         }

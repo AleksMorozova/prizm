@@ -15,6 +15,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         readonly IConstructionRepository repo;
         readonly JointNewEditViewModel viewModel;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public ExtractOperationsCommand(IConstructionRepository repo, JointNewEditViewModel viewModel)
         {
             this.repo = repo;
@@ -34,6 +36,5 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return true;
         }
-        public virtual bool IsExecutable { get; set; }
     }
 }
