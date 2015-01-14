@@ -37,6 +37,7 @@ using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Data.DAL.Synch;
 using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch;
+using Prizm.Main.Forms.Synch;
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -130,6 +131,7 @@ namespace Prizm.Main
             Bind<PartSearchXtraForm>().ToSelf();
             Bind<FirstSetupXtraForm>().ToSelf();
             Bind<ExternalFilesXtraForm>().ToSelf();
+            Bind<ExportForm>().ToSelf();
             #endregion
 
             #region Commands
@@ -143,6 +145,7 @@ namespace Prizm.Main
             Bind<ExportRepository>().ToSelf();
             Bind<IEncryptor>().To<Encryptor>();
             Bind<IHasher>().To<Hasher>();
+
             #endregion
         }
     }

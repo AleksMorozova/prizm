@@ -154,6 +154,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -423,7 +424,11 @@
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
     <Compile Include="Forms\Spool\SpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Forms\Synch\ExportForm.cs" />
+    <Compile Include="Forms\Synch\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -729,11 +734,14 @@
     <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources3.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="PrizmApplication_TemporaryKey.pfx" />
@@ -924,7 +932,9 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\export_icon.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\critical_warning.png" />
   </ItemGroup>

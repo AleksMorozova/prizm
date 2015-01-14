@@ -28,7 +28,7 @@ namespace Prizm.Main.Synch.Export
       public List<PipeObject> Pipes { get; set; }
    }
 
-   public class MillExporter : Exporter
+   public class MillExporter : Exporter, IDisposable
    {
       readonly IExportRepository exportRepo;
 
@@ -36,6 +36,17 @@ namespace Prizm.Main.Synch.Export
       public MillExporter(IExportRepository exportRepo, IEncryptor encryptor, IHasher hasher) : base(encryptor, hasher)
       {
          this.exportRepo = exportRepo;
+      }
+
+      public IList<Portion> GetAllPortions()
+      {
+         return exportRepo.PortionRepo.GetAll();
+      }
+
+      public bool AnyNewDataToExport()
+      {
+         IList<Pipe> toExport = exportRepo.PipeRepo.GetPipesToExport();
+         return toExport != null && toExport.Count > 0;
       }
 
       public override ExportResult Export()
@@ -102,17 +113,6 @@ namespace Prizm.Main.Synch.Export
          }
       }
 
-      void FireMessage(string message)
-      {
-         if (OnMessage != null)
-            OnMessage(message);
-      }
-
-      void FireDone()
-      {
-         if (OnDone != null)
-            OnDone();
-      }
 
       string CreateTempDir()
       {
@@ -120,8 +120,6 @@ namespace Prizm.Main.Synch.Export
          Directory.CreateDirectory(tempDir);
          return tempDir;
       }
-
-      
 
       public override ExportResult Export(Portion portion)
       {
@@ -160,15 +158,7 @@ namespace Prizm.Main.Synch.Export
          }
          catch (Exception e)
          {
-            if (OnError != null)
-            {
-               OnError(new ExportException(e.Message, e));
-               return ExportResult.Failed;
-            }
-            else
-            {
-               throw new ExportException(e.Message, e);
-            }
+            return FireError(e);
          }
       }
 
@@ -179,6 +169,11 @@ namespace Prizm.Main.Synch.Export
             p.ToExport = false;
             exportRepo.PipeRepo.SaveOrUpdate(p);
          }
+      }
+
+      public void Dispose()
+      {
+         exportRepo.Dispose();
       }
    }
 }

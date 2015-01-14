@@ -858,6 +858,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{0}] Экспортировано в &apos;{1}&apos;.
+        /// </summary>
+        internal static string Export_ArchiveExported {
+            get {
+                return ResourceManager.GetString("Export_ArchiveExported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Создание временного хранилища..
         /// </summary>
         internal static string Export_CreateTempStorage {
@@ -876,11 +885,66 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{0}] Ошибка {1}.
+        /// </summary>
+        internal static string Export_Error {
+            get {
+                return ResourceManager.GetString("Export_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PRIZM archives|*.prizm.
+        /// </summary>
+        internal static string Export_Filter {
+            get {
+                return ResourceManager.GetString("Export_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap export_icon {
+            get {
+                object obj = ResourceManager.GetObject("export_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{0}] {1}.
+        /// </summary>
+        internal static string Export_Msg {
+            get {
+                return ResourceManager.GetString("Export_Msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет новых данных для экспортирования..
+        /// </summary>
+        internal static string Export_NoData {
+            get {
+                return ResourceManager.GetString("Export_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Чтение данных..
         /// </summary>
         internal static string Export_ReadingData {
             get {
                 return ResourceManager.GetString("Export_ReadingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспортирование завершено успешно..
+        /// </summary>
+        internal static string Export_Ready {
+            get {
+                return ResourceManager.GetString("Export_Ready", resourceCulture);
             }
         }
         

@@ -25,11 +25,11 @@ namespace Prizm.Main.Synch.Export
       }
 
 
-      public Action OnDone { get; set; }
+      public event Action OnDone;
 
-      public Action<ExportException> OnError { get; set; }
+      public event Action<ExportException> OnError;
 
-      public Action<string> OnMessage { get; set; }
+      public event Action<string> OnMessage;
 
       public string ArchiveName { get; set; }
 
@@ -42,6 +42,10 @@ namespace Prizm.Main.Synch.Export
          if (ArchiveName == null)
             throw new ExportException("ArchiveName property should be set before exporting.");
 
+         if (System.IO.File.Exists(ArchiveName))
+         {
+            System.IO.File.Delete(ArchiveName);
+         }
          ZipFile.CreateFromDirectory(tempDir, ArchiveName);
       }
 
@@ -87,6 +91,31 @@ namespace Prizm.Main.Synch.Export
          }
 
          System.IO.File.WriteAllText(Path.Combine(tempDir, "Manifest.sha1"), hasher.GetHash(encryptedData));
+      }
+
+      protected void FireMessage(string message)
+      {
+         if (OnMessage != null)
+            OnMessage(message);
+      }
+
+      protected void FireDone()
+      {
+         if (OnDone != null)
+            OnDone();
+      }
+
+      protected ExportResult FireError(Exception e)
+      {
+         if (OnError != null)
+         {
+            OnError(new ExportException(e.Message, e));
+            return ExportResult.Failed;
+         }
+         else
+         {
+            throw new ExportException(e.Message, e);
+         }
       }
    }
 }
