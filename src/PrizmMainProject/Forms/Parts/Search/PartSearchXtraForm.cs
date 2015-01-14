@@ -90,30 +90,21 @@ namespace Prizm.Main.Forms.Parts.Search
                 {
                     case PartType.Component:
                         {
-                            parent.CreateChildForm(
-                                typeof(ComponentNewEditXtraForm), viewModel.Parts[selectedPart].Id,
-                                new ConstructorArgument(
-                                    "id",
-                                    viewModel.Parts[selectedPart].Id), 
-                                new ConstructorArgument (
-                                    "number", 
-                                    viewModel.Parts[selectedPart].Number)
-                                                   );
+                            parent.OpenChildForm(
+                                typeof(ComponentNewEditXtraForm),
+                                viewModel.Parts[selectedPart].Id,
+                                viewModel.Parts[selectedPart].Number);
                         } break;
                     case PartType.Pipe:
                         {
-                            parent.CreateChildForm
-                                (typeof(MillPipeNewEditXtraForm), viewModel.Parts[selectedPart].Id,
-                                new ConstructorArgument("id",
-                                viewModel.Parts[selectedPart].Id));
+                            parent.OpenChildForm
+                                (typeof(MillPipeNewEditXtraForm), 
+                                viewModel.Parts[selectedPart].Id);
                         } break;
                     case PartType.Spool:
                         {
-                            parent.CreateChildForm(
-                                typeof(SpoolsXtraForm), viewModel.Parts[selectedPart].Id,
-                                new ConstructorArgument("id",
-                                    viewModel.Parts[selectedPart].Id)
-                                );
+                            parent.OpenChildForm(
+                                typeof(SpoolsXtraForm), viewModel.Parts[selectedPart].Id);
                         } break;
                     default: break;
                 }

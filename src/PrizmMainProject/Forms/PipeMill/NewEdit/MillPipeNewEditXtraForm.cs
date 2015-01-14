@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
@@ -42,11 +43,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private PipeTestResult currentTestResult;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
-        public Guid Id { get; private set; }
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
         public MillPipeNewEditXtraForm(Guid id)
         {
-            this.Id = id;
+            this.id = id;
 
             InitializeComponent();
             SetControlsTextLength();

@@ -20,7 +20,8 @@ namespace Prizm.Main.Forms.Spool
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class SpoolsXtraForm : ChildForm, INewEditEntityForm
-    {         
+    {
+        private Guid id;
         private SpoolViewModel viewModel;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
@@ -29,11 +30,12 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public Guid Id { get; private set; }
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+
 
         public SpoolsXtraForm(Guid id, string number)
         {
-            this.Id = id;
+            this.id = id;
 
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));

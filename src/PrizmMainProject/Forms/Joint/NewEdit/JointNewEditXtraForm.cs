@@ -31,6 +31,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
         private JointWeldResult currentJointWeldResult;
@@ -40,11 +41,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
-        public Guid Id { get; private set; }
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
         public JointNewEditXtraForm(Guid id)
         {
-            this.Id = id;
+            this.id = id;
 
             InitializeComponent();
             SetControlsTextLength();

@@ -8,6 +8,6 @@ namespace Prizm.Main.Forms.MainChildForm
 {
     public interface INewEditEntityForm
     {
-        Guid Id { get; }
+        bool IsMatchedByGuid(Guid id);
     }
 }

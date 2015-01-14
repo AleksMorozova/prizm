@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             {
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
 
-                parent.CreateChildForm(typeof(MillPipeNewEditXtraForm), id, new ConstructorArgument("id", id));
+                parent.OpenChildForm(typeof(MillPipeNewEditXtraForm), id);
             }
         }
 
