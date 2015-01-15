@@ -267,7 +267,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
-
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
             if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
@@ -689,13 +688,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             ordersLookUp.Properties.DataSource = null;
             ordersLookUp.Properties.DataSource = viewModel.PurchaseOrders;
         }
+        
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
         }
-
 
         #region IValidatable Members
 
