@@ -1048,6 +1048,79 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap import {
+            get {
+                object obj = ResourceManager.GetObject("import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проверка контрольной суммы.
+        /// </summary>
+        internal static string Import_Checksum {
+            get {
+                return ResourceManager.GetString("Import_Checksum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба с номером {0} уже существует в БД..
+        /// </summary>
+        internal static string Import_Conflict {
+            get {
+                return ResourceManager.GetString("Import_Conflict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт вложений.
+        /// </summary>
+        internal static string Import_CopyAttachments {
+            get {
+                return ResourceManager.GetString("Import_CopyAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт данных.
+        /// </summary>
+        internal static string Import_Data {
+            get {
+                return ResourceManager.GetString("Import_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная порция уже была импортирована и не может быть импортирована снова..
+        /// </summary>
+        internal static string Import_SamePortion {
+            get {
+                return ResourceManager.GetString("Import_SamePortion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание временного хранилища.
+        /// </summary>
+        internal static string Import_TempStorage {
+            get {
+                return ResourceManager.GetString("Import_TempStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Распаковка.
+        /// </summary>
+        internal static string Import_Unzip {
+            get {
+                return ResourceManager.GetString("Import_Unzip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Входной контроль.
         /// </summary>
         internal static string Inspection {

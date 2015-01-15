@@ -211,9 +211,9 @@
          // barButtonItemImport
          // 
          this.barButtonItemImport.Caption = "&Импорт";
-         this.barButtonItemImport.Enabled = false;
          this.barButtonItemImport.Id = 49;
          this.barButtonItemImport.Name = "barButtonItemImport";
+         this.barButtonItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImport_ItemClick);
          // 
          // barButtonItemExit
          // 

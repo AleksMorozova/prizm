@@ -134,6 +134,7 @@ namespace Prizm.Main
             Bind<FirstSetupXtraForm>().ToSelf();
             Bind<ExternalFilesXtraForm>().ToSelf();
             Bind<ExportForm>().ToSelf();
+            Bind<ImportForm>().ToSelf();
             #endregion
 
             #region Commands

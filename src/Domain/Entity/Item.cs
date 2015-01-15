@@ -4,6 +4,12 @@ namespace Prizm.Domain.Entity
 {
     public class Item
     {
+       public Item()
+       {
+          if (Id == Guid.Empty)
+             Id = Guid.NewGuid();
+       }
+
         private bool isActive = true;
 
         public virtual Guid Id { get; set; }

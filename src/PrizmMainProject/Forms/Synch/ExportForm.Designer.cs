@@ -30,6 +30,7 @@
       {
          this.exportTabs = new DevExpress.XtraTab.XtraTabControl();
          this.logTabPage = new DevExpress.XtraTab.XtraTabPage();
+         this.progressPanel = new DevExpress.XtraWaitForm.ProgressPanel();
          this.btnExport = new DevExpress.XtraEditors.SimpleButton();
          this.log = new System.Windows.Forms.RichTextBox();
          this.lblLog = new System.Windows.Forms.Label();
@@ -66,12 +67,30 @@
          // 
          // logTabPage
          // 
+         this.logTabPage.Controls.Add(this.progressPanel);
          this.logTabPage.Controls.Add(this.btnExport);
          this.logTabPage.Controls.Add(this.log);
          this.logTabPage.Controls.Add(this.lblLog);
          this.logTabPage.Name = "logTabPage";
          this.logTabPage.Size = new System.Drawing.Size(721, 500);
          this.logTabPage.Text = "Экспорт";
+         // 
+         // progressPanel
+         // 
+         this.progressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.progressPanel.Appearance.Options.UseBackColor = true;
+         this.progressPanel.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+         this.progressPanel.AppearanceCaption.Options.UseFont = true;
+         this.progressPanel.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+         this.progressPanel.AppearanceDescription.Options.UseFont = true;
+         this.progressPanel.Caption = "Пожалуйста подождите";
+         this.progressPanel.Description = "Экспорт данных...";
+         this.progressPanel.Location = new System.Drawing.Point(11, 457);
+         this.progressPanel.Name = "progressPanel";
+         this.progressPanel.Size = new System.Drawing.Size(246, 40);
+         this.progressPanel.TabIndex = 3;
+         this.progressPanel.Text = "progressPanel";
+         this.progressPanel.Visible = false;
          // 
          // btnExport
          // 
@@ -229,6 +248,7 @@
       private DevExpress.XtraEditors.SimpleButton btnReexport;
       private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit;
       private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit;
+      private DevExpress.XtraWaitForm.ProgressPanel progressPanel;
 
    }
 }

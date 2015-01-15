@@ -599,5 +599,11 @@ namespace Prizm.Main.Forms.MainChildForm
            CreateChildForm(typeof(ExportForm));
         }
 
+        private void barButtonItemImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           ImportForm form = Program.Kernel.Get<ImportForm>();
+           form.ShowDialog();
+        }
+
     }
 }

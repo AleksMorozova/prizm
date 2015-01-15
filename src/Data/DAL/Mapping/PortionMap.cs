@@ -13,7 +13,7 @@ namespace Prizm.Data.DAL.Mapping
    {
       public PortionMap()
       {
-         Id(_ => _.Id).Column("Id");
+         Id(_ => _.Id).Column("Id").UnsavedValue(Guid.Empty).GeneratedBy.Assigned();
          Map(_ => _.ExportDateTime).Column("ExportDateTime");
          HasManyToMany<Pipe>(_ => _.Pipes)
             .Table("Portion_Pipe")

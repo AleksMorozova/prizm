@@ -1,6 +1,7 @@
 ﻿using Prizm.Data.DAL;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
+using Prizm.Data.DAL.Synch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,7 @@ namespace Prizm.Main.Synch.Import
       ISeamTypeRepository SeamTypeRepo { get; }
       IPurchaseOrderRepository PurchaseOrderRepo { get; }
       IFileRepository FileRepo { get; }
+      IProjectRepository ProjectRepo { get; }
+      IPortionRepository PortionRepo { get; }
    }
 }

@@ -11,7 +11,10 @@ namespace Prizm.Domain.Entity
    {
       public Portion()
       {
+         if (Id == Guid.Empty)
+            Id = Guid.NewGuid();
          Pipes = new List<Pipe>();
+         Projects = new List<Project>();
       }
 
       public virtual Guid Id { get; set; }

@@ -18,22 +18,12 @@ using System.IO.Compression;
 
 namespace Prizm.Main.Synch.Export
 {
-   [XmlType("MillData")]
-   public class MillData
-   {
-      [XmlElement("Project")]
-      public ProjectObject Project { get; set; }
-
-      [XmlArray("Pipes")]
-      public List<PipeObject> Pipes { get; set; }
-   }
-
-   public class MillExporter : Exporter, IDisposable
+   public class DataExporter : Exporter, IDisposable
    {
       readonly IExportRepository exportRepo;
 
       [Inject]
-      public MillExporter(IExportRepository exportRepo, IEncryptor encryptor, IHasher hasher) : base(encryptor, hasher)
+      public DataExporter(IExportRepository exportRepo, IEncryptor encryptor, IHasher hasher) : base(encryptor, hasher)
       {
          this.exportRepo = exportRepo;
       }
@@ -74,9 +64,9 @@ namespace Prizm.Main.Synch.Export
          return Export(portion);
       }
 
-      MillData PrepareData(Portion portion, Project project)
+      Data PrepareData(Portion portion, Project project)
       {
-         MillData data = new MillData();
+         Data data = new Data();
          data.Pipes = new List<PipeObject>();
          data.Project = project;
 
@@ -87,7 +77,7 @@ namespace Prizm.Main.Synch.Export
          return data;
       }
 
-      void WriteAttachments(string tempDir, MillData data)
+      void WriteAttachments(string tempDir, Data data)
       {
          Directory.CreateDirectory(Path.Combine(tempDir, "Attachments"));
 
@@ -128,7 +118,7 @@ namespace Prizm.Main.Synch.Export
             FireMessage(Resources.Export_ReadingData);
 
             Project project = exportRepo.ProjectRepo.GetSingle();
-            MillData data = PrepareData(portion, project);
+            Data data = PrepareData(portion, project);
 
             FireMessage(Resources.Export_CreateTempStorage);
 
@@ -138,7 +128,7 @@ namespace Prizm.Main.Synch.Export
 
             WriteManifest(tempDir, portion.Id, portion.ExportDateTime, project.WorkstationType);
 
-            WriteData<MillData>(tempDir, data);
+            WriteData<Data>(tempDir, data);
 
             WriteAttachments(tempDir, data);
 

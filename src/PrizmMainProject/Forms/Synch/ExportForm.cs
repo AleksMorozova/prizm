@@ -19,10 +19,10 @@ namespace Prizm.Main.Forms.Synch
 {
    public partial class ExportForm : ChildForm
    {
-      readonly MillExporter exporter;
+      readonly DataExporter exporter;
 
       [Inject]
-      public ExportForm(MillExporter exporter)
+      public ExportForm(DataExporter exporter)
       {
          InitializeComponent();
 
@@ -61,8 +61,21 @@ namespace Prizm.Main.Forms.Synch
          exporter.OnDone += exporter_OnDone;
          exporter.OnError += exporter_OnError;
 
+         progressPanel.Visible = true;
+
          Task task = portion == null ? new Task(() => exporter.Export()) : new Task(() => exporter.Export(portion));
-         task.ContinueWith((_) => LoadPortions());
+         task.ContinueWith((_) => {
+            if (progressPanel.InvokeRequired)
+            {
+               progressPanel.Invoke(new MethodInvoker(() => { progressPanel.Visible = false; }));
+            }
+            else
+            {
+               progressPanel.Visible = false;
+            }
+            
+            LoadPortions();
+         });
          task.Start();
       }
 

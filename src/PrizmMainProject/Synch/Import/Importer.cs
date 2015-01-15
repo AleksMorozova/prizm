@@ -19,11 +19,27 @@ namespace Prizm.Main.Synch.Import
          this.encryptor = encryptor;
       }
 
+      public event Action<string> OnMessage;
+
+      public event Action<int> OnProgress;
+
       public event Action<ImportException> OnError;
 
-      public event Action<string> OnConflict;
+      public event Action<ConflictEventArgs> OnConflict;
 
       public event Action OnDone;
+
+      protected void FireMessage(string msg)
+      {
+         if (OnMessage != null)
+            OnMessage(msg);
+      }
+
+      protected void FireProgress(int progress)
+      {
+         if (OnProgress != null)
+            OnProgress(progress);
+      }
 
       protected ImportResult FireError(ImportException e)
       {
@@ -36,10 +52,10 @@ namespace Prizm.Main.Synch.Import
          throw new ImportException(e.Message, e);
       }
 
-      protected void FireConflict(string msg)
+      protected void FireConflict(ConflictEventArgs args)
       {
          if (OnConflict != null)
-            OnConflict(msg);
+            OnConflict(args);
       }
 
       protected void FireOnDone()
