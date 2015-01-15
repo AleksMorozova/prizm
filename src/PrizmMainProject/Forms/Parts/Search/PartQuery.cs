@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
@@ -39,15 +40,35 @@ namespace Prizm.Main.Forms.Parts.Search
 
         #endregion
 
-        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number)
+        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number, string Activity)
         {
             if(partTypes.Count == 0)
             {
                 return string.Empty;
             }
-            if(!string.IsNullOrWhiteSpace(number))
+            if (!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ",number.EscapeCharacters());
+                if (Activity.Equals(Resources.PipeStatusComboActive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
+                }
+                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters()); 
+                }
+            }
+
+            else
+            {
+                if (Activity.Equals(Resources.PipeStatusComboActive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' ", true);
+                }
+                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' ", false);
+                }
+              
             }
 
             StringBuilder sb = new StringBuilder();
@@ -94,6 +115,7 @@ namespace Prizm.Main.Forms.Parts.Search
                                 UNION ALL
                                 SELECT id, number, isActive,'{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
                                 );
+
 
         }
     }

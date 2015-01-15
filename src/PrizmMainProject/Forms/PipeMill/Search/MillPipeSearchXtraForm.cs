@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 pipeMillStatus.Properties.Items.Add(s,true);
             }
             pipeActivity.Properties.Items.AddRange(viewModel.ActivityArray);
-
+  
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
@@ -60,6 +60,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
             BindCommands();
             BindToViewModel();
+            pipeActivity.SelectedIndex = 1;
+            viewModel.Activity = pipeActivity.SelectedItem.ToString(); 
         }
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
