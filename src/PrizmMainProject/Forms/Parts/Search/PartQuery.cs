@@ -88,17 +88,13 @@ namespace Prizm.Main.Forms.Parts.Search
                 number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ", number.EscapeCharacters());
             }
             return string.Format(
-                                @"SELECT id, number, '{1}' FROM Pipe {0}
+                                @"SELECT id, number, isActive,'{1}' FROM Pipe {0}
                                 UNION ALL
-                                SELECT id, number, '{2}' FROM Spool {0}
+                                SELECT id, number, isActive,'{2}' FROM Spool {0}
                                 UNION ALL
-                                SELECT id, number, '{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
+                                SELECT id, number, isActive,'{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
                                 );
 
-
-
-
-        
         }
     }
 }
