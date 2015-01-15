@@ -370,7 +370,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создание катушка.
+        ///   Looks up a localized string similar to Создание катушки.
         /// </summary>
         internal static string Cut_Spool_from_pipe_Header {
             get {
@@ -831,7 +831,9 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет 
+        ///пересчитана, параметры катушки станут невозможны для редактирования.
+        /// Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
         ///Деактивировать комплектующий элемент?.
         /// </summary>
         internal static string DLG_SPOOL_DEACTIVATION {
@@ -2070,7 +2072,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Длинны трубы не достаточно для отрезания заданной катушки.
+        ///   Looks up a localized string similar to Длины трубы не достаточно для отрезания заданной катушки.
         /// </summary>
         internal static string Wrong_Spool_Lengs_MorePipeLength {
             get {
@@ -2079,7 +2081,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Длинна катушки не может быть равна 0.
+        ///   Looks up a localized string similar to Длина катушки не может быть равна 0.
         /// </summary>
         internal static string Wrong_Spool_Length_NullLength {
             get {
