@@ -33,16 +33,22 @@ namespace Prizm.Main.Forms.Spool
             if (notify.ShowYesNo(
                   Resources.DLG_SPOOL_DEACTIVATION,
                   Resources.DLG_SPOOL_DEACTIVATION_HEADER))
-            { 
-            
+            {
+                viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;       
+                viewModel.Spool.IsActive = false;
+                viewModel.SaveCommand.Execute();
+                viewModel.ModifiableView.IsEditMode = false;
             }
+            RefreshVisualStateEvent();
         }
 
-        public virtual bool IsExecutable { get; set; }
 
         public bool CanExecute()
         {
-            return ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateSpool);
+            return viewModel.SpoolIsActive
+                && !viewModel.IsNew
+                && viewModel.ModifiableView.IsEditMode
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.DeactivateSpool);
         }
     }
 }

@@ -57,7 +57,6 @@ namespace Prizm.UnitTests.Forms.Spool
                 notify.Object);
 
             viewModel.Spool.Length = 124;
-            viewModel.canCut = true;
             viewModel.Pipe.Number = "Test";
 
             command.Execute();
