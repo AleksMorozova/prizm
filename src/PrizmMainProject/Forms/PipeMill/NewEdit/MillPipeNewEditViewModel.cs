@@ -634,7 +634,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             this.Pipe.Mill = mill;
 
-            this.Pipe.ToExport = false;
+            //this.Pipe.ToExport = false;
         }
 
         public void Dispose()

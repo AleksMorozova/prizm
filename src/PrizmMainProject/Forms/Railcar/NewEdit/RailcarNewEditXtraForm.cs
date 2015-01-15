@@ -82,17 +82,14 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Ship"].Executor(viewModel.ShipCommand).AttachTo(shipButton);
             commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
+            commandManager.RefreshVisualState();
 
-            commandManager["Save"].RefreshState();
-            commandManager["Ship"].RefreshState();
-            commandManager["Unship"].RefreshState();
-
-            SaveCommand = viewModel.SaveCommand;
+            //SaveCommand = viewModel.SaveCommand;
 
             viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
-            
+
             // TODO(odem): Is BindCommands() a correct method for initializing dictionary for lookup?
             statusTypeDict.Clear();
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
@@ -110,12 +107,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void addPipeButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
+            if(string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
             {
                 return;
             }
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             pipesList.RefreshDataSource();
+            commandManager.RefreshVisualState();
         }
 
         private void removePipe_Click(object sender, EventArgs e)
@@ -123,11 +121,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             string number = pipesListView.GetRowCellValue(pipesListView.FocusedRowHandle, "Number") as string;
             viewModel.RemovePipe(number);
             pipesList.RefreshDataSource();
+            commandManager.RefreshVisualState();
         }
 
         private void repositoryGridLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PipeMillStatus)
+            if(e.Value is PipeMillStatus)
             {
                 e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
             }
@@ -146,8 +145,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void ButtonRefresh()
         {
-            commandManager["Ship"].RefreshState();
-            commandManager["Unship"].RefreshState();
+            commandManager.RefreshVisualState();
         }
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
@@ -161,7 +159,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id);
-            if (viewModel.FilesFormViewModel == null)
+            if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
@@ -180,5 +178,16 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         }
 
         #endregion
+
+        private void railcarNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.Number = railcarNumber.EditValue.ToString();
+            commandManager.RefreshVisualState();
+        }
+
+        private void shipButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
