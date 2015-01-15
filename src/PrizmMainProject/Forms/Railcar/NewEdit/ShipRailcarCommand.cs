@@ -55,6 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 foreach (var pipe in viewModel.Railcar.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Shipped;
+                        pipe.ToExport = true;
                     }
                     viewModel.IsShipped = true;
                     viewModel.SaveCommand.Execute();

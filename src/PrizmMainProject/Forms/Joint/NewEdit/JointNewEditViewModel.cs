@@ -713,7 +713,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.JointWeldResults = new BindingList<JointWeldResult>();
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
-
+            this.Joint.ToExport = false;
         }
 
         public void RefreshJointComponents()

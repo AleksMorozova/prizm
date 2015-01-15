@@ -19,18 +19,22 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         private ICommandManager commandManager = new CommandManager();
-
         private RailcarViewModel viewModel;
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+
         public RailcarNewEditXtraForm(Guid id)
         {
+            this.id = id;
+
             InitializeComponent();
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;

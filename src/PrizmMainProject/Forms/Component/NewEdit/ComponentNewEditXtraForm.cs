@@ -19,15 +19,18 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class ComponentNewEditXtraForm : ChildForm , IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
@@ -35,6 +38,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
+            this.id = id;
+
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
