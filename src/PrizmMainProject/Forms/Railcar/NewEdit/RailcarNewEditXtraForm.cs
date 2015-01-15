@@ -84,8 +84,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
             commandManager.RefreshVisualState();
 
-            //SaveCommand = viewModel.SaveCommand;
-
             viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
