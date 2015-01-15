@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Spool
             if (repos.PipeRepo.GetByNumber(viewModel.PipeNumber) != null)
             {
                 viewModel.Pipe = repos.PipeRepo.GetByNumber(viewModel.PipeNumber);
-                viewModel.editMode = true;
+                viewModel.ModifiableView.IsEditMode = true;
                 StringBuilder number = new StringBuilder();
                 int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(viewModel.Spool.PipeNumber).Count + 1;
                 number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
@@ -42,6 +42,7 @@ namespace Prizm.Main.Forms.Spool
             else
             {
                 notify.ShowError(Resources.Wrong_pipe_number_for_cutting, Resources.Wrong_pipe_number_for_cutting_Header);
+                viewModel.ModifiableView.IsEditMode = false;
             }
             RefreshVisualStateEvent();
         }
