@@ -134,5 +134,18 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel.Dispose();
             viewModel = null;
         }
+
+        private void partsView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as Part;
+            if (data != null)
+            {
+                if (!data.IsActive)
+                {
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+            }
+        }
     }
 }

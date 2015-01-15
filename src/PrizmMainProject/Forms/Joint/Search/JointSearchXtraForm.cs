@@ -12,6 +12,7 @@ using Prizm.Main.Forms.MainChildForm;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -119,6 +120,19 @@ namespace Prizm.Main.Forms.Joint.Search
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void resultView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as Prizm.Domain.Entity.Construction.Joint;
+            if (data != null)
+            {
+                if (!data.IsActive)
+                {
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+            }
         }
     }
 }

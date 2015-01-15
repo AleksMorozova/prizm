@@ -32,7 +32,8 @@ namespace Prizm.Main.Forms.Parts.Search
             {
                 Id = (Guid)tuple[0],
                 Number = (string)tuple[1],
-                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[2].ToString()) }
+                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[3].ToString()) },
+                IsActive=Boolean.Parse(tuple[2].ToString())
             };
         }
 
@@ -59,13 +60,13 @@ namespace Prizm.Main.Forms.Parts.Search
                     case PartType.Undefined:
                         break;
                     case PartType.Pipe:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM pipe {1}",PartType.Pipe,number));
+                        queries.Add(string.Format(" SELECT id, number, isActive,'{0}' FROM pipe {1}", PartType.Pipe, number));
                         break;
                     case PartType.Spool:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Spool {1}",PartType.Spool, number));
+                        queries.Add(string.Format(" SELECT id, number, isActive, '{0}' FROM Spool {1}", PartType.Spool, number));
                         break;
                     case PartType.Component:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Component {1}",PartType.Component, number));
+                        queries.Add(string.Format(" SELECT id, number, isActive, '{0}' FROM Component {1}",PartType.Component, number));
                         break;
                     default:
                         break;

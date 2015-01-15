@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -61,7 +62,7 @@
             this.eldingDateLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -153,6 +154,7 @@
             this.resultView.OptionsNavigation.UseTabKey = false;
             this.resultView.OptionsView.ShowGroupPanel = false;
             this.resultView.OptionsView.ShowIndicator = false;
+            this.resultView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.resultView_RowCellStyle);
             this.resultView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.resultView_CustomUnboundColumnData);
             this.resultView.DoubleClick += new System.EventHandler(this.resultView_DoubleClick);
             // 
@@ -338,7 +340,6 @@
             this.searchResultLayout.Size = new System.Drawing.Size(1247, 403);
             this.searchResultLayout.Text = "Резул&ьтат поиска";
             this.searchResultLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.searchResultLayout.TextToControlDistance = 0;
             this.searchResultLayout.TextVisible = false;
             // 
             // searchLayoutGroup
@@ -428,7 +429,6 @@
             this.eldingDateLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 0, 20, 5);
             this.eldingDateLabelLayout.Text = "eldingDateLabelLayout";
             this.eldingDateLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.eldingDateLabelLayout.TextToControlDistance = 0;
             this.eldingDateLabelLayout.TextVisible = false;
             // 
             // controlStateLayout
@@ -458,7 +458,6 @@
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 7);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.searchButtonLayout.TextToControlDistance = 0;
             this.searchButtonLayout.TextVisible = false;
             // 
             // statusLabel
