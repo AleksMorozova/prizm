@@ -20,6 +20,9 @@ using Prizm.Main.Forms.Parts.Inspection;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Audit;
 using PrizmMain.Forms.Notifications;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 
 namespace Prizm.UnitTests
 {
@@ -69,6 +72,30 @@ namespace Prizm.UnitTests
                 Assert.AreEqual(((System.ComponentModel.DesignerCategoryAttribute)a).Category, "", typeof(ChildForm) + " does not marked as empty DesignerCategoryAttribute");
             }
 
+        }
+
+
+        [TestCase(typeof(MillPipeNewEditXtraForm))]
+        [TestCase(typeof(RailcarNewEditXtraForm))]
+        [TestCase(typeof(ComponentNewEditXtraForm))]
+        [TestCase(typeof(JointNewEditXtraForm))]
+        [TestCase(typeof(SpoolsXtraForm))]
+        public void TestMainForm(System.Type type)
+        {
+            var filter = new TypeFilter(InterfaceFilter);
+            var mainForm = new PrizmApplicationXtraForm();
+
+            var typeArr = type.FindInterfaces(filter, typeof(INewEditEntityForm));
+
+            Assert.IsTrue(typeArr.Contains<System.Type>(typeof(INewEditEntityForm)));
+        }
+
+        public bool InterfaceFilter(System.Type typeObj, System.Object criteriaObj)
+        {
+            if (typeObj.ToString() == criteriaObj.ToString())
+                return true;
+            else
+                return false;
         }
     }
 

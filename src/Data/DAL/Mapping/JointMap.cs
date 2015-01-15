@@ -20,6 +20,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.GpsHeight).Column("gpsHeight");
             Map(_ => _.GpsLatitude).Column("gpsLatitude");
             Map(_ => _.GpsLongitude).Column("gpsLongitude");
+            Map(_ => _.ToExport).Column("toExport");
             Component<PartData>(_ => _.FirstElement, m =>
             {
                 m.Map(_ => _.Id).Column("part1Id");
