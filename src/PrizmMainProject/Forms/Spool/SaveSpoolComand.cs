@@ -37,7 +37,8 @@ namespace Prizm.Main.Forms.Spool
             {
                 if (viewModel.canCut)
                 {
-                    viewModel.Pipe.ToExport = true;
+                    //FIX: 'Prizm.Domain.Entity.Mill.Pipe' does not contain a definition for 'ToExport'
+                    //viewModel.Pipe.ToExport = true;
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                     repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);

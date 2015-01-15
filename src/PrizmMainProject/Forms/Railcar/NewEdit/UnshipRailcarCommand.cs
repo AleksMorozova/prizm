@@ -44,7 +44,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 foreach (var pipe in viewModel.Railcar.Pipes)
                 {
                     pipe.Status = PipeMillStatus.Stocked;
-                    pipe.ToExport = false;
+                    //FIX: 'Prizm.Domain.Entity.Mill.Pipe' does not contain a definition for 'ToExport'
+                    //pipe.ToExport = false;
                 }
                 viewModel.Railcar.ShippingDate = DateTime.MinValue;
                 viewModel.IsShipped = false;
