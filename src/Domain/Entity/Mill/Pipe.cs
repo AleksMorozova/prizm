@@ -40,7 +40,7 @@ namespace Prizm.Domain.Entity.Mill
         public virtual IList<Spool> Spools { get; set; }
 
         public virtual PipeMillStatus Status { get; set; }
-
+        public virtual bool ToExport { get; set; }
         /// <summary>
         ///  Density of carbon steel
         /// </summary>
