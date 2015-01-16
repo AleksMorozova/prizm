@@ -248,6 +248,7 @@
             this.repairOperationsView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.repairOperationsView_ShowingEditor);
             this.repairOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.repairOperationsView_InitNewRow);
             this.repairOperationsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.repairOperationsView_ValidateRow);
+            this.repairOperationsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // repairTypeGridColumn
             // 
@@ -471,6 +472,7 @@
             this.controlOperationsView.OptionsView.ShowGroupPanel = false;
             this.controlOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.controlOperationsView_InitNewRow);
             this.controlOperationsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.controlOperationsView_ValidateRow);
+            this.controlOperationsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // controlTypeGridColumn
             // 
@@ -766,7 +768,6 @@
             this.GPSLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 19, 12);
             this.GPSLabelLayout.Text = "GPSLabelLayout";
             this.GPSLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.GPSLabelLayout.TextToControlDistance = 0;
             this.GPSLabelLayout.TextVisible = false;
             // 
             // loweringDateLayout
@@ -793,7 +794,6 @@
             this.PKLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 19, 9);
             this.PKLabelLayout.Text = "PK ";
             this.PKLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.PKLabelLayout.TextToControlDistance = 0;
             this.PKLabelLayout.TextVisible = false;
             // 
             // PKNumberLayout
@@ -908,7 +908,6 @@
             this.extraFilesLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.extraFilesLayout.Text = "extraFilesLayout";
             this.extraFilesLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.extraFilesLayout.TextToControlDistance = 0;
             this.extraFilesLayout.TextVisible = false;
             // 
             // deactivatedLayout
@@ -924,7 +923,6 @@
             this.deactivatedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
             this.deactivatedLayout.Text = "deactivatedLayout";
             this.deactivatedLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.deactivatedLayout.TextToControlDistance = 0;
             this.deactivatedLayout.TextVisible = false;
             // 
             // saveButtonLayout
@@ -940,7 +938,6 @@
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
             // saveButtonEmptySpace
@@ -963,7 +960,6 @@
             this.saveAndCreateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.saveAndCreateLayout.Text = "saveAndCreateLayout";
             this.saveAndCreateLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveAndCreateLayout.TextToControlDistance = 0;
             this.saveAndCreateLayout.TextVisible = false;
             // 
             // JointNewEditXtraForm
@@ -979,8 +975,8 @@
             this.Name = "JointNewEditXtraForm";
             this.ShowIcon = false;
             this.Text = "Стык";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
             this.Activated += new System.EventHandler(this.JointNewEditXtraForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
