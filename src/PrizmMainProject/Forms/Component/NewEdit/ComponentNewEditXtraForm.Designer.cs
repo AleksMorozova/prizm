@@ -235,6 +235,7 @@
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
+            this.inspectionHistoryGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
             // 
             // inspectionDateColumn
@@ -332,6 +333,7 @@
             this.componentParametersView.OptionsBehavior.FocusLeaveOnTab = true;
             this.componentParametersView.OptionsNavigation.UseTabKey = false;
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.componentParametersView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentParametersView_ValidateRow);
             // 
             // diameterGridColumn
@@ -398,7 +400,6 @@
             this.inspectionHistoryGridLayout.Text = "Входно&й контроль";
             this.inspectionHistoryGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionHistoryGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionHistoryGridLayout.TextToControlDistance = 0;
             this.inspectionHistoryGridLayout.TextVisible = false;
             // 
             // newComponentLayoutGroup
@@ -453,7 +454,6 @@
             this.parametersGridLayout.Text = "parametersGridLayout";
             this.parametersGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.parametersGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
             // 
             // typeLayoutControl
@@ -510,7 +510,6 @@
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 7, 7);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.attachmentsButtonLayout.TextToControlDistance = 0;
             this.attachmentsButtonLayout.TextVisible = false;
             // 
             // newSaveLayoutControl
@@ -523,7 +522,6 @@
             this.newSaveLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.newSaveLayoutControl.Text = "newSaveLayoutControl";
             this.newSaveLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.newSaveLayoutControl.TextToControlDistance = 0;
             this.newSaveLayoutControl.TextVisible = false;
             // 
             // saveButtonLayoutControl
@@ -536,7 +534,6 @@
             this.saveButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.saveButtonLayoutControl.Text = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayoutControl.TextToControlDistance = 0;
             this.saveButtonLayoutControl.TextVisible = false;
             // 
             // layoutControlDeactivation
@@ -549,7 +546,6 @@
             this.layoutControlDeactivation.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.layoutControlDeactivation.Text = "layoutControlDeactivation";
             this.layoutControlDeactivation.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlDeactivation.TextToControlDistance = 0;
             this.layoutControlDeactivation.TextVisible = false;
             // 
             // ComponentNewEditXtraForm
