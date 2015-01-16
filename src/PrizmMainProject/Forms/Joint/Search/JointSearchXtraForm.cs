@@ -47,6 +47,8 @@ namespace Prizm.Main.Forms.Joint.Search
                 }
                 controlState.Properties.Items.Add(new EnumWrapper<JointStatus>() { Value = item },true);
             }
+            activity.SelectedIndex = 1;
+            viewModel.Activity = activity.SelectedItem.ToString(); 
             RefreshCombo();
         }
 
@@ -59,6 +61,8 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateFrom.DataBindings.Add("EditValue", bindingSource, "FromDate");
             weldingDateTo.DataBindings.Add("EditValue", bindingSource, "ToDate");
             gridControlSerchResult.DataBindings.Add("DataSource", bindingSource, "Joints");
+            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.Properties.Items.AddRange(viewModel.ActivityArray);
         }
 
         private void BindCommands()
