@@ -35,6 +35,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private readonly JointDeactivationCommand jointdeactivationCommand;
         private readonly JointCutCommand jointCutCommand;
+        private readonly SaveOrUpdateJointCommand saveOrUpdateJointCommand;
         private IModifiable modifiableView;
         private IValidatable validatableView;
         private DataTable pieces;
@@ -63,6 +64,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.adoRepo = adoRepo;
 
             #region Commands
+            saveOrUpdateJointCommand =
+                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify));
             saveJointCommand =
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
             newSaveJointCommand =
@@ -177,6 +180,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ICommand JointCutCommand
         {
             get { return jointCutCommand; }
+        }
+
+        public ICommand SaveOrUpdateJointCommand
+        {
+            get { return saveOrUpdateJointCommand; }
         }
         #endregion
 
