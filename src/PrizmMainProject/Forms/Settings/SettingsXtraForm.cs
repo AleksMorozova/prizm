@@ -256,7 +256,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if(CurrentPipeMillSizeType != null)
             {
-              viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
+                viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
             }
         }
 

@@ -29,6 +29,7 @@ using DevExpress.XtraGrid;
 using Prizm.Main.Documents;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -775,6 +776,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     {
                         addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
                         viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
+                        IsModified = true;
                         inspections.RefreshDataSource();
                     }
                 }
@@ -788,6 +790,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
                 {
                     editForm.ShowDialog();
+                    IsModified = true;
                     inspections.RefreshDataSource();
                 }
             }
@@ -813,6 +816,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 row = (PipeTestResult)view.GetRow(info.RowHandle);
             }
             return row;
+        }
+
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
         }
     }
 }
