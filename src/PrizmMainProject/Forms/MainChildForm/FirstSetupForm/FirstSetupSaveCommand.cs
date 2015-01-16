@@ -13,6 +13,7 @@ using Ninject;
 using Prizm.Data.DAL.Hibernate;
 using NHibernate;
 using Prizm.Data.DAL.Setup;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -50,6 +51,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             SaveInspectorCertificateTypes();
             SaveSeemTypes();
             SaveCategoryes();
+            firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Evict(viewModel.Admin);

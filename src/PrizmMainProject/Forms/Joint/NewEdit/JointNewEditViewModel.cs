@@ -710,7 +710,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = JointStatus.Welded;
             this.JointTestResults = new BindingList<JointTestResult>();
-            this.JointWeldResults = new BindingList<JointWeldResult>();
+            JointWeldResult requredWeldResult = new JointWeldResult()
+            { 
+                IsActive = true,
+                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation)
+            };
+            this.JointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;
