@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.pipesList = new DevExpress.XtraGrid.GridControl();
@@ -65,9 +66,9 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
             this.attachmentsButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -415,7 +416,6 @@
             this.pipeListLayout.Text = "Список труб";
             this.pipeListLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeListLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.pipeListLayout.TextToControlDistance = 0;
             this.pipeListLayout.TextVisible = false;
             // 
             // pipeNumberLayout
@@ -440,7 +440,6 @@
             this.addPipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 21, 7);
             this.addPipeLayoutControl.Text = "addPipelayoutControl";
             this.addPipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.addPipeLayoutControl.TextToControlDistance = 0;
             this.addPipeLayoutControl.TextVisible = false;
             // 
             // removePipeLayoutControl
@@ -453,7 +452,6 @@
             this.removePipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 21, 7);
             this.removePipeLayoutControl.Text = "removePipeLayoutControl";
             this.removePipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.removePipeLayoutControl.TextToControlDistance = 0;
             this.removePipeLayoutControl.TextVisible = false;
             // 
             // unshipButtonLayout
@@ -466,7 +464,6 @@
             this.unshipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
             this.unshipButtonLayout.Text = "unshipButtonLayout";
             this.unshipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.unshipButtonLayout.TextToControlDistance = 0;
             this.unshipButtonLayout.TextVisible = false;
             // 
             // shipButtonLayout
@@ -479,7 +476,6 @@
             this.shipButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(8, 5, 0, 5);
             this.shipButtonLayout.Text = "shipButtonLayout";
             this.shipButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.shipButtonLayout.TextToControlDistance = 0;
             this.shipButtonLayout.TextVisible = false;
             // 
             // buttonsEmptySpace
@@ -502,7 +498,6 @@
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
             // layoutControlDestination
@@ -527,7 +522,6 @@
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 5);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.attachmentsButtonLayout.TextToControlDistance = 0;
             this.attachmentsButtonLayout.TextVisible = false;
             // 
             // layoutControlItemRailcar
@@ -538,7 +532,6 @@
             this.layoutControlItemRailcar.Size = new System.Drawing.Size(1247, 1);
             this.layoutControlItemRailcar.Text = "layoutControlItemRailcar";
             this.layoutControlItemRailcar.TextSize = new System.Drawing.Size(50, 20);
-            this.layoutControlItemRailcar.TextToControlDistance = 5;
             // 
             // RailcarNewEditXtraForm
             // 
