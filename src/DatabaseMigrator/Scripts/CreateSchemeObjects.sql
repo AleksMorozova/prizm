@@ -385,7 +385,7 @@ CREATE TABLE [dbo].[Project](
 	[workstationType] [nvarchar] (20) NULL,
 	[millPipeNumberMask] [nvarchar] (20) NULL,
 	[millPipeNumberMaskRegexp] [nvarchar] (1000) NULL,
-	[isNative] [bit] NOT NULL,
+	[isNative] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
