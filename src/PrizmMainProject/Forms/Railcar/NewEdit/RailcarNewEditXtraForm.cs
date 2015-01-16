@@ -48,6 +48,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
+            this.pipeNumberLookUp.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 

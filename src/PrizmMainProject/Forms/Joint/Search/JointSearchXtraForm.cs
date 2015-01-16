@@ -30,6 +30,7 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateFrom.Properties.NullText = string.Empty;
             weldingDateTo.Properties.NullDate = DateTime.MinValue;
             weldingDateTo.Properties.NullText = string.Empty;
+            jointNumber.SetAsIdentifier();
 
         }
 
