@@ -633,7 +633,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.PipeTestResults = new BindingList<PipeTestResult>();
 
             this.Pipe.Mill = mill;
-
             this.Pipe.ToExport = false;
         }
 
