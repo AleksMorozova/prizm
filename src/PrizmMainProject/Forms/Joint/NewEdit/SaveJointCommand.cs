@@ -55,35 +55,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                if (viewModel.MakeTheConnection())
+                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
                 {
-                    try
-                    {
-                        repo.BeginTransaction();
-                        repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-                        repo.Commit();
-                        repo.RepoJoint.Evict(viewModel.Joint);
-
-                        viewModel.ModifiableView.IsModified = false;
-
-                        viewModel.JointDisconnection();
-
-                        //saving attached documents
-                        if (viewModel.FilesFormViewModel != null)
-                        {
-                            viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
-                            viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                            viewModel.FilesFormViewModel = null;
-                        }
-                        viewModel.ModifiableView.UpdateState();
-                        notify.ShowNotify(
-                            string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
-                            Resources.DLG_JOINT_SAVED_HEADER);
-                    }
-                    catch (RepositoryException ex)
-                    {
-                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
-                    }
+                    SaveOrUpdateJoint();
+                }
+                else if (viewModel.MakeTheConnection())
+                {
+                    SaveOrUpdateJoint();
+                    viewModel.JointDisconnection();
                 }
                 else
                 {
@@ -94,6 +73,39 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             RefreshVisualStateEvent();
         }
+
+
+        private void SaveOrUpdateJoint()
+        {
+            try
+            {
+                repo.BeginTransaction();
+                repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
+                repo.Commit();
+                repo.RepoJoint.Evict(viewModel.Joint);
+
+                viewModel.ModifiableView.IsModified = false;
+
+                //saving attached documents
+                if (viewModel.FilesFormViewModel != null)
+                {
+                    viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
+                    viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                    viewModel.FilesFormViewModel = null;
+                }
+
+                viewModel.ModifiableView.UpdateState();
+
+                notify.ShowNotify(
+                    string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
+                    Resources.DLG_JOINT_SAVED_HEADER);
+            }
+            catch (RepositoryException ex)
+            {
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
+        }
+
 
         public bool CanExecute()
         {

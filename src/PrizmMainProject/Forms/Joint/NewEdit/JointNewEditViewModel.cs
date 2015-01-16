@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private readonly JointDeactivationCommand jointdeactivationCommand;
+        private readonly JointCutCommand jointCutCommand;
         private IModifiable modifiableView;
         private IValidatable validatableView;
         private DataTable pieces;
@@ -70,6 +71,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
             jointdeactivationCommand = 
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify));
+            jointCutCommand =
+                ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             #endregion
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
@@ -169,6 +172,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ICommand JointDeactivationCommand
         {
             get { return jointdeactivationCommand; }
+        }
+
+        public ICommand JointCutCommand
+        {
+            get { return jointCutCommand; }
         }
         #endregion
 
@@ -719,6 +727,19 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public void RefreshJointComponents()
         {
             Pieces = adoRepo.GetPipelineElements();
+        }
+
+        public void JointCut()
+        {
+            if (connectedElements.Where<Part>(x => x == null).Count<Part>() == 0)
+            {
+                var jointCutDialog = new JointCutDialog(connectedElements[0], connectedElements[1]);
+
+                if (jointCutDialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.JointCutCommand.Execute();
+                }
+            }
         }
 
     }
