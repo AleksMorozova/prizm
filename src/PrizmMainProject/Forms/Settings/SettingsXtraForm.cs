@@ -106,12 +106,6 @@ namespace Prizm.Main.Forms.Settings
             RefreshUserRoles(0);
             RefreshRolePermissions(0);
 
-            ProjectTitleEditIfLoadValidationRule projectValidationRule = new ProjectTitleEditIfLoadValidationRule();
-            projectValidationRule.ErrorText = Resources.VALUE_REQUIRED;
-            projectValidationRule.ErrorType = ErrorType.Critical;
-
-            dxValidationProvider.SetValidationRule(projectTitle, projectValidationRule);
-
             seamType.SetRequiredCombo();
             pipeLength.SetRequiredText();
             pipeDiameter.SetRequiredText();
@@ -789,19 +783,6 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
-
-
-        #region IValidatable Members
-
-        //bool IValidatable.Validate()
-        //{
-        //    UpdateSeamTypesComboBox();
-        //    return dxValidationProvider.Validate();
-        //}
-
-        #endregion
-
         private void projectPage_Enter(object sender, EventArgs e)
         {
             // Title is required field but his value refreshed only after page enter.
@@ -867,32 +848,38 @@ namespace Prizm.Main.Forms.Settings
 
         bool IValidatable.Validate()
         {
-            bool codeValidate = false;
-            UpdateSeamTypesComboBox();
-            for(int i = 0; i < inspectionView.RowCount; i++)
-            {
-                if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null)
-                {
-                    inspectionView.FocusedRowHandle = i;
+            bool codeValidate = true;
 
-                    inspectionView_ValidateRow(
-                        inspectionView,
-                        new DevExpress.XtraGrid.Views.Base
-                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+            if(pipeLayoutControlGroup.Tag != null)
+            {
+                codeValidate = false;
+                for(int i = 0; i < inspectionView.RowCount; i++)
+                {
+                    if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null)
+                    {
+                        inspectionView.FocusedRowHandle = i;
+
+                        inspectionView_ValidateRow(
+                            inspectionView,
+                            new DevExpress.XtraGrid.Views.Base
+                                .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                    }
+                }
+
+                foreach(PipeTest t in viewModel.PipeTests)
+                {
+                    if(t.Code != null && t.Name != null)
+                    {
+                        codeValidate = true;
+                    }
+                    else
+                    {
+                        codeValidate = false;
+                    }
                 }
             }
 
-            foreach(PipeTest t in viewModel.PipeTests)
-            {
-                if(t.Code != null && t.Name != null)
-                {
-                    codeValidate = true;
-                }
-                else
-                {
-                    codeValidate = false;
-                }
-            }
+
             return dxValidationProvider.Validate() && codeValidate;
         }
 
@@ -915,13 +902,60 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
-
         private bool CheckReadonly(bool editMode)
         {
             return (CurrentPipeMillSizeType != null && editMode);
         }
 
+        private void projectLayoutControlGroup_Shown(object sender, EventArgs e)
+        {
+            #region project title validation only afrer project tab is shown
+            ConditionValidationRule projectTitleValidationRule = new ConditionValidationRule();
+            projectTitleValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            projectTitleValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectTitleValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(projectTitle, projectTitleValidationRule);
+            #endregion
+        }
+
+        private void pipeLayoutControlGroup_Shown(object sender, EventArgs e)
+        {
+            pipeLayoutControlGroup.Tag = "Visited";
+            #region validation only afrer tab is shown
+            ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
+            diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
+            diameterValidationRule.Value1 = 0;
+            diameterValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            diameterValidationRule.ErrorType = ErrorType.Critical;
+
+            ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
+            wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
+            wallThicknessValidationRule.Value1 = 0;
+            wallThicknessValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            wallThicknessValidationRule.ErrorType = ErrorType.Critical;
+
+            ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
+            pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
+            pipeLengthValidationRule.Value1 = 0;
+            pipeLengthValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            pipeLengthValidationRule.ErrorType = ErrorType.Critical;
+
+            ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
+            seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
+            seamTypeValidationRule.Value1 = seamType.Properties.NullText;
+            seamTypeValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            seamTypeValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
+            dxValidationProvider.SetValidationRule(wallThickness, wallThicknessValidationRule);
+            dxValidationProvider.SetValidationRule(pipeLength, pipeLengthValidationRule);
+            dxValidationProvider.SetValidationRule(seamType, seamTypeValidationRule);
+            #endregion
+            if(viewModel.SeamTypes != null)
+            {
+                UpdateSeamTypesComboBox();    
+            }
         /// <summary>
         /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
         /// </summary>

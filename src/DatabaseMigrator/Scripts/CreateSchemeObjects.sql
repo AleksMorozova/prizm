@@ -116,6 +116,14 @@ CREATE TABLE [dbo].[Component](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Component_Number')
+    DROP INDEX IX_Component_Number ON [dbo].[Component]
+GO
+CREATE NONCLUSTERED INDEX IX_Component_Number
+    ON [dbo].[Component] (number)
+GO
+
 SET ANSI_PADDING OFF
 
 /****** Object:  Table [dbo].[Spool]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -142,6 +150,14 @@ CREATE TABLE [dbo].[Spool](
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Spool_Number')
+    DROP INDEX IX_Spool_Number ON [dbo].[Spool]
+GO
+CREATE NONCLUSTERED INDEX IX_Spool_Number
+    ON [dbo].[Spool] (number)
+GO
 
 SET ANSI_PADDING OFF
 /****** Object:  Table [dbo].[Heat]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -231,6 +247,14 @@ CREATE TABLE [dbo].[Pipe](
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Pipe_Number')
+    DROP INDEX IX_Pipe_Number ON [dbo].[Pipe]
+GO
+CREATE NONCLUSTERED INDEX IX_Pipe_Number
+    ON [dbo].[Pipe] (number)
+GO
 
 SET ANSI_PADDING OFF
 
@@ -614,15 +638,16 @@ CREATE TABLE [dbo].[AuditLog](
 	[fieldName] [nvarchar](50) NULL,
 	[oldValue] [nvarchar](100) NULL,
 	[newValue] [nvarchar](100) NULL,
-	CONSTRAINT [PK_AuditLog] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
+	CONSTRAINT [PK_AuditLog] PRIMARY KEY NONCLUSTERED ([id]))
 GO
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Audit_Date_User')
+    DROP INDEX IX_Audit_Date_User ON [dbo].[AuditLog]
+GO
+CREATE NONCLUSTERED INDEX IX_Audit_Date_User
+    ON [dbo].[AuditLog] ([auditDate], [user])
+GO
 /*************** Security **********************************/
 
 CREATE TABLE [dbo].[User] (

@@ -239,6 +239,7 @@
             this.shipButton.StyleController = this.generalLayout;
             this.shipButton.TabIndex = 9;
             this.shipButton.Text = "О&тгрузить";
+            this.shipButton.Click += new System.EventHandler(this.shipButton_Click);
             // 
             // removePipe
             // 
@@ -296,6 +297,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.railcarNumber, conditionValidationRule1);
+            this.railcarNumber.EditValueChanged += new System.EventHandler(this.railcarNumber_EditValueChanged);
             // 
             // pipeNumberLookUp
             // 
