@@ -276,6 +276,11 @@ namespace Prizm.Main.Forms.MainChildForm
                     ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
 
                 }
+                else if(c is DevExpress.XtraEditors.SimpleButton)
+                {
+                    ((DevExpress.XtraEditors.SimpleButton)c).Enabled = !isControlReadOnly;
+
+                }
                 SetEditModeAllChildren(c, editMode);
             } 
         }
