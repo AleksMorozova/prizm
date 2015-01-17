@@ -38,11 +38,15 @@ namespace Prizm.Main.Forms.Reports.Mill
             {
                 notify.ShowNotify(Resources.AlertFailureReportDate, Resources.AlertFailureReportDateHeader);
             }
-            try 
+            try
             {
-                data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
-                MillReportsXtraReport report = new MillReportsXtraReport();
-                report.DataSource = data;  
+                data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
+                //data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
+                //MillReportsXtraReport report = new MillReportsXtraReport();
+                additionToTheReport report = new additionToTheReport();
+                report.DataSource = data;
+               
+                //report.CalculatedFields[0].DataSource = repo.CountPipeInformation(viewModel.StartDate, viewModel.EndDate);
                 report.CreateDocument();
                 var tool = new ReportPrintTool(report);
                 tool.AutoShowParametersPanel = false;

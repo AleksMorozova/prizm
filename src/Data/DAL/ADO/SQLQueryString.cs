@@ -27,7 +27,8 @@ namespace Prizm.Data.DAL.ADO
             GetAllUsedPipe,
             GetAllUsedSpool,
             GetAllUsedComponent,
-            GetWeldedParts
+            GetWeldedParts,
+            CountPipe
         }
         
         /// <summary>
@@ -46,6 +47,8 @@ namespace Prizm.Data.DAL.ADO
               inner  join PipeTest on (PipeTestResult.pipeTestId =  PipeTest.id )
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
+
+        private const string CountPipe = @"Select COUNT(Pipe.number) as calculatedField1 From Pipe Pipe ";
 
         private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
@@ -192,6 +195,10 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
             {
                 case SQLStatic.GettAllKP:
                     queryText = GettAllKP;
+                    break;
+
+                case SQLStatic.CountPipe:
+                    queryText = CountPipe;
                     break;
 
                 case SQLStatic.GetAllActivePipesByDate:
