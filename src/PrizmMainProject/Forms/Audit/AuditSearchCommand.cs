@@ -27,8 +27,18 @@ namespace Prizm.Main.Forms.Audit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            var results = repo.GetRecords(viewModel.SelectedUser,viewModel.StartDate, viewModel.EndDate);
-            viewModel.AuditResults = new BindingList<AuditLog>(results);
+
+            if (viewModel.TracingMode == TracingModeEnum.TracingByPeriod)
+            {
+                var results = repo.GetRecords(viewModel.EntityID, viewModel.StartDate, viewModel.EndDate);
+                viewModel.AuditResults = new BindingList<AuditLog>(results);
+            }
+            else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
+            {
+                var results = repo.GetRecords(viewModel.EntityID, viewModel.SelectedUser);
+                viewModel.AuditResults = new BindingList<AuditLog>(results);
+            }
+
         }
         public bool CanExecute()
         {

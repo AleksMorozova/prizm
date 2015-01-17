@@ -21,6 +21,7 @@ namespace Prizm.Main.Forms.Audit
         private DateTime endDate = DateTime.Now.Date;
         public IEnumerable<string> UsersList;
         private string selectedUser = "";
+        private string entityID = "";
 
         [Inject]
         public AuditViewModel(IAuditLogRepository repo)
@@ -108,5 +109,25 @@ namespace Prizm.Main.Forms.Audit
                 }
             }
         }
+
+        public string EntityID
+        {
+            get
+            {
+                return entityID;
+            }
+            set
+            {
+                if (value != entityID)
+                {
+                    entityID = value;
+                    RaisePropertyChanged("EntityID");
+                }
+            }
+        }
+
+        public TracingModeEnum TracingMode { get; set; }
+    
+    
     }
 }

@@ -55,5 +55,31 @@ namespace Prizm.Main.Forms.Audit
             viewModel = null;
         }
 
+
+        private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadioGroup edit = sender as RadioGroup;
+
+            if (edit.SelectedIndex == 0)
+            {
+                startDate.Enabled = true;
+                endDate.Enabled = true;
+
+                user.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByPeriod;
+            }
+            else
+            {
+                user.Enabled = true;
+
+                startDate.Enabled = false;
+                endDate.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByUser;
+            }
+        }
+
+
     }
 }

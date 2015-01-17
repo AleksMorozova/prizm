@@ -213,6 +213,7 @@
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Audit\TracingModeEnum.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
     <Compile Include="Forms\Common\AboutXtraForm.cs">
       <SubType>Form</SubType>
