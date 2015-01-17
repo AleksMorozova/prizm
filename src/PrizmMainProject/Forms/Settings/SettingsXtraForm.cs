@@ -956,7 +956,14 @@ namespace Prizm.Main.Forms.Settings
             {
                 UpdateSeamTypesComboBox();    
             }
-            
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
         }
         
          /// <summary>
