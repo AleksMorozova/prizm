@@ -18,9 +18,10 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Spool
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class SpoolsXtraForm : ChildForm
-    {         
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class SpoolsXtraForm : ChildForm, INewEditEntityForm
+    {
+        private Guid id;
         private SpoolViewModel viewModel;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
@@ -29,11 +30,18 @@ namespace Prizm.Main.Forms.Spool
 
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+
+
         public SpoolsXtraForm(Guid id, string number)
         {
+            this.id = id;
+
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            pipeNumber.SetAsIdentifier();
+            spoolNumber.SetAsIdentifier();
             if (number != string.Empty)
             {
                 viewModel.SpoolNumber = number;
@@ -77,6 +85,10 @@ namespace Prizm.Main.Forms.Spool
             inspectionHistory.DataBindings
                .Add("DataSource", SpoolBindingSource, "InspectionTestResults");
 
+            deactivated.DataBindings
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                "EditValue", SpoolBindingSource, "SpoolIsActive"));
+
             inspectionStatusDict.Clear();
             inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
             inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
@@ -99,10 +111,14 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
-
-            commandManager["Save"].RefreshState();
-
+            commandManager["Deactivate"].Executor(viewModel.DeactivateCommand).AttachTo(deactivated);          
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.DeactivateCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
@@ -114,9 +130,7 @@ namespace Prizm.Main.Forms.Spool
                 &&  ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-
-            IsEditMode = !viewModel.IsNew || viewModel.SpoolNumber != String.Empty;
-
+            IsEditMode =((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive) ;
             BindCommands();
         }
 
@@ -232,17 +246,14 @@ namespace Prizm.Main.Forms.Spool
         }
 
         private void searchButton_Click(object sender, EventArgs e)
-        {
-            IsEditMode = true;
+        {          
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
-            commandManager["Save"].RefreshState();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             IsEditMode = false;
             attachmentsButton.Enabled = false;
-            commandManager["Save"].RefreshState();
         }
 
         private void SpoolsXtraForm_FormClosed(object sender, FormClosedEventArgs e)

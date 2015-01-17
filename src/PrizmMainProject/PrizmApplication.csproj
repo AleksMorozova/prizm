@@ -154,6 +154,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -282,6 +283,7 @@
     <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
     <Compile Include="Forms\Notifications\NotificationRequest\CertificateNotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationRequest\INotificationRequest..cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
@@ -429,7 +431,6 @@
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
-    <Compile Include="Forms\Settings\NullOrNotEmptyValidationRule.cs" />
     <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
       <SubType>Form</SubType>
     </Compile>

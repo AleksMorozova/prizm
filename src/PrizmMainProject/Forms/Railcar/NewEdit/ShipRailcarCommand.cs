@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (viewModel.Railcar.Pipes.Count == 0)
+            if(viewModel.Railcar.Pipes.Count == 0)
             {
                 notify.ShowError(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER);
                 return;
@@ -41,24 +41,25 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
 
-            if (distinctSizes > 1)
+            if(distinctSizes > 1)
             {
                 notify.ShowError(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER);
             }
             else
             {
-                if (viewModel.Railcar.ShippingDate == DateTime.MinValue || viewModel.Railcar.ShippingDate == null)
-                    {
-                        viewModel.Railcar.ShippingDate = DateTime.Now;
-                    }
+                if(viewModel.Railcar.ShippingDate == DateTime.MinValue || viewModel.Railcar.ShippingDate == null)
+                {
+                    viewModel.Railcar.ShippingDate = DateTime.Now;
+                }
 
-                foreach (var pipe in viewModel.Railcar.Pipes)
-                    {
-                        pipe.Status = PipeMillStatus.Shipped;
-                    }
-                    viewModel.IsShipped = true;
-                    viewModel.SaveCommand.Execute();
-                    notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
+                foreach(var pipe in viewModel.Railcar.Pipes)
+                {
+                    pipe.Status = PipeMillStatus.Shipped;
+                    pipe.ToExport = true;
+                }
+                viewModel.IsShipped = true;
+                viewModel.SaveCommand.Execute();
+                notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
             }
             RefreshVisualStateEvent();
         }

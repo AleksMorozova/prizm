@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             admin.Roles = new List<Role>() { SuperUser };            
         }
 
-        private Project project = new Project();
+        private Project project = new Project() { IsNative = true};
         private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
 
