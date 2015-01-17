@@ -239,7 +239,7 @@ CREATE TABLE [dbo].[Pipe](
 	[isActive] [bit] NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
-
+	[projectId] [uniqueidentifier] NULL,
 	[isAvailableToJoint] [bit] NULL,
         [toExport] [bit] NOT NULL DEFAULT 0,
 
@@ -410,6 +410,7 @@ CREATE TABLE [dbo].[Project](
 	[workstationType] [nvarchar] (20) NULL,
 	[millPipeNumberMask] [nvarchar] (20) NULL,
 	[millPipeNumberMaskRegexp] [nvarchar] (1000) NULL,
+	[isNative] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -570,6 +571,9 @@ ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Plate] FOREIGN KEY
 REFERENCES [dbo].[Plate] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Plate]
 
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Project]
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PurchaseOrder] FOREIGN KEY([purchaseOrderId])
 REFERENCES [dbo].[PurchaseOrder] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PurchaseOrder]

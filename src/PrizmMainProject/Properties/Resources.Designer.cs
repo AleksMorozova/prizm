@@ -1639,6 +1639,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сварка стыка.
+        /// </summary>
+        internal static string RequiredWeldJointOperation {
+            get {
+                return ResourceManager.GetString("RequiredWeldJointOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип результата.
         /// </summary>
         internal static string ResultType {

@@ -800,4 +800,7 @@
   <data name="Empty_Operation_Name" xml:space="preserve">
     <value>Введите название операции</value>
   </data>
+  <data name="RequiredWeldJointOperation" xml:space="preserve">
+    <value>Сварка стыка</value>
+  </data>
 </root>

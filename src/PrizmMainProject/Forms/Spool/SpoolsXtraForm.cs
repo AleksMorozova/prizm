@@ -40,6 +40,8 @@ namespace Prizm.Main.Forms.Spool
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            pipeNumber.SetAsIdentifier();
+            spoolNumber.SetAsIdentifier();
             if (number != string.Empty)
             {
                 viewModel.SpoolNumber = number;

@@ -75,7 +75,7 @@ namespace Prizm.Main.Controls
             {
                 GridView v = sender as GridView;
                 int t = v.SelectedRowsCount;
-                for (int i = 0; i <= v.SelectedRowsCount; i++)
+                for (int i = 0; i < v.SelectedRowsCount; i++)
                 {
                     var data = v.GetRow(i) as Inspector;
                     if (!data.IsActive)

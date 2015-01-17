@@ -13,5 +13,6 @@ namespace Prizm.Main.Forms.Parts.Search
         public Guid Id { get; set; }
         public string Number { get; set; }
         public EnumWrapper<PartType> Type { get; set; }
+        public bool IsActive { get; set; }
     }
 }
