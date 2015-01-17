@@ -954,8 +954,9 @@ namespace Prizm.Main.Forms.Settings
             #endregion
             if(viewModel.SeamTypes != null)
             {
-                UpdateSeamTypesComboBox();    
+                UpdateSeamTypesComboBox();
             }
+        }
         /// <summary>
         /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
         /// </summary>
