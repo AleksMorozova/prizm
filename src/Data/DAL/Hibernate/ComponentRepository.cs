@@ -30,6 +30,19 @@ namespace Prizm.Data.DAL.Hibernate
                 throw new RepositoryException("Get", ex);
             }
         }
-        
+
+
+
+        public IList<Component> GetComponentsToExport()
+        {
+           try
+           {
+              return session.QueryOver<Component>().Where(x => x.ToExport).List<Component>();
+           }
+           catch (GenericADOException ex)
+           {
+              throw new RepositoryException("GetComponentsToExport", ex);
+           }
+        }
     }
 }

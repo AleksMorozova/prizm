@@ -33,6 +33,7 @@ using DevExpress.XtraSplashScreen;
 using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Security;
 using Domain.Entity.Security;
+using Prizm.Main.Forms.Synch;
 using System.Linq;
 
 namespace Prizm.Main.Forms.MainChildForm
@@ -622,6 +623,17 @@ namespace Prizm.Main.Forms.MainChildForm
                     barButtonItemImport.Enabled = false;
                     break;
             }
+        }
+
+        private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           OpenChildForm(typeof(ExportForm), Guid.Empty, string.Empty);
+        }
+
+        private void barButtonItemImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           ImportForm form = Program.Kernel.Get<ImportForm>();
+           form.ShowDialog();
         }
 
     }

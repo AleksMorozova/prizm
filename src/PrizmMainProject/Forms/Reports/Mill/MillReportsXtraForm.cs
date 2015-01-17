@@ -84,12 +84,16 @@ namespace Prizm.Main.Forms.Reports.Mill
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;
             statuses.Enabled = true;
-            if (selected != ReportType.ByCategories)
-            {
-                testCategories.Enabled = false;
-                statuses.Enabled = false;
-            }
+
             
+                if (selected != ReportType.ByCategories)
+                {
+                    testCategories.Enabled = false;
+                    statuses.Enabled = false;
+                    //viewModel.ReportType.Value = MillReportType.MillReportsXtraForm;
+                }
+        
+
         }
 
         private void statuses_ItemCheck(object sender, ItemCheckEventArgs e)

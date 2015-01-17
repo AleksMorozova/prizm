@@ -14,7 +14,7 @@ namespace Prizm.Data.DAL.Mapping
         {
             UseUnionSubclassForInheritanceMapping();
 
-            Id(x => x.Id).Column("id").GeneratedBy.GuidComb();
+            Id(x => x.Id).Column("id").UnsavedValue(Guid.Empty).GeneratedBy.Assigned();
             Map(x => x.IsActive).Column("isActive");
         }
 

@@ -65,7 +65,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
