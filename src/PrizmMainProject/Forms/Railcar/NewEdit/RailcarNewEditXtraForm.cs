@@ -112,8 +112,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             pipesList.RefreshDataSource();
-commandManager.RefreshVisualState();
-IsModified = true;
+            IsModified = true;
+            commandManager.RefreshVisualState();
         }
 
         private void removePipe_Click(object sender, EventArgs e)
@@ -123,8 +123,8 @@ IsModified = true;
             {
                 viewModel.RemovePipe(number);
                 pipesList.RefreshDataSource();
-commandManager.RefreshVisualState();
-IsModified = true;
+                IsModified = true;
+                commandManager.RefreshVisualState();
             }
         }
 
