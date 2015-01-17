@@ -20,7 +20,7 @@ namespace Prizm.Data.DAL.Hibernate
          {
              try
              {
-                 return session.QueryOver<Project>().SingleOrDefault();
+                 return session.QueryOver<Project>().Where(_ => _.IsNative == true).SingleOrDefault();
              }
              catch (GenericADOException ex)
              {

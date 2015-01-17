@@ -240,6 +240,7 @@
             this.pipesSearchResultView.OptionsBehavior.FocusLeaveOnTab = true;
             this.pipesSearchResultView.OptionsNavigation.UseTabKey = false;
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
+            this.pipesSearchResultView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSearchResultView_RowCellStyle);
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
             // 
@@ -484,7 +485,6 @@
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.searchButtonLayout.TextToControlDistance = 0;
             this.searchButtonLayout.TextVisible = false;
             // 
             // searchButtonEmptySpace
@@ -543,7 +543,6 @@
             this.PipeSearchGridLayout.Text = "Резул&ьтаты поиска";
             this.PipeSearchGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.PipeSearchGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.PipeSearchGridLayout.TextToControlDistance = 0;
             this.PipeSearchGridLayout.TextVisible = false;
             // 
             // emptySpaceUnderButton
