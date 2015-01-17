@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Construction = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -19,15 +20,46 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private readonly JointSearchCommand searchCommand;
         private readonly IJointRepository repo;
-
+        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
             this.repo = repo;
             searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
+            Activity = ActivityArray[0];
         }
 
         #region BindingFields
+
+        private string activity;
+        public string Activity
+        {
+            get { return activity; }
+            set
+            {
+                if (value != activity)
+                {
+                    activity = value;
+                    RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
+        private bool isActive;
+        public bool IsActive
+        {
+            get { return isActive; }
+            set
+            {
+                if (value != isActive)
+                {
+                    isActive = value;
+                    RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
+
         private string number = "";
         public string Number
         {
