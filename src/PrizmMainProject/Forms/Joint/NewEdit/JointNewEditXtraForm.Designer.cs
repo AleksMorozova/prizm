@@ -306,6 +306,7 @@
             this.CompletedCheckEdit.AutoHeight = false;
             this.CompletedCheckEdit.Name = "CompletedCheckEdit";
             this.CompletedCheckEdit.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.CompletedCheckEdit.CheckedChanged += new System.EventHandler(this.CompletedCheckEdit_CheckedChanged);
             // 
             // weldersGridColumn
             // 

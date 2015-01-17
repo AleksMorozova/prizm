@@ -10,125 +10,138 @@ using System.Threading.Tasks;
 namespace Prizm.Main.Forms.Settings.ViewTypes
 {
     public class InspectorViewType : PersonSetupViewType
-   {
-      readonly Inspector inspector;
+    {
+        readonly Inspector inspector;
 
-      public InspectorViewType(Inspector inspector)
-      {
-         this.inspector = inspector;
-      }
+        public InspectorViewType(Inspector inspector)
+        {
+            this.inspector = inspector;
+        }
 
-      public Inspector Inspector
-      {
-         get { return inspector; }
-      }
+        public Inspector Inspector
+        {
+            get { return inspector; }
+        }
 
-      public InspectorViewType()
-      {
-         this.inspector = new Inspector();
-         this.inspector.IsActive = true;
-         CheckName();
-         CheckCertificate();
-      }
-
-      public override string FirstName
-      {
-         get 
-         {
-            return inspector.Name.FirstName;
-         }
-         set
-         {
+        public InspectorViewType()
+        {
+            this.inspector = new Inspector();
+            this.inspector.IsActive = true;
             CheckName();
-            if (value != inspector.Name.FirstName)
+            CheckCertificate();
+        }
+
+        public override string FirstName
+        {
+            get
             {
-               inspector.Name.FirstName = value;
-               FirePropertyChanged("FirstName");
+                return inspector.Name.FirstName;
             }
-         }
-      }
-
-      public override string LastName
-      {
-         get
-         {
-            return inspector.Name.LastName;
-         }
-         set
-         {
-            CheckName();
-            if (value != inspector.Name.LastName)
+            set
             {
-               inspector.Name.LastName = value;
-               FirePropertyChanged("LastName");
+                CheckName();
+                if(value != inspector.Name.FirstName)
+                {
+                    inspector.Name.FirstName = value;
+                    FirePropertyChanged("FirstName");
+                }
             }
-         }
-      }
+        }
 
-      public override string MiddleName
-      {
-         get
-         {
-            return inspector.Name.MiddleName;
-         }
-         set
-         {
-            CheckName();
-            if (value != inspector.Name.MiddleName)
+        public override string LastName
+        {
+            get
             {
-               inspector.Name.MiddleName = value;
-               FirePropertyChanged("MiddleName");
+                return inspector.Name.LastName;
             }
-         }
-      }
-
-      public IList<InspectorCertificate> Certificates
-      {
-         get
-         {
-            return inspector.Certificates;
-         }
-         set
-         {
-             CheckCertificate();
-            if (value != inspector.Certificates)
+            set
             {
-               inspector.Certificates = value;
-               FirePropertyChanged("Certificates");
+                CheckName();
+                if(value != inspector.Name.LastName)
+                {
+                    inspector.Name.LastName = value;
+                    FirePropertyChanged("LastName");
+                }
             }
-         }
-      }
+        }
 
-      public override bool Active
-      {
-         get
-          {
-            return inspector.IsActive;
-         }
-         set
-         {
-            if (value != inspector.IsActive)
+        public override string MiddleName
+        {
+            get
             {
-               inspector.IsActive = value;
-               FirePropertyChanged("Active");
+                return inspector.Name.MiddleName;
             }
-         }
-      }
+            set
+            {
+                CheckName();
+                if(value != inspector.Name.MiddleName)
+                {
+                    inspector.Name.MiddleName = value;
+                    FirePropertyChanged("MiddleName");
+                }
+            }
+        }
 
-      protected override void CheckName()
-      {
-         if (inspector.Name == null)
-            inspector.Name = new PersonName();
-      }
+        public IList<InspectorCertificate> Certificates
+        {
+            get
+            {
+                return inspector.Certificates;
+            }
+            set
+            {
+                CheckCertificate();
+                if(value != inspector.Certificates)
+                {
+                    inspector.Certificates = value;
+                    FirePropertyChanged("Certificates");
+                }
+            }
+        }
 
-      private void CheckCertificate()
-      {
-          if (inspector.Certificates == null)
-          {
-              inspector.Certificates = new BindingList<InspectorCertificate>();
-          }
-      }
+        public int Grade
+        {
+            get { return inspector.Grade; }
+            set 
+            {
+                if(value != inspector.Grade)
+                {
+                    inspector.Grade = value;
+                    FirePropertyChanged("Grade");
+                }
+            }
+        }
 
-      
-   }
+        public override bool Active
+        {
+            get
+            {
+                return inspector.IsActive;
+            }
+            set
+            {
+                if(value != inspector.IsActive)
+                {
+                    inspector.IsActive = value;
+                    FirePropertyChanged("Active");
+                }
+            }
+        }
+
+        protected override void CheckName()
+        {
+            if(inspector.Name == null)
+                inspector.Name = new PersonName();
+        }
+
+        private void CheckCertificate()
+        {
+            if(inspector.Certificates == null)
+            {
+                inspector.Certificates = new BindingList<InspectorCertificate>();
+            }
+        }
+
+
+    }
 }

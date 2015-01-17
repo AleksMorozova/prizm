@@ -669,6 +669,25 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к разединению элементов трубопровода. 
+        ///Вы действительно хотите вырезать стык?.
+        /// </summary>
+        internal static string DLG_JOINT_WITHDRAWN {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_WITHDRAWN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string DLG_JOINT_WITHDRAWN_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_JOINT_WITHDRAWN_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер наряд-заказа обязателен.
         /// </summary>
         internal static string DLG_ORDER_NUMBER_REQUIRED {
@@ -2050,6 +2069,15 @@ namespace Prizm.Main.Properties {
         internal static string Welder {
             get {
                 return ResourceManager.GetString("Welder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string Withdraw {
+            get {
+                return ResourceManager.GetString("Withdraw", resourceCulture);
             }
         }
         
