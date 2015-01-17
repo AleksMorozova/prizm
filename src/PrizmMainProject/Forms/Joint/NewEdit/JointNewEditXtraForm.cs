@@ -65,6 +65,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
+            firstJointElement.SetAsIdentifier();
+            secondJointElement.SetAsIdentifier();
             extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }

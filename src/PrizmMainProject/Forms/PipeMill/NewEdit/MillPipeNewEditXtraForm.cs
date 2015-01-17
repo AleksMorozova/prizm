@@ -92,6 +92,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region --- Set Properties.CharacterCasing to Upper ---
             pipeNumber.SetAsIdentifier();
             plateNumber.SetAsIdentifier();
+            heatsLookUp.SetAsIdentifier();
+            ordersLookUp.SetAsIdentifier();
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
 

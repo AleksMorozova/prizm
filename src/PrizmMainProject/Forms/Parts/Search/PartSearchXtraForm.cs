@@ -31,6 +31,7 @@ namespace Prizm.Main.Forms.Parts.Search
         public PartSearchXtraForm()
         {
             InitializeComponent();
+            number.SetAsIdentifier();
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
