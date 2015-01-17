@@ -36,7 +36,7 @@ namespace Prizm.Data.DAL.ADO
 
         private const string GettAllKP = @"Select distinct(numberKP) From Joint";
         
-        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
+        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
               left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
@@ -47,7 +47,7 @@ namespace Prizm.Data.DAL.ADO
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
 
-        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
               LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
               LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -56,7 +56,7 @@ namespace Prizm.Data.DAL.ADO
 	          WHERE productionDate >=  @startDate  and productionDate <= @finalDate
               {where_options}";
 
-        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
             FROM Pipe 
             LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
             LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -99,37 +99,37 @@ namespace Prizm.Data.DAL.ADO
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
-                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate AND Pipe.isActive=1";
 
         private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1
 		  union
 select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1";
 
         private const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1
 		  union 
 select Spool.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1";
 
         private const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Component.isActive=1
 		  union
 select Component.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part2Id])
-		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK  AND Component.isActive=1";
 
         private const string GetWeldedParts =
           @"SELECT 

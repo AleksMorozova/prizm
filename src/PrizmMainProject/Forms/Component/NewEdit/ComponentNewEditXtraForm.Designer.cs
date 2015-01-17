@@ -36,7 +36,7 @@
             this.newEditPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.componentLength = new DevExpress.XtraEditors.TextEdit();
             this.type = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.componentDeactivated = new DevExpress.XtraEditors.CheckEdit();
+            this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.newSaveComponentButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveComponentButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -77,7 +77,7 @@
             this.newEditPipeLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.componentLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentDeactivated.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate)).BeginInit();
@@ -123,7 +123,7 @@
             // 
             this.newEditPipeLayout.Controls.Add(this.componentLength);
             this.newEditPipeLayout.Controls.Add(this.type);
-            this.newEditPipeLayout.Controls.Add(this.componentDeactivated);
+            this.newEditPipeLayout.Controls.Add(this.deactivated);
             this.newEditPipeLayout.Controls.Add(this.newSaveComponentButton);
             this.newEditPipeLayout.Controls.Add(this.saveComponentButton);
             this.newEditPipeLayout.Controls.Add(this.attachmentsButton);
@@ -165,15 +165,14 @@
             this.dxValidationProvider.SetValidationRule(this.type, conditionValidationRule1);
             this.type.SelectedIndexChanged += new System.EventHandler(this.type_SelectedIndexChanged);
             // 
-            // componentDeactivated
+            // deactivated
             // 
-            this.componentDeactivated.Location = new System.Drawing.Point(134, 444);
-            this.componentDeactivated.Name = "componentDeactivated";
-            this.componentDeactivated.Properties.Caption = "Компонент деактивирован";
-            this.componentDeactivated.Size = new System.Drawing.Size(304, 19);
-            this.componentDeactivated.StyleController = this.newEditPipeLayout;
-            this.componentDeactivated.TabIndex = 15;
-            this.componentDeactivated.Modified += new System.EventHandler(this.componentDeactivated_Modified);
+            this.deactivated.Location = new System.Drawing.Point(134, 444);
+            this.deactivated.Name = "deactivated";
+            this.deactivated.Properties.Caption = "Компонент деактивирован";
+            this.deactivated.Size = new System.Drawing.Size(304, 19);
+            this.deactivated.StyleController = this.newEditPipeLayout;
+            this.deactivated.TabIndex = 15;
             // 
             // newSaveComponentButton
             // 
@@ -236,6 +235,7 @@
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
+            this.inspectionHistoryGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
             // 
             // inspectionDateColumn
@@ -333,6 +333,7 @@
             this.componentParametersView.OptionsBehavior.FocusLeaveOnTab = true;
             this.componentParametersView.OptionsNavigation.UseTabKey = false;
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.componentParametersView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentParametersView_ValidateRow);
             // 
             // diameterGridColumn
@@ -399,7 +400,6 @@
             this.inspectionHistoryGridLayout.Text = "Входно&й контроль";
             this.inspectionHistoryGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionHistoryGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionHistoryGridLayout.TextToControlDistance = 0;
             this.inspectionHistoryGridLayout.TextVisible = false;
             // 
             // newComponentLayoutGroup
@@ -454,7 +454,6 @@
             this.parametersGridLayout.Text = "parametersGridLayout";
             this.parametersGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.parametersGridLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.parametersGridLayout.TextToControlDistance = 0;
             this.parametersGridLayout.TextVisible = false;
             // 
             // typeLayoutControl
@@ -511,7 +510,6 @@
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 7, 7);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.attachmentsButtonLayout.TextToControlDistance = 0;
             this.attachmentsButtonLayout.TextVisible = false;
             // 
             // newSaveLayoutControl
@@ -524,7 +522,6 @@
             this.newSaveLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.newSaveLayoutControl.Text = "newSaveLayoutControl";
             this.newSaveLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.newSaveLayoutControl.TextToControlDistance = 0;
             this.newSaveLayoutControl.TextVisible = false;
             // 
             // saveButtonLayoutControl
@@ -537,12 +534,11 @@
             this.saveButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.saveButtonLayoutControl.Text = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayoutControl.TextToControlDistance = 0;
             this.saveButtonLayoutControl.TextVisible = false;
             // 
             // layoutControlDeactivation
             // 
-            this.layoutControlDeactivation.Control = this.componentDeactivated;
+            this.layoutControlDeactivation.Control = this.deactivated;
             this.layoutControlDeactivation.CustomizationFormText = "layoutControlDeactivation";
             this.layoutControlDeactivation.Location = new System.Drawing.Point(107, 425);
             this.layoutControlDeactivation.Name = "layoutControlDeactivation";
@@ -550,7 +546,6 @@
             this.layoutControlDeactivation.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.layoutControlDeactivation.Text = "layoutControlDeactivation";
             this.layoutControlDeactivation.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlDeactivation.TextToControlDistance = 0;
             this.layoutControlDeactivation.TextVisible = false;
             // 
             // ComponentNewEditXtraForm
@@ -571,7 +566,7 @@
             this.newEditPipeLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.componentLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentDeactivated.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionHistoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDate.CalendarTimeProperties)).EndInit();
@@ -633,7 +628,7 @@
         private DevExpress.XtraLayout.LayoutControlItem newSaveLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControl;
         private System.Windows.Forms.BindingSource componentBindingSource;
-        private DevExpress.XtraEditors.CheckEdit componentDeactivated;
+        private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlDeactivation;
         private DevExpress.XtraEditors.ComboBoxEdit type;
         private DevExpress.XtraLayout.LayoutControlItem typeLayoutControl;

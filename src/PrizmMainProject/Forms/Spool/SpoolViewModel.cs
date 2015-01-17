@@ -20,11 +20,12 @@ using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Spool
 {
-    public class SpoolViewModel : ViewModelBase, IDisposable
+    public class SpoolViewModel : ViewModelBase, IDisposable, ISupportModifiableView
     {
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand saveCommand;
+        readonly ICommand deactivateCommand;
         public string pipeNumber;
         public string spoolNumber;
         public int pipeLength;
@@ -33,9 +34,9 @@ namespace Prizm.Main.Forms.Spool
         private IModifiable modifiableView;
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
-        public bool canCut = false;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
-        public bool editMode = false;
+
+        public bool IsNew { get { return this.Spool.IsNew(); } }
 
         [Inject]
         public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
@@ -50,6 +51,9 @@ namespace Prizm.Main.Forms.Spool
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
             () => new SaveSpoolCommand(this, repos, notify));
+
+            deactivateCommand = ViewModelSource.Create<SpoolDeactivationCommand>(
+                () => new SpoolDeactivationCommand(repos, this, notify));
 
             allPipes = new BindingList<Pipe>();
 
@@ -137,13 +141,23 @@ namespace Prizm.Main.Forms.Spool
                 if (value != Spool.Length)
                 {
                     Spool.Length = value;
-                    if ((Pipe.Length - Spool.Length) > 0)
-                    {
-                        canCut = true;
-                    }
                     Pipe.Length = Pipe.Length - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
+                    RaisePropertyChanged("CanCut");
+                }
+            }
+        }
+
+        public bool SpoolIsActive
+        {
+            get { return Spool.IsActive; }
+            set 
+            {
+                if (value != Spool.IsActive)
+                {
+                    Spool.IsActive = value;
+                    RaisePropertyChanged("SpoolIsActive");
                 }
             }
         }
@@ -176,17 +190,9 @@ namespace Prizm.Main.Forms.Spool
             }
         }
 
-        public bool IsNotActive
+        public bool CanCut
         {
-            get { return Spool.IsNotActive; }
-            set
-            {
-                if (value != Spool.IsNotActive)
-                {
-                    Spool.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
-                }
-            }
+            get { return (Pipe.Length - Spool.Length) > 0; }
         }
 
         public IList<Inspector> Inspectors { get; set; }
@@ -252,6 +258,11 @@ namespace Prizm.Main.Forms.Spool
         public ICommand SaveCommand
         {
             get { return saveCommand; }
+        }
+
+        public ICommand DeactivateCommand
+        {
+            get { return deactivateCommand; }
         }
         #endregion
     }

@@ -10,6 +10,8 @@ namespace Prizm.Data.DAL.Setup
     public interface IJointOperationRepository : IRepository<Guid, JointOperation>
     {
        IList<JointOperation> GetControlOperations();
-       IList<JointOperation> GetRepairOperations();  
+       IList<JointOperation> GetRepairOperations();
+       void SeedRequiredWeld(string requiredWeld);
+       JointOperation GetRequiredWeld(string requiredWeldOperation);
     }
 }

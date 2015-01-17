@@ -14,8 +14,7 @@ namespace Prizm.Data.DAL.Mapping
         public ComponentMap()
         {
             Map(_ => _.Certificate).Column("certificate");
-            Map(_ => _.ToExport).Column("ToExport");
-
+            Map(_ => _.ToExport).Column("toExport");
             References<ComponentType>(x => x.Type).Column("componentTypeId");
 
             HasMany<Connector>(x => x.Connectors)

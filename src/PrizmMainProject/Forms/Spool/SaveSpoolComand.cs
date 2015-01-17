@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.Spool
         readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -33,14 +35,16 @@ namespace Prizm.Main.Forms.Spool
         {
             if (viewModel.Spool.Length != 0)
             {
-                if (viewModel.canCut)
+                if (viewModel.CanCut)
                 {
+                    viewModel.Pipe.ToExport = true;
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                     repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
                     repos.Commit();
                     repos.PipeRepo.Evict(viewModel.Pipe);
                     repos.SpoolRepo.Evict(viewModel.Spool);
+
             //saving attached documents
             if (viewModel.FilesFormViewModel != null)
             {
@@ -53,39 +57,30 @@ namespace Prizm.Main.Forms.Spool
                     string oldPipeNumber = viewModel.Pipe.Number;
                     viewModel.NewSpool();
                     viewModel.PipeNumber = oldPipeNumber;
-
+                    RefreshVisualStateEvent();
                 }
                 else 
                 {
                     notify.ShowError(Resources.Wrong_Spool_Lengs_MorePipeLength, Resources.Cut_Spool_from_pipe_Header);
+                    viewModel.ModifiableView.IsEditMode = true;
                 }
             }
             else
             {
                 notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
-                
+                viewModel.ModifiableView.IsEditMode = true;
             }
-        }
-
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
+            
         }
 
         public bool CanExecute()
         {
-            bool condition;
-            if (viewModel.Spool.Id == Guid.Empty)
-            {
-                condition = viewModel.ModifiableView.IsEditMode && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
-            }
-            else
-            {
-                condition = viewModel.ModifiableView.IsEditMode && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
-            }
-            return condition;
+            return viewModel.ModifiableView.IsEditMode 
+                &&viewModel.SpoolIsActive
+                &&!string.IsNullOrEmpty(viewModel.PipeNumber)
+                && ctx.HasAccess(viewModel.IsNew
+                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
+                    : global::Domain.Entity.Security.Privileges.EditData);
         }
     }
 }

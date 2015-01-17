@@ -34,6 +34,7 @@ using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Security;
 using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
+using System.Linq;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -42,6 +43,8 @@ namespace Prizm.Main.Forms.MainChildForm
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
         private PrizmApplicationViewModel viewModel;
+
+        private const string emptyString = "";
 
         public PrizmApplicationXtraForm()
         {
@@ -62,67 +65,82 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Checks if given form type is single. Expected type name of the form derived from ChildForm and used as a child window.
-        /// Single means to have only one opened child window if this type at a time.
+        /// Gives the ChildForm index in corresponding childForms list that contains the element defined by id.
         /// </summary>
-        /// <param name="formTypeName">string representation of form type name, for example "SettingsXtraForm"</param>
-        /// <returns>true if form is "single" in terms of this application</returns>
-        private bool IsSingle(string formTypeName)
+        /// <param name="formTypeName">string representation of form type name, for example</param>
+        /// <param name="id"></param>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the
+        /// conditions defined by match, if found; otherwise, –1.</returns>
+        private int GetFormIndex(string formTypeName, Guid id)
         {
-            bool isSingle = false;
+            int index = 0;
 
-            switch(formTypeName)
+            if (id != Guid.Empty)
             {
-                case "SettingsXtraForm":
-                case "NotificationXtraForm":
-                    isSingle = true;
-                    break;
-                default:
-                    break;
-            }
-            return isSingle;
-        }
-
-        /// <summary>
-        /// Creates and returns an instance of child form of given form type. Given 
-        /// </summary>
-        /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
-        /// <param name="parameters">additional parameters for new child form</param>
-        /// <returns>reference to newly created child form</returns>
-        private ChildForm CreateReturnChildForm(System.Type formType, params IParameter[] parameters)
-        {
-            ChildForm newlyCreatedForm = null;
-
-            if(typeof(ChildForm).IsAssignableFrom(formType))
-            {
-                if(!childForms.ContainsKey(formType.Name))
-                {
-                    childForms.Add(formType.Name, new List<ChildForm>());
-                }
-                List<ChildForm> forms = childForms[formType.Name];
-
-                if(IsSingle(formType.Name) && forms.Count > 0)
-                {
-                    // no more forms could be created. activate existing form
-                    forms[0].Activate();
-                }
-                else if(FramesCanOpen < 1)
-                {
-                    this.ShowError(Resources.IDS_NO_MORE_DOCUMENTS, Resources.DLG_ERROR_HEADER);
-                }
-                else
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType, parameters);
-                    childForms[formType.Name].Add(newlyCreatedForm);
-                    newlyCreatedForm.MdiParent = this;
-                    newlyCreatedForm.FormClosed += ChildClosedEventHandler;
-                    FramesCanOpen--;
-                }
+                index = childForms[formTypeName]
+                    .FindIndex(x => x is INewEditEntityForm && ((INewEditEntityForm)x).IsMatchedByGuid(id));
             }
             else
             {
-                throw new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
+                bool isSingleForm =
+                    formTypeName == typeof(SettingsXtraForm).Name ||
+                    formTypeName == typeof(NotificationXtraForm).Name;
+
+                if (!isSingleForm)
+                {
+                    index = -1;
+                }
             }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Creates an instance of child form of given form type
+        /// </summary>
+        /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
+        /// <returns>reference to newly created child form</returns>
+        private ChildForm CreateChildForm(Type formType, Guid id, string number)
+        {
+            ChildForm newlyCreatedForm = null;
+
+            if (FramesCanOpen < 1)
+            {
+                HideProcessing();
+                this.ShowError(Resources.IDS_NO_MORE_DOCUMENTS, Resources.DLG_ERROR_HEADER);
+            }
+            else
+            {
+                if (id == Guid.Empty && number == string.Empty)
+                {
+                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType);
+                }
+                else if (id != Guid.Empty && number == string.Empty)
+                {
+                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
+                        formType,
+                        new ConstructorArgument("id", id));
+                }
+                else if (id == Guid.Empty && number != string.Empty)
+                {
+                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
+                        formType,
+                        new ConstructorArgument("number", number));
+                }
+                else
+                {
+                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
+                        formType,
+                        new ConstructorArgument("id", id),
+                        new ConstructorArgument("number", number));
+                }
+
+                childForms[formType.Name].Add(newlyCreatedForm);
+                newlyCreatedForm.MdiParent = this;
+                newlyCreatedForm.FormClosed += ChildClosedEventHandler;
+                FramesCanOpen--;
+            }
+
             return newlyCreatedForm;
         }
 
@@ -166,57 +184,70 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Creation of child form. Can be used from outside to pass some parameters to newly created forms (i.e. pipe number).
-        /// After creation, form shows.
+        /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
         /// </summary>
         /// <param name="formType">exact type of form</param>
+        /// <param name="id">Guid of entity</param>
         /// <param name="parameters">input parameters passed to the newly created form</param>
-        public void CreateChildForm(System.Type formType, params IParameter[] parameters)
+        public ChildForm OpenChildForm(Type formType, Guid id = default(Guid), string number = emptyString)
         {
+            ChildForm form = null;
+
             try
             {
                 ShowProcessing();
-                ChildForm form = CreateReturnChildForm(formType, parameters);
-                if(form != null)
+
+                if (typeof(ChildForm).IsAssignableFrom(formType))
                 {
-                    ShowChildForm(form);
+                    if (!childForms.ContainsKey(formType.Name))
+                    {
+                        childForms.Add(formType.Name, new List<ChildForm>());
+                    }
+
+                    var forms = childForms[formType.Name];
+
+                    int index = GetFormIndex(formType.Name, id);
+
+                    if (index >= 0 && forms.Count > 0)
+                    {
+                        form = forms[index];
+                        form.Activate();
+                    }
+                    else
+                    {
+                        form = CreateChildForm(formType, id, number);
+
+                        if (form != null)
+                        {
+                            ShowChildForm(form);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
                 }
             }
             finally
             {
                 HideProcessing();
             }
+            return form;
         }
 
         /// <summary>
         /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
         /// </summary>
         /// <param name="page">number of starting page</param>
-        /// <param name="parameters">form input parameters if any</param>
-        public void CreateSettingsChildForm(int page, params IParameter[] parameters)
+        public void CreateSettingsChildForm(int page)
         {
             try
             {
-                SettingsXtraForm form = (SettingsXtraForm)CreateReturnChildForm(typeof(SettingsXtraForm), parameters);
+                SettingsXtraForm form = (SettingsXtraForm)OpenChildForm(typeof(SettingsXtraForm));
 
-                if(form != null)
+                if (form != null && form.tabbedControlGroup.TabPages.Count > page)
                 {
-                    if(form.tabbedControlGroup.TabPages.Count > page)
-                    {
-                        form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
-                    }
-                    ShowChildForm(form);
-                }
-                else
-                {
-                    var forms = childForms[typeof(SettingsXtraForm).Name];
-
-                    if(forms.Count > 0)
-                    {
-                        SettingsXtraForm f = (SettingsXtraForm)forms[0];
-                        f.tabbedControlGroup.SelectedTabPage = f.tabbedControlGroup.TabPages[page];
-                        f.Activate();
-                    }
+                    form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
                 }
             }
             finally
@@ -228,52 +259,52 @@ namespace Prizm.Main.Forms.MainChildForm
         #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(MillPipeNewEditXtraForm));
+            OpenChildForm(typeof(MillPipeNewEditXtraForm));
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(RailcarNewEditXtraForm));
+            OpenChildForm(typeof(RailcarNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(MillPipeSearchXtraForm));
+            OpenChildForm(typeof(MillPipeSearchXtraForm));
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(MillReportsXtraForm));
+            OpenChildForm(typeof(MillReportsXtraForm));
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(ComponentNewEditXtraForm));
+            OpenChildForm(typeof(ComponentNewEditXtraForm));
         }
 
         private void barButtonItemInspectionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(InspectionReportsXtraForm));
+            OpenChildForm(typeof(InspectionReportsXtraForm));
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(JointNewEditXtraForm));
+            OpenChildForm(typeof(JointNewEditXtraForm));
         }
 
         private void barButtonItemFindEditJoints_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(JointSearchXtraForm));
+            OpenChildForm(typeof(JointSearchXtraForm));
         }
 
         private void barButtonItemPartIncomingInspection_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(PartInspectionXtraForm));
+            OpenChildForm(typeof(PartInspectionXtraForm));
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(ConstructionReportsXtraForm));
+            OpenChildForm(typeof(ConstructionReportsXtraForm));
         }
 
         private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)
@@ -318,27 +349,27 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(RailcarSearchXtraForm));
+            OpenChildForm(typeof(RailcarSearchXtraForm));
         }
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(PartSearchXtraForm));
+            OpenChildForm(typeof(PartSearchXtraForm));
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(SpoolsXtraForm));
+            OpenChildForm(typeof(SpoolsXtraForm));
         }
 
         private void barButtonItemFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(PartSearchXtraForm));
+            OpenChildForm(typeof(PartSearchXtraForm));
         }
 
         private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
         {
-            CreateChildForm(typeof(AuditXtraForm));
+            OpenChildForm(typeof(AuditXtraForm));
         }
         #endregion
 
@@ -502,7 +533,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //CreateChildForm(typeof(AboutXtraForm));
+            //OpenChildForm(typeof(AboutXtraForm));
             AboutXtraForm form = new AboutXtraForm();
             form.ShowDialog();
         }
@@ -538,7 +569,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void ShowNotificationForm()
         {
-            CreateChildForm(typeof(NotificationXtraForm));
+            OpenChildForm(typeof(NotificationXtraForm));
         }
 
         /// <summary>
@@ -596,7 +627,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
         {
-           CreateChildForm(typeof(ExportForm));
+           OpenChildForm(typeof(ExportForm), Guid.Empty, string.Empty);
         }
 
         private void barButtonItemImport_ItemClick(object sender, ItemClickEventArgs e)

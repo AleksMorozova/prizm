@@ -25,8 +25,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
 
         /// <summary>
-        /// Setup of dialog result: if yes - spool was selected, no - component
-        /// Dialog result is used in SearchPartForInspectionCommand
+        /// Setup of dialog testResult: if yes - spool was selected, no - component
+        /// Dialog testResult is used in SearchPartForInspectionCommand
         /// </summary>
         private void acceptButton_Click(object sender, EventArgs e)
         {

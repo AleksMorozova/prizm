@@ -44,7 +44,7 @@ namespace Prizm.UnitTests.Forms.Settings
             var repoCertificateType = new Mock<ICertificateTypeRepository>();
             var repoComponentType = new Mock<IComponentTypeRepository>();
 
-            var testProjectSetting = new Project();
+            var testProjectSetting = new Project() { IsNative = true};
             var testSizeType = new PipeMillSizeType();
             var testWelder = new Welder();
             var testManufacturer = new PlateManufacturer();

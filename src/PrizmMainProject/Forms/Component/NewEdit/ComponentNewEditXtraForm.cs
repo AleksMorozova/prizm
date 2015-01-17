@@ -16,18 +16,22 @@ using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using System.Linq;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class ComponentNewEditXtraForm : ChildForm , IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
@@ -35,6 +39,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
+            this.id = id;
+
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
@@ -43,11 +49,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
             viewModel.Number = number;
-            SetConditional(componentDeactivated,
-                delegate(bool editMode)
-                {
-                    return viewModel.DeactivationCommand.CanExecute() && editMode;
-                });
             IsEditMode = true;
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
@@ -83,7 +84,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = !viewModel.IsNotActive;
+            IsEditMode = viewModel.ComponentIsActive;
 
             IsModified = false;
         }
@@ -113,8 +114,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
             type.DataBindings
                 .Add("EditValue", componentBindingSource, "Type");
 
-            componentDeactivated.DataBindings
-                .Add("EditValue", componentBindingSource, "IsNotActive");
+            deactivated.DataBindings
+                .Add(BindingHelper.CreateCheckEditInverseBinding(
+                        "EditValue", componentBindingSource, "ComponentIsActive"));
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
@@ -145,12 +147,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
             commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
-
-            commandManager["NewSave"].RefreshState();
-            commandManager["Save"].RefreshState();
-
+            commandManager["Deactivate"].Executor(viewModel.DeactivationCommand).AttachTo(deactivated);
 
             SaveCommand = viewModel.SaveCommand;
+
+            viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.NewSaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.DeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+
+            commandManager.RefreshVisualState();
         }
 
         private void componentNumber_EditValueChanged(object sender, EventArgs e)
@@ -169,17 +174,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             commandManager["NewSave"].RefreshState();
             commandManager["Save"].RefreshState();
-        }
-
-        private void componentDeactivated_Modified(object sender, EventArgs e)
-        {
-            viewModel.IsNotActive = (bool)componentDeactivated.EditValue;
-
-            if (viewModel.IsNotActive)
-            {
-                viewModel.DeactivationCommand.Execute();
-                IsEditMode = !viewModel.IsNotActive;
-            }
         }
 
         private void inspectionHistoryGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
@@ -324,6 +318,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
                 e.Valid = false;
             }
+        }
+
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
         }
     }
 }

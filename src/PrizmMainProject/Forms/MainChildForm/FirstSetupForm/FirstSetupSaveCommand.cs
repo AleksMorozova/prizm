@@ -13,6 +13,7 @@ using Ninject;
 using Prizm.Data.DAL.Hibernate;
 using NHibernate;
 using Prizm.Data.DAL.Setup;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -20,6 +21,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
     {
         private readonly FirstSetupViewModel viewModel;
         private readonly IFirstSetupRepo firstSetupRepo;
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public FirstSetupSaveCommand(FirstSetupViewModel viewModel, IFirstSetupRepo firstSetupRepo)
         {
@@ -47,13 +50,15 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
             SaveInspectorCertificateTypes();
             SaveSeemTypes();
+            SaveCategoryes();
+            firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Evict(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
             EvictInspectorCertificateTypes();
             EvictSeemTypes();
-
+            EvictCategoryes();
             viewModel.IsSaved = true;
         }
 
@@ -80,6 +85,14 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
+        private void SaveCategoryes()
+        {
+            foreach (var category in viewModel.FixedCategoryes)
+            {
+                firstSetupRepo.CategoryRepo.Save(category);
+            }
+        }
+
         private void EvictInspectorCertificateTypes()
         {
             foreach (var ct in viewModel.InspectorCertificateTypes)
@@ -96,7 +109,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
-        public bool IsExecutable { get; set; }
+        private void EvictCategoryes()
+        {
+            foreach (var category in viewModel.FixedCategoryes)
+            {
+                firstSetupRepo.CategoryRepo.Evict(category);
+            }
+        }
 
         #endregion
     }

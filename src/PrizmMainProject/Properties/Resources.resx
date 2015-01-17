@@ -320,7 +320,7 @@
     <value>Экспорт данных из Мастер</value>
   </data>
   <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
-    <value>Создание катушка</value>
+    <value>Создание катушки</value>
   </data>
   <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
     <value>Загрузка файла</value>
@@ -654,7 +654,7 @@
     <value>Труба</value>
   </data>
   <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
-    <value>Длинны трубы не достаточно для отрезания заданной катушки</value>
+    <value>Длины трубы не достаточно для отрезания заданной катушки</value>
   </data>
   <data name="DLG_PIPE_SAVED" xml:space="preserve">
     <value>Труба успешно сохранена в базе. Труба  # </value>
@@ -759,7 +759,7 @@
     <value>Файл успешно загружен</value>
   </data>
   <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
-    <value>Длинна катушки не может быть равна 0</value>
+    <value>Длина катушки не может быть равна 0</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Дата</value>
@@ -773,26 +773,32 @@
   <data name="SPOOL_EDIT_FORM_TEXT" xml:space="preserve">
     <value>Редактирование катушки</value>
   </data>
-  <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
-    <value>Добавление вложений</value>
-  </data>
   <data name="Operation" xml:space="preserve">
     <value>Контрольная операция</value>
   </data>
-  <data name="JointTestResultStatus_Accepted" xml:space="preserve">
-    <value>Принято</value>
+  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
+    <value>Дублирование номера трубы</value>
+  </data>
+  <data name="Stocked" xml:space="preserve">
+    <value>На складе</value>
+  </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
+    <value>Добавление вложений</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
+    <value>Просмотр и загрузка несохрaненных файлов</value>
   </data>
   <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
     <value>Сертификат просрочен</value>
+  </data>
+  <data name="JointTestResultStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
   </data>
   <data name="SecurityPrivilege_ImportData" xml:space="preserve">
     <value>Импорт данных</value>
   </data>
   <data name="Diameter" xml:space="preserve">
     <value>Диаметр</value>
-  </data>
-  <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
-    <value>Дублирование номера трубы</value>
   </data>
   <data name="SecurityPrivilege_NewDataEntry" xml:space="preserve">
     <value>Ввод данных</value>
@@ -803,17 +809,11 @@
   <data name="WallThickness" xml:space="preserve">
     <value>Толщина стенки</value>
   </data>
-  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
-    <value>Просмотр и загрузка несохрaненных файлов</value>
-  </data>
   <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
     <value>Просмотр настроек</value>
   </data>
   <data name="PipeTestControlType_Review" xml:space="preserve">
     <value>По документации</value>
-  </data>
-  <data name="Stocked" xml:space="preserve">
-    <value>На складе</value>
   </data>
   <data name="SecurityPrivilege_ImportDataAtMaster" xml:space="preserve">
     <value>Импорт данных на Мастер</value>
@@ -841,5 +841,23 @@
   </data>
   <data name="Import_Conflict" xml:space="preserve">
     <value>Труба с номером '{0}' уже существует в БД.</value>
+  </data>
+  <data name="DLG_SPOOL_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет в деактивации катушки: длина исходной трубы будет 
+пересчитана, параметры катушки станут невозможны для редактирования.
+ Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+Деактивировать комплектующий элемент?</value>
+  </data>
+  <data name="DLG_SPOOL_DEACTIVATION_HEADER" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
+  <data name="Empty_Operation_Code" xml:space="preserve">
+    <value>Введите код операции</value>
+  </data>
+  <data name="Empty_Operation_Name" xml:space="preserve">
+    <value>Введите название операции</value>
+  </data>
+  <data name="RequiredWeldJointOperation" xml:space="preserve">
+    <value>Сварка стыка</value>
   </data>
 </root>

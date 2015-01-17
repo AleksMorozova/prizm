@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Construction = Prizm.Domain.Entity.Construction;
 using Prizm.Main.Common;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -17,6 +18,8 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         IJointRepository repo;
         JointSearchViewModel viewModel;
+
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
         public JointSearchCommand(JointSearchViewModel vm, IJointRepository repo)
@@ -52,7 +55,16 @@ namespace Prizm.Main.Forms.Joint.Search
                     criteria.Add(Restrictions.Lt("LoweringDate", viewModel.ToDate));
                 }
                 criteria.Add(Restrictions.In("Status", viewModel.Statuses));
-                
+
+                if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
+                {
+                    criteria.Add(Restrictions.Eq("IsActive", true));
+                }
+                else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
+                {
+                    criteria.Add(Restrictions.Eq("IsActive", false));
+                }
+
                 var list = repo.GetByCriteria(criteria);
                 viewModel.Joints.Clear();
                 foreach(var item in list)
@@ -66,8 +78,6 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             return true;
         }
-
-        public bool IsExecutable { get; set; }
 
         #endregion
     }

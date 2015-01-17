@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
 using Prizm.Data.DAL.Setup;
 using System;
@@ -20,6 +21,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly ISeamTypeRepository seemTypeRepo;
         private readonly IPermissionRepository permissionRepo;
         private readonly IRoleRepository roleRepo;
+        private readonly ICategoryRepository categoryRepo;
+        private readonly IJointOperationRepository jointOperationRepo;
 
         public FirstSetupRepo()
         {
@@ -30,6 +33,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.seemTypeRepo = new SeamTypeRepository(session);
             this.permissionRepo = new PermissionRepository(session);
             this.roleRepo = new RoleRepository(session);
+            this.categoryRepo = new CategoryRepository(session);
+            this.jointOperationRepo = new JointOperationRepository(session);
         }
 
         public IUserRepository UserRepo
@@ -75,6 +80,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public IRoleRepository RoleRepo
         {
             get { return roleRepo; }
+        }
+
+
+        public ICategoryRepository CategoryRepo
+        {
+            get { return categoryRepo; }
+        }
+
+        public IJointOperationRepository JointOperationRepo
+        {
+            get { return jointOperationRepo; }
         }
     }
 }

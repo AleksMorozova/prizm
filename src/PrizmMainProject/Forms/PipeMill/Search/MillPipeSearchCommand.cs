@@ -23,6 +23,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private readonly MillPipeSearchViewModel viewModel;
         private readonly IUserNotify notify;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public MillPipeSearchCommand(
             MillPipeSearchViewModel viewModel,
             IPipeRepository repo,
@@ -71,6 +73,5 @@ namespace Prizm.Main.Forms.PipeMill.Search
             return true;
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

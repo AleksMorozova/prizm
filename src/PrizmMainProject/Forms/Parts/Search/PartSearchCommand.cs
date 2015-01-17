@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Parts.Search
         PartSearchViewModel viewModel;
         ISession session;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public PartsSearchCommand(PartSearchViewModel vm, ISession sess)
         {
@@ -31,7 +33,7 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             BindingList<Part> parts = new BindingList<Part>();
 
-            var query = session.CreateSQLQuery(PartQuery.BuildSql(viewModel.Types, viewModel.Number))
+            var query = session.CreateSQLQuery(PartQuery.BuildSql(viewModel.Types, viewModel.Number, viewModel.Activity))
                 .SetResultTransformer(PartQuery.Transformer);
 
             var qparts = query.List<Part>();
@@ -48,8 +50,6 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             return true;
         }
-
-        public bool IsExecutable { get; set; }
 
         #endregion
     }

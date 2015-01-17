@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Audit
         readonly IAuditLogRepository repo;
         readonly AuditViewModel viewModel;
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         public AuditSearchCommand(AuditViewModel viewModel, IAuditLogRepository repo)
         {
             this.viewModel = viewModel;
@@ -33,6 +35,5 @@ namespace Prizm.Main.Forms.Audit
             return true;
         }
 
-        public virtual bool IsExecutable { get; set; }
     }
 }

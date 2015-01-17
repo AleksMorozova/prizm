@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
+using DevExpress.XtraCharts.Native;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
@@ -45,6 +46,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+
+        public bool IsNew { get { return this.Joint.IsNew(); } }
 
         [Inject]
         public JointNewEditViewModel(
@@ -170,18 +173,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         #endregion
 
         # region Joint
-        public bool IsNotActive
+
+        public bool JointIsActive
         {
-            get
-            {
-                return Joint.IsNotActive;
-            }
+            get { return Joint.IsActive; }
             set
             {
-                if (value != Joint.IsNotActive)
+                if (value != Joint.IsActive)
                 {
-                    Joint.IsNotActive = value;
-                    RaisePropertyChanged("IsNotActive");
+                    Joint.IsActive = value;
+                    RaisePropertyChanged("JointIsActive");
                 }
             }
         }
@@ -603,7 +604,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (list == null && Pieces != null)
+                if (Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
@@ -676,10 +677,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 if (part is construction.Component)
                 {
-                    connector.Diameter = ((construction.Component)part)
-                        .Connectors
-                        .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
-                        .Diameter;
+                    if (Joint.IsActive)
+                    {
+                        connector.Diameter = ((construction.Component)part)
+                            .Connectors
+                            .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
+                            .Diameter;
+                    }
                 }
                 else if (part is Pipe)
                 {
@@ -706,10 +710,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = JointStatus.Welded;
             this.JointTestResults = new BindingList<JointTestResult>();
-            this.JointWeldResults = new BindingList<JointWeldResult>();
+            JointWeldResult requredWeldResult = new JointWeldResult()
+            { 
+                IsActive = true,
+                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
+                Joint = this.Joint
+            };
+            JointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
+            this.Joint.JointWeldResults = JointWeldResults;
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
+            this.Joint.ToExport = false;
+        }
 
+        public void RefreshJointComponents()
+        {
+            Pieces = adoRepo.GetPipelineElements();
         }
 
     }

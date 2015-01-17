@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
 using Prizm.Data.DAL.Setup;
 using System;
@@ -17,6 +18,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         ISeamTypeRepository SeemTypeRepo { get; }
         IPermissionRepository PermissionRepo { get; }
         IRoleRepository RoleRepo { get; }
+        ICategoryRepository CategoryRepo { get; }
+        IJointOperationRepository JointOperationRepo { get; }
 
         void Commit();
         void BeginTransaction();

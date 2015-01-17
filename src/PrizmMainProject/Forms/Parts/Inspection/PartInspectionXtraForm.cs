@@ -30,6 +30,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             InitializeComponent();
             SetAlwaysEditable(searchNumber);
+            searchNumber.SetAsIdentifier();
             IsEditMode = true;
         }
 
@@ -51,6 +52,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
             commandManager["Save"].RefreshState();
             commandManager["SavaAndClear"].RefreshState();
 
+            viewModel.SaveInspectionTestResultsCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SaveAndClearTestResultsCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         private void BindToViewModel()
@@ -66,7 +69,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
             inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
             inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
-            resultStatusLookUpEdit.DataSource = inspectionStatusDict;
+            inspectionStatusDict.Add(PartInspectionStatus.Undefined, string.Empty);
+            resultStatusLookUpEdit.DataSource = inspectionStatusDict.Where(x => x.Key != PartInspectionStatus.Undefined);
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;

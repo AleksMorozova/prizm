@@ -27,6 +27,7 @@ namespace Prizm.Data.DAL.Mapping
 	        References<PipeMillSizeType>(x => x.Type).Column("typeId");
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
+            References<Project>(x => x.Project).Column("projectId");
             #endregion
 
             #region --- HasMany ---

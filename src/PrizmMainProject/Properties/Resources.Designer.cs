@@ -370,7 +370,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создание катушка.
+        ///   Looks up a localized string similar to Создание катушки.
         /// </summary>
         internal static string Cut_Spool_from_pipe_Header {
             get {
@@ -831,6 +831,27 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет 
+        ///пересчитана, параметры катушки станут невозможны для редактирования.
+        /// Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string DLG_SPOOL_DEACTIVATION_HEADER {
+            get {
+                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вагон не отгружен.
         /// </summary>
         internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
@@ -845,6 +866,24 @@ namespace Prizm.Main.Properties {
         internal static string DocumentSizeLimit {
             get {
                 return ResourceManager.GetString("DocumentSizeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите код операции.
+        /// </summary>
+        internal static string Empty_Operation_Code {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите название операции.
+        /// </summary>
+        internal static string Empty_Operation_Name {
+            get {
+                return ResourceManager.GetString("Empty_Operation_Name", resourceCulture);
             }
         }
         
@@ -1067,7 +1106,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Труба с номером {0} уже существует в БД..
+        ///   Looks up a localized string similar to Труба с номером &apos;{0}&apos; уже существует в БД..
         /// </summary>
         internal static string Import_Conflict {
             get {
@@ -1773,6 +1812,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сварка стыка.
+        /// </summary>
+        internal static string RequiredWeldJointOperation {
+            get {
+                return ResourceManager.GetString("RequiredWeldJointOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип результата.
         /// </summary>
         internal static string ResultType {
@@ -2206,7 +2254,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Длинны трубы не достаточно для отрезания заданной катушки.
+        ///   Looks up a localized string similar to Длины трубы не достаточно для отрезания заданной катушки.
         /// </summary>
         internal static string Wrong_Spool_Lengs_MorePipeLength {
             get {
@@ -2215,7 +2263,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Длинна катушки не может быть равна 0.
+        ///   Looks up a localized string similar to Длина катушки не может быть равна 0.
         /// </summary>
         internal static string Wrong_Spool_Length_NullLength {
             get {

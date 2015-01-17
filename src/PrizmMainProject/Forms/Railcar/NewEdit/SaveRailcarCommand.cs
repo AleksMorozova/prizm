@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IUserNotify notify;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+
         [Inject]
         public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
         {
@@ -38,19 +40,19 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
+            if(string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
 
-            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            if(viewModel.Railcar.ShippingDate == DateTime.MinValue)
             {
                 viewModel.Railcar.ShippingDate = null;
             }
             try
             {
-                foreach (var pipe in viewModel.Railcar.Pipes)
+                foreach(var pipe in viewModel.Railcar.Pipes)
                 {
                     pipe.Railcar = viewModel.Railcar;
                 }
@@ -62,7 +64,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 viewModel.ModifiableView.IsModified = false;
 
                 //saving attached documents
-                if (viewModel.FilesFormViewModel != null)
+                if(viewModel.FilesFormViewModel != null)
                 {
                     viewModel.FilesFormViewModel.Item = viewModel.Railcar.Id;
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
@@ -71,17 +73,18 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
                 notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
             }
-            catch (RepositoryException ex)
+            catch(RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
             bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
             bool conditionAndPermission;
-            if (viewModel.Railcar.Id == Guid.Empty)
+            if(viewModel.IsNew)
             {
                 conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
             }
@@ -90,12 +93,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
             }
             return conditionAndPermission;
-        }
-        public virtual bool IsExecutable { get; set; }
-
-        protected virtual void OnIsExecutableChanged()
-        {
-            this.RaiseCanExecuteChanged(x => x.Execute());
         }
     }
 }
