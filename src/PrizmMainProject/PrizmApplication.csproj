@@ -396,13 +396,13 @@
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
-    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.Designer.cs">
-      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.Designer.cs">
+      <DependentUpon>PipeConstructionReportXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
@@ -669,8 +669,8 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\PipelineLengthReport.resx">
-      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.resx">
+      <DependentUpon>PipeConstructionReportXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
       <DependentUpon>TracingReporn.cs</DependentUpon>
@@ -937,7 +937,9 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Reports\Construction\ReportsOnWeldingDate\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\critical_warning.png" />
   </ItemGroup>

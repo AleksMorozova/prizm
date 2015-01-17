@@ -90,6 +90,8 @@
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
+            this.barButtonPipeReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonWeldDateReports = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -164,9 +166,11 @@
             this.barButtonStatusNotifications,
             this.barButtonItemComponentry,
             this.barButtonItemPartIncomingInspection,
-            this.importantMessages});
+            this.importantMessages,
+            this.barButtonPipeReports,
+            this.barButtonWeldDateReports});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 63;
+            this.barManager1.MaxItemId = 65;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -284,6 +288,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonPipeReports),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonWeldDateReports),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
@@ -341,7 +347,7 @@
             // 
             // barButtonItemConstructionReports
             // 
-            this.barButtonItemConstructionReports.Caption = "&Отчеты по строительству";
+            this.barButtonItemConstructionReports.Caption = "&Отчет по сварке участка между пикетами";
             this.barButtonItemConstructionReports.Id = 34;
             this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
             this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
@@ -649,6 +655,18 @@
             this.workspaceManager.TargetControl = this;
             this.workspaceManager.TransitionType = pushTransition1;
             // 
+            // barButtonPipeReports
+            // 
+            this.barButtonPipeReports.Caption = "Отчет по трубам";
+            this.barButtonPipeReports.Id = 63;
+            this.barButtonPipeReports.Name = "barButtonPipeReports";
+            // 
+            // barButtonWeldDateReports
+            // 
+            this.barButtonWeldDateReports.Caption = "Отчет по сварке (по дате)";
+            this.barButtonWeldDateReports.Id = 64;
+            this.barButtonWeldDateReports.Name = "barButtonWeldDateReports";
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +760,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
         private DevExpress.XtraBars.BarButtonItem importantMessages;
         private DevExpress.Utils.WorkspaceManager workspaceManager;
+        private DevExpress.XtraBars.BarButtonItem barButtonPipeReports;
+        private DevExpress.XtraBars.BarButtonItem barButtonWeldDateReports;
 
 
 

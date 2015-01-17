@@ -213,6 +213,86 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public TracingModeEnum TracingMode { get; set; }
 
+
+        public int PipelineJointCount
+        {
+            get
+            {
+                return
+                    (report != null) ? ((TracingReporn)this.report).PipelineJointCount : 0;
+            }
+            set
+            {
+                if (report != null)
+                {
+                    ((TracingReporn)this.report).PipelineJointCount = value;
+                }
+            }
+        }
+
+        public int PipelinePipeCount
+        { 
+            get{
+                return
+                    (report != null) ? ((TracingReporn)this.report).PipelinePipeCount : 0;
+            }
+            set
+            {
+                if (report != null)
+                {
+                    ((TracingReporn)this.report).PipelinePipeCount = value;
+                }
+            }
+        }
+
+        public int PipelineSpoolCount
+        {
+            get
+            {
+                return
+                    (report != null) ? ((TracingReporn)this.report).PipelineSpoolCount : 0;
+            }
+            set
+            {
+                if (report != null)
+                {
+                    ((TracingReporn)this.report).PipelineSpoolCount = value;
+                }
+            }
+        }
+
+        public int PipelineComponentCount
+        {
+            get
+            {
+                return
+                    (report != null) ? ((TracingReporn)this.report).PipelineComponentCount : 0;
+            }
+            set
+            {
+                if (report != null)
+                {
+                    ((TracingReporn)this.report).PipelineComponentCount = value;
+                }
+            }
+        }
+
+        public int PipelineLength 
+        { 
+            get{
+                return
+                    (report != null) ? ((TracingReporn)this.report).PipelineLength : 0;
+            }
+            set
+            {
+                if (report != null)
+                {
+                    ((TracingReporn)this.report).PipelineLength = value;
+                }
+            }
+        }
+
+
         public ICommand CreateCommand
         {
             get
@@ -288,5 +368,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             return list;
         }
+
+
     }
 }

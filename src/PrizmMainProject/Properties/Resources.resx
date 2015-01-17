@@ -650,9 +650,6 @@
   <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
     <value>Загрузка файла</value>
   </data>
-  <data name="PipelineLengthReport" xml:space="preserve">
-    <value>Протяженность трубопровода</value>
-  </data>
   <data name="DLG_FILE_DOWNLOAD_SUCCESS" xml:space="preserve">
     <value>Файл успешно загружен</value>
   </data>
