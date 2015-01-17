@@ -65,11 +65,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-             return !string.IsNullOrEmpty(viewModel.Number) 
-                 && viewModel.FirstElement != null 
-                 && viewModel.SecondElement != null
-                 && viewModel.Joint.IsActive
-                 && ctx.HasAccess(viewModel.IsNew 
+             return 
+                 !string.IsNullOrEmpty(viewModel.Number) 
+                 &&
+                    ((viewModel.FirstElement != null && viewModel.SecondElement != null) 
+                    || 
+                    viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                 && 
+                 viewModel.Joint.IsActive
+                 && 
+                 ctx.HasAccess(viewModel.IsNew 
                                     ? global::Domain.Entity.Security.Privileges.NewDataEntry
                                     : global::Domain.Entity.Security.Privileges.EditData);
         }
