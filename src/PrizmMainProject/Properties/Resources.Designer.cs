@@ -2255,6 +2255,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вырезан.
+        /// </summary>
+        internal static string Withdrawn {
+            get {
+                return ResourceManager.GetString("Withdrawn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип рабочего места.
         /// </summary>
         internal static string WorkstationType {
