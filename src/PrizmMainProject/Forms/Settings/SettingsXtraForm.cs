@@ -92,7 +92,6 @@ namespace Prizm.Main.Forms.Settings
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
             pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
-            //viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -251,7 +250,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if(CurrentPipeMillSizeType != null)
             {
-              viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
+                viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
             }
         }
 
@@ -955,9 +954,26 @@ namespace Prizm.Main.Forms.Settings
             #endregion
             if(viewModel.SeamTypes != null)
             {
-                UpdateSeamTypesComboBox();    
+                UpdateSeamTypesComboBox();
             }
-            
         }
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
+        }
+        
+         /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
     }
 }
