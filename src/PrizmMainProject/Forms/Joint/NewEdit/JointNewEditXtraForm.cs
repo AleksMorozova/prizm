@@ -183,6 +183,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = viewModel.JointIsActive;
             IsModified = false;
+
+            if (viewModel.Joint.Status == JointStatus.Withdrawn)
+            {
+                DisableControlUnderWithdrawn();
+            }
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
@@ -310,6 +315,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
                 JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+                
                 if (jointWeldResult != null)
                 {
                     jointWeldResult.Welders.Clear();
@@ -324,6 +330,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void weldersPopupContainerEdit_Popup(object sender, EventArgs e)
         {
             repairOperationsView.ClearSelection();
+            
             if (repairOperationsView.IsValidRowHandle(repairOperationsView.FocusedRowHandle))
             {
                 JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
@@ -350,7 +357,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             GridView view = sender as GridView;
             JointOperation selectedOperation = repairOperationsLookUpEdit.GetDataSourceRowByDisplayValue(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Operation.Name"])) as JointOperation;
-            if (selectedOperation != null && selectedOperation.Type != JointOperationType.Weld
+            if (selectedOperation != null 
+                && selectedOperation.Type != JointOperationType.Weld 
+                && selectedOperation.Type != JointOperationType.Withdraw
                 && view.FocusedColumn.FieldName == "Welders")
             {
                 e.Cancel = true;
@@ -474,10 +483,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void weldersPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
         {
-            JointWeldResult weld = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            JointWeldResult weld = 
+                repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            
             if (weld == null || (weld != null && weld.Date == null))
             {
                 repairOperationsView.SetColumnError(repairOperationsView.VisibleColumns[1], Resources.DateFirst);
+                
                 e.Cancel = true;
             }
             else
@@ -500,5 +512,41 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
        
+
+        private void DisableControlUnderWithdrawn()
+        {
+            repairOperationsView.OptionsBehavior.Editable = false;
+            SetAlwaysReadOnly(repairOperations);
+            firstJointElement.Enabled = false;
+            secondJointElement.Enabled = false;
+        }
+
+        private void CompletedCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit checkEdit = sender as CheckEdit;
+
+            if (checkEdit.Checked)
+            {
+                int selectedIndex = repairOperationsView.GetFocusedDataSourceRowIndex();
+
+                if (selectedIndex >= 0 &&
+                    viewModel.JointWeldResults[selectedIndex].Operation != null &&
+                    viewModel.JointWeldResults[selectedIndex].Operation.Type == JointOperationType.Withdraw)
+                {
+                    viewModel.JointCut();
+
+                    if (viewModel.Joint.Status == JointStatus.Withdrawn)
+                    {
+                        viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
+
+                        DisableControlUnderWithdrawn();
+                    }
+                    else
+                    {
+                        checkEdit.Checked = false;
+                    }
+                }
+            }
+        }
     }
 }
