@@ -4,6 +4,7 @@ using Prizm.Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using NHibernate.Mapping.ByCode.Conformist;
 using Prizm.Domain.Entity;
+using System;
 
 namespace Prizm.Data.DAL.Mapping
 {
@@ -35,6 +36,7 @@ namespace Prizm.Data.DAL.Mapping
             HasMany<Weld>(x => x.Welds).KeyColumn("pipeId").Cascade.All();
 
             HasMany<Spool>(x => x.Spools).KeyColumn("pipeId").Cascade.All();
+            HasMany<File>(x => x.Attachments).KeyColumn("item").Inverse().LazyLoad();
             #endregion
         }
     }

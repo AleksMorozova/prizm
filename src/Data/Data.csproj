@@ -84,6 +84,7 @@
     <Compile Include="DAL\Hibernate\PipeTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateManufacturerRepository.cs" />
     <Compile Include="DAL\Hibernate\PlateRepository.cs" />
+    <Compile Include="DAL\Hibernate\PortionRepository.cs" />
     <Compile Include="DAL\Hibernate\ProjectRepository.cs" />
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="DAL\Mapping\PipeTestResultMap.cs" />
     <Compile Include="DAL\Mapping\PlateManufacturerMap.cs" />
     <Compile Include="DAL\Mapping\PlateMap.cs" />
+    <Compile Include="DAL\Mapping\PortionMap.cs" />
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="DAL\Setup\IMillPipeSizeTypeRepository.cs" />
     <Compile Include="DAL\Setup\IPipeTestRepository.cs" />
     <Compile Include="DAL\Setup\ISeamTypeRepository.cs" />
+    <Compile Include="DAL\Synch\IPortionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

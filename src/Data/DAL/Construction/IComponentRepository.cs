@@ -10,5 +10,6 @@ namespace Prizm.Data.DAL.Construction
     public interface IComponentRepository : IRepository<Guid, Component>
     {
         IList<Component> GetActiveByNumber(Component component);
+        IList<Component> GetComponentsToExport();
     }
 }
