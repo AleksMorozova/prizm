@@ -216,7 +216,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to В производстве.
+        ///   Looks up a localized string similar to По произведенным.
         /// </summary>
         internal static string ByProducing {
             get {

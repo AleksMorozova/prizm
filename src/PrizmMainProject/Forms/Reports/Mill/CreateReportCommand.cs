@@ -12,6 +12,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity.Mill;
+using System.ComponentModel;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
@@ -40,17 +42,31 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             try
             {
-                data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
-                //data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
-                //MillReportsXtraReport report = new MillReportsXtraReport();
-                additionToTheReport report = new additionToTheReport();
-                report.DataSource = data;
-               
-                //report.CalculatedFields[0].DataSource = repo.CountPipeInformation(viewModel.StartDate, viewModel.EndDate);
-                report.CreateDocument();
-                var tool = new ReportPrintTool(report);
-                tool.AutoShowParametersPanel = false;
-                tool.ShowPreview();
+                if (viewModel.SelectedReportType == ReportType.ByProducing)
+                {
+                    data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
+                    AdditionToTheReport report = new AdditionToTheReport();
+                    BindingList<double> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
+                    report.PipesCount = counts[0];
+                    report.PipesLength = counts[1];
+                    report.PipesWeight = counts[2];
+                    report.DataSource = data;
+                    report.CreateDocument();
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
+
+                else
+                {
+                    data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
+                    MillReportsXtraReport report = new MillReportsXtraReport();
+                    report.DataSource = data;
+                    report.CreateDocument();
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
             }
             catch (RepositoryException ex)
             {

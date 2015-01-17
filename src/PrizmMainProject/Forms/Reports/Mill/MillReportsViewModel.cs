@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Reports.Mill
         public List<string> SearchStatuses= new List <string>();
         public BindingList<EnumWrapper<ReportType>> ReportTypes = new BindingList<EnumWrapper<ReportType>>();
         private BindingList<EnumWrapper<PipeTestResultStatus>> statuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
-        private ReportType selectedReportType = ReportType.ByCategories;
+        private Prizm.Domain.Entity.Mill.ReportType selectedReportType = Prizm.Domain.Entity.Mill.ReportType.ByCategories;
 
         [Inject]
         public MillReportsViewModel(IMillReportsRepository repo, IUserNotify notify, ICategoryRepository repoCategory)
@@ -104,6 +104,20 @@ namespace Prizm.Main.Forms.Reports.Mill
                 {
                     endDate = value;
                     RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+
+        private EnumWrapper<MillReportType> reportType;
+        public EnumWrapper<MillReportType> ReportType
+        {
+            get { return reportType; }
+            set
+            {
+                if (value != reportType)
+                {
+                    reportType = value;
+                    RaisePropertyChanged("ReportType");
                 }
             }
         }

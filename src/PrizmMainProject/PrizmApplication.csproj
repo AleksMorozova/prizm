@@ -419,11 +419,11 @@
     <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Mill\additionToTheReport.cs">
+    <Compile Include="Forms\Reports\Mill\AdditionToTheReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Reports\Mill\additionToTheReport.Designer.cs">
-      <DependentUpon>additionToTheReport.cs</DependentUpon>
+    <Compile Include="Forms\Reports\Mill\AdditionToTheReport.Designer.cs">
+      <DependentUpon>AdditionToTheReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
@@ -695,8 +695,8 @@
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Mill\additionToTheReport.resx">
-      <DependentUpon>additionToTheReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reports\Mill\AdditionToTheReport.resx">
+      <DependentUpon>AdditionToTheReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>

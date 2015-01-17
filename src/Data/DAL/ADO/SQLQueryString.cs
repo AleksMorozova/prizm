@@ -28,7 +28,8 @@ namespace Prizm.Data.DAL.ADO
             GetAllUsedSpool,
             GetAllUsedComponent,
             GetWeldedParts,
-            CountPipe
+            CountPipesInformation, 
+            GetAllProducedPipesByDate
         }
         
         /// <summary>
@@ -36,7 +37,15 @@ namespace Prizm.Data.DAL.ADO
         /// </summary>
 
         private const string GettAllKP = @"Select distinct(numberKP) From Joint";
-        
+
+        private const string GetAllProducedPipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, weight as weight,Pipe.length as length,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive, Pipe.productionDate as shippingDate
+              from  Pipe Pipe
+              left join Plate on (Plate.id = Pipe.plateId)
+              left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+              left  join Heat on (Heat.id = Plate.heatId)
+              WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
+              {where_options}";
+
         private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
@@ -48,7 +57,7 @@ namespace Prizm.Data.DAL.ADO
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
 
-        private const string CountPipe = @"Select COUNT(Pipe.number) as calculatedField1 From Pipe Pipe ";
+        private const string CountPipesInformation = @"Select COUNT(Pipe.number) as count, SUM(Pipe.Length) length,SUM(Pipe.Weight) as sum From Pipe Pipe WHERE productionDate >=  @startDate  and productionDate <= @finalDate";
 
         private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
@@ -197,8 +206,12 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                     queryText = GettAllKP;
                     break;
 
-                case SQLStatic.CountPipe:
-                    queryText = CountPipe;
+                case SQLStatic.GetAllProducedPipesByDate:
+                    queryText = GetAllProducedPipesByDate;
+                    break;
+
+                case SQLStatic.CountPipesInformation:
+                    queryText = CountPipesInformation;
                     break;
 
                 case SQLStatic.GetAllActivePipesByDate:
