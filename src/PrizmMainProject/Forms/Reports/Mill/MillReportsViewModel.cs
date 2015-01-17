@@ -108,20 +108,6 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
         }
 
-        private EnumWrapper<MillReportType> reportType;
-        public EnumWrapper<MillReportType> ReportType
-        {
-            get { return reportType; }
-            set
-            {
-                if (value != reportType)
-                {
-                    reportType = value;
-                    RaisePropertyChanged("ReportType");
-                }
-            }
-        }
-
         public ICommand CreateCommand
         {
             get

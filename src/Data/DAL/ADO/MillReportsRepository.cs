@@ -334,33 +334,11 @@ namespace Prizm.Data.DAL.ADO
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
                     {
+                        countPipe.Add(dr[0] == System.DBNull.Value ? (double)(0) : (double)((int)dr[0]));
 
-                        if (dr[0] == System.DBNull.Value)
-                        {
-                            countPipe.Add((double)(0));
-                        }
-                        else 
-                        {                    
-                            countPipe.Add((double)((int)dr[0]));
-                        }
+                        countPipe.Add(dr[1] == System.DBNull.Value ? (double)(0) : (double)((int)dr[1]));
 
-                        if (dr[1] == System.DBNull.Value)
-                        {
-                            countPipe.Add((double)(0));
-                        }
-                        else
-                        {
-                            countPipe.Add((double)((int)dr[1]));
-                        }
-
-                        if (dr[2] == System.DBNull.Value)
-                        {
-                            countPipe.Add((double)(0));
-                        }
-                        else
-                        {
-                            countPipe.Add((double)dr[2]);
-                        }
+                        countPipe.Add(dr[2] == System.DBNull.Value ? (double)(0) : (double)dr[2]);   
                     }
                 }
 
