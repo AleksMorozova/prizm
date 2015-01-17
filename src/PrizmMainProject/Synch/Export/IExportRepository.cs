@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Synch;
 using System;
@@ -14,5 +15,7 @@ namespace Prizm.Main.Synch.Export
       IPipeRepository PipeRepo { get; }
       IPortionRepository PortionRepo { get; }
       IProjectRepository ProjectRepo { get; }
+      IJointRepository JointRepo { get; }
+      IComponentRepository ComponentRepo { get; }
    }
 }

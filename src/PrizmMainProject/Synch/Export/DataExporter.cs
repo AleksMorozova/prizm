@@ -15,6 +15,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Security.Cryptography;
 using System.IO.Compression;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Synch.Export
 {
@@ -35,19 +36,21 @@ namespace Prizm.Main.Synch.Export
 
       public bool AnyNewDataToExport()
       {
-         IList<Pipe> toExport = exportRepo.PipeRepo.GetPipesToExport();
-         return toExport != null && toExport.Count > 0;
+         IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
+         IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
+         IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
+
+         return (pipesToExport != null && pipesToExport.Count > 0) || 
+                (jointsToExport != null && jointsToExport.Count > 0) || 
+                (componentsToExport != null && componentsToExport.Count > 0);
       }
 
       public override ExportResult Export()
       {
          IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
+         IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
+         IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
          
-         if (pipesToExport == null || pipesToExport.Count == 0)
-         {
-            return ExportResult.NothingToExport;
-         }
-
          exportRepo.PortionRepo.BeginTransaction();
 
          Portion portion = new Portion();
@@ -56,6 +59,16 @@ namespace Prizm.Main.Synch.Export
          foreach (var pipe in pipesToExport)
          {
             portion.Pipes.Add(pipe);
+         }
+
+         foreach (var joint in jointsToExport)
+         {
+            portion.Joints.Add(joint);
+         }
+
+         foreach (var component in componentsToExport)
+         {
+            portion.Components.Add(component);
          }
 
          exportRepo.PortionRepo.SaveOrUpdate(portion);
@@ -68,12 +81,25 @@ namespace Prizm.Main.Synch.Export
       {
          Data data = new Data();
          data.Pipes = new List<PipeObject>();
+         data.Joints = new List<JointObject>();
+         data.Components = new List<ComponentObject>();
          data.Project = project;
 
          foreach (var pipe in portion.Pipes)
          {
             data.Pipes.Add(new PipeObject(pipe));
          }
+
+         foreach (var joint in portion.Joints)
+         {
+            data.Joints.Add(new JointObject(joint));
+         }
+
+         foreach (var component in portion.Components)
+         {
+            data.Components.Add(new ComponentObject(component));
+         }
+
          return data;
       }
 
@@ -81,25 +107,55 @@ namespace Prizm.Main.Synch.Export
       {
          Directory.CreateDirectory(Path.Combine(tempDir, "Attachments"));
 
-         foreach (PipeObject pipe in data.Pipes)
+         if (data.Pipes != null)
          {
-            if (pipe.Attachments != null)
+            foreach (PipeObject pipe in data.Pipes)
             {
-               foreach (var att in pipe.Attachments)
+               if (pipe.Attachments != null)
                {
-                  string destFile = Path.Combine(tempDir, "Attachments", att.NewName);
-                  System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
-                  using (FileStream fs = new FileStream(destFile, FileMode.Open))
-                  {
-                     byte[] bytes = new byte[fs.Length];
-                     fs.Read(bytes, 0, bytes.Length);
-                     fs.Close();
-
-                     System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
-                  }
+                  WriteAttachments(tempDir, pipe.Attachments);
                }
             }
-            
+         }
+
+
+         if (data.Joints != null)
+         {
+            foreach (JointObject joint in data.Joints)
+            {
+               if (joint.Attachments != null)
+               {
+                  WriteAttachments(tempDir, joint.Attachments);
+               }
+            }
+         }
+
+         if (data.Components != null)
+         {
+            foreach (ComponentObject components in data.Components)
+            {
+               if (components.Attachments != null)
+               {
+                  WriteAttachments(tempDir, components.Attachments);
+               }
+            }
+         }
+      }
+
+      void WriteAttachments(string tempDir, IList<FileObject> attachments)
+      {
+         foreach (var att in attachments)
+         {
+            string destFile = Path.Combine(tempDir, "Attachments", att.NewName);
+            System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
+            using (FileStream fs = new FileStream(destFile, FileMode.Open))
+            {
+               byte[] bytes = new byte[fs.Length];
+               fs.Read(bytes, 0, bytes.Length);
+               fs.Close();
+
+               System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
+            }
          }
       }
 
@@ -141,6 +197,8 @@ namespace Prizm.Main.Synch.Export
             exportRepo.PipeRepo.BeginTransaction();
 
             UnmarkPipes(portion);
+            UnmarkJoints(portion);
+            UnmarkComponents(portion);
 
             exportRepo.PipeRepo.Commit();
             
@@ -158,6 +216,24 @@ namespace Prizm.Main.Synch.Export
          {
             p.ToExport = false;
             exportRepo.PipeRepo.SaveOrUpdate(p);
+         }
+      }
+
+      private void UnmarkJoints(Portion portion)
+      {
+         foreach (var j in portion.Joints)
+         {
+            j.ToExport = false;
+            exportRepo.JointRepo.SaveOrUpdate(j);
+         }
+      }
+
+      private void UnmarkComponents(Portion portion)
+      {
+         foreach (var c in portion.Components)
+         {
+            c.ToExport = false;
+            exportRepo.ComponentRepo.SaveOrUpdate(c);
          }
       }
 

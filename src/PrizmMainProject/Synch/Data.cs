@@ -16,5 +16,11 @@ namespace Prizm.Main.Synch
 
       [XmlArray("Pipes")]
       public List<PipeObject> Pipes { get; set; }
+
+      [XmlArray("Joints")]
+      public List<JointObject> Joints { get; set; }
+
+      [XmlArray("Components")]
+      public List<ComponentObject> Components { get; set; }
    }
 }

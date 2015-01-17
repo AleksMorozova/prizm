@@ -26,6 +26,15 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.IsAvailableToJoint = component.IsAvailableToJoint;
          this.ConstructionStatus = component.ConstructionStatus;
          this.InspectionStatus = component.InspectionStatus;
+
+         if (component.Attachments != null)
+         {
+            this.Attachments = new List<FileObject>();
+            foreach (var file in component.Attachments)
+            {
+               Attachments.Add(new FileObject(file));
+            }
+         }
       }
 
       public static implicit operator ComponentObject(Component component)
@@ -59,5 +68,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("InspectionStatus")]
       public PartInspectionStatus InspectionStatus { get; set; }
+
+      [XmlArray("Attachments")]
+      public List<FileObject> Attachments { get; set; }
    }
 }

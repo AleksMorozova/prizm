@@ -34,6 +34,15 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.GpsHeight = joint.GpsHeight;
          this.FirstElement = joint.FirstElement;
          this.SecondElement = joint.SecondElement;
+
+         if (joint.Attachments != null)
+         {
+            Attachments = new List<FileObject>();
+            foreach (var file in joint.Attachments)
+            {
+               Attachments.Add(new FileObject(file));
+            }
+         }
       }
 
       public static implicit operator JointObject(Joint joint)
@@ -76,6 +85,9 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlElement("SecondElement")]
       public PartDataObject SecondElement { get; set; }
+
+      [XmlArray("Attachments")]
+      public List<FileObject> Attachments { get; set; }
 
    }
 }

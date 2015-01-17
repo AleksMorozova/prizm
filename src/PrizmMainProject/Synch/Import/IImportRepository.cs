@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
 using Prizm.Data.DAL.Synch;
@@ -23,5 +24,9 @@ namespace Prizm.Main.Synch.Import
       IFileRepository FileRepo { get; }
       IProjectRepository ProjectRepo { get; }
       IPortionRepository PortionRepo { get; }
+      IJointRepository JointRepo { get; }
+      IComponentRepository ComponentRepo { get; }
+      ISpoolRepository SpoolRepo { get; }
+      IComponentTypeRepository ComponentTypeRepo { get; }
    }
 }

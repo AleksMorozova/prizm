@@ -80,16 +80,18 @@ namespace Prizm.Main.Synch.Import
          CheckPortion(manifest.PortionID);
 
          Project project = ImportProject(data.Project);
-         IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, manifest.PortionID, tempDir);
+         IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, tempDir);
+         IList<Joint> importedJoints = ImportJoints(manifest, data, tempDir);
+         IList<Component> importedComponents = ImportComponents(manifest, data, tempDir);
 
-         SavePortionInfo(manifest, importedPipes, project);
+         SavePortionInfo(manifest, importedPipes, importedJoints, importedComponents, project);
 
          importRepo.PipeRepo.Commit();
             
          progress = 100;
          FireProgress(progress);
-         
       }
+     
 
       void CheckPortion(Guid portionId)
       {
@@ -98,7 +100,7 @@ namespace Prizm.Main.Synch.Import
             throw new ImportException(Resources.Import_SamePortion);
       }
 
-      private void SavePortionInfo(Manifest manifest, IList<Pipe> pipes, Project project)
+      private void SavePortionInfo(Manifest manifest, IList<Pipe> pipes, IList<Joint> joints, IList<Component> components, Project project)
       {
          Portion portion = new Portion();
          portion.ExportDateTime = DateTime.Now;
@@ -112,11 +114,29 @@ namespace Prizm.Main.Synch.Import
             }
          }
 
+         if (joints != null && joints.Count > 0)
+         {
+            foreach (var joint in joints)
+            {
+               portion.Joints.Add(joint);
+            }
+         }
+
+         if (components != null && components.Count > 0)
+         {
+            foreach (var comp in components)
+            {
+               portion.Components.Add(comp);
+            }
+         }
+
 
          if (project != null)
          {
             portion.Projects.Add(project);
          }
+
+
 
          importRepo.PortionRepo.Save(portion);
       }
@@ -150,6 +170,10 @@ namespace Prizm.Main.Synch.Import
 
          if (pipeObj.Spools != null)
          {
+            foreach (SpoolObject so in pipeObj.Spools)
+            {
+               pipe.Spools.Add(ImportSpool(so, pipe));
+            }
          }
 
          if (pipeObj.Attachments != null)
@@ -161,6 +185,41 @@ namespace Prizm.Main.Synch.Import
                CopyAttachment(tempDir, f);
             }
          }
+      }
+
+      private Spool ImportSpool(SpoolObject so, Pipe pipe)
+      {
+         Spool spool = importRepo.SpoolRepo.Get(so.Id);
+
+         bool isNew = false;
+
+         if (spool == null)
+         {
+            spool = new Spool();
+            isNew = true;
+         }
+
+         MapSerializableEntityToSpool(so, spool);
+         spool.Pipe = pipe;
+
+         if (isNew)
+            importRepo.SpoolRepo.Save(spool);
+         else
+            importRepo.SpoolRepo.SaveOrUpdate(spool);
+
+         return spool;
+      }
+
+      void MapSerializableEntityToSpool(SpoolObject spoolObj, Spool spool)
+      {
+         spool.Id = spoolObj.Id;
+         spool.IsActive = spoolObj.IsActive;
+         spool.PipeNumber = spoolObj.PipeNumber;
+         spool.Number = spoolObj.Number;
+         spool.Length = spoolObj.Length;
+         spool.IsAvailableToJoint = spoolObj.IsAvailableToJoint;
+         spool.ConstructionStatus = spoolObj.ConstructionStatus;
+         spool.InspectionStatus = spoolObj.InspectionStatus;
       }
 
       private Project ImportProject(ProjectObject projectObj)
@@ -194,10 +253,348 @@ namespace Prizm.Main.Synch.Import
          return project;
       }
 
-      private IList<Pipe> ImportPipes(Manifest manifest, List<PipeObject> pipes, Guid portionId, string tempDir)
+      private IList<Component> ImportComponents(Manifest manifest, Data data, string tempDir)
+      {
+         IList<Component> importedComponents = new List<Component>();
+         IList<ComponentObject> components = data.Components;
+
+         if (components == null)
+            return importedComponents;
+
+         const int PROGRESS_RANGE = 30;
+
+         if (components.Count == 0)
+         {
+            progress += PROGRESS_RANGE;
+            FireProgress(progress);
+            return importedComponents;
+         }
+
+         int step = PROGRESS_RANGE / components.Count;
+
+         foreach (var compObj in components)
+         {
+            importedComponents.Add(ImportComponent(tempDir, compObj));
+            progress += step;
+            FireProgress(progress);
+         }
+
+         return importedComponents;
+      }
+
+      private IList<Joint> ImportJoints(Manifest manifest, Data data, string tempDir)
+      {
+         IList<Joint> importedJoints = new List<Joint>();
+         List<JointObject> joints = data.Joints;
+
+         if (joints == null)
+            return importedJoints;
+
+         const int PROGRESS_RANGE = 30;
+
+         if (joints.Count == 0)
+         {
+            progress += PROGRESS_RANGE;
+            FireProgress(progress);
+            return importedJoints;
+         }
+
+         int step = PROGRESS_RANGE / joints.Count;
+
+         foreach (var jointObj in joints)
+         {
+            Joint joint = importRepo.JointRepo.Get(jointObj.Id);
+            bool isNew = false;
+
+            if (joint == null)
+            {
+               isNew = true;
+               joint = new Joint();
+            }
+
+            joint.Id = jointObj.Id;
+            joint.IsActive = jointObj.IsActive;
+            joint.Number = jointObj.Number;
+            joint.NumberKP = jointObj.NumberKP;
+            joint.DistanceFromKP = jointObj.DistanceFromKP;
+
+            if (jointObj.LoweringDate != DateTime.MinValue)
+            {
+               joint.LoweringDate = jointObj.LoweringDate;
+            }
+            joint.Status = jointObj.Status;
+            joint.GpsLatitude = jointObj.GpsLatitude;
+            joint.GpsLongitude = jointObj.GpsLongitude;
+            joint.GpsHeight = jointObj.GpsHeight;
+            joint.FirstElement = ImportPartData(jointObj.FirstElement, data, tempDir, joint);
+            joint.SecondElement = ImportPartData(jointObj.SecondElement, data, tempDir, joint);
+
+            if (jointObj.Attachments != null)
+            {
+               joint.Attachments = new List<Domain.Entity.File>();
+               foreach (var file in jointObj.Attachments)
+               {
+                  joint.Attachments.Add(ImportFile(file, jointObj.Id));
+               }
+            }
+
+            if (isNew)
+               importRepo.JointRepo.Save(joint);
+            else
+               importRepo.JointRepo.SaveOrUpdate(joint);
+
+            importedJoints.Add(joint);
+
+            progress += step;
+            FireProgress(progress);
+         }
+
+         return importedJoints;
+      }
+
+      PipeObject FindPipeById(Data data, Guid id)
+      {
+         PipeObject result = null;
+         if (data.Pipes != null)
+         {
+            foreach (PipeObject po in data.Pipes)
+            {
+               if (po.Id == id)
+               {
+                  result = po;
+                  break;
+               }
+            }
+         }
+         return result;
+      }
+
+      ComponentObject FindComponentById(Data data, Guid id)
+      {
+         ComponentObject result = null;
+         if (data.Components != null)
+         {
+            foreach (ComponentObject c in data.Components)
+            {
+               if (c.Id == id)
+               {
+                  result = c;
+                  break;
+               }
+            }
+         }
+         return result;
+      }
+
+      SpoolObject FindSpoolById(Data data, Guid id)
+      {
+         SpoolObject result = null;
+         if (data.Pipes != null)
+         {
+            foreach (PipeObject po in data.Pipes)
+            {
+               if (po.Spools != null)
+               {
+                  foreach (var sp in po.Spools)
+                  {
+                     if (sp.Id == id)
+                     {
+                        result = sp;
+                        break;
+                     }
+                  }
+               }
+            }
+         }
+         return result;
+      }
+
+      private PartData ImportPartData(PartDataObject partDataObj, Data data, string tempDir, Joint joint)
+      {
+         if (partDataObj == null)
+            return null;
+
+         PartType type = partDataObj.PartType;
+         Guid partId = partDataObj.Id;
+
+         switch (type)
+         {
+            case PartType.Pipe:
+               Pipe pipe = importRepo.PipeRepo.Get(partId);
+
+               bool newPipe = false;
+               if (pipe == null)
+               {
+                  PipeObject pipeObj = FindPipeById(data, partId);
+                  if (pipeObj != null)
+                  {
+                     pipe = new Pipe();
+                     MapSerializableEntityToPipe(tempDir, pipeObj, pipe);
+                     newPipe = true;
+                  }
+               }
+
+               if (pipe != null)
+               {
+                  if (newPipe)
+                     importRepo.PipeRepo.Save(pipe);
+                  else
+                     importRepo.PipeRepo.SaveOrUpdate(pipe);
+               }
+
+               break;
+            case PartType.Spool:
+               Spool spool = importRepo.SpoolRepo.Get(partId);
+
+               bool isNewSpool = false;
+               if (spool == null)
+               {
+                  SpoolObject spoolObj = FindSpoolById(data, partId);
+                  if (spoolObj != null)
+                  {
+                     spool = new Spool();
+                     MapSerializableEntityToSpool(spoolObj, spool);
+                     isNewSpool = true;
+                  }
+               }
+
+               if (spool != null)
+               {
+                  if (isNewSpool)
+                     importRepo.SpoolRepo.Save(spool);
+                  else
+                     importRepo.SpoolRepo.SaveOrUpdate(spool);
+               }
+
+               break;
+            case PartType.Component:
+               Component component = importRepo.ComponentRepo.Get(partId);
+
+               bool isNewComponent = false;
+               if (component == null)
+               {
+                  ComponentObject compObj = FindComponentById(data, partId);
+                  if (compObj != null)
+                  {
+                     component = new Component();
+                     MapSerializableEntityToComponent(tempDir, compObj, component);
+                     isNewComponent = true;
+                  }
+               }
+
+               if (component != null)
+               {
+                  if (isNewComponent)
+                     importRepo.ComponentRepo.Save(component);
+                  else
+                     importRepo.ComponentRepo.SaveOrUpdate(component);
+               }
+
+               break;
+         }
+
+         if (partDataObj.Connectors != null)
+         {
+            foreach (ConnectorObject co in partDataObj.Connectors)
+            {
+               ImportConnector(tempDir, co, joint);
+            }
+         }
+
+         PartData pd = new PartData();
+         pd.Id = partId;
+         pd.PartType = type;
+         return pd;
+      }
+
+      void ImportConnector(string tempDir, ConnectorObject co, Joint joint)
+      {
+         Component component = ImportComponent(tempDir, co.Component);
+
+         Connector connector = new Connector();
+         connector.Component = component;
+         connector.Joint = joint;
+         connector.IsActive = co.IsActive;
+         connector.WallThickness = co.WallThickness;
+         connector.Diameter = co.Diameter;
+
+         importRepo.ComponentRepo.SaveOrUpdate(component);
+      }
+
+      Component ImportComponent(string tempDir, ComponentObject compObj)
+      {
+         Component component = importRepo.ComponentRepo.Get(compObj.Id);
+
+         bool isNew = false;
+         if (component == null)
+         {
+            isNew = true;
+            component = new Component();
+         }
+
+         MapSerializableEntityToComponent(tempDir, compObj, component);
+
+         if (isNew)
+            importRepo.ComponentRepo.Save(component);
+         else
+            importRepo.ComponentRepo.SaveOrUpdate(component);
+
+         return component;
+      }
+
+      void MapSerializableEntityToComponent(string tempDir, ComponentObject compObj, Component component)
+      {
+         component.Id = compObj.Id;
+         component.IsActive = compObj.IsActive;
+         component.Certificate = compObj.Certificate;
+         component.Type = ImportComponentType(compObj.Type);
+         component.Number = compObj.Number;
+         component.Length = compObj.Length;
+         component.IsAvailableToJoint = compObj.IsAvailableToJoint;
+         component.ConstructionStatus = compObj.ConstructionStatus;
+         component.InspectionStatus = compObj.InspectionStatus;
+
+         if (compObj.Attachments != null)
+         {
+            component.Attachments = new List<Domain.Entity.File>();
+            foreach (var file in compObj.Attachments)
+            {
+               component.Attachments.Add(ImportFile(file, component.Id));
+            }
+         }
+      }
+
+      private ComponentType ImportComponentType(ComponentTypeObject componentTypeObject)
+      {
+         if (componentTypeObject == null)
+            return null;
+
+         bool isNew = false;
+         ComponentType componentType = importRepo.ComponentTypeRepo.Get(componentTypeObject.Id);
+         if (componentType == null)
+         {
+            isNew = true;
+            componentType = new ComponentType();
+         }
+
+         componentType.Id = componentTypeObject.Id;
+         componentType.IsActive = componentTypeObject.IsActive;
+         componentType.Name = componentTypeObject.Name;
+         componentType.ConnectorsCount = componentTypeObject.ConnectorsCount;
+
+
+         if (isNew)
+            importRepo.ComponentTypeRepo.Save(componentType);
+         else
+            importRepo.ComponentTypeRepo.SaveOrUpdate(componentType);
+
+         return componentType;
+      }
+
+      private IList<Pipe> ImportPipes(Manifest manifest, List<PipeObject> pipes, string tempDir)
       {
          IList<Pipe> importedPipes = new List<Pipe>();
-         const int PROGRESS_RANGE = 90;
+         const int PROGRESS_RANGE = 30;
 
          if (pipes.Count == 0)
          {
@@ -251,7 +648,7 @@ namespace Prizm.Main.Synch.Import
                      importedPipes.Add(existingPipe);
                      break;
                   case ConflictDecision.Postpone:
-                     Dump(pipeObj, portionId, tempDir);
+                     Dump(pipeObj, manifest.PortionID, tempDir);
                      CreateNotification(pipeObj);
                      break;
                }
@@ -534,7 +931,7 @@ namespace Prizm.Main.Synch.Import
          return data;
       }
 
-      private Domain.Entity.File ImportFile(FileObject fileObj, Guid pipeId)
+      private Domain.Entity.File ImportFile(FileObject fileObj, Guid itemId)
       {
          if (fileObj == null)
             return null;
@@ -553,7 +950,7 @@ namespace Prizm.Main.Synch.Import
          file.Description = fileObj.Description;
          file.UploadDate = fileObj.UploadDate;
          file.NewName = fileObj.NewName;
-         file.Item = pipeId;
+         file.Item = itemId;
 
          if (isNew)
             importRepo.FileRepo.Save(file);

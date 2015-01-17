@@ -23,6 +23,8 @@ namespace Prizm.Domain.Entity.Construction
         public virtual PartData SecondElement { get; set; }
         public virtual IList<JointTestResult> JointTestResults { get; set; }
         public virtual IList<JointWeldResult> JointWeldResults { get; set; }
+        public virtual bool ToExport { get; set; }
+        public virtual IList<File> Attachments { get; set; }
 
         public override string ToString()
         {

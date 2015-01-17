@@ -105,6 +105,7 @@ CREATE TABLE [dbo].[Component](
 	[constructionStatus] [nvarchar](15) NULL,
 
 	[componentTypeId] [uniqueidentifier] NULL,
+        [toExport] [bit] NOT NULL DEFAULT 0,
 
 	[isAvailableToJoint] [bit] NULL,
 
@@ -674,6 +675,7 @@ CREATE TABLE [dbo].[Joint](
 	[part1Type] [nvarchar](20) NULL,
 	[part2Id] [uniqueidentifier] NULL,
 	[part2Type] [nvarchar](20) NULL,
+        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -807,4 +809,24 @@ CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [db
 
 GO
 
+CREATE TABLE [dbo].[Portion_Joint] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [jointId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Joint] PRIMARY KEY([portionId],[jointId]),
+CONSTRAINT [FK_Portion_Joint_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Joint_Joint] FOREIGN KEY ([jointId]) REFERENCES [dbo].[Joint]([id])
+) ON [PRIMARY]
 
+
+GO
+
+
+CREATE TABLE [dbo].[Portion_Component] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [componentId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Component] PRIMARY KEY([portionId],[componentId]),
+CONSTRAINT [FK_Portion_Component_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Component_Component] FOREIGN KEY ([componentId]) REFERENCES [dbo].[Component]([id])
+) ON [PRIMARY]
+
+GO

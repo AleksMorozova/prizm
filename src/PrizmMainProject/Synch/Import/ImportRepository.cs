@@ -2,6 +2,7 @@
 using Ninject;
 using Prizm.DAL.Hibernate;
 using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
@@ -27,6 +28,10 @@ namespace Prizm.Main.Synch.Import
       readonly IFileRepository fileRepo;
       readonly IProjectRepository projectRepo;
       readonly IPortionRepository portionRepo;
+      readonly IJointRepository jointRepo;
+      readonly IComponentRepository componentRepo;
+      readonly ISpoolRepository spoolRepo;
+      readonly IComponentTypeRepository componentTypeRepo;
 
       [Inject]
       public ImportRepository(ISession session)
@@ -42,6 +47,10 @@ namespace Prizm.Main.Synch.Import
          fileRepo = new FileRepository(session);
          projectRepo = new ProjectRepository(session);
          portionRepo = new PortionRepository(session);
+         jointRepo = new JointRepository(session);
+         componentRepo = new ComponentRepository(session);
+         spoolRepo = new SpoolRepository(session);
+         componentTypeRepo = new ComponentTypeRepository(session);
       }
 
       public IPipeRepository PipeRepo
@@ -99,6 +108,26 @@ namespace Prizm.Main.Synch.Import
          get { return portionRepo; }
       }
 
+      public IJointRepository JointRepo
+      {
+         get { return jointRepo; }
+      }
+
+      public IComponentRepository ComponentRepo
+      {
+         get { return componentRepo; }
+      }
+
+      public ISpoolRepository SpoolRepo
+      {
+         get { return spoolRepo; }
+      }
+
+      public IComponentTypeRepository ComponentTypeRepo
+      {
+         get { return componentTypeRepo; }
+      }
+
       public void Dispose()
       {
          pipeRepo.Dispose();
@@ -112,9 +141,11 @@ namespace Prizm.Main.Synch.Import
          fileRepo.Dispose();
          projectRepo.Dispose();
          portionRepo.Dispose();
+         jointRepo.Dispose();
+         componentRepo.Dispose();
+         spoolRepo.Dispose();
+         componentTypeRepo.Dispose();
       }
-
-
-      
+     
    }
 }
