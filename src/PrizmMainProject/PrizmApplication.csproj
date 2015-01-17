@@ -136,6 +136,9 @@
     <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\packages\FluentMigrator.1.3.1.0\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
@@ -397,12 +400,6 @@
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
-    <Compile Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.Designer.cs">
-      <DependentUpon>PipeConstructionReportXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
@@ -669,9 +666,6 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\ReportsOnPipe\PipeConstructionReportXtraForm.resx">
-      <DependentUpon>PipeConstructionReportXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
       <DependentUpon>TracingReporn.cs</DependentUpon>
     </EmbeddedResource>
@@ -937,9 +931,7 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Reports\Construction\ReportsOnWeldingDate\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\critical_warning.png" />
   </ItemGroup>
