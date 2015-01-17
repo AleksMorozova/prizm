@@ -19,6 +19,7 @@ using construction = Prizm.Domain.Entity.Construction;
 using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -34,6 +35,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
         private readonly JointDeactivationCommand jointdeactivationCommand;
+        private readonly JointCutCommand jointCutCommand;
+        private readonly SaveOrUpdateJointCommand saveOrUpdateJointCommand;
         private IModifiable modifiableView;
         private IValidatable validatableView;
         private DataTable pieces;
@@ -62,6 +65,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.adoRepo = adoRepo;
 
             #region Commands
+            saveOrUpdateJointCommand =
+                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify));
             saveJointCommand =
               ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
             newSaveJointCommand =
@@ -70,6 +75,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
             jointdeactivationCommand = 
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify));
+            jointCutCommand =
+                ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             #endregion
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
@@ -85,11 +92,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                connectedElements[0] = GetPart(FirstElement);
-                connectedElements[1] = GetPart(SecondElement);
-
-                FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
-                SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+                if (FirstElement != null)
+                {
+                    connectedElements[0] = GetPart(FirstElement);
+                    FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
+                }
+                if (FirstElement != null)
+                {
+                    connectedElements[1] = GetPart(SecondElement);
+                    SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+                }
 
                 JointDisconnection();
 
@@ -102,7 +114,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (testResults != null)
                 {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
-                }
+                } 
             }
         }
 
@@ -170,6 +182,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get { return jointdeactivationCommand; }
         }
+
+        public ICommand JointCutCommand
+        {
+            get { return jointCutCommand; }
+        }
+
+        public ICommand SaveOrUpdateJointCommand
+        {
+            get { return saveOrUpdateJointCommand; }
+        }
         #endregion
 
         # region Joint
@@ -219,6 +241,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
+                    RaisePropertyChanged("JointConstructionStatus");
                 }
             }
         }
@@ -371,6 +394,31 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
         }
 
+        public EnumWrapper<JointStatus> JointConstructionStatus
+        {
+            get 
+            {
+                Joint.Status = JointStatus.Welded;
+                if (LoweringDate != DateTime.MinValue)
+                {
+                    Joint.Status = JointStatus.Lowered;
+                }
+                if (Joint.JointWeldResults.Where(_ => _.Date == JointWeldResults.Max(x => x.Date)).Any(x => x.Operation.Type == JointOperationType.Withdraw))
+                {
+                    Joint.Status = JointStatus.Withdrawn;
+                }
+                return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
+            }
+            set 
+            {
+                if (value.Value != Joint.Status)
+                {
+                    JointConstructionStatus = value;
+                    Joint.Status = value.Value;
+                    RaisePropertyChanged("JointConstructionStatus");
+                }
+            }
+        }
 
         #region ===== Makeing The Connection =====
         /// <summary>
@@ -710,7 +758,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = JointStatus.Welded;
             this.JointTestResults = new BindingList<JointTestResult>();
-            this.JointWeldResults = new BindingList<JointWeldResult>();
+            JointWeldResult requredWeldResult = new JointWeldResult()
+            { 
+                IsActive = true,
+                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
+                Joint = this.Joint
+            };
+            jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
+            this.Joint.JointWeldResults.Add(requredWeldResult);
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;
@@ -719,6 +774,19 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public void RefreshJointComponents()
         {
             Pieces = adoRepo.GetPipelineElements();
+        }
+
+        public void JointCut()
+        {
+            if (connectedElements.Where<Part>(x => x == null).Count<Part>() == 0)
+            {
+                var jointCutDialog = new JointCutDialog(connectedElements[0], connectedElements[1]);
+
+                if (jointCutDialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.JointCutCommand.Execute();
+                }
+            }
         }
 
     }

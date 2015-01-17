@@ -87,10 +87,10 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlWelders = new DevExpress.XtraGrid.GridControl();
             this.gridViewWelders = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colWelderFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.welderFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.welderLNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colWelderFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.welderFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.welderMNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderCert = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -229,6 +229,7 @@ namespace Prizm.Main.Forms.Settings
             this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.colInspectorGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -259,8 +260,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderLNRepositoryTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).BeginInit();
@@ -479,6 +480,7 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewRole.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewRole.OptionsView.ShowGroupPanel = false;
             this.gridViewRole.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewRole_FocusedRowChanged);
+            this.gridViewRole.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.gridViewRole.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewRole_InvalidRowException);
             this.gridViewRole.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewRole_ValidateRow);
             // 
@@ -578,6 +580,7 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewUsers.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridViewUsers_ShowingEditor);
             this.gridViewUsers.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewUsers_InitNewRow);
             this.gridViewUsers.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewUsers_FocusedRowChanged);
+            this.gridViewUsers.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.gridViewUsers.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewUsers_InvalidRowException);
             this.gridViewUsers.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewUsers_ValidateRow);
             this.gridViewUsers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewUsers_KeyDown);
@@ -680,6 +683,7 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypesView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.certificateTypesView.OptionsView.ShowGroupPanel = false;
             this.certificateTypesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.certificateTypesView_InitNewRow);
+            this.certificateTypesView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.certificateTypesView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.certificateTypesView_KeyDown);
             // 
             // certificateNameColumn
@@ -734,6 +738,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateGridView.OptionsView.ShowGroupPanel = false;
             this.inspectorCertificateGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.inspectorCertificateGridView_RowCellStyle);
             this.inspectorCertificateGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectorCertificateGridView_InitNewRow);
+            this.inspectorCertificateGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectorCertificateGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectorCertificateGridView_ValidateRow);
             this.inspectorCertificateGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectorCertificateGridView_KeyDown);
             // 
@@ -815,6 +820,7 @@ namespace Prizm.Main.Forms.Settings
             this.colInspectorLastName,
             this.colInspectorFirstName,
             this.colInspectorMiddleName,
+            this.colInspectorGrade,
             this.colInspectorActive,
             this.colInspectorCertExp,
             this.colInspectorCertificate});
@@ -882,7 +888,7 @@ namespace Prizm.Main.Forms.Settings
             this.colInspectorActive.MaxWidth = 115;
             this.colInspectorActive.Name = "colInspectorActive";
             this.colInspectorActive.Visible = true;
-            this.colInspectorActive.VisibleIndex = 3;
+            this.colInspectorActive.VisibleIndex = 4;
             this.colInspectorActive.Width = 55;
             // 
             // colInspectorCertExp
@@ -925,8 +931,8 @@ namespace Prizm.Main.Forms.Settings
             // gridViewWelders
             // 
             this.gridViewWelders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colWelderFirstName,
             this.colWelderLastName,
+            this.colWelderFirstName,
             this.colWelderMiddleName,
             this.colWelderCert,
             this.colWelderCertExp,
@@ -942,24 +948,10 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewWelders.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewWelders.OptionsView.ShowGroupPanel = false;
             this.gridViewWelders.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewWelders_RowCellStyle);
+            this.gridViewWelders.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.gridViewWelders.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.gridViewWelders.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewWelders_ValidateRow);
             this.gridViewWelders.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewWelders_KeyDown);
-            // 
-            // colWelderFirstName
-            // 
-            this.colWelderFirstName.Caption = "Имя";
-            this.colWelderFirstName.ColumnEdit = this.welderFNRepositoryTextEdit;
-            this.colWelderFirstName.FieldName = "FirstName";
-            this.colWelderFirstName.Name = "colWelderFirstName";
-            this.colWelderFirstName.Visible = true;
-            this.colWelderFirstName.VisibleIndex = 0;
-            this.colWelderFirstName.Width = 164;
-            // 
-            // welderFNRepositoryTextEdit
-            // 
-            this.welderFNRepositoryTextEdit.AutoHeight = false;
-            this.welderFNRepositoryTextEdit.Name = "welderFNRepositoryTextEdit";
             // 
             // colWelderLastName
             // 
@@ -968,13 +960,28 @@ namespace Prizm.Main.Forms.Settings
             this.colWelderLastName.FieldName = "LastName";
             this.colWelderLastName.Name = "colWelderLastName";
             this.colWelderLastName.Visible = true;
-            this.colWelderLastName.VisibleIndex = 1;
+            this.colWelderLastName.VisibleIndex = 0;
             this.colWelderLastName.Width = 164;
             // 
             // welderLNRepositoryTextEdit
             // 
             this.welderLNRepositoryTextEdit.AutoHeight = false;
             this.welderLNRepositoryTextEdit.Name = "welderLNRepositoryTextEdit";
+            // 
+            // colWelderFirstName
+            // 
+            this.colWelderFirstName.Caption = "Имя";
+            this.colWelderFirstName.ColumnEdit = this.welderFNRepositoryTextEdit;
+            this.colWelderFirstName.FieldName = "FirstName";
+            this.colWelderFirstName.Name = "colWelderFirstName";
+            this.colWelderFirstName.Visible = true;
+            this.colWelderFirstName.VisibleIndex = 1;
+            this.colWelderFirstName.Width = 164;
+            // 
+            // welderFNRepositoryTextEdit
+            // 
+            this.welderFNRepositoryTextEdit.AutoHeight = false;
+            this.welderFNRepositoryTextEdit.Name = "welderFNRepositoryTextEdit";
             // 
             // colWelderMiddleName
             // 
@@ -1076,6 +1083,7 @@ namespace Prizm.Main.Forms.Settings
             this.componentryTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.componentryTypeGridView.OptionsView.ShowGroupPanel = false;
             this.componentryTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.componentryTypeGridView_InitNewRow);
+            this.componentryTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.componentryTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.componentryTypeGridView_KeyDown);
             // 
             // typeColumn
@@ -1150,6 +1158,7 @@ namespace Prizm.Main.Forms.Settings
             this.jointsOperationsGridView.OptionsNavigation.UseTabKey = false;
             this.jointsOperationsGridView.OptionsView.ShowGroupPanel = false;
             this.jointsOperationsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.jointsOperationsGridView_InitNewRow);
+            this.jointsOperationsGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             // 
             // nameGridColumn
             // 
@@ -1357,6 +1366,7 @@ namespace Prizm.Main.Forms.Settings
             this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
             this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
+            this.seemTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
             // seemTypeColumn
@@ -1412,6 +1422,7 @@ namespace Prizm.Main.Forms.Settings
             this.categoriesGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.categoriesGridView.OptionsView.ShowGroupPanel = false;
             this.categoriesGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.categoryGridView_InitNewRow);
+            this.categoriesGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.categoriesGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.categoryGridView_KeyDown);
             // 
             // categoryNameColumn
@@ -1741,6 +1752,7 @@ namespace Prizm.Main.Forms.Settings
             this.plateManufacturersListView.OptionsBehavior.FocusLeaveOnTab = true;
             this.plateManufacturersListView.OptionsNavigation.UseTabKey = false;
             this.plateManufacturersListView.OptionsView.ShowGroupPanel = false;
+            this.plateManufacturersListView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.plateManufacturersListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.plateManufacturersList_KeyDown);
             // 
             // plateManufacturerGridColumn
@@ -1769,7 +1781,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThickness.Location = new System.Drawing.Point(672, 464);
             this.wallThickness.Name = "wallThickness";
-            this.wallThickness.Properties.Mask.EditMask = "f2";
+            this.wallThickness.Properties.Mask.EditMask = "d";
             this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.wallThickness.Size = new System.Drawing.Size(178, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
@@ -1817,8 +1829,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 5;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2424,6 +2436,14 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
+            // colInspectorGrade
+            // 
+            this.colInspectorGrade.Caption = "Уровень";
+            this.colInspectorGrade.FieldName = "Grade";
+            this.colInspectorGrade.Name = "colInspectorGrade";
+            this.colInspectorGrade.Visible = true;
+            this.colInspectorGrade.VisibleIndex = 3;
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2465,8 +2485,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectorCertificateTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderLNRepositoryTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).EndInit();
@@ -2774,5 +2794,6 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraLayout.SplitterItem inspectorSplitterItem;
         private DevExpress.XtraLayout.SplitterItem userSplitterItem;
         private DevExpress.XtraEditors.ComboBoxEdit seamType;
+        private DevExpress.XtraGrid.Columns.GridColumn colInspectorGrade;
     }
 }

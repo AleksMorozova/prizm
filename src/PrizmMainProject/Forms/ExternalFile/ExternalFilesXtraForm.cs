@@ -16,13 +16,22 @@ namespace Prizm.Main.Forms.ExternalFile
     {
         private ExternalFilesViewModel viewModel;
 
-        public ExternalFilesXtraForm(Guid item)
+        public ExternalFilesXtraForm(Guid item, bool isEditMode)
         {
             InitializeComponent();
             viewModel = (ExternalFilesViewModel)Program
                 .Kernel
                 .Get<ExternalFilesViewModel>(
                 new ConstructorArgument("item", item));
+
+            if(isEditMode)
+            {
+                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            }
+            else
+            {
+                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
         }
 
         private void ExternalFilesXtraForm_Load(object sender, EventArgs e)

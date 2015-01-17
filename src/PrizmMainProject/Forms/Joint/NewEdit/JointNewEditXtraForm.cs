@@ -25,6 +25,7 @@ using System.Linq;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -40,7 +41,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
         public JointNewEditXtraForm(Guid id)
@@ -60,10 +60,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             #region --- Colouring of required controls, IsEditMode, uppercasing ---
             jointNumber.SetRequiredText();
+            SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
+            firstJointElement.SetAsIdentifier();
+            secondJointElement.SetAsIdentifier();           
             extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }
@@ -74,7 +77,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -114,6 +117,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
+            jointStatus.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
             firstJointElement.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
@@ -146,8 +151,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             weldersSelectionControl.Dock = DockStyle.Fill;
             weldersPopupContainerEdit.PopupControl = weldersPopup;
             weldersPopupContainerEdit.PopupControl.MaximumSize = weldersPopup.MaximumSize;
-
-
 
         }
 
@@ -183,11 +186,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = viewModel.JointIsActive;
             IsModified = false;
+
+            if (viewModel.Joint.Status == JointStatus.Withdrawn)
+            {
+                DisableControlUnderWithdrawn();
+            }
         }
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
-            this.headerNumberPart =jointNumber.Text;
+            this.headerNumberPart = jointNumber.Text;
             viewModel.Number = jointNumber.Text;
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
@@ -247,11 +255,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-                if (e.Value == null)
-                    e.DisplayText = string.Empty;
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
 
-                IList<Inspector> inspectors = e.Value as IList<Inspector>;
-                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
         }
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
@@ -263,7 +271,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if(jointTestResult != null && jointTestResult.Operation != null)
+                if (jointTestResult != null && jointTestResult.Operation != null)
                 {
                     availabeResults.Clear();
                     if (jointTestResult.Operation.TestHasAccepted) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Accepted });
@@ -282,7 +290,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointWeldResult = view.GetRow(e.RowHandle) as JointWeldResult;
                 currentJointWeldResult.IsActive = true;
                 currentJointWeldResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);
+                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);                
             }
         }
 
@@ -310,6 +318,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 IList<Welder> selectedWelders = weldersSelectionControl.SelectedWelders;
                 JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+                
                 if (jointWeldResult != null)
                 {
                     jointWeldResult.Welders.Clear();
@@ -324,6 +333,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void weldersPopupContainerEdit_Popup(object sender, EventArgs e)
         {
             repairOperationsView.ClearSelection();
+            
             if (repairOperationsView.IsValidRowHandle(repairOperationsView.FocusedRowHandle))
             {
                 JointWeldResult jointWeldResult = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
@@ -336,11 +346,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void weldersPopupContainerEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
-                if (e.Value == null)
-                    e.DisplayText = string.Empty;
+            if (e.Value == null)
+                e.DisplayText = string.Empty;
 
-                IList<Welder> welders = e.Value as IList<Welder>;
-                e.DisplayText = viewModel.FormatWelderList(welders);
+            IList<Welder> welders = e.Value as IList<Welder>;
+            e.DisplayText = viewModel.FormatWelderList(welders);
         }
 
         /// <summary>
@@ -350,7 +360,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             GridView view = sender as GridView;
             JointOperation selectedOperation = repairOperationsLookUpEdit.GetDataSourceRowByDisplayValue(view.GetRowCellValue(view.FocusedRowHandle, view.Columns["Operation.Name"])) as JointOperation;
-            if (selectedOperation != null && selectedOperation.Type != JointOperationType.Weld
+            if (selectedOperation != null 
+                && selectedOperation.Type != JointOperationType.Weld 
+                && selectedOperation.Type != JointOperationType.Withdraw
                 && view.FocusedColumn.FieldName == "Welders")
             {
                 e.Cancel = true;
@@ -389,10 +401,25 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void controlOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
-            var operation = gv.GetRowCellValue(e.RowHandle, controlTypeGridColumn);
-            if(operation == null)
+            JointTestResult jointTestResult = gv.GetRow(e.RowHandle) as JointTestResult;
+            if (jointTestResult.Operation == null)
+            {
+                gv.SetColumnError(controlTypeGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            if (jointTestResult.Date == null)
             {
                 gv.SetColumnError(controlDateGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            if (jointTestResult.Inspectors.Count == 0)
+            {
+                gv.SetColumnError(inspectorsGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            if (jointTestResult.Status == 0)
+            {
+                gv.SetColumnError(resultGridColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
         }
@@ -400,19 +427,43 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void repairOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
-            var operation = gv.GetRowCellValue(e.RowHandle, repairTypeGridColumn);
-            if(operation == null)
+            JointWeldResult jointWeldResult = gv.GetRow(e.RowHandle) as JointWeldResult;
+            if (jointWeldResult.Operation == null)
             {
                 gv.SetColumnError(repairTypeGridColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
+            if (jointWeldResult.Date == null)
+            {
+                gv.SetColumnError(repairDateGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
+            {
+                gv.SetColumnError(weldersGridColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            jointStatus.EditValue = viewModel.JointConstructionStatus;
         }
 
         #region IValidatable Members
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+
+            repairOperationsView_ValidateRow(
+                        repairOperationsView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
+            return dxValidationProvider.Validate() &&
+                   viewModel.JointWeldResults.Where(_ => _.Date == null ||
+                                                    _.Operation == null ||
+                                                    (_.Operation.Type == JointOperationType.Weld
+                                                    && _.Welders.Count == 0)).Count() <= 0 &&
+                   viewModel.JointTestResults.Where(_ => _.Operation == null ||
+                                                    _.Date == null ||
+                                                    _.Inspectors.Count == 0 ||
+                                                    _.Status == 0).Count() <= 0;                    
         }
 
         #endregion
@@ -431,16 +482,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             else
             {
                 inspectorSelectionControl.inspectionDate = jointTestResult.Date;
-               
             }
         }
 
         private void weldersPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
         {
-            JointWeldResult weld = repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            JointWeldResult weld = 
+                repairOperationsView.GetRow(repairOperationsView.FocusedRowHandle) as JointWeldResult;
+            
             if (weld == null || (weld != null && weld.Date == null))
             {
                 repairOperationsView.SetColumnError(repairOperationsView.VisibleColumns[1], Resources.DateFirst);
+                
                 e.Cancel = true;
             }
             else
@@ -455,6 +508,49 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             firstJointElement.Refresh();
             secondJointElement.Refresh();
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+       
+
+        private void DisableControlUnderWithdrawn()
+        {
+            repairOperationsView.OptionsBehavior.Editable = false;
+            SetAlwaysReadOnly(repairOperations);
+            firstJointElement.Enabled = false;
+            secondJointElement.Enabled = false;
+        }
+
+        private void CompletedCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit checkEdit = sender as CheckEdit;
+
+            if (checkEdit.Checked)
+            {
+                int selectedIndex = repairOperationsView.GetFocusedDataSourceRowIndex();
+
+                if (selectedIndex >= 0 &&
+                    viewModel.JointWeldResults[selectedIndex].Operation != null &&
+                    viewModel.JointWeldResults[selectedIndex].Operation.Type == JointOperationType.Withdraw)
+                {
+                    viewModel.JointCut();
+
+                    if (viewModel.Joint.Status == JointStatus.Withdrawn)
+                    {
+                        viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
+
+                        DisableControlUnderWithdrawn();
+                    }
+                    else
+                    {
+                        checkEdit.Checked = false;
+                    }
+                }
+            }
         }
     }
 }

@@ -33,6 +33,8 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
+        public virtual Project Project { get; set; }
+        
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }
         public virtual IList<Coat> Coats { get; set; }
@@ -40,7 +42,11 @@ namespace Prizm.Domain.Entity.Mill
         public virtual IList<Spool> Spools { get; set; }
 
         public virtual PipeMillStatus Status { get; set; }
+
         public virtual bool ToExport { get; set; }
+
+        public virtual IList<File> Attachments { get; set; }
+
         /// <summary>
         ///  Density of carbon steel
         /// </summary>

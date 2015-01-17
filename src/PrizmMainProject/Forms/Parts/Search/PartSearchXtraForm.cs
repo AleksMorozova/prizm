@@ -31,6 +31,7 @@ namespace Prizm.Main.Forms.Parts.Search
         public PartSearchXtraForm()
         {
             InitializeComponent();
+            number.SetAsIdentifier();
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
@@ -47,6 +48,8 @@ namespace Prizm.Main.Forms.Parts.Search
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
+            activity.SelectedIndex = 1;
+            viewModel.Activity = activity.SelectedItem.ToString(); 
         }
 
         private void BindToViewModel()
@@ -54,6 +57,8 @@ namespace Prizm.Main.Forms.Parts.Search
             bindingSource.DataSource = viewModel;
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
             number.DataBindings.Add("Editvalue", bindingSource, "Number");
+            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.Properties.Items.AddRange(viewModel.ActivityArray);
         }
 
         private void BindCommands()
@@ -124,6 +129,19 @@ namespace Prizm.Main.Forms.Parts.Search
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void partsView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as Part;
+            if (data != null)
+            {
+                if (!data.IsActive)
+                {
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+            }
         }
     }
 }

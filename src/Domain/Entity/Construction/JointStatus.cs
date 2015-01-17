@@ -9,10 +9,8 @@ namespace Prizm.Domain.Entity.Construction
     public enum JointStatus
     {
         Undefined = 0,
-        AtControl = 1,
-        AtIsolation = 2,
-        Lowered = 3,
-        Filled = 4,
-        Welded = 5
+        Welded = 1,
+        Lowered = 2,        
+        Withdrawn = 3
     }
 }

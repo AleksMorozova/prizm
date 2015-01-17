@@ -9,6 +9,8 @@ using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Grid;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.PipeMill.Search
 {
@@ -36,7 +38,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 pipeMillStatus.Properties.Items.Add(s,true);
             }
             pipeActivity.Properties.Items.AddRange(viewModel.ActivityArray);
-
+  
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
             pipeNumber.DataBindings
@@ -58,6 +60,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
             BindCommands();
             BindToViewModel();
+            pipeActivity.SelectedIndex = 1;
+            viewModel.Activity = pipeActivity.SelectedItem.ToString(); 
         }
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
@@ -117,6 +121,19 @@ namespace Prizm.Main.Forms.PipeMill.Search
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void pipesSearchResultView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as Pipe;
+            if (data != null)
+            {
+                if (!data.IsActive)
+                {
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+            }
         }
     }
 }

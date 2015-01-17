@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
+using Prizm.Main.Properties;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
@@ -28,26 +29,49 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.notify = notify;
         }
 
-        [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.ValidatableView.Validate())
+            if (!viewModel.ValidatableView.Validate()) { return; }
+
+            if (viewModel.Joint.LoweringDate == DateTime.MinValue)
             {
-                return;
+                viewModel.Joint.LoweringDate = null;
             }
 
-            viewModel.SaveJointCommand.Execute();
+            var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
 
-            if (viewModel.Number != string.Empty)
+            foreach (var joint in joints) { repo.RepoJoint.Evict(joint); }
+
+            if (joints != null && joints.Count > 0)
             {
+                notify.ShowInfo(
+                    string.Concat(Resources.DLG_JOINT_DUPLICATE, viewModel.Number),
+                    Resources.DLG_JOINT_DUPLICATE_HEADER);
+                viewModel.Number = string.Empty;
+            }
+            else
+            {
+                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn
+                    || viewModel.MakeTheConnection())
+                {
+                    viewModel.SaveOrUpdateJointCommand.Execute();
+                }
+                else
+                {
+                    notify.ShowInfo(
+                    Resources.DLG_JOINT_INCORRECT_DIAMETER,
+                    Resources.DLG_JOINT_INCORRECT_DIAMETER_HEADER);
+                }
+
                 viewModel.NewJoint();
             }
+
             RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
-            return viewModel.SaveJointCommand.CanExecute() 
+            return viewModel.SaveOrUpdateJointCommand.CanExecute() 
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
         }
     }

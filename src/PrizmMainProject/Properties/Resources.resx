@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DLG_JOINT_DEACTIVATION_HEADER" xml:space="preserve">
+    <value>Деактивация стыка</value>
+  </data>
   <data name="IsActive" xml:space="preserve">
     <value>Активен</value>
-  </data>
-  <data name="WallThickness" xml:space="preserve">
-    <value>Толщина стенки</value>
   </data>
   <data name="DLG_COMPONENT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение комплектующего изделия</value>
@@ -129,8 +129,14 @@
   <data name="MillPipeNumberMask" xml:space="preserve">
     <value>Маска номера трубы</value>
   </data>
+  <data name="TracingReport" xml:space="preserve">
+    <value>Трассовка</value>
+  </data>
   <data name="InspectorCertificate" xml:space="preserve">
     <value>Сертификат инспектора</value>
+  </data>
+  <data name="DLG_INSPECTIONS_SAVED" xml:space="preserve">
+    <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
   </data>
   <data name="AlertUnsipRailcar" xml:space="preserve">
     <value>Отгрузка вагона отменена. Дата отгрузки аннулированна. Трубы перемещены на склад.</value>
@@ -138,14 +144,11 @@
   <data name="Mill" xml:space="preserve">
     <value>Завод</value>
   </data>
-  <data name="DLG_AddFailedControlOperation" xml:space="preserve">
-    <value>Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. </value>
+  <data name="MinExpected" xml:space="preserve">
+    <value>Минимальный ожидаемый результат</value>
   </data>
   <data name="DLG_SETUP_SAVED" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
-  </data>
-  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
-    <value>Годен</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -154,11 +157,14 @@
   <data name="Weight" xml:space="preserve">
     <value>Вес</value>
   </data>
-  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
-    <value>Брак</value>
+  <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
+    <value>Дублирование номера стыка</value>
   </data>
   <data name="Filled" xml:space="preserve">
     <value>Засыпан</value>
+  </data>
+  <data name="IsShipped" xml:space="preserve">
+    <value>Отправлен</value>
   </data>
   <data name="AlertSaveHeader" xml:space="preserve">
     <value>Сохранение успешно</value>
@@ -166,11 +172,23 @@
   <data name="Component" xml:space="preserve">
     <value>Комплектующие</value>
   </data>
+  <data name="DLG_INSPECTIONS_SAVED_HEADER" xml:space="preserve">
+    <value>Сохранение контрольных операций</value>
+  </data>
   <data name="Inspection" xml:space="preserve">
     <value>Входной контроль</value>
   </data>
-  <data name="DLG_JOINT_DUPLICATE" xml:space="preserve">
-    <value>Уже существует стык с номером:</value>
+  <data name="KP" xml:space="preserve">
+    <value>Пикет</value>
+  </data>
+  <data name="PipeTest" xml:space="preserve">
+    <value>Контольная операция трубы</value>
+  </data>
+  <data name="Export_Filter" xml:space="preserve">
+    <value>PRIZM archives|*.prizm</value>
+  </data>
+  <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
+    <value>Экспорт данных на заводе</value>
   </data>
   <data name="NewOrderCombo" xml:space="preserve">
     <value>&lt; Создать наряд-заказ&gt;</value>
@@ -184,11 +202,23 @@
   <data name="Coat" xml:space="preserve">
     <value>Покрытие</value>
   </data>
+  <data name="SystemNotification" xml:space="preserve">
+    <value>Сообщения системы</value>
+  </data>
+  <data name="PartInspectionStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="main-logo_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main-logo_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InvalidOldPassword" xml:space="preserve">
     <value>Текущий пароль введен неверно.</value>
   </data>
   <data name="IDS_ERROR" xml:space="preserve">
     <value>Во время работы программы произошла ошибка. Причина: </value>
+  </data>
+  <data name="DocumentSizeLimit" xml:space="preserve">
+    <value>Ограничение размера документа</value>
   </data>
   <data name="ByCategories" xml:space="preserve">
     <value>По категориям</value>
@@ -196,8 +226,14 @@
   <data name="Inspector" xml:space="preserve">
     <value>Инспектор</value>
   </data>
+  <data name="SecurityPrivilege_DeactivateSpool" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
   <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
     <value>Нельзя одновременно открыть больше документов.</value>
+  </data>
+  <data name="PipeTestControlType_Witness" xml:space="preserve">
+    <value>Присутствие</value>
   </data>
   <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
     <value>Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.</value>
@@ -205,8 +241,8 @@
   <data name="DLG_JOINT_SAVED" xml:space="preserve">
     <value>Стык успешно сохранен в базе. Стык  #</value>
   </data>
-  <data name="DocumentSizeLimit" xml:space="preserve">
-    <value>Ограничение размера документа</value>
+  <data name="RailcarPending" xml:space="preserve">
+    <value>Сформирован</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Порядок</value>
@@ -214,11 +250,17 @@
   <data name="DLG_PIPE_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение трубы</value>
   </data>
-  <data name="Diameter" xml:space="preserve">
-    <value>Диаметр</value>
+  <data name="Export_Error" xml:space="preserve">
+    <value>[{0}] Ошибка {1}</value>
   </data>
-  <data name="ЕxpirationDate" xml:space="preserve">
-    <value>Срок истечения</value>
+  <data name="SecurityPrivilege_UnshipAtMill" xml:space="preserve">
+    <value>Отмена разрешения на отгрузку на заводе</value>
+  </data>
+  <data name="PipeTestControlType_Hold" xml:space="preserve">
+    <value>Обязательный</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Разряд</value>
   </data>
   <data name="Lowered" xml:space="preserve">
     <value>Укладка</value>
@@ -229,8 +271,11 @@
   <data name="Wrong_pipe_number_for_cutting_Header" xml:space="preserve">
     <value>Неверный номер трубы</value>
   </data>
-  <data name="PipeTestControlType_Hold" xml:space="preserve">
-    <value>Обязательный</value>
+  <data name="DLG_JOINT_DUPLICATE" xml:space="preserve">
+    <value>Уже существует стык с номером:</value>
+  </data>
+  <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
   </data>
   <data name="PlateManufacturer" xml:space="preserve">
     <value>Производитель листа</value>
@@ -238,17 +283,23 @@
   <data name="ProductionDate" xml:space="preserve">
     <value>Дата производства</value>
   </data>
-  <data name="MinExpected" xml:space="preserve">
-    <value>Минимальный ожидаемый результат</value>
+  <data name="COAT_INTERNAL" xml:space="preserve">
+    <value>Внутреннее</value>
+  </data>
+  <data name="SecurityPrivilege_DeactivateJoint" xml:space="preserve">
+    <value>Деактивация стыка</value>
+  </data>
+  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL" xml:space="preserve">
+    <value>Для просмотра и скачивания вложений необходимо их предварительное сохранение</value>
+  </data>
+  <data name="Constraction_Report_label" xml:space="preserve">
+    <value>Точки отсчета</value>
   </data>
   <data name="IsRequired" xml:space="preserve">
     <value>Обязательный</value>
   </data>
-  <data name="PipeTestResultType_String" xml:space="preserve">
-    <value>Строка</value>
-  </data>
-  <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
-    <value>Сначала расформируйте вагон.</value>
+  <data name="Joint" xml:space="preserve">
+    <value>Стык</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Пользователь</value>
@@ -265,11 +316,26 @@
   <data name="DLG_SHIP_RAILCAR_VS_PIPES" xml:space="preserve">
     <value>Отправка вагона без труб невозможна</value>
   </data>
+  <data name="SecurityPrivilege_ExportDataFromMaster" xml:space="preserve">
+    <value>Экспорт данных из Мастер</value>
+  </data>
   <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
     <value>Создание катушки</value>
   </data>
+  <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
+    <value>Загрузка файла</value>
+  </data>
+  <data name="Export_Msg" xml:space="preserve">
+    <value>[{0}] {1}</value>
+  </data>
+  <data name="Mask_Label" xml:space="preserve">
+    <value>Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть</value>
+  </data>
   <data name="Cut_Spool_from_pipe" xml:space="preserve">
     <value> Отрезана катушка заданной длины</value>
+  </data>
+  <data name="PipelineLengthReport" xml:space="preserve">
+    <value>Протяженность трубопровода</value>
   </data>
   <data name="PipeStatusComboUnactive" xml:space="preserve">
     <value>Деактивированные</value>
@@ -280,11 +346,8 @@
   <data name="Code" xml:space="preserve">
     <value>Код</value>
   </data>
-  <data name="PipeTestResultType_Diapason" xml:space="preserve">
-    <value>Диапазон</value>
-  </data>
-  <data name="PipeTestResultType_Boolean" xml:space="preserve">
-    <value>Логический</value>
+  <data name="COAT_EXTERNAL" xml:space="preserve">
+    <value>Внешнее</value>
   </data>
   <data name="VALUE_DOESNT_MATCH_MASK" xml:space="preserve">
     <value>Значение не соответствует маске</value>
@@ -295,32 +358,62 @@
   <data name="AlertSaveRailcar" xml:space="preserve">
     <value>Данные вагона сохранены</value>
   </data>
-  <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
-    <value>Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
+  <data name="SecurityPrivilege_AddAttachments" xml:space="preserve">
+    <value>Добавление вложений</value>
   </data>
-  <data name="Destination" xml:space="preserve">
-    <value>Направление</value>
-  </data>
-  <data name="Thickness" xml:space="preserve">
-    <value>Толщина</value>
-  </data>
-  <data name="PipeTestControlType_Witness" xml:space="preserve">
-    <value>Присутствие</value>
-  </data>
-  <data name="BoolExpected" xml:space="preserve">
-    <value>Булевый ожидаемый результат</value>
-  </data>
-  <data name="Master" xml:space="preserve">
-    <value>Главный</value>
+  <data name="SecurityPrivilege_EditSettings" xml:space="preserve">
+    <value>Изменение настроек</value>
   </data>
   <data name="PipeTestControlType_Monitor" xml:space="preserve">
     <value>Визуальный</value>
   </data>
-  <data name="Welded" xml:space="preserve">
-    <value>Сварен</value>
+  <data name="Destination" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="export_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export_icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Export_NoData" xml:space="preserve">
+    <value>Нет новых данных для экспортирования.</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="AlertFailureReportDate" xml:space="preserve">
+    <value>Начальная дата позже конечной</value>
+  </data>
+  <data name="BoolExpected" xml:space="preserve">
+    <value>Булевый ожидаемый результат</value>
+  </data>
+  <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\critical_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Главный</value>
+  </data>
+  <data name="PipeTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Export_ArchiveExported" xml:space="preserve">
+    <value>[{0}] Экспортировано в '{1}'</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Администратор</value>
   </data>
   <data name="pipeType" xml:space="preserve">
     <value>Типоразмер трубы</value>
+  </data>
+  <data name="JointTestResultStatus_Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
+  </data>
+  <data name="Welded" xml:space="preserve">
+    <value>Сварен</value>
+  </data>
+  <data name="PipeTestResultType_String" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IDS_QUESTION_DELETE_SELECTED" xml:space="preserve">
     <value>Удалить запись?</value>
@@ -331,8 +424,8 @@
   <data name="Pending" xml:space="preserve">
     <value>Ожидает контроль</value>
   </data>
-  <data name="PipeTestResultStatus_Repair" xml:space="preserve">
-    <value>Ремонт</value>
+  <data name="RailcarShipped" xml:space="preserve">
+    <value>Отгружен</value>
   </data>
   <data name="VALUE_REQUIRED" xml:space="preserve">
     <value>Значение обязательно</value>
@@ -340,8 +433,20 @@
   <data name="Certificate" xml:space="preserve">
     <value>Сертификат</value>
   </data>
+  <data name="DateFirst" xml:space="preserve">
+    <value>Выберите дату</value>
+  </data>
   <data name="PipeTestResult" xml:space="preserve">
     <value>Результат контольной операции трубы</value>
+  </data>
+  <data name="PipeTestResultType_Diapason" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="DIAMETER_VALUE_VALIDATION" xml:space="preserve">
+    <value>Величина диаметра должна быть больше нуля</value>
+  </data>
+  <data name="DLG_JOINT_INCORRECT_DIAMETER" xml:space="preserve">
+    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
   </data>
   <data name="PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
@@ -355,8 +460,8 @@
   <data name="AlertFailureReportDateHeader" xml:space="preserve">
     <value>Неверный диапазон дат</value>
   </data>
-  <data name="AtControl" xml:space="preserve">
-    <value>Контроль</value>
+  <data name="SecurityPrivilege_DeactivatePipe" xml:space="preserve">
+    <value>Деактивация трубы</value>
   </data>
   <data name="DLG_PIPE_IS_SHIPPED" xml:space="preserve">
     <value>Невозможно деактивировать отгруженную трубу.</value>
@@ -367,11 +472,17 @@
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
   </data>
-  <data name="PartInspectionStatus_Accepted" xml:space="preserve">
-    <value>Принято</value>
+  <data name="PipeTestResultType_Boolean" xml:space="preserve">
+    <value>Логический</value>
   </data>
-  <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
-    <value>Номер наряд-заказа обязателен</value>
+  <data name="AlertFailureHeader" xml:space="preserve">
+    <value>Произошла ошибка!</value>
+  </data>
+  <data name="DLG_FILE_ATTACH_SUCCESS" xml:space="preserve">
+    <value>Вложения успешно добавлены</value>
+  </data>
+  <data name="DLG_PIPE_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?</value>
   </data>
   <data name="Weld" xml:space="preserve">
     <value>Сварка</value>
@@ -379,11 +490,20 @@
   <data name="Category" xml:space="preserve">
     <value>Категория</value>
   </data>
+  <data name="ResultType" xml:space="preserve">
+    <value>Тип результата</value>
+  </data>
   <data name="TestSubject" xml:space="preserve">
     <value>Объект инспекции</value>
   </data>
   <data name="Produced" xml:space="preserve">
     <value>Производится</value>
+  </data>
+  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
+    <value>Годен</value>
+  </data>
+  <data name="ERROR_UnknownComponentType" xml:space="preserve">
+    <value> неизвестный тип компонента</value>
   </data>
   <data name="AlertInfoHeader" xml:space="preserve">
     <value>Внимание</value>
@@ -394,20 +514,38 @@
   <data name="Role" xml:space="preserve">
     <value>Роли пользователя</value>
   </data>
+  <data name="DLG_JOINT_INCORRECT_DIAMETER_HEADER" xml:space="preserve">
+    <value>Не совпадают диаметры стыкуемых элементов</value>
+  </data>
   <data name="AlertShipRailcar" xml:space="preserve">
     <value>Вагон успешно отгружен</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
   </data>
   <data name="DLG_COMPONENT_DUPLICATE" xml:space="preserve">
     <value>Уже существует комплектующий элемент с номером:</value>
   </data>
-  <data name="AlertFailureHeader" xml:space="preserve">
-    <value>Произошла ошибка!</value>
+  <data name="ЕxpirationDate" xml:space="preserve">
+    <value>Срок истечения</value>
   </data>
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
   </data>
+  <data name="PipeStatusComboActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="Constraction_UsedProductReport_label" xml:space="preserve">
+    <value>Пикеты</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
+  </data>
   <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
+    <value>Формат номера трубы: </value>
   </data>
   <data name="AuthenticationFailed" xml:space="preserve">
     <value>Неверное имя пользователя или пароль.</value>
@@ -415,17 +553,20 @@
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
   </data>
-  <data name="PipeTestControlType_Review" xml:space="preserve">
-    <value>По документации</value>
-  </data>
   <data name="Action" xml:space="preserve">
     <value>Ремонтная операция</value>
   </data>
   <data name="MaxExpected" xml:space="preserve">
     <value>Максимальный ожидаемый результат</value>
   </data>
+  <data name="StringExpected" xml:space="preserve">
+    <value>Строковый ожидаемый результат</value>
+  </data>
   <data name="Welder" xml:space="preserve">
     <value>Сварщик</value>
+  </data>
+  <data name="Export_ReadingData" xml:space="preserve">
+    <value>Чтение данных.</value>
   </data>
   <data name="DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR" xml:space="preserve">
     <value>Данная труба находится в вагоне #</value>
@@ -439,8 +580,14 @@
   <data name="Hold" xml:space="preserve">
     <value>Задержано</value>
   </data>
+  <data name="JointTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
   </data>
   <data name="DLG_COMPONENT_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет к деактивации комплектующего элемента. 
@@ -465,8 +612,14 @@
   <data name="MillName" xml:space="preserve">
     <value>Название завода</value>
   </data>
-  <data name="JointTestResultStatus_Withdraw" xml:space="preserve">
-    <value>Вырезка</value>
+  <data name="Export_CreateTempStorage" xml:space="preserve">
+    <value>Создание временного хранилища.</value>
+  </data>
+  <data name="Export_Ready" xml:space="preserve">
+    <value>Экспортирование завершено успешно.</value>
+  </data>
+  <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера труб</value>
   </data>
   <data name="DLG_PIPE_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация трубы</value>
@@ -488,14 +641,20 @@
   <data name="MillPipeNumberMaskRegexp" xml:space="preserve">
     <value>Маска номера трубы (служебная)</value>
   </data>
-  <data name="COAT_EXTERNAL" xml:space="preserve">
-    <value>Внешнее</value>
+  <data name="Export_CreatingArchive" xml:space="preserve">
+    <value>Создание конечного архива.</value>
   </data>
   <data name="DLG_PIPE_IS_SHIPPED_HEDER" xml:space="preserve">
     <value>Труба отгружена</value>
   </data>
+  <data name="PipeTestResultStatus_Scheduled" xml:space="preserve">
+    <value>Ожидается</value>
+  </data>
   <data name="Pipe" xml:space="preserve">
     <value>Труба</value>
+  </data>
+  <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
+    <value>Длины трубы не достаточно для отрезания заданной катушки</value>
   </data>
   <data name="DLG_PIPE_SAVED" xml:space="preserve">
     <value>Труба успешно сохранена в базе. Труба  # </value>
@@ -509,8 +668,20 @@
   <data name="PasswordsNotMatch" xml:space="preserve">
     <value>Пароли не совпадают.</value>
   </data>
+  <data name="Length" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="SecurityPrivilege_EditData" xml:space="preserve">
+    <value>Редактирование данных</value>
+  </data>
   <data name="DLG_COMPONENT_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация комплектующего элемента</value>
+  </data>
+  <data name="SecurityPrivilege_PrintReports" xml:space="preserve">
+    <value>Печать отчетов</value>
+  </data>
+  <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
+    <value>Сначала расформируйте вагон.</value>
   </data>
   <data name="ByProducing" xml:space="preserve">
     <value>По произведенным</value>
@@ -518,14 +689,23 @@
   <data name="DLG_CHANGE_PIPESIZE_ON_EDITPIPE" xml:space="preserve">
     <value>Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.</value>
   </data>
+  <data name="DLG_JOINT_DEACTIVATION" xml:space="preserve">
+    <value>Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?</value>
+  </data>
+  <data name="SecurityPrivilege_Audit" xml:space="preserve">
+    <value>Аудит</value>
+  </data>
   <data name="DLG_UNSHIP_UNSHIPPED_RAILCAR" xml:space="preserve">
     <value>Вагон не отгружен</value>
   </data>
-  <data name="ResultType" xml:space="preserve">
-    <value>Тип результата</value>
+  <data name="SecurityPrivilege_ExportDataFromConstruction" xml:space="preserve">
+    <value>Экспорт данных на строительстве</value>
   </data>
-  <data name="StringExpected" xml:space="preserve">
-    <value>Строковый ожидаемый результат</value>
+  <data name="AtControl" xml:space="preserve">
+    <value>Контроль</value>
+  </data>
+  <data name="DLG_AddFailedControlOperation" xml:space="preserve">
+    <value>Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. </value>
   </data>
   <data name="WorkstationType" xml:space="preserve">
     <value>Тип рабочего места</value>
@@ -533,20 +713,23 @@
   <data name="DLG_SETUP_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение настроек</value>
   </data>
+  <data name="SecurityPrivilege_ImportDataAtConstruction" xml:space="preserve">
+    <value>Импорт данных на строительстве</value>
+  </data>
   <data name="PurchaseOrder" xml:space="preserve">
     <value>Наряд-заказ</value>
   </data>
-  <data name="Length" xml:space="preserve">
-    <value>Длина</value>
+  <data name="SecurityPrivilege_DeactivateComponent" xml:space="preserve">
+    <value>Деактивация комплектующего</value>
   </data>
-  <data name="COAT_INTERNAL" xml:space="preserve">
-    <value>Внутреннее</value>
+  <data name="AuthenticationFailedUserInactive" xml:space="preserve">
+    <value>Вход для пользователя {0} заблокирован</value>
   </data>
   <data name="IDS_QUESTION_DO_NOT_CLOSE" xml:space="preserve">
     <value>У вас остались несохранённые изменения. Отменить закрытие документа?</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Статус</value>
+  <data name="DLG_ORDER_NUMBER_REQUIRED" xml:space="preserve">
+    <value>Номер наряд-заказа обязателен</value>
   </data>
   <data name="Stamp" xml:space="preserve">
     <value>Клеймо</value>
@@ -560,26 +743,26 @@
   <data name="Spool" xml:space="preserve">
     <value>Катушка</value>
   </data>
-  <data name="Number" xml:space="preserve">
-    <value>Номер</value>
+  <data name="UsedProductReport" xml:space="preserve">
+    <value>Использованные изделия</value>
   </data>
   <data name="Railcar" xml:space="preserve">
     <value>Вагон</value>
   </data>
-  <data name="Rejected" xml:space="preserve">
-    <value>Отклонено</value>
+  <data name="Export_WritingData" xml:space="preserve">
+    <value>Запись данных.</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Настройки проекта</value>
   </data>
-  <data name="AlertFailureReportDate" xml:space="preserve">
-    <value>Начальная дата позже конечной</value>
+  <data name="DLG_FILE_DOWNLOAD_SUCCESS" xml:space="preserve">
+    <value>Файл успешно загружен</value>
+  </data>
+  <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
+    <value>Длина катушки не может быть равна 0</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Дата</value>
-  </data>
-  <data name="PipeTestResultStatus_Scheduled" xml:space="preserve">
-    <value>Ожидается</value>
   </data>
   <data name="PRIZM" xml:space="preserve">
     <value>PRIZM</value>
@@ -587,203 +770,77 @@
   <data name="DLG_COMPONENT_DUPLICATE_HEDER" xml:space="preserve">
     <value>Дублирование номера комплектующего элемента</value>
   </data>
-  <data name="PipeStatusComboActive" xml:space="preserve">
-    <value>Активные</value>
-  </data>
-  <data name="Grade" xml:space="preserve">
-    <value>Разряд</value>
+  <data name="SPOOL_EDIT_FORM_TEXT" xml:space="preserve">
+    <value>Редактирование катушки</value>
   </data>
   <data name="Operation" xml:space="preserve">
     <value>Контрольная операция</value>
   </data>
-  <data name="PipeTest" xml:space="preserve">
-    <value>Контольная операция трубы</value>
-  </data>
   <data name="DLG_PIPE_DUPLICATE_HEDER" xml:space="preserve">
     <value>Дублирование номера трубы</value>
-  </data>
-  <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
-    <value>Дублирование номера стыка</value>
   </data>
   <data name="Stocked" xml:space="preserve">
     <value>На складе</value>
   </data>
-  <data name="IsShipped" xml:space="preserve">
-    <value>Отправлен</value>
-  </data>
-  <data name="main-logo_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main-logo_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DLG_JOINT_DEACTIVATION" xml:space="preserve">
-    <value>Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?</value>
-  </data>
-  <data name="DLG_JOINT_DEACTIVATION_HEADER" xml:space="preserve">
-    <value>Деактивация стыка</value>
-  </data>
-  <data name="Mask_Label" xml:space="preserve">
-    <value>Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть</value>
-  </data>
-  <data name="MillPipeNumber_Mask_Hint" xml:space="preserve">
-    <value>Формат номера трубы: </value>
-  </data>
-  <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
-    <value>Длины трубы не достаточно для отрезания заданной катушки</value>
-  </data>
-  <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\critical_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DLG_FILE_ATTACH_SUCCESS" xml:space="preserve">
-    <value>Вложения успешно добавлены</value>
-  </data>
-  <data name="UsedProductReport" xml:space="preserve">
-    <value>Использованные изделия</value>
-  </data>
   <data name="DLG_FILE_ATTACH_SUCCESS_HEADER" xml:space="preserve">
     <value>Добавление вложений</value>
-  </data>
-  <data name="TracingReport" xml:space="preserve">
-    <value>Трассовка</value>
-  </data>
-  <data name="DLG_FILE_DOWNLOAD_HEADER" xml:space="preserve">
-    <value>Загрузка файла</value>
-  </data>
-  <data name="PipelineLengthReport" xml:space="preserve">
-    <value>Протяженность трубопровода</value>
-  </data>
-  <data name="DLG_FILE_DOWNLOAD_SUCCESS" xml:space="preserve">
-    <value>Файл успешно загружен</value>
-  </data>
-  <data name="Constraction_Report_label" xml:space="preserve">
-    <value>Точки отсчета</value>
-  </data>
-  <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL" xml:space="preserve">
-    <value>Для просмотра и скачивания вложений необходимо их предварительное сохранение</value>
-  </data>
-  <data name="Constraction_UsedProductReport_label" xml:space="preserve">
-    <value>Пикеты</value>
   </data>
   <data name="DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER" xml:space="preserve">
     <value>Просмотр и загрузка несохрaненных файлов</value>
   </data>
-  <data name="Joint" xml:space="preserve">
-    <value>Стык</value>
-  </data>
-  <data name="KP" xml:space="preserve">
-    <value>Пикет</value>
-  </data>
-  <data name="RailcarPending" xml:space="preserve">
-    <value>Сформирован</value>
-  </data>
-  <data name="RailcarShipped" xml:space="preserve">
-    <value>Отгружен</value>
-  </data>
-  <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
-    <value>Длина катушки не может быть равна 0</value>
-  </data>
-  <data name="DateFirst" xml:space="preserve">
-    <value>Выберите дату</value>
-  </data>
-  <data name="DLG_JOINT_INCORRECT_DIAMETER" xml:space="preserve">
-    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
-  </data>
-  <data name="DLG_JOINT_INCORRECT_DIAMETER_HEADER" xml:space="preserve">
-    <value>Не совпадают диаметры стыкуемых элементов</value>
-  </data>
-  <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
-    <value>Дубликат номера труб</value>
-  </data>
-  <data name="ERROR_UnknownComponentType" xml:space="preserve">
-    <value> неизвестный тип компонента</value>
-  </data>
-  <data name="DLG_INSPECTIONS_SAVED" xml:space="preserve">
-    <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
-  </data>
   <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
     <value>Сертификат просрочен</value>
-  </data>
-  <data name="DLG_INSPECTIONS_SAVED_HEADER" xml:space="preserve">
-    <value>Сохранение контрольных операций</value>
-  </data>
-  <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
-    <value>Заканчивается срок сертификата</value>
-  </data>
-  <data name="SystemNotification" xml:space="preserve">
-    <value>Сообщения системы</value>
-  </data>
-  <data name="SPOOL_EDIT_FORM_TEXT" xml:space="preserve">
-    <value>Редактирование катушки</value>
-  </data>
-  <data name="DIAMETER_VALUE_VALIDATION" xml:space="preserve">
-    <value>Величина диаметра должна быть больше нуля</value>
   </data>
   <data name="JointTestResultStatus_Accepted" xml:space="preserve">
     <value>Принято</value>
   </data>
-  <data name="JointTestResultStatus_Repair" xml:space="preserve">
-    <value>Ремонт</value>
-  </data>
-  <data name="AuthenticationFailedUserInactive" xml:space="preserve">
-    <value>Вход для пользователя {0} заблокирован</value>
-  </data>
-  <data name="SecurityPrivilege_Audit" xml:space="preserve">
-    <value>Аудит</value>
-  </data>
-  <data name="SecurityPrivilege_DeactivateComponent" xml:space="preserve">
-    <value>Деактивация комплектующего</value>
-  </data>
-  <data name="SecurityPrivilege_DeactivateJoint" xml:space="preserve">
-    <value>Деактивация стыка</value>
-  </data>
-  <data name="SecurityPrivilege_DeactivatePipe" xml:space="preserve">
-    <value>Деактивация трубы</value>
-  </data>
-  <data name="SecurityPrivilege_DeactivateSpool" xml:space="preserve">
-    <value>Деактивация катушки</value>
-  </data>
-  <data name="SecurityPrivilege_EditData" xml:space="preserve">
-    <value>Редактирование данных</value>
-  </data>
-  <data name="SecurityPrivilege_EditSettings" xml:space="preserve">
-    <value>Изменение настроек</value>
-  </data>
-  <data name="SecurityPrivilege_ExportDataFromMaster" xml:space="preserve">
-    <value>Экспорт данных из Мастер</value>
-  </data>
   <data name="SecurityPrivilege_ImportData" xml:space="preserve">
     <value>Импорт данных</value>
   </data>
-  <data name="SecurityPrivilege_ImportDataAtConstruction" xml:space="preserve">
-    <value>Импорт данных на строительстве</value>
-  </data>
-  <data name="SecurityPrivilege_ImportDataAtMaster" xml:space="preserve">
-    <value>Импорт данных на Мастер</value>
+  <data name="Diameter" xml:space="preserve">
+    <value>Диаметр</value>
   </data>
   <data name="SecurityPrivilege_NewDataEntry" xml:space="preserve">
     <value>Ввод данных</value>
   </data>
-  <data name="SecurityPrivilege_PrintReports" xml:space="preserve">
-    <value>Печать отчетов</value>
+  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
+    <value>Брак</value>
   </data>
-  <data name="SecurityPrivilege_UnshipAtMill" xml:space="preserve">
-    <value>Отмена разрешения на отгрузку на заводе</value>
+  <data name="WallThickness" xml:space="preserve">
+    <value>Толщина стенки</value>
   </data>
   <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
     <value>Просмотр настроек</value>
   </data>
-  <data name="SecurityPrivilege_AddAttachments" xml:space="preserve">
-    <value>Добавление вложений</value>
+  <data name="PipeTestControlType_Review" xml:space="preserve">
+    <value>По документации</value>
   </data>
-  <data name="SecurityPrivilege_ExportDataFromConstruction" xml:space="preserve">
-    <value>Экспорт данных на строительстве</value>
+  <data name="SecurityPrivilege_ImportDataAtMaster" xml:space="preserve">
+    <value>Импорт данных на Мастер</value>
   </data>
-  <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
-    <value>Экспорт данных на заводе</value>
+  <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>Администратор</value>
+  <data name="Import_Checksum" xml:space="preserve">
+    <value>Проверка контрольной суммы</value>
+  </data>
+  <data name="Import_CopyAttachments" xml:space="preserve">
+    <value>Импорт вложений</value>
+  </data>
+  <data name="Import_Data" xml:space="preserve">
+    <value>Импорт данных</value>
+  </data>
+  <data name="Import_TempStorage" xml:space="preserve">
+    <value>Создание временного хранилища</value>
+  </data>
+  <data name="Import_Unzip" xml:space="preserve">
+    <value>Распаковка</value>
+  </data>
+  <data name="Import_SamePortion" xml:space="preserve">
+    <value>Данная порция уже была импортирована и не может быть импортирована снова.</value>
+  </data>
+  <data name="Import_Conflict" xml:space="preserve">
+    <value>Труба с номером '{0}' уже существует в БД.</value>
   </data>
   <data name="DLG_SPOOL_DEACTIVATION" xml:space="preserve">
     <value>Данное действие приведет в деактивации катушки: длина исходной трубы будет 
@@ -799,5 +856,21 @@
   </data>
   <data name="Empty_Operation_Name" xml:space="preserve">
     <value>Введите название операции</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Вырезан</value>
+  </data>
+  <data name="DLG_JOINT_WITHDRAWN" xml:space="preserve">
+    <value>Данное действие приведет к разединению элементов трубопровода. 
+Вы действительно хотите вырезать стык?</value>
+  </data>
+  <data name="DLG_JOINT_WITHDRAWN_HEADER" xml:space="preserve">
+    <value>Вырезка стыка</value>
+  </data>
+  <data name="RequiredWeldJointOperation" xml:space="preserve">
+    <value>Сварка стыка</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка стыка</value>
   </data>
 </root>

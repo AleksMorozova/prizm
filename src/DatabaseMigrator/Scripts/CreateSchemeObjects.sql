@@ -107,9 +107,9 @@ CREATE TABLE [dbo].[Component](
 	[constructionStatus] [nvarchar](15) NULL,
 
 	[componentTypeId] [uniqueidentifier] NULL,
+        [toExport] [bit] NOT NULL DEFAULT 0,
 
 	[isAvailableToJoint] [bit] NULL,
-	        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -187,6 +187,7 @@ CREATE TABLE [dbo].[Inspector](
 	[firstName] [nvarchar](30) NULL,
 	[lastName] [nvarchar](30) NULL,
 	[middleName] [nvarchar](30) NULL,
+	[grade] [int] NULL,
 	[certificate] [nvarchar](30) NULL,
 	[certificateExpiration] [date] NULL,
 	[certificateId] [uniqueidentifier] NULL,
@@ -238,7 +239,7 @@ CREATE TABLE [dbo].[Pipe](
 	[isActive] [bit] NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
-
+	[projectId] [uniqueidentifier] NULL,
 	[isAvailableToJoint] [bit] NULL,
         [toExport] [bit] NOT NULL DEFAULT 0,
 
@@ -409,6 +410,7 @@ CREATE TABLE [dbo].[Project](
 	[workstationType] [nvarchar] (20) NULL,
 	[millPipeNumberMask] [nvarchar] (20) NULL,
 	[millPipeNumberMaskRegexp] [nvarchar] (1000) NULL,
+	[isNative] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -569,6 +571,9 @@ ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Plate] FOREIGN KEY
 REFERENCES [dbo].[Plate] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Plate]
 
+ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_Project]
 ALTER TABLE [dbo].[Pipe]  WITH CHECK ADD  CONSTRAINT [FK_Pipe_PurchaseOrder] FOREIGN KEY([purchaseOrderId])
 REFERENCES [dbo].[PurchaseOrder] ([id])
 ALTER TABLE [dbo].[Pipe] CHECK CONSTRAINT [FK_Pipe_PurchaseOrder]
@@ -711,7 +716,7 @@ CREATE TABLE [dbo].[Joint](
 	[part1Type] [nvarchar](20) NULL,
 	[part2Id] [uniqueidentifier] NULL,
 	[part2Type] [nvarchar](20) NULL,
-	        [toExport] [bit] NOT NULL DEFAULT 0,
+        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -848,4 +853,24 @@ CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [db
 
 GO
 
+CREATE TABLE [dbo].[Portion_Joint] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [jointId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Joint] PRIMARY KEY([portionId],[jointId]),
+CONSTRAINT [FK_Portion_Joint_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Joint_Joint] FOREIGN KEY ([jointId]) REFERENCES [dbo].[Joint]([id])
+) ON [PRIMARY]
 
+
+GO
+
+
+CREATE TABLE [dbo].[Portion_Component] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [componentId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Component] PRIMARY KEY([portionId],[componentId]),
+CONSTRAINT [FK_Portion_Component_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Component_Component] FOREIGN KEY ([componentId]) REFERENCES [dbo].[Component]([id])
+) ON [PRIMARY]
+
+GO

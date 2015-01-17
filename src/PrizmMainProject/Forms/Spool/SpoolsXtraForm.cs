@@ -40,6 +40,8 @@ namespace Prizm.Main.Forms.Spool
             InitializeComponent();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
+            pipeNumber.SetAsIdentifier();
+            spoolNumber.SetAsIdentifier();
             if (number != string.Empty)
             {
                 viewModel.SpoolNumber = number;
@@ -134,7 +136,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;

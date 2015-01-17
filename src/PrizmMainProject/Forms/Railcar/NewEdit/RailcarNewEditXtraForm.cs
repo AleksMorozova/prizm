@@ -16,6 +16,7 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -48,6 +49,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
+            this.pipeNumberLookUp.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 
@@ -111,15 +113,21 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             pipesList.RefreshDataSource();
+            IsModified = true;
             commandManager.RefreshVisualState();
+
         }
 
         private void removePipe_Click(object sender, EventArgs e)
         {
             string number = pipesListView.GetRowCellValue(pipesListView.FocusedRowHandle, "Number") as string;
-            viewModel.RemovePipe(number);
-            pipesList.RefreshDataSource();
-            commandManager.RefreshVisualState();
+            if(!string.IsNullOrEmpty(number))
+            {
+                viewModel.RemovePipe(number);
+                pipesList.RefreshDataSource();
+                IsModified = true;
+                commandManager.RefreshVisualState();
+            }
         }
 
         private void repositoryGridLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
@@ -156,7 +164,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id,IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;

@@ -111,37 +111,37 @@ namespace Prizm.Data.DAL.ADO
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
-                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate AND Pipe.isActive=1";
 
         private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1
 		  union
 select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1";
 
         private const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1
 		  union 
 select Spool.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1";
 
         private const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Component.isActive=1
 		  union
 select Component.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part2Id])
-		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK  AND Component.isActive=1";
 
         private const string GetWeldedParts =
           @"SELECT 
