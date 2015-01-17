@@ -60,12 +60,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             #region --- Colouring of required controls, IsEditMode, uppercasing ---
             jointNumber.SetRequiredText();
+            SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
             firstJointElement.SetAsIdentifier();
-            secondJointElement.SetAsIdentifier();
+            secondJointElement.SetAsIdentifier();           
             extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }
@@ -116,6 +117,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
+            jointStatus.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
             firstJointElement.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
@@ -287,7 +290,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointWeldResult = view.GetRow(e.RowHandle) as JointWeldResult;
                 currentJointWeldResult.IsActive = true;
                 currentJointWeldResult.Joint = viewModel.Joint;
-                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);
+                viewModel.Joint.JointWeldResults.Add(currentJointWeldResult);                
             }
         }
 
@@ -440,6 +443,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(weldersGridColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
+            jointStatus.EditValue = viewModel.JointConstructionStatus;
         }
 
         #region IValidatable Members

@@ -800,8 +800,8 @@
   <data name="Empty_Operation_Name" xml:space="preserve">
     <value>Введите название операции</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Вырезка стыка</value>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Вырезан</value>
   </data>
   <data name="DLG_JOINT_WITHDRAWN" xml:space="preserve">
     <value>Данное действие приведет к разединению элементов трубопровода. 
@@ -812,5 +812,8 @@
   </data>
   <data name="RequiredWeldJointOperation" xml:space="preserve">
     <value>Сварка стыка</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка стыка</value>
   </data>
 </root>
