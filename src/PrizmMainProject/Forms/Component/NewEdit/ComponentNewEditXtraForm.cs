@@ -16,6 +16,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using System.Linq;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -317,6 +318,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
                 e.Valid = false;
             }
+        }
+
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
         }
     }
 }
