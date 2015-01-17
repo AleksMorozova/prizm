@@ -93,6 +93,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region --- Set Properties.CharacterCasing to Upper ---
             pipeNumber.SetAsIdentifier();
             plateNumber.SetAsIdentifier();
+            heatsLookUp.SetAsIdentifier();
+            ordersLookUp.SetAsIdentifier();
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
 
@@ -140,7 +142,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach(var t in viewModel.PipeTypes)
             {
-                pipeSize.Properties.Items.Add(t);
+                if (t.IsActive)
+                {
+                    pipeSize.Properties.Items.Add(t);
+                }
             }
             #endregion
 

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
@@ -32,21 +33,42 @@ namespace Prizm.Main.Forms.Parts.Search
             {
                 Id = (Guid)tuple[0],
                 Number = (string)tuple[1],
-                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[2].ToString()) }
+                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[3].ToString()) },
+                IsActive=Boolean.Parse(tuple[2].ToString())
             };
         }
 
         #endregion
 
-        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number)
+        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number, string Activity)
         {
             if(partTypes.Count == 0)
             {
                 return " ";
             }
-            if(!string.IsNullOrWhiteSpace(number))
+            if (!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ",number.EscapeCharacters());
+                if (Activity.Equals(Resources.PipeStatusComboActive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
+                }
+                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters()); 
+                }
+            }
+
+            else
+            {
+                if (Activity.Equals(Resources.PipeStatusComboActive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' ", true);
+                }
+                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                {
+                    number = string.Format(@"WHERE isActive = N'{0}' ", false);
+                }
+              
             }
 
             StringBuilder sb = new StringBuilder();
@@ -59,13 +81,13 @@ namespace Prizm.Main.Forms.Parts.Search
                     case PartType.Undefined:
                         break;
                     case PartType.Pipe:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM pipe {1}",PartType.Pipe,number));
+                        queries.Add(string.Format(" SELECT id, number, isActive,'{0}' FROM pipe {1}", PartType.Pipe, number));
                         break;
                     case PartType.Spool:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Spool {1}",PartType.Spool, number));
+                        queries.Add(string.Format(" SELECT id, number, isActive, '{0}' FROM Spool {1}", PartType.Spool, number));
                         break;
                     case PartType.Component:
-                        queries.Add(string.Format(" SELECT id, number, '{0}' FROM Component {1}",PartType.Component, number));
+                        queries.Add(string.Format(" SELECT id, number, isActive, '{0}' FROM Component {1}",PartType.Component, number));
                         break;
                     default:
                         break;
@@ -87,17 +109,14 @@ namespace Prizm.Main.Forms.Parts.Search
                 number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ", number.EscapeCharacters());
             }
             return string.Format(
-                                @"SELECT id, number, '{1}' FROM Pipe {0}
+                                @"SELECT id, number, isActive,'{1}' FROM Pipe {0}
                                 UNION ALL
-                                SELECT id, number, '{2}' FROM Spool {0}
+                                SELECT id, number, isActive,'{2}' FROM Spool {0}
                                 UNION ALL
-                                SELECT id, number, '{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
+                                SELECT id, number, isActive,'{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
                                 );
 
 
-
-
-        
         }
     }
 }

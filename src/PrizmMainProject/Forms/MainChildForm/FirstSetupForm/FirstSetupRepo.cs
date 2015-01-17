@@ -22,6 +22,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IPermissionRepository permissionRepo;
         private readonly IRoleRepository roleRepo;
         private readonly ICategoryRepository categoryRepo;
+        private readonly IJointOperationRepository jointOperationRepo;
 
         public FirstSetupRepo()
         {
@@ -33,6 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.permissionRepo = new PermissionRepository(session);
             this.roleRepo = new RoleRepository(session);
             this.categoryRepo = new CategoryRepository(session);
+            this.jointOperationRepo = new JointOperationRepository(session);
         }
 
         public IUserRepository UserRepo
@@ -84,6 +86,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public ICategoryRepository CategoryRepo
         {
             get { return categoryRepo; }
+        }
+
+        public IJointOperationRepository JointOperationRepo
+        {
+            get { return jointOperationRepo; }
         }
     }
 }
