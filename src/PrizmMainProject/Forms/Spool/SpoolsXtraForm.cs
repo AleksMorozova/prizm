@@ -136,7 +136,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
