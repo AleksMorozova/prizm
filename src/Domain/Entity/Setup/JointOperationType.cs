@@ -11,6 +11,7 @@ namespace Prizm.Domain.Entity.Setup
         Test = 1,
         Action = 2,
         Weld = 3,
+        Withdraw = 4,
 
         Undefined = 0
     }

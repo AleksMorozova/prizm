@@ -55,35 +55,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                if (viewModel.MakeTheConnection())
+                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
                 {
-                    try
-                    {
-                        repo.BeginTransaction();
-                        repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-                        repo.Commit();
-                        repo.RepoJoint.Evict(viewModel.Joint);
-
-                        viewModel.ModifiableView.IsModified = false;
-
-                        viewModel.JointDisconnection();
-
-                        //saving attached documents
-                        if (viewModel.FilesFormViewModel != null)
-                        {
-                            viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
-                            viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                            viewModel.FilesFormViewModel = null;
-                        }
-                        viewModel.ModifiableView.UpdateState();
-                        notify.ShowNotify(
-                            string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
-                            Resources.DLG_JOINT_SAVED_HEADER);
-                    }
-                    catch (RepositoryException ex)
-                    {
-                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
-                    }
+                    viewModel.SaveOrUpdateJointCommand.Execute();
+                }
+                else if (viewModel.MakeTheConnection())
+                {
+                    viewModel.SaveOrUpdateJointCommand.Execute();
+                    viewModel.JointDisconnection();
                 }
                 else
                 {
@@ -97,13 +76,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public bool CanExecute()
         {
-             return !string.IsNullOrEmpty(viewModel.Number) 
-                 && viewModel.FirstElement != null 
-                 && viewModel.SecondElement != null
-                 && viewModel.Joint.IsActive
-                 && ctx.HasAccess(viewModel.IsNew 
-                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                                    : global::Domain.Entity.Security.Privileges.EditData);
+            return viewModel.SaveOrUpdateJointCommand.CanExecute();
         }
     }
 }

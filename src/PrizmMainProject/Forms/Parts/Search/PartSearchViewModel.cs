@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
@@ -25,6 +26,22 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             this.session = session;
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
+            Activity = ActivityArray[0];
+        }
+        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
+
+        private string activity;
+        public string Activity
+        {
+            get { return activity; }
+            set
+            {
+                if (value != activity)
+                {
+                    activity = value;
+                    RaisePropertyChanged("Activity");
+                }
+            }
         }
 
         private string number = string.Empty;

@@ -13,6 +13,7 @@ namespace Prizm.Domain.Entity.Construction
         AtIsolation = 2,
         Lowered = 3,
         Filled = 4,
-        Welded = 5
+        Welded = 5,
+        Withdrawn = 6
     }
 }

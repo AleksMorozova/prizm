@@ -266,7 +266,7 @@
     <value>Отправка вагона без труб невозможна</value>
   </data>
   <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
-    <value>Создание катушка</value>
+    <value>Создание катушки</value>
   </data>
   <data name="Cut_Spool_from_pipe" xml:space="preserve">
     <value> Отрезана катушка заданной длины</value>
@@ -627,7 +627,7 @@
     <value>Формат номера трубы: </value>
   </data>
   <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
-    <value>Длинны трубы не достаточно для отрезания заданной катушки</value>
+    <value>Длины трубы не достаточно для отрезания заданной катушки</value>
   </data>
   <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\critical_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -681,7 +681,7 @@
     <value>Отгружен</value>
   </data>
   <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
-    <value>Длинна катушки не может быть равна 0</value>
+    <value>Длина катушки не может быть равна 0</value>
   </data>
   <data name="DateFirst" xml:space="preserve">
     <value>Выберите дату</value>
@@ -786,7 +786,9 @@
     <value>Администратор</value>
   </data>
   <data name="DLG_SPOOL_DEACTIVATION" xml:space="preserve">
-    <value>Данное действие приведет в деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
+    <value>Данное действие приведет в деактивации катушки: длина исходной трубы будет 
+пересчитана, параметры катушки станут невозможны для редактирования.
+ Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
 Деактивировать комплектующий элемент?</value>
   </data>
   <data name="DLG_SPOOL_DEACTIVATION_HEADER" xml:space="preserve">
@@ -797,5 +799,18 @@
   </data>
   <data name="Empty_Operation_Name" xml:space="preserve">
     <value>Введите название операции</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Вырезка стыка</value>
+  </data>
+  <data name="DLG_JOINT_WITHDRAWN" xml:space="preserve">
+    <value>Данное действие приведет к разединению элементов трубопровода. 
+Вы действительно хотите вырезать стык?</value>
+  </data>
+  <data name="DLG_JOINT_WITHDRAWN_HEADER" xml:space="preserve">
+    <value>Вырезка стыка</value>
+  </data>
+  <data name="RequiredWeldJointOperation" xml:space="preserve">
+    <value>Сварка стыка</value>
   </data>
 </root>

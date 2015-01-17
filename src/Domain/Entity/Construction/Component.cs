@@ -16,7 +16,7 @@ namespace Prizm.Domain.Entity.Construction
 
         public virtual string Certificate { get; set; }
         public virtual IList<Connector> Connectors { get; set; }
-
+        public virtual bool ToExport { get; set; }
         public virtual ComponentType Type { get; set; }
     }
 }

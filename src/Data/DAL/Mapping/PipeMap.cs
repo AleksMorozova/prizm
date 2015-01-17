@@ -3,6 +3,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using FluentNHibernate.Mapping;
 using NHibernate.Mapping.ByCode.Conformist;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Mapping
 {
@@ -17,6 +18,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.Diameter).Column("diameter");
             Map(_ => _.ProductionDate).Column("productionDate");
             Map(_ => _.Status).Column("pipeMillStatus");
+            Map(_ => _.ToExport).Column("ToExport");
             #endregion
 
             #region --- References ---
@@ -24,6 +26,7 @@ namespace Prizm.Data.DAL.Mapping
 	        References<PipeMillSizeType>(x => x.Type).Column("typeId");
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
+            References<Project>(x => x.Project).Column("projectId");
             #endregion
 
             #region --- HasMany ---
