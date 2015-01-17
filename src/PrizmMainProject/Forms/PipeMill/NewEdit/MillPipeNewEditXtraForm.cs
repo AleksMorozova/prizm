@@ -136,7 +136,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach (var t in viewModel.PipeTypes)
             {
-                pipeSize.Properties.Items.Add(t);
+                if (t.IsActive)
+                {
+                    pipeSize.Properties.Items.Add(t);
+                }
             }
             #endregion
 
