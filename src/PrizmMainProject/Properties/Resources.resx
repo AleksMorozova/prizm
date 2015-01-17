@@ -684,7 +684,7 @@
     <value>Сначала расформируйте вагон.</value>
   </data>
   <data name="ByProducing" xml:space="preserve">
-    <value>В производстве</value>
+    <value>По произведенным</value>
   </data>
   <data name="DLG_CHANGE_PIPESIZE_ON_EDITPIPE" xml:space="preserve">
     <value>Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.</value>
