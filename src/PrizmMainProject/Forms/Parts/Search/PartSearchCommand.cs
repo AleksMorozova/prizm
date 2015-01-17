@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             BindingList<Part> parts = new BindingList<Part>();
 
-            var query = session.CreateSQLQuery(PartQuery.BuildSql(viewModel.Types, viewModel.Number))
+            var query = session.CreateSQLQuery(PartQuery.BuildSql(viewModel.Types, viewModel.Number, viewModel.Activity))
                 .SetResultTransformer(PartQuery.Transformer);
 
             var qparts = query.List<Part>();

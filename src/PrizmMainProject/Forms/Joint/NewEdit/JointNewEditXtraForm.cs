@@ -25,6 +25,7 @@ using System.Linq;
 using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -64,6 +65,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = true;
             jointNumber.SetAsIdentifier();
+            firstJointElement.SetAsIdentifier();
+            secondJointElement.SetAsIdentifier();
             extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
             #endregion
         }
@@ -392,7 +395,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             var operation = gv.GetRowCellValue(e.RowHandle, controlTypeGridColumn);
             if(operation == null)
             {
-                gv.SetColumnError(controlDateGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(controlTypeGridColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
         }
@@ -455,6 +458,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             firstJointElement.Refresh();
             secondJointElement.Refresh();
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }

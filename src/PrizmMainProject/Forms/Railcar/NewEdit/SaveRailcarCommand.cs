@@ -40,19 +40,19 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
+            if(string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
             {
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
             }
 
-            if (viewModel.Railcar.ShippingDate == DateTime.MinValue)
+            if(viewModel.Railcar.ShippingDate == DateTime.MinValue)
             {
                 viewModel.Railcar.ShippingDate = null;
             }
             try
             {
-                foreach (var pipe in viewModel.Railcar.Pipes)
+                foreach(var pipe in viewModel.Railcar.Pipes)
                 {
                     pipe.Railcar = viewModel.Railcar;
                 }
@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 viewModel.ModifiableView.IsModified = false;
 
                 //saving attached documents
-                if (viewModel.FilesFormViewModel != null)
+                if(viewModel.FilesFormViewModel != null)
                 {
                     viewModel.FilesFormViewModel.Item = viewModel.Railcar.Id;
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
                 notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
             }
-            catch (RepositoryException ex)
+            catch(RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
@@ -84,7 +84,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
             bool conditionAndPermission;
-            if (viewModel.IsNew)
+            if(viewModel.IsNew)
             {
                 conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
             }
