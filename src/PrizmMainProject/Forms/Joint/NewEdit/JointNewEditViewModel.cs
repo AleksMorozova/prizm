@@ -91,11 +91,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                connectedElements[0] = GetPart(FirstElement);
-                connectedElements[1] = GetPart(SecondElement);
-
-                FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
-                SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+                if (FirstElement != null)
+                {
+                    connectedElements[0] = GetPart(FirstElement);
+                    FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
+                }
+                if (FirstElement != null)
+                {
+                    connectedElements[1] = GetPart(SecondElement);
+                    SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+                }
 
                 JointDisconnection();
 
