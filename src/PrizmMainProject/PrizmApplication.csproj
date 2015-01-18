@@ -467,6 +467,8 @@
     <Compile Include="Forms\Synch\ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Languages\ILanguageManager.cs" />
+    <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -105,6 +105,7 @@ Filename: "{app}\{#MyAppMigratorExeName}"; Parameters: "0"; WorkingDir: "{app}";
 
 [Dirs]
 Name: "{app}\Data"; Attribs: hidden; Permissions: everyone-full
+Name: "{app}\Languages"; Permissions: everyone-full
 
 
 [CustomMessages]

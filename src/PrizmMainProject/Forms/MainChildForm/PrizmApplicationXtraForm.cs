@@ -35,6 +35,7 @@ using Prizm.Main.Security;
 using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
+using System.Globalization;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -49,16 +50,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-
-            //TODO
-            // should be deleted after demo test
-            //==========================================================
-            languageBarListItem.ShowChecks = true;
-            languageBarListItem.Strings.Add("English");
-            languageBarListItem.Strings.Add("Русский");
-            languageBarListItem.Strings.Add("Chinese (中國)");
-            languageBarListItem.DataIndex = 2;
-            //==========================================================
 
             NotificationManager.Instance.NotificationReload += OnNotificationRefresh;
             NotificationManager.Instance.RequestAllNotification();
@@ -528,6 +519,8 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
+
+            CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
         }
 
@@ -625,6 +618,22 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
+        private Dictionary<int, CultureInfo> cultures = new Dictionary<int, CultureInfo>();
+
+        private void CreateLanguageBarListItem()
+        {
+            cultures.Clear();
+            languageBarListItem.ShowChecks = true;
+            int indexDefault = 0;
+            var list = viewModel.GetLanguagesCultures(out indexDefault);
+            foreach (var culture in list)
+            {
+                int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
+                cultures[index] = culture;
+            }
+            languageBarListItem.DataIndex = indexDefault;
+        }
+
         private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
         {
            OpenChildForm(typeof(ExportForm), Guid.Empty, string.Empty);
@@ -634,6 +643,20 @@ namespace Prizm.Main.Forms.MainChildForm
         {
            ImportForm form = Program.Kernel.Get<ImportForm>();
            form.ShowDialog();
+        }
+
+        private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
+        {
+            if (cultures.ContainsKey(e.Index))
+            {
+                viewModel.ChooseTranslation(cultures[e.Index]);
+                CascadeLocalization();
+            }
+        }
+
+        void CascadeLocalization()
+        {
+            MessageBox.Show("CascadeLocalization");
         }
 
     }
