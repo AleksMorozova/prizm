@@ -13,6 +13,7 @@ using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.Main.Languages;
 using System.Globalization;
 using Prizm.Main.Properties;
+using System.Resources;
 
 using DevExpress.XtraBars;
 
@@ -57,6 +58,24 @@ namespace Prizm.Main.Forms.MainChildForm
                 notify.ShowError("MenuFile", "MenuFile");
                 notify.ShowError(langManager.Current.GetString("MenuFile"), langManager.Current.GetString("MenuFile"));
             }
+        }
+
+        public string GetLocalizedString(string str)
+        {
+            string ret = "";
+            try
+            {
+                ret = langManager.Current.GetString(str, langManager.CurrentCulture);
+            }
+            catch (SystemException e)
+            {
+                try
+                {
+                    ret = langManager.Default.GetString(str, langManager.DefaultCulture);
+                }
+                catch (SystemException e1) { }
+            }
+            return ret;
         }
 
         public EnumWrapper<WorkstationType> WorkstationType

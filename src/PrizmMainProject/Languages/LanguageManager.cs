@@ -55,8 +55,15 @@ namespace Prizm.Main.Languages
                     string[] tmp = file.Split('.');
                     if (tmp.Length > 1) // just in case
                     {
-                        FileInfo fi = new FileInfo(file);
-                        translationFiles.Add(new Tuple<string, string, string>(tmp[tmp.Length - 2].Trim(), file, fi.Name));
+                        string name = file.Split('\\').Last();
+                        int index = name.LastIndexOf('.');
+                        int length = name.Length;
+                        name = name.Substring(0, length - (length - index));
+                        index = name.LastIndexOf('.');
+                        length = name.Length;
+                        name = name.Substring(0, length - (length - index));
+
+                        translationFiles.Add(new Tuple<string, string, string>(tmp[tmp.Length - 2].Trim(), file, name));
                     }
                 }
             }
@@ -78,6 +85,7 @@ namespace Prizm.Main.Languages
                     }
                 }
             }
+            indexCurrent = indexDefault;
             if (cultures.Count < 0)
             {
                 throw new ApplicationException("Language error: no default culture information available.");
@@ -86,6 +94,7 @@ namespace Prizm.Main.Languages
 
         private List<LanguagePack> cultures = new List<LanguagePack>();
         private int indexDefault = -1;
+        private int indexCurrent = -1;
 
         public IReadOnlyList<CultureInfo> GetCultures(out int indexDefault)
         {
@@ -107,9 +116,7 @@ namespace Prizm.Main.Languages
                 LanguagePack lp = cultures[index];
                 if(!lp.IsDefault || lp.IsDefault && !String.IsNullOrWhiteSpace(lp.FullPathFile))
                 {
-                    FileInfo fi = new FileInfo(cultures[index].FullPathFile);
-                    string name = fi.Name;
-                    manager = ResourceManager.CreateFileBasedResourceManager(fi.Name, Directories.LanguagesFolderName, null);
+                    manager = ResourceManager.CreateFileBasedResourceManager(lp.BaseNameFile, Directories.LanguagesFolderName, null);
                 }
                 else
                 {
@@ -117,6 +124,7 @@ namespace Prizm.Main.Languages
                 }
                 status = true;
             }
+            indexCurrent = index;
             return status;
         }
 
@@ -130,5 +138,27 @@ namespace Prizm.Main.Languages
             } 
         }
 
+        public ResourceManager Default
+        {
+            get
+            {
+                return Resources.ResourceManager;
+            }
+        }
+
+        public CultureInfo CurrentCulture
+        {
+            get 
+            {
+                return cultures[indexCurrent].Culture;
+            }
+        }
+        public CultureInfo DefaultCulture
+        {
+            get
+            {
+                return cultures[indexDefault].Culture;
+            }
+        }
     }
 }

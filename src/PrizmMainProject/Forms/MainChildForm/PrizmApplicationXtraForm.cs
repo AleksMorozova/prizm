@@ -36,6 +36,7 @@ using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
 using System.Globalization;
+using System.Resources;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -657,6 +658,7 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeLocalization()
         {
             MessageBox.Show("CascadeLocalization");
+            this.Text = viewModel.GetLocalizedString("MenuFile");
         }
 
     }
