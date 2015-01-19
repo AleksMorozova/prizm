@@ -658,6 +658,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
             List<PipeTestResult> sortedResult = new List<PipeTestResult>();
 
+            // Sorting rules:
+            // Sheduled inspections  - first of all sorted by code
+            // Other status inspection - sort by date. Inspections with some date sorting by code.
+            // inspections with some date & code sotting by order
+            #region Sorting inspections
             var sheduledResult = from result in foundTestResults
                                  orderby result.Operation.Code
                                  where result.Status == PipeTestResultStatus.Scheduled
@@ -670,6 +675,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             sortedResult.AddRange(sheduledResult);
             sortedResult.AddRange(otherResult);
+            #endregion
 
             pipeTestResults = new BindingList<PipeTestResult>(sortedResult);
         }
