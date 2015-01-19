@@ -287,7 +287,7 @@
     <Compile Include="Forms\Notifications\Request\AbstractNotificationFactory.cs" />
     <Compile Include="Forms\Notifications\Request\CertificateNotificationFactory.cs" />
     <Compile Include="Forms\Notifications\Request\DuplicateNumberNotificationFactory.cs" />
-    <Compile Include="Forms\Notifications\Request\INotificationRequest..cs" />
+    <Compile Include="Forms\Notifications\Request\INotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
