@@ -200,7 +200,6 @@
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
-    <Compile Include="DummyData\NotificationDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
@@ -285,10 +284,12 @@
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
-    <Compile Include="Forms\Notifications\NotificationRequest\CertificateNotificationRequest.cs" />
-    <Compile Include="Forms\Notifications\NotificationRequest\INotificationRequest..cs" />
+    <Compile Include="Forms\Notifications\Notification.cs" />
+    <Compile Include="Forms\Notifications\Request\AbstractNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\CertificateNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\DuplicateNumberNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\INotificationRequest..cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
-    <Compile Include="Forms\Notifications\NotificationRequest\PipeNotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
@@ -296,6 +297,7 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Notifications\Request\NotificationRequest.cs" />
     <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
       <SubType>Form</SubType>
     </Compile>

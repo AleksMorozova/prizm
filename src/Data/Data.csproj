@@ -149,6 +149,7 @@
     <Compile Include="DAL\Mill\IWelderRepository.cs" />
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
     <Compile Include="DAL\Mill\ICategoryRepository.cs" />
+    <Compile Include="DAL\Notifications\INotificationRepository.cs" />
     <Compile Include="DAL\RepositoryException.cs" />
     <Compile Include="DAL\Security\IPermissionRepository.cs" />
     <Compile Include="DAL\Security\IRoleRepository.cs" />
