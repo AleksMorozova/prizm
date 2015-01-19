@@ -39,6 +39,8 @@ using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Synch.Import;
+using Prizm.Main.Languages;
+
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -150,6 +152,13 @@ namespace Prizm.Main
             Bind<IHasher>().To<Hasher>();
 
             #endregion
+
+            #region Language
+
+            Bind<ILanguageManager>().To<LanguageManager>();
+
+            #endregion
+
         }
     }
 }
