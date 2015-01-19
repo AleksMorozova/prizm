@@ -238,7 +238,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             get { return Pipe.IsActive; }
             set
             {
-                if (value != Pipe.IsActive)
+                if(value != Pipe.IsActive)
                 {
                     Pipe.IsActive = value;
                     RaisePropertyChanged("PipeIsActive");
@@ -266,7 +266,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             set
             {
                 GetLengthFromOperation();
-                if (value != Pipe.Length)
+                if(value != Pipe.Length)
                 {
                     Pipe.Length = value;
                     recalculateWeight = true;
@@ -404,7 +404,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             get { return Plate.Thickness; }
             set
             {
-                if (Math.Abs(value - Plate.Thickness) > Constants.WallThicknessPrecision)
+                if(Math.Abs(value - Plate.Thickness) > Constants.WallThicknessPrecision)
                 {
                     Plate.Thickness = value;
                     RaisePropertyChanged("PlateThickness");
@@ -656,13 +656,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .For<PipeTestResult>().
                 Add((Restrictions.Eq("Pipe", Pipe)));
             var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
-            pipeTestResults = new BindingList<PipeTestResult>(foundTestResults);
+            List<PipeTestResult> sortedResult = new List<PipeTestResult>();
 
+            // Sorting rules:
+            // Sheduled inspections  - first of all sorted by code
+            // Other status inspection - sort by date. Inspections with some date sorting by code.
+            // inspections with some date & code sotting by order
+            #region Sorting inspections
+            var sheduledResult = from result in foundTestResults
+                                 orderby result.Operation.Code
+                                 where result.Status == PipeTestResultStatus.Scheduled
+                                 select result;
+
+            var otherResult = from result in foundTestResults
+                              orderby result.Date, result.Operation.Code, result.Order
+                              where result.Status != PipeTestResultStatus.Scheduled
+                              select result;
+
+            sortedResult.AddRange(sheduledResult);
+            sortedResult.AddRange(otherResult);
+            #endregion
+
+            pipeTestResults = new BindingList<PipeTestResult>(sortedResult);
         }
 
         internal string FormatWeldersList(IList<Welder> welders)
         {
-            if (welders == null)
+            if(welders == null)
                 return string.Empty;
 
             return String.Join(",", (from welder in welders select welder.Name.LastName).ToArray<string>());
@@ -673,7 +693,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if (inspectors == null)
+            if(inspectors == null)
                 return string.Empty;
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
@@ -767,7 +787,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if(Pipe.Railcar != null)
                 {
-                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) 
+                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
                         || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
                         || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
                         )
@@ -801,7 +821,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
-            if(testsResults.Contains(PipeTestResultStatus.Failed.ToString()) 
+            if(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
                 || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
                 || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
                 )
@@ -869,7 +889,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             set
             {
-                if (value != currentType)
+                if(value != currentType)
                 {
                     currentType = value;
                     RaisePropertyChanged("CurrentType");
@@ -888,12 +908,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (CurrentType != null) { return CurrentType.Length; } else { return 0; }
+                if(CurrentType != null) { return CurrentType.Length; } else { return 0; }
 
             }
             set
             {
-                if (value != CurrentType.Length)
+                if(value != CurrentType.Length)
                 {
                     CurrentType.Length = value;
                     RaisePropertyChanged("Length");
@@ -905,11 +925,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
+                if(CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
             }
             set
             {
-                if (value != CurrentType.Diameter)
+                if(value != CurrentType.Diameter)
                 {
                     CurrentType.Diameter = value;
                     RaisePropertyChanged("Diameter");
@@ -921,7 +941,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (CurrentType != null)
+                if(CurrentType != null)
                 {
                     return CurrentType.Thickness;
                 }
@@ -929,7 +949,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             set
             {
-                if (value != CurrentType.Thickness)
+                if(value != CurrentType.Thickness)
                 {
                     CurrentType.Thickness = value;
                     RaisePropertyChanged("WallThickness");
@@ -938,45 +958,45 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
 
-        public int GetLengthFromOperation() 
+        public int GetLengthFromOperation()
         {
             List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
 
             //group by category
-            foreach (PipeTestResult t in Pipe.PipeTestResult) 
+            foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Name == "Измерение длины")
+                if(t.Operation.Category.Name == "Измерение длины")
                     lengthOperation.Add(t);
             }
 
             //group by date
-            foreach (PipeTestResult t in lengthOperation)
+            foreach(PipeTestResult t in lengthOperation)
             {
-                if (t.Date>=lengthOperation.Max(d=>d.Date))
+                if(t.Date >= lengthOperation.Max(d => d.Date))
                     lengthOperation2.Add(t);
             }
 
             //group by order
-            if (lengthOperation2.Count() >= 2)
+            if(lengthOperation2.Count() >= 2)
             {
-                foreach (PipeTestResult t in lengthOperation2)
+                foreach(PipeTestResult t in lengthOperation2)
                 {
-                    if (t.Order >= lengthOperation2.Max(d => d.Order))
+                    if(t.Order >= lengthOperation2.Max(d => d.Order))
                         lengthOperation3.Add(t);
                 }
             }
 
-            else 
+            else
             {
-                foreach (PipeTestResult t in lengthOperation2)
+                foreach(PipeTestResult t in lengthOperation2)
                 {
                     Pipe.Length = Convert.ToInt32(t.Value);
                 }
             }
 
-            foreach (PipeTestResult t in lengthOperation3)
+            foreach(PipeTestResult t in lengthOperation3)
             {
                 Pipe.Length = Convert.ToInt32(t.Value);
             }
