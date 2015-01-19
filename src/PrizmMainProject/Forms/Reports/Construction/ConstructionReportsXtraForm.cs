@@ -114,9 +114,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             endKPComboBox.SelectedIndex = 0;
             viewModel.EndPK = (endKPComboBox.EditValue != null) ? (int)endKPComboBox.EditValue : default(int);
 
-            tracingModeRadioGroup.SelectedIndex = 0;
             reportType.SelectedIndex = 0;
             viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
+
+            tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
