@@ -11,6 +11,7 @@ namespace Prizm.Domain.Entity.Construction
         Undefined = 0,
         Welded = 1,
         Lowered = 2,        
-        Withdrawn = 3
+        Withdrawn = 3,
+        Deactivated = 4
     }
 }

@@ -873,4 +873,7 @@
   <data name="Withdraw" xml:space="preserve">
     <value>Вырезка стыка</value>
   </data>
+  <data name="Deactivated" xml:space="preserve">
+    <value>Деактивирован</value>
+  </data>
 </root>

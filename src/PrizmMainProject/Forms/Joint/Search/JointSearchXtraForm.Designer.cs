@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.searchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.activity = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -64,7 +63,7 @@
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.activityLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -98,7 +97,7 @@
             // 
             this.extraJointButton.AutoHeight = false;
             this.extraJointButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraJointButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraJointButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraJointButton.LookAndFeel.SkinName = "Office 2013";
             this.extraJointButton.Name = "extraJointButton";
             this.extraJointButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -134,6 +133,7 @@
             this.activity.Size = new System.Drawing.Size(174, 20);
             this.activity.StyleController = this.searchLayoutControl;
             this.activity.TabIndex = 66;
+            this.activity.SelectedIndexChanged += new System.EventHandler(this.activity_SelectedIndexChanged);
             // 
             // gridControlSerchResult
             // 
