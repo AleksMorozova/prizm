@@ -13,6 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -42,7 +43,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
             foreach(JointStatus item in Enum.GetValues(typeof(JointStatus)))
             {
-                if(item == JointStatus.Undefined)
+                if(item == JointStatus.Undefined || item == JointStatus.Deactivated)
                 {
                     continue;
                 }
@@ -137,6 +138,14 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     e.Appearance.ForeColor = Color.Gray;
                 }
+            }
+        }
+
+        private void activity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (activity.EditValue != Resources.PipeStatusComboActive)
+            {
+                viewModel.Statuses.Add(JointStatus.Deactivated);
             }
         }
     }
