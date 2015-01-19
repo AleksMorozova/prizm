@@ -11,7 +11,6 @@ using Ninject.Parameters;
 using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
-using PrizmMain.DummyData;
 
 
 namespace PrizmMain.Forms.Notifications

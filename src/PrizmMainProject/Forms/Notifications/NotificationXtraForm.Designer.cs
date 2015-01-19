@@ -10,7 +10,6 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraLayout;
-using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms.Notifications
 {
