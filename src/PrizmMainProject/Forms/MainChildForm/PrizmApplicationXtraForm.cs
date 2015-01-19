@@ -48,6 +48,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private const string emptyString = "";
 
+        private int previousLanguageBarItemIndex = -1;
+
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
@@ -632,7 +634,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
                 cultures[index] = culture;
             }
-            languageBarListItem.DataIndex = indexDefault;
+            previousLanguageBarItemIndex = languageBarListItem.DataIndex = indexDefault;
         }
 
         private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
@@ -646,19 +648,32 @@ namespace Prizm.Main.Forms.MainChildForm
            form.ShowDialog();
         }
 
+        /// <summary>
+        /// On choosing language in main program menu
+        /// </summary>
+        /// <param name="sender">menu item</param>
+        /// <param name="e">list item click parameters</param>
         private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
         {
-            if (cultures.ContainsKey(e.Index))
+            int index = languageBarListItem.DataIndex;
+            if (cultures.ContainsKey(e.Index) && viewModel.ChooseTranslation(cultures[e.Index]))
             {
-                viewModel.ChooseTranslation(cultures[e.Index]);
                 CascadeLocalization();
+            }
+            else
+            {
+                languageBarListItem.DataIndex = previousLanguageBarItemIndex;
+                // ShowError(); TODO: write message about being not able to change language
             }
         }
 
+        /// <summary>
+        /// Main window will modify own text according to current language, and impel it's children to do so.
+        /// </summary>
         void CascadeLocalization()
         {
-            MessageBox.Show("CascadeLocalization");
-            this.Text = viewModel.GetLocalizedString("MenuFile");
+            //MessageBox.Show("CascadeLocalization");
+            //this.Text = viewModel.GetLocalizedString("MenuFile");
         }
 
     }

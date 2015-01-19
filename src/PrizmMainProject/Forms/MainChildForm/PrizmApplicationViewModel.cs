@@ -38,28 +38,30 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// The only non-UI tool returning UI strings (taken from translation files) 
-        /// because list of available languages is dynamic and depends on available language files.
+        /// returns information about translations available (including internal default)
         /// </summary>
-        /// <returns>collection of menu items to show as languages</returns>
+        /// <param name="indexDefault">out parameter. index of default translation in returned list</param>
+        /// <returns>read only list of culture info</returns>
         public IReadOnlyList<CultureInfo> GetLanguagesCultures(out int indexDefault)
         {
             return langManager.GetCultures(out indexDefault);
         }
 
-        public void ChooseTranslation(CultureInfo culture)
+        /// <summary>
+        /// Changes current language (culture info)
+        /// </summary>
+        /// <param name="culture">new culture</param>
+        /// <returns>status if new localization can be loaded</returns>
+        public bool ChooseTranslation(CultureInfo culture)
         {
-            bool status = langManager.LoadTranslation(culture);
-            if (!status)
-            {
-                notify.ShowError(langManager.Current.GetString(Resources.Action), langManager.Current.GetString(Resources.PipeTestResultType_Diapason));
-                notify.ShowError(Resources.ResourceManager.GetString(Resources.Action), Resources.ResourceManager.GetString(Resources.PipeTestResultType_Diapason));
-                notify.ShowError(Resources.Action, Resources.PipeTestResultType_Diapason);
-                notify.ShowError("MenuFile", "MenuFile");
-                notify.ShowError(langManager.Current.GetString("MenuFile"), langManager.Current.GetString("MenuFile"));
-            }
+            return langManager.LoadTranslation(culture);
         }
 
+        /// <summary>
+        /// retrieves localized string when available. Otherwise retrieves default string.
+        /// </summary>
+        /// <param name="resourceId">id of requested string resource</param>
+        /// <returns>localized string</returns>
         public string GetLocalizedString(string resourceId)
         {
             string ret = "<no resource>";
@@ -67,13 +69,13 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 ret = langManager.Current.GetString(resourceId, langManager.CurrentCulture);
             }
-            catch (SystemException e)
+            catch (SystemException )
             {
                 try
                 {
                     ret = langManager.Default.GetString(resourceId, langManager.DefaultCulture);
                 }
-                catch (SystemException e1)
+                catch (SystemException )
                 {
                     #if DEBUG
                     throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
