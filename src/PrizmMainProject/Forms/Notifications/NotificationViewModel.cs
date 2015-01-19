@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Office.Forms;
-using PrizmMain.DummyData;
 using Ninject;
 
 namespace Prizm.Main.Forms.Notifications

@@ -15168,7 +15168,7 @@ OPTIONAL for the first version?
 <XPD:REF name="SupplierDependencies[0]">GCBpMifPtkO8RA5tnwBHHgAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">eRx7bQswQESb65DxNh+zNwAA</XPD:REF>
-<XPD:ATTR name="#Literals" type="integer">3</XPD:ATTR>
+<XPD:ATTR name="#Literals" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Literals[0]" type="UMLEnumerationLiteral" guid="SZrL/MdRgE+l3CC4H7zJ5wAA">
 <XPD:ATTR name="Name" type="string">welded</XPD:ATTR>
 <XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
@@ -15179,6 +15179,10 @@ OPTIONAL for the first version?
 </XPD:OBJ>
 <XPD:OBJ name="Literals[2]" type="UMLEnumerationLiteral" guid="mXEk9L9nxUywJfEDQpLV2wAA">
 <XPD:ATTR name="Name" type="string">withrawn</XPD:ATTR>
+<XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[3]" type="UMLEnumerationLiteral" guid="1X1PK27DwEa3QnZM3jJEXgAA">
+<XPD:ATTR name="Name" type="string">deactivated</XPD:ATTR>
 <XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -17217,8 +17221,8 @@ OPTIONAL for the first version?
 <XPD:REF name="Participant">ATSouixGh0qK0UJUPudbuQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">JzVrrzV2pUG0hJ5B3IrhzAAA</XPD:REF>
-<XPD:REF name="Views[1]">FAsvtbD0EE2NZnjkC4oEZQAA</XPD:REF>
-<XPD:REF name="Views[2]">T7YYLKZt50ieqnV0hIdvWgAA</XPD:REF>
+<XPD:REF name="Views[1]">T7YYLKZt50ieqnV0hIdvWgAA</XPD:REF>
+<XPD:REF name="Views[2]">FAsvtbD0EE2NZnjkC4oEZQAA</XPD:REF>
 <XPD:REF name="Views[3]">+iqApcVC3E+79FCVxx+pngAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="n2pkHYTEJkKKC8mCwavyJAAA">
@@ -17227,8 +17231,8 @@ OPTIONAL for the first version?
 <XPD:REF name="Participant">2iCvFzUT2UWQBelu5TMVdwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">r/A1qVuBYkudCW1Moj0CAgAA</XPD:REF>
-<XPD:REF name="Views[1]">QN6qOp+hbEO6sbc9rROCpwAA</XPD:REF>
-<XPD:REF name="Views[2]">g8xSkrpUr0W2Hu/vp1KGfwAA</XPD:REF>
+<XPD:REF name="Views[1]">g8xSkrpUr0W2Hu/vp1KGfwAA</XPD:REF>
+<XPD:REF name="Views[2]">QN6qOp+hbEO6sbc9rROCpwAA</XPD:REF>
 <XPD:REF name="Views[3]">radk1KJrQkiykUEXMLxh5QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
