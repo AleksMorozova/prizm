@@ -60,20 +60,25 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        public string GetLocalizedString(string str)
+        public string GetLocalizedString(string resourceId)
         {
-            string ret = "";
+            string ret = "<no resource>";
             try
             {
-                ret = langManager.Current.GetString(str, langManager.CurrentCulture);
+                ret = langManager.Current.GetString(resourceId, langManager.CurrentCulture);
             }
             catch (SystemException e)
             {
                 try
                 {
-                    ret = langManager.Default.GetString(str, langManager.DefaultCulture);
+                    ret = langManager.Default.GetString(resourceId, langManager.DefaultCulture);
                 }
-                catch (SystemException e1) { }
+                catch (SystemException e1)
+                {
+                    #if DEBUG
+                    throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
+                    #endif
+                }
             }
             return ret;
         }

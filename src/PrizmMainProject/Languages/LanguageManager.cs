@@ -8,25 +8,32 @@ using System.IO;
 using System.Globalization;
 using System.Resources;
 using Prizm.Main.Properties;
-using Prizm.Main.Common;
 
 namespace Prizm.Main.Languages
 {
     class LanguageManager : ILanguageManager
     {
+        #region Language pack class
+
         private class LanguagePack
         {
-            public LanguagePack(CultureInfo culture, string fullPathFile, string baseNameFile, bool isDefault = false)
+            /// <summary>
+            /// Groups information about chosen language around culture information
+            /// </summary>
+            /// <param name="culture">culture information</param>
+            /// <param name="isDefault">is this culture default (only one could be default among all language packs)</param>
+            public LanguagePack(CultureInfo culture, bool isDefault = false)
             {
                 this.culture = culture;
-                this.fullPathFile = fullPathFile;
-                this.baseNameFile = baseNameFile;
                 this.isDefault = isDefault;
+                if (isDefault)
+                {
+                    manager = Resources.ResourceManager;
+                }
             }
             private CultureInfo culture;
-            private string fullPathFile;
-            private string baseNameFile;
             private bool isDefault;
+            private ResourceManager manager;
 
             public static implicit operator CultureInfo(LanguagePack pack)
             {
@@ -34,17 +41,21 @@ namespace Prizm.Main.Languages
             }
 
             public CultureInfo Culture { get { return culture; } }
-            public string FullPathFile { get { return fullPathFile; } }
-            public string BaseNameFile { get { return baseNameFile; } }
             public bool IsDefault { get { return isDefault; } }
+            public ResourceManager Manager { get { return manager; } set { manager = value; } }
         }
+
+        #endregion // Language pack class
 
         private const string defaultCulture = "ru-RU";
         private CultureInfo defaultCultureInfo = new CultureInfo(defaultCulture);
 
+        /// <summary>
+        /// Is supposed to be called once, finding all available external files with translation resources
+        /// </summary>
         private void FindAvailableTranslations()
         {
-            List<Tuple<string, string, string>> translationFiles = new List<Tuple<string, string, string>>();
+            List<string> translationFiles = new List<string>();
             var installedCultures = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
 
             if (Directory.Exists(Directories.Languages))
@@ -55,29 +66,18 @@ namespace Prizm.Main.Languages
                     string[] tmp = file.Split('.');
                     if (tmp.Length > 1) // just in case
                     {
-                        string name = file.Split('\\').Last();
-                        int index = name.LastIndexOf('.');
-                        int length = name.Length;
-                        name = name.Substring(0, length - (length - index));
-                        index = name.LastIndexOf('.');
-                        length = name.Length;
-                        name = name.Substring(0, length - (length - index));
-
-                        translationFiles.Add(new Tuple<string, string, string>(tmp[tmp.Length - 2].Trim(), file, name));
+                        translationFiles.Add(tmp[tmp.Length - 2].Trim());
                     }
                 }
             }
             cultures.Clear();
             foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
             {
-                int translationFileIndex = translationFiles.FindIndex((a) => { return ci.Name == a.Item1; });
                 bool cultureIsDefault = ci.Name == defaultCulture;
-                if (translationFileIndex >= 0 && cultures.FindIndex((a) => { return ci.Name == a.Culture.Name; }) < 0 || cultureIsDefault)
+                int index = translationFiles.FindIndex((cultureName) => { return ci.Name == cultureName; });
+                if (index >= 0 && cultures.FindIndex((a) => { return ci.Name == a.Culture.Name; }) < 0 || cultureIsDefault)
                 {
-                    cultures.Add(new LanguagePack(ci,
-                        translationFileIndex >= 0 ? translationFiles[translationFileIndex].Item2 : String.Empty,
-                        translationFileIndex >= 0 ? translationFiles[translationFileIndex].Item3 : String.Empty,
-                        cultureIsDefault));
+                    cultures.Add(new LanguagePack(ci, cultureIsDefault));
 
                     if (cultureIsDefault)
                     {
@@ -113,18 +113,9 @@ namespace Prizm.Main.Languages
             int index = cultures.FindIndex((lp) => { return lp.Culture.Name == culture.Name; });
             if (index >= 0)
             {
-                LanguagePack lp = cultures[index];
-                if(!lp.IsDefault || lp.IsDefault && !String.IsNullOrWhiteSpace(lp.FullPathFile))
-                {
-                    manager = ResourceManager.CreateFileBasedResourceManager(lp.BaseNameFile, Directories.LanguagesFolderName, null);
-                }
-                else
-                {
-                    manager = null;
-                }
+                indexCurrent = index;
                 status = true;
             }
-            indexCurrent = index;
             return status;
         }
 
@@ -134,7 +125,11 @@ namespace Prizm.Main.Languages
         { 
             get 
             {
-                return (manager == null ? Resources.ResourceManager : manager);
+                if (manager == null)
+                {
+                    manager = ResourceManager.CreateFileBasedResourceManager(Directories.BaseLanguageFileName, Directories.LanguagesFolderName, null);
+                }
+                return manager ?? Default;
             } 
         }
 

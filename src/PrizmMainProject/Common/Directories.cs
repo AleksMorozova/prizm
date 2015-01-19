@@ -14,6 +14,7 @@ namespace Prizm.Main.Common
         public static string TargetPathForView = Path.Combine(Directory.GetCurrentDirectory(), "Data\\Attachments\\tmp\\");
 
         public const string LanguagesFolderName = "Languages";
+        public const string BaseLanguageFileName = "Strings";
         public static string Languages = Path.Combine(Directory.GetCurrentDirectory(), LanguagesFolderName);
     }
 }
