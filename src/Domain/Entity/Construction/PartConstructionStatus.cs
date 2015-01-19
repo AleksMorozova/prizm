@@ -13,6 +13,7 @@ namespace Prizm.Domain.Entity.Construction
         Welded = 3,
         Lowered = 4,
         Filled = 5,
+        CutOnSpool = 6,
 
         Undefined = 0
     }
