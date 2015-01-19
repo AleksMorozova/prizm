@@ -162,24 +162,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Контроль.
-        /// </summary>
-        internal static string AtControl {
-            get {
-                return ResourceManager.GetString("AtControl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изоляция.
-        /// </summary>
-        internal static string AtIsolation {
-            get {
-                return ResourceManager.GetString("AtIsolation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
         /// </summary>
         internal static string AuthenticationFailed {
@@ -1021,15 +1003,6 @@ namespace Prizm.Main.Properties {
         internal static string Export_WritingData {
             get {
                 return ResourceManager.GetString("Export_WritingData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Засыпан.
-        /// </summary>
-        internal static string Filled {
-            get {
-                return ResourceManager.GetString("Filled", resourceCulture);
             }
         }
         

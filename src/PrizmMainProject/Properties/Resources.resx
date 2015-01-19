@@ -160,9 +160,6 @@
   <data name="DLG_JOINT_DUPLICATE_HEADER" xml:space="preserve">
     <value>Дублирование номера стыка</value>
   </data>
-  <data name="Filled" xml:space="preserve">
-    <value>Засыпан</value>
-  </data>
   <data name="IsShipped" xml:space="preserve">
     <value>Отправлен</value>
   </data>
@@ -606,9 +603,6 @@
   <data name="Wrong_pipe_number_for_cutting" xml:space="preserve">
     <value>Введен неверный номер трубы</value>
   </data>
-  <data name="AtIsolation" xml:space="preserve">
-    <value>Изоляция</value>
-  </data>
   <data name="MillName" xml:space="preserve">
     <value>Название завода</value>
   </data>
@@ -700,9 +694,6 @@
   </data>
   <data name="SecurityPrivilege_ExportDataFromConstruction" xml:space="preserve">
     <value>Экспорт данных на строительстве</value>
-  </data>
-  <data name="AtControl" xml:space="preserve">
-    <value>Контроль</value>
   </data>
   <data name="DLG_AddFailedControlOperation" xml:space="preserve">
     <value>Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. </value>
