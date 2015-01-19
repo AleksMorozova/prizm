@@ -50,6 +50,7 @@
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
+    <Compile Include="Entity\Setup\FixedCategory.cs" />
     <Compile Include="Entity\Setup\InspectorCertificateType.cs" />
     <Compile Include="Entity\Setup\JointOperationType.cs" />
     <Compile Include="Entity\Construction\PartConstructionStatus.cs" />

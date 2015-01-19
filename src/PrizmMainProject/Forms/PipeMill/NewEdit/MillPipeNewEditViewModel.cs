@@ -1025,43 +1025,54 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public void UpdatePipeSubStatus()
         {
-            List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
-            List<string> testsResults = new List<string>();
+            List<PipeTestResult> weldOperation = new List<PipeTestResult>();
+            List<string> weldTestsResults = new List<string>();
 
             //group by category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Name == "Измерение длины")
+                if (t.Operation.Category.Type == FixedCategory.Weld)
                 {
-                    lengthOperation.Add(t);
-                    testsResults.Add(t.Status.ToString());
+                    weldOperation.Add(t);
+                    weldTestsResults.Add(t.Status.ToString());
                 }
             }
 
-            PipeTestResultStatus resultStatus = CheckOperationStatus(lengthOperation);
-            if (resultStatus == PipeTestResultStatus.Scheduled)
-            { 
-                Pipe.SubStatus = PipeMillSubStatus.Scheduled; 
-            }
-            else
+            UpdateSubStatus(weldOperation, weldTestsResults);
+        }
+
+        public void UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
+        {
+            if (allResults.Count > 0)
             {
-                if (resultStatus == PipeTestResultStatus.Failed)
+                PipeTestResultStatus resultStatus = CheckOperationStatus(allResults);
+                if (resultStatus == PipeTestResultStatus.Scheduled)
                 {
-                    Pipe.SubStatus = PipeMillSubStatus.Failed;
+                    Pipe.SubStatus = PipeMillSubStatus.Scheduled;
                 }
-                else 
+                else
                 {
-                    if (resultStatus == PipeTestResultStatus.Passed && testsResults.Contains(PipeTestResultStatus.Repair.ToString()))
+                    if (resultStatus == PipeTestResultStatus.Failed)
                     {
-                        Pipe.SubStatus = PipeMillSubStatus.WithRepair; 
-                    } 
+                        Pipe.SubStatus = PipeMillSubStatus.Failed;
+                    }
                     else
-                    { 
-                        Pipe.SubStatus = PipeMillSubStatus.Passed; 
+                    {
+                        if (resultStatus == PipeTestResultStatus.Passed && testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
+                        {
+                            Pipe.SubStatus = PipeMillSubStatus.WithRepair;
+                        }
+                        else
+                        {
+                            Pipe.SubStatus = PipeMillSubStatus.Passed;
+                        }
                     }
                 }
             }
-
-        } 
+            else
+            {
+                Pipe.SubStatus = PipeMillSubStatus.Undefined;
+            }
+        }
     }
 }
