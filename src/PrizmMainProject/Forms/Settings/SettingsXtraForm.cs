@@ -855,7 +855,7 @@ namespace Prizm.Main.Forms.Settings
                 codeValidate = false;
                 for(int i = 0; i < inspectionView.RowCount; i++)
                 {
-                    if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null)
+                    if (Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
                     {
                         inspectionView.FocusedRowHandle = i;
 
@@ -868,7 +868,7 @@ namespace Prizm.Main.Forms.Settings
 
                 foreach(PipeTest t in viewModel.PipeTests)
                 {
-                    if(t.Code != null && t.Name != null)
+                    if(t.Code != null && t.Name != null && t.Category != null)
                     {
                         codeValidate = true;
                     }
@@ -886,18 +886,22 @@ namespace Prizm.Main.Forms.Settings
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
-
-            var code = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
-            var name = (string)gv.GetRowCellValue(e.RowHandle, inspectionNameGridColumn);
-            if(code == null)
+            PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
+            if(pipeTest.Code == null)
             {
                 gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
                 e.Valid = false;
             }
 
-            if(name == null)
+            if(pipeTest.Name == null)
             {
                 gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
+                e.Valid = false;
+            }
+
+            if (pipeTest.Category == null)
+            {
+                gv.SetColumnError(categoryColumn, Resources.VALUE_REQUIRED);
                 e.Valid = false;
             }
         }

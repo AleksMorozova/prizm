@@ -162,24 +162,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Контроль.
-        /// </summary>
-        internal static string AtControl {
-            get {
-                return ResourceManager.GetString("AtControl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изоляция.
-        /// </summary>
-        internal static string AtIsolation {
-            get {
-                return ResourceManager.GetString("AtIsolation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
         /// </summary>
         internal static string AuthenticationFailed {
@@ -216,7 +198,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to В производстве.
+        ///   Looks up a localized string similar to По произведенным.
         /// </summary>
         internal static string ByProducing {
             get {
@@ -402,6 +384,15 @@ namespace Prizm.Main.Properties {
         internal static string DateFirst {
             get {
                 return ResourceManager.GetString("DateFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивирован.
+        /// </summary>
+        internal static string Deactivated {
+            get {
+                return ResourceManager.GetString("Deactivated", resourceCulture);
             }
         }
         
@@ -916,11 +907,102 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Засыпан.
+        ///   Looks up a localized string similar to [{0}] Экспортировано в &apos;{1}&apos;.
         /// </summary>
-        internal static string Filled {
+        internal static string Export_ArchiveExported {
             get {
-                return ResourceManager.GetString("Filled", resourceCulture);
+                return ResourceManager.GetString("Export_ArchiveExported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание временного хранилища..
+        /// </summary>
+        internal static string Export_CreateTempStorage {
+            get {
+                return ResourceManager.GetString("Export_CreateTempStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание конечного архива..
+        /// </summary>
+        internal static string Export_CreatingArchive {
+            get {
+                return ResourceManager.GetString("Export_CreatingArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{0}] Ошибка {1}.
+        /// </summary>
+        internal static string Export_Error {
+            get {
+                return ResourceManager.GetString("Export_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PRIZM archives|*.prizm.
+        /// </summary>
+        internal static string Export_Filter {
+            get {
+                return ResourceManager.GetString("Export_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap export_icon {
+            get {
+                object obj = ResourceManager.GetObject("export_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{0}] {1}.
+        /// </summary>
+        internal static string Export_Msg {
+            get {
+                return ResourceManager.GetString("Export_Msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет новых данных для экспортирования..
+        /// </summary>
+        internal static string Export_NoData {
+            get {
+                return ResourceManager.GetString("Export_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Чтение данных..
+        /// </summary>
+        internal static string Export_ReadingData {
+            get {
+                return ResourceManager.GetString("Export_ReadingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспортирование завершено успешно..
+        /// </summary>
+        internal static string Export_Ready {
+            get {
+                return ResourceManager.GetString("Export_Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запись данных..
+        /// </summary>
+        internal static string Export_WritingData {
+            get {
+                return ResourceManager.GetString("Export_WritingData", resourceCulture);
             }
         }
         
@@ -1002,6 +1084,79 @@ namespace Prizm.Main.Properties {
         internal static string IDS_QUESTION_DO_NOT_CLOSE_HEADER {
             get {
                 return ResourceManager.GetString("IDS_QUESTION_DO_NOT_CLOSE_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap import {
+            get {
+                object obj = ResourceManager.GetObject("import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проверка контрольной суммы.
+        /// </summary>
+        internal static string Import_Checksum {
+            get {
+                return ResourceManager.GetString("Import_Checksum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба с номером &apos;{0}&apos; уже существует в БД..
+        /// </summary>
+        internal static string Import_Conflict {
+            get {
+                return ResourceManager.GetString("Import_Conflict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт вложений.
+        /// </summary>
+        internal static string Import_CopyAttachments {
+            get {
+                return ResourceManager.GetString("Import_CopyAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт данных.
+        /// </summary>
+        internal static string Import_Data {
+            get {
+                return ResourceManager.GetString("Import_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная порция уже была импортирована и не может быть импортирована снова..
+        /// </summary>
+        internal static string Import_SamePortion {
+            get {
+                return ResourceManager.GetString("Import_SamePortion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание временного хранилища.
+        /// </summary>
+        internal static string Import_TempStorage {
+            get {
+                return ResourceManager.GetString("Import_TempStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Распаковка.
+        /// </summary>
+        internal static string Import_Unzip {
+            get {
+                return ResourceManager.GetString("Import_Unzip", resourceCulture);
             }
         }
         
@@ -2078,6 +2233,15 @@ namespace Prizm.Main.Properties {
         internal static string Withdraw {
             get {
                 return ResourceManager.GetString("Withdraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезан.
+        /// </summary>
+        internal static string Withdrawn {
+            get {
+                return ResourceManager.GetString("Withdrawn", resourceCulture);
             }
         }
         

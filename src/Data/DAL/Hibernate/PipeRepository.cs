@@ -63,5 +63,21 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
 
+
+
+        public IList<Pipe> GetPipesToExport()
+        {
+           try
+           {
+              return session
+                 .QueryOver<Pipe>()
+                 .Where(p => p.ToExport)
+                 .List<Pipe>();
+           }
+           catch (GenericADOException ex)
+           {
+              throw new RepositoryException("GetPipesToExport", ex);
+           }
+        }
     }
 }

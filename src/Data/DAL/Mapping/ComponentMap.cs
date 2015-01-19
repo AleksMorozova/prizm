@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Mapping
 {
@@ -23,6 +24,8 @@ namespace Prizm.Data.DAL.Mapping
             HasMany<InspectionTestResult>(x => x.InspectionTestResults)
                 .KeyColumn("partId")
                 .Cascade.SaveUpdate();
+
+            HasMany<File>(_ => _.Attachments).KeyColumn("item").Inverse().LazyLoad();
         }
     }
 }

@@ -45,6 +45,15 @@ namespace Prizm.Main.Synch.SerializableEntities
                this.Spools.Add(new SpoolObject(spool));
             }
          }
+
+         if (pipe.Attachments != null)
+         {
+            this.Attachments = new List<FileObject>();
+            foreach (var attach in pipe.Attachments)
+            {
+               this.Attachments.Add(new FileObject(attach));
+            }
+         }
       }
 
       public static implicit operator PipeObject(Pipe pipe)
@@ -105,6 +114,9 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("Status")]
       public PipeMillStatus Status { get; set; }
+
+      [XmlArray("Attachments")]
+      public List<FileObject> Attachments { get; set; }
 
    }
 }

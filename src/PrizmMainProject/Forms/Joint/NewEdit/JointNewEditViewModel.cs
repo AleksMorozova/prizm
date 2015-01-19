@@ -19,6 +19,7 @@ using construction = Prizm.Domain.Entity.Construction;
 using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -113,7 +114,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (testResults != null)
                 {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
-                }
+                } 
             }
         }
 
@@ -240,6 +241,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
+                    RaisePropertyChanged("JointConstructionStatus");
                 }
             }
         }
@@ -392,6 +394,35 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
         }
 
+        public EnumWrapper<JointStatus> JointConstructionStatus
+        {
+            get 
+            {
+                Joint.Status = JointStatus.Welded;
+                if (LoweringDate != DateTime.MinValue)
+                {
+                    Joint.Status = JointStatus.Lowered;
+                }
+                if (Joint.JointWeldResults.Where(_ => _.Date == JointWeldResults.Max(x => x.Date)).Any(x => x.Operation.Type == JointOperationType.Withdraw))
+                {
+                    Joint.Status = JointStatus.Withdrawn;
+                }
+                if (Joint.IsActive == false)
+                {
+                    Joint.Status = JointStatus.Deactivated;
+                }
+                return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
+            }
+            set 
+            {
+                if (value.Value != Joint.Status)
+                {
+                    JointConstructionStatus = value;
+                    Joint.Status = value.Value;
+                    RaisePropertyChanged("JointConstructionStatus");
+                }
+            }
+        }
 
         #region ===== Makeing The Connection =====
         /// <summary>
@@ -430,9 +461,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    if (part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
-                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                        switch (Joint.Status)
+                        {
+                            case JointStatus.Lowered: part.ConstructionStatus = PartConstructionStatus.Lowered;
+                                break;
+                            case JointStatus.Welded: part.ConstructionStatus = PartConstructionStatus.Welded;
+                                break;
+                            default: part.ConstructionStatus = PartConstructionStatus.Pending;
+                                break;
+                        }
                     }
                     else
                     {
@@ -737,8 +776,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
                 Joint = this.Joint
             };
-            JointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
-            this.Joint.JointWeldResults = JointWeldResults;
+            jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
+            this.Joint.JointWeldResults.Add(requredWeldResult);
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;

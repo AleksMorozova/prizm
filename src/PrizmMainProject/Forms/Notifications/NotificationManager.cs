@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prizm.Main.Forms.Notifications.NotificationRequest;
-using PrizmMain.DummyData;
+using Prizm.Main.Forms.Notifications.Request;
+
 
 namespace Prizm.Main.Forms.Notifications
 {
@@ -14,7 +14,7 @@ namespace Prizm.Main.Forms.Notifications
         // Fields
         private static NotificationManager StaticInstance;
         private Dictionary<TypeNotification, INotificationRequest> listNotificationRequest;
-        private Dictionary<TypeNotification, List<Notification>> listNotification;
+        private Dictionary<TypeNotification, IList<Notification>> listNotification;
 
         // Events
         public event EventHandler NotificationReload;
@@ -22,11 +22,11 @@ namespace Prizm.Main.Forms.Notifications
         // Methods
         private NotificationManager()
         {
-            listNotification = new Dictionary<TypeNotification, List<Notification>>();
+            listNotification = new Dictionary<TypeNotification, IList<Notification>>();
 
             listNotificationRequest = new Dictionary<TypeNotification, INotificationRequest>();
-            listNotificationRequest.Add(TypeNotification.DublicatePipeNumber, new PipeNotificationRequest());
-            listNotificationRequest.Add(TypeNotification.ExpiredCertificate, new CertificateNotificationRequest());
+            listNotificationRequest.Add(TypeNotification.DublicatePipeNumber, new NotificationRequest(new DuplicateNumberNotificationFactory()));
+            listNotificationRequest.Add(TypeNotification.ExpiredCertificate, new NotificationRequest(new CertificateNotificationFactory()));
 
         }
 
