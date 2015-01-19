@@ -128,12 +128,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if (wrapReportType.Value == ReportType.UsedProductReport)
                 {
-                    viewModel.report = new UsedProductsXtraReport();
                     typeLayout.ContentVisible = true;
                 }
                 else
                 {
-                    viewModel.report = new TracingReporn();
                     typeLayout.ContentVisible = false;
                 }
             }

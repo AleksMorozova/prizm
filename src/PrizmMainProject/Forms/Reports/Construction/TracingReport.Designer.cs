@@ -1,6 +1,6 @@
 ﻿namespace Prizm.Main.Forms.Reports.Construction
 {
-    partial class TracingReporn
+    partial class TracingReport
     {
         /// <summary>
         /// Required designer variable.

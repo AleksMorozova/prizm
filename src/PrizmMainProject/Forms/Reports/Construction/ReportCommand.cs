@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL;
+﻿using DevExpress.XtraReports.UI;
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
@@ -20,6 +21,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly ConstructionReportViewModel viewModel;
         private readonly IUserNotify notify;
 
+        private XtraReport report;
         private DataSet data;
         private PipelineGraph graph;
         private List<TracingData> tracingDataList;
@@ -70,12 +72,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             if (viewModel.ReportType.Value == ReportType.TracingReport && notNullJointsCondition)
             {
                 PipelineTracing();
-                viewModel.report.DataSource = tracingDataList;
+                viewModel.ReportDataSource = tracingDataList;
             }
             else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
             {
                 GetUsedProduct();
-                viewModel.report.DataSource = data;
+                viewModel.ReportDataSource = data;
             }
         }
 

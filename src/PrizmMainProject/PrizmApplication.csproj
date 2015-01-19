@@ -405,11 +405,11 @@
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
     <Compile Include="Forms\Reports\Construction\TracingModeEnum.cs" />
-    <Compile Include="Forms\Reports\Construction\TracingReporn.cs">
+    <Compile Include="Forms\Reports\Construction\TracingReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Reports\Construction\TracingReporn.Designer.cs">
-      <DependentUpon>TracingReporn.cs</DependentUpon>
+    <Compile Include="Forms\Reports\Construction\TracingReport.Designer.cs">
+      <DependentUpon>TracingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
       <SubType>Component</SubType>
@@ -718,8 +718,8 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
-      <DependentUpon>TracingReporn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reports\Construction\TracingReport.resx">
+      <DependentUpon>TracingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>

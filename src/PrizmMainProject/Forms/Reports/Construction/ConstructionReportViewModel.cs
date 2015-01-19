@@ -39,12 +39,18 @@ namespace Prizm.Main.Forms.Reports.Construction
         private EnumWrapper<ReportType> reportType;
         private IList<PartData> partDataList;
 
+        public int PipelineJointCount { get; set; }
+        public int PipelinePipeCount { get; set; }
+        public int PipelineSpoolCount { get; set; }
+        public int PipelineComponentCount { get; set; }
+        public int PipelineLength { get; set; }
+
         public int startPK;
         public int endPK;
 
         public object previewSource;
         public BindingList <PartType> selectedTypes;
-        public XtraReport report;
+        public Object ReportDataSource { get; set; }
         public BindingList<int> AllKP { get; set; }
 
         public IList<construct.Joint> Joints { get; set; }
@@ -213,84 +219,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public TracingModeEnum TracingMode { get; set; }
 
-
-        public int PipelineJointCount
-        {
-            get
-            {
-                return
-                    (report != null) ? ((TracingReporn)this.report).PipelineJointCount : 0;
-            }
-            set
-            {
-                if (report != null)
-                {
-                    ((TracingReporn)this.report).PipelineJointCount = value;
-                }
-            }
-        }
-
-        public int PipelinePipeCount
-        { 
-            get{
-                return
-                    (report != null) ? ((TracingReporn)this.report).PipelinePipeCount : 0;
-            }
-            set
-            {
-                if (report != null)
-                {
-                    ((TracingReporn)this.report).PipelinePipeCount = value;
-                }
-            }
-        }
-
-        public int PipelineSpoolCount
-        {
-            get
-            {
-                return
-                    (report != null) ? ((TracingReporn)this.report).PipelineSpoolCount : 0;
-            }
-            set
-            {
-                if (report != null)
-                {
-                    ((TracingReporn)this.report).PipelineSpoolCount = value;
-                }
-            }
-        }
-
-        public int PipelineComponentCount
-        {
-            get
-            {
-                return
-                    (report != null) ? ((TracingReporn)this.report).PipelineComponentCount : 0;
-            }
-            set
-            {
-                if (report != null)
-                {
-                    ((TracingReporn)this.report).PipelineComponentCount = value;
-                }
-            }
-        }
-
-        public int PipelineLength 
-        { 
-            get{
-                return
-                    (report != null) ? ((TracingReporn)this.report).PipelineLength : 0;
-            }
-            set
-            {
-                if (report != null)
-                {
-                    ((TracingReporn)this.report).PipelineLength = value;
-                }
-            }
-        }
 
 
         public ICommand CreateCommand
