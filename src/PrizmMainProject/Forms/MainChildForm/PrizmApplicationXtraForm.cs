@@ -35,6 +35,7 @@ using Prizm.Main.Security;
 using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -304,7 +305,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(ConstructionReportsXtraForm));
+            //OpenChildForm(typeof(ConstructionReportsXtraForm));
+            OpenChildForm(typeof(PipeConstractionReportXtraForm));
         }
 
         private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)

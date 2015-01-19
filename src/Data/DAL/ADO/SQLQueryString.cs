@@ -29,7 +29,8 @@ namespace Prizm.Data.DAL.ADO
             GetAllUsedComponent,
             GetWeldedParts,
             CountPipesInformation, 
-            GetAllProducedPipesByDate
+            GetAllProducedPipesByDate,
+            GetPipeByParametersPieces
         }
         
         /// <summary>
@@ -191,6 +192,50 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
             ORDER BY number";
 
 
+        public const string GetPipeByParametersPieces = @"
+
+              SELECT 
+                p.number as Number, 
+                p.[length] as [Length],
+                p.diameter as Diameter, 
+                p.wallThickness as Thickness,
+                ST.name as Seam,
+                h.steelGrade as Grade,
+				j1.number as Joint1,
+				j2.number as Joint2
+
+            FROM
+                pipe p
+            INNER JOIN 
+                Plate pl ON pl.Id = p.plateId
+            INNER JOIN 
+                Heat h ON h.Id = pl.heatId
+
+            LEFT JOIN 
+               [PipeMillSizeType] PmSt ON (PmSt.Id = p.typeId)
+            LEFT JOIN 
+              [SeamType] ST ON (st.Id = PmSt.seamTypeId)
+			LEFT JOIN 
+              Joint j1 on j1.part1Id = p.id
+			LEFT JOIN 
+              Joint j2 on j2.part2Id = p.id
+
+            WHERE 
+                p.isActive = 1 
+                AND 
+                p.number LIKE N'%{0}%'
+                AND 
+                p.diameter = {1}
+                AND 
+                p.wallThickness = {2}
+                ";
+
+
+        /*
+        //public string CertNumber {get; set;}
+        //public DateTime? CertDate {get; set;}
+        */
+
 
         /// <summary>
         /// public method accepting queryName and returning object ready to be setup via interface methods
@@ -249,6 +294,12 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                 case SQLStatic.GetWeldedParts:
                     queryText = GetWeldedParts;
                     break;
+
+                case SQLStatic.GetPipeByParametersPieces:
+                    queryText = GetPipeByParametersPieces;
+                    break;
+
+                    
 
                 default:
                     queryText = "";

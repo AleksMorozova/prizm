@@ -153,7 +153,6 @@ namespace Prizm.Data.DAL.ADO
             return pipeDataSet;
         }
 
-
         public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
@@ -357,6 +356,39 @@ namespace Prizm.Data.DAL.ADO
             }
 
             return countPipe;
+        }
+
+        public DataTable GetPipesByParameters(string sqlQueryString)
+        {
+            CreateConnection();
+            DataTable resultsTable = new DataTable();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = sqlQueryString;
+                        adapter.SelectCommand = command;
+                        adapter.Fill(resultsTable);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetAuditResults", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return resultsTable;
         }
     }
 }
