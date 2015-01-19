@@ -236,7 +236,8 @@ CREATE TABLE [dbo].[Pipe](
 
 	[length] [int] NULL,
 	[number] [nvarchar](20) NULL,
-	[isActive] [bit] NULL,
+	[isActive] [bit] NULL,	
+	[millSubStatus] [nvarchar](15) NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
 	[projectId] [uniqueidentifier] NULL,

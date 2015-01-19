@@ -939,6 +939,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public int GetLengthFromOperation() 
         {
+            PipeMillSubStatus currentStatus;
             List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
@@ -972,15 +973,95 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 foreach (PipeTestResult t in lengthOperation2)
                 {
                     Pipe.Length = Convert.ToInt32(t.Value);
+                    currentStatus = Pipe.SubStatus;
+
+                    //Pipe.SubStatus = Prizm.Domain.Entity.Mill.PipeMillSubStatus.Scheduled;
                 }
             }
 
             foreach (PipeTestResult t in lengthOperation3)
             {
                 Pipe.Length = Convert.ToInt32(t.Value);
+                currentStatus = Pipe.SubStatus;
             }
+
+
 
             return Pipe.Length;
         }
+
+        public PipeTestResultStatus CheckOperationStatus(List<PipeTestResult> lengthOperation)
+        {
+            PipeTestResultStatus result = PipeTestResultStatus.Scheduled;
+            var lastOperation =
+               from p in lengthOperation
+               where p.Date == lengthOperation.Max(d => d.Date)
+               select p;
+
+            if (lastOperation.Count() >= 2)
+            {
+                int maxOrder = lastOperation.Max(o => o.Order);
+
+                var lastOperation2 =
+                    from p in lastOperation
+                    where p.Order == maxOrder
+                    select p;
+
+                foreach (var t in lastOperation2)
+                {
+                    result = t.Status;
+                }
+            }
+            else
+            {
+                foreach (var t in lastOperation)
+                {
+                    result = t.Status;
+                }
+            }
+
+            return result;
+        }
+
+        public void UpdatePipeSubStatus()
+        {
+            List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
+            List<string> testsResults = new List<string>();
+
+            //group by category
+            foreach (PipeTestResult t in Pipe.PipeTestResult)
+            {
+                if (t.Operation.Category.Name == "Измерение длины")
+                {
+                    lengthOperation.Add(t);
+                    testsResults.Add(t.Status.ToString());
+                }
+            }
+
+            PipeTestResultStatus resultStatus = CheckOperationStatus(lengthOperation);
+            if (resultStatus == PipeTestResultStatus.Scheduled)
+            { 
+                Pipe.SubStatus = PipeMillSubStatus.Scheduled; 
+            }
+            else
+            {
+                if (resultStatus == PipeTestResultStatus.Failed)
+                {
+                    Pipe.SubStatus = PipeMillSubStatus.Failed;
+                }
+                else 
+                {
+                    if (resultStatus == PipeTestResultStatus.Passed && testsResults.Contains(PipeTestResultStatus.Repair.ToString()))
+                    {
+                        Pipe.SubStatus = PipeMillSubStatus.WithRepair; 
+                    } 
+                    else
+                    { 
+                        Pipe.SubStatus = PipeMillSubStatus.Passed; 
+                    }
+                }
+            }
+
+        } 
     }
 }

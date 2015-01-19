@@ -44,12 +44,13 @@ namespace Prizm.Main.Forms.Reports.Mill
             {
                 if (viewModel.SelectedReportType == ReportType.ByProducing)
                 {
-                    data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
-                    AdditionToTheReport report = new AdditionToTheReport();
+                    data = repo.CountWeldInf();
+                    //AdditionToTheReport report = new AdditionToTheReport();
+                    XtraReport1 report = new XtraReport1();
                     BindingList<double> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
-                    report.PipesCount = counts[0];
-                    report.PipesLength = counts[1];
-                    report.PipesWeight = counts[2];
+                   // report.PipesCount = counts[0];
+                   // report.PipesLength = counts[1];
+                   // report.PipesWeight = counts[2];
                     report.DataSource = data;
                     report.CreateDocument();
                     var tool = new ReportPrintTool(report);
