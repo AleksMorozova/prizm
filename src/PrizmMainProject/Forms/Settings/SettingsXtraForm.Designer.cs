@@ -81,6 +81,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorFNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colInspectorMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorMNRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colInspectorGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInspectorActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInspectorCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInspectorCertificate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -229,7 +230,6 @@ namespace Prizm.Main.Forms.Settings
             this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
-            this.colInspectorGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -880,6 +880,14 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.inspectorMNRepositoryTextEdit.AutoHeight = false;
             this.inspectorMNRepositoryTextEdit.Name = "inspectorMNRepositoryTextEdit";
+            // 
+            // colInspectorGrade
+            // 
+            this.colInspectorGrade.Caption = "Уровень";
+            this.colInspectorGrade.FieldName = "Grade";
+            this.colInspectorGrade.Name = "colInspectorGrade";
+            this.colInspectorGrade.Visible = true;
+            this.colInspectorGrade.VisibleIndex = 3;
             // 
             // colInspectorActive
             // 
@@ -1547,6 +1555,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionView.OptionsNavigation.UseTabKey = false;
             this.inspectionView.OptionsView.ShowGroupPanel = false;
             this.inspectionView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionView_InitNewRow);
+            this.inspectionView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.inspectionView.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.inspectionView_BeforeLeaveRow);
             this.inspectionView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionView_ValidateRow);
             this.inspectionView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionView_KeyDown);
@@ -1829,8 +1838,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 5;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2435,14 +2444,6 @@ namespace Prizm.Main.Forms.Settings
             // jointOperationsBindingSource
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
-            // 
-            // colInspectorGrade
-            // 
-            this.colInspectorGrade.Caption = "Уровень";
-            this.colInspectorGrade.FieldName = "Grade";
-            this.colInspectorGrade.Name = "colInspectorGrade";
-            this.colInspectorGrade.Visible = true;
-            this.colInspectorGrade.VisibleIndex = 3;
             // 
             // SettingsXtraForm
             // 

@@ -34,6 +34,7 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.jointNumber = new DevExpress.XtraEditors.TextEdit();
             this.newJointLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.jointStatus = new DevExpress.XtraEditors.TextEdit();
             this.saveAndCreateButton = new DevExpress.XtraEditors.SimpleButton();
             this.repairOperations = new DevExpress.XtraGrid.GridControl();
             this.repairOperationsView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -90,6 +91,7 @@
             this.firstJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.secondJointElementLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.jointNumberEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.jointStatusLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.extraFilesLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -103,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jointStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsLookUpEdit)).BeginInit();
@@ -148,6 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointStatusLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
@@ -177,6 +181,7 @@
             // 
             // newJointLayoutControl
             // 
+            this.newJointLayoutControl.Controls.Add(this.jointStatus);
             this.newJointLayoutControl.Controls.Add(this.saveAndCreateButton);
             this.newJointLayoutControl.Controls.Add(this.repairOperations);
             this.newJointLayoutControl.Controls.Add(this.saveButton);
@@ -203,6 +208,15 @@
             this.newJointLayoutControl.Size = new System.Drawing.Size(1275, 550);
             this.newJointLayoutControl.TabIndex = 15;
             this.newJointLayoutControl.Text = "layoutControl1";
+            // 
+            // jointStatus
+            // 
+            this.jointStatus.Location = new System.Drawing.Point(311, 69);
+            this.jointStatus.Name = "jointStatus";
+            this.jointStatus.Properties.ReadOnly = true;
+            this.jointStatus.Size = new System.Drawing.Size(124, 20);
+            this.jointStatus.StyleController = this.newJointLayoutControl;
+            this.jointStatus.TabIndex = 26;
             // 
             // saveAndCreateButton
             // 
@@ -839,7 +853,8 @@
             this.jointNumberLayout,
             this.firstJointElementLayout,
             this.secondJointElementLayout,
-            this.jointNumberEmptySpace});
+            this.jointNumberEmptySpace,
+            this.jointStatusLayout});
             this.jointParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.jointParametersLayoutGroup.Name = "jointParametersLayoutGroup";
             this.jointParametersLayoutGroup.Size = new System.Drawing.Size(588, 138);
@@ -891,11 +906,23 @@
             // 
             this.jointNumberEmptySpace.AllowHotTrack = false;
             this.jointNumberEmptySpace.CustomizationFormText = "jointNumberEmptySpace";
-            this.jointNumberEmptySpace.Location = new System.Drawing.Point(277, 0);
+            this.jointNumberEmptySpace.Location = new System.Drawing.Point(420, 0);
             this.jointNumberEmptySpace.Name = "jointNumberEmptySpace";
-            this.jointNumberEmptySpace.Size = new System.Drawing.Size(287, 47);
+            this.jointNumberEmptySpace.Size = new System.Drawing.Size(144, 47);
             this.jointNumberEmptySpace.Text = "jointNumberEmptySpace";
             this.jointNumberEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // jointStatusLayout
+            // 
+            this.jointStatusLayout.Control = this.jointStatus;
+            this.jointStatusLayout.CustomizationFormText = "Статус стыка";
+            this.jointStatusLayout.Location = new System.Drawing.Point(277, 0);
+            this.jointStatusLayout.Name = "jointStatusLayout";
+            this.jointStatusLayout.Size = new System.Drawing.Size(143, 47);
+            this.jointStatusLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
+            this.jointStatusLayout.Text = "Статус стыка";
+            this.jointStatusLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.jointStatusLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // extraFilesLayout
             // 
@@ -981,6 +1008,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).EndInit();
             this.newJointLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.jointStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairOperationsLookUpEdit)).EndInit();
@@ -1026,6 +1054,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJointElementLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumberEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointStatusLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.extraFilesLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deactivatedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
@@ -1110,6 +1139,8 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraLayout.EmptySpaceItem jointNumberEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem loweringDateEmptySpace;
+        private DevExpress.XtraEditors.TextEdit jointStatus;
+        private DevExpress.XtraLayout.LayoutControlItem jointStatusLayout;
 
     }
 }
