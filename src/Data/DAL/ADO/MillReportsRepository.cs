@@ -395,5 +395,20 @@ namespace Prizm.Data.DAL.ADO
 
             return countPipe;
         }
+
+        public DataTable GetPipelineElements(DateTime? weldDateFrom, DateTime? weldDateTo)
+        {
+            ISQLFlexible tempSQLObject;
+
+            string types = string.Concat(" N'", Guid.NewGuid(), "'");
+
+            tempSQLObject = SQLProvider.GetQuery(
+                SQLProvider.SQLStatic.GetJointsByDate)
+                .WhereAnd().Where("p.number", "LIKE", string.Concat(" N'%", "", "%'"))
+                .WhereAnd().Where("PmSt.type", "IN", types);
+
+            return GetPipelineElements(tempSQLObject.ToString());
+
+        }
     }
 }

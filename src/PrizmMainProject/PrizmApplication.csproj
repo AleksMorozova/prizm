@@ -419,6 +419,22 @@
     <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.Designer.cs">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\CreateRepoCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\PreviewRepoCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateReportData.cs" />
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateXtraReport.Designer.cs">
+      <DependentUpon>WeldDateXtraReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateReportViewModel.cs" />
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateReportXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\WeldDateReports\WeldDateReportXtraForm.Designer.cs">
+      <DependentUpon>WeldDateReportXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
@@ -735,6 +751,12 @@
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\WeldDateReports\WeldDateReportXtraForm.resx">
+      <DependentUpon>WeldDateReportXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\WeldDateReports\WeldDateXtraReport.resx">
+      <DependentUpon>WeldDateXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
       <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -819,12 +841,18 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="PrizmApplication_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
     <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.TracingData.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.CreateRepoCommand.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.PreviewRepoCommand.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportXtraForm.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.Inspection.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.InspectionDummy.datasource" />
     <None Include="Properties\DataSources\PrizmMain.DummyData.PipesDummy.datasource" />
@@ -1020,6 +1048,7 @@
   <ItemGroup>
     <None Include="Resources\import.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

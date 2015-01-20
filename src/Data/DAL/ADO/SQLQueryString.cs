@@ -30,7 +30,8 @@ namespace Prizm.Data.DAL.ADO
             GetWeldedParts,
             CountPipesInformation, 
             GetAllProducedPipesByDate,
-            CountPipesWeldInformation
+            CountPipesWeldInformation,
+            GetJointsByDate
         }
         
         /// <summary>
@@ -214,6 +215,15 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
 
 
 
+        private const string GetJointsByDate = @"
+            SELECT 
+                j.number as JointNumber
+            FROM 
+                Joint j 
+                
+            ";
+
+
         /// <summary>
         /// public method accepting queryName and returning object ready to be setup via interface methods
         /// </summary>
@@ -275,6 +285,10 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
 
                 case SQLStatic.GetWeldedParts:
                     queryText = GetWeldedParts;
+                    break;
+
+                case SQLStatic.GetJointsByDate:
+                    queryText = GetJointsByDate;
                     break;
 
                 default:
