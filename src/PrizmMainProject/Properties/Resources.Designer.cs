@@ -1007,15 +1007,12 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Общий отчет.
         /// </summary>
         internal static string General {
             get {
-                return ResourceManager.GetString("General", resourceCulture);
+                return ResourceManager.GetString("General", resourceCulture);}
+}
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {
