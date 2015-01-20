@@ -241,7 +241,9 @@ CREATE TABLE [dbo].[Pipe](
 	[constructionStatus] [nvarchar](15) NULL,
 	[projectId] [uniqueidentifier] NULL,
 	[isAvailableToJoint] [bit] NULL,
-        [toExport] [bit] NOT NULL DEFAULT 0,
+    [toExport] [bit] NOT NULL DEFAULT 0,
+	[isCutOnSpool] [bit] NOT NULL DEFAULT 0,
+
 
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
