@@ -262,14 +262,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         //length from control operation
         public int PipeLength
         {
-            get { GetLengthFromOperation(); return Pipe.Length; }
+            get { return Pipe.Length; }
             set
             {
-                GetLengthFromOperation();
                 if(value != Pipe.Length)
                 {
                     Pipe.Length = value;
-                    recalculateWeight = true;
                     RaisePropertyChanged("PipeLength");
                 }
             }
@@ -899,6 +897,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     Pipe.Diameter = Pipe.Type.Diameter;
                     Pipe.WallThickness = Pipe.Type.Thickness;
+                    Pipe.Length = this.PipeLength;
                 }
             }
         }
@@ -960,7 +959,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public int GetLengthFromOperation()
         {
-            PipeMillSubStatus currentStatus;
+            recalculateWeight = true;
             List<PipeTestResult> lengthOperation = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
@@ -968,7 +967,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by category
             foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if(t.Operation.Category.Name == "Измерение длины")
+                if(t.Operation.Category.Type==FixedCategory.Length && t.Status == PipeTestResultStatus.Passed)
                     lengthOperation.Add(t);
             }
 
@@ -993,14 +992,18 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 foreach(PipeTestResult t in lengthOperation2)
                 {
-                    Pipe.Length = Convert.ToInt32(t.Value);
+                    this.PipeLength = Convert.ToInt32(t.Value);
+                    //Pipe.Length = Convert.ToInt32(t.Value);
                 }
             }
 
             foreach(PipeTestResult t in lengthOperation3)
             {
-                Pipe.Length = Convert.ToInt32(t.Value);
+                this.PipeLength = Convert.ToInt32(t.Value);
+                //Pipe.Length = Convert.ToInt32(t.Value);
             }
+
+            Pipe.RecalculateWeight();
             return Pipe.Length;
         }
 

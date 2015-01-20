@@ -83,6 +83,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(weight);
             SetAlwaysReadOnly(length);
+            SetAlwaysReadOnly(pipeLength);
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
@@ -774,7 +775,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                         IsModified = true;
                         inspections.RefreshDataSource();
+                        viewModel.GetLengthFromOperation();
                         pipeLength.Refresh();
+                        weight.Refresh();
                     }
                 }
             }
@@ -789,7 +792,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();
+                    viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
+                    weight.Refresh();
                 }
             }
         }
