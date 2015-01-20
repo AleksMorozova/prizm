@@ -58,6 +58,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 try
                 {
+                    viewModel.Component.InspectionStatus = viewModel.InspectionStatus;
                     repos.BeginTransaction();
                     repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
                     repos.Commit();

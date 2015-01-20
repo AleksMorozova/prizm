@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -183,6 +184,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     RaisePropertyChanged("Length");
                 }
             }
+        }
+
+        public PartInspectionStatus InspectionStatus
+        {
+            get
+            {
+                return (Component.InspectionTestResults == null) ? PartInspectionStatus.Pending 
+                                                                 : Component.InspectionTestResults.
+                                                                 Where(_ => _.Date == Component.InspectionTestResults.Max(x => x.Date)).
+                                                                 SingleOrDefault().Status;
+            }
+
         }
 
         public IList<Connector> Connectors
