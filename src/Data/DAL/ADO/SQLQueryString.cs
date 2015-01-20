@@ -224,10 +224,6 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                 p.isActive = 1 
                 AND 
                 p.number LIKE N'%{0}%'
-                AND 
-                p.diameter = {1}
-                AND 
-                p.wallThickness = {2}
                 ";
 
 

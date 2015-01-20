@@ -127,12 +127,12 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
                 {
                     pipeReportDataList = new List<PipeReportData>();
 
-                    PipeReportData partData = new PipeReportData();
+                    PipeReportData pipeReportData = new PipeReportData();
 
                     foreach (DataRow row in Data.Rows)
                     {
-                        partData = new PipeReportData(row);
-                        pipeReportDataList.Add(partData);
+                        pipeReportData = new PipeReportData(row);
+                        pipeReportDataList.Add(pipeReportData);
                     }
                 }
                 return pipeReportDataList;

@@ -30,12 +30,23 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public void Execute()
         {
-            viewModel.Data = repo.GetPipesByParameters(
-                string.Format(
-                SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipeByParametersPieces).ToString(),
-                viewModel.PipeNumber,
-                viewModel.Diameter,
-                viewModel.WallThickness));
+            string queryString =  
+                string.Format(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipeByParametersPieces).ToString(),
+                viewModel.PipeNumber);
+            
+            int tempInt;
+            if(int.TryParse(viewModel.Diameter, out tempInt))
+            {
+                queryString += " AND p.diameter = " + viewModel.Diameter;
+            }
+
+            if(int.TryParse(viewModel.WallThickness, out tempInt))
+            {
+                queryString += " AND p.wallThickness = " + viewModel.WallThickness;
+            }
+
+            viewModel.Data = repo.GetPipelineElements(queryString);
+
 
             viewModel.Report = new PipeConstructionXtraReport();
 
