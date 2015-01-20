@@ -37,12 +37,12 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             int tempInt;
             if(int.TryParse(viewModel.Diameter, out tempInt))
             {
-                queryString += " AND p.diameter = " + viewModel.Diameter;
+                queryString = string.Concat(queryString, " AND p.diameter = ", viewModel.Diameter);
             }
 
             if(int.TryParse(viewModel.WallThickness, out tempInt))
             {
-                queryString += " AND p.wallThickness = " + viewModel.WallThickness;
+                queryString = string.Concat(queryString, " AND p.wallThickness = ", viewModel.WallThickness);
             }
 
             viewModel.Data = repo.GetPipelineElements(queryString);

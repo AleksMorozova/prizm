@@ -299,7 +299,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //TODO: the form of "Отчет по трубам на стройке" will be created here
+            OpenChildForm(typeof(PipeConstractionReportXtraForm));
         }
 
         private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -309,8 +309,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //OpenChildForm(typeof(ConstructionReportsXtraForm));
-            OpenChildForm(typeof(PipeConstractionReportXtraForm));
+            OpenChildForm(typeof(ConstructionReportsXtraForm));
         }
 
         private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)

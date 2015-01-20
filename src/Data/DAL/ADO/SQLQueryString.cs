@@ -226,10 +226,9 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                 p.number LIKE N'%{0}%'
                 ";
 
-
         /*
-        //public string CertNumber {get; set;}
-        //public DateTime? CertDate {get; set;}
+        // string CertNumber 
+        // DateTime? CertDate 
         */
 
 

@@ -748,9 +748,6 @@
     <EmbeddedResource Include="Forms\Reports\Construction\PipeReport\PipeConstructionXtraReport.resx">
       <DependentUpon>PipeConstructionXtraReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
-      <DependentUpon>TracingReporn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
       <SubType>Designer</SubType>
