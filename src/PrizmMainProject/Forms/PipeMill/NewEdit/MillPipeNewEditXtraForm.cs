@@ -735,15 +735,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
-        private void inspections_Leave(object sender, EventArgs e)
-        {
-            //TODO: Review that functionality
-            if(viewModel.PipeLength != null)
-            {
-                pipeLength.Text = viewModel.PipeLength.ToString();
-            }
-        }
-
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.PlateNumber = plateNumber.Text;
@@ -783,6 +774,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                         IsModified = true;
                         inspections.RefreshDataSource();
+                        pipeLength.Refresh();
                     }
                 }
             }
@@ -797,6 +789,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();
+                    pipeLength.Refresh();
                 }
             }
         }
