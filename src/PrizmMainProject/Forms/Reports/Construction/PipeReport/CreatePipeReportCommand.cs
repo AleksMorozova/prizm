@@ -1,4 +1,7 @@
-﻿using Prizm.Data.DAL;
+﻿using DevExpress.XtraReports.UI;
+using Prizm.Data.DAL;
+using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
@@ -28,10 +31,20 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public void Execute()
         {
+            viewModel.Data = repo.GetPipelineElements(
+                viewModel.PipeNumber,
+                viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
 
+            var report = new PipeConstructionXtraReport();
+
+            report.DataSource = viewModel.PipeReportDataList;
+            var tool = new ReportPrintTool(report);
+            tool.AutoShowParametersPanel = false;
+            tool.ShowPreview();
 
             RefreshVisualStateEvent();
         }
+
 
         public bool CanExecute()
         {

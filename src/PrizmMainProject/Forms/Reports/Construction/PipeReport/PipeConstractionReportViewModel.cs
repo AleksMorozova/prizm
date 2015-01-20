@@ -4,6 +4,8 @@ using DevExpress.Mvvm.POCO;
 using DevExpress.XtraReports.UI;
 using Ninject;
 using Prizm.Data.DAL;
+using Prizm.Data.DAL.Setup;
+using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
@@ -20,24 +22,26 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         private readonly CreatePipeReportCommand createCommand;
         private readonly PreviewPipeReportCommand previewCommand;
-        private readonly PipeReportCommand reportCommand;
 
         private readonly IMillReportsRepository repo;
+        private readonly IMillPipeSizeTypeRepository repoPipeType;
 
-        private string diameter;
-        private string wallThickness;
         private string pipeNumber;
         private Object previewSource;
         private IList<PipeReportData> pipeReportDataList;
+        private IList<PipeMillSizeType> pipeTypes;
+        private IList<PipeMillSizeType> checkedPipeTypes = new List<PipeMillSizeType>();
 
 
         [Inject]
         public PipeConstractionReportViewModel(
             IMillReportsRepository repo, 
+            IMillPipeSizeTypeRepository repoPipeType,
             IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;
+            this.repoPipeType = repoPipeType;
 
             createCommand = ViewModelSource
                 .Create<CreatePipeReportCommand>(() => new CreatePipeReportCommand(this, repo, notify));
@@ -45,9 +49,12 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             previewCommand = ViewModelSource
                 .Create<PreviewPipeReportCommand>(() => new PreviewPipeReportCommand(this, repo, notify));
 
-            reportCommand = ViewModelSource
-                .Create<PipeReportCommand>(() => new PipeReportCommand(this, repo, notify));
+            pipeTypes = repoPipeType.GetAll();
 
+            foreach (var pt in pipeTypes)
+            {
+                checkedPipeTypes.Add(pt);
+            }
         }
 
 
@@ -87,34 +94,28 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             }
         }
 
-        public string Diameter
+        public IList<PipeMillSizeType> PipeTypes
         {
-            get
-            {
-                return diameter;
-            }
+            get { return pipeTypes; }
             set
             {
-                if (value != Diameter)
+                if (value != pipeTypes)
                 {
-                    diameter = value;
-                    RaisePropertyChanged("Diameter");
+                    pipeTypes = value;
+                    RaisePropertyChanged("PipeTypes");
                 }
             }
         }
 
-        public string WallThickness
+        public IList<PipeMillSizeType> CheckedPipeTypes
         {
-            get
-            {
-                return wallThickness;
-            }
+            get { return checkedPipeTypes; }
             set
             {
-                if (value != WallThickness)
+                if (value != checkedPipeTypes)
                 {
-                    wallThickness = value;
-                    RaisePropertyChanged("WallThickness");
+                    checkedPipeTypes = value;
+                    RaisePropertyChanged("CheckedPipeTypes");
                 }
             }
         }
@@ -141,8 +142,6 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             set { pipeReportDataList = value; }
         }
 
-
-
         public ICommand CreatePipeReportCommand
         {
             get { return createCommand; }
@@ -150,10 +149,6 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public ICommand PreviewPipeReportCommand
         {
             get { return previewCommand; }
-        }
-        public ICommand PipeReportCommand
-        {
-            get { return reportCommand; }
         }
 
         public void Dispose() { }

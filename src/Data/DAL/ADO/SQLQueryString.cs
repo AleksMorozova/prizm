@@ -219,17 +219,10 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
               Joint j1 on j1.part1Id = p.id
 			LEFT JOIN 
               Joint j2 on j2.part2Id = p.id
-
+            
             WHERE 
-                p.isActive = 1 
-                AND 
-                p.number LIKE N'%{0}%'
-                ";
-
-        /*
-        // string CertNumber 
-        // DateTime? CertDate 
-        */
+                p.isActive = 1
+            {where_options}";
 
 
         /// <summary>

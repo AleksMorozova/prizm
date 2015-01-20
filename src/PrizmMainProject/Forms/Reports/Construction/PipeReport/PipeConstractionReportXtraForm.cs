@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 {
@@ -39,14 +40,13 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             bindingSource.DataSource = viewModel;
 
+            foreach (var s in viewModel.PipeTypes)
+            {
+                pipeTypeCheckedCombo.Properties.Items.Add(s, true);
+            }
+
             pipeNumber.DataBindings
                 .Add("EditValue", bindingSource, "PipeNumber");
-
-            pipeDiameter.DataBindings
-                .Add("EditValue", bindingSource, "Diameter");
-
-            pipeThickness.DataBindings
-                .Add("EditValue", bindingSource, "WallThickness");
 
             pipeReportViewer.DataBindings
                 .Add("DocumentSource", bindingSource, "PreviewSource");
@@ -59,6 +59,20 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
             commandManager["PreviewButton"]
                 .Executor(viewModel.PreviewPipeReportCommand).AttachTo(previewButton);
+        }
+
+        private void pipeTypeCheckedCombo_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            viewModel.CheckedPipeTypes.Clear();
+
+            for (int i = 0; i < pipeTypeCheckedCombo.Properties.Items.Count; ++i)
+            {
+                if (pipeTypeCheckedCombo.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    viewModel.CheckedPipeTypes
+                        .Add(pipeTypeCheckedCombo.Properties.Items[i].Value as PipeMillSizeType);
+                }
+            }
         }
     }
 }

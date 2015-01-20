@@ -412,7 +412,6 @@
     <Compile Include="Forms\Reports\Construction\PipeReport\PipeReportData.cs" />
     <Compile Include="Forms\Reports\Construction\PipeReport\PreviewPipeReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportViewModel.cs" />
-    <Compile Include="Forms\Reports\Construction\PipeReport\PipeReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>

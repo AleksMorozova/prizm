@@ -1,5 +1,6 @@
 ﻿using Prizm.Data.DAL;
 using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
@@ -30,30 +31,15 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public void Execute()
         {
-            string queryString =  
-                string.Format(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetPipeByParametersPieces).ToString(),
-                viewModel.PipeNumber);
-            
-            int tempInt;
-            if(int.TryParse(viewModel.Diameter, out tempInt))
-            {
-                queryString = string.Concat(queryString, " AND p.diameter = ", viewModel.Diameter);
-            }
+            viewModel.Data = repo.GetPipelineElements(
+                viewModel.PipeNumber, 
+                viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
 
-            if(int.TryParse(viewModel.WallThickness, out tempInt))
-            {
-                queryString = string.Concat(queryString, " AND p.wallThickness = ", viewModel.WallThickness);
-            }
+            var report = new PipeConstructionXtraReport();
 
-            viewModel.Data = repo.GetPipelineElements(queryString);
-
-
-            viewModel.Report = new PipeConstructionXtraReport();
-
-            viewModel.Report.DataSource = viewModel.PipeReportDataList;
-
-            viewModel.Report.CreateDocument();
-            viewModel.PreviewSource = viewModel.Report;
+            report.DataSource = viewModel.PipeReportDataList;
+            report.CreateDocument();
+            viewModel.PreviewSource = report;
 
             RefreshVisualStateEvent();
         }
