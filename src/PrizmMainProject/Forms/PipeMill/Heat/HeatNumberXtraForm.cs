@@ -14,20 +14,11 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
     {
-        private ComboBoxEdit number1;
-
-
         public HeatNumberXtraForm(string number)
         {
             InitializeComponent();
             SetControlsTextLength();
             this.number.Text = number;
-        }
-
-        public HeatNumberXtraForm(ComboBoxEdit number1)
-        {
-            // TODO: Complete member initialization
-            this.number1 = number1;
         }
 
         public string Number { get { return number.Text; } }
