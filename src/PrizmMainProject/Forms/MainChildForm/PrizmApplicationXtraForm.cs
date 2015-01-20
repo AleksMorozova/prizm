@@ -296,6 +296,16 @@ namespace Prizm.Main.Forms.MainChildForm
             OpenChildForm(typeof(PartInspectionXtraForm));
         }
 
+        private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //TODO: the form of "Отчет по трубам на стройке" will be created here
+        }
+
+        private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //TODO: the form of "Отчет по сварке (по дате)" will be created here
+        }
+
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenChildForm(typeof(ConstructionReportsXtraForm));
@@ -647,7 +657,6 @@ namespace Prizm.Main.Forms.MainChildForm
            ImportForm form = Program.Kernel.Get<ImportForm>();
            form.ShowDialog();
         }
-
         /// <summary>
         /// On choosing language in main program menu
         /// </summary>

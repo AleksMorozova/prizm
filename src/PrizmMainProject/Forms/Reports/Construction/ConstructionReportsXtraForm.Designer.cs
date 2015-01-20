@@ -137,7 +137,6 @@
             this.tracingModeRadioGroup.Size = new System.Drawing.Size(93, 82);
             this.tracingModeRadioGroup.StyleController = this.generalLayout;
             this.tracingModeRadioGroup.TabIndex = 75;
-            this.tracingModeRadioGroup.SelectedIndex = 1;
             this.tracingModeRadioGroup.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
             // 
             // start
@@ -256,7 +255,6 @@
             this.previewLayout.Size = new System.Drawing.Size(896, 258);
             this.previewLayout.Text = "previewLayout";
             this.previewLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewLayout.TextToControlDistance = 0;
             this.previewLayout.TextVisible = false;
             // 
             // createReportaLyoutGroup
@@ -334,7 +332,6 @@
             this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 1);
             this.previewButtonLayout.Text = "previewButtonLayout";
             this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewButtonLayout.TextToControlDistance = 0;
             this.previewButtonLayout.TextVisible = false;
             // 
             // startKPComboBoxLayoutControl
@@ -430,7 +427,6 @@
             this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 0);
             this.createButtonLayout.Text = "createButtonLayout";
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.createButtonLayout.TextToControlDistance = 0;
             this.createButtonLayout.TextVisible = false;
             // 
             // underPreviewEmptySpaceI
@@ -470,7 +466,6 @@
             this.tracingModeLayoutControl.Text = "tracingModeLayoutControl";
             this.tracingModeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.tracingModeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.tracingModeLayoutControl.TextToControlDistance = 0;
             this.tracingModeLayoutControl.TextVisible = false;
             // 
             // bindingSource
@@ -485,7 +480,7 @@
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
-            this.Text = "Отчет по строительству";
+            this.Text = "Отчет по сварке участка между пикетами";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConstructionReportsXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.ConstructionReportsXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();

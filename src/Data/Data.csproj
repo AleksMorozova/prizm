@@ -78,6 +78,7 @@
     <Compile Include="DAL\Hibernate\JointRepository.cs" />
     <Compile Include="DAL\Hibernate\JointTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Hibernate\NotificationRepository.cs" />
     <Compile Include="DAL\Hibernate\PermissionRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />

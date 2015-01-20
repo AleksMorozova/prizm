@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +52,8 @@
             this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
+            this.pipeConstructionRepoBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.weldConstructionRepoBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
@@ -81,10 +84,10 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
@@ -163,9 +166,11 @@
             this.barButtonStatusNotifications,
             this.barButtonItemComponentry,
             this.barButtonItemPartIncomingInspection,
-            this.importantMessages});
+            this.importantMessages,
+            this.weldConstructionRepoBarButton,
+            this.pipeConstructionRepoBarButton});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 63;
+            this.barManager1.MaxItemId = 65;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -283,6 +288,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pipeConstructionRepoBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.weldConstructionRepoBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
@@ -338,9 +345,23 @@
             this.barButtonItemInspectionReports.Name = "barButtonItemInspectionReports";
             this.barButtonItemInspectionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionReports_ItemClick);
             // 
+            // pipeConstructionRepoBarButton
+            // 
+            this.pipeConstructionRepoBarButton.Caption = "Отчет по трубам на стройке";
+            this.pipeConstructionRepoBarButton.Id = 64;
+            this.pipeConstructionRepoBarButton.Name = "pipeConstructionRepoBarButton";
+            this.pipeConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pipeConstructionRepoBarButton_ItemClick);
+            // 
+            // weldConstructionRepoBarButton
+            // 
+            this.weldConstructionRepoBarButton.Caption = "Отчет по сварке (по дате)";
+            this.weldConstructionRepoBarButton.Id = 63;
+            this.weldConstructionRepoBarButton.Name = "weldConstructionRepoBarButton";
+            this.weldConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.weldConstructionRepoBarButton_ItemClick);
+            // 
             // barButtonItemConstructionReports
             // 
-            this.barButtonItemConstructionReports.Caption = "&Отчеты по строительству";
+            this.barButtonItemConstructionReports.Caption = "&Отчет по сварке участка между пикетами";
             this.barButtonItemConstructionReports.Id = 34;
             this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
             this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
@@ -525,7 +546,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1152, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1152, 22);
             // 
             // barDockControlBottom
             // 
@@ -538,15 +559,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1152, 20);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Location = new System.Drawing.Point(1152, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 574);
             // 
             // barButtonItemSettingsDictionaries
             // 
@@ -742,6 +763,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
         private DevExpress.XtraBars.BarButtonItem importantMessages;
         private DevExpress.Utils.WorkspaceManager workspaceManager;
+        private DevExpress.XtraBars.BarButtonItem weldConstructionRepoBarButton;
+        private DevExpress.XtraBars.BarButtonItem pipeConstructionRepoBarButton;
 
 
 
