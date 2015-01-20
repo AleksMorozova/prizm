@@ -178,7 +178,13 @@ namespace Prizm.Main.Synch.Import
 
          if (pipeObj.Attachments != null)
          {
-            pipe.Attachments = new List<Prizm.Domain.Entity.File>();
+             if (!Directory.Exists( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments")))
+             {
+                 Directory.CreateDirectory( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments"));
+                 DirectoryInfo directoryInfo = new DirectoryInfo( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments"));
+                 directoryInfo.Attributes |= FileAttributes.Hidden;
+             }
+             pipe.Attachments = new List<Prizm.Domain.Entity.File>();
             foreach (var fileObject in pipeObj.Attachments)
             {
                Prizm.Domain.Entity.File f = ImportFile(fileObject, pipe.Id);
