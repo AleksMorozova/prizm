@@ -30,27 +30,16 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             this.repo = heatRepository;
             saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo));
 
-            if(string.IsNullOrWhiteSpace(heatNumber))
+            var heat = GetHeatByNumber(heatNumber);
+            if(heat != null)
             {
-                CreateHeat("");
+                Heat = heat;
+                SetupManufacturers();
+                heats = new List<Prizm.Domain.Entity.Mill.Heat>() { heat };
             }
-            else
-            {
-                var heat = GetHeatByNumber(heatNumber);
-                if(heat != null)
-                {
-                    Heat = heat;
-                    SetupManufacturers();
-                    heats = new List<Prizm.Domain.Entity.Mill.Heat>() { heat };
-                }
-                else
-                {
-                    CreateHeat(heatNumber);
-                }
 
-
-            }
         }
+
         #region Property
         Prizm.Domain.Entity.Mill.Heat heat;
         public Prizm.Domain.Entity.Mill.Heat Heat
@@ -181,22 +170,6 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         internal void SetHeat(Guid guid)
         {
             Heat = heats.Where(x => x.Id == guid).FirstOrDefault();
-        }
-
-        internal void CreateHeat(string number)
-        {
-            var numberForm = new HeatNumberXtraForm(number);
-
-            if(numberForm.ShowDialog() == DialogResult.OK)
-            {
-                NewHeat(numberForm.Number);
-            }
-            else
-            {
-                HeatsList();
-            }
-
-
         }
     }
 }

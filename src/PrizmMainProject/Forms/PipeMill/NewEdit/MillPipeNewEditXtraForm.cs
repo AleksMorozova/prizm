@@ -105,10 +105,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             AutoValidate = AutoValidate.EnableAllowFocusChange;
 
             IsEditMode = true;
+
+            // Select tab depending on is new pipe or existed
+            tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ? 
+                pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
-
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
@@ -628,9 +631,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void ShowHeatDialog(string number)
         {
-            var dlg = new HeatXtraForm(number);
-            dlg.ShowDialog();
+            using(new HeatXtraForm(number))
+            {
 
+            }
         }
 
         private void heatsLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
