@@ -142,7 +142,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach(var t in viewModel.PipeTypes)
             {
-                if (t.IsActive)
+                if(t.IsActive)
                 {
                     pipeSize.Properties.Items.Add(t);
                 }
@@ -614,7 +614,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id,IsEditMode);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id, IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
