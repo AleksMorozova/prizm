@@ -78,21 +78,17 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
-            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
-            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
+            foreach (var pt in (PartType[])Enum.GetValues(typeof(PartType)))
+            {
+                if (pt == PartType.Undefined) continue;
+                var wrapPartType = new EnumWrapper<PartType> { Value = pt };
+                type.Properties.Items.Add(wrapPartType.Value, wrapPartType.Text, CheckState.Checked, true);
+            }
 
-            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
-
-            var usedProduct = new EnumWrapper<ReportType> { Value = ReportType.UsedProductReport };
-            var length = new EnumWrapper<ReportType> { Value = ReportType.PipelineLengthReport };
-            var highway = new EnumWrapper<ReportType> { Value = ReportType.TracingReport };
-
-            reportType.Properties.Items.Add(usedProduct);
-            reportType.Properties.Items.Add(length);
-            reportType.Properties.Items.Add(highway);
+            foreach (var rt in (ReportType[])Enum.GetValues(typeof(ReportType)))
+            {
+                reportType.Properties.Items.Add(new EnumWrapper<ReportType> { Value = rt });
+            }
 
             viewModel.LoadData();
 
@@ -118,9 +114,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             endKPComboBox.SelectedIndex = 0;
             viewModel.EndPK = (endKPComboBox.EditValue != null) ? (int)endKPComboBox.EditValue : default(int);
 
-            tracingModeRadioGroup.SelectedIndex = 0;
             reportType.SelectedIndex = 0;
             viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
+
+            tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,17 +128,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if (wrapReportType.Value == ReportType.UsedProductReport)
                 {
-                    viewModel.report = new UsedProductsXtraReport();
                     typeLayout.ContentVisible = true;
-                }
-                else if (wrapReportType.Value == ReportType.PipelineLengthReport)
-                {
-                    viewModel.report = new PipelineLengthReport();
-                    typeLayout.ContentVisible = false;
                 }
                 else
                 {
-                    viewModel.report = new TracingReporn();
                     typeLayout.ContentVisible = false;
                 }
             }

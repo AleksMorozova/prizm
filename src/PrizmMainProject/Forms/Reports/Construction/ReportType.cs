@@ -8,8 +8,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public enum ReportType
     {
-        UsedProductReport = 1,
-        PipelineLengthReport = 2,
-        TracingReport = 3
+        TracingReport = 1,
+        UsedProductReport = 2
     }
 }
