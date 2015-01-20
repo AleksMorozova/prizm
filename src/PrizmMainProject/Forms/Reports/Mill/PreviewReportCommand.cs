@@ -48,6 +48,14 @@ namespace Prizm.Main.Forms.Reports.Mill
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
+                else if (viewModel.SelectedReportType == ReportType.General)
+                {
+                    data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
+                    GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                    report.DataSource = data;
+                    report.CreateDocument();
+                    viewModel.PreviewSource = report;
+                }
                 else 
                 { 
                     data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses, true);

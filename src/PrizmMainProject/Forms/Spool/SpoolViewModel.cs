@@ -57,7 +57,7 @@ namespace Prizm.Main.Forms.Spool
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repos.SpoolRepo.GetAvailablePipes())
+            foreach (Pipe p in repos.PipeRepo.GetAvailableForCutPipes())
             {
                 allPipes.Add(p);
             }

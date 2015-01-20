@@ -153,6 +153,44 @@ namespace Prizm.Data.DAL.ADO
             return pipeDataSet;
         }
 
+        public DataSet CountWeldInf(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+            BindingList<Pipe> pipes = new BindingList<Pipe>();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.CountPipesWeldInformation).ToString();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
         public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
