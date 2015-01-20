@@ -41,7 +41,7 @@ namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
             var pipe = new Pipe();
 
             repoPipe.Setup(x => x.GetActiveByNumber(pipe)).Returns(new List<Pipe>());
-            repoProject.Setup(x => x.GetSingle()).Returns(new Project());
+            repoProject.Setup(x => x.GetSingle()).Returns(new Project() { IsNative = true});
 
             Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
             millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);

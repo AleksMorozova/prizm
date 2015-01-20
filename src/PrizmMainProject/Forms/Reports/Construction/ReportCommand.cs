@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL;
+﻿using DevExpress.XtraReports.UI;
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
@@ -20,6 +21,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly ConstructionReportViewModel viewModel;
         private readonly IUserNotify notify;
 
+        private XtraReport report;
         private DataSet data;
         private PipelineGraph graph;
         private List<TracingData> tracingDataList;
@@ -70,16 +72,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             if (viewModel.ReportType.Value == ReportType.TracingReport && notNullJointsCondition)
             {
                 PipelineTracing();
-                viewModel.report.DataSource = tracingDataList;
-            }
-            else if (viewModel.ReportType.Value == ReportType.PipelineLengthReport && notNullJointsCondition)
-            {
-                PipelineLenghtCalculation();
+                viewModel.ReportDataSource = tracingDataList;
             }
             else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
             {
                 GetUsedProduct();
-                viewModel.report.DataSource = data;
+                viewModel.ReportDataSource = data;
             }
         }
 
@@ -150,52 +148,49 @@ namespace Prizm.Main.Forms.Reports.Construction
                         viewModel.EndJoint, 
                         path);
 
-                    for (int i = path.Count - 1; i >= 0; --i)
+                    for (int i = path.Count - 1; i > 0; --i)
                     {
                         var tracingDataItem = new TracingData()
                         {
-                            PartNumber = path[i].Data.Number,
-                            PartTypeDescription = path[i].Data.PartTypeDescription,
-                            Length = path[i].Data.Length
+                            FirstPartNumber = path[i].Data.Number,
+                            FirstPartTypeDescription = path[i].Data.PartTypeDescription,
+                            FirstPartLength = path[i].Data.Length,
+
+                            SecondPartNumber = path[i -1].Data.Number,
+                            SecondPartTypeDescription = path[i - 1].Data.PartTypeDescription,
+                            SecondPartLength = path[i - 1].Data.Length
                         };
 
-                        if (i >= 1)
-                        {
-                            var commonJoint = path[i].GetCommonJoint(path[i - 1]);
-
-                            tracingDataItem.JointNumber = commonJoint.Data.Number;
-
-                            tracingDataItem.JointСoordinates = 
-                                commonJoint.Data.NumberKP.ToString() + " + " + 
-                                commonJoint.Data.DistanceFromKP.ToString();
-                        }
+                        var commonJoint = path[i].GetCommonJoint(path[i - 1]);
+                        tracingDataItem.JointNumber = commonJoint.Data.Number;
+                        tracingDataItem.WeldingDate = 
+                            commonJoint.Data
+                            .JointWeldResults.First().Date.Value.ToShortDateString();
 
                         tracingDataList.Add(tracingDataItem);
                     }
+
+                    PipelineLenghtCalculation();
                 }
             }
         }
 
         private void PipelineLenghtCalculation()
         {
-            PipelineTracing();
-
-            ((PipelineLengthReport)viewModel.report).PipelinePartCount = 
-                path.Count;
-
-            ((PipelineLengthReport)viewModel.report).PipelineLength = 
-                path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
-
-            ((PipelineLengthReport)viewModel.report).PipelineJointCount = 
+            viewModel.PipelineJointCount = 
                 path.Count - 1;
 
-            ((PipelineLengthReport)viewModel.report).CoordinatesFrom =
-                viewModel.StartJoint.NumberKP.ToString() + " + " +
-                viewModel.StartJoint.DistanceFromKP.ToString();
-                
-            ((PipelineLengthReport)viewModel.report).CoordinatesTo =
-                viewModel.EndJoint.NumberKP.ToString() + " + " +
-                viewModel.EndJoint.DistanceFromKP.ToString();
+            viewModel.PipelinePipeCount =
+                path.Where<PipelineVertex>(x => x.Data.PartType == PartType.Pipe).Count<PipelineVertex>();
+
+            viewModel.PipelineSpoolCount =
+                path.Where<PipelineVertex>(x => x.Data.PartType == PartType.Spool).Count<PipelineVertex>();
+
+            viewModel.PipelineComponentCount =
+                path.Where<PipelineVertex>(x => x.Data.PartType == PartType.Component).Count<PipelineVertex>();
+
+            viewModel.PipelineLength =
+                path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
         }
 
         public bool CanExecute() { return true; }

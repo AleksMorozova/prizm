@@ -4,11 +4,11 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace Prizm.Main.Forms.Reports.Construction
+namespace Prizm.Main.Forms.Reports.Mill
 {
-    public partial class TracingReporn : DevExpress.XtraReports.UI.XtraReport
+    public partial class GeneralInformationXtraReport : DevExpress.XtraReports.UI.XtraReport
     {
-        public TracingReporn()
+        public GeneralInformationXtraReport()
         {
             InitializeComponent();
         }

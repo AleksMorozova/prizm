@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -63,5 +64,38 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
 
+
+
+        public IList<Pipe> GetPipesToExport()
+        {
+           try
+           {
+              return session
+                 .QueryOver<Pipe>()
+                 .Where(p => p.ToExport)
+                 .List<Pipe>();
+           }
+           catch (GenericADOException ex)
+           {
+              throw new RepositoryException("GetPipesToExport", ex);
+           }
+        }
+
+
+        public IList<Pipe> GetAvailableForCutPipes()
+        {
+            try
+            {
+                return session
+                    .QueryOver<Pipe>()
+                    .Where(x => (x.ConstructionStatus == PartConstructionStatus.Pending) && (x.InspectionStatus == PartInspectionStatus.Accepted) && x.IsActive == true)
+                    .List<Pipe>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Get", ex);
+            }
+
+        }
     }
 }

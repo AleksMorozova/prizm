@@ -114,7 +114,83 @@ namespace Prizm.Data.DAL.ADO
             return pipeDataSet;
         }
 
-       
+        public DataSet GetPipes(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+            BindingList<Pipe> pipes = new BindingList<Pipe>();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllProducedPipesByDate).ToString();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
+
+        public DataSet CountWeldInf(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet pipeDataSet = new DataSet();
+            BindingList<Pipe> pipes = new BindingList<Pipe>();
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.CountPipesWeldInformation).ToString();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(pipeDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesFromInspection", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return pipeDataSet;
+        }
         public DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
@@ -278,5 +354,46 @@ namespace Prizm.Data.DAL.ADO
             return PKList;
         }
 
+        public BindingList<double> CountPipe(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            BindingList<double> countPipe = new BindingList<double>();
+
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@finalDate", finalDate);
+                    command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.CountPipesInformation).ToString();
+                    SqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        countPipe.Add(dr[0] == System.DBNull.Value ? (double)(0) : (double)((int)dr[0]));
+
+                        countPipe.Add(dr[1] == System.DBNull.Value ? (double)(0) : (double)((int)dr[1]));
+
+                        countPipe.Add(dr[2] == System.DBNull.Value ? (double)(0) : (double)dr[2]);   
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get Used Products", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return countPipe;
+        }
     }
 }

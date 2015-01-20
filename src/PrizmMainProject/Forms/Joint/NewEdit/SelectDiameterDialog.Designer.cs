@@ -33,18 +33,18 @@
             this.diametersIntersection = new DevExpress.XtraEditors.ComboBoxEdit();
             this.saveChosenDiameter = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlDiameterChoose = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.saveChosenDiameterLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderControls = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.diametersIntersectionLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveChosenDiameterLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.diameterChoiceLayout)).BeginInit();
             this.diameterChoiceLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diametersIntersection.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDiameterChoose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveChosenDiameterLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderControls)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diametersIntersectionLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveChosenDiameterLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // diameterChoiceLayout
@@ -96,19 +96,6 @@
             this.layoutControlDiameterChoose.Text = "layoutControlDiameterChoose";
             this.layoutControlDiameterChoose.TextVisible = false;
             // 
-            // saveChosenDiameterLayout
-            // 
-            this.saveChosenDiameterLayout.Control = this.saveChosenDiameter;
-            this.saveChosenDiameterLayout.CustomizationFormText = "saveChosenDiameterLayout";
-            this.saveChosenDiameterLayout.Location = new System.Drawing.Point(210, 14);
-            this.saveChosenDiameterLayout.Name = "saveChosenDiameterLayout";
-            this.saveChosenDiameterLayout.Size = new System.Drawing.Size(123, 26);
-            this.saveChosenDiameterLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
-            this.saveChosenDiameterLayout.Text = "saveChosenDiameterLayout";
-            this.saveChosenDiameterLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveChosenDiameterLayout.TextToControlDistance = 0;
-            this.saveChosenDiameterLayout.TextVisible = false;
-            // 
             // emptySpaceUnderControls
             // 
             this.emptySpaceUnderControls.AllowHotTrack = false;
@@ -118,16 +105,6 @@
             this.emptySpaceUnderControls.Size = new System.Drawing.Size(333, 11);
             this.emptySpaceUnderControls.Text = "emptySpaceUnderControls";
             this.emptySpaceUnderControls.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(210, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(123, 14);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // diametersIntersectionLayout
             // 
@@ -141,24 +118,46 @@
             this.diametersIntersectionLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.diametersIntersectionLayout.TextSize = new System.Drawing.Size(147, 13);
             // 
-            // ChoiceConnectedDiameter
+            // saveChosenDiameterLayout
+            // 
+            this.saveChosenDiameterLayout.Control = this.saveChosenDiameter;
+            this.saveChosenDiameterLayout.CustomizationFormText = "saveChosenDiameterLayout";
+            this.saveChosenDiameterLayout.Location = new System.Drawing.Point(210, 14);
+            this.saveChosenDiameterLayout.Name = "saveChosenDiameterLayout";
+            this.saveChosenDiameterLayout.Size = new System.Drawing.Size(123, 26);
+            this.saveChosenDiameterLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
+            this.saveChosenDiameterLayout.Text = "saveChosenDiameterLayout";
+            this.saveChosenDiameterLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.saveChosenDiameterLayout.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(210, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(123, 14);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // SelectDiameterDialog
             // 
             this.AcceptButton = this.saveChosenDiameter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 71);
             this.Controls.Add(this.diameterChoiceLayout);
-            this.Name = "ChoiceConnectedDiameter";
+            this.Name = "SelectDiameterDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ChoiceDiameterOfConnections";
             ((System.ComponentModel.ISupportInitialize)(this.diameterChoiceLayout)).EndInit();
             this.diameterChoiceLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.diametersIntersection.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDiameterChoose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveChosenDiameterLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderControls)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diametersIntersectionLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveChosenDiameterLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -16,18 +16,22 @@ using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using System.Linq;
 using Prizm.Main.Security;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
-    public partial class ComponentNewEditXtraForm : ChildForm , IValidatable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private Guid id;
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict 
             = new Dictionary<PartInspectionStatus, string>();
         private ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+
+        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
@@ -35,6 +39,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
+            this.id = id;
+
             InitializeComponent();
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
@@ -59,7 +65,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -312,6 +318,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
                 e.Valid = false;
             }
+        }
+
+        /// <summary>
+        /// Set IsModified for settings after grid data changed. Used not for most grid in settings.
+        /// </summary>
+        /// <param name="sender">GridView</param>
+        /// <param name="e"></param>
+        private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            IsModified = true;
         }
     }
 }

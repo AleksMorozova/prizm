@@ -136,6 +136,9 @@
     <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\packages\FluentMigrator.1.3.1.0\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
@@ -154,6 +157,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -198,7 +203,6 @@
     <Compile Include="DummyData\ComponentryDummy.cs" />
     <Compile Include="DummyData\InspectionDummy.cs" />
     <Compile Include="DummyData\JointsDummy.cs" />
-    <Compile Include="DummyData\NotificationDummy.cs" />
     <Compile Include="DummyData\PipesDummy.cs" />
     <Compile Include="DummyData\RailcarsDummy.cs" />
     <Compile Include="DummyData\RolesDummy.cs" />
@@ -244,6 +248,14 @@
     <Compile Include="Forms\ExternalFile\ExternalFilesViewModel.cs" />
     <Compile Include="Forms\ExternalFile\ViewFileCommand.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
+    <Compile Include="Forms\Joint\NewEdit\JointCutCommand.cs" />
+    <Compile Include="Forms\Joint\NewEdit\JointCutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointCutDialog.Designer.cs">
+      <DependentUpon>JointCutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\SaveOrUpdateJointCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\SelectDiameterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,10 +286,13 @@
     <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Notifications\NotificationRequest\CertificateNotificationRequest.cs" />
-    <Compile Include="Forms\Notifications\NotificationRequest\INotificationRequest..cs" />
+    <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
+    <Compile Include="Forms\Notifications\Notification.cs" />
+    <Compile Include="Forms\Notifications\Request\AbstractNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\CertificateNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\DuplicateNumberNotificationFactory.cs" />
+    <Compile Include="Forms\Notifications\Request\INotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
-    <Compile Include="Forms\Notifications\NotificationRequest\PipeNotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
@@ -285,6 +300,7 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Notifications\Request\NotificationRequest.cs" />
     <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,22 +402,16 @@
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
-    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\Reports\Construction\PipelineLengthReport.Designer.cs">
-      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\TracingData.cs" />
     <Compile Include="Forms\Reports\Construction\TracingModeEnum.cs" />
-    <Compile Include="Forms\Reports\Construction\TracingReporn.cs">
+    <Compile Include="Forms\Reports\Construction\TracingReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Reports\Construction\TracingReporn.Designer.cs">
-      <DependentUpon>TracingReporn.cs</DependentUpon>
+    <Compile Include="Forms\Reports\Construction\TracingReport.Designer.cs">
+      <DependentUpon>TracingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\Construction\UsedProductsXtraReport.cs">
       <SubType>Component</SubType>
@@ -418,10 +428,21 @@
     <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\AdditionToTheReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\AdditionToTheReport.Designer.cs">
+      <DependentUpon>AdditionToTheReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.Designer.cs">
+      <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
-    <Compile Include="Forms\Settings\NullOrNotEmptyValidationRule.cs" />
     <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +455,25 @@
     <Compile Include="Forms\Spool\SpoolDeactivationCommand.cs" />
     <Compile Include="Forms\Spool\SpoolRepositories.cs" />
     <Compile Include="Forms\Spool\SpoolViewModel.cs" />
+    <Compile Include="Forms\Synch\ConflictDecision.cs" />
+    <Compile Include="Forms\Synch\ConflictDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\ConflictDialog.Designer.cs">
+      <DependentUpon>ConflictDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Synch\ExportForm.cs" />
+    <Compile Include="Forms\Synch\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Synch\ImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\ImportForm.Designer.cs">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\ILanguageManager.cs" />
+    <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -574,7 +614,35 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityContext.cs" />
+    <Compile Include="Synch\Conflict.cs" />
+    <Compile Include="Synch\Data.cs" />
+    <Compile Include="Synch\Encryptor.cs" />
+    <Compile Include="Synch\Hasher.cs" />
+    <Compile Include="Synch\IEncryptor.cs" />
+    <Compile Include="Synch\Export\Exporter.cs" />
+    <Compile Include="Synch\Export\ExportException.cs" />
+    <Compile Include="Synch\Export\ExportRepository.cs" />
+    <Compile Include="Synch\Export\ExportResult.cs" />
+    <Compile Include="Synch\Export\IExporter.cs" />
+    <Compile Include="Synch\Export\IExportRepository.cs" />
+    <Compile Include="Synch\Export\DataExporter.cs" />
+    <Compile Include="Synch\IHasher.cs" />
+    <Compile Include="Synch\Import\ConflictEventArgs.cs" />
+    <Compile Include="Synch\Import\IImporter.cs" />
+    <Compile Include="Synch\Import\IImportRepository.cs" />
+    <Compile Include="Synch\Import\Importer.cs" />
+    <Compile Include="Synch\Import\ImportException.cs" />
+    <Compile Include="Synch\Import\ImportRepository.cs" />
+    <Compile Include="Synch\Import\ImportResult.cs" />
+    <Compile Include="Synch\Import\DataImporter.cs" />
+    <Compile Include="Synch\SerializableEntities\ComponentObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ComponentTypeObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ConnectorObject.cs" />
+    <Compile Include="Synch\SerializableEntities\FileObject.cs" />
     <Compile Include="Synch\SerializableEntities\HeatObject.cs" />
+    <Compile Include="Synch\SerializableEntities\JointObject.cs" />
+    <Compile Include="Synch\SerializableEntities\Manifest.cs" />
+    <Compile Include="Synch\SerializableEntities\PartDataObject.cs" />
     <Compile Include="Synch\SerializableEntities\PermissionObject.cs" />
     <Compile Include="Synch\SerializableEntities\PipeObject.cs" />
     <Compile Include="Synch\SerializableEntities\PlateManufacturerObject.cs" />
@@ -613,6 +681,9 @@
     <EmbeddedResource Include="Forms\Component\NewEdit\ComponentNewEditXtraForm.resx">
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Joint\NewEdit\JointCutDialog.resx">
+      <DependentUpon>JointCutDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\NewEdit\SelectDiameterDialog.resx">
       <DependentUpon>SelectDiameterDialog.cs</DependentUpon>
@@ -657,11 +728,8 @@
     <EmbeddedResource Include="Forms\Reports\Construction\ConstructionReportsXtraForm.resx">
       <DependentUpon>ConstructionReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\PipelineLengthReport.resx">
-      <DependentUpon>PipelineLengthReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Construction\TracingReporn.resx">
-      <DependentUpon>TracingReporn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reports\Construction\TracingReport.resx">
+      <DependentUpon>TracingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
@@ -688,6 +756,12 @@
     <EmbeddedResource Include="Forms\Reports\Incoming\IncomingReportsXtraReport.resx">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\AdditionToTheReport.resx">
+      <DependentUpon>AdditionToTheReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\GeneralInformationXtraReport.resx">
+      <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
@@ -729,6 +803,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
       <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\ConflictDialog.resx">
+      <DependentUpon>ConflictDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
+      <DependentUpon>ImportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -925,12 +1008,17 @@
   <ItemGroup>
     <None Include="Resources\main-logo_03.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\export_icon.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\critical_warning.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

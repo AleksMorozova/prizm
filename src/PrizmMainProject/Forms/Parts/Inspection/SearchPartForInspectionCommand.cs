@@ -43,6 +43,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             foreach (var item in qparts)
             {
+                if(item.IsActive)
                 parts.Add(item);
             }
 
@@ -59,11 +60,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 var parent = viewModel.CurrentForm.MdiParent as PrizmApplicationXtraForm;
                 if (parent != null && dialog.DialogResult == DialogResult.Yes)
                 {
-                    parent.CreateChildForm(typeof(SpoolsXtraForm), new ConstructorArgument("number", viewModel.SearchNumber));
+                    parent.OpenChildForm(typeof(SpoolsXtraForm), Guid.Empty, viewModel.SearchNumber);
                 }
                 else if (parent != null && dialog.DialogResult == DialogResult.No)
                 {
-                    parent.CreateChildForm(typeof(ComponentNewEditXtraForm), new ConstructorArgument("number", viewModel.SearchNumber));
+                    parent.OpenChildForm(typeof(ComponentNewEditXtraForm), Guid.Empty, viewModel.SearchNumber);
                 }
             }
             RefreshVisualStateEvent();

@@ -60,6 +60,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     try
                     {
+                        viewModel.UpdatePipeSubStatus();
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                         repo.BeginTransaction();
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
@@ -103,6 +104,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     !string.IsNullOrEmpty(viewModel.Number) &&
                     !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                     viewModel.ProductionDate != DateTime.MinValue &&
+                !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                     viewModel.ModifiableView.IsEditMode &&
                     ctx.HasAccess(viewModel.IsNew
                         ? global::Domain.Entity.Security.Privileges.NewDataEntry

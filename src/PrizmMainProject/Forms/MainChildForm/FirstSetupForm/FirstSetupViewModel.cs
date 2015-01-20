@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private IList<Category> fixedCategoryes;
         private string[] fixedCategoryesName
-           = new[] { "Измерение длины" };
+           = new[] { "Измерение длины"};
 
         private readonly IFirstSetupRepo firstSetupRepo;
         public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             admin.Roles = new List<Role>() { SuperUser };            
         }
 
-        private Project project = new Project();
+        private Project project = new Project() { IsNative = true};
         private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
 
@@ -107,10 +107,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 if (fixedCategoryes == null)
                 {
                     fixedCategoryes = new List<Category>();
-                    foreach (string str in fixedCategoryesName)
-                    {
-                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true, ResultType="int"}); 
-                    }
+                    //foreach (string str in fixedCategoryesName)
+                    //{
+                        fixedCategoryes.Add(new Category() { Name = "Измерение длины", IsActive = true , Fixed=true, ResultType="int", Type=FixedCategory.Length});
+                        fixedCategoryes.Add(new Category() { Name = "Контроль сварки", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.Weld });
+                        fixedCategoryes.Add(new Category() { Name = "Контроль внешнего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.ExternalCoat });
+                        fixedCategoryes.Add(new Category() { Name = "Контроль внутреннего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.InternalCoat }); 
+                    //}
                 }
                 return fixedCategoryes;
             }

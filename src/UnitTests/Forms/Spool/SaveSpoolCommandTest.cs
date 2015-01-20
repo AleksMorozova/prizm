@@ -29,7 +29,7 @@ namespace Prizm.UnitTests.Forms.Spool
             var spool = new Prizm.Domain.Entity.Construction.Spool();
             var pipe = new Prizm.Domain.Entity.Mill.Pipe();
 
-            spoolRepo.Setup(x => x.GetAvailablePipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
+            pipeRepo.Setup(x => x.GetAvailableForCutPipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
 
             var spoolRepos = new Mock<ISpoolRepositories>();
 
@@ -57,7 +57,6 @@ namespace Prizm.UnitTests.Forms.Spool
                 notify.Object);
 
             viewModel.Spool.Length = 124;
-            viewModel.canCut = true;
             viewModel.Pipe.Number = "Test";
 
             command.Execute();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Mapping
 {
@@ -20,6 +21,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.GpsHeight).Column("gpsHeight");
             Map(_ => _.GpsLatitude).Column("gpsLatitude");
             Map(_ => _.GpsLongitude).Column("gpsLongitude");
+            Map(_ => _.ToExport).Column("ToExport");
             Component<PartData>(_ => _.FirstElement, m =>
             {
                 m.Map(_ => _.Id).Column("part1Id");
@@ -36,6 +38,7 @@ namespace Prizm.Data.DAL.Mapping
 
             HasMany<JointTestResult>(_ => _.JointTestResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
             HasMany<JointWeldResult>(_ => _.JointWeldResults).KeyColumn("jointId").Cascade.All().Not.LazyLoad();
+            HasMany<File>(_ => _.Attachments).KeyColumn("item").Inverse().LazyLoad();
         }
     }
 }

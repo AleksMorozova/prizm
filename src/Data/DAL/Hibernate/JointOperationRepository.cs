@@ -39,5 +39,40 @@ namespace Prizm.Data.DAL.Hibernate
                 throw new RepositoryException("GetRepairOperations", e);
             }
         }
+
+        public void SeedRequiredWeld(string requiredWeldOperation)
+        {
+            try
+            {
+                if (GetAll().Count == 0)
+                {
+                    BeginTransaction();
+                    Save(new JointOperation()
+                    { 
+                        IsActive = true,
+                        IsRequired = true,
+                        Type = JointOperationType.Weld,
+                        Name = requiredWeldOperation
+                    }
+                        );
+                }
+            }
+            catch (GenericADOException e)
+            {
+                throw new RepositoryException("SeedRequiredWeld", e);
+            }
+        }
+
+        public JointOperation GetRequiredWeld(string requiredWeldOperation)
+        {
+            try
+            {
+                return session.QueryOver<JointOperation>().Where(_ => _.Name == requiredWeldOperation && _.Type == JointOperationType.Weld).SingleOrDefault();
+            }
+            catch(GenericADOException e)
+            { 
+              throw new RepositoryException("GetRequiredWeld", e);
+            }
+        }
     }
 }

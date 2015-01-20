@@ -27,7 +27,10 @@ namespace Prizm.Data.DAL.ADO
             GetAllUsedPipe,
             GetAllUsedSpool,
             GetAllUsedComponent,
-            GetWeldedParts
+            GetWeldedParts,
+            CountPipesInformation, 
+            GetAllProducedPipesByDate,
+            CountPipesWeldInformation
         }
         
         /// <summary>
@@ -35,8 +38,16 @@ namespace Prizm.Data.DAL.ADO
         /// </summary>
 
         private const string GettAllKP = @"Select distinct(numberKP) From Joint";
-        
-        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,length as length,diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
+
+        private const string GetAllProducedPipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, weight as weight,Pipe.length as length,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive, Pipe.productionDate as shippingDate
+              from  Pipe Pipe
+              left join Plate on (Plate.id = Pipe.plateId)
+              left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+              left  join Heat on (Heat.id = Plate.heatId)
+              WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
+              {where_options}";
+
+        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
               left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
@@ -47,7 +58,30 @@ namespace Prizm.Data.DAL.ADO
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
 
-        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string CountPipesInformation = @"Select COUNT(Pipe.number) as count, SUM(Pipe.Length) length,SUM(Pipe.Weight) as sum From Pipe Pipe WHERE productionDate >=  @startDate  and productionDate <= @finalDate";
+
+        private const string CountPipesWeldInformation = @"select productionDate as productionDate, 
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'WithRepair' and p.productionDate = pipe.productionDate)as 'WithRepairWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Repair' and p.productionDate = pipe.productionDate) as 'RepairWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Scheduled' and p.productionDate = pipe.productionDate) as 'ScheduledWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Failed' and p.productionDate = pipe.productionDate) as 'FailedWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Passed' and p.productionDate = pipe.productionDate) as 'PassedWeld',
+
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'WithRepair' and p.productionDate = pipe.productionDate)as 'WithRepairExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Repair' and p.productionDate = pipe.productionDate) as 'RepairExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Scheduled' and p.productionDate = pipe.productionDate) as 'ScheduledExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Failed' and p.productionDate = pipe.productionDate) as 'FailedExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Passed' and p.productionDate = pipe.productionDate) as 'PassedExternalCoat',
+
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'WithRepair' and p.productionDate = pipe.productionDate)as 'WithRepairInternalCoat',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Repair' and p.productionDate = pipe.productionDate) as 'RepairInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Scheduled' and p.productionDate = pipe.productionDate) as 'ScheduledInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Failed' and p.productionDate = pipe.productionDate) as 'FailedInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Passed' and p.productionDate = pipe.productionDate) as 'PassedInternal'
+ from Pipe pipe WHERE pipe.productionDate >=  @startDate  and pipe.productionDate <= @finalDate
+group by productionDate  ";
+
+        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
               LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
               LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -56,7 +90,7 @@ namespace Prizm.Data.DAL.ADO
 	          WHERE productionDate >=  @startDate  and productionDate <= @finalDate
               {where_options}";
 
-        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,length,diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
             FROM Pipe 
             LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
             LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -69,7 +103,7 @@ namespace Prizm.Data.DAL.ADO
 
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName, constructionStatus 
             FROM pipe 
-            WHERE isActive = 1 AND isAvailableToJoint = 1
+            WHERE isActive = 1 AND isAvailableToJoint = 1 AND isCutOnSpool = 0
             
             UNION ALL
 
@@ -99,37 +133,37 @@ namespace Prizm.Data.DAL.ADO
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
-                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate";
+                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate AND Pipe.isActive=1";
 
         private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1
 		  union
 select Pipe.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Pipe on (Pipe.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Pipe.isActive=1";
 
         private const string GetAllUsedSpool = @"select Spool.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1
 		  union 
 select Spool.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Spool on (Spool.id = Joint.[part2Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Spool.isActive=1";
 
         private const string GetAllUsedComponent = @"select Component.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part1Id]) 
-		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK
+		  where Joint.numberKP >= @startPK and Joint.numberKP <= @endPK AND Component.isActive=1
 		  union
 select Component.number as number, Joint.part2Type as type, Joint.numberKP
           from  Joint Joint
 		  inner join Component on (Component.id = Joint.[part2Id])
-		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK";
+		  where Joint.numberKP >=@startPK and Joint.numberKP <= @endPK  AND Component.isActive=1";
 
         private const string GetWeldedParts =
           @"SELECT 
@@ -189,9 +223,22 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
         {
             string queryText;
             switch (queryName)
-            {
+            {//CountPipesWeldInformation
+
+                case SQLStatic.CountPipesWeldInformation:
+                    queryText = CountPipesWeldInformation;
+                    break;
+
                 case SQLStatic.GettAllKP:
                     queryText = GettAllKP;
+                    break;
+
+                case SQLStatic.GetAllProducedPipesByDate:
+                    queryText = GetAllProducedPipesByDate;
+                    break;
+
+                case SQLStatic.CountPipesInformation:
+                    queryText = CountPipesInformation;
                     break;
 
                 case SQLStatic.GetAllActivePipesByDate:

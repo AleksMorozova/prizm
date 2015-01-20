@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExternalFilesXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.files = new DevExpress.XtraGrid.GridControl();
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,11 +41,24 @@
             this.downloadButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.addFile = new DevExpress.XtraEditors.SimpleButton();
             this.filesBindingSource = new System.Windows.Forms.BindingSource();
+            this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.tableLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.addButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.buttonLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.files)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
+            this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // files
@@ -54,14 +67,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.files.Cursor = System.Windows.Forms.Cursors.Default;
-            this.files.Location = new System.Drawing.Point(20, 20);
+            this.files.Location = new System.Drawing.Point(15, 15);
             this.files.MainView = this.filesView;
             this.files.Margin = new System.Windows.Forms.Padding(11);
             this.files.Name = "files";
             this.files.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.viewButton,
             this.downloadButton});
-            this.files.Size = new System.Drawing.Size(475, 251);
+            this.files.Size = new System.Drawing.Size(465, 235);
             this.files.TabIndex = 0;
             this.files.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.filesView});
@@ -111,7 +124,7 @@
             // 
             this.viewButton.AutoHeight = false;
             this.viewButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.viewButton.Name = "viewButton";
             this.viewButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.viewButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.viewButton_ButtonClick);
@@ -129,7 +142,7 @@
             // 
             this.downloadButton.AutoHeight = false;
             this.downloadButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.downloadButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.downloadButton_ButtonClick);
@@ -140,21 +153,105 @@
             this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addFile.Image = ((System.Drawing.Image)(resources.GetObject("addFile.Image")));
             this.addFile.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.addFile.Location = new System.Drawing.Point(20, 293);
+            this.addFile.Location = new System.Drawing.Point(20, 265);
             this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
-            this.addFile.Size = new System.Drawing.Size(113, 23);
+            this.addFile.Size = new System.Drawing.Size(135, 22);
+            this.addFile.StyleController = this.layoutControl;
             this.addFile.TabIndex = 1;
             this.addFile.Text = "Добавить файл";
             this.addFile.Click += new System.EventHandler(this.addFile_Click);
+            // 
+            // layoutControl
+            // 
+            this.layoutControl.Controls.Add(this.files);
+            this.layoutControl.Controls.Add(this.addFile);
+            this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl.Name = "layoutControl";
+            this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(785, 166, 396, 463);
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.layoutControl.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControl.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.layoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControl.Root = this.Root;
+            this.layoutControl.Size = new System.Drawing.Size(495, 307);
+            this.layoutControl.TabIndex = 2;
+            this.layoutControl.Text = "layoutControl1";
+            // 
+            // Root
+            // 
+            this.Root.CustomizationFormText = "Root";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tableLayoutControlItem,
+            this.buttonLayoutControlGroup});
+            this.Root.Location = new System.Drawing.Point(0, 0);
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(495, 307);
+            this.Root.Text = "Root";
+            this.Root.TextVisible = false;
+            // 
+            // tableLayoutControlItem
+            // 
+            this.tableLayoutControlItem.Control = this.files;
+            this.tableLayoutControlItem.CustomizationFormText = "Файлы";
+            this.tableLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutControlItem.Name = "tableLayoutControlItem";
+            this.tableLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.tableLayoutControlItem.Size = new System.Drawing.Size(475, 245);
+            this.tableLayoutControlItem.Text = "Файлы";
+            this.tableLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.tableLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.tableLayoutControlItem.TextVisible = false;
+            // 
+            // addButtonLayoutControlItem
+            // 
+            this.addButtonLayoutControlItem.Control = this.addFile;
+            this.addButtonLayoutControlItem.CustomizationFormText = "Кнопка добавить";
+            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
+            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(139, 26);
+            this.addButtonLayoutControlItem.Text = "addButtonLayoutControlItem";
+            this.addButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.addButtonLayoutControlItem.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(139, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(320, 26);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // buttonLayoutControlGroup
+            // 
+            this.buttonLayoutControlGroup.CustomizationFormText = "Добавить";
+            this.buttonLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.addButtonLayoutControlItem,
+            this.emptySpaceItem1});
+            this.buttonLayoutControlGroup.Location = new System.Drawing.Point(0, 245);
+            this.buttonLayoutControlGroup.Name = "buttonLayoutControlGroup";
+            this.buttonLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.buttonLayoutControlGroup.Size = new System.Drawing.Size(475, 42);
+            this.buttonLayoutControlGroup.Text = "Добавить";
+            this.buttonLayoutControlGroup.TextVisible = false;
             // 
             // ExternalFilesXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 336);
-            this.Controls.Add(this.addFile);
-            this.Controls.Add(this.files);
+            this.ClientSize = new System.Drawing.Size(495, 307);
+            this.Controls.Add(this.layoutControl);
             this.Name = "ExternalFilesXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Внешние файлы";
@@ -164,6 +261,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
+            this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,5 +284,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDownload;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit downloadButton;
         private System.Windows.Forms.BindingSource filesBindingSource;
+        private DevExpress.XtraLayout.LayoutControl layoutControl;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem tableLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlGroup buttonLayoutControlGroup;
+        private DevExpress.XtraLayout.LayoutControlItem addButtonLayoutControlItem;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

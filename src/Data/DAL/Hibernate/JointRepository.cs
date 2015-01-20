@@ -30,5 +30,18 @@ namespace Prizm.Data.DAL.Hibernate
                 throw new RepositoryException("GetActiveByNumber", ex);
             }
         }
+
+
+        public IList<Joint> GetJointsToExport()
+        {
+           try
+           {
+              return session.QueryOver<Joint>().Where(_ => _.ToExport).List<Joint>();
+           }
+           catch (GenericADOException ex)
+           {
+              throw new RepositoryException("GetJointsToExport", ex);
+           }
+        }
     }
 }

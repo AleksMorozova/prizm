@@ -12,6 +12,8 @@ using Prizm.Main.Forms.MainChildForm;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -30,6 +32,7 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateFrom.Properties.NullText = string.Empty;
             weldingDateTo.Properties.NullDate = DateTime.MinValue;
             weldingDateTo.Properties.NullText = string.Empty;
+            jointNumber.SetAsIdentifier();
 
         }
 
@@ -40,12 +43,14 @@ namespace Prizm.Main.Forms.Joint.Search
 
             foreach(JointStatus item in Enum.GetValues(typeof(JointStatus)))
             {
-                if(item == JointStatus.Undefined)
+                if(item == JointStatus.Undefined || item == JointStatus.Deactivated)
                 {
                     continue;
                 }
                 controlState.Properties.Items.Add(new EnumWrapper<JointStatus>() { Value = item },true);
             }
+            activity.SelectedIndex = 1;
+            viewModel.Activity = activity.SelectedItem.ToString(); 
             RefreshCombo();
         }
 
@@ -58,6 +63,8 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateFrom.DataBindings.Add("EditValue", bindingSource, "FromDate");
             weldingDateTo.DataBindings.Add("EditValue", bindingSource, "ToDate");
             gridControlSerchResult.DataBindings.Add("DataSource", bindingSource, "Joints");
+            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.Properties.Items.AddRange(viewModel.ActivityArray);
         }
 
         private void BindCommands()
@@ -110,7 +117,7 @@ namespace Prizm.Main.Forms.Joint.Search
             {
                 var id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.CreateChildForm(typeof(JointNewEditXtraForm), new ConstructorArgument("id", id));
+                parent.OpenChildForm(typeof(JointNewEditXtraForm), id);
             }
         }
 
@@ -119,6 +126,27 @@ namespace Prizm.Main.Forms.Joint.Search
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void resultView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as Prizm.Domain.Entity.Construction.Joint;
+            if (data != null)
+            {
+                if (!data.IsActive)
+                {
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+            }
+        }
+
+        private void activity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (activity.EditValue != Resources.PipeStatusComboActive)
+            {
+                viewModel.Statuses.Add(JointStatus.Deactivated);
+            }
         }
     }
 }

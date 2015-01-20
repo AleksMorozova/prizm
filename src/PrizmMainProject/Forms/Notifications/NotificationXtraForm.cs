@@ -11,7 +11,6 @@ using Ninject.Parameters;
 using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
-using PrizmMain.DummyData;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -50,12 +49,9 @@ namespace PrizmMain.Forms.Notifications
             Type typeEditor = viewModel.Notification[selectedItem].Editor;
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
+            var id = viewModel.Notification[selectedItem].Id;
 
-            parent.CreateChildForm(
-                   typeEditor,
-                    new ConstructorArgument(
-                        "id",
-                         viewModel.Notification[selectedItem].Id));
+            parent.OpenChildForm( typeEditor, id);
         }
 
         private void NotificationXtraForm_FormClosed(object sender, FormClosedEventArgs e)
