@@ -692,6 +692,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             partData.SetPartConnectors(row);
                         }
                     }
+                    // crutch for displaying data of connected elements
+                    if (FirstElement.Number != null && list.Where<PartData>(x => x.Id == FirstElement.Id).Count<PartData>() == 0)
+                        list.Add(FirstElement);
+                    if (SecondElement.Number != null && list.Where<PartData>(x => x.Id == SecondElement.Id).Count<PartData>() == 0)
+                        list.Add(SecondElement);
                 }
                 return list;
             }
@@ -728,8 +733,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
                 }
-
-                PartDataList.Add(p);
             }
             else
             {
