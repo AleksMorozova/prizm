@@ -34,12 +34,15 @@ using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Forms.Parts.Inspection;
+using Prizm.Data.DAL.Notifications;
 using Prizm.Data.DAL.Synch;
 using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Synch.Import;
 using Prizm.Main.Forms.Reports.Construction.PipeReport;
+using Prizm.Main.Languages;
+
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -89,6 +92,7 @@ namespace Prizm.Main
             Bind<IFileRepository>().To<FileRepository>();
             Bind<IInspectionTestResultRepository>().To<InspectionTestResultRepository>();
             Bind<IPartInspectionRepository>().To<PartInspectionRepository>();
+            Bind<INotificationRepository>().To<NotificationRepository>();
             Bind<IPortionRepository>().To<PortionRepository>();
             Bind<IExportRepository>().To<ExportRepository>();
             Bind<IImportRepository>().To<ImportRepository>();
@@ -153,6 +157,13 @@ namespace Prizm.Main
             Bind<IHasher>().To<Hasher>();
 
             #endregion
+
+            #region Language
+
+            Bind<ILanguageManager>().To<LanguageManager>();
+
+            #endregion
+
         }
     }
 }

@@ -36,6 +36,8 @@ using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
 using Prizm.Main.Forms.Reports.Construction.PipeReport;
+using System.Globalization;
+using System.Resources;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -47,19 +49,11 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private const string emptyString = "";
 
+        private int previousLanguageBarItemIndex = -1;
+
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-
-            //TODO
-            // should be deleted after demo test
-            //==========================================================
-            languageBarListItem.ShowChecks = true;
-            languageBarListItem.Strings.Add("English");
-            languageBarListItem.Strings.Add("Русский");
-            languageBarListItem.Strings.Add("Chinese (中國)");
-            languageBarListItem.DataIndex = 2;
-            //==========================================================
 
             NotificationManager.Instance.NotificationReload += OnNotificationRefresh;
             NotificationManager.Instance.RequestAllNotification();
@@ -303,6 +297,16 @@ namespace Prizm.Main.Forms.MainChildForm
             OpenChildForm(typeof(PartInspectionXtraForm));
         }
 
+        private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //TODO: the form of "Отчет по трубам на стройке" will be created here
+        }
+
+        private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //TODO: the form of "Отчет по сварке (по дате)" will be created here
+        }
+
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
             //OpenChildForm(typeof(ConstructionReportsXtraForm));
@@ -530,6 +534,8 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
+
+            CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
         }
 
@@ -627,6 +633,22 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
+        private Dictionary<int, CultureInfo> cultures = new Dictionary<int, CultureInfo>();
+
+        private void CreateLanguageBarListItem()
+        {
+            cultures.Clear();
+            languageBarListItem.ShowChecks = true;
+            int indexDefault = 0;
+            var list = viewModel.GetLanguagesCultures(out indexDefault);
+            foreach (var culture in list)
+            {
+                int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
+                cultures[index] = culture;
+            }
+            previousLanguageBarItemIndex = languageBarListItem.DataIndex = indexDefault;
+        }
+
         private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
         {
            OpenChildForm(typeof(ExportForm), Guid.Empty, string.Empty);
@@ -636,6 +658,33 @@ namespace Prizm.Main.Forms.MainChildForm
         {
            ImportForm form = Program.Kernel.Get<ImportForm>();
            form.ShowDialog();
+        }
+        /// <summary>
+        /// On choosing language in main program menu
+        /// </summary>
+        /// <param name="sender">menu item</param>
+        /// <param name="e">list item click parameters</param>
+        private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
+        {
+            int index = languageBarListItem.DataIndex;
+            if (cultures.ContainsKey(e.Index) && viewModel.ChooseTranslation(cultures[e.Index]))
+            {
+                CascadeLocalization();
+            }
+            else
+            {
+                languageBarListItem.DataIndex = previousLanguageBarItemIndex;
+                // ShowError(); TODO: write message about being not able to change language
+            }
+        }
+
+        /// <summary>
+        /// Main window will modify own text according to current language, and impel it's children to do so.
+        /// </summary>
+        void CascadeLocalization()
+        {
+            //MessageBox.Show("CascadeLocalization");
+            //this.Text = viewModel.GetLocalizedString("MenuFile");
         }
 
     }

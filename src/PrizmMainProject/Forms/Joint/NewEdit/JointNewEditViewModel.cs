@@ -407,6 +407,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.Status = JointStatus.Withdrawn;
                 }
+                if (Joint.IsActive == false)
+                {
+                    Joint.Status = JointStatus.Deactivated;
+                }
                 return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
             }
             set 
@@ -457,9 +461,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    if (part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
-                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                        switch (Joint.Status)
+                        {
+                            case JointStatus.Lowered: part.ConstructionStatus = PartConstructionStatus.Lowered;
+                                break;
+                            case JointStatus.Welded: part.ConstructionStatus = PartConstructionStatus.Welded;
+                                break;
+                            default: part.ConstructionStatus = PartConstructionStatus.Pending;
+                                break;
+                        }
                     }
                     else
                     {
