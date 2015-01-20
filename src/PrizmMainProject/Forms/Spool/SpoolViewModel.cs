@@ -215,6 +215,7 @@ namespace Prizm.Main.Forms.Spool
             }
         }
 
+
         /// <summary>
         /// Customize displaying inspectors name in grid cell : show only last name
         /// </summary>

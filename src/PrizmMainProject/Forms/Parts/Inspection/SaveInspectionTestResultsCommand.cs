@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             try
             {
+                viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
                 repo.BeginTransaction();
                 foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
                 {

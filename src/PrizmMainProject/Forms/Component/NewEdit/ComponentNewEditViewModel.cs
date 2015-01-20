@@ -186,18 +186,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
         }
 
-        public PartInspectionStatus InspectionStatus
-        {
-            get
-            {
-                return (Component.InspectionTestResults == null) ? PartInspectionStatus.Pending 
-                                                                 : Component.InspectionTestResults.
-                                                                 Where(_ => _.Date == Component.InspectionTestResults.Max(x => x.Date)).
-                                                                 SingleOrDefault().Status;
-            }
-
-        }
-
         public IList<Connector> Connectors
         {
             get 
