@@ -973,20 +973,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 foreach (PipeTestResult t in lengthOperation2)
                 {
                     Pipe.Length = Convert.ToInt32(t.Value);
-                    currentStatus = Pipe.SubStatus;
-
-                    //Pipe.SubStatus = Prizm.Domain.Entity.Mill.PipeMillSubStatus.Scheduled;
                 }
             }
 
             foreach (PipeTestResult t in lengthOperation3)
             {
                 Pipe.Length = Convert.ToInt32(t.Value);
-                currentStatus = Pipe.SubStatus;
             }
-
-
-
             return Pipe.Length;
         }
 
@@ -1027,8 +1020,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             List<PipeTestResult> weldOperation = new List<PipeTestResult>();
             List<string> weldTestsResults = new List<string>();
-
-            //group by category
+            List<PipeTestResult> internalCoatOperation = new List<PipeTestResult>();
+            List<string> internalCoatTestsResults = new List<string>();
+            List<PipeTestResult> externalCoatOperation = new List<PipeTestResult>();
+            List<string> externalCoatTestsResults = new List<string>();
+            //group by Weld category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
                 if (t.Operation.Category.Type == FixedCategory.Weld)
@@ -1038,40 +1034,62 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
 
-            UpdateSubStatus(weldOperation, weldTestsResults);
+            //group by ExternalCoat category
+            foreach (PipeTestResult t in Pipe.PipeTestResult)
+            {
+                if (t.Operation.Category.Type == FixedCategory.ExternalCoat)
+                {
+                    externalCoatOperation.Add(t);
+                    externalCoatTestsResults.Add(t.Status.ToString());
+                }
+            }
+
+            //group by InternalCoat category
+            foreach (PipeTestResult t in Pipe.PipeTestResult)
+            {
+                if (t.Operation.Category.Type == FixedCategory.InternalCoat)
+                {
+                    internalCoatOperation.Add(t);
+                    internalCoatTestsResults.Add(t.Status.ToString());
+                }
+            }
+
+            Pipe.WeldSubStatus=UpdateSubStatus(weldOperation, weldTestsResults);
+            Pipe.InternalCoatSubStatus = UpdateSubStatus(internalCoatOperation, internalCoatTestsResults);
+            Pipe.ExternalCoatSubStatus = UpdateSubStatus(externalCoatOperation, externalCoatTestsResults);
         }
 
-        public void UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
+        public PipeMillSubStatus UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
         {
             if (allResults.Count > 0)
             {
                 PipeTestResultStatus resultStatus = CheckOperationStatus(allResults);
                 if (resultStatus == PipeTestResultStatus.Scheduled)
                 {
-                    Pipe.SubStatus = PipeMillSubStatus.Scheduled;
+                    return PipeMillSubStatus.Scheduled;
                 }
                 else
                 {
                     if (resultStatus == PipeTestResultStatus.Failed)
                     {
-                        Pipe.SubStatus = PipeMillSubStatus.Failed;
+                        return PipeMillSubStatus.Failed;
                     }
                     else
                     {
                         if (resultStatus == PipeTestResultStatus.Passed && testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
                         {
-                            Pipe.SubStatus = PipeMillSubStatus.WithRepair;
+                            return PipeMillSubStatus.WithRepair;
                         }
                         else
                         {
-                            Pipe.SubStatus = PipeMillSubStatus.Passed;
+                            return PipeMillSubStatus.Passed;
                         }
                     }
                 }
             }
             else
             {
-                Pipe.SubStatus = PipeMillSubStatus.Undefined;
+                return PipeMillSubStatus.Undefined;
             }
         }
     }

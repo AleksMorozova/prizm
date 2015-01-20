@@ -43,7 +43,11 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual PipeMillStatus Status { get; set; }
 
-        public virtual PipeMillSubStatus SubStatus { get; set; }
+        public virtual PipeMillSubStatus WeldSubStatus { get; set; }
+
+        public virtual PipeMillSubStatus ExternalCoatSubStatus { get; set; }
+
+        public virtual PipeMillSubStatus InternalCoatSubStatus { get; set; }
 
         public virtual bool ToExport { get; set; }
 
