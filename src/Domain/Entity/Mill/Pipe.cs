@@ -34,6 +34,8 @@ namespace Prizm.Domain.Entity.Mill
         public virtual PurchaseOrder PurchaseOrder { get; set; }
 
         public virtual Project Project { get; set; }
+
+        public virtual bool IsCutOnSpool { get; set; }
         
         public virtual IList<Weld> Welds { get; set; }
         public virtual IList<PipeTestResult> PipeTestResult { get; set; }

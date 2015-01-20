@@ -103,7 +103,7 @@ group by productionDate  ";
 
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName, constructionStatus 
             FROM pipe 
-            WHERE isActive = 1 AND isAvailableToJoint = 1
+            WHERE isActive = 1 AND isAvailableToJoint = 1 AND isCutOnSpool = 0
             
             UNION ALL
 
