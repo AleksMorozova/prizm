@@ -57,7 +57,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public bool CanExecute()
         {
-            return viewModel.SelectedFile.Id!= Guid.Empty;
+            return viewModel.SelectedFile.NewName != null;
         }
     }
 }
