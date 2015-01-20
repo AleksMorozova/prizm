@@ -43,7 +43,7 @@
             this.oldValueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.newValueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fieldGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.entityID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.number = new DevExpress.XtraGrid.Columns.GridColumn();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
             this.startDate = new DevExpress.XtraEditors.DateEdit();
             this.generalAuditLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -176,7 +176,7 @@
             this.oldValueGridColumn,
             this.newValueGridColumn,
             this.fieldGridColumn,
-            this.entityID});
+            this.number});
             this.auditResultsView.GridControl = this.auditResults;
             this.auditResultsView.GroupCount = 2;
             this.auditResultsView.Name = "auditResultsView";
@@ -244,13 +244,13 @@
             this.fieldGridColumn.VisibleIndex = 1;
             this.fieldGridColumn.Width = 137;
             // 
-            // entityID
+            // number
             // 
-            this.entityID.Caption = "Номер элемента";
-            this.entityID.FieldName = "EntityID";
-            this.entityID.Name = "entityID";
-            this.entityID.Visible = true;
-            this.entityID.VisibleIndex = 4;
+            this.number.Caption = "Номер элемента";
+            this.number.FieldName = "EntityID";
+            this.number.Name = "number";
+            this.number.Visible = true;
+            this.number.VisibleIndex = 4;
             // 
             // endDate
             // 
@@ -505,6 +505,6 @@
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.Columns.GridColumn entityID;
+        private DevExpress.XtraGrid.Columns.GridColumn number;
     }
 }
