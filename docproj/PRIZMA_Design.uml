@@ -15148,7 +15148,7 @@ OPTIONAL for the first version?
 <XPD:REF name="SupplierDependencies[0]">GCBpMifPtkO8RA5tnwBHHgAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">eRx7bQswQESb65DxNh+zNwAA</XPD:REF>
-<XPD:ATTR name="#Literals" type="integer">3</XPD:ATTR>
+<XPD:ATTR name="#Literals" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Literals[0]" type="UMLEnumerationLiteral" guid="SZrL/MdRgE+l3CC4H7zJ5wAA">
 <XPD:ATTR name="Name" type="string">welded</XPD:ATTR>
 <XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
@@ -15159,6 +15159,10 @@ OPTIONAL for the first version?
 </XPD:OBJ>
 <XPD:OBJ name="Literals[2]" type="UMLEnumerationLiteral" guid="mXEk9L9nxUywJfEDQpLV2wAA">
 <XPD:ATTR name="Name" type="string">withrawn</XPD:ATTR>
+<XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[3]" type="UMLEnumerationLiteral" guid="1X1PK27DwEa3QnZM3jJEXgAA">
+<XPD:ATTR name="Name" type="string">deactivated</XPD:ATTR>
 <XPD:REF name="Enumeration">0rqSEVqH+0qR982oqUouxgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>

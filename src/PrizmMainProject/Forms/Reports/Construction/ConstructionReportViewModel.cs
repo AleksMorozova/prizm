@@ -39,12 +39,18 @@ namespace Prizm.Main.Forms.Reports.Construction
         private EnumWrapper<ReportType> reportType;
         private IList<PartData> partDataList;
 
+        public int PipelineJointCount { get; set; }
+        public int PipelinePipeCount { get; set; }
+        public int PipelineSpoolCount { get; set; }
+        public int PipelineComponentCount { get; set; }
+        public int PipelineLength { get; set; }
+
         public int startPK;
         public int endPK;
 
         public object previewSource;
         public BindingList <PartType> selectedTypes;
-        public XtraReport report;
+        public Object ReportDataSource { get; set; }
         public BindingList<int> AllKP { get; set; }
 
         public IList<construct.Joint> Joints { get; set; }
@@ -213,6 +219,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public TracingModeEnum TracingMode { get; set; }
 
+
+
         public ICommand CreateCommand
         {
             get
@@ -288,5 +296,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             return list;
         }
+
+
     }
 }

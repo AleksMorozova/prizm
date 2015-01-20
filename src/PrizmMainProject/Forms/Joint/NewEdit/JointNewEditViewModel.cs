@@ -407,6 +407,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.Status = JointStatus.Withdrawn;
                 }
+                if (Joint.IsActive == false)
+                {
+                    Joint.Status = JointStatus.Deactivated;
+                }
                 return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
             }
             set 
@@ -457,9 +461,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    if (part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
-                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                        switch (Joint.Status)
+                        {
+                            case JointStatus.Lowered: part.ConstructionStatus = PartConstructionStatus.Lowered;
+                                break;
+                            case JointStatus.Welded: part.ConstructionStatus = PartConstructionStatus.Welded;
+                                break;
+                            default: part.ConstructionStatus = PartConstructionStatus.Pending;
+                                break;
+                        }
                     }
                     else
                     {
@@ -680,6 +692,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             partData.SetPartConnectors(row);
                         }
                     }
+                    // crutch for displaying data of connected elements
+                    if (FirstElement.Number != null && list.Where<PartData>(x => x.Id == FirstElement.Id).Count<PartData>() == 0)
+                        list.Add(FirstElement);
+                    if (SecondElement.Number != null && list.Where<PartData>(x => x.Id == SecondElement.Id).Count<PartData>() == 0)
+                        list.Add(SecondElement);
                 }
                 return list;
             }
@@ -716,8 +733,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
                 }
-
-                PartDataList.Add(p);
             }
             else
             {

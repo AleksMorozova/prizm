@@ -162,24 +162,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Контроль.
-        /// </summary>
-        internal static string AtControl {
-            get {
-                return ResourceManager.GetString("AtControl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изоляция.
-        /// </summary>
-        internal static string AtIsolation {
-            get {
-                return ResourceManager.GetString("AtIsolation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
         /// </summary>
         internal static string AuthenticationFailed {
@@ -402,6 +384,15 @@ namespace Prizm.Main.Properties {
         internal static string DateFirst {
             get {
                 return ResourceManager.GetString("DateFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивирован.
+        /// </summary>
+        internal static string Deactivated {
+            get {
+                return ResourceManager.GetString("Deactivated", resourceCulture);
             }
         }
         
@@ -1016,11 +1007,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Засыпан.
-        /// </summary>
-        internal static string Filled {
-            get {
-                return ResourceManager.GetString("Filled", resourceCulture);
             }
         }
         
@@ -1030,10 +1016,6 @@ namespace Prizm.Main.Properties {
         internal static string General {
             get {
                 return ResourceManager.GetString("General", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {
@@ -1547,15 +1529,6 @@ namespace Prizm.Main.Properties {
         internal static string Pipe {
             get {
                 return ResourceManager.GetString("Pipe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Протяженность трубопровода.
-        /// </summary>
-        internal static string PipelineLengthReport {
-            get {
-                return ResourceManager.GetString("PipelineLengthReport", resourceCulture);
             }
         }
         

@@ -142,7 +142,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach(var t in viewModel.PipeTypes)
             {
-                if (t.IsActive)
+                if(t.IsActive)
                 {
                     pipeSize.Properties.Items.Add(t);
                 }
@@ -614,7 +614,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id,IsEditMode);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id, IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -735,15 +735,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
-        private void inspections_Leave(object sender, EventArgs e)
-        {
-            //TODO: Review that functionality
-            if(viewModel.PipeLength != null)
-            {
-                pipeLength.Text = viewModel.PipeLength.ToString();
-            }
-        }
-
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
         {
             viewModel.PlateNumber = plateNumber.Text;
@@ -783,6 +774,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                         IsModified = true;
                         inspections.RefreshDataSource();
+                        pipeLength.Refresh();
                     }
                 }
             }
@@ -797,6 +789,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();
+                    pipeLength.Refresh();
                 }
             }
         }
