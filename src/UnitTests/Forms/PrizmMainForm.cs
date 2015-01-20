@@ -9,6 +9,8 @@ using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Domain.Entity;
+using Prizm.Main.Languages;
+using Prizm.Main.Forms;
 
 namespace Prizm.UnitTests.Forms
 {
@@ -19,8 +21,10 @@ namespace Prizm.UnitTests.Forms
         public void GetORCreateProjectTest()
         {
             var projectRepo = new Mock<IProjectRepository>();
+            var languages = new Mock<ILanguageManager>();
+            var notify = new Mock<IUserNotify>();
             Project nullProject = null;
-            var viewModel = new PrizmApplicationViewModel(projectRepo.Object);
+            var viewModel = new PrizmApplicationViewModel(projectRepo.Object, languages.Object, notify.Object);
             projectRepo.Setup(_ => _.GetSingle()).Returns(nullProject);
             //viewModel.GetOrCreateProject();
             projectRepo.Verify(_ => _.BeginTransaction(), Times.Once());

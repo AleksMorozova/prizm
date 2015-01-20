@@ -78,6 +78,7 @@
     <Compile Include="DAL\Hibernate\JointRepository.cs" />
     <Compile Include="DAL\Hibernate\JointTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\MillPipeSizeTypeRepository.cs" />
+    <Compile Include="DAL\Hibernate\NotificationRepository.cs" />
     <Compile Include="DAL\Hibernate\PermissionRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeRepository.cs" />
     <Compile Include="DAL\Hibernate\PipeTestRepository.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="DAL\Mill\IWelderRepository.cs" />
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
     <Compile Include="DAL\Mill\ICategoryRepository.cs" />
+    <Compile Include="DAL\Notifications\INotificationRepository.cs" />
     <Compile Include="DAL\RepositoryException.cs" />
     <Compile Include="DAL\Security\IPermissionRepository.cs" />
     <Compile Include="DAL\Security\IRoleRepository.cs" />

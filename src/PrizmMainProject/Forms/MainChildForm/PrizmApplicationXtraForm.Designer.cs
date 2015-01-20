@@ -28,101 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-         this.components = new System.ComponentModel.Container();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
-         DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
-         this.bar2 = new DevExpress.XtraBars.Bar();
-         this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-         this.barMenu = new DevExpress.XtraBars.Bar();
-         this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
-         this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemMillFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemNewRailcar = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
-         this.barSubItemConstruction = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemPartIncomingInspection = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemFindEditParts = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
-         this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
-         this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
-         this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
-         this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
-         this.importantMessages = new DevExpress.XtraBars.BarButtonItem();
-         this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
-         this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
-         this.barStatus = new DevExpress.XtraBars.Bar();
-         this.notifyBarStaticItem = new DevExpress.XtraBars.BarStaticItem();
-         this.barButtonStatusNotifications = new DevExpress.XtraBars.BarButtonItem();
-         this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-         this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-         this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-         this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-         this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
-         this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
-         this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
-         this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-         this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-         this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-         this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
-         this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
-         this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
-         this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
-         ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
-         this.flyoutPanel.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).BeginInit();
-         this.flyoutPanelControl.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).BeginInit();
-         this.SuspendLayout();
-         // 
-         // bar2
-         // 
-         this.bar2.BarName = "Main menu";
-         this.bar2.DockCol = 0;
-         this.bar2.DockRow = 0;
-         this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-         this.bar2.OptionsBar.MultiLine = true;
-         this.bar2.OptionsBar.UseWholeRow = true;
-         this.bar2.Text = "Main menu";
-         // 
-         // barManager1
-         // 
-         this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barMenu = new DevExpress.XtraBars.Bar();
+            this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemMillFindEditPipes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNewRailcar = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditShipRailcars = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemMillReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemConstruction = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemNewComponent = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNewJoint = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemPartIncomingInspection = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditParts = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsPipe = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsPipeline = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemComponentry = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsWelders = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsInspectors = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSettingsUsers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRoles = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
+            this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
+            this.barSubItemReports = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
+            this.importantMessages = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.barStatus = new DevExpress.XtraBars.Bar();
+            this.notifyBarStaticItem = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonStatusNotifications = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
+            this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
+            this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
+            this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
+            this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
+            this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
+            this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
+            this.flyoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).BeginInit();
+            this.flyoutPanelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Main menu";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.OptionsBar.MultiLine = true;
+            this.bar2.OptionsBar.UseWholeRow = true;
+            this.bar2.Text = "Main menu";
+            // 
+            // barManager1
+            // 
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.barMenu,
             this.barStatus});
-         this.barManager1.DockControls.Add(this.barDockControlTop);
-         this.barManager1.DockControls.Add(this.barDockControlBottom);
-         this.barManager1.DockControls.Add(this.barDockControlLeft);
-         this.barManager1.DockControls.Add(this.barDockControlRight);
-         this.barManager1.Form = this;
-         this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItemMill,
             this.barSubItemSettings,
             this.barButtonItemSettingsPipe,
@@ -165,118 +164,118 @@
             this.barButtonItemComponentry,
             this.barButtonItemPartIncomingInspection,
             this.importantMessages});
-         this.barManager1.MainMenu = this.barMenu;
-         this.barManager1.MaxItemId = 63;
-         this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.barManager1.MainMenu = this.barMenu;
+            this.barManager1.MaxItemId = 63;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
-         this.barManager1.StatusBar = this.barStatus;
-         // 
-         // barMenu
-         // 
-         this.barMenu.BarName = "Main menu";
-         this.barMenu.DockCol = 0;
-         this.barMenu.DockRow = 0;
-         this.barMenu.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-         this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barManager1.StatusBar = this.barStatus;
+            // 
+            // barMenu
+            // 
+            this.barMenu.BarName = "Main menu";
+            this.barMenu.DockCol = 0;
+            this.barMenu.DockRow = 0;
+            this.barMenu.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.barMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemApplication),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemMill),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemConstruction),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemSettings),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemReports),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemHelp)});
-         this.barMenu.OptionsBar.AllowQuickCustomization = false;
-         this.barMenu.OptionsBar.DisableClose = true;
-         this.barMenu.OptionsBar.DisableCustomization = true;
-         this.barMenu.OptionsBar.MultiLine = true;
-         this.barMenu.OptionsBar.UseWholeRow = true;
-         this.barMenu.Text = "Main menu";
-         // 
-         // barSubItemApplication
-         // 
-         this.barSubItemApplication.Caption = "&Файл";
-         this.barSubItemApplication.Id = 18;
-         this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barMenu.OptionsBar.AllowQuickCustomization = false;
+            this.barMenu.OptionsBar.DisableClose = true;
+            this.barMenu.OptionsBar.DisableCustomization = true;
+            this.barMenu.OptionsBar.MultiLine = true;
+            this.barMenu.OptionsBar.UseWholeRow = true;
+            this.barMenu.Text = "Main menu";
+            // 
+            // barSubItemApplication
+            // 
+            this.barSubItemApplication.Caption = "&Файл";
+            this.barSubItemApplication.Id = 18;
+            this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemImport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
-         this.barSubItemApplication.Name = "barSubItemApplication";
-         // 
-         // barButtonItemExport
-         // 
-         this.barButtonItemExport.Caption = "&Экспорт";
-         this.barButtonItemExport.Id = 46;
-         this.barButtonItemExport.Name = "barButtonItemExport";
-         this.barButtonItemExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExport_ItemClick);
-         // 
-         // barButtonItemImport
-         // 
-         this.barButtonItemImport.Caption = "&Импорт";
-         this.barButtonItemImport.Id = 49;
-         this.barButtonItemImport.Name = "barButtonItemImport";
-         this.barButtonItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImport_ItemClick);
-         // 
-         // barButtonItemExit
-         // 
-         this.barButtonItemExit.Caption = "&Выход";
-         this.barButtonItemExit.Id = 31;
-         this.barButtonItemExit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4));
-         this.barButtonItemExit.Name = "barButtonItemExit";
-         this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
-         // 
-         // barSubItemMill
-         // 
-         this.barSubItemMill.Caption = "&Завод";
-         this.barSubItemMill.Id = 0;
-         this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemApplication.Name = "barSubItemApplication";
+            // 
+            // barButtonItemExport
+            // 
+            this.barButtonItemExport.Caption = "&Экспорт";
+            this.barButtonItemExport.Id = 46;
+            this.barButtonItemExport.Name = "barButtonItemExport";
+            this.barButtonItemExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExport_ItemClick);
+            // 
+            // barButtonItemImport
+            // 
+            this.barButtonItemImport.Caption = "&Импорт";
+            this.barButtonItemImport.Id = 49;
+            this.barButtonItemImport.Name = "barButtonItemImport";
+            this.barButtonItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImport_ItemClick);
+            // 
+            // barButtonItemExit
+            // 
+            this.barButtonItemExit.Caption = "&Выход";
+            this.barButtonItemExit.Id = 31;
+            this.barButtonItemExit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4));
+            this.barButtonItemExit.Name = "barButtonItemExit";
+            this.barButtonItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExit_ItemClick);
+            // 
+            // barSubItemMill
+            // 
+            this.barSubItemMill.Caption = "&Завод";
+            this.barSubItemMill.Id = 0;
+            this.barSubItemMill.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillFindEditPipes),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewRailcar, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditShipRailcars),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemMillReports, true)});
-         this.barSubItemMill.Name = "barSubItemMill";
-         // 
-         // barButtonItemNewPipe
-         // 
-         this.barButtonItemNewPipe.Caption = "Новая &труба";
-         this.barButtonItemNewPipe.Id = 16;
-         this.barButtonItemNewPipe.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
-         this.barButtonItemNewPipe.Name = "barButtonItemNewPipe";
-         this.barButtonItemNewPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewPipe_ItemClick);
-         // 
-         // barButtonItemMillFindEditPipes
-         // 
-         this.barButtonItemMillFindEditPipes.Caption = "&Поиск труб";
-         this.barButtonItemMillFindEditPipes.Id = 17;
-         this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
-         this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
-         // 
-         // barButtonItemNewRailcar
-         // 
-         this.barButtonItemNewRailcar.Caption = "&Разрешение на отгрузку";
-         this.barButtonItemNewRailcar.Id = 37;
-         this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
-         this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
-         this.barButtonItemNewRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRailcar_ItemClick);
-         // 
-         // barButtonItemFindEditShipRailcars
-         // 
-         this.barButtonItemFindEditShipRailcars.Caption = "По&иск разрешений на отгрузку";
-         this.barButtonItemFindEditShipRailcars.Id = 38;
-         this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
-         this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
-         // 
-         // barButtonItemMillReports
-         // 
-         this.barButtonItemMillReports.Caption = "&Отчеты";
-         this.barButtonItemMillReports.Id = 39;
-         this.barButtonItemMillReports.Name = "barButtonItemMillReports";
-         this.barButtonItemMillReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillReports_ItemClick);
-         // 
-         // barSubItemConstruction
-         // 
-         this.barSubItemConstruction.Caption = "Входной &контроль и строительство";
-         this.barSubItemConstruction.Id = 26;
-         this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemMill.Name = "barSubItemMill";
+            // 
+            // barButtonItemNewPipe
+            // 
+            this.barButtonItemNewPipe.Caption = "Новая &труба";
+            this.barButtonItemNewPipe.Id = 16;
+            this.barButtonItemNewPipe.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
+            this.barButtonItemNewPipe.Name = "barButtonItemNewPipe";
+            this.barButtonItemNewPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewPipe_ItemClick);
+            // 
+            // barButtonItemMillFindEditPipes
+            // 
+            this.barButtonItemMillFindEditPipes.Caption = "&Поиск труб";
+            this.barButtonItemMillFindEditPipes.Id = 17;
+            this.barButtonItemMillFindEditPipes.Name = "barButtonItemMillFindEditPipes";
+            this.barButtonItemMillFindEditPipes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillFindEditPipes_ItemClick);
+            // 
+            // barButtonItemNewRailcar
+            // 
+            this.barButtonItemNewRailcar.Caption = "&Разрешение на отгрузку";
+            this.barButtonItemNewRailcar.Id = 37;
+            this.barButtonItemNewRailcar.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
+            this.barButtonItemNewRailcar.Name = "barButtonItemNewRailcar";
+            this.barButtonItemNewRailcar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRailcar_ItemClick);
+            // 
+            // barButtonItemFindEditShipRailcars
+            // 
+            this.barButtonItemFindEditShipRailcars.Caption = "По&иск разрешений на отгрузку";
+            this.barButtonItemFindEditShipRailcars.Id = 38;
+            this.barButtonItemFindEditShipRailcars.Name = "barButtonItemFindEditShipRailcars";
+            this.barButtonItemFindEditShipRailcars.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditShipRailcars_ItemClick);
+            // 
+            // barButtonItemMillReports
+            // 
+            this.barButtonItemMillReports.Caption = "&Отчеты";
+            this.barButtonItemMillReports.Id = 39;
+            this.barButtonItemMillReports.Name = "barButtonItemMillReports";
+            this.barButtonItemMillReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMillReports_ItemClick);
+            // 
+            // barSubItemConstruction
+            // 
+            this.barSubItemConstruction.Caption = "Входной &контроль и строительство";
+            this.barSubItemConstruction.Id = 26;
+            this.barSubItemConstruction.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewComponent, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemNewJoint),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemPartIncomingInspection),
@@ -285,72 +284,72 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
-         this.barSubItemConstruction.Name = "barSubItemConstruction";
-         // 
-         // barButtonItemNewComponent
-         // 
-         this.barButtonItemNewComponent.Caption = "Новое комплектую&щее";
-         this.barButtonItemNewComponent.Id = 20;
-         this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
-         this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
-         this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
-         // 
-         // barButtonItemNewJoint
-         // 
-         this.barButtonItemNewJoint.Caption = "Новый &стык";
-         this.barButtonItemNewJoint.Id = 32;
-         this.barButtonItemNewJoint.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J));
-         this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
-         this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
-         // 
-         // barButtonItemPartIncomingInspection
-         // 
-         this.barButtonItemPartIncomingInspection.Caption = "&Контроль элементов трубопровода";
-         this.barButtonItemPartIncomingInspection.Id = 61;
-         this.barButtonItemPartIncomingInspection.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K));
-         this.barButtonItemPartIncomingInspection.Name = "barButtonItemPartIncomingInspection";
-         this.barButtonItemPartIncomingInspection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPartIncomingInspection_ItemClick);
-         // 
-         // barButtonItemFindEditParts
-         // 
-         this.barButtonItemFindEditParts.Caption = "Поиск &элементов трубопровода";
-         this.barButtonItemFindEditParts.Id = 28;
-         this.barButtonItemFindEditParts.Name = "barButtonItemFindEditParts";
-         this.barButtonItemFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditParts_ItemClick);
-         // 
-         // barButtonItemFindEditJoints
-         // 
-         this.barButtonItemFindEditJoints.Caption = "&Поиск стыков";
-         this.barButtonItemFindEditJoints.Id = 33;
-         this.barButtonItemFindEditJoints.Name = "barButtonItemFindEditJoints";
-         this.barButtonItemFindEditJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditJoints_ItemClick);
-         // 
-         // barButtonItemSpool
-         // 
-         this.barButtonItemSpool.Caption = "Кат&ушки";
-         this.barButtonItemSpool.Id = 41;
-         this.barButtonItemSpool.Name = "barButtonItemSpool";
-         this.barButtonItemSpool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSpool_ItemClick);
-         // 
-         // barButtonItemInspectionReports
-         // 
-         this.barButtonItemInspectionReports.Caption = "Отчеты по &входному контролю";
-         this.barButtonItemInspectionReports.Id = 36;
-         this.barButtonItemInspectionReports.Name = "barButtonItemInspectionReports";
-         this.barButtonItemInspectionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionReports_ItemClick);
-         // 
-         // barButtonItemConstructionReports
-         // 
-         this.barButtonItemConstructionReports.Caption = "&Отчеты по строительству";
-         this.barButtonItemConstructionReports.Id = 34;
-         this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
-         this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
-         // 
-         // barSubItemSettings
-         // 
-         this.barSubItemSettings.Caption = "&Настройки";
-         this.barSubItemSettings.Id = 1;
-         this.barSubItemSettings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemConstruction.Name = "barSubItemConstruction";
+            // 
+            // barButtonItemNewComponent
+            // 
+            this.barButtonItemNewComponent.Caption = "Новое комплектую&щее";
+            this.barButtonItemNewComponent.Id = 20;
+            this.barButtonItemNewComponent.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
+            this.barButtonItemNewComponent.Name = "barButtonItemNewComponent";
+            this.barButtonItemNewComponent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewComponent_ItemClick);
+            // 
+            // barButtonItemNewJoint
+            // 
+            this.barButtonItemNewJoint.Caption = "Новый &стык";
+            this.barButtonItemNewJoint.Id = 32;
+            this.barButtonItemNewJoint.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J));
+            this.barButtonItemNewJoint.Name = "barButtonItemNewJoint";
+            this.barButtonItemNewJoint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewJoint_ItemClick);
+            // 
+            // barButtonItemPartIncomingInspection
+            // 
+            this.barButtonItemPartIncomingInspection.Caption = "&Контроль элементов трубопровода";
+            this.barButtonItemPartIncomingInspection.Id = 61;
+            this.barButtonItemPartIncomingInspection.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K));
+            this.barButtonItemPartIncomingInspection.Name = "barButtonItemPartIncomingInspection";
+            this.barButtonItemPartIncomingInspection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPartIncomingInspection_ItemClick);
+            // 
+            // barButtonItemFindEditParts
+            // 
+            this.barButtonItemFindEditParts.Caption = "Поиск &элементов трубопровода";
+            this.barButtonItemFindEditParts.Id = 28;
+            this.barButtonItemFindEditParts.Name = "barButtonItemFindEditParts";
+            this.barButtonItemFindEditParts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditParts_ItemClick);
+            // 
+            // barButtonItemFindEditJoints
+            // 
+            this.barButtonItemFindEditJoints.Caption = "&Поиск стыков";
+            this.barButtonItemFindEditJoints.Id = 33;
+            this.barButtonItemFindEditJoints.Name = "barButtonItemFindEditJoints";
+            this.barButtonItemFindEditJoints.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFindEditJoints_ItemClick);
+            // 
+            // barButtonItemSpool
+            // 
+            this.barButtonItemSpool.Caption = "Кат&ушки";
+            this.barButtonItemSpool.Id = 41;
+            this.barButtonItemSpool.Name = "barButtonItemSpool";
+            this.barButtonItemSpool.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSpool_ItemClick);
+            // 
+            // barButtonItemInspectionReports
+            // 
+            this.barButtonItemInspectionReports.Caption = "Отчеты по &входному контролю";
+            this.barButtonItemInspectionReports.Id = 36;
+            this.barButtonItemInspectionReports.Name = "barButtonItemInspectionReports";
+            this.barButtonItemInspectionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionReports_ItemClick);
+            // 
+            // barButtonItemConstructionReports
+            // 
+            this.barButtonItemConstructionReports.Caption = "&Отчеты по строительству";
+            this.barButtonItemConstructionReports.Id = 34;
+            this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
+            this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
+            // 
+            // barSubItemSettings
+            // 
+            this.barSubItemSettings.Caption = "&Настройки";
+            this.barSubItemSettings.Id = 1;
+            this.barSubItemSettings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipe),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsPipeline),
@@ -360,324 +359,325 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSettingsUsers, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemRoles),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemLanguage, true)});
-         this.barSubItemSettings.Name = "barSubItemSettings";
-         // 
-         // barButtonItemSettingsProject
-         // 
-         this.barButtonItemSettingsProject.Caption = "&Проект";
-         this.barButtonItemSettingsProject.Id = 29;
-         this.barButtonItemSettingsProject.Name = "barButtonItemSettingsProject";
-         this.barButtonItemSettingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsProject_ItemClick);
-         // 
-         // barButtonItemSettingsPipe
-         // 
-         this.barButtonItemSettingsPipe.Caption = "&Труба";
-         this.barButtonItemSettingsPipe.Hint = "Pipe settings";
-         this.barButtonItemSettingsPipe.Id = 2;
-         this.barButtonItemSettingsPipe.Name = "barButtonItemSettingsPipe";
-         this.barButtonItemSettingsPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipe_ItemClick);
-         // 
-         // barButtonItemSettingsPipeline
-         // 
-         this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
-         this.barButtonItemSettingsPipeline.Id = 3;
-         this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
-         this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
-         // 
-         // barButtonItemComponentry
-         // 
-         this.barButtonItemComponentry.Caption = "Комплектующие";
-         this.barButtonItemComponentry.Id = 60;
-         this.barButtonItemComponentry.Name = "barButtonItemComponentry";
-         this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
-         // 
-         // barButtonItemSettingsWelders
-         // 
-         this.barButtonItemSettingsWelders.Caption = "&Сварщики";
-         this.barButtonItemSettingsWelders.Id = 54;
-         this.barButtonItemSettingsWelders.Name = "barButtonItemSettingsWelders";
-         this.barButtonItemSettingsWelders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsWelders_ItemClick);
-         // 
-         // barButtonItemSettingsInspectors
-         // 
-         this.barButtonItemSettingsInspectors.Caption = "&Инспекторы";
-         this.barButtonItemSettingsInspectors.Id = 55;
-         this.barButtonItemSettingsInspectors.Name = "barButtonItemSettingsInspectors";
-         this.barButtonItemSettingsInspectors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsInspectors_ItemClick);
-         // 
-         // barButtonItemSettingsUsers
-         // 
-         this.barButtonItemSettingsUsers.Caption = "&Пользователи";
-         this.barButtonItemSettingsUsers.Id = 4;
-         this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
-         this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
-         // 
-         // barButtonItemRoles
-         // 
-         this.barButtonItemRoles.Caption = "Р&оли";
-         this.barButtonItemRoles.Id = 47;
-         this.barButtonItemRoles.Name = "barButtonItemRoles";
-         this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
-         // 
-         // barSubItemLanguage
-         // 
-         this.barSubItemLanguage.Caption = "Язык";
-         this.barSubItemLanguage.Id = 52;
-         this.barSubItemLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemSettings.Name = "barSubItemSettings";
+            // 
+            // barButtonItemSettingsProject
+            // 
+            this.barButtonItemSettingsProject.Caption = "&Проект";
+            this.barButtonItemSettingsProject.Id = 29;
+            this.barButtonItemSettingsProject.Name = "barButtonItemSettingsProject";
+            this.barButtonItemSettingsProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsProject_ItemClick);
+            // 
+            // barButtonItemSettingsPipe
+            // 
+            this.barButtonItemSettingsPipe.Caption = "&Труба";
+            this.barButtonItemSettingsPipe.Hint = "Pipe settings";
+            this.barButtonItemSettingsPipe.Id = 2;
+            this.barButtonItemSettingsPipe.Name = "barButtonItemSettingsPipe";
+            this.barButtonItemSettingsPipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipe_ItemClick);
+            // 
+            // barButtonItemSettingsPipeline
+            // 
+            this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
+            this.barButtonItemSettingsPipeline.Id = 3;
+            this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
+            this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
+            // 
+            // barButtonItemComponentry
+            // 
+            this.barButtonItemComponentry.Caption = "Комплектующие";
+            this.barButtonItemComponentry.Id = 60;
+            this.barButtonItemComponentry.Name = "barButtonItemComponentry";
+            this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
+            // 
+            // barButtonItemSettingsWelders
+            // 
+            this.barButtonItemSettingsWelders.Caption = "&Сварщики";
+            this.barButtonItemSettingsWelders.Id = 54;
+            this.barButtonItemSettingsWelders.Name = "barButtonItemSettingsWelders";
+            this.barButtonItemSettingsWelders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsWelders_ItemClick);
+            // 
+            // barButtonItemSettingsInspectors
+            // 
+            this.barButtonItemSettingsInspectors.Caption = "&Инспекторы";
+            this.barButtonItemSettingsInspectors.Id = 55;
+            this.barButtonItemSettingsInspectors.Name = "barButtonItemSettingsInspectors";
+            this.barButtonItemSettingsInspectors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsInspectors_ItemClick);
+            // 
+            // barButtonItemSettingsUsers
+            // 
+            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
+            this.barButtonItemSettingsUsers.Id = 4;
+            this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
+            this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
+            // 
+            // barButtonItemRoles
+            // 
+            this.barButtonItemRoles.Caption = "Р&оли";
+            this.barButtonItemRoles.Id = 47;
+            this.barButtonItemRoles.Name = "barButtonItemRoles";
+            this.barButtonItemRoles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRoles_ItemClick);
+            // 
+            // barSubItemLanguage
+            // 
+            this.barSubItemLanguage.Caption = "Язык";
+            this.barSubItemLanguage.Id = 52;
+            this.barSubItemLanguage.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarListItem)});
-         this.barSubItemLanguage.Name = "barSubItemLanguage";
-         // 
-         // languageBarListItem
-         // 
-         this.languageBarListItem.Caption = "languages";
-         this.languageBarListItem.Id = 53;
-         this.languageBarListItem.Name = "languageBarListItem";
-         // 
-         // barSubItemReports
-         // 
-         this.barSubItemReports.Caption = "Разн&ое";
-         this.barSubItemReports.Id = 14;
-         this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemLanguage.Name = "barSubItemLanguage";
+            // 
+            // languageBarListItem
+            // 
+            this.languageBarListItem.Caption = "languages";
+            this.languageBarListItem.Id = 53;
+            this.languageBarListItem.Name = "languageBarListItem";
+            this.languageBarListItem.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.languageBarListItem_ListItemClick);
+            // 
+            // barSubItemReports
+            // 
+            this.barSubItemReports.Caption = "Разн&ое";
+            this.barSubItemReports.Id = 14;
+            this.barSubItemReports.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCustomReport, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAudit),
             new DevExpress.XtraBars.LinkPersistInfo(this.importantMessages)});
-         this.barSubItemReports.Name = "barSubItemReports";
-         // 
-         // barButtonItemCustomReport
-         // 
-         this.barButtonItemCustomReport.Caption = "&Конструктор отчетов";
-         this.barButtonItemCustomReport.Enabled = false;
-         this.barButtonItemCustomReport.Id = 24;
-         this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
-         // 
-         // barButtonItemAudit
-         // 
-         this.barButtonItemAudit.Caption = "&Аудит";
-         this.barButtonItemAudit.Id = 45;
-         this.barButtonItemAudit.Name = "barButtonItemAudit";
-         this.barButtonItemAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAudit_ItemClick_1);
-         // 
-         // importantMessages
-         // 
-         this.importantMessages.Caption = "&Важные сообщения";
-         this.importantMessages.Id = 62;
-         this.importantMessages.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
-         this.importantMessages.Name = "importantMessages";
-         this.importantMessages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.importantMessages_ItemClick);
-         // 
-         // barSubItemHelp
-         // 
-         this.barSubItemHelp.Caption = "Спр&авка";
-         this.barSubItemHelp.Id = 43;
-         this.barSubItemHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemReports.Name = "barSubItemReports";
+            // 
+            // barButtonItemCustomReport
+            // 
+            this.barButtonItemCustomReport.Caption = "&Конструктор отчетов";
+            this.barButtonItemCustomReport.Enabled = false;
+            this.barButtonItemCustomReport.Id = 24;
+            this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
+            // 
+            // barButtonItemAudit
+            // 
+            this.barButtonItemAudit.Caption = "&Аудит";
+            this.barButtonItemAudit.Id = 45;
+            this.barButtonItemAudit.Name = "barButtonItemAudit";
+            this.barButtonItemAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAudit_ItemClick_1);
+            // 
+            // importantMessages
+            // 
+            this.importantMessages.Caption = "&Важные сообщения";
+            this.importantMessages.Id = 62;
+            this.importantMessages.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F12);
+            this.importantMessages.Name = "importantMessages";
+            this.importantMessages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.importantMessages_ItemClick);
+            // 
+            // barSubItemHelp
+            // 
+            this.barSubItemHelp.Caption = "Спр&авка";
+            this.barSubItemHelp.Id = 43;
+            this.barSubItemHelp.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAbout)});
-         this.barSubItemHelp.Name = "barSubItemHelp";
-         // 
-         // barButtonItemAbout
-         // 
-         this.barButtonItemAbout.Caption = "О программе";
-         this.barButtonItemAbout.Id = 44;
-         this.barButtonItemAbout.Name = "barButtonItemAbout";
-         this.barButtonItemAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);
-         // 
-         // barStatus
-         // 
-         this.barStatus.BarName = "Status bar";
-         this.barStatus.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-         this.barStatus.DockCol = 0;
-         this.barStatus.DockRow = 0;
-         this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-         this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSubItemHelp.Name = "barSubItemHelp";
+            // 
+            // barButtonItemAbout
+            // 
+            this.barButtonItemAbout.Caption = "О программе";
+            this.barButtonItemAbout.Id = 44;
+            this.barButtonItemAbout.Name = "barButtonItemAbout";
+            this.barButtonItemAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);
+            // 
+            // barStatus
+            // 
+            this.barStatus.BarName = "Status bar";
+            this.barStatus.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.barStatus.DockCol = 0;
+            this.barStatus.DockRow = 0;
+            this.barStatus.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.barStatus.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.notifyBarStaticItem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonStatusNotifications)});
-         this.barStatus.OptionsBar.AllowQuickCustomization = false;
-         this.barStatus.OptionsBar.DisableClose = true;
-         this.barStatus.OptionsBar.DisableCustomization = true;
-         this.barStatus.OptionsBar.DrawDragBorder = false;
-         this.barStatus.OptionsBar.UseWholeRow = true;
-         this.barStatus.Text = "Status bar";
-         // 
-         // notifyBarStaticItem
-         // 
-         this.notifyBarStaticItem.Caption = "F4";
-         this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
-         this.notifyBarStaticItem.Hint = "уведомления о совершенных транзакциях";
-         this.notifyBarStaticItem.Id = 6;
-         this.notifyBarStaticItem.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F4);
-         this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
-         this.notifyBarStaticItem.Name = "notifyBarStaticItem";
-         this.notifyBarStaticItem.ShortcutKeyDisplayString = "Список уведомлений";
-         this.notifyBarStaticItem.TextAlignment = System.Drawing.StringAlignment.Near;
-         this.notifyBarStaticItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.notifyBarStaticItem_ItemClick);
-         // 
-         // barButtonStatusNotifications
-         // 
-         this.barButtonStatusNotifications.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-         this.barButtonStatusNotifications.Caption = "Сообщения системы(0)";
-         this.barButtonStatusNotifications.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
-         this.barButtonStatusNotifications.Id = 59;
-         this.barButtonStatusNotifications.Name = "barButtonStatusNotifications";
-         this.barButtonStatusNotifications.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-         this.barButtonStatusNotifications.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonStatusNotifications_ItemClick);
-         // 
-         // barDockControlTop
-         // 
-         this.barDockControlTop.CausesValidation = false;
-         this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-         this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-         this.barDockControlTop.Size = new System.Drawing.Size(1152, 21);
-         // 
-         // barDockControlBottom
-         // 
-         this.barDockControlBottom.CausesValidation = false;
-         this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
-         this.barDockControlBottom.Size = new System.Drawing.Size(1152, 27);
-         // 
-         // barDockControlLeft
-         // 
-         this.barDockControlLeft.CausesValidation = false;
-         this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-         this.barDockControlLeft.Location = new System.Drawing.Point(0, 21);
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 575);
-         // 
-         // barDockControlRight
-         // 
-         this.barDockControlRight.CausesValidation = false;
-         this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(1152, 21);
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 575);
-         // 
-         // barButtonItemSettingsDictionaries
-         // 
-         this.barButtonItemSettingsDictionaries.Id = 57;
-         this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
-         // 
-         // barButtonItemRailcar
-         // 
-         this.barButtonItemRailcar.Caption = "Railcar";
-         this.barButtonItemRailcar.Id = 25;
-         this.barButtonItemRailcar.Name = "barButtonItemRailcar";
-         // 
-         // languageBarSubItem
-         // 
-         this.languageBarSubItem.Caption = "Локализация";
-         this.languageBarSubItem.Id = 50;
-         this.languageBarSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barStatus.OptionsBar.AllowQuickCustomization = false;
+            this.barStatus.OptionsBar.DisableClose = true;
+            this.barStatus.OptionsBar.DisableCustomization = true;
+            this.barStatus.OptionsBar.DrawDragBorder = false;
+            this.barStatus.OptionsBar.UseWholeRow = true;
+            this.barStatus.Text = "Status bar";
+            // 
+            // notifyBarStaticItem
+            // 
+            this.notifyBarStaticItem.Caption = "F4";
+            this.notifyBarStaticItem.Glyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.Glyph")));
+            this.notifyBarStaticItem.Hint = "уведомления о совершенных транзакциях";
+            this.notifyBarStaticItem.Id = 6;
+            this.notifyBarStaticItem.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F4);
+            this.notifyBarStaticItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("notifyBarStaticItem.LargeGlyph")));
+            this.notifyBarStaticItem.Name = "notifyBarStaticItem";
+            this.notifyBarStaticItem.ShortcutKeyDisplayString = "Список уведомлений";
+            this.notifyBarStaticItem.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.notifyBarStaticItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.notifyBarStaticItem_ItemClick);
+            // 
+            // barButtonStatusNotifications
+            // 
+            this.barButtonStatusNotifications.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonStatusNotifications.Caption = "Сообщения системы(0)";
+            this.barButtonStatusNotifications.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
+            this.barButtonStatusNotifications.Id = 59;
+            this.barButtonStatusNotifications.Name = "barButtonStatusNotifications";
+            this.barButtonStatusNotifications.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonStatusNotifications.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonStatusNotifications_ItemClick);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1152, 20);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1152, 27);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1152, 20);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            // 
+            // barButtonItemSettingsDictionaries
+            // 
+            this.barButtonItemSettingsDictionaries.Id = 57;
+            this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
+            // 
+            // barButtonItemRailcar
+            // 
+            this.barButtonItemRailcar.Caption = "Railcar";
+            this.barButtonItemRailcar.Id = 25;
+            this.barButtonItemRailcar.Name = "barButtonItemRailcar";
+            // 
+            // languageBarSubItem
+            // 
+            this.languageBarSubItem.Caption = "Локализация";
+            this.languageBarSubItem.Id = 50;
+            this.languageBarSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.languageComboBoxEdit)});
-         this.languageBarSubItem.Name = "languageBarSubItem";
-         // 
-         // languageComboBoxEdit
-         // 
-         this.languageComboBoxEdit.AutoFillWidth = true;
-         this.languageComboBoxEdit.Caption = "Язык";
-         this.languageComboBoxEdit.Edit = this.languageRepositoryComboBox;
-         this.languageComboBoxEdit.Id = 51;
-         this.languageComboBoxEdit.Name = "languageComboBoxEdit";
-         // 
-         // languageRepositoryComboBox
-         // 
-         this.languageRepositoryComboBox.AutoHeight = false;
-         this.languageRepositoryComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.languageBarSubItem.Name = "languageBarSubItem";
+            // 
+            // languageComboBoxEdit
+            // 
+            this.languageComboBoxEdit.AutoFillWidth = true;
+            this.languageComboBoxEdit.Caption = "Язык";
+            this.languageComboBoxEdit.Edit = this.languageRepositoryComboBox;
+            this.languageComboBoxEdit.Id = 51;
+            this.languageComboBoxEdit.Name = "languageComboBoxEdit";
+            // 
+            // languageRepositoryComboBox
+            // 
+            this.languageRepositoryComboBox.AutoHeight = false;
+            this.languageRepositoryComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
-         // 
-         // galleryDropDown1
-         // 
-         this.galleryDropDown1.Manager = this.barManager1;
-         this.galleryDropDown1.Name = "galleryDropDown1";
-         // 
-         // mainMDIdocumentManager
-         // 
-         this.mainMDIdocumentManager.MdiParent = this;
-         this.mainMDIdocumentManager.MenuManager = this.barManager1;
-         this.mainMDIdocumentManager.View = this.tabbedView1;
-         this.mainMDIdocumentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.languageRepositoryComboBox.Name = "languageRepositoryComboBox";
+            // 
+            // galleryDropDown1
+            // 
+            this.galleryDropDown1.Manager = this.barManager1;
+            this.galleryDropDown1.Name = "galleryDropDown1";
+            // 
+            // mainMDIdocumentManager
+            // 
+            this.mainMDIdocumentManager.MdiParent = this;
+            this.mainMDIdocumentManager.MenuManager = this.barManager1;
+            this.mainMDIdocumentManager.View = this.tabbedView1;
+            this.mainMDIdocumentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
-         // 
-         // tabbedView1
-         // 
-         this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
-         this.tabbedView1.DocumentProperties.AllowFloat = false;
-         this.tabbedView1.DocumentProperties.AllowFloatOnDoubleClick = false;
-         this.tabbedView1.DocumentProperties.AllowPin = true;
-         this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
-         // 
-         // alertControl
-         // 
-         this.alertControl.AutoFormDelay = 5000;
-         this.alertControl.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.BottomLeft;
-         this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
-         this.alertControl.ShowPinButton = false;
-         // 
-         // flyoutPanel
-         // 
-         this.flyoutPanel.Controls.Add(this.flyoutPanelControl);
-         this.flyoutPanel.Location = new System.Drawing.Point(14, 385);
-         this.flyoutPanel.Name = "flyoutPanel";
-         this.flyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
-         this.flyoutPanel.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
-         this.flyoutPanel.Options.CloseOnOuterClick = true;
-         this.flyoutPanel.OwnerControl = this.barDockControlBottom;
-         this.flyoutPanel.ParentForm = this;
-         this.flyoutPanel.Size = new System.Drawing.Size(574, 199);
-         this.flyoutPanel.TabIndex = 5;
-         // 
-         // flyoutPanelControl
-         // 
-         this.flyoutPanelControl.AutoSize = true;
-         this.flyoutPanelControl.Controls.Add(this.notifyHistory);
-         this.flyoutPanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flyoutPanelControl.FlyoutPanel = this.flyoutPanel;
-         this.flyoutPanelControl.Location = new System.Drawing.Point(0, 0);
-         this.flyoutPanelControl.Name = "flyoutPanelControl";
-         this.flyoutPanelControl.Size = new System.Drawing.Size(574, 199);
-         this.flyoutPanelControl.TabIndex = 0;
-         // 
-         // notifyHistory
-         // 
-         this.notifyHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.notifyHistory.Location = new System.Drawing.Point(2, 2);
-         this.notifyHistory.Name = "notifyHistory";
-         this.notifyHistory.SelectionMode = System.Windows.Forms.SelectionMode.None;
-         this.notifyHistory.Size = new System.Drawing.Size(570, 195);
-         this.notifyHistory.SortOrder = System.Windows.Forms.SortOrder.Descending;
-         this.notifyHistory.TabIndex = 0;
-         // 
-         // workspaceManager
-         // 
-         this.workspaceManager.TargetControl = this;
-         this.workspaceManager.TransitionType = pushTransition1;
-         // 
-         // PrizmApplicationXtraForm
-         // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
-         this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
-         this.ClientSize = new System.Drawing.Size(1152, 623);
-         this.Controls.Add(this.flyoutPanel);
-         this.Controls.Add(this.barDockControlLeft);
-         this.Controls.Add(this.barDockControlRight);
-         this.Controls.Add(this.barDockControlBottom);
-         this.Controls.Add(this.barDockControlTop);
-         this.DoubleBuffered = true;
-         this.IsMdiContainer = true;
-         this.Name = "PrizmApplicationXtraForm";
-         this.Text = "[PRISM v.2]";
-         this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
-         ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
-         this.flyoutPanel.ResumeLayout(false);
-         this.flyoutPanel.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).EndInit();
-         this.flyoutPanelControl.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).EndInit();
-         this.ResumeLayout(false);
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.tabbedView1.DocumentProperties.AllowFloat = false;
+            this.tabbedView1.DocumentProperties.AllowFloatOnDoubleClick = false;
+            this.tabbedView1.DocumentProperties.AllowPin = true;
+            this.tabbedView1.DocumentProperties.UseFormIconAsDocumentImage = true;
+            // 
+            // alertControl
+            // 
+            this.alertControl.AutoFormDelay = 5000;
+            this.alertControl.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.BottomLeft;
+            this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
+            this.alertControl.ShowPinButton = false;
+            // 
+            // flyoutPanel
+            // 
+            this.flyoutPanel.Controls.Add(this.flyoutPanelControl);
+            this.flyoutPanel.Location = new System.Drawing.Point(14, 385);
+            this.flyoutPanel.Name = "flyoutPanel";
+            this.flyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+            this.flyoutPanel.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
+            this.flyoutPanel.Options.CloseOnOuterClick = true;
+            this.flyoutPanel.OwnerControl = this.barDockControlBottom;
+            this.flyoutPanel.ParentForm = this;
+            this.flyoutPanel.Size = new System.Drawing.Size(574, 199);
+            this.flyoutPanel.TabIndex = 5;
+            // 
+            // flyoutPanelControl
+            // 
+            this.flyoutPanelControl.AutoSize = true;
+            this.flyoutPanelControl.Controls.Add(this.notifyHistory);
+            this.flyoutPanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flyoutPanelControl.FlyoutPanel = this.flyoutPanel;
+            this.flyoutPanelControl.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl.Name = "flyoutPanelControl";
+            this.flyoutPanelControl.Size = new System.Drawing.Size(574, 199);
+            this.flyoutPanelControl.TabIndex = 0;
+            // 
+            // notifyHistory
+            // 
+            this.notifyHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.notifyHistory.Location = new System.Drawing.Point(2, 2);
+            this.notifyHistory.Name = "notifyHistory";
+            this.notifyHistory.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.notifyHistory.Size = new System.Drawing.Size(570, 195);
+            this.notifyHistory.SortOrder = System.Windows.Forms.SortOrder.Descending;
+            this.notifyHistory.TabIndex = 0;
+            // 
+            // workspaceManager
+            // 
+            this.workspaceManager.TargetControl = this;
+            this.workspaceManager.TransitionType = pushTransition1;
+            // 
+            // PrizmApplicationXtraForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
+            this.ClientSize = new System.Drawing.Size(1152, 623);
+            this.Controls.Add(this.flyoutPanel);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.DoubleBuffered = true;
+            this.IsMdiContainer = true;
+            this.Name = "PrizmApplicationXtraForm";
+            this.Text = "[PRISM v.2]";
+            this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainMDIdocumentManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
+            this.flyoutPanel.ResumeLayout(false);
+            this.flyoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).EndInit();
+            this.flyoutPanelControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.notifyHistory)).EndInit();
+            this.ResumeLayout(false);
 
         }
 
