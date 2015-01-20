@@ -30,6 +30,7 @@ using Prizm.Main.Documents;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -107,7 +108,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = true;
 
             // Select tab depending on is new pipe or existed
-            tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ? 
+            tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
         }
 
@@ -828,6 +829,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             IsModified = true;
+        }
+
+        private void pipeTabLayoutControlGroup_Shown(object sender, EventArgs e)
+        {
+            #region fields validation only afrer project tab is shown
+            ConditionValidationRule notBlankValidationRule = new ConditionValidationRule();
+            notBlankValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            notBlankValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            notBlankValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(pipeCreationDate, notBlankValidationRule);
+            dxValidationProvider.SetValidationRule(pipeNumber, notBlankValidationRule);
+            dxValidationProvider.SetValidationRule(plateNumber, notBlankValidationRule);
+            #endregion
         }
     }
 }
