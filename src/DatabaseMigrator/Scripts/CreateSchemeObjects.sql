@@ -7,8 +7,9 @@ CREATE TABLE [dbo].[Category](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[fixed] [bit] NULL,
-	[name] [nvarchar](20) NULL,
+	[name] [nvarchar](40) NULL,
 	[resultType] [nvarchar](20) NULL,
+	[type][nvarchar](20) NULL,
 
  CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
 (
@@ -236,12 +237,17 @@ CREATE TABLE [dbo].[Pipe](
 
 	[length] [int] NULL,
 	[number] [nvarchar](20) NULL,
-	[isActive] [bit] NULL,
+	[isActive] [bit] NULL,	
+	[millWeldSubStatus] [nvarchar](15) NULL,
+	[millExtCoatSubStatus] [nvarchar](15) NULL,
+	[millInterCoatSubStatus] [nvarchar](15) NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
 	[projectId] [uniqueidentifier] NULL,
 	[isAvailableToJoint] [bit] NULL,
-        [toExport] [bit] NOT NULL DEFAULT 0,
+    [toExport] [bit] NOT NULL DEFAULT 0,
+	[isCutOnSpool] [bit] NOT NULL DEFAULT 0,
+
 
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (

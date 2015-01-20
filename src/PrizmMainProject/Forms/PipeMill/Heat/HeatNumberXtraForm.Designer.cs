@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatNumberXtraForm));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.number = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -39,8 +39,8 @@
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonDividerEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonLeftEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
+            this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).BeginInit();
@@ -50,26 +50,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonLeftEmptySpace)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // mainLayoutControl
             // 
-            this.layoutControl1.Controls.Add(this.number);
-            this.layoutControl1.Controls.Add(this.saveButton);
-            this.layoutControl1.Controls.Add(this.cancelButton);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(201, 355, 250, 350);
-            this.layoutControl1.Root = this.rootLayoutControlGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(358, 105);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.mainLayoutControl.Controls.Add(this.number);
+            this.mainLayoutControl.Controls.Add(this.saveButton);
+            this.mainLayoutControl.Controls.Add(this.cancelButton);
+            this.mainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.mainLayoutControl.Name = "mainLayoutControl";
+            this.mainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(201, 355, 250, 350);
+            this.mainLayoutControl.Root = this.rootLayoutControlGroup;
+            this.mainLayoutControl.Size = new System.Drawing.Size(358, 105);
+            this.mainLayoutControl.TabIndex = 0;
+            this.mainLayoutControl.Text = "layoutControl1";
             // 
             // number
             // 
             this.number.Location = new System.Drawing.Point(19, 35);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(327, 20);
-            this.number.StyleController = this.layoutControl1;
+            this.number.StyleController = this.mainLayoutControl;
             this.number.TabIndex = 4;
             // 
             // saveButton
@@ -79,7 +79,7 @@
             this.saveButton.Location = new System.Drawing.Point(140, 66);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(96, 23);
-            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "&Сохранить";
             // 
@@ -90,7 +90,7 @@
             this.cancelButton.Location = new System.Drawing.Point(250, 66);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(96, 23);
-            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.StyleController = this.mainLayoutControl;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "О&тменить";
             // 
@@ -135,7 +135,6 @@
             this.okButtonLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.okButtonLayoutControl.Text = "okButtonLayoutControl";
             this.okButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.okButtonLayoutControl.TextToControlDistance = 0;
             this.okButtonLayoutControl.TextVisible = false;
             // 
             // cancelButtonLayoutControl
@@ -150,7 +149,6 @@
             this.cancelButtonLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.cancelButtonLayoutControl.Text = "cancelButtonLayoutControl";
             this.cancelButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.cancelButtonLayoutControl.TextToControlDistance = 0;
             this.cancelButtonLayoutControl.TextVisible = false;
             // 
             // buttonDividerEmptySpace
@@ -185,13 +183,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(358, 105);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.mainLayoutControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HeatNumberXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавление плавки";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
+            this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayoutControl)).EndInit();
@@ -205,7 +203,7 @@
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl mainLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup rootLayoutControlGroup;
         private DevExpress.XtraEditors.TextEdit number;
         private DevExpress.XtraEditors.SimpleButton saveButton;

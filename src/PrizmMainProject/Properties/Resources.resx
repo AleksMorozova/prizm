@@ -867,4 +867,7 @@
   <data name="Deactivated" xml:space="preserve">
     <value>Деактивирован</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>Общий отчет</value>
+  </data>
 </root>

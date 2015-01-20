@@ -19,7 +19,11 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.Diameter).Column("diameter");
             Map(_ => _.ProductionDate).Column("productionDate");
             Map(_ => _.Status).Column("pipeMillStatus");
+            Map(_ => _.WeldSubStatus).Column("millWeldSubStatus");
+            Map(_ => _.ExternalCoatSubStatus).Column("millExtCoatSubStatus");
+            Map(_ => _.InternalCoatSubStatus).Column("millInterCoatSubStatus");
             Map(_ => _.ToExport).Column("ToExport");
+            Map(_ => _.IsCutOnSpool).Column("isCutOnSpool");
             #endregion
 
             #region --- References ---

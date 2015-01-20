@@ -10,6 +10,7 @@ namespace Prizm.Domain.Entity.Mill
     {
         ByCategories,
         ByShipped,
-        ByProducing
+        ByProducing,
+        General
     }
 }

@@ -60,6 +60,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     try
                     {
+                        viewModel.UpdatePipeSubStatus();
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                         repo.BeginTransaction();
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
