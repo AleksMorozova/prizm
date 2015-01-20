@@ -434,6 +434,12 @@
     <Compile Include="Forms\Reports\Mill\AdditionToTheReport.Designer.cs">
       <DependentUpon>AdditionToTheReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.Designer.cs">
+      <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
@@ -753,6 +759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\AdditionToTheReport.resx">
       <DependentUpon>AdditionToTheReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\GeneralInformationXtraReport.resx">
+      <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
