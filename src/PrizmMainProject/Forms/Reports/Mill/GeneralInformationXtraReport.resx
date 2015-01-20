@@ -120,4 +120,29 @@
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select productionDate as productionDate, 
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'WithRepair' and p.productionDate = pip.productionDate)as 'WithRepairWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Repair' and p.productionDate = pip.productionDate) as 'RepairWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Scheduled' and p.productionDate = pip.productionDate) as 'ScheduledWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Failed' and p.productionDate = pip.productionDate) as 'FailedWeld',
+(select COUNT (number) from Pipe p where p.millWeldSubStatus = 'Passed' and p.productionDate = pip.productionDate) as 'PassedWeld',
+
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'WithRepair' and p.productionDate = pip.productionDate)as 'WithRepairExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Repair' and p.productionDate = pip.productionDate) as 'RepairExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Scheduled' and p.productionDate = pip.productionDate) as 'ScheduledExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Failed' and p.productionDate = pip.productionDate) as 'FailedExternalCoat',
+(select COUNT (number) from Pipe p where p.millExtCoatSubStatus = 'Passed' and p.productionDate = pip.productionDate) as 'PassedExternalCoat',
+
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'WithRepair' and p.productionDate = pip.productionDate)as 'WithRepairInternalCoat',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Repair' and p.productionDate = pip.productionDate) as 'RepairInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Scheduled' and p.productionDate = pip.productionDate) as 'ScheduledInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Failed' and p.productionDate = pip.productionDate) as 'FailedInternal',
+(select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Passed' and p.productionDate = pip.productionDate) as 'PassedInternal'
+ from Pipe pip group by productionDate
+</value>
+  </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0icHJvZHVjdGlvbkRhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJXaXRoUmVwYWlyV2VsZCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlJlcGFpcldlbGQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJTY2hlZHVsZWRXZWxkIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iRmFpbGVkV2VsZCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlBhc3NlZFdlbGQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJXaXRoUmVwYWlyRXh0ZXJuYWxDb2F0IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iUmVwYWlyRXh0ZXJuYWxDb2F0IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iU2NoZWR1bGVkRXh0ZXJuYWxDb2F0IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iRmFpbGVkRXh0ZXJuYWxDb2F0IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iUGFzc2VkRXh0ZXJuYWxDb2F0IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iV2l0aFJlcGFpckludGVybmFsQ29hdCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlJlcGFpckludGVybmFsIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iU2NoZWR1bGVkSW50ZXJuYWwiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJGYWlsZWRJbnRlcm5hbCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IlBhc3NlZEludGVybmFsIiBUeXBlPSJJbnQzMiIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  </data>
 </root>

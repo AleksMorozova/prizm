@@ -90,7 +90,6 @@ namespace Prizm.Main.Forms.Reports.Mill
                 {
                     testCategories.Enabled = false;
                     statuses.Enabled = false;
-                    //viewModel.ReportType.Value = MillReportType.MillReportsXtraForm;
                 }
         
 

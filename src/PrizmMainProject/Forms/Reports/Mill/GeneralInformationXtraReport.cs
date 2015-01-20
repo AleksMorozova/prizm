@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    public partial class XtraReport1 : DevExpress.XtraReports.UI.XtraReport
+    public partial class GeneralInformationXtraReport : DevExpress.XtraReports.UI.XtraReport
     {
-        public XtraReport1()
+        public GeneralInformationXtraReport()
         {
             InitializeComponent();
         }

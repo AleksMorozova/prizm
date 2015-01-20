@@ -153,7 +153,7 @@ namespace Prizm.Data.DAL.ADO
             return pipeDataSet;
         }
 
-        public DataSet CountWeldInf()
+        public DataSet CountWeldInf(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
             DataSet pipeDataSet = new DataSet();
@@ -168,8 +168,8 @@ namespace Prizm.Data.DAL.ADO
                         connection.Open();
                         adapter.TableMappings.Add("Table", "Pipe");
                         command.Connection = connection;
-                       // command.Parameters.AddWithValue("@startDate", startDate);
-                        //command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
                         command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.CountPipesWeldInformation).ToString();
                         adapter.SelectCommand = command;
                         adapter.Fill(pipeDataSet);
