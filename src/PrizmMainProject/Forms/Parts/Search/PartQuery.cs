@@ -48,11 +48,11 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             if (!string.IsNullOrWhiteSpace(number))
             {
-                if (Activity.Equals(Resources.PipeStatusComboActive))
+                if (Activity.Equals(Resources.StatusActive))
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
                 }
-                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                else if (Activity.Equals(Resources.StatusUnactive))
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters()); 
                 }
@@ -60,11 +60,11 @@ namespace Prizm.Main.Forms.Parts.Search
 
             else
             {
-                if (Activity.Equals(Resources.PipeStatusComboActive))
+                if (Activity.Equals(Resources.StatusActive))
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' ", true);
                 }
-                else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+                else if (Activity.Equals(Resources.StatusUnactive))
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' ", false);
                 }

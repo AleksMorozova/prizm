@@ -39,7 +39,10 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-
+            foreach (var s in viewModel.ActivityTypes)
+            {
+                activity.Properties.Items.Add(s);
+            }
             var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
             var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
             var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
@@ -48,8 +51,8 @@ namespace Prizm.Main.Forms.Parts.Search
             type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
             type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
             RefreshTypes();
-            activity.SelectedIndex = 1;
-            viewModel.Activity = activity.SelectedItem.ToString(); 
+            activity.SelectedIndex = 0;
+            viewModel.Activity = activity.SelectedItem.ToString();
         }
 
         private void BindToViewModel()
@@ -58,7 +61,6 @@ namespace Prizm.Main.Forms.Parts.Search
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
             number.DataBindings.Add("Editvalue", bindingSource, "Number");
             activity.DataBindings.Add("EditValue", bindingSource, "Activity");
-            activity.Properties.Items.AddRange(viewModel.ActivityArray);
         }
 
         private void BindCommands()

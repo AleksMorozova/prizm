@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Construction = Prizm.Domain.Entity.Construction;
 using Prizm.Main.Properties;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -20,16 +21,33 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private readonly JointSearchCommand searchCommand;
         private readonly IJointRepository repo;
-        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
+        private EnumWrapper<ActivityStatus> activityArray;
+        public IList<EnumWrapper<ActivityStatus>> ActivityTypes;
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
             this.repo = repo;
             searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
-            Activity = ActivityArray[0];
+            LoadStatuses();
         }
 
         #region BindingFields
+
+        public EnumWrapper<ActivityStatus> ActivityArray
+        {
+            get
+            {
+                return activityArray;
+            }
+            set
+            {
+                if (value != activityArray)
+                {
+                    activityArray = value;
+                    RaisePropertyChanged("ActivityArray");
+                }
+            }
+        }
 
         private string activity;
         public string Activity
@@ -153,6 +171,16 @@ namespace Prizm.Main.Forms.Joint.Search
         public void Dispose()
         {
             repo.Dispose();
+        }
+
+        private void LoadStatuses()
+        {
+            ActivityTypes = new List<EnumWrapper<ActivityStatus>>();
+
+            foreach (string activeType in Enum.GetNames(typeof(ActivityStatus)))
+            {
+                ActivityTypes.Add(new EnumWrapper<ActivityStatus>() { Name = activeType });
+            }
         }
     }
 }

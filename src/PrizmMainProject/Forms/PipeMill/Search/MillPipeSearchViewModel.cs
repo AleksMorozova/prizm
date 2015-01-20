@@ -31,16 +31,15 @@ using Prizm.Main.Properties;
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         public IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes;
+        public IList<EnumWrapper<ActivityStatus>> ActivityTypes;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
 
-        public string[] ActivityArray = { Resources.PipeStatusComboAll, Resources.PipeStatusComboActive, Resources.PipeStatusComboUnactive };
-
-
         private string pipeNumber = String.Empty; 
 
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
+        private EnumWrapper<ActivityStatus> activityArray;
 
         [Inject]
         public MillPipeSearchViewModel(
@@ -56,9 +55,7 @@ using Prizm.Main.Properties;
             pipeTypes = repoMill.RepoPipeType.GetAll();
             checkedPipeTypes = repoMill.RepoPipeType.GetAll();
 
-            LoadPipeMillStatuses();
-
-            Activity = ActivityArray[0];
+            LoadStatuses();
         }
 
         #region Properties
@@ -150,6 +147,22 @@ using Prizm.Main.Properties;
             }
         }
 
+        public EnumWrapper<ActivityStatus> ActivityArray
+        {
+            get
+            {
+                return activityArray;
+            }
+            set
+            {
+                if (value != activityArray)
+                {
+                    activityArray = value;
+                    RaisePropertyChanged("ActivityArray");
+                }
+            }
+        }
+
         public IList<EnumWrapper<PipeMillStatus>> StatusTypes
         {
             get { return statusTypes; }
@@ -174,10 +187,11 @@ using Prizm.Main.Properties;
             repoMill.Dispose();
         }
 
-        private void LoadPipeMillStatuses()
+        private void LoadStatuses()
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
             CheckedStatusTypes = new List<EnumWrapper<PipeMillStatus>>();
+            ActivityTypes = new List<EnumWrapper<ActivityStatus>>();
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
@@ -186,6 +200,11 @@ using Prizm.Main.Properties;
                     StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                     CheckedStatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
                 }
+            }
+
+            foreach (string activeType in Enum.GetNames(typeof(ActivityStatus))) 
+            {
+                ActivityTypes.Add(new EnumWrapper<ActivityStatus>() { Name = activeType });
             }
         }
 
