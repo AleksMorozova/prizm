@@ -81,11 +81,11 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 sb.Append(" )");
             }
 
-            if (Activity.Equals(Resources.PipeStatusComboActive))
+            if (Activity.Equals(Resources.StatusActive))
             {
                 sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", true));
             }
-            else if (Activity.Equals(Resources.PipeStatusComboUnactive))
+            else if (Activity.Equals(Resources.StatusUnactive))
             {
                 sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", false));
             }
