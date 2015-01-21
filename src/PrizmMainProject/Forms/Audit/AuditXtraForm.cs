@@ -41,6 +41,7 @@ namespace Prizm.Main.Forms.Audit
             endDate.DataBindings.Add("EditValue", viewModel, "EndDate");
             auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");
             user.DataBindings.Add("EditValue", viewModel, "SelectedUser");
+            number.DataBindings.Add("EditValue", viewModel, "Number");
         }
 
         private void BindCommands()

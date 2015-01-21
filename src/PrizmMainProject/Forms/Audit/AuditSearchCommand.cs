@@ -30,12 +30,12 @@ namespace Prizm.Main.Forms.Audit
 
             if (viewModel.TracingMode == TracingModeEnum.TracingByPeriod)
             {
-                var results = repo.GetRecordsByNumber("труба - 1", viewModel.StartDate, viewModel.EndDate);
+                var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate);
                 viewModel.AuditResults = new BindingList<AuditLog>(results);
             }
             else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
             {
-                var results = repo.GetRecords(viewModel.EntityID, viewModel.SelectedUser);
+                var results = repo.GetRecords(viewModel.Number, viewModel.SelectedUser);
                 viewModel.AuditResults = new BindingList<AuditLog>(results);
             }
 

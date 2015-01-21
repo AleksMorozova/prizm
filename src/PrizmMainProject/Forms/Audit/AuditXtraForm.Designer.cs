@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuditXtraForm));
             this.searchGroupLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.number = new DevExpress.XtraEditors.TextEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.search = new DevExpress.XtraEditors.SimpleButton();
             this.user = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -43,7 +43,7 @@
             this.oldValueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.newValueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fieldGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.number = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.numberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
             this.startDate = new DevExpress.XtraEditors.DateEdit();
             this.generalAuditLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -60,7 +60,7 @@
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
             this.searchGroupLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResults)).BeginInit();
@@ -85,7 +85,7 @@
             // 
             // searchGroupLayout
             // 
-            this.searchGroupLayout.Controls.Add(this.textEdit1);
+            this.searchGroupLayout.Controls.Add(this.number);
             this.searchGroupLayout.Controls.Add(this.radioGroup1);
             this.searchGroupLayout.Controls.Add(this.search);
             this.searchGroupLayout.Controls.Add(this.user);
@@ -103,13 +103,13 @@
             this.searchGroupLayout.TabIndex = 0;
             this.searchGroupLayout.Text = "layoutControl1";
             // 
-            // textEdit1
+            // number
             // 
-            this.textEdit1.Location = new System.Drawing.Point(24, 59);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(117, 20);
-            this.textEdit1.StyleController = this.searchGroupLayout;
-            this.textEdit1.TabIndex = 11;
+            this.number.Location = new System.Drawing.Point(24, 59);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(117, 20);
+            this.number.StyleController = this.searchGroupLayout;
+            this.number.TabIndex = 11;
             // 
             // radioGroup1
             // 
@@ -176,7 +176,7 @@
             this.oldValueGridColumn,
             this.newValueGridColumn,
             this.fieldGridColumn,
-            this.number});
+            this.numberColumn});
             this.auditResultsView.GridControl = this.auditResults;
             this.auditResultsView.GroupCount = 2;
             this.auditResultsView.Name = "auditResultsView";
@@ -244,13 +244,13 @@
             this.fieldGridColumn.VisibleIndex = 1;
             this.fieldGridColumn.Width = 137;
             // 
-            // number
+            // numberColumn
             // 
-            this.number.Caption = "Номер элемента";
-            this.number.FieldName = "EntityID";
-            this.number.Name = "number";
-            this.number.Visible = true;
-            this.number.VisibleIndex = 4;
+            this.numberColumn.Caption = "Номер элемента";
+            this.numberColumn.FieldName = "Number";
+            this.numberColumn.Name = "numberColumn";
+            this.numberColumn.Visible = true;
+            this.numberColumn.VisibleIndex = 4;
             // 
             // endDate
             // 
@@ -415,7 +415,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit1;
+            this.layoutControlItem2.Control = this.number;
             this.layoutControlItem2.CustomizationFormText = "Номер элемента";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -450,7 +450,7 @@
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();
             this.searchGroupLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResults)).EndInit();
@@ -501,10 +501,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn newValueGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn entityGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn fieldGridColumn;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.Columns.GridColumn number;
+        private DevExpress.XtraGrid.Columns.GridColumn numberColumn;
+        private DevExpress.XtraEditors.TextEdit number;
     }
 }
