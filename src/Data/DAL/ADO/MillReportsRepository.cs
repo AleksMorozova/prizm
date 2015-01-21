@@ -419,5 +419,18 @@ namespace Prizm.Data.DAL.ADO
 
         }
 
+
+        public DataTable GetPipelineElements(DateTime? weldDateFrom, DateTime? weldDateTo)
+        {
+            ISQLFlexible tempSQLObject;
+
+            tempSQLObject = SQLProvider.GetQuery(
+                SQLProvider.SQLStatic.GetJointsByDate)
+                .WhereAnd().Where("wr.MinDate", "<=", string.Concat("N'", weldDateTo.Value.ToString(), "'"))
+                .WhereAnd().Where("wr.MinDate", ">=", string.Concat("N'", weldDateFrom.Value.ToString(), "'"));
+
+            return GetPipelineElements(tempSQLObject.ToString());
+
+        }
     }
 }
