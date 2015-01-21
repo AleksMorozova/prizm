@@ -110,6 +110,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                         if (results != null)
                         {
                             InspectionTestResults = new BindingList<InspectionTestResult>(results);
+                            convertedPart.InspectionTestResults = InspectionTestResults;
                         }
                     }
                     RaisePropertyChanged("SelectedElement");

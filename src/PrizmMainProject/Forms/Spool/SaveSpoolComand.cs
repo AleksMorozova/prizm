@@ -39,6 +39,7 @@ namespace Prizm.Main.Forms.Spool
                 {
                     viewModel.Pipe.ToExport = true;
                     viewModel.Pipe.IsCutOnSpool = true;
+                    viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                     repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
