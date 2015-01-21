@@ -24,6 +24,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly ICategoryRepository categoryRepo;
         private readonly IJointOperationRepository jointOperationRepo;
 
+        private readonly IPipeTestRepository pipeTestsRepo;
+        private readonly IMillPipeSizeTypeRepository sizeTypeRepo;
+
         public FirstSetupRepo()
         {
             this.session = HibernateUtil.OpenSession(false);
@@ -35,6 +38,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.roleRepo = new RoleRepository(session);
             this.categoryRepo = new CategoryRepository(session);
             this.jointOperationRepo = new JointOperationRepository(session);
+            this.pipeTestsRepo = new PipeTestRepository(session);
+            this.sizeTypeRepo = new MillPipeSizeTypeRepository(session);
+        }
+
+        public IPipeTestRepository TestRepo
+        {
+            get { return pipeTestsRepo; }
         }
 
         public IUserRepository UserRepo
@@ -92,5 +102,15 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             get { return jointOperationRepo; }
         }
+
+        #region IFirstSetupRepo Members
+
+
+        public IMillPipeSizeTypeRepository SizeTypeRepo
+        {
+            get { return sizeTypeRepo; }
+        }
+
+        #endregion
     }
 }

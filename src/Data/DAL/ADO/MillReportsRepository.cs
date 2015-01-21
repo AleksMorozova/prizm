@@ -395,5 +395,42 @@ namespace Prizm.Data.DAL.ADO
 
             return countPipe;
         }
+
+        public DataTable GetPipelineElements(string pipeNumber, string[] pipeTypes)
+        {
+            ISQLFlexible tempSQLObject;
+
+
+            string types = string.Concat(" N'", Guid.NewGuid(), "'");
+
+            foreach (var cpt in pipeTypes)
+            {
+                types = string.Concat(types, ", N'", cpt, "'");
+            }
+
+            types = string.Concat("(", types, ")");
+
+            tempSQLObject = SQLProvider.GetQuery(
+                SQLProvider.SQLStatic.GetPipeByParametersPieces)
+                .WhereAnd().Where("p.number", "LIKE", string.Concat(" N'%", pipeNumber, "%'"))
+                .WhereAnd().Where("PmSt.type", "IN", types);
+
+            return GetPipelineElements(tempSQLObject.ToString());
+
+        }
+
+
+        public DataTable GetPipelineElements(DateTime? weldDateFrom, DateTime? weldDateTo)
+        {
+            ISQLFlexible tempSQLObject;
+
+            tempSQLObject = SQLProvider.GetQuery(
+                SQLProvider.SQLStatic.GetJointsByDate)
+                .WhereAnd().Where("wr.MinDate", "<=", string.Concat("N'", weldDateTo.Value.ToString(), "'"))
+                .WhereAnd().Where("wr.MinDate", ">=", string.Concat("N'", weldDateFrom.Value.ToString(), "'"));
+
+            return GetPipelineElements(tempSQLObject.ToString());
+
+        }
     }
 }
