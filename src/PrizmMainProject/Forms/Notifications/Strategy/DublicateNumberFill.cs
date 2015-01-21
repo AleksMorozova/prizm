@@ -10,10 +10,6 @@ namespace Prizm.Main.Forms.Notifications.Strategy
     class DublicateNumberFill : StrategyNotificationFill
     {
 
-        internal override void SetFormTypeEditor(Notification notification)
-        {
-            notification.Editor = typeof(MillPipeNewEditXtraForm);
-        }
 
         internal override void SetNotificationStatus(Notification notification)
         {
