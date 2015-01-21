@@ -334,7 +334,7 @@
   <data name="PipelineLengthReport" xml:space="preserve">
     <value>Протяженность трубопровода</value>
   </data>
-  <data name="PipeStatusComboUnactive" xml:space="preserve">
+  <data name="StatusUnactive" xml:space="preserve">
     <value>Деактивированные</value>
   </data>
   <data name="DLG_CHANGE_PIPESIZE_ON_NEWPIPE" xml:space="preserve">
@@ -448,7 +448,7 @@
   <data name="PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
   </data>
-  <data name="PipeStatusComboAll" xml:space="preserve">
+  <data name="StatusAll" xml:space="preserve">
     <value>Все</value>
   </data>
   <data name="ByShipped" xml:space="preserve">
@@ -529,7 +529,7 @@
   <data name="DLG_JOINT_SAVED_HEADER" xml:space="preserve">
     <value>Сохранение стыка</value>
   </data>
-  <data name="PipeStatusComboActive" xml:space="preserve">
+  <data name="StatusActive" xml:space="preserve">
     <value>Активные</value>
   </data>
   <data name="Constraction_UsedProductReport_label" xml:space="preserve">

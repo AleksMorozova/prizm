@@ -56,11 +56,11 @@ namespace Prizm.Main.Forms.Joint.Search
                 }
                 criteria.Add(Restrictions.In("Status", viewModel.Statuses));
 
-                if (viewModel.Activity.Equals(Resources.PipeStatusComboActive))
+                if (viewModel.Activity.Equals(Resources.StatusActive))
                 {
                     criteria.Add(Restrictions.Eq("IsActive", true));
                 }
-                else if (viewModel.Activity.Equals(Resources.PipeStatusComboUnactive))
+                else if (viewModel.Activity.Equals(Resources.StatusUnactive))
                 {
                     criteria.Add(Restrictions.Eq("IsActive", false));
                 }

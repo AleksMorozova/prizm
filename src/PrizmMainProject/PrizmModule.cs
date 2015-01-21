@@ -40,6 +40,7 @@ using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Synch.Import;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
 using Prizm.Main.Languages;
 
 namespace Prizm.Main
@@ -116,6 +117,7 @@ namespace Prizm.Main
             Bind<FirstSetupViewModel>().ToSelf();
             Bind<SpoolViewModel>().ToSelf();
             Bind<ExternalFilesViewModel>().ToSelf();
+            Bind<PipeConstractionReportViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -139,6 +141,7 @@ namespace Prizm.Main
             Bind<ExternalFilesXtraForm>().ToSelf();
             Bind<ExportForm>().ToSelf();
             Bind<ImportForm>().ToSelf();
+            Bind<PipeConstractionReportXtraForm>().ToSelf();
             #endregion
 
             #region Commands

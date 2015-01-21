@@ -1011,8 +1011,11 @@ namespace Prizm.Main.Properties {
         /// </summary>
         internal static string General {
             get {
-                return ResourceManager.GetString("General", resourceCulture);}
-}
+                return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {
@@ -1530,6 +1533,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Протяженность трубопровода.
+        /// </summary>
+        internal static string PipelineLengthReport {
+            get {
+                return ResourceManager.GetString("PipelineLengthReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Типоразмер трубы.
         /// </summary>
         internal static string PipeMillSizeType {
@@ -1544,33 +1556,6 @@ namespace Prizm.Main.Properties {
         internal static string PipeSizeChangeHeader {
             get {
                 return ResourceManager.GetString("PipeSizeChangeHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Активные.
-        /// </summary>
-        internal static string PipeStatusComboActive {
-            get {
-                return ResourceManager.GetString("PipeStatusComboActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Все.
-        /// </summary>
-        internal static string PipeStatusComboAll {
-            get {
-                return ResourceManager.GetString("PipeStatusComboAll", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивированные.
-        /// </summary>
-        internal static string PipeStatusComboUnactive {
-            get {
-                return ResourceManager.GetString("PipeStatusComboUnactive", resourceCulture);
             }
         }
         
@@ -2049,6 +2034,33 @@ namespace Prizm.Main.Properties {
         internal static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Активные.
+        /// </summary>
+        internal static string StatusActive {
+            get {
+                return ResourceManager.GetString("StatusActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Все.
+        /// </summary>
+        internal static string StatusAll {
+            get {
+                return ResourceManager.GetString("StatusAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивированные.
+        /// </summary>
+        internal static string StatusUnactive {
+            get {
+                return ResourceManager.GetString("StatusUnactive", resourceCulture);
             }
         }
         
