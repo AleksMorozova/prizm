@@ -44,7 +44,9 @@ namespace Prizm.Main.Forms.Railcar.Search
                     viewModel.RailcarNumber, 
                     viewModel.Certificate, 
                     viewModel.Receiver,
-                    viewModel.ShippingDate))
+                    viewModel.ShippingDate, 
+                    viewModel.ReleaseNoteNumber,
+                    viewModel.ReleaseNoteDate))
                     .SetResultTransformer(RailcarQuery.Transformer);
 
                 var qparts = query.List<Railcar>();
