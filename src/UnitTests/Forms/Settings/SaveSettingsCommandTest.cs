@@ -18,6 +18,7 @@ using Prizm.Domain.Entity.Security;
 using Prizm.Main.Documents;
 using Prizm.Data.DAL.Construction;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Security;
 
 
 namespace Prizm.UnitTests.Forms.Settings
@@ -43,6 +44,7 @@ namespace Prizm.UnitTests.Forms.Settings
             var repoJointOperation = new Mock<IJointOperationRepository>();
             var repoCertificateType = new Mock<ICertificateTypeRepository>();
             var repoComponentType = new Mock<IComponentTypeRepository>();
+            var repoSeamType = new Mock<ISeamTypeRepository>();
 
             var testProjectSetting = new Project() { IsNative = true};
             var testSizeType = new PipeMillSizeType();
@@ -54,6 +56,7 @@ namespace Prizm.UnitTests.Forms.Settings
             var testPerm = new Permission();
             var modifiableView = new Mock<IModifiable>();
             var jointOperations = new JointOperation();
+            var ctx = new Mock<ISecurityContext>();
 
             repoPipeSize.Setup(_ => _.GetAll()).Returns(new List<PipeMillSizeType>() { testSizeType });
             repoWelders.Setup(_ => _.GetAll()).Returns(new List<Welder>() { testWelder });
@@ -67,6 +70,7 @@ namespace Prizm.UnitTests.Forms.Settings
             repoCategory.Setup(x => x.GetAll()).Returns(new List<Category>() { new Category() });
             repoCertificateType.Setup(x => x.GetAll()).Returns(new List<InspectorCertificateType>() { new InspectorCertificateType() });
             repoComponentType.Setup(x => x.GetAll()).Returns(new List<ComponentType>() { new ComponentType() });
+
 
             Mock<ISettingsRepositories> settingsRepos = new Mock<ISettingsRepositories>();
             settingsRepos.SetupGet(_ => _.PipeSizeTypeRepo).Returns(repoPipeSize.Object);
@@ -82,8 +86,9 @@ namespace Prizm.UnitTests.Forms.Settings
             settingsRepos.SetupGet(x => x.СategoryRepo).Returns(repoCategory.Object);
             settingsRepos.SetupGet(x => x.CertificateTypeRepo).Returns(repoCertificateType.Object);
             settingsRepos.SetupGet(x => x.ComponentTypeRepo).Returns(repoComponentType.Object);
+            settingsRepos.SetupGet(x => x.SeamTypeRepo).Returns(repoSeamType.Object);
 
-            var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object);
+            var viewModel = new SettingsViewModel(settingsRepos.Object, notify.Object, ctx.Object);
             viewModel.ModifiableView = modifiableView.Object;
             viewModel.LoadData();
             viewModel.ModifiableView = modifiableView.Object;
@@ -91,7 +96,7 @@ namespace Prizm.UnitTests.Forms.Settings
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.validatableView = validatable.Object;
 
-            var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object);
+            var command = new SaveSettingsCommand(viewModel, settingsRepos.Object, notify.Object, ctx.Object);
 
             command.Execute();
 

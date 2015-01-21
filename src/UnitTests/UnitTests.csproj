@@ -69,7 +69,6 @@
     <Compile Include="Forms\ExternalFile\AddExternalFileTest.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointNewEditCommandTest.cs" />
     <Compile Include="Forms\Parts\SaveInspectionTestResultsCommandTest.cs" />
-    <Compile Include="Forms\PrizmMainForm.cs" />
     <Compile Include="Forms\PipeMill\NewEdit\MillPipeNewEditCommandTest.cs" />
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchCommandTest.cs" />
     <Compile Include="Forms\Railcar\Edit\SaveRailcarCommandTest.cs" />
