@@ -286,6 +286,7 @@
     <Compile Include="Forms\MainChildForm\AppWaitForm.Designer.cs">
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
     <Compile Include="Forms\Notifications\Request\AbstractNotificationFactory.cs" />
