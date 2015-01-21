@@ -14,17 +14,14 @@ namespace Prizm.Main.Forms.Notifications
 {
     public class Notification
     {
-        // Fields
 
         // Methods
-        public Notification(TypeNotification typeNotification)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, DateTime dateToOccur)
         {
+            Id = ownerId;
+            OwnerName = ownerName;
             TypeNotification = typeNotification;
-        }
-
-        public override string ToString()
-        {
-            return Date.ToString("MM.dd.yyyy") + "  " + this.Message;
+            DateToOccur = dateToOccur;
         }
 
         private string GetResourceMessage(TypeNotification type, NotificationStatus status)
@@ -56,9 +53,10 @@ namespace Prizm.Main.Forms.Notifications
         }
 
         // Properties
-        public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public Guid Id { get; private set; }
+
+        public string OwnerName { get; private set; }
 
         public NotificationStatus Status { get; set; }
 
@@ -83,7 +81,21 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
-        public DateTime Date { get; set; }
+        public DateTime DateToOccur { get; set; }
+
+        public int DayToOccur
+        {
+            get
+            {
+                int retVal = 0;
+
+                if (DateToOccur != null)
+                {
+                    retVal = (int)(DateToOccur - DateTime.Now).TotalDays;
+                }
+                return retVal;
+            }
+        }
     }
 
     public enum NotificationStatus
@@ -95,6 +107,8 @@ namespace Prizm.Main.Forms.Notifications
     public enum TypeNotification
     {
         DublicatePipeNumber,
-        ExpiredCertificate
+        ExpiredCertificate,
+        WelderCrtificateExpired
     }
+
 }

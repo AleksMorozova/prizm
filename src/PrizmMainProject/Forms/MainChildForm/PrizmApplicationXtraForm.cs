@@ -35,8 +35,10 @@ using Prizm.Main.Security;
 using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
 using System.Globalization;
 using System.Resources;
+using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -54,8 +56,8 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             InitializeComponent();
 
-            NotificationManager.Instance.NotificationReload += OnNotificationRefresh;
-            NotificationManager.Instance.RequestAllNotification();
+            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
+            NotificationService.Instance.RequestAllNotification();
         }
 
         /// <summary>
@@ -298,12 +300,12 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //TODO: the form of "Отчет по трубам на стройке" will be created here
+            OpenChildForm(typeof(PipeConstractionReportXtraForm));
         }
 
         private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //TODO: the form of "Отчет по сварке (по дате)" will be created here
+            OpenChildForm(typeof(WeldDateReportXtraForm));
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
@@ -585,7 +587,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="e"></param>
         private void OnNotificationRefresh(object sender, EventArgs e)
         {
-            int NotificationCount = NotificationManager.Instance.NotificationCount;
+            int NotificationCount = NotificationService.Instance.NotificationCount;
             barButtonStatusNotifications.Caption = string.Format("{0} ({1})", Resources.SystemNotification, NotificationCount);
         }
 

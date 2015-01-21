@@ -47,6 +47,7 @@
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
     <Compile Include="Entity\Construction\PartData.cs" />
     <Compile Include="Entity\Construction\PartType.cs" />
+    <Compile Include="Entity\Mill\ActivityCriteria.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />

@@ -20,6 +20,7 @@ using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -48,17 +49,19 @@ namespace Prizm.Main.Forms.Settings
         readonly IUserNotify notify;
         private BindingList<PlateManufacturer> plateManufacturers;
         private IModifiable modifiable;
+        private readonly ISecurityContext ctx;
 
 
         [Inject]
-        public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify)
+        public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify, ISecurityContext ctx)
         {
             NewPipeMillSizeType();  
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
 
             saveCommand = ViewModelSource
-                .Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify));
+                .Create<SaveSettingsCommand>(() => new SaveSettingsCommand(this, repos, notify, ctx));
 
             extractCategoriesCommand = ViewModelSource
                 .Create<ExtractCategoriesCommand>(() => new ExtractCategoriesCommand(this, repos, notify));

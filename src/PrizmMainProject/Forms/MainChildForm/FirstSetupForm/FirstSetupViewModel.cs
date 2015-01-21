@@ -26,10 +26,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] inspectorCertificateTypesName
             = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
 
-        private IList<SeamType> seamTypes;
-        private string[] seamTypesName
-           = new[] { "Прямой", "Спиральный", "Без шва" };
-
         private IList<Category> fixedCategoryes;
         private string[] fixedCategoryesName
            = new[] { "Измерение длины"};
@@ -81,41 +77,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     }
                 }
                 return inspectorCertificateTypes;
-            }
-        }
-
-        public IList<SeamType> SeamTypes
-        {
-            get
-            {
-                if (seamTypes == null)
-                {
-                    seamTypes = new List<SeamType>();
-                    foreach (string str in seamTypesName)
-                    {
-                        seamTypes.Add(new SeamType() { Name = str, IsActive = true });
-                    }
-                }
-                return seamTypes;
-            }
-        }
-
-        public IList<Category> FixedCategoryes
-        {
-            get
-            {
-                if (fixedCategoryes == null)
-                {
-                    fixedCategoryes = new List<Category>();
-                    //foreach (string str in fixedCategoryesName)
-                    //{
-                        fixedCategoryes.Add(new Category() { Name = "Измерение длины", IsActive = true , Fixed=true, ResultType="int", Type=FixedCategory.Length});
-                        fixedCategoryes.Add(new Category() { Name = "Контроль сварки", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.Weld });
-                        fixedCategoryes.Add(new Category() { Name = "Контроль внешнего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.ExternalCoat });
-                        fixedCategoryes.Add(new Category() { Name = "Контроль внутреннего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.InternalCoat }); 
-                    //}
-                }
-                return fixedCategoryes;
             }
         }
 

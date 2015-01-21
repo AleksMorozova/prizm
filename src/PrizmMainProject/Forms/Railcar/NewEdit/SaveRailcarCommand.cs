@@ -20,16 +20,17 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
+        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repo;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -82,7 +83,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
+            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) 
+                && !viewModel.IsShipped
+                && !string.IsNullOrWhiteSpace(viewModel.ReleaseNoteNumber)
+                && viewModel.ReleaseNoteDate != DateTime.MinValue;
+
             bool conditionAndPermission;
             if(viewModel.IsNew)
             {

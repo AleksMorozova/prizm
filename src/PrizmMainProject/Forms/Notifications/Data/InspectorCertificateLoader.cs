@@ -1,18 +1,25 @@
 ﻿using System;
+using DevExpress.Xpo;
+using NHibernate.Transform;
+using Prizm.Data.DAL.Notifications;
+using Ninject;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prizm.Main.Forms.PipeMill.NewEdit;
-using Prizm.Main.Forms.Settings;
 using Prizm.Main.Properties;
+using System.Text;
 
-namespace Prizm.Main.Forms.Notifications.Request
+namespace Prizm.Main.Forms.Notifications.Data
 {
-    class CertificateNotificationFactory : AbstractNotificationFactory
-    {
 
-        internal override string BuildSql()
+    public class InspectorCertificateLoader : DataNotificationLoader
+    {
+        // Methods 
+        public InspectorCertificateLoader(NotificationManager manager)
+            : base(manager)
+        {
+
+        }
+
+        public override string BuildSql()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(
@@ -32,39 +39,23 @@ namespace Prizm.Main.Forms.Notifications.Request
             return sb.ToString();
         }
 
+        public override Guid GetId(object[] tuple)
+        {
+            return (Guid)tuple[0];
+        }
 
-        internal override string GetRepresentation(object[] tuple)
+        public override string GetOwnerName(object[] tuple)
         {
             return tuple[1].ToString() + " " + tuple[2].ToString() + " " + tuple[3].ToString() + " " +
             Resources.ResourceManager.GetString("Certificate") + " №" + tuple[4].ToString();
         }
 
-        internal override void SetFormTypeEditor(Notification notification)
+        public override DateTime GetDateToOccur(object[] tuple)
         {
-            notification.Editor = typeof(SettingsXtraForm);
+            return (DateTime)tuple[5];
         }
 
-        internal override void SetNotificationStatus(Notification notification, object[] tuple)
-        {
-            int dayToExpired = (int)tuple[6];
 
-            if (dayToExpired <= 0)
-            {
-                notification.Status = NotificationStatus.Critical;
-            }
-            else
-            {
-                notification.Status = NotificationStatus.Warning;
-            }
-
-        }
-
-        internal override TypeNotification NotificationType
-        {
-            get
-            {
-                return TypeNotification.ExpiredCertificate;
-            }
-        }
     }
+
 }
