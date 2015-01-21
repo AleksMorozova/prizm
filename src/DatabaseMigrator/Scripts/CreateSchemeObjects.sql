@@ -45,7 +45,7 @@ CREATE TABLE [dbo].[SeamType](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
-	[name] [nvarchar](30) NULL,
+	[name] [nvarchar](20) NULL,
 
  CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (

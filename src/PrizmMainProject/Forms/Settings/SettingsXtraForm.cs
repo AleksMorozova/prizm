@@ -404,28 +404,43 @@ namespace Prizm.Main.Forms.Settings
         {
             client.Properties.MaxLength = LengthLimit.MaxProjectClient;
             millName.Properties.MaxLength = LengthLimit.MaxProjectMillName;
+            projectTitle.Properties.MaxLength = LengthLimit.MaxProjectTitle;
             pipeNumberMask.Properties.MaxLength = LengthLimit.MaxPipeNumber;
             manufacturerRepositoryTextEdit.MaxLength = LengthLimit.MaxPlateManufacturerName;
-            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipetestResultType;
+          
             codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
             controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
-            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+
             welderFNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderFirstName;
             welderLNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderLastName;
             welderMNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderMiddleName;
             welderCertificateTextEdit.MaxLength = LengthLimit.MaxWelderCertificate;
             stampRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderStamp;
+
             inspectorFNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorFirstName;
             inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
             inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
-            inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            //inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+
             typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeMillSizeType;
-            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
-            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
-            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
             controlTypeItems.MaxLength = LengthLimit.MaxPipeTestControlType;
             resultTypeItems.MaxLength = LengthLimit.MaxPipetestResultType;
+
             categoryRepositoryTextEdit.MaxLength = LengthLimit.MaxCategoryName;
+
+            seamTypeRepositoryTextEdit.MaxLength = LengthLimit.MaxSeamTypeName;
+            pipelineOperationNameRepositoryItem.MaxLength = LengthLimit.MaxPipelineOperationLength;
+            componentTypeNameRepositoryItemTextEdit.MaxLength = LengthLimit.MaxComponentTypeName;
+            certificateTypeRepositoryItemTextEdit.MaxLength = LengthLimit.CertificateType;
+            inspectorSertificateNumberRepositoryItemTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            userLoginRepositoryItemTextEdit.MaxLength= LengthLimit.UserLogin;
+            lastNameRepositoryItemTextEdit.MaxLength=LengthLimit.UserLastName;
+            userFirstNameRepositoryItemTextEdit.MaxLength = LengthLimit.UserFirstName;
+            userMiddleNameRepositoryItemTextEdit.MaxLength = LengthLimit.UserMiddleName;
+
+            roleNameRepositoryItemTextEdit1.MaxLength = LengthLimit.RoleName;
+            roleDescriptionRepositoryItemTextEdit1.MaxLength = LengthLimit.RoleDescription;
+
 
         }
 
