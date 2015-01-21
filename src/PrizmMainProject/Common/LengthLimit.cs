@@ -45,6 +45,7 @@ namespace Prizm.Main.Common
         public const int MaxProjectMillName = 100;
         
         public const int MaxRailcarNumber = 20;
+        public const int MaxReleaseNoteNumber = 20;
         public const int MaxRailcarCertificate = 20;
         public const int MaxRailcarDestination = 50;
         

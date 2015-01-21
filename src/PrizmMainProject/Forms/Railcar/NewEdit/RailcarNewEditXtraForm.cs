@@ -155,6 +155,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
+            releaseNoteNumber.Properties.MaxLength = LengthLimit.MaxReleaseNoteNumber;
         }
 
         private void ButtonRefresh()

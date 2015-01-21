@@ -48,12 +48,12 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             bindingSource.DataSource = viewModel;
 
-            railcarNumber.DataBindings.Add("Editvalue", bindingSource, "RailcarNumber");
+            railcarNumber.DataBindings.Add("EditValue", bindingSource, "RailcarNumber");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
             shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             railcarList.DataBindings.Add("DataSource", bindingSource, "Railcars");
-            releaseNoteNumber.DataBindings.Add("Editvalue", bindingSource, "ReleaseNoteNumber");
+            releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
         }
 
