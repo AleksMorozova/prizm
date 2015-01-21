@@ -21,5 +21,6 @@ namespace Prizm.Data.DAL
         BindingList<double> CountPipe(DateTime startDate, DateTime finalDate);
         DataSet CountWeldInf(DateTime startDate, DateTime finalDate);
         BindingList<int> GetAllKP();
+        DataTable GetPipelineElements(DateTime? weldDateFrom, DateTime? weldDateTo);
     }
 }

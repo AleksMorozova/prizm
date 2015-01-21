@@ -29,86 +29,89 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeldDateReportXtraForm));
+            this.weldReportLayout = new DevExpress.XtraLayout.LayoutControl();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
             this.weldDateTo = new DevExpress.XtraEditors.DateEdit();
             this.weldDateFrom = new DevExpress.XtraEditors.DateEdit();
-            this.pipeReportViewer = new DevExpress.XtraPrinting.Preview.DocumentViewer();
+            this.jointReportViewer = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldReportParameterGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.weldDateToLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.weldDateFromLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.createReportButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.jointReportViewerGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.jointReportViewerLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weldReportLayout)).BeginInit();
+            this.weldReportLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldReportParameterGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldDateToLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldDateFromLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createReportButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointReportViewerGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointReportViewerLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // weldReportLayout
             // 
-            this.layoutControl1.Controls.Add(this.createReportButton);
-            this.layoutControl1.Controls.Add(this.previewButton);
-            this.layoutControl1.Controls.Add(this.weldDateTo);
-            this.layoutControl1.Controls.Add(this.weldDateFrom);
-            this.layoutControl1.Controls.Add(this.pipeReportViewer);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.layoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.layoutControl1.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(924, 411);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.weldReportLayout.Controls.Add(this.createReportButton);
+            this.weldReportLayout.Controls.Add(this.previewButton);
+            this.weldReportLayout.Controls.Add(this.weldDateTo);
+            this.weldReportLayout.Controls.Add(this.weldDateFrom);
+            this.weldReportLayout.Controls.Add(this.jointReportViewer);
+            this.weldReportLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weldReportLayout.Location = new System.Drawing.Point(0, 0);
+            this.weldReportLayout.Name = "weldReportLayout";
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.Options.UseFont = true;
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.Options.UseTextOptions = true;
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.weldReportLayout.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.weldReportLayout.OptionsPrint.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.weldReportLayout.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.weldReportLayout.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.weldReportLayout.Root = this.Root;
+            this.weldReportLayout.Size = new System.Drawing.Size(924, 411);
+            this.weldReportLayout.TabIndex = 0;
+            this.weldReportLayout.Text = "layoutControl1";
             // 
             // createReportButton
             // 
-            this.createReportButton.Location = new System.Drawing.Point(799, 57);
+            this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
+            this.createReportButton.Location = new System.Drawing.Point(775, 57);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(89, 22);
-            this.createReportButton.StyleController = this.layoutControl1;
+            this.createReportButton.Size = new System.Drawing.Size(113, 22);
+            this.createReportButton.StyleController = this.weldReportLayout;
             this.createReportButton.TabIndex = 8;
-            this.createReportButton.Text = "simpleButton2";
+            this.createReportButton.Text = "Соз&дать отчет";
             // 
             // previewButton
             // 
-            this.previewButton.Location = new System.Drawing.Point(689, 57);
+            this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
+            this.previewButton.Location = new System.Drawing.Point(644, 57);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(89, 22);
-            this.previewButton.StyleController = this.layoutControl1;
+            this.previewButton.Size = new System.Drawing.Size(110, 22);
+            this.previewButton.StyleController = this.weldReportLayout;
             this.previewButton.TabIndex = 7;
-            this.previewButton.Text = "simpleButton1";
+            this.previewButton.Text = "&Предпросмотр";
             // 
             // weldDateTo
             // 
@@ -120,7 +123,7 @@
             this.weldDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.weldDateTo.Size = new System.Drawing.Size(122, 20);
-            this.weldDateTo.StyleController = this.layoutControl1;
+            this.weldDateTo.StyleController = this.weldReportLayout;
             this.weldDateTo.TabIndex = 6;
             // 
             // weldDateFrom
@@ -133,16 +136,16 @@
             this.weldDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.weldDateFrom.Size = new System.Drawing.Size(129, 20);
-            this.weldDateFrom.StyleController = this.layoutControl1;
+            this.weldDateFrom.StyleController = this.weldReportLayout;
             this.weldDateFrom.TabIndex = 5;
             // 
-            // pipeReportViewer
+            // jointReportViewer
             // 
-            this.pipeReportViewer.IsMetric = false;
-            this.pipeReportViewer.Location = new System.Drawing.Point(24, 147);
-            this.pipeReportViewer.Name = "pipeReportViewer";
-            this.pipeReportViewer.Size = new System.Drawing.Size(876, 240);
-            this.pipeReportViewer.TabIndex = 4;
+            this.jointReportViewer.IsMetric = false;
+            this.jointReportViewer.Location = new System.Drawing.Point(24, 131);
+            this.jointReportViewer.Name = "jointReportViewer";
+            this.jointReportViewer.Size = new System.Drawing.Size(876, 256);
+            this.jointReportViewer.TabIndex = 4;
             // 
             // Root
             // 
@@ -150,83 +153,89 @@
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup1,
-            this.layoutControlGroup2});
+            this.weldReportParameterGroup,
+            this.jointReportViewerGroup});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(924, 411);
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
             // 
-            // layoutControlGroup1
+            // weldReportParameterGroup
             // 
-            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem2,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
+            this.weldReportParameterGroup.CustomizationFormText = "layoutControlGroup1";
+            this.weldReportParameterGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.weldDateToLayout,
+            this.weldDateFromLayout,
+            this.previewButtonLayout,
+            this.createReportButtonLayout,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
             this.emptySpaceItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(904, 88);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.weldReportParameterGroup.Location = new System.Drawing.Point(0, 0);
+            this.weldReportParameterGroup.Name = "weldReportParameterGroup";
+            this.weldReportParameterGroup.Size = new System.Drawing.Size(904, 88);
+            this.weldReportParameterGroup.Text = "Сформировать отчёт";
             // 
-            // layoutControlItem3
+            // weldDateToLayout
             // 
-            this.layoutControlItem3.Control = this.weldDateTo;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(150, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(150, 45);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(150, 45);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(150, 45);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(93, 13);
+            this.weldDateToLayout.Control = this.weldDateTo;
+            this.weldDateToLayout.CustomizationFormText = "layoutControlItem3";
+            this.weldDateToLayout.Location = new System.Drawing.Point(150, 0);
+            this.weldDateToLayout.MaxSize = new System.Drawing.Size(150, 45);
+            this.weldDateToLayout.MinSize = new System.Drawing.Size(150, 45);
+            this.weldDateToLayout.Name = "weldDateToLayout";
+            this.weldDateToLayout.Size = new System.Drawing.Size(150, 45);
+            this.weldDateToLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.weldDateToLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
+            this.weldDateToLayout.Text = "Дата сварки: По";
+            this.weldDateToLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldDateToLayout.TextSize = new System.Drawing.Size(84, 13);
             // 
-            // layoutControlItem2
+            // weldDateFromLayout
             // 
-            this.layoutControlItem2.Control = this.weldDateFrom;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(150, 45);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(150, 45);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(150, 45);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.layoutControlItem2.Text = "layoutControlItem2";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
+            this.weldDateFromLayout.Control = this.weldDateFrom;
+            this.weldDateFromLayout.CustomizationFormText = "layoutControlItem2";
+            this.weldDateFromLayout.Location = new System.Drawing.Point(0, 0);
+            this.weldDateFromLayout.MaxSize = new System.Drawing.Size(150, 45);
+            this.weldDateFromLayout.MinSize = new System.Drawing.Size(150, 45);
+            this.weldDateFromLayout.Name = "weldDateFromLayout";
+            this.weldDateFromLayout.Size = new System.Drawing.Size(150, 45);
+            this.weldDateFromLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.weldDateFromLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
+            this.weldDateFromLayout.Text = "Дата сварки: С";
+            this.weldDateFromLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.weldDateFromLayout.TextSize = new System.Drawing.Size(84, 13);
             // 
-            // layoutControlItem4
+            // previewButtonLayout
             // 
-            this.layoutControlItem4.Control = this.previewButton;
-            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(660, 14);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(110, 31);
-            this.layoutControlItem4.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.layoutControlItem4.Text = "layoutControlItem4";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.previewButtonLayout.Control = this.previewButton;
+            this.previewButtonLayout.CustomizationFormText = "layoutControlItem4";
+            this.previewButtonLayout.Location = new System.Drawing.Point(615, 14);
+            this.previewButtonLayout.MaxSize = new System.Drawing.Size(131, 31);
+            this.previewButtonLayout.MinSize = new System.Drawing.Size(131, 31);
+            this.previewButtonLayout.Name = "previewButtonLayout";
+            this.previewButtonLayout.Size = new System.Drawing.Size(131, 31);
+            this.previewButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
+            this.previewButtonLayout.Text = "previewButtonLayout";
+            this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.previewButtonLayout.TextVisible = false;
             // 
-            // layoutControlItem5
+            // createReportButtonLayout
             // 
-            this.layoutControlItem5.Control = this.createReportButton;
-            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(770, 14);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(110, 31);
-            this.layoutControlItem5.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
-            this.layoutControlItem5.Text = "layoutControlItem5";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.createReportButtonLayout.Control = this.createReportButton;
+            this.createReportButtonLayout.CustomizationFormText = "layoutControlItem5";
+            this.createReportButtonLayout.Location = new System.Drawing.Point(746, 14);
+            this.createReportButtonLayout.MaxSize = new System.Drawing.Size(134, 31);
+            this.createReportButtonLayout.MinSize = new System.Drawing.Size(134, 31);
+            this.createReportButtonLayout.Name = "createReportButtonLayout";
+            this.createReportButtonLayout.Size = new System.Drawing.Size(134, 31);
+            this.createReportButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.createReportButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 12, 0, 5);
+            this.createReportButtonLayout.Text = "createReportButtonLayout";
+            this.createReportButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.createReportButtonLayout.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -234,7 +243,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(300, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(360, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(315, 45);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -242,9 +251,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(660, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(615, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(110, 14);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(131, 14);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -252,60 +261,61 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(770, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(746, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(110, 14);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(134, 14);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlGroup2
+            // jointReportViewerGroup
             // 
-            this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup2";
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 88);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(904, 303);
-            this.layoutControlGroup2.Text = "layoutControlGroup2";
+            this.jointReportViewerGroup.CustomizationFormText = "layoutControlGroup2";
+            this.jointReportViewerGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.jointReportViewerLayout});
+            this.jointReportViewerGroup.Location = new System.Drawing.Point(0, 88);
+            this.jointReportViewerGroup.Name = "jointReportViewerGroup";
+            this.jointReportViewerGroup.Size = new System.Drawing.Size(904, 303);
+            this.jointReportViewerGroup.Text = "Предварительный просмотр отчёта";
             // 
-            // layoutControlItem1
+            // jointReportViewerLayout
             // 
-            this.layoutControlItem1.Control = this.pipeReportViewer;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(880, 260);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 13);
+            this.jointReportViewerLayout.Control = this.jointReportViewer;
+            this.jointReportViewerLayout.CustomizationFormText = "layoutControlItem1";
+            this.jointReportViewerLayout.Location = new System.Drawing.Point(0, 0);
+            this.jointReportViewerLayout.Name = "jointReportViewerLayout";
+            this.jointReportViewerLayout.Size = new System.Drawing.Size(880, 260);
+            this.jointReportViewerLayout.Text = "jointReportViewerLayout";
+            this.jointReportViewerLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.jointReportViewerLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.jointReportViewerLayout.TextVisible = false;
             // 
             // WeldDateReportXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 411);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.weldReportLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WeldDateReportXtraForm";
-            this.Text = "WeldDateReportXtraForm";
+            this.Text = "Отчет по сварке (по дате)";
             this.Load += new System.EventHandler(this.WeldDateReportXtraForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.weldReportLayout)).EndInit();
+            this.weldReportLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldReportParameterGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldDateToLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldDateFromLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createReportButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointReportViewerGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointReportViewerLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -313,20 +323,20 @@
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl weldReportLayout;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.SimpleButton createReportButton;
         private DevExpress.XtraEditors.SimpleButton previewButton;
         private DevExpress.XtraEditors.DateEdit weldDateTo;
         private DevExpress.XtraEditors.DateEdit weldDateFrom;
-        private DevExpress.XtraPrinting.Preview.DocumentViewer pipeReportViewer;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraPrinting.Preview.DocumentViewer jointReportViewer;
+        private DevExpress.XtraLayout.LayoutControlGroup weldReportParameterGroup;
+        private DevExpress.XtraLayout.LayoutControlItem weldDateToLayout;
+        private DevExpress.XtraLayout.LayoutControlItem weldDateFromLayout;
+        private DevExpress.XtraLayout.LayoutControlItem previewButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlItem createReportButtonLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup jointReportViewerGroup;
+        private DevExpress.XtraLayout.LayoutControlItem jointReportViewerLayout;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;

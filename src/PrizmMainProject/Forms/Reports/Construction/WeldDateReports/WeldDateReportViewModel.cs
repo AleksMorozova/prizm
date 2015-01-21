@@ -21,8 +21,8 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 
         private readonly IMillReportsRepository repo;
 
-        private DateTime? weldDateFrom;
-        private DateTime? weldDateTo;
+        private DateTime weldDateFrom;
+        private DateTime weldDateTo;
 
         private Object previewSource;
         private IList<WeldDateReportData> weldDateReportDataList;
@@ -45,7 +45,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 
         public DataTable Data { get; set; }
 
-        public DateTime? WeldDateFrom
+        public DateTime WeldDateFrom
         {
             get
             {
@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             }
         }
 
-        public DateTime? WeldDateTo
+        public DateTime WeldDateTo
         {
             get
             {

@@ -217,11 +217,80 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
 
         private const string GetJointsByDate = @"
             SELECT 
-                j.number as JointNumber
+				wr.MinDate as [Date],
+                j.number as JointNumber,
+                fp.number as FipstPartNumber,
+                sp.number as SecondPartNumber,
+                fp.[length] as FipstPartLength,
+                sp.[length] as SecondPartLength
             FROM 
                 Joint j 
-                
-            ";
+            INNER JOIN
+				 (
+				   SELECT jointId, MIN([date]) as MinDate
+				   FROM [JointWeldResult]
+				   GROUP BY jointId
+				 ) 
+				 wr ON wr.jointId = j.id 
+            INNER JOIN
+                [Pipe] fp ON (fp.id = j.[part1Id])
+            INNER JOIN
+                [Pipe] sp ON (sp.id = j.[part2Id])
+            WHERE
+                j.isActive = 1
+                {where_options}
+
+            UNION ALL
+
+            SELECT 
+				wr.MinDate as [Date],
+                j.number as JointNumber,
+                fp.number as FipstPartNumber,
+                sp.number as SecondPartNumber,
+                fp.[length] as FipstPartLength,
+                sp.[length] as SecondPartLength
+            FROM 
+                Joint j 
+            INNER JOIN
+				 (
+				   SELECT jointId, MIN([date]) as MinDate
+				   FROM [JointWeldResult]
+				   GROUP BY jointId
+				 ) 
+				 wr ON wr.jointId = j.id 
+            INNER JOIN
+                [Component] fp ON (fp.id = j.[part1Id])
+            INNER JOIN
+                [Component] sp ON (sp.id = j.[part2Id])
+            WHERE
+                j.isActive = 1
+                {where_options}
+
+            UNION ALL
+
+            SELECT 
+				wr.MinDate as [Date],
+                j.number as JointNumber,
+                fp.number as FipstPartNumber,
+                sp.number as SecondPartNumber,
+                fp.[length] as FipstPartLength,
+                sp.[length] as SecondPartLength
+            FROM 
+                Joint j 
+            INNER JOIN
+				 (
+				   SELECT jointId, MIN([date]) as MinDate
+				   FROM [JointWeldResult]
+				   GROUP BY jointId
+				 ) 
+				 wr ON wr.jointId = j.id 
+            INNER JOIN
+                [Spool] fp ON (fp.id = j.[part1Id])
+            INNER JOIN
+                [Spool] sp ON (sp.id = j.[part2Id])
+            WHERE
+                j.isActive = 1
+                {where_options} ";
 
 
         /// <summary>

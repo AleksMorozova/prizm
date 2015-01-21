@@ -30,59 +30,124 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.dateXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstPartLengthXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.jointNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartLengthXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.dateHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.weldReportByDateHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.jointNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstPartNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel12,
-            this.xrLabel8,
-            this.xrLabel9,
-            this.xrLabel10,
-            this.xrLabel11,
-            this.xrLabel7});
+            this.dateXrLabel,
+            this.firstPartLengthXrLabel,
+            this.secondPartNumberXrLabel,
+            this.firstNumberXrLabel,
+            this.jointNumberXrLabel,
+            this.secondPartLengthXrLabel});
             this.Detail.HeightF = 33.33333F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel1
+            // dateXrLabel
             // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 12.58335F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
+            this.dateXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Date")});
+            this.dateXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 0F);
+            this.dateXrLabel.Name = "dateXrLabel";
+            this.dateXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateXrLabel.SizeF = new System.Drawing.SizeF(86.45834F, 23F);
+            // 
+            // firstPartLengthXrLabel
+            // 
+            this.firstPartLengthXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FipstPartLength")});
+            this.firstPartLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(444.8334F, 0.333341F);
+            this.firstPartLengthXrLabel.Name = "firstPartLengthXrLabel";
+            this.firstPartLengthXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstPartLengthXrLabel.SizeF = new System.Drawing.SizeF(86.45837F, 23F);
+            // 
+            // secondPartNumberXrLabel
+            // 
+            this.secondPartNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartNumber")});
+            this.secondPartNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(336.1251F, 0.333341F);
+            this.secondPartNumberXrLabel.Name = "secondPartNumberXrLabel";
+            this.secondPartNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartNumberXrLabel.SizeF = new System.Drawing.SizeF(86.45825F, 23F);
+            // 
+            // firstNumberXrLabel
+            // 
+            this.firstNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FipstPartNumber")});
+            this.firstNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(227.4167F, 0F);
+            this.firstNumberXrLabel.Name = "firstNumberXrLabel";
+            this.firstNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstNumberXrLabel.SizeF = new System.Drawing.SizeF(86.45833F, 23F);
+            // 
+            // jointNumberXrLabel
+            // 
+            this.jointNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "JointNumber")});
+            this.jointNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(118.7083F, 0F);
+            this.jointNumberXrLabel.Name = "jointNumberXrLabel";
+            this.jointNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.jointNumberXrLabel.SizeF = new System.Drawing.SizeF(86.45837F, 23F);
+            // 
+            // secondPartLengthXrLabel
+            // 
+            this.secondPartLengthXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartLength")});
+            this.secondPartLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(553.5417F, 0F);
+            this.secondPartLengthXrLabel.Name = "secondPartLengthXrLabel";
+            this.secondPartLengthXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartLengthXrLabel.SizeF = new System.Drawing.SizeF(86.45831F, 23F);
+            // 
+            // dateHeader
+            // 
+            this.dateHeader.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 12.58335F);
+            this.dateHeader.Name = "dateHeader";
+            this.dateHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateHeader.SizeF = new System.Drawing.SizeF(86.45833F, 34.2083F);
+            this.dateHeader.Text = "Дата сварки";
             // 
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel13});
+            this.weldReportByDateHeader});
             this.TopMargin.HeightF = 75F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // weldReportByDateHeader
+            // 
+            this.weldReportByDateHeader.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.weldReportByDateHeader.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 21.16666F);
+            this.weldReportByDateHeader.Name = "weldReportByDateHeader";
+            this.weldReportByDateHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.weldReportByDateHeader.SizeF = new System.Drawing.SizeF(630F, 43.83334F);
+            this.weldReportByDateHeader.StylePriority.UseFont = false;
+            this.weldReportByDateHeader.Text = "Отчет по сварке (по дате)";
             // 
             // BottomMargin
             // 
@@ -91,45 +156,45 @@
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel2
+            // jointNumberHeader
             // 
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(121.4167F, 12.58335F);
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(72.91667F, 23F);
-            this.xrLabel2.Text = "xrLabel2";
+            this.jointNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(118.7083F, 12.58335F);
+            this.jointNumberHeader.Name = "jointNumberHeader";
+            this.jointNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.jointNumberHeader.SizeF = new System.Drawing.SizeF(86.45834F, 34.2083F);
+            this.jointNumberHeader.Text = "Номер стыка";
             // 
-            // xrLabel3
+            // firstPartNumberHeader
             // 
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(232.8334F, 12.58335F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
-            this.xrLabel3.Text = "xrLabel3";
+            this.firstPartNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(227.4167F, 12.58335F);
+            this.firstPartNumberHeader.Name = "firstPartNumberHeader";
+            this.firstPartNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstPartNumberHeader.SizeF = new System.Drawing.SizeF(86.45833F, 34.2083F);
+            this.firstPartNumberHeader.Text = "Номер первой части";
             // 
-            // xrLabel4
+            // secondPartNumberHeader
             // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(344.25F, 12.58335F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
-            this.xrLabel4.Text = "xrLabel4";
+            this.secondPartNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(336.125F, 12.58335F);
+            this.secondPartNumberHeader.Name = "secondPartNumberHeader";
+            this.secondPartNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartNumberHeader.SizeF = new System.Drawing.SizeF(86.45831F, 34.2083F);
+            this.secondPartNumberHeader.Text = "Номер второй части";
             // 
-            // xrLabel5
+            // firstPartLengthHeader
             // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(455.6667F, 12.58335F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(72.91672F, 23F);
-            this.xrLabel5.Text = "xrLabel5";
+            this.firstPartLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(444.8334F, 12.58335F);
+            this.firstPartLengthHeader.Name = "firstPartLengthHeader";
+            this.firstPartLengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstPartLengthHeader.SizeF = new System.Drawing.SizeF(86.45831F, 34.2083F);
+            this.firstPartLengthHeader.Text = "Длина первой части";
             // 
-            // xrLabel6
+            // secondPartLengthHeader
             // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(567.0834F, 12.58335F);
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(72.91663F, 23F);
-            this.xrLabel6.Text = "xrLabel6";
+            this.secondPartLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(553.5417F, 12.58333F);
+            this.secondPartLengthHeader.Name = "secondPartLengthHeader";
+            this.secondPartLengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartLengthHeader.SizeF = new System.Drawing.SizeF(86.45837F, 34.2083F);
+            this.secondPartLengthHeader.Text = "Длина второй части";
             // 
             // xrLine1
             // 
@@ -139,7 +204,7 @@
             // 
             // xrLine2
             // 
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 35.58334F);
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 46.79165F);
             this.xrLine2.Name = "xrLine2";
             this.xrLine2.SizeF = new System.Drawing.SizeF(650F, 12.58334F);
             // 
@@ -147,69 +212,15 @@
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLine2,
-            this.xrLabel1,
-            this.xrLabel6,
-            this.xrLabel3,
-            this.xrLabel4,
-            this.xrLabel5,
-            this.xrLabel2,
+            this.dateHeader,
+            this.secondPartLengthHeader,
+            this.firstPartNumberHeader,
+            this.secondPartNumberHeader,
+            this.firstPartLengthHeader,
+            this.jointNumberHeader,
             this.xrLine1});
-            this.ReportHeader.HeightF = 48.95833F;
+            this.ReportHeader.HeightF = 59.375F;
             this.ReportHeader.Name = "ReportHeader";
-            // 
-            // xrLabel7
-            // 
-            this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartLength")});
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(567.0834F, 0F);
-            this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(72.91663F, 23F);
-            // 
-            // xrLabel8
-            // 
-            this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FipstPartLength")});
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(455.6667F, 0F);
-            this.xrLabel8.Name = "xrLabel8";
-            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(72.91672F, 23F);
-            // 
-            // xrLabel9
-            // 
-            this.xrLabel9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartNumber")});
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(344.25F, 0F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
-            // 
-            // xrLabel10
-            // 
-            this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FipstPartNumber")});
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(232.8334F, 0F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
-            // 
-            // xrLabel11
-            // 
-            this.xrLabel11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "JointNumber")});
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(121.4167F, 0F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(72.91667F, 23F);
-            // 
-            // xrLabel12
-            // 
-            this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Date")});
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 0F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(72.91666F, 23F);
             // 
             // bindingSource
             // 
@@ -227,14 +238,6 @@
             this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLine3.Name = "xrLine3";
             this.xrLine3.SizeF = new System.Drawing.SizeF(650F, 12.58334F);
-            // 
-            // xrLabel13
-            // 
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 21.16666F);
-            this.xrLabel13.Name = "xrLabel13";
-            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel13.SizeF = new System.Drawing.SizeF(630F, 43.83334F);
-            this.xrLabel13.Text = "xrLabel13";
             // 
             // WeldDateXtraReport
             // 
@@ -257,23 +260,23 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel9;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel dateHeader;
+        private DevExpress.XtraReports.UI.XRLabel jointNumberHeader;
+        private DevExpress.XtraReports.UI.XRLabel dateXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel firstPartLengthXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel secondPartNumberXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel firstNumberXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel jointNumberXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel secondPartLengthXrLabel;
+        private DevExpress.XtraReports.UI.XRLabel firstPartNumberHeader;
+        private DevExpress.XtraReports.UI.XRLabel secondPartNumberHeader;
+        private DevExpress.XtraReports.UI.XRLabel firstPartLengthHeader;
+        private DevExpress.XtraReports.UI.XRLabel secondPartLengthHeader;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private DevExpress.XtraReports.UI.XRLabel weldReportByDateHeader;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRLine xrLine3;
     }

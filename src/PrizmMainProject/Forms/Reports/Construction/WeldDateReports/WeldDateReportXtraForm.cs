@@ -22,6 +22,11 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         public WeldDateReportXtraForm()
         {
             InitializeComponent();
+
+            weldDateFrom.Properties.NullDate = DateTime.MinValue;
+            weldDateFrom.Properties.NullText = string.Empty;
+            weldDateTo.Properties.NullDate = DateTime.MinValue;
+            weldDateTo.Properties.NullText = string.Empty;
         }
 
         private void BindToViewModel()
@@ -34,7 +39,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             weldDateTo.DataBindings
                 .Add("EditValue", bindingSource, "WeldDateTo");
 
-            pipeReportViewer.DataBindings
+            jointReportViewer.DataBindings
                 .Add("DocumentSource", bindingSource, "PreviewSource");
         }
 

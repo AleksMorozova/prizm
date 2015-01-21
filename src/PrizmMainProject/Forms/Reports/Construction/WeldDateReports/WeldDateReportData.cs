@@ -13,15 +13,15 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         public WeldDateReportData(DataRow row)
             :this()
         {
-            //Date = row.Field<DateTime>("Date");
+            Date = row.Field<DateTime>("Date").ToShortDateString();
             JointNumber = row.Field<string>("JointNumber");
-            //FipstPartNumber = row.Field<string>("FipstPartNumber");
-            //SecondPartNumber = row.Field<string>("SecondPartNumber");
-            //FipstPartLength = row.Field<int>("FipstPartLength");
-            //SecondPartLength = row.Field<int>("SecondPartLength");
+            FipstPartNumber = row.Field<string>("FipstPartNumber");
+            SecondPartNumber = row.Field<string>("SecondPartNumber");
+            FipstPartLength = row.Field<int>("FipstPartLength");
+            SecondPartLength = row.Field<int>("SecondPartLength");
         }
 
-        public DateTime? Date { get; set; }
+        public string Date { get; set; }
         public string JointNumber { get; set; }
         public string FipstPartNumber { get; set; }
         public string SecondPartNumber { get; set; }

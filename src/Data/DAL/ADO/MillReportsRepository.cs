@@ -400,12 +400,10 @@ namespace Prizm.Data.DAL.ADO
         {
             ISQLFlexible tempSQLObject;
 
-            string types = string.Concat(" N'", Guid.NewGuid(), "'");
-
             tempSQLObject = SQLProvider.GetQuery(
                 SQLProvider.SQLStatic.GetJointsByDate)
-                .WhereAnd().Where("p.number", "LIKE", string.Concat(" N'%", "", "%'"))
-                .WhereAnd().Where("PmSt.type", "IN", types);
+                .WhereAnd().Where("wr.MinDate", "<=", string.Concat("N'", weldDateTo.Value.ToString(), "'"))
+                .WhereAnd().Where("wr.MinDate", ">=", string.Concat("N'", weldDateFrom.Value.ToString(), "'"));
 
             return GetPipelineElements(tempSQLObject.ToString());
 

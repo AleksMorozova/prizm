@@ -28,6 +28,8 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 
         public void Execute()
         {
+            viewModel.Data = repo.GetPipelineElements(viewModel.WeldDateFrom, viewModel.WeldDateTo);
+
             var report = new WeldDateXtraReport();
 
             report.DataSource = viewModel.WeldDateReportDataList;
