@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IRoleRepository RoleRepo { get; }
         ICategoryRepository CategoryRepo { get; }
         IJointOperationRepository JointOperationRepo { get; }
+        IPipeTestRepository TestRepo { get; }
+        IMillPipeSizeTypeRepository SizeTypeRepo { get; }
 
         void Commit();
         void BeginTransaction();
