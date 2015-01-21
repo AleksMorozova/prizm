@@ -35,6 +35,7 @@ using Prizm.Main.Security;
 using Domain.Entity.Security;
 using Prizm.Main.Forms.Synch;
 using System.Linq;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
 using System.Globalization;
 using System.Resources;
 using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
@@ -299,7 +300,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //TODO: the form of "Отчет по трубам на стройке" will be created here
+            OpenChildForm(typeof(PipeConstractionReportXtraForm));
         }
 
         private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)

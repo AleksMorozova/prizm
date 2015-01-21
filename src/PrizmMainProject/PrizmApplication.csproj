@@ -402,6 +402,22 @@
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PipeReport\CreatePipeReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstructionXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstructionXtraReport.Designer.cs">
+      <DependentUpon>PipeConstructionXtraReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeReportData.cs" />
+    <Compile Include="Forms\Reports\Construction\PipeReport\PreviewPipeReportCommand.cs" />
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportViewModel.cs" />
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportXtraForm.Designer.cs">
+      <DependentUpon>PipeConstractionReportXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Construction\PreviewReportCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ReportType.cs" />
     <Compile Include="Forms\Reports\Construction\ReportCommand.cs" />
@@ -747,6 +763,12 @@
     <EmbeddedResource Include="Forms\Reports\Construction\TracingReport.resx">
       <DependentUpon>TracingReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\PipeReport\PipeConstractionReportXtraForm.resx">
+      <DependentUpon>PipeConstractionReportXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Construction\PipeReport\PipeConstructionXtraReport.resx">
+      <DependentUpon>PipeConstructionXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\UsedProductsXtraReport.resx">
       <DependentUpon>UsedProductsXtraReport.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -848,6 +870,7 @@
     <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
+    <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.PipeReport.PipeReportData.datasource" />
     <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.TracingData.datasource" />
     <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.CreateRepoCommand.datasource" />
     <None Include="Properties\DataSources\Prizm.Main.Forms.Reports.Construction.WeldDateReports.PreviewRepoCommand.datasource" />
