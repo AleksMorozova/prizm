@@ -82,7 +82,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) && !viewModel.IsShipped;
+            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) 
+                && !viewModel.IsShipped
+                && !string.IsNullOrWhiteSpace(viewModel.ReleaseNoteNumber)
+                && viewModel.ReleaseNoteDate != DateTime.MinValue;
+
             bool conditionAndPermission;
             if(viewModel.IsNew)
             {

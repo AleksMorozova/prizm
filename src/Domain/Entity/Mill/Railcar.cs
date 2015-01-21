@@ -10,6 +10,8 @@ namespace Prizm.Domain.Entity.Mill
             this.Pipes = new List<Pipe>();
         }
 
+        public virtual string ReleaseNoteNumber { get; set; }
+        public virtual DateTime? ReleaseNoteDate { get; set; }
         public virtual string Number { get; set; }
         public virtual string Certificate { get; set; }
         public virtual string Destination { get; set; }
