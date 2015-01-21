@@ -33,7 +33,9 @@ namespace Prizm.Main.Forms.Railcar.Search
                     Certificate = (string)tuple[2],
                     Destination = (string)tuple[3],
                     ShippingDate = (DateTime?)tuple[4],
-                    IsShipped = (bool)tuple[5]
+                    IsShipped = (bool)tuple[5],
+                    ReleaseNoteNumber = (string)tuple[6],
+                    ReleaseNoteDate = (DateTime?)tuple[7]
                 };
         }
 
@@ -42,7 +44,9 @@ namespace Prizm.Main.Forms.Railcar.Search
             string RailcarNumber,
             string Certificate,
             string Receiver,
-            DateTime ShippingDate)
+            DateTime ShippingDate, 
+            string ReleaseNoteNumber,
+            DateTime ReleaseNoteDate)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -53,19 +57,28 @@ namespace Prizm.Main.Forms.Railcar.Search
                         [certificate], 
                         [destination], 
                         [shippingDate], 
-                        [isShipped]  
+                        [isShipped],
+                        [releaseNoteNumber],
+                        [releaseNoteDate]  
                     FROM 
                         [Railcar] ");
 
             sb.Append(string.Format(@" WHERE [number] LIKE N'%{0}%' ESCAPE '\' ", RailcarNumber.EscapeCharacters()));
             sb.Append(string.Format(@"AND [certificate] LIKE N'%{0}%' ESCAPE '\' ", Certificate.EscapeCharacters()));
             sb.Append(string.Format(@"AND [destination] LIKE N'%{0}%' ESCAPE '\' ", Receiver.EscapeCharacters()));
-
+            sb.Append(string.Format(@"AND [releaseNoteNumber] LIKE N'%{0}%' ESCAPE '\' ", ReleaseNoteNumber.EscapeCharacters()));
             if (ShippingDate != DateTime.MinValue)
             {
                 sb.Append(string.Format(
                     @"AND [shippingDate] = CAST('{0}' as date)", ShippingDate));
             }
+
+            if (ReleaseNoteDate != DateTime.MinValue)
+            {
+                sb.Append(string.Format(
+                    @"AND [releaseNoteDate] = CAST('{0}' as date)", ReleaseNoteDate));
+            }
+
             return sb.ToString();
         }
     }

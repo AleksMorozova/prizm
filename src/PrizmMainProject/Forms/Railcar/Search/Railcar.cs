@@ -10,6 +10,8 @@ namespace Prizm.Main.Forms.Railcar.Search
     public class Railcar
     {
         public Guid Id { get; set; }
+        public virtual string ReleaseNoteNumber { get; set; }
+        public virtual DateTime? ReleaseNoteDate { get; set; }
         public string Number { get; set; }
         public string Certificate { get; set; }
         public string Destination { get; set; }
