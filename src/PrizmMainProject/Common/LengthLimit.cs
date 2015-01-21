@@ -98,6 +98,7 @@ namespace Prizm.Main.Common
         /// </summary>
         #region
         public const int MaxRailcarNumber = 20;
+        public const int MaxReleaseNoteNumber = 20;
         public const int MaxRailcarCertificate = 20;
         public const int MaxRailcarDestination = 50;
         #endregion

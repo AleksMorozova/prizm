@@ -430,6 +430,8 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
+	[releaseNoteNumber] [nvarchar](20) NULL,
+	[releaseNoteDate] [date] NULL,
 	[number] [nvarchar](20) NULL,
 	[certificate] [nvarchar](20) NULL,
 	[destination] [nvarchar](50) NULL,

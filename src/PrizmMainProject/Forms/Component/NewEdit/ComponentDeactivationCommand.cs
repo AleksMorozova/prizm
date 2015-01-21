@@ -17,7 +17,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
@@ -25,11 +25,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public ComponentDeactivationCommand(
             ComponentNewEditViewModel viewModel,
             IComponentRepositories repo, 
-            IUserNotify notify)
+            IUserNotify notify,
+            ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repo;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]

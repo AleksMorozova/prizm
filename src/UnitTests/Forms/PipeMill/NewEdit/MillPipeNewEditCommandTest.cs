@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Security;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
 {
@@ -37,11 +39,12 @@ namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
             var repoPipeTest = new Mock<IPipeTestRepository>();
             var repoInspector = new Mock<IInspectorRepository>();
             var repoProject = new Mock<IProjectRepository>();
-
+            var ctx = new Mock<ISecurityContext>();
             var pipe = new Pipe();
 
             repoPipe.Setup(x => x.GetActiveByNumber(pipe)).Returns(new List<Pipe>());
             repoProject.Setup(x => x.GetSingle()).Returns(new Project() { IsNative = true});
+            repoPipeTest.Setup(x => x.GetByCriteria(It.IsAny<NHibernate.Criterion.DetachedCriteria>())).Returns(new List<PipeTest>());
 
             Mock<IMillRepository> millRepos = new Mock<IMillRepository>();
             millRepos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
@@ -63,7 +66,8 @@ namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
             var viewModel = new MillPipeNewEditViewModel(
                 millRepos.Object,
                 Guid.Empty, 
-                notify.Object);
+                notify.Object,
+                ctx.Object);
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.ValidatableView = validatable.Object;
@@ -73,7 +77,8 @@ namespace Prizm.UnitTests.Forms.PipeMill.NewEdit
             var command = new NewSavePipeCommand(
                 viewModel, 
                 millRepos.Object, 
-                notify.Object);
+                notify.Object,
+                ctx.Object);
 
             command.Execute();
 

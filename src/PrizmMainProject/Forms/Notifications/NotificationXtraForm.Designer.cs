@@ -147,7 +147,7 @@ namespace PrizmMain.Forms.Notifications
             // colName
             // 
             this.colName.Caption = "Регистратор";
-            this.colName.FieldName = "Name";
+            this.colName.FieldName = "OwnerName";
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;

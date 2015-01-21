@@ -132,6 +132,13 @@ namespace Prizm.Main.Forms.Settings
                 return IsEditable(IsEditMode);
             }
             );
+
+            SetConditional(inspectionOperation, delegate(bool editMode)
+            {
+                return IsEditable(IsEditMode);
+            }
+            );
+            
             UpdateSeamTypesComboBox();
 
             IsEditMode = true;
@@ -854,10 +861,12 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView v = sender as GridView;
             PipeTest pipeTest = v.GetRow(e.RowHandle) as PipeTest;
-
-            foreach(PipeTest t in CurrentPipeMillSizeType.PipeTests)
+            if (CurrentPipeMillSizeType != null)
             {
-                t.pipeType = CurrentPipeMillSizeType;
+                foreach (PipeTest t in CurrentPipeMillSizeType.PipeTests)
+                {
+                    t.pipeType = CurrentPipeMillSizeType;
+                }
             }
         }
 

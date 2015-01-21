@@ -9,6 +9,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         SearchPartForInspectionCommand searchCommand;
         SaveInspectionTestResultsCommand saveInspectionTestResultsCommand;
         SaveAndClearTestResultsCommand saveAndClearTestResultsCommand;
+        ISecurityContext ctx;
         ISession session;
         private readonly IPartInspectionRepository repos;
         private string searchNumber = string.Empty;
@@ -35,14 +37,15 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private IModifiable modifiableView;
 
         [Inject]
-        public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify)
+        public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify, ISecurityContext ctx)
         {
             this.session = session;
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
             this.Inspectors = repos.RepoInspector.GetAll();
-            searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session));
-            saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify));
+            searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
+            saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));
             saveAndClearTestResultsCommand = ViewModelSource.Create(() => new SaveAndClearTestResultsCommand(this));
             this.Inspectors = repos.RepoInspector.GetAll();
         }
@@ -110,6 +113,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                         if (results != null)
                         {
                             InspectionTestResults = new BindingList<InspectionTestResult>(results);
+                            convertedPart.InspectionTestResults = InspectionTestResults;
                         }
                     }
                     RaisePropertyChanged("SelectedElement");

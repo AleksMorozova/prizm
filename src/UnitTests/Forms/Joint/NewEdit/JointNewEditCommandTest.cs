@@ -15,6 +15,8 @@ using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Setup;
 using System.ComponentModel;
+using Prizm.Main.Security;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.UnitTests.Forms.Joint.NewEdit
 {
@@ -34,8 +36,12 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             var repoInspector = new Mock<IInspectorRepository>();
             var repoWelder = new Mock<IWelderRepository>();
             var repoAdo = new Mock<IMillReportsRepository>();
+            var securityCtx = new Mock<ISecurityContext>();
+            var repoSpool = new Mock<ISpoolRepository>();
+            var repoPipe = new Mock<IPipeRepository>();
+            var repoComponent = new Mock<IComponentRepository>();
 
-            var joint = new Prizm.Domain.Entity.Construction.Joint();
+            var joint = new Prizm.Domain.Entity.Construction.Joint() { Status = Domain.Entity.Construction.JointStatus.Withdrawn};
             BindingList<JointOperation> operations = new BindingList<JointOperation>(); 
 
             Mock<IConstructionRepository> repoConstruction = new Mock<IConstructionRepository>();
@@ -45,21 +51,27 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             repoConstruction.SetupGet(_ => _.RepoJointOperation).Returns(repoJointOperation.Object);
             repoConstruction.SetupGet(_ => _.RepoInspector).Returns(repoInspector.Object);
             repoConstruction.SetupGet(_ => _.RepoWelder).Returns(repoWelder.Object);
+            repoConstruction.SetupGet(_ => _.RepoSpool).Returns(repoSpool.Object);
+            repoConstruction.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
+            repoConstruction.SetupGet(_ => _.RepoComponent).Returns(repoComponent.Object);
             repoJointOperation.Setup(_ => _.GetControlOperations()).Returns(operations);
             repoJointOperation.Setup(_ => _.GetRepairOperations()).Returns(operations);
             repoJoint.Setup(_ => _.GetActiveByNumber(joint)).Returns(new List<Prizm.Domain.Entity.Construction.Joint>());
+            repoSpool.Setup(_ => _.Get(It.IsAny<Guid>())).Returns(new Domain.Entity.Construction.Spool());
 
 
             modifiableView.SetupGet(x => x.IsModified).Returns(false);
 
-            var viewModel = new JointNewEditViewModel(repoConstruction.Object, notify.Object, Guid.Empty, repoAdo.Object);
+            var viewModel = new JointNewEditViewModel(repoConstruction.Object, notify.Object, Guid.Empty, repoAdo.Object, securityCtx.Object);
             viewModel.Joint = joint;
+            viewModel.FirstElement = new PartData();
+            viewModel.SecondElement = new PartData();
             viewModel.ModifiableView = modifiableView.Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.ValidatableView = validatable.Object;
 
-            var command = new SaveJointCommand(repoConstruction.Object,viewModel, notify.Object);
+            var command = new SaveJointCommand(repoConstruction.Object,viewModel, notify.Object, securityCtx.Object);
             command.Execute();
             repoConstruction.Verify(_ => _.BeginTransaction(), Times.Once());
             repoJoint.Verify(_ => _.SaveOrUpdate(It.IsAny<Prizm.Domain.Entity.Construction.Joint>()), Times.Once());
