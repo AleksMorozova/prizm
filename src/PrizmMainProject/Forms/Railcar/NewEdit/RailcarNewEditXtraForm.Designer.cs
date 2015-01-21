@@ -125,7 +125,7 @@
             this.pipesList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryGridLookUpEditStatus});
             this.pipesList.Size = new System.Drawing.Size(1204, 306);
-            this.pipesList.TabIndex = 7;
+            this.pipesList.TabIndex = 10;
             this.pipesList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.pipesListView});
             // 
@@ -185,7 +185,7 @@
             this.unshipButton.Name = "unshipButton";
             this.unshipButton.Size = new System.Drawing.Size(102, 22);
             this.unshipButton.StyleController = this.generalLayout;
-            this.unshipButton.TabIndex = 10;
+            this.unshipButton.TabIndex = 13;
             this.unshipButton.Text = "Отк&лонить";
             // 
             // generalLayout
@@ -220,7 +220,7 @@
             this.releaseNoteNumber.Name = "releaseNoteNumber";
             this.releaseNoteNumber.Size = new System.Drawing.Size(159, 20);
             this.releaseNoteNumber.StyleController = this.generalLayout;
-            this.releaseNoteNumber.TabIndex = 12;
+            this.releaseNoteNumber.TabIndex = 1;
             this.releaseNoteNumber.EditValueChanged += new System.EventHandler(this.releaseNoteNumber_EditValueChanged);
             // 
             // attachmentsButton
@@ -230,7 +230,7 @@
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Size = new System.Drawing.Size(95, 22);
             this.attachmentsButton.StyleController = this.generalLayout;
-            this.attachmentsButton.TabIndex = 8;
+            this.attachmentsButton.TabIndex = 11;
             this.attachmentsButton.Text = "&Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -240,7 +240,7 @@
             this.destination.Name = "destination";
             this.destination.Size = new System.Drawing.Size(263, 20);
             this.destination.StyleController = this.generalLayout;
-            this.destination.TabIndex = 2;
+            this.destination.TabIndex = 6;
             // 
             // saveButton
             // 
@@ -250,7 +250,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 22);
             this.saveButton.StyleController = this.generalLayout;
-            this.saveButton.TabIndex = 11;
+            this.saveButton.TabIndex = 14;
             this.saveButton.Text = "&Сохранить";
             // 
             // shipButton
@@ -261,7 +261,7 @@
             this.shipButton.Name = "shipButton";
             this.shipButton.Size = new System.Drawing.Size(110, 22);
             this.shipButton.StyleController = this.generalLayout;
-            this.shipButton.TabIndex = 9;
+            this.shipButton.TabIndex = 12;
             this.shipButton.Text = "О&тгрузить";
             this.shipButton.Click += new System.EventHandler(this.shipButton_Click);
             // 
@@ -272,7 +272,7 @@
             this.removePipe.Name = "removePipe";
             this.removePipe.Size = new System.Drawing.Size(114, 22);
             this.removePipe.StyleController = this.generalLayout;
-            this.removePipe.TabIndex = 6;
+            this.removePipe.TabIndex = 9;
             this.removePipe.Text = "&Удалить трубу";
             this.removePipe.Click += new System.EventHandler(this.removePipe_Click);
             // 
@@ -283,7 +283,7 @@
             this.addPipeButton.Name = "addPipeButton";
             this.addPipeButton.Size = new System.Drawing.Size(120, 22);
             this.addPipeButton.StyleController = this.generalLayout;
-            this.addPipeButton.TabIndex = 5;
+            this.addPipeButton.TabIndex = 8;
             this.addPipeButton.Text = "&Добавить трубу";
             this.addPipeButton.Click += new System.EventHandler(this.addPipeButton_Click);
             // 
@@ -301,7 +301,7 @@
             this.shippedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.shippedDate.Size = new System.Drawing.Size(159, 20);
             this.shippedDate.StyleController = this.generalLayout;
-            this.shippedDate.TabIndex = 1;
+            this.shippedDate.TabIndex = 4;
             // 
             // certificateNumber
             // 
@@ -309,7 +309,7 @@
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Size = new System.Drawing.Size(159, 20);
             this.certificateNumber.StyleController = this.generalLayout;
-            this.certificateNumber.TabIndex = 3;
+            this.certificateNumber.TabIndex = 5;
             // 
             // railcarNumber
             // 
@@ -317,7 +317,7 @@
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Size = new System.Drawing.Size(159, 20);
             this.railcarNumber.StyleController = this.generalLayout;
-            this.railcarNumber.TabIndex = 0;
+            this.railcarNumber.TabIndex = 3;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
             this.dxValidationProvider.SetValidationRule(this.railcarNumber, conditionValidationRule1);
@@ -338,7 +338,7 @@
             this.pipeNumberLookUp.Properties.View = this.pipeListLookUpView;
             this.pipeNumberLookUp.Size = new System.Drawing.Size(254, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
-            this.pipeNumberLookUp.TabIndex = 4;
+            this.pipeNumberLookUp.TabIndex = 7;
             // 
             // pipeListLookUpView
             // 
@@ -381,7 +381,7 @@
             this.releaseNoteDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.releaseNoteDate.Size = new System.Drawing.Size(159, 20);
             this.releaseNoteDate.StyleController = this.generalLayout;
-            this.releaseNoteDate.TabIndex = 13;
+            this.releaseNoteDate.TabIndex = 2;
             this.releaseNoteDate.EditValueChanged += new System.EventHandler(this.releaseNoteDate_EditValueChanged);
             // 
             // railcarLayoutGroup
@@ -502,14 +502,14 @@
             this.releasedNoteNumberLayout.Name = "releasedNoteNumberLayout";
             this.releasedNoteNumberLayout.Size = new System.Drawing.Size(178, 54);
             this.releasedNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
-            this.releasedNoteNumberLayout.Text = "Номер разрешения на отгрузку";
+            this.releasedNoteNumberLayout.Text = "Номер разре&шения на отгрузку";
             this.releasedNoteNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteNumberLayout.TextSize = new System.Drawing.Size(159, 13);
             // 
             // releasedNoteDateLayout
             // 
             this.releasedNoteDateLayout.Control = this.releaseNoteDate;
-            this.releasedNoteDateLayout.CustomizationFormText = "Дата разрешения";
+            this.releasedNoteDateLayout.CustomizationFormText = "Дата разрешени&я";
             this.releasedNoteDateLayout.Location = new System.Drawing.Point(178, 0);
             this.releasedNoteDateLayout.Name = "releasedNoteDateLayout";
             this.releasedNoteDateLayout.Size = new System.Drawing.Size(193, 54);
