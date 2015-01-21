@@ -18,7 +18,7 @@ namespace Prizm.Main.Forms.Audit
     {
         private AuditViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
-
+        
         public AuditXtraForm()
         {
             InitializeComponent();
@@ -42,6 +42,7 @@ namespace Prizm.Main.Forms.Audit
             auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");
             user.DataBindings.Add("EditValue", viewModel, "SelectedUser");
             number.DataBindings.Add("EditValue", viewModel, "Number");
+            number.SetAsIdentifier();
         }
 
         private void BindCommands()
