@@ -18,6 +18,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Common;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Security;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -34,7 +35,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private IList<PipeMillSizeType> pipeTypes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         private BindingList<PipeTestResult> pipeTestResults;
-
+        private readonly ISecurityContext ctx;
         private readonly PipeDeactivationCommand pipeDeactivationCommand;
         private readonly NewSavePipeCommand newSavePipeCommand;
         private readonly SavePipeCommand savePipeCommand;
@@ -61,21 +62,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public bool IsNew { get { return this.Pipe.IsNew(); } }
 
         [Inject]
-        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify)
+        public MillPipeNewEditViewModel(IMillRepository repoMill, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
             this.repoMill = repoMill;
             this.notify = notify;
             this.PipeId = id;
+            this.ctx = ctx;
 
             #region Commands creation
             pipeDeactivationCommand =
-                ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify));
+                ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify, ctx));
 
             newSavePipeCommand =
-                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify));
+                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify,ctx));
 
             savePipeCommand =
-                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify));
+                ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify, ctx));
 
             extractHeatsCommand =
                 ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));

@@ -23,15 +23,16 @@ namespace Prizm.Main.Forms.Settings
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify)
+        public SaveSettingsCommand(SettingsViewModel viewModel, ISettingsRepositories repos, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]

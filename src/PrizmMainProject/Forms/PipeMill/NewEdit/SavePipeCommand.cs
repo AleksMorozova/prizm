@@ -19,18 +19,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate {};
 
         public SavePipeCommand(
             MillPipeNewEditViewModel viewModel, 
             IMillRepository repo, 
-            IUserNotify notify)
+            IUserNotify notify,
+            ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repo = repo;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]

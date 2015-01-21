@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -20,6 +21,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
     {
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
+        private readonly ISecurityContext context;
 
         private BindingList<ComponentType> componentTypes;
 
@@ -36,22 +38,23 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public ComponentNewEditViewModel(
             IComponentRepositories repos,
             Guid id,
-            IUserNotify notify)
+            IUserNotify notify,
+            ISecurityContext context)
         {
             this.repos = repos;
             this.notify = notify;
-           
+            this.context = context;
             this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
             this.Inspectors = repos.RepoInspector.GetAll();
 
             saveCommand = ViewModelSource
-                .Create(() => new SaveComponentCommand(this, repos, notify));
+                .Create(() => new SaveComponentCommand(this, repos, notify, context));
 
             newSaveCommand = ViewModelSource
-                .Create(() => new NewSaveComponentCommand(this, repos, notify));
+                .Create(() => new NewSaveComponentCommand(this, repos, notify, context));
 
             deactivationCommand = ViewModelSource
-                .Create(() => new ComponentDeactivationCommand(this, repos, notify));
+                .Create(() => new ComponentDeactivationCommand(this, repos, notify, context));
 
 
             if (id == Guid.Empty)
