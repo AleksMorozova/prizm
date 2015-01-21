@@ -112,24 +112,24 @@ namespace Prizm.Main.Forms.Settings
             wallThickness.SetRequiredText();
             SetConditional(seamType, delegate(bool editMode)
             {
-                return CheckReadonly(IsEditMode);
+                return IsEditable(IsEditMode);
             }
                         );
             SetConditional(pipeLength, delegate(bool editMode)
             {
-                return CheckReadonly(IsEditMode);
+                return IsEditable(IsEditMode);
             }
             );
 
             SetConditional(pipeDiameter, delegate(bool editMode)
             {
-                return CheckReadonly(IsEditMode);
+                return IsEditable(IsEditMode);
             }
             );
 
             SetConditional(wallThickness, delegate(bool editMode)
             {
-                return CheckReadonly(IsEditMode);
+                return IsEditable(IsEditMode);
             }
             );
             UpdateSeamTypesComboBox();
@@ -906,7 +906,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        private bool CheckReadonly(bool editMode)
+        private bool IsEditable(bool editMode)
         {
             return (CurrentPipeMillSizeType != null && editMode);
         }

@@ -14,7 +14,6 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
     {
-
         public HeatNumberXtraForm(string number)
         {
             InitializeComponent();

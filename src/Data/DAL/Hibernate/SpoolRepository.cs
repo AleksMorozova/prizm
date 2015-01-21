@@ -21,22 +21,6 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
 
-        public IList<Pipe> GetAvailablePipes()
-        {
-            try
-            {
-                return session
-                    .QueryOver<Pipe>()
-                    .Where(x => (x.ConstructionStatus == PartConstructionStatus.Pending) && (x.InspectionStatus == PartInspectionStatus.Accepted) && (x.IsActive))
-                    .List<Pipe>();
-            }
-            catch (GenericADOException ex)
-            {
-                throw new RepositoryException("Get", ex);
-            }
-
-        }
-
         public IList<Spool> GetAllSpoolFromPipe(string number)
         {
             try
