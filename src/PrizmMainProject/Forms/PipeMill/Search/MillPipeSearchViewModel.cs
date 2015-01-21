@@ -31,7 +31,7 @@ using Prizm.Main.Properties;
         private IList<Pipe> pipes;
         private IList<EnumWrapper<PipeMillStatus>> statusTypes;
         public IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes;
-        public IList<EnumWrapper<ActivityStatus>> ActivityTypes;
+        public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
@@ -39,7 +39,7 @@ using Prizm.Main.Properties;
         private string pipeNumber = String.Empty; 
 
         private EnumWrapper<PipeMillStatus> pipeMillStatus;
-        private EnumWrapper<ActivityStatus> activityArray;
+        private EnumWrapper<ActivityCriteria> activityArray;
 
         [Inject]
         public MillPipeSearchViewModel(
@@ -147,7 +147,7 @@ using Prizm.Main.Properties;
             }
         }
 
-        public EnumWrapper<ActivityStatus> ActivityArray
+        public EnumWrapper<ActivityCriteria> ActivityArray
         {
             get
             {
@@ -191,7 +191,7 @@ using Prizm.Main.Properties;
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
             CheckedStatusTypes = new List<EnumWrapper<PipeMillStatus>>();
-            ActivityTypes = new List<EnumWrapper<ActivityStatus>>();
+            ActivityTypes = new List<EnumWrapper<ActivityCriteria>>();
 
             foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
             {
@@ -202,9 +202,9 @@ using Prizm.Main.Properties;
                 }
             }
 
-            foreach (string activeType in Enum.GetNames(typeof(ActivityStatus))) 
+            foreach (string activeType in Enum.GetNames(typeof(ActivityCriteria))) 
             {
-                ActivityTypes.Add(new EnumWrapper<ActivityStatus>() { Name = activeType });
+                ActivityTypes.Add(new EnumWrapper<ActivityCriteria>() { Name = activeType });
             }
         }
 

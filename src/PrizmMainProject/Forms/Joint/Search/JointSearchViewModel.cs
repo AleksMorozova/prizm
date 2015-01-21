@@ -21,8 +21,8 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private readonly JointSearchCommand searchCommand;
         private readonly IJointRepository repo;
-        private EnumWrapper<ActivityStatus> activityArray;
-        public IList<EnumWrapper<ActivityStatus>> ActivityTypes;
+        private EnumWrapper<ActivityCriteria> activityArray;
+        public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
         #region BindingFields
 
-        public EnumWrapper<ActivityStatus> ActivityArray
+        public EnumWrapper<ActivityCriteria> ActivityArray
         {
             get
             {
@@ -175,11 +175,11 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void LoadStatuses()
         {
-            ActivityTypes = new List<EnumWrapper<ActivityStatus>>();
+            ActivityTypes = new List<EnumWrapper<ActivityCriteria>>();
 
-            foreach (string activeType in Enum.GetNames(typeof(ActivityStatus)))
+            foreach (string activeType in Enum.GetNames(typeof(ActivityCriteria)))
             {
-                ActivityTypes.Add(new EnumWrapper<ActivityStatus>() { Name = activeType });
+                ActivityTypes.Add(new EnumWrapper<ActivityCriteria>() { Name = activeType });
             }
         }
     }

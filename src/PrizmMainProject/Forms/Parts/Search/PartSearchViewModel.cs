@@ -30,8 +30,8 @@ namespace Prizm.Main.Forms.Parts.Search
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
             LoadStatuses();
         }
-        private EnumWrapper<ActivityStatus> activityArray;
-        public IList<EnumWrapper<ActivityStatus>> ActivityTypes;
+        private EnumWrapper<ActivityCriteria> activityArray;
+        public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
         private string activity;
         public string Activity
         {
@@ -88,7 +88,7 @@ namespace Prizm.Main.Forms.Parts.Search
             }
         }
         
-        public EnumWrapper<ActivityStatus> ActivityArray
+        public EnumWrapper<ActivityCriteria> ActivityArray
         {
             get
             {
@@ -119,11 +119,11 @@ namespace Prizm.Main.Forms.Parts.Search
 
         private void LoadStatuses()
         {
-            ActivityTypes = new List<EnumWrapper<ActivityStatus>>();
+            ActivityTypes = new List<EnumWrapper<ActivityCriteria>>();
 
-            foreach (string activeType in Enum.GetNames(typeof(ActivityStatus)))
+            foreach (string activeType in Enum.GetNames(typeof(ActivityCriteria)))
             {
-                ActivityTypes.Add(new EnumWrapper<ActivityStatus>() { Name = activeType });
+                ActivityTypes.Add(new EnumWrapper<ActivityCriteria>() { Name = activeType });
             }
         }
     }
