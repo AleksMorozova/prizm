@@ -3,6 +3,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Export;
@@ -180,8 +181,8 @@ namespace Prizm.Main.Synch.Import
          {
              if (!Directory.Exists( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments")))
              {
-                 Directory.CreateDirectory( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments"));
-                 DirectoryInfo directoryInfo = new DirectoryInfo( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments"));
+                 Directory.CreateDirectory(Directories.TargetPath);
+                 DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
                  directoryInfo.Attributes |= FileAttributes.Hidden;
              }
              pipe.Attachments = new List<Prizm.Domain.Entity.File>();
