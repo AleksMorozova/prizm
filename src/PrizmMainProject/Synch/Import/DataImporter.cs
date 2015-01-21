@@ -3,6 +3,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Export;
@@ -178,7 +179,13 @@ namespace Prizm.Main.Synch.Import
 
          if (pipeObj.Attachments != null)
          {
-            pipe.Attachments = new List<Prizm.Domain.Entity.File>();
+             if (!Directory.Exists(Directories.TargetPath))
+             {
+                 Directory.CreateDirectory(Directories.TargetPath);
+                 DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                 directoryInfo.Attributes |= FileAttributes.Hidden;
+             }
+             pipe.Attachments = new List<Prizm.Domain.Entity.File>();
             foreach (var fileObject in pipeObj.Attachments)
             {
                Prizm.Domain.Entity.File f = ImportFile(fileObject, pipe.Id);
