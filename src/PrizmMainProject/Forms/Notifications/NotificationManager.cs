@@ -3,86 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prizm.Main.Forms.Notifications.Request;
-
+using Prizm.Main.Forms.Notifications.Data;
+using Prizm.Main.Forms.Notifications.Strategy;
 
 namespace Prizm.Main.Forms.Notifications
 {
-    class NotificationManager
+    public class NotificationManager : INotificationManager
     {
+        StrategyNotificationFill strategyFill;
+        DataNotificationLoader loader;
+        TypeNotification type;
 
-        // Fields
-        private static NotificationManager StaticInstance;
-        private Dictionary<TypeNotification, INotificationRequest> listNotificationRequest;
-        private Dictionary<TypeNotification, IList<Notification>> listNotification;
-
-        // Events
-        public event EventHandler NotificationReload;
-
-        // Methods
-        private NotificationManager()
+        public NotificationManager(TypeNotification type)
         {
-            listNotification = new Dictionary<TypeNotification, IList<Notification>>();
-
-            listNotificationRequest = new Dictionary<TypeNotification, INotificationRequest>();
-            listNotificationRequest.Add(TypeNotification.DublicatePipeNumber, new NotificationRequest(new DuplicateNumberNotificationFactory()));
-            listNotificationRequest.Add(TypeNotification.ExpiredCertificate, new NotificationRequest(new CertificateNotificationFactory()));
-
-        }
-
-
-        public void RequestAllNotification()
-        {
-            foreach (var item in listNotificationRequest)
+            this.type = type;
+            switch (type)
             {
-                listNotification[item.Key] = item.Value.GetNotification();
-            }
-
-            EventHandler eventRefresh = this.NotificationReload;
-            if (eventRefresh != null)
-            {
-                eventRefresh(this, EventArgs.Empty);
-            }
-
-        }
-
-        private void RequestNotification(TypeNotification type)
-        {
-            listNotification[type] = listNotificationRequest[type].GetNotification();
-        }
-
-        public static NotificationManager Instance
-        {
-            get
-            {
-                if (StaticInstance == null)
-                {
-                    StaticInstance = new NotificationManager();
-                }
-                return StaticInstance;
+                case TypeNotification.DublicatePipeNumber:
+                    strategyFill = new DublicateNumberFill();
+                    loader = new DublicateNumberLoader(this);
+                    break;
+                case TypeNotification.ExpiredCertificate:
+                    this.strategyFill = new InspectorCertificateFill();
+                    loader = new InspectorCertificateLoader(this);
+                    break;
+                case TypeNotification.WelderCrtificateExpired:
+                    strategyFill = new WelderCertificateFill();
+                    loader = new WelderCertificateLoader(this);
+                    break;
+                default:
+                    throw new NotImplementedException();
+                    break;
             }
         }
 
-
-        // Properties
-        public List<Notification> Notifications
+        public IList<Notification> LoadNotificationFromDB()
         {
-            get
-            {
-                List<Notification> list = new List<Notification>();
-                list = listNotification.SelectMany(f => f.Value).ToList();
-                return list;
-            }
+            return loader.LoadNotificationFromDB();
         }
 
-        public int NotificationCount
+        public Notification CreateNotification(Guid ownerId, string ownerName, DateTime dateToOccur)
         {
-            get
-            {
-                return listNotification.SelectMany(f => f.Value).Count();
-            }
+            Notification notification = new Notification(ownerId, ownerName, type, dateToOccur);
+            strategyFill.FillAttribute(notification);
+            return notification;
         }
-
     }
-
 }
