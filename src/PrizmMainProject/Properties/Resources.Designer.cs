@@ -1549,16 +1549,7 @@ namespace Prizm.Main.Properties {
                 return ResourceManager.GetString("PipelineLengthReport", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Протяженность трубопровода.
-        /// </summary>
-        internal static string PipelineLengthReport {
-            get {
-                return ResourceManager.GetString("PipelineLengthReport", resourceCulture);
-            }
-        }
-        
+                
         /// <summary>
         ///   Looks up a localized string similar to Типоразмер трубы.
         /// </summary>
