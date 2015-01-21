@@ -179,7 +179,7 @@ namespace Prizm.Main.Synch.Import
 
          if (pipeObj.Attachments != null)
          {
-             if (!Directory.Exists( Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments")))
+             if (!Directory.Exists(Directories.TargetPath))
              {
                  Directory.CreateDirectory(Directories.TargetPath);
                  DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
