@@ -96,12 +96,12 @@ namespace Prizm.Main.Common
         /// <summary>
         /// RailCar limits
         /// </summary>
-        #region
+        #region RailcarLimits
         public const int MaxRailcarNumber = 20;
         public const int MaxReleaseNoteNumber = 20;
         public const int MaxRailcarCertificate = 20;
         public const int MaxRailcarDestination = 50;
-        #endregion
+        #endregion RailcarLimits
 
         public const int MaxTestResultValue = 25;
         public const int MaxTestResultStatus = 25;
@@ -128,22 +128,20 @@ namespace Prizm.Main.Common
         public const int MaxProjectTitle = 20;
         #endregion ProjectLimits
 
-        public const int MaxCoatType = 20;
-
         public const int MaxAuditlogUser = 50;
         public const int MaxAuditlogTableName = 200;
         public const int MaxAuditlogFieldName = 50;
         public const int MaxAuditlogOldvalue = 100;
         public const int MaxAuditlogNewValue = 100;
 
+        /// <summary>
+        /// Joint Limit
+        /// </summary>
+        /// 
+        #region JointLimits
         public const int MaxJointNumber = 20;
-        public const int MaxGPSCoordinate = 12;
-        public const int MaxSeaLevel = 10;
-        public const int MaxKPDistance = 10;
         public const int MaxJointTestResultValue = 20;
-
-
-
+        #endregion JointLimits
 
         /// <summary>
         /// Settings Limits
@@ -153,9 +151,9 @@ namespace Prizm.Main.Common
         public const int MaxSeamTypeName = 20;
         public const int MaxPipelineOperationLength = 50;
         public const int MaxComponentTypeName = 20;
+        public const int CertificateType = 30;
         #endregion SettingsLimits
 
-        public const int CertificateType = 30;
         /// <summary>
         /// Role limits
         /// </summary>
@@ -165,6 +163,22 @@ namespace Prizm.Main.Common
         public const int RoleDescription = 255;
         #endregion RoleLimits
 
+        /// <summary>
+        /// Component limits
+        /// </summary>
+        /// 
+        #region ComponentLimits
+        public const int ComponentNumber = 20;
+        public const int ComponentCertificate = 20;
+        #endregion ComponentLimits
+
+        /// <summary>
+        /// Spool limits
+        /// </summary>
+        /// 
+        #region SpoolLimits
+        public const int SpoolNumber = 20;
+        #endregion SpoolLimits
 
     }
 }
