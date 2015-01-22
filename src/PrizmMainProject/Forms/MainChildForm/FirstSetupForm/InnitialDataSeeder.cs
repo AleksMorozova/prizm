@@ -23,6 +23,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public bool SeedOptional(FirstSetupViewModel vm)
         {
+
             // first of all
             firstSetupRepo.BeginTransaction();
 
@@ -622,6 +623,16 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 }
                 pipe.PipeTestResult = results;
                 pipes.Add(pipe);
+                if(pipes.Count % 4 == 0)
+                {
+                    foreach(var item in pipe.PipeTestResult)
+                    {
+                        item.Status = PipeTestResultStatus.Passed;
+                    }
+                    pipe.Status = PipeMillStatus.Stocked;
+                }
+
+                
                 firstSetupRepo.PipeRepo.Save(pipe);
             };
             #endregion
@@ -721,6 +732,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = rnd.Next(1000),
                     Number = RndString(14),
                     Type = componentTypes[0],
+                    IsAvailableToJoint = true,
                     ToExport = true,
                     IsActive = true
                 };
@@ -749,6 +761,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = rnd.Next(1000),
                     Number = RndString(14),
                     Type = componentTypes[1],
+                    IsAvailableToJoint = true,
                     ToExport = true,
                     IsActive = true
                 };
@@ -777,6 +790,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = rnd.Next(1000),
                     Number = RndString(14),
                     Type = componentTypes[2],
+                    IsAvailableToJoint = true,
                     ToExport = true,
                     IsActive = true
                 };
@@ -805,6 +819,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = rnd.Next(1000),
                     Number = RndString(14),
                     Type = componentTypes[3],
+                    IsAvailableToJoint = true,
                     ToExport = true,
                     IsActive = true
                 };
@@ -823,8 +838,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             #endregion
             firstSetupRepo.Commit();
-            
-
 
             return false;
         }
@@ -856,7 +869,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             string result = String.Empty;
             if(size < 32)
             {
-                result = Guid.NewGuid().ToString("N").Substring(0, size);
+                result = Guid.NewGuid().ToString("N").Substring(0, size).ToUpper();
             }
             else
             {
