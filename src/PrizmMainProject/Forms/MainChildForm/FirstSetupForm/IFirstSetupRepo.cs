@@ -30,6 +30,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IPipeRepository PipeRepo { get; }
         IInspectorRepository InspectorRepo { get; }
         IPipeTestResultRepository PipeTestResultRepo { get; }
+        IWelderRepository WelderRepo { get; }
 
         void Commit();
         void BeginTransaction();

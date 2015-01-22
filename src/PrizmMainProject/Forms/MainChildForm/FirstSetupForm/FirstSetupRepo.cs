@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IPipeRepository pipeRepo;
         private readonly IInspectorRepository inspectorRepo;
         private readonly IPipeTestResultRepository pipeTestResultRepo;
+        private readonly IWelderRepository welderRepo;
 
         public FirstSetupRepo()
         {
@@ -56,7 +57,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.pipeRepo = new PipeRepository(session);
             this.inspectorRepo = new InspectorRepository(session);
             this.pipeTestResultRepo = new PipeTestResultRepository(session);
+            this.welderRepo = new WelderRepository(session);
         }
+        public IWelderRepository WelderRepo { get { return welderRepo; } }
+
         public IPipeTestResultRepository PipeTestResultRepo { get { return pipeTestResultRepo; } }
 
         public IInspectorRepository InspectorRepo { get { return inspectorRepo; } }

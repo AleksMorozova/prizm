@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 firstSetupRepo.SeemTypeRepo.Save(item);
             }
             firstSetupRepo.Commit();
-            
+
             #endregion
             firstSetupRepo.BeginTransaction();
             #region PipeMillSyzeType
@@ -51,7 +51,16 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Diameter = 1212,
                     Thickness = 12,
                     SeamType = seamTypes[0]
-                }
+                },
+                new PipeMillSizeType
+                {
+                    Type = "1500 X 100500 X 50 - Прямой",
+                    IsActive = true,
+                    Length = 9090,
+                    Diameter = 1212,
+                    Thickness = 12,
+                    SeamType = seamTypes[1]
+                },
             };
             Array.ForEach(types, s => firstSetupRepo.SizeTypeRepo.Save(s));
             #endregion
@@ -78,7 +87,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region PipeTest
             PipeTest[] tests = 
             {
-                #region creating pipetests
+                #region creating pipetests for first pipe size type
                 new PipeTest 
                 {
                     Code = "01",
@@ -273,6 +282,204 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     pipeType = types[0],
                     IsActive = true,
                     IsRequired = true
+                }, 
+	            #endregion
+
+                #region creating pipetests for second pipe size type
+                new PipeTest 
+                {
+                    Code = "01",
+                    Name = "Входной контроль листа",
+                    Category = categories[0],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "02",
+                    Name = "Сварка технологического шва",
+                    Category = categories[3],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "03",
+                    Name = "Сварка наружного шва",
+                    Category = categories[3],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "04",
+                    Name = "Сварка внутреннего шва",
+                    Category = categories[3],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "05",
+                    Name = "Экспандирование",
+                    Category = categories[0],
+                    ControlType = PipeTestControlType.Review,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "06",
+                    Name = "Обработка торцов",
+                    Category = categories[0],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "07",
+                    Name = "Гидроиспытание",
+                    Category = categories[0],
+                    ControlType = PipeTestControlType.Witness,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "08",
+                    Name = "Рентген сварного шва",
+                    Category = categories[1],
+                    ControlType = PipeTestControlType.Witness,
+                    ResultType = PipeTestResultType.String,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "09",
+                    Name = "АУЗК сварного шва",
+                    Category = categories[1],
+                    ControlType = PipeTestControlType.Witness,
+                    ResultType = PipeTestResultType.String,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "10",
+                    Name = "РУЗК концов сварного шва",
+                    Category = categories[1],
+                    ControlType = PipeTestControlType.Witness,
+                    ResultType = PipeTestResultType.String,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "11",
+                    Name = "МПК фаски",
+                    Category = categories[1],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.String,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "12",
+                    Name = "Наружный диаметр",
+                    Category = categories[1],
+                    ControlType = PipeTestControlType.Witness,
+                    ResultType = PipeTestResultType.Diapason,
+                    MinExpected = 1217,
+                    MaxExpected = 1221,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "13",
+                    Name = "Длина трубы",
+                    Category = categories[2],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Diapason,
+                    MinExpected = 9000,
+                    MaxExpected = 12400,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "21",
+                    Name = "Нанесение наружного покрытия",
+                    Category = categories[4],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "31",
+                    Name = "Нанесение внутреннего покрытия",
+                    Category = categories[5],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
+                },
+
+                new PipeTest 
+                {
+                    Code = "41",
+                    Name = "Складирование",
+                    Category = categories[0],
+                    ControlType = PipeTestControlType.Monitor,
+                    ResultType = PipeTestResultType.Boolean,
+                    pipeType = types[1],
+                    IsActive = true,
+                    IsRequired = true
                 } 
 	#endregion
             };
@@ -319,8 +526,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
-            firstSetupRepo.Commit();
-            firstSetupRepo.BeginTransaction();
             #region PurchaseOrder
             List<PurchaseOrder> orders = new List<PurchaseOrder>
             {
@@ -342,6 +547,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 1",
+                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
+                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },
@@ -350,6 +557,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 2",
+                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
+                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },
@@ -358,6 +567,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 3",
+                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
+                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },
@@ -368,7 +579,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.BeginTransaction();
             #region MillPipe
             List<Pipe> pipes = new List<Pipe>();
-            for(int i = 0; i < 150; i++)
+            for(int i = 0; i < 200; i++)
             {
                 var plate = new Plate
                     {
@@ -386,7 +597,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Mill = vm.MillName,
                     Diameter = types[0].Diameter,
                     WallThickness = types[0].Thickness,
-                    Type = types[0],
+                    Type = types[rnd.Next(1)],
                     PurchaseOrder = orders[orders.Count - 1],
                     Project = vm.Project,
                     Status = PipeMillStatus.Produced,
@@ -397,7 +608,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 pipe.RecalculateWeight();
 
                 var results = new List<PipeTestResult>();
-                foreach(var item in tests)
+                foreach(var item in tests.Where(x => x.pipeType == pipe.Type))
                 {
                     var testResult = new PipeTestResult
                     {
@@ -426,7 +637,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new InspectorCertificateType {Name = "МК (MT)",IsActive = true}
             };
             inspetorCertTypes.ForEach(s => firstSetupRepo.CertificateTypeRepo.Save(s));
-	        #endregion
+            #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
             #region Inspector
@@ -444,7 +655,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                         },
                         IsActive = true
                     };
-                insp.Certificates = CreateInspectorCertificates(insp,inspetorCertTypes);
+                insp.Certificates = CreateInspectorCertificates(insp, inspetorCertTypes);
                 inspectors.Add(insp);
                 firstSetupRepo.InspectorRepo.Save(insp);
             }
@@ -455,12 +666,42 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             #endregion
             firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
+            #region Welder
+            List<Welder> welders = new List<Welder>();
+
+            for(int i = 0; i < 30; i++)
+            {
+                var welder = new Welder
+                    {
+                        Grade = rnd.Next(6),
+                        Name = new PersonName
+                        {
+                            FirstName = RndName(fNames),
+                            LastName = RndName(lNames),
+                            MiddleName = RndName(mNames),
+                        },
+                        Stamp = RndString(12),
+                        Certificate = new Certificate 
+                        { 
+                            Number = RndString(14),
+                            ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)),
+                            IsActive = true
+                        },
+                        IsActive = true
+                    };
+                welders.Add(welder);
+                firstSetupRepo.WelderRepo.Save(welder);
+            }
+            #endregion
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
 
 
             return false;
         }
 
-        private IList<InspectorCertificate> CreateInspectorCertificates(Inspector insp, List<InspectorCertificateType >types)
+        private IList<InspectorCertificate> CreateInspectorCertificates(Inspector insp, List<InspectorCertificateType> types)
         {
             List<InspectorCertificate> certs = new List<InspectorCertificate>();
             foreach(var item in types)
@@ -468,13 +709,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 var iCert = new InspectorCertificate
                 {
                     Inspector = insp,
-                    Certificate = new Certificate {Number = RndString(6),ExpirationDate = DateTime.Now.AddDays(rnd.Next(60))},
+                    Certificate = new Certificate { Number = RndString(6), ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)) },
                     Type = item
                 };
                 certs.Add(iCert);
             }
             return certs;
-            
+
         }
 
         public bool SeedRequired(FirstSetupViewModel vm)
