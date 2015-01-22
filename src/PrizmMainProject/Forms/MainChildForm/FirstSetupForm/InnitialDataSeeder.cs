@@ -631,6 +631,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     }
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ConstructionStatus = PartConstructionStatus.Pending;
+                    pipe.IsAvailableToJoint = true;
                 }
 
                 

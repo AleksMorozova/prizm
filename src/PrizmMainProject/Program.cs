@@ -40,6 +40,7 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
+
             foreach(var item in args)
             {
                 if(item.Equals("seed"))
