@@ -25,9 +25,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
-        private const int connectedElementsCount = 2;
-        private Part[] connectedElements = new Part[connectedElementsCount];
-
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
@@ -42,6 +39,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
+
+        private PartData firstElement;
+        private PartData secondElement;
+
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
         public BindingList<JointOperation> ControlOperations;
@@ -49,6 +50,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public IList<Inspector> Inspectors { get; set; }
         public IList<Welder> Welders { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+
 
         public bool IsNew { get { return this.Joint.IsNew(); } }
 
@@ -92,18 +94,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                if (FirstElement != null)
+                if (Joint.FirstElement != null)
                 {
-                    connectedElements[0] = GetPart(FirstElement);
-                    FirstElement = GetPartDataFromList(Joint.FirstElement, connectedElements[0]);
+                    FirstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
                 }
-                if (FirstElement != null)
+                if (Joint.SecondElement != null)
                 {
-                    connectedElements[1] = GetPart(SecondElement);
-                    SecondElement = GetPartDataFromList(Joint.SecondElement, connectedElements[1]);
+                    SecondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
                 }
-
-                JointDisconnection();
 
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
@@ -365,12 +363,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public PartData FirstElement
         {
-            get { return Joint.FirstElement; }
+            get { return firstElement; }
             set
             {
-                if (value != Joint.FirstElement)
+                if (value != firstElement)
                 {
-                    Joint.FirstElement = value;
+                    firstElement = value;
                     RaisePropertyChanged("FirstElement");
                 }
             }
@@ -378,12 +376,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public PartData SecondElement
         {
-            get { return Joint.SecondElement; }
+            get { return secondElement; }
             set
             {
-                if (value != Joint.SecondElement)
+                if (value != secondElement)
                 {
-                    Joint.SecondElement = value;
+                    secondElement = value;
                     RaisePropertyChanged("SecondElement");
                 }
             }
@@ -431,10 +429,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            connectedElements[0] = GetPart(FirstElement);
-            connectedElements[1] = GetPart(SecondElement);
+            Joint.FirstElement = firstElement;
+            Joint.SecondElement = secondElement;
 
-            int commonDiameter = GetCommonDiameter(FirstElement, SecondElement);
+            var jointElements = new List<Part> { GetPart(firstElement), GetPart(secondElement) };
+
+            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
 
             if (FirstElement.Id == Guid.Empty ||
                 SecondElement.Id == Guid.Empty ||
@@ -443,7 +443,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 return false;
             }
 
-            foreach (var part in connectedElements)
+            foreach (var part in jointElements)
             {
                 if (part is construction.Component)
                 {
@@ -489,7 +489,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// </summary>
         public void JointDisconnection()
         {
-            foreach (var part in connectedElements)
+            var jointElements = new List<Part> { GetPart(this.Joint.FirstElement), GetPart(this.Joint.SecondElement) };
+
+            foreach (var part in jointElements)
             {
                 if (part == null) continue;
 
@@ -693,10 +695,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         }
                     }
                     // crutch for displaying data of connected elements
-                    if (FirstElement.Number != null && list.Where<PartData>(x => x.Id == FirstElement.Id).Count<PartData>() == 0)
-                        list.Add(FirstElement);
-                    if (SecondElement.Number != null && list.Where<PartData>(x => x.Id == SecondElement.Id).Count<PartData>() == 0)
-                        list.Add(SecondElement);
+                    if (Joint.FirstElement.Number != null && list.Where<PartData>(x => x.Id == Joint.FirstElement.Id).Count<PartData>() == 0)
+                        list.Add(Joint.FirstElement);
+                    if (Joint.SecondElement.Number != null && list.Where<PartData>(x => x.Id == Joint.SecondElement.Id).Count<PartData>() == 0)
+                        list.Add(Joint.SecondElement);
                 }
                 return list;
             }
@@ -793,9 +795,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void JointCut()
         {
-            if (connectedElements.Where<Part>(x => x == null).Count<Part>() == 0)
+            var jointElements = new List<Part> { GetPart(this.Joint.FirstElement), GetPart(this.Joint.SecondElement) };
+
+            if (jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
             {
-                var jointCutDialog = new JointCutDialog(connectedElements[0], connectedElements[1]);
+                var jointCutDialog = new JointCutDialog(jointElements[0], jointElements[1]);
 
                 if (jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
