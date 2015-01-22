@@ -33,6 +33,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IRailcarRepository railRepo;
         private readonly IPipeRepository pipeRepo;
         private readonly IInspectorRepository inspectorRepo;
+        private readonly IPipeTestResultRepository pipeTestResultRepo;
 
         public FirstSetupRepo()
         {
@@ -54,7 +55,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.railRepo = new RailcarRepository(session);
             this.pipeRepo = new PipeRepository(session);
             this.inspectorRepo = new InspectorRepository(session);
+            this.pipeTestResultRepo = new PipeTestResultRepository(session);
         }
+        public IPipeTestResultRepository PipeTestResultRepo { get { return pipeTestResultRepo; } }
+
         public IInspectorRepository InspectorRepo { get { return inspectorRepo; } }
 
         public IPipeRepository PipeRepo { get { return pipeRepo; } }

@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-            SaveInspectorCertificateTypes();
+           // SaveInspectorCertificateTypes();
             firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);

@@ -40,6 +40,8 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
+            //TODO: Remove before commit
+            isSeed = true;
             foreach(var item in args)
             {
                 if(item.Equals("seed"))

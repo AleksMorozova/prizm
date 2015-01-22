@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
-    public class InnitialDataSeeder
+    public class InnitialDataSeeder : IDisposable
     {
         IFirstSetupRepo firstSetupRepo;
 
@@ -32,10 +32,14 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new SeamType{Name = "Прямой", IsActive = true},
                 new SeamType{Name = "Спиралевидный", IsActive = true},
             };
-            Array.ForEach(seamTypes, s => firstSetupRepo.SeemTypeRepo.Save(s));
-
+            foreach(var item in seamTypes)
+            {
+                firstSetupRepo.SeemTypeRepo.Save(item);
+            }
+            firstSetupRepo.Commit();
+            
             #endregion
-
+            firstSetupRepo.BeginTransaction();
             #region PipeMillSyzeType
             PipeMillSizeType[] types = 
             {
@@ -47,11 +51,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Diameter = 1212,
                     Thickness = 12,
                     SeamType = seamTypes[0]
-                },
+                }
             };
             Array.ForEach(types, s => firstSetupRepo.SizeTypeRepo.Save(s));
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region PipeTestCategory
             Category[] categories = {
                 #region creating pipe test category
@@ -68,7 +73,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 firstSetupRepo.CategoryRepo.Save(category);
             }
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region PipeTest
             PipeTest[] tests = 
             {
@@ -223,7 +229,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "13",
                     Name = "Длина трубы",
-                    Category = categories[1],
+                    Category = categories[2],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Diapason,
                     MinExpected = 9000,
@@ -276,7 +282,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 firstSetupRepo.TestRepo.Save(test);
             }
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region PlateManufacturers
             PlateManufacturer[] plateManufacturers = 
             {
@@ -290,7 +297,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             };
             Array.ForEach(plateManufacturers, s => firstSetupRepo.PlateManRepo.Save(s));
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region Heat
             List<Heat> heats = new List<Heat>();
             for(int i = 0; i < 15; i++)
@@ -309,25 +317,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
 
             #endregion
-
-            #region Plate
-            List<Plate> plates = new List<Plate>();
-            for(int i = 0; i < 30; i++)
-            {
-                plates.Add
-                    (
-                    new Plate
-                    {
-                        Number = RndString(8),
-                        Thickness = rnd.Next(2000),
-                        Heat = heats[rnd.Next(heats.Count-1)],
-                        IsActive = true
-                    }
-                    );
-                firstSetupRepo.PlateRepo.Save(plates[i]);
-            }
-            #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region PurchaseOrder
             List<PurchaseOrder> orders = new List<PurchaseOrder>
             {
@@ -339,7 +332,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             };
             orders.ForEach(s => firstSetupRepo.PurchaseRepo.Save(s));
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region Railcar
             Domain.Entity.Mill.Railcar[] cars = 
             {
@@ -370,14 +364,25 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             };
             Array.ForEach(cars, s => firstSetupRepo.RailRepo.Save(s));
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region MillPipe
             List<Pipe> pipes = new List<Pipe>();
             for(int i = 0; i < 150; i++)
             {
+                var plate = new Plate
+                    {
+                        Number = RndString(8),
+                        Thickness = rnd.Next(2000),
+                        Heat = heats[rnd.Next(heats.Count - 1)],
+                        IsActive = true
+                    };
+                firstSetupRepo.PlateRepo.Save(plate);
+
                 var pipe = new Pipe
                 {
-                    Plate = plates[rnd.Next(plates.Count - 1)],
+                    Number = RndString(8),
+                    Plate = plate,
                     Mill = vm.MillName,
                     Diameter = types[0].Diameter,
                     WallThickness = types[0].Thickness,
@@ -385,15 +390,31 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     PurchaseOrder = orders[orders.Count - 1],
                     Project = vm.Project,
                     Status = PipeMillStatus.Produced,
+                    ProductionDate = DateTime.Now.AddDays(-rnd.Next(20)),
                     ToExport = true,
                     IsActive = true
                 };
                 pipe.RecalculateWeight();
+
+                var results = new List<PipeTestResult>();
+                foreach(var item in tests)
+                {
+                    var testResult = new PipeTestResult
+                    {
+                        Operation = item,
+                        Pipe = pipe,
+                        Status = PipeTestResultStatus.Scheduled
+                    };
+                    results.Add(testResult);
+                    firstSetupRepo.PipeTestResultRepo.Save(testResult);
+                }
+                pipe.PipeTestResult = results;
                 pipes.Add(pipe);
                 firstSetupRepo.PipeRepo.Save(pipe);
             };
             #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region InspectorCertificateTypes
             List<InspectorCertificateType> inspetorCertTypes = new List<InspectorCertificateType>
             {
@@ -406,7 +427,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             };
             inspetorCertTypes.ForEach(s => firstSetupRepo.CertificateTypeRepo.Save(s));
 	        #endregion
-
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
             #region Inspector
             List<Inspector> inspectors = new List<Inspector>();
             for(int i = 0; i < 20; i++)
@@ -426,6 +448,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 inspectors.Add(insp);
                 firstSetupRepo.InspectorRepo.Save(insp);
             }
+            #endregion
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
+            #region JointOperation
+
             #endregion
             //after All
             firstSetupRepo.Commit();
@@ -470,7 +497,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private string[] fNames = { "Иван", "Сергей", "Николай", "Петр", "Савелий", "Исаак", "Фрол" };
         private string[] lNames = { "Иванов", "Самойлов", "Снигирев", "Голубев", "Татарский", "Колинич", "Леонов" };
-        private string[] mNames = { "Петрович", "Николаевич", "Сергеевич", "Анатольевич", "УВладимирович", "Георгиевич", "Павлович" };
+        private string[] mNames = { "Петрович", "Николаевич", "Сергеевич", "Анатольевич", "Владимирович", "Георгиевич", "Павлович" };
 
 
         //random names
@@ -478,5 +505,14 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             return arr[rnd.Next(arr.Length - 1)];
         }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            firstSetupRepo.Dispose();
+        }
+
+        #endregion
     }
 }

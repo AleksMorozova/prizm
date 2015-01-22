@@ -29,6 +29,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IRailcarRepository RailRepo { get; }
         IPipeRepository PipeRepo { get; }
         IInspectorRepository InspectorRepo { get; }
+        IPipeTestResultRepository PipeTestResultRepo { get; }
 
         void Commit();
         void BeginTransaction();
