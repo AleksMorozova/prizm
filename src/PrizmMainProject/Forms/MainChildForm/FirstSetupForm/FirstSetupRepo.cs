@@ -26,6 +26,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private readonly IPipeTestRepository pipeTestsRepo;
         private readonly IMillPipeSizeTypeRepository sizeTypeRepo;
+        private readonly IPlateManufacturerRepository plateManRepo;
+        private readonly IHeatRepository heatRepo;
+        private readonly IPlateRepository plateRepo;
+        private readonly IPurchaseOrderRepository purchaseRepo;
+        private readonly IRailcarRepository railRepo;
 
         public FirstSetupRepo()
         {
@@ -40,7 +45,22 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.jointOperationRepo = new JointOperationRepository(session);
             this.pipeTestsRepo = new PipeTestRepository(session);
             this.sizeTypeRepo = new MillPipeSizeTypeRepository(session);
+            this.plateManRepo = new PlateManufacturerRepository(session);
+            this.heatRepo = new HeatRepository(session);
+            this.plateRepo = new PlateRepository(session);
+            this.purchaseRepo = new PurchaseOrderRepository(session);
+            this.railRepo = new RailcarRepository(session);
         }
+        public IRailcarRepository RailRepo { get { return railRepo; } }
+
+        public IPurchaseOrderRepository PurchaseRepo { get { return purchaseRepo; } }
+
+        public IPlateRepository PlateRepo { get { return plateRepo; } }
+
+        public IHeatRepository HeatRepo { get { return heatRepo; } }
+
+        public IPlateManufacturerRepository PlateManRepo
+        { get { return plateManRepo; } }
 
         public IPipeTestRepository TestRepo
         {

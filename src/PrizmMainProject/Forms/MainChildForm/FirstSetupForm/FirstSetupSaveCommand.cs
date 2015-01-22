@@ -60,7 +60,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             //seed oreration is bool type for any reason
             seeder.SeedRequired();
-            seeder.SeedOptional();
+            if(Program.IsSeed)
+            {
+                seeder.SeedOptional();
+            }
+            
 
         }
 

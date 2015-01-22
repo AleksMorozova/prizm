@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.firstSetupRepo = new FirstSetupRepo();
         }
 
+        private Random rnd = new Random();
+
         public bool SeedOptional()
         {
             // first of all
@@ -274,6 +276,104 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             #endregion
 
+            #region PlateManufacturers
+            PlateManufacturer[] plateManufacturers = 
+            {
+                new PlateManufacturer {Name = "Алапаевский металлургический завод", IsActive = true},
+                new PlateManufacturer {Name = "Альметьевский трубный завод", IsActive = true},
+                new PlateManufacturer {Name = "Борский трубный завод", IsActive = true},
+                new PlateManufacturer {Name = "Волжский трубный завод", IsActive = true},
+                new PlateManufacturer {Name = "Волгоградский трубный завод", IsActive = true},
+                new PlateManufacturer {Name = "Гурьевский металлургический завод", IsActive = true},
+                new PlateManufacturer {Name = "Завод Точлит", IsActive = true}
+            };
+            Array.ForEach(plateManufacturers, s => firstSetupRepo.PlateManRepo.Save(s));
+            #endregion
+
+            #region Heat
+            List<Heat> heats = new List<Heat>();
+            for(int i = 0; i < 15; i++)
+            {
+                heats.Add
+                    (
+                    new Heat
+                    {
+                        Number = RndString(8),
+                        SteelGrade = RndString(6),
+                        PlateManufacturer = plateManufacturers[rnd.Next(plateManufacturers.Length - 1)],
+                        IsActive = true
+                    }
+                    );
+                firstSetupRepo.HeatRepo.Save(heats[i]);
+            }
+
+            #endregion
+
+            #region Plate
+            List<Plate> plates = new List<Plate>();
+            for(int i = 0; i < 30; i++)
+            {
+                plates.Add
+                    (
+                    new Plate
+                    {
+                        Number = RndString(8),
+                        Thickness = rnd.Next(2000),
+                        Heat = heats[rnd.Next(heats.Count-1)],
+                        IsActive = true
+                    }
+                    );
+                firstSetupRepo.PlateRepo.Save(plates[i]);
+            }
+            #endregion
+
+            #region PurchaseOrder
+            List<PurchaseOrder> orders = new List<PurchaseOrder>
+            {
+                new PurchaseOrder {Number = RndString(5),Date = DateTime.Now.AddMonths(-rnd.Next(10)),IsActive=true},
+                new PurchaseOrder {Number = RndString(5),Date = DateTime.Now.AddMonths(-rnd.Next(10)),IsActive=true},
+                new PurchaseOrder {Number = RndString(5),Date = DateTime.Now.AddMonths(-rnd.Next(10)),IsActive=true},
+                new PurchaseOrder {Number = RndString(5),Date = DateTime.Now.AddMonths(-rnd.Next(10)),IsActive=true},
+                new PurchaseOrder {Number = RndString(5),Date = DateTime.Now.AddMonths(-rnd.Next(10)),IsActive=true}
+            };
+            orders.ForEach(s => firstSetupRepo.PurchaseRepo.Save(s));
+            #endregion
+
+            #region Railcar
+            Domain.Entity.Mill.Railcar[] cars = 
+            {
+                new Domain.Entity.Mill.Railcar
+                {
+                    Number = RndString(6),
+                    Certificate = RndString(8),
+                    Destination = "Строительство 1",
+                    IsShipped = false,
+                    IsActive = true
+                },
+                new Domain.Entity.Mill.Railcar
+                {
+                    Number = RndString(6),
+                    Certificate = RndString(8),
+                    Destination = "Строительство 2",
+                    IsShipped = false,
+                    IsActive = true
+                },
+                new Domain.Entity.Mill.Railcar
+                {
+                    Number = RndString(6),
+                    Certificate = RndString(8),
+                    Destination = "Строительство 3",
+                    IsShipped = false,
+                    IsActive = true
+                },
+            };
+            Array.ForEach(cars, s => firstSetupRepo.RailRepo.Save(s));
+            #endregion
+
+            #region MillPipe
+
+            #endregion
+
             //after All
             firstSetupRepo.Commit();
             return false;
@@ -282,6 +382,20 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public bool SeedRequired()
         {
             return false;
+        }
+
+        private string RndString(int size)
+        {
+            string result = String.Empty;
+            if(size < 32)
+            {
+                result = Guid.NewGuid().ToString("N").Substring(0, size);
+            }
+            else
+            {
+                throw new ArgumentException("Out of range");
+            }
+            return result;
         }
     }
 }
