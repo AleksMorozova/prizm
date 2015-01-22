@@ -8,11 +8,7 @@ namespace Prizm.Main.Forms.Notifications.Strategy
 {
     class WelderCertificateFill : StrategyNotificationFill
     {
-        internal override void SetFormTypeEditor(Notification notification)
-        {
-            notification.Editor = typeof(SettingsXtraForm);
-        }
-
+ 
         internal override void SetNotificationStatus(Notification notification)
         {
 

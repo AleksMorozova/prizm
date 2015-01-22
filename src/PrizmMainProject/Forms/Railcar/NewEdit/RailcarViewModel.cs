@@ -34,10 +34,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify)
+        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
 
             GetStoredPipes();
 
