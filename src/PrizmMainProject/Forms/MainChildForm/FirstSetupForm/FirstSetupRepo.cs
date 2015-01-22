@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
@@ -35,6 +36,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IInspectorRepository inspectorRepo;
         private readonly IPipeTestResultRepository pipeTestResultRepo;
         private readonly IWelderRepository welderRepo;
+        private readonly IComponentTypeRepository componentTypeRepo;
+        private readonly IComponentRepository componentRepo;
 
         public FirstSetupRepo()
         {
@@ -58,7 +61,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.inspectorRepo = new InspectorRepository(session);
             this.pipeTestResultRepo = new PipeTestResultRepository(session);
             this.welderRepo = new WelderRepository(session);
+            componentTypeRepo = new ComponentTypeRepository(session);
+            componentRepo = new ComponentRepository(session);
         }
+        public IComponentRepository ComponentRepo { get { return componentRepo; } }
+
+        public IComponentTypeRepository ComponentTypeRepo { get { return componentTypeRepo; } }
+
         public IWelderRepository WelderRepo { get { return welderRepo; } }
 
         public IPipeTestResultRepository PipeTestResultRepo { get { return pipeTestResultRepo; } }

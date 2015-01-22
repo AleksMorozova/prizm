@@ -1,4 +1,5 @@
 ﻿using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using System;
@@ -662,11 +663,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
-            #region JointOperation
-
-            #endregion
-            firstSetupRepo.Commit();
-            firstSetupRepo.BeginTransaction();
             #region Welder
             List<Welder> welders = new List<Welder>();
 
@@ -696,6 +692,138 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
+            #region ComponentType
+            ComponentType[] componentTypes = 
+            {
+                new ComponentType{Name = "Заглушка",ConnectorsCount = 1, IsActive = true},
+                new ComponentType{Name = "Переходник",ConnectorsCount = 2, IsActive = true},
+                new ComponentType{Name = "Т - Соединение",ConnectorsCount = 3, IsActive = true},
+                new ComponentType{Name = "Тройник",ConnectorsCount = 3, IsActive = true}
+            };
+            foreach(var item in componentTypes)
+            {
+                firstSetupRepo.ComponentTypeRepo.Save(item);
+            }
+            #endregion
+            firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
+            #region Component
+            List<Domain.Entity.Construction.Component> components = new List<Domain.Entity.Construction.Component>();
+
+            // 1 type component
+            for(int i = 0; i < 30; i++)
+            {
+                var component = new Domain.Entity.Construction.Component
+                {
+                    ConstructionStatus = PartConstructionStatus.Undefined,
+                    InspectionStatus = PartInspectionStatus.Undefined,
+                    Certificate = RndString(12),
+                    Length = rnd.Next(1000),
+                    Number = RndString(14),
+                    Type = componentTypes[0],
+                    ToExport = true,
+                    IsActive = true
+                };
+                for(int j = 0; j < componentTypes[0].ConnectorsCount; j++)
+                {
+                    var con = new Connector
+                    {
+                        Component = component,
+                        Diameter = rnd.Next(1217, 1221),
+                        WallThickness = rnd.Next(40, 50),
+                        IsActive = true
+                    };
+                    component.Connectors.Add(con);
+                }
+                firstSetupRepo.ComponentRepo.Save(component);
+            }
+
+            // 2 type component
+            for(int i = 0; i < 30; i++)
+            {
+                var component = new Domain.Entity.Construction.Component
+                {
+                    ConstructionStatus = PartConstructionStatus.Undefined,
+                    InspectionStatus = PartInspectionStatus.Undefined,
+                    Certificate = RndString(12),
+                    Length = rnd.Next(1000),
+                    Number = RndString(14),
+                    Type = componentTypes[1],
+                    ToExport = true,
+                    IsActive = true
+                };
+                for(int j = 0; j < componentTypes[1].ConnectorsCount; j++)
+                {
+                    var con = new Connector
+                    {
+                        Component = component,
+                        Diameter = rnd.Next(1217, 1221),
+                        WallThickness = rnd.Next(40, 50),
+                        IsActive = true
+                    };
+                    component.Connectors.Add(con);
+                }
+                firstSetupRepo.ComponentRepo.Save(component);
+            }
+
+            // 3 type component
+            for(int i = 0; i < 30; i++)
+            {
+                var component = new Domain.Entity.Construction.Component
+                {
+                    ConstructionStatus = PartConstructionStatus.Undefined,
+                    InspectionStatus = PartInspectionStatus.Undefined,
+                    Certificate = RndString(12),
+                    Length = rnd.Next(1000),
+                    Number = RndString(14),
+                    Type = componentTypes[2],
+                    ToExport = true,
+                    IsActive = true
+                };
+                for(int j = 0; j < componentTypes[2].ConnectorsCount; j++)
+                {
+                    var con = new Connector
+                    {
+                        Component = component,
+                        Diameter = rnd.Next(1217, 1221),
+                        WallThickness = rnd.Next(40, 50),
+                        IsActive = true
+                    };
+                    component.Connectors.Add(con);
+                }
+                firstSetupRepo.ComponentRepo.Save(component);
+            }
+
+            // 4 type component
+            for(int i = 0; i < 30; i++)
+            {
+                var component = new Domain.Entity.Construction.Component
+                {
+                    ConstructionStatus = PartConstructionStatus.Undefined,
+                    InspectionStatus = PartInspectionStatus.Undefined,
+                    Certificate = RndString(12),
+                    Length = rnd.Next(1000),
+                    Number = RndString(14),
+                    Type = componentTypes[3],
+                    ToExport = true,
+                    IsActive = true
+                };
+                for(int j = 0; j < componentTypes[3].ConnectorsCount; j++)
+                {
+                    var con = new Connector
+                    {
+                        Component = component,
+                        Diameter = rnd.Next(1217, 1221),
+                        WallThickness = rnd.Next(40, 50),
+                        IsActive = true
+                    };
+                    component.Connectors.Add(con);
+                }
+                firstSetupRepo.ComponentRepo.Save(component);
+            }
+            #endregion
+            firstSetupRepo.Commit();
+            
 
 
             return false;

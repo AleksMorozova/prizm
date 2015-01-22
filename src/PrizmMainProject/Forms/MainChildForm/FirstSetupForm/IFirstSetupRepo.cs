@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
 using Prizm.Data.DAL.Setup;
@@ -31,6 +32,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IInspectorRepository InspectorRepo { get; }
         IPipeTestResultRepository PipeTestResultRepo { get; }
         IWelderRepository WelderRepo { get; }
+        IComponentTypeRepository ComponentTypeRepo { get; }
+        IComponentRepository ComponentRepo { get; }
 
         void Commit();
         void BeginTransaction();
