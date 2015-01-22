@@ -715,8 +715,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var component = new Domain.Entity.Construction.Component
                 {
-                    ConstructionStatus = PartConstructionStatus.Undefined,
-                    InspectionStatus = PartInspectionStatus.Undefined,
+                    ConstructionStatus = PartConstructionStatus.Pending,
+                    InspectionStatus = PartInspectionStatus.Pending,
                     Certificate = RndString(12),
                     Length = rnd.Next(1000),
                     Number = RndString(14),
@@ -743,8 +743,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var component = new Domain.Entity.Construction.Component
                 {
-                    ConstructionStatus = PartConstructionStatus.Undefined,
-                    InspectionStatus = PartInspectionStatus.Undefined,
+                    ConstructionStatus = PartConstructionStatus.Pending,
+                    InspectionStatus = PartInspectionStatus.Pending,
                     Certificate = RndString(12),
                     Length = rnd.Next(1000),
                     Number = RndString(14),
@@ -771,8 +771,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var component = new Domain.Entity.Construction.Component
                 {
-                    ConstructionStatus = PartConstructionStatus.Undefined,
-                    InspectionStatus = PartInspectionStatus.Undefined,
+                    ConstructionStatus = PartConstructionStatus.Pending,
+                    InspectionStatus = PartInspectionStatus.Pending,
                     Certificate = RndString(12),
                     Length = rnd.Next(1000),
                     Number = RndString(14),
@@ -799,8 +799,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var component = new Domain.Entity.Construction.Component
                 {
-                    ConstructionStatus = PartConstructionStatus.Undefined,
-                    InspectionStatus = PartInspectionStatus.Undefined,
+                    ConstructionStatus = PartConstructionStatus.Pending,
+                    InspectionStatus = PartInspectionStatus.Pending,
                     Certificate = RndString(12),
                     Length = rnd.Next(1000),
                     Number = RndString(14),
