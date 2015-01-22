@@ -70,15 +70,16 @@ namespace Prizm.Main.Forms.Railcar.Search
             if (ShippingDate != DateTime.MinValue)
             {
                 sb.Append(string.Format(
-                    @"AND [shippingDate] = CAST('{0}' as date)", ShippingDate));
+                    @"AND [shippingDate] = cast('{0}-{1}-{2}' as date)", ShippingDate.Year, ShippingDate.Month, ShippingDate.Day));
             }
 
             if (ReleaseNoteDate != DateTime.MinValue)
             {
                 sb.Append(string.Format(
-                    @"AND [releaseNoteDate] = CAST('{0}' as date)", ReleaseNoteDate));
+                    @"AND [releaseNoteDate] = cast('{0}-{1}-{2}' as date)", ReleaseNoteDate.Year, ReleaseNoteDate.Month, ReleaseNoteDate.Day));
             }
 
+            
             return sb.ToString();
         }
     }
