@@ -630,6 +630,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                         item.Status = PipeTestResultStatus.Passed;
                     }
                     pipe.Status = PipeMillStatus.Stocked;
+                    pipe.ConstructionStatus = PartConstructionStatus.Pending;
                 }
 
                 
