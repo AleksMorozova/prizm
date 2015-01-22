@@ -414,6 +414,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipesSizeListGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.pipesSizeListGridView_InitNewRow);
             this.pipesSizeListGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.pipesSizeListGridView_FocusedRowChanged);
             this.pipesSizeListGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSizeListGridView_KeyDown);
+            this.pipesSizeListGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSizeListGridView_RowCellStyle);
             // 
             // pipeSizeGridColumn
             // 
