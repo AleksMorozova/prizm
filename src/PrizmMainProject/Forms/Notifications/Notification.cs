@@ -62,8 +62,6 @@ namespace Prizm.Main.Forms.Notifications
 
         public TypeNotification TypeNotification { get; private set; }
 
-        public Type Editor { get; set; }
-
         public byte[] Image
         {
             get

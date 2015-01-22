@@ -17,13 +17,11 @@ namespace Prizm.Main.Forms.Notifications.Strategy
     {
 
         // Methods
-        internal abstract void SetFormTypeEditor(Notification notification);
-
         internal abstract void SetNotificationStatus(Notification notification);
 
         public void FillAttribute(Notification notification)
         {
-            SetFormTypeEditor(notification);
+
             SetNotificationStatus(notification);
         }
 
