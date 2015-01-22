@@ -487,11 +487,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             pipeNumber.Properties.MaxLength = LengthLimit.MaxPipeNumber;
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
-            steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            resultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            //TODO: limit fields for Plate and heat parameters tab
         }
 
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
