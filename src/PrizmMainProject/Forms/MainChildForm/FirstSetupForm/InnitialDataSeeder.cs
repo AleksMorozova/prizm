@@ -95,7 +95,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "02",
                     Name = "Сварка технологического шва",
-                    Category = categories[0],
+                    Category = categories[3],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
@@ -107,7 +107,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "03",
                     Name = "Сварка наружного шва",
-                    Category = categories[0],
+                    Category = categories[3],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
@@ -119,7 +119,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "04",
                     Name = "Сварка внутреннего шва",
-                    Category = categories[0],
+                    Category = categories[3],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
@@ -243,7 +243,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "21",
                     Name = "Нанесение наружного покрытия",
-                    Category = categories[0],
+                    Category = categories[4],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
@@ -255,7 +255,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Code = "31",
                     Name = "Нанесение внутреннего покрытия",
-                    Category = categories[0],
+                    Category = categories[5],
                     ControlType = PipeTestControlType.Monitor,
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
@@ -454,8 +454,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region JointOperation
 
             #endregion
-            //after All
             firstSetupRepo.Commit();
+
+
             return false;
         }
 
