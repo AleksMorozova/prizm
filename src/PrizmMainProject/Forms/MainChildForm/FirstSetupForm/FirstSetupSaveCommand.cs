@@ -59,10 +59,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             var seeder = new InnitialDataSeeder();
 
             //seed oreration is bool type for any reason
-            seeder.SeedRequired();
+            seeder.SeedRequired(viewModel);
             if(Program.IsSeed)
             {
-                seeder.SeedOptional();
+                seeder.SeedOptional(viewModel);
             }
             
 

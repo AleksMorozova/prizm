@@ -1,4 +1,5 @@
-﻿using Prizm.Domain.Entity.Mill;
+﻿using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private Random rnd = new Random();
 
-        public bool SeedOptional()
+        public bool SeedOptional(FirstSetupViewModel vm)
         {
             // first of all
             firstSetupRepo.BeginTransaction();
@@ -371,15 +372,84 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #endregion
 
             #region MillPipe
-
+            List<Pipe> pipes = new List<Pipe>();
+            for(int i = 0; i < 150; i++)
+            {
+                var pipe = new Pipe
+                {
+                    Plate = plates[rnd.Next(plates.Count - 1)],
+                    Mill = vm.MillName,
+                    Diameter = types[0].Diameter,
+                    WallThickness = types[0].Thickness,
+                    Type = types[0],
+                    PurchaseOrder = orders[orders.Count - 1],
+                    Project = vm.Project,
+                    Status = PipeMillStatus.Produced,
+                    ToExport = true,
+                    IsActive = true
+                };
+                pipe.RecalculateWeight();
+                pipes.Add(pipe);
+                firstSetupRepo.PipeRepo.Save(pipe);
+            };
             #endregion
 
+            #region InspectorCertificateTypes
+            List<InspectorCertificateType> inspetorCertTypes = new List<InspectorCertificateType>
+            {
+                new InspectorCertificateType {Name = "Покрытия (Coating)",IsActive = true},
+                new InspectorCertificateType {Name = "РК (RT)",IsActive = true},
+                new InspectorCertificateType {Name = "ВИК (VT)",IsActive = true},
+                new InspectorCertificateType {Name = "УК (UT)",IsActive = true},
+                new InspectorCertificateType {Name = "НАКС (Welding Engineer)",IsActive = true},
+                new InspectorCertificateType {Name = "МК (MT)",IsActive = true}
+            };
+            inspetorCertTypes.ForEach(s => firstSetupRepo.CertificateTypeRepo.Save(s));
+	        #endregion
+
+            #region Inspector
+            List<Inspector> inspectors = new List<Inspector>();
+            for(int i = 0; i < 20; i++)
+            {
+                var insp = new Inspector
+                    {
+                        Grade = rnd.Next(6),
+                        Name = new PersonName
+                        {
+                            FirstName = RndName(fNames),
+                            LastName = RndName(lNames),
+                            MiddleName = RndName(mNames),
+                        },
+                        IsActive = true
+                    };
+                insp.Certificates = CreateInspectorCertificates(insp,inspetorCertTypes);
+                inspectors.Add(insp);
+                firstSetupRepo.InspectorRepo.Save(insp);
+            }
+            #endregion
             //after All
             firstSetupRepo.Commit();
             return false;
         }
 
-        public bool SeedRequired()
+        private IList<InspectorCertificate> CreateInspectorCertificates(Inspector insp, List<InspectorCertificateType >types)
+        {
+            List<InspectorCertificate> certs = new List<InspectorCertificate>();
+            foreach(var item in types)
+            {
+                var iCert = new InspectorCertificate
+                {
+                    Inspector = insp,
+                    Certificate = new Certificate {Number = RndString(6),ExpirationDate = DateTime.Now.AddDays(rnd.Next(60))},
+                    Type = item
+                };
+                certs.Add(iCert);
+            }
+            return certs;
+            
+        }
+
+        public bool SeedRequired(FirstSetupViewModel vm)
         {
             return false;
         }
@@ -396,6 +466,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 throw new ArgumentException("Out of range");
             }
             return result;
+        }
+
+        private string[] fNames = { "Иван", "Сергей", "Николай", "Петр", "Савелий", "Исаак", "Фрол" };
+        private string[] lNames = { "Иванов", "Самойлов", "Снигирев", "Голубев", "Татарский", "Колинич", "Леонов" };
+        private string[] mNames = { "Петрович", "Николаевич", "Сергеевич", "Анатольевич", "УВладимирович", "Георгиевич", "Павлович" };
+
+
+        //random names
+        public string RndName(string[] arr)
+        {
+            return arr[rnd.Next(arr.Length - 1)];
         }
     }
 }

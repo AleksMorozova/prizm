@@ -31,6 +31,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IPlateRepository plateRepo;
         private readonly IPurchaseOrderRepository purchaseRepo;
         private readonly IRailcarRepository railRepo;
+        private readonly IPipeRepository pipeRepo;
+        private readonly IInspectorRepository inspectorRepo;
 
         public FirstSetupRepo()
         {
@@ -50,7 +52,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.plateRepo = new PlateRepository(session);
             this.purchaseRepo = new PurchaseOrderRepository(session);
             this.railRepo = new RailcarRepository(session);
+            this.pipeRepo = new PipeRepository(session);
+            this.inspectorRepo = new InspectorRepository(session);
         }
+        public IInspectorRepository InspectorRepo { get { return inspectorRepo; } }
+
+        public IPipeRepository PipeRepo { get { return pipeRepo; } }
+
         public IRailcarRepository RailRepo { get { return railRepo; } }
 
         public IPurchaseOrderRepository PurchaseRepo { get { return purchaseRepo; } }
