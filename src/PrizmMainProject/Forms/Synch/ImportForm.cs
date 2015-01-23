@@ -19,7 +19,6 @@ namespace Prizm.Main.Forms.Synch
    public partial class ImportForm : XtraForm
    {
       readonly DataImporter importer;
-      CancellationTokenSource tokenSource = new CancellationTokenSource();
       [Inject]
       public ImportForm(DataImporter importer)
       {
@@ -97,7 +96,7 @@ namespace Prizm.Main.Forms.Synch
           dialog.ShowDialog();
           if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
           {
-              tokenSource.Cancel();
+              importer.TaskIsCancelled = true;                        
           }
       }
 
@@ -142,8 +141,7 @@ namespace Prizm.Main.Forms.Synch
       private void btnImport_Click(object sender, EventArgs e)
       {
          EnableImportButton(false);
-         var token = tokenSource.Token;
-          new Task(() => importer.Import(txtArchive.Text), token).Start();
+         new Task(() => importer.Import(txtArchive.Text)).Start();
       }
 
       private void ImportForm_FormClosing(object sender, FormClosingEventArgs e)

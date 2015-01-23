@@ -679,7 +679,6 @@
     <Compile Include="Synch\Import\ImportRepository.cs" />
     <Compile Include="Synch\Import\ImportResult.cs" />
     <Compile Include="Synch\Import\DataImporter.cs" />
-    <Compile Include="Synch\Import\MissingArgs.cs" />
     <Compile Include="Synch\Import\MissingEventArgs.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentObject.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentTypeObject.cs" />

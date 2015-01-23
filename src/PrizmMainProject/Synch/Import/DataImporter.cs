@@ -23,6 +23,7 @@ namespace Prizm.Main.Synch.Import
     public class DataImporter : Importer, IDisposable
     {
         readonly IImportRepository importRepo;
+        public bool TaskIsCancelled { get; set; }
 
         [Inject]
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
@@ -71,10 +72,6 @@ namespace Prizm.Main.Synch.Import
             return ImportResult.Success;
         }
 
-        public void PrepareToImport(string tempDir)
-        {
-        
-        }
         
         void ImportData(string tempDir)
         {
@@ -88,12 +85,14 @@ namespace Prizm.Main.Synch.Import
 
             Project project = ImportProject(data.Project);
             CheckProjectSequence(project, manifest.PortionNumber);
-            IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, tempDir);
-            IList<Joint> importedJoints = ImportJoints(manifest, data, tempDir);
-            IList<Component> importedComponents = ImportComponents(manifest, data, tempDir);
+            if (!TaskIsCancelled)
+            {
+                IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, tempDir);
+                IList<Joint> importedJoints = ImportJoints(manifest, data, tempDir);
+                IList<Component> importedComponents = ImportComponents(manifest, data, tempDir);
 
-            SavePortionInfo(manifest, importedPipes, importedJoints, importedComponents, project);
-
+                SavePortionInfo(manifest, importedPipes, importedJoints, importedComponents, project);
+            }
             importRepo.PipeRepo.Commit();
 
             progress = 100;
