@@ -16,6 +16,7 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity;
 using Prizm.Main.Common;
 using System.IO;
+using Prizm.Main.Security;
 
 namespace Prizm.UnitTests.Forms.ExternalFile
 {
@@ -41,6 +42,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             var view = new Mock<IModifiable>();
             var railcarRepo = new Mock<IRailcarRepository>();
             var pipeRepo = new Mock<IPipeRepository>();
+            var ctx = new Mock<ISecurityContext>();
             pipeRepo.Setup(x => x.GetStored()).Returns(new List<Pipe>() { new Pipe() });
             var repos = new Mock<IRailcarRepositories>();
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
@@ -52,7 +54,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             
             fileViewModel.FilesToAttach.Add("test.txt", "test.txt");
 
-            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object);
+            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object, ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
@@ -61,7 +63,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             viewModel.ModifiableView = view.Object;
             viewModel.FilesFormViewModel = fileViewModel;
             viewModel.Railcar.Pipes.Add(new Pipe());
-            var command = new SaveRailcarCommand(viewModel, repos.Object, notify.Object);
+            var command = new SaveRailcarCommand(viewModel, repos.Object, notify.Object, ctx.Object);
 
             command.Execute();
             

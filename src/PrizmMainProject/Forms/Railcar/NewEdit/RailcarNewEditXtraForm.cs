@@ -45,11 +45,17 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             shippedDate.Properties.NullDate = DateTime.MinValue;
             shippedDate.Properties.NullText = string.Empty;
 
+            releaseNoteDate.Properties.NullDate = DateTime.MinValue;
+            releaseNoteDate.Properties.NullText = string.Empty;
+
             this.railcarNumber.SetRequiredText();
+            this.releaseNoteDate.SetRequiredText();
+            this.releaseNoteNumber.SetRequiredText();
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
+            this.releaseNoteNumber.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 
@@ -76,6 +82,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
             shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
+            releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
         }
 
@@ -147,6 +155,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
+            releaseNoteNumber.Properties.MaxLength = LengthLimit.MaxReleaseNoteNumber;
         }
 
         private void ButtonRefresh()
@@ -194,6 +203,18 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private void shipButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ReleaseNoteNumber = releaseNoteNumber.EditValue.ToString();
+            commandManager.RefreshVisualState();
+        }
+
+        private void releaseNoteDate_EditValueChanged(object sender, EventArgs e)
+        {
+            viewModel.ReleaseNoteDate = releaseNoteDate.DateTime;
+            commandManager.RefreshVisualState();
         }
     }
 }

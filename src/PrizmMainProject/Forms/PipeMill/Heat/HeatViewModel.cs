@@ -148,7 +148,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
                 IsActive = true,
                 Number = number,
                 SteelGrade = string.Empty,
-                PlateManufacturer = manufacrurers[0],
+                PlateManufacturer = (manufacrurers.Count == 0)? null : manufacrurers[0],
                 Plates = new List<Plate>()
             };
 

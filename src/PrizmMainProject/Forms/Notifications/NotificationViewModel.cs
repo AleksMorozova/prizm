@@ -15,7 +15,7 @@ namespace Prizm.Main.Forms.Notifications
 
         public NotificationViewModel()
         {
-            notification =  NotificationManager.Instance.Notifications;
+            notification =  NotificationService.Instance.Notifications;
         }
 
         public List<Notification> Notification

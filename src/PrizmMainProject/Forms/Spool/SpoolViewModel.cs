@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -35,14 +36,15 @@ namespace Prizm.Main.Forms.Spool
         public Prizm.Domain.Entity.Construction.Spool Spool { get; set; }
         public BindingList<Pipe> allPipes { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+        private readonly ISecurityContext ctx;
 
         public bool IsNew { get { return this.Spool.IsNew(); } }
 
         [Inject]
-        public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify)
+        public SpoolViewModel(ISpoolRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
             this.repos = repos;
-
+            this.ctx = ctx;
             this.notify = notify;
             this.Inspectors = repos.RepoInspector.GetAll();
 
@@ -50,10 +52,10 @@ namespace Prizm.Main.Forms.Spool
               () => new EditPipeForCutCommand(this, repos, notify));
 
             saveCommand = ViewModelSource.Create<SaveSpoolCommand>(
-            () => new SaveSpoolCommand(this, repos, notify));
+            () => new SaveSpoolCommand(this, repos, notify, ctx));
 
             deactivateCommand = ViewModelSource.Create<SpoolDeactivationCommand>(
-                () => new SpoolDeactivationCommand(repos, this, notify));
+                () => new SpoolDeactivationCommand(repos, this, notify, ctx));
 
             allPipes = new BindingList<Pipe>();
 

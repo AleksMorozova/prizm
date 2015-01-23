@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -31,6 +32,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
+        private readonly ISecurityContext ctx;
         private readonly SaveJointCommand saveJointCommand;
         private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
@@ -57,24 +59,26 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             IConstructionRepository repoConstruction, 
             IUserNotify notify, 
             Guid id, 
-            Prizm.Data.DAL.IMillReportsRepository adoRepo)
+            Prizm.Data.DAL.IMillReportsRepository adoRepo,
+            ISecurityContext ctx)
         {
             this.repoConstruction = repoConstruction;
             this.JointId = id;
             this.notify = notify;
             this.adoRepo = adoRepo;
+            this.ctx = ctx;
 
             #region Commands
             saveOrUpdateJointCommand =
-                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify));
+                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify, ctx));
             saveJointCommand =
-              ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
+              ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify, ctx));
             newSaveJointCommand =
-              ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify));
+              ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify, ctx));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
             jointdeactivationCommand = 
-                ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify));
+                ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             #endregion
