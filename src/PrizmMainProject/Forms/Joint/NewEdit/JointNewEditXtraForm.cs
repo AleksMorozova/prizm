@@ -397,10 +397,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void SetControlsTextLength()
         {
             jointNumber.Properties.MaxLength = LengthLimit.MaxJointNumber;
-            GPSLat.Properties.MaxLength = LengthLimit.MaxGPSCoordinate;
-            GPSLong.Properties.MaxLength = LengthLimit.MaxGPSCoordinate;
-            seaLevel.Properties.MaxLength = LengthLimit.MaxSeaLevel;
-            distanceFromPK.Properties.MaxLength = LengthLimit.MaxKPDistance;
             ResultValueTextEdit.MaxLength = LengthLimit.MaxJointTestResultValue;
         }
 

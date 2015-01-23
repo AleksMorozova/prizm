@@ -514,6 +514,12 @@
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Languages\ILocalizable.cs" />
+    <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\MissingPortionsDialog.Designer.cs">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Languages\LocalizedItem.cs" />

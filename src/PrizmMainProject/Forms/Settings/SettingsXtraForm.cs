@@ -899,33 +899,44 @@ namespace Prizm.Main.Forms.Settings
         bool IValidatable.Validate()
         {
             bool codeValidate = true;
+            bool pipeSizeValidate = true;
 
             if(pipeLayoutControlGroup.Tag != null)
             {
-                codeValidate = false;
-                for(int i = 0; i < inspectionView.RowCount; i++)
-                {
-                    if (Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
-                    {
-                        inspectionView.FocusedRowHandle = i;
-
-                        inspectionView_ValidateRow(
-                            inspectionView,
-                            new DevExpress.XtraGrid.Views.Base
-                                .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
-                    }
-                }
+                codeValidate = CodeValidation();
+                pipeSizeValidate = PipeSizeValidation();
             }
+            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate;
+        }
 
+        private bool PipeSizeValidation()
+        {
             var pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
                                         pipesSizeListGridView.FocusedRowHandle,
                                         pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
                                    );
             pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
 
-            codeValidate = PipeTestsCheck();
+            return pipeSizeEventArg.Valid;
+        }
 
-            return dxValidationProvider.Validate() && codeValidate && pipeSizeEventArg.Valid;
+        private bool CodeValidation()
+        {
+            bool codeValidate = false;
+            for(int i = 0; i < inspectionView.RowCount; i++)
+            {
+                if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
+                {
+                    inspectionView.FocusedRowHandle = i;
+
+                    inspectionView_ValidateRow(
+                        inspectionView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                }
+            }
+            codeValidate = PipeTestsCheck();
+            return codeValidate;
         }
 
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)

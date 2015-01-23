@@ -34,10 +34,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify)
+        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
 
             GetStoredPipes();
 
@@ -52,10 +53,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             else
             {
                 Railcar = repos.RailcarRepo.Get(id);
-                if (!Railcar.ShippingDate.HasValue)
-                {
-                    Railcar.ShippingDate = DateTime.MinValue;
-                }
+                
             }
             
         }
@@ -69,43 +67,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
 
-        public string ReleaseNoteNumber
-        {
-            get { return Railcar.ReleaseNoteNumber; }
-            set
-            {
-                if (value != Railcar.ReleaseNoteNumber)
-                {
-                    Railcar.ReleaseNoteNumber = value;
-                    RaisePropertyChanged("ReleaseNoteNumber");
-                }
-            }
-        }
-
-        public DateTime ReleaseNoteDate
-        {
-            get
-            {
-                if (Railcar.ReleaseNoteDate.HasValue)
-                {
-                    return Railcar.ReleaseNoteDate.Value;
-                }
-                else
-                {
-                    return DateTime.MinValue;
-                }
-
-            }
-            set
-            {
-                if (value != Railcar.ReleaseNoteDate)
-                {
-                    Railcar.ReleaseNoteDate = value;
-                    RaisePropertyChanged("ReleaseNoteDate");
-                }
-            }
-        }
-
+      
         public string Number
         {
             get { return Railcar.Number; }
@@ -145,29 +107,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
         }
 
-        public DateTime ShippingDate
-        {
-            get 
-            {
-                if (Railcar.ShippingDate.HasValue)
-                {
-                    return Railcar.ShippingDate.Value;
-                }
-                else
-                {
-                    return DateTime.MinValue;
-                }
-            
-            }
-            set
-            {
-                if (value != Railcar.ShippingDate)
-                {
-                    Railcar.ShippingDate = value;
-                    RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
+      
 
         public bool IsShipped
         {
@@ -283,11 +223,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 Railcar = new Prizm.Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
             }
 
-            ReleaseNoteNumber = string.Empty;
-            ReleaseNoteDate = DateTime.MinValue;
             Number = string.Empty;
             Destination = string.Empty;
-            ShippingDate = DateTime.MinValue;
             Certificate = string.Empty;
 
             Pipes = new List<Pipe>();

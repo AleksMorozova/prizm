@@ -118,7 +118,6 @@ namespace Prizm.UnitTests
         public void TestMainForm(System.Type type)
         {
             var filter = new TypeFilter(InterfaceFilter);
-            var mainForm = new PrizmApplicationXtraForm();
 
             var typeArr = type.FindInterfaces(filter, typeof(INewEditEntityForm));
 

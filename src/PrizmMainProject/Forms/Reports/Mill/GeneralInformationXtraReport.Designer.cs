@@ -382,38 +382,46 @@
             // 
             // xrLabel44
             // 
+            this.xrLabel44.ForeColor = System.Drawing.Color.Black;
             this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(792.9348F, 25.08332F);
             this.xrLabel44.Name = "xrLabel44";
             this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel44.SizeF = new System.Drawing.SizeF(94.08325F, 36F);
             this.xrLabel44.StyleName = "FieldCaption";
+            this.xrLabel44.StylePriority.UseForeColor = false;
             this.xrLabel44.Text = "Временный брак ";
             // 
             // xrLabel43
             // 
+            this.xrLabel43.ForeColor = System.Drawing.Color.Black;
             this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(887.0181F, 25.08332F);
             this.xrLabel43.Name = "xrLabel43";
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel43.SizeF = new System.Drawing.SizeF(70.50015F, 57.875F);
             this.xrLabel43.StyleName = "FieldCaption";
+            this.xrLabel43.StylePriority.UseForeColor = false;
             this.xrLabel43.Text = "Принято после ремонта";
             // 
             // xrLabel42
             // 
+            this.xrLabel42.ForeColor = System.Drawing.Color.Black;
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(720.8698F, 25.08332F);
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel42.SizeF = new System.Drawing.SizeF(72.06506F, 36F);
             this.xrLabel42.StyleName = "FieldCaption";
+            this.xrLabel42.StylePriority.UseForeColor = false;
             this.xrLabel42.Text = "Принято";
             // 
             // xrLabel41
             // 
+            this.xrLabel41.ForeColor = System.Drawing.Color.Black;
             this.xrLabel41.LocationFloat = new DevExpress.Utils.PointFloat(957.5182F, 25.08332F);
             this.xrLabel41.Name = "xrLabel41";
             this.xrLabel41.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel41.SizeF = new System.Drawing.SizeF(57.48178F, 36F);
             this.xrLabel41.StyleName = "FieldCaption";
+            this.xrLabel41.StylePriority.UseForeColor = false;
             this.xrLabel41.Text = "Брак";
             // 
             // pageFooterBand1

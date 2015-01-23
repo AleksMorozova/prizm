@@ -49,6 +49,7 @@
     <Compile Include="Entity\Construction\PartType.cs" />
     <Compile Include="Entity\Mill\ActivityCriteria.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
+    <Compile Include="Entity\Mill\ReleaseNote.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\FixedCategory.cs" />
