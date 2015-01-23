@@ -590,8 +590,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 1",
-                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
-                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },
@@ -600,8 +598,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 2",
-                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
-                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },
@@ -610,8 +606,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Number = RndString(6),
                     Certificate = RndString(8),
                     Destination = "Строительство 3",
-                    ReleaseNoteDate = DateTime.Now.AddDays(-rnd.Next(60)),
-                    ReleaseNoteNumber = RndString(12),
                     IsShipped = false,
                     IsActive = true
                 },

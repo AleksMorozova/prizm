@@ -871,7 +871,6 @@ namespace Prizm.Main.Synch.Import
          railcar.Number = railcarObj.Number;
          railcar.Certificate = railcarObj.Certificate;
          railcar.Destination = railcarObj.Destination;
-         railcar.ShippingDate = railcarObj.ShippingDate;
          railcar.IsShipped = railcarObj.IsShipped;
 
          if (isNew)
