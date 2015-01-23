@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace Prizm.Main.Forms.Synch
    public partial class ImportForm : XtraForm
    {
       readonly DataImporter importer;
-
+      CancellationTokenSource tokenSource = new CancellationTokenSource();
       [Inject]
       public ImportForm(DataImporter importer)
       {
@@ -30,6 +31,7 @@ namespace Prizm.Main.Forms.Synch
          importer.OnConflict += importer_OnConflict;
          importer.OnMessage += importer_OnMessage;
          importer.OnProgress += importer_OnProgress;
+         importer.OnMissing += importer_OnMissing;
       }
 
       void SetProgressBar(int progress)
@@ -89,6 +91,17 @@ namespace Prizm.Main.Forms.Synch
          args.ForAll = dlg.ForAll;
       }
 
+      void importer_OnMissing(MissingEventArgs args)
+      {
+          MissingPortionsDialog dialog = new MissingPortionsDialog(args.Portions, args.MillName);
+          dialog.ShowDialog();
+          if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
+          {
+              tokenSource.Cancel();
+          }
+      }
+
+
       void importer_OnError(ImportException e)
       {
          string msg = e.Message;
@@ -122,14 +135,15 @@ namespace Prizm.Main.Forms.Synch
 
          if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
          {
-            txtArchive.Text = dlg.FileName;
+            txtArchive.Text = dlg.FileName;        
          }
       }
 
       private void btnImport_Click(object sender, EventArgs e)
       {
          EnableImportButton(false);
-         new Task(() => importer.Import(txtArchive.Text)).Start();
+         var token = tokenSource.Token;
+          new Task(() => importer.Import(txtArchive.Text), token).Start();
       }
 
       private void ImportForm_FormClosing(object sender, FormClosingEventArgs e)

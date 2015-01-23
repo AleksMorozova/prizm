@@ -679,6 +679,8 @@
     <Compile Include="Synch\Import\ImportRepository.cs" />
     <Compile Include="Synch\Import\ImportResult.cs" />
     <Compile Include="Synch\Import\DataImporter.cs" />
+    <Compile Include="Synch\Import\MissingArgs.cs" />
+    <Compile Include="Synch\Import\MissingEventArgs.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentObject.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\ConnectorObject.cs" />
@@ -868,6 +870,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
