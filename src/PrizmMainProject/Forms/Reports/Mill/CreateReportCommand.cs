@@ -58,10 +58,14 @@ namespace Prizm.Main.Forms.Reports.Mill
                 }
                 else if (viewModel.SelectedReportType == ReportType.General)
                 {
-                    data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
-                    GeneralInformationXtraReport report = new GeneralInformationXtraReport();
-                    report.DataSource = data;
-                    report.CreateDocument();
+                    //data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
+                    //GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                    //report.DataSource = data;
+                    MainXtraReport report = new MainXtraReport();
+                    SubXtraReport report2 = new SubXtraReport();
+                    report2.param.Value = "1";
+                    report.RequestParameters = false;
+                    report.xrSubreport1.ReportSource = report2;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();

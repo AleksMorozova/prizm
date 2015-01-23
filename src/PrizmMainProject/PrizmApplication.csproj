@@ -478,8 +478,20 @@
     <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.Designer.cs">
       <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\MainXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\MainXtraReport.Designer.cs">
+      <DependentUpon>MainXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\SubXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\SubXtraReport.Designer.cs">
+      <DependentUpon>SubXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
     <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
       <SubType>Form</SubType>
@@ -813,6 +825,9 @@
     <EmbeddedResource Include="Forms\Reports\Mill\GeneralInformationXtraReport.resx">
       <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\MainXtraReport.resx">
+      <DependentUpon>MainXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -831,6 +846,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\SubXtraReport.resx">
+      <DependentUpon>SubXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.resx">
       <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
