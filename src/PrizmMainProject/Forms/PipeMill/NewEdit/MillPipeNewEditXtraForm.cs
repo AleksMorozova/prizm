@@ -31,6 +31,7 @@ using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.DXErrorProvider;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -111,6 +112,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             // Select tab depending on is new pipe or existed
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
+
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -277,6 +279,31 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             commandManager.RefreshVisualState();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>() 
+                { 
+                    // layout items
+                    new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                    // controls
+                    new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                    // grid column headers
+                    new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                    // layout control groups
+                    new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                    // other
+                };
+        }
+
+        #endregion // --- Localization ---
+
 
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
@@ -849,6 +876,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             dxValidationProvider.SetValidationRule(plateNumber, notBlankValidationRule);
             #endregion
         }
+
     }
 }
 
