@@ -54,7 +54,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             
             fileViewModel.FilesToAttach.Add("test.txt", "test.txt");
 
-            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object);
+            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object, ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
