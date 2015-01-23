@@ -50,7 +50,6 @@ namespace Prizm.Main.Forms.MainChildForm
                     {
                         case DialogResult.Cancel:
                             e.Cancel = true;
-                            return;
                             break;
                         case DialogResult.No:
                             AutoValidate = System.Windows.Forms.AutoValidate.Disable;
