@@ -19,6 +19,7 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Spool;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
@@ -68,6 +69,31 @@ namespace Prizm.Main.Forms.Parts.Search
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
+
+    
         private void type_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
             RefreshTypes();

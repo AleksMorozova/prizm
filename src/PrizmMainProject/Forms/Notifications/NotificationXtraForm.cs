@@ -13,6 +13,7 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Settings;
+using Prizm.Main.Languages;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -76,7 +77,7 @@ namespace PrizmMain.Forms.Notifications
                     break;
                 default:
                     throw new NotImplementedException();
-                    break;
+                    //break; // unreachable code
             }
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
@@ -90,6 +91,30 @@ namespace PrizmMain.Forms.Notifications
                 parent.OpenChildForm(typeEditor, id);
             }
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void NotificationXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {

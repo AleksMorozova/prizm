@@ -16,5 +16,6 @@ namespace Prizm.Main.Languages
         ResourceManager Default { get; }
         CultureInfo CurrentCulture { get; }
         CultureInfo DefaultCulture { get; }
+        int LanguagesCount { get; }
     }
 }
