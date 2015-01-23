@@ -23,13 +23,9 @@ namespace Prizm.Domain.Entity
         /// </summary>
         public virtual PartInspectionStatus GetPartInspectionStatus()
         {
-            PartInspectionStatus status;
+            PartInspectionStatus status = PartInspectionStatus.Pending;
 
-            if (this.InspectionTestResults.Count == 0)
-            {
-                status = PartInspectionStatus.Pending;
-            }
-            else
+            if (this.InspectionTestResults != null && this.InspectionTestResults.Count > 0)
             {
                 if (this.InspectionTestResults.Where(_ => _.Date == this.InspectionTestResults.Max(x => x.Date)).Count() > 1)
                 {
@@ -41,6 +37,7 @@ namespace Prizm.Domain.Entity
                     status = this.InspectionTestResults.Where(_ => _.Date == this.InspectionTestResults.Max(x => x.Date)).Single().Status;
                 }
             }
+            
             return status;
         }
     }
