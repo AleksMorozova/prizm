@@ -19,7 +19,7 @@ namespace Prizm.Main.Forms.Audit
     {
         private AuditViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
-
+        
         public AuditXtraForm()
         {
             InitializeComponent();
@@ -42,6 +42,8 @@ namespace Prizm.Main.Forms.Audit
             endDate.DataBindings.Add("EditValue", viewModel, "EndDate");
             auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");
             user.DataBindings.Add("EditValue", viewModel, "SelectedUser");
+            number.DataBindings.Add("EditValue", viewModel, "Number");
+            number.SetAsIdentifier();
         }
 
         private void BindCommands()
@@ -79,6 +81,32 @@ namespace Prizm.Main.Forms.Audit
             viewModel.Dispose();
             viewModel = null;
         }
+
+
+        private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadioGroup edit = sender as RadioGroup;
+
+            if (edit.SelectedIndex == 0)
+            {
+                startDate.Enabled = true;
+                endDate.Enabled = true;
+
+                user.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByPeriod;
+            }
+            else
+            {
+                user.Enabled = true;
+
+                startDate.Enabled = false;
+                endDate.Enabled = false;
+
+                viewModel.TracingMode = TracingModeEnum.TracingByUser;
+            }
+        }
+
 
     }
 }
