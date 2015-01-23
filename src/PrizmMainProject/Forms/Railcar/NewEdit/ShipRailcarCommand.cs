@@ -47,10 +47,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             else
             {
-                if(viewModel.Railcar.ShippingDate == DateTime.MinValue || viewModel.Railcar.ShippingDate == null)
-                {
-                    viewModel.Railcar.ShippingDate = DateTime.Now;
-                }
+                
 
                 foreach(var pipe in viewModel.Railcar.Pipes)
                 {
@@ -66,11 +63,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            return (!viewModel.Railcar.IsShipped 
-                && !string.IsNullOrWhiteSpace(viewModel.Number) 
-                && viewModel.Pipes.Count != 0 
-                && !string.IsNullOrWhiteSpace(viewModel.ReleaseNoteNumber)
-                && viewModel.ReleaseNoteDate != DateTime.MinValue);
+            return (!viewModel.Railcar.IsShipped
+                && !string.IsNullOrWhiteSpace(viewModel.Number)
+                && viewModel.Pipes.Count != 0);
         }
     }
 }

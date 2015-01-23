@@ -22,10 +22,6 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Number = railcar.Number;
          this.Certificate = railcar.Certificate;
          this.Destination = railcar.Destination;
-         if (railcar.ShippingDate != null)
-         {
-            this.ShippingDate = railcar.ShippingDate.Value;
-         }
          this.IsShipped = railcar.IsShipped;
       }
 

@@ -203,13 +203,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.ReleaseNoteNumber = releaseNoteNumber.EditValue.ToString();
+           
             commandManager.RefreshVisualState();
         }
 
         private void releaseNoteDate_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.ReleaseNoteDate = releaseNoteDate.DateTime;
+            
             commandManager.RefreshVisualState();
         }
     }
