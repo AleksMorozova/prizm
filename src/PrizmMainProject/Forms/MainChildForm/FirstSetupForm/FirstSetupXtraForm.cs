@@ -12,10 +12,12 @@ using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
 using Ninject;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
-    public partial class FirstSetupXtraForm : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class FirstSetupXtraForm : PrizmForm
     {
         FirstSetupViewModel viewModel;
 
@@ -48,6 +50,18 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstName.DataBindings.Add("EditValue", bindingSource, "FirstName");
             middleName.DataBindings.Add("EditValue", bindingSource, "MiddleName");
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void saveButton_Click(object sender, EventArgs e)
         {

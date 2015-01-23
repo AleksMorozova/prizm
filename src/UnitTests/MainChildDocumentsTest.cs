@@ -32,12 +32,20 @@ using Prizm.Main.Forms.PipeMill;
 using Prizm.Main.Forms.Joint;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Forms.Common;
+using Prizm.Main.Languages;
 
 namespace Prizm.UnitTests
 {
     [TestFixture]
     public class MainChildDocumentsTest
     {
+        [TestCase(typeof(AppSplashScreen), typeof(ILocalizable))]
+        [TestCase(typeof(AppWaitForm), typeof(ILocalizable))]
+        public void ImplementsInterface(System.Type type, System.Type interf)
+        {
+            Assert.IsTrue(type.GetInterfaces().Contains(interf), string.Format("{0} does not implement {1}!", type.Name, interf.Name));
+        }
+
 
         [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildForm))]
         [TestCase(typeof(MillPipeSearchXtraForm), typeof(ChildForm))]
@@ -65,8 +73,6 @@ namespace Prizm.UnitTests
         [TestCase(typeof(JointCutDialog), typeof(PrizmForm))]
         [TestCase(typeof(SelectDiameterDialog), typeof(PrizmForm))]
         [TestCase(typeof(FirstSetupXtraForm), typeof(PrizmForm))]
-        [TestCase(typeof(AppSplashScreen), typeof(PrizmForm))]
-        [TestCase(typeof(AppWaitForm), typeof(PrizmForm))]
         [TestCase(typeof(CreationDialog), typeof(PrizmForm))]
         [TestCase(typeof(NumbersDialog), typeof(PrizmForm))]
         [TestCase(typeof(PurchaseOrderXtraForm), typeof(PrizmForm))]

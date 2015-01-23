@@ -11,10 +11,12 @@ using DevExpress.XtraEditors;
 using Prizm.Main.Properties;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Component.NewEdit;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public partial class CreationDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class CreationDialog : PrizmForm
     {
         public CreationDialog(string elementNumber)
         {
@@ -23,6 +25,19 @@ namespace Prizm.Main.Forms.Parts.Inspection
             partRadioGroup.Properties.Items[0].Description = Resources.Spool;
             partRadioGroup.Properties.Items[1].Description = Resources.Component;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
+
 
         /// <summary>
         /// Setup of dialog testResult: if yes - spool was selected, no - component

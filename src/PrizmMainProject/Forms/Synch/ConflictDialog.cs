@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +13,8 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Synch
 {
-   public partial class ConflictDialog : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ConflictDialog : PrizmForm
    {
       ConflictDecision decision = ConflictDecision.Undef;
 
@@ -26,6 +29,18 @@ namespace Prizm.Main.Forms.Synch
 
          lblDesc.Text = msg;
       }
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+          };
+      }
+
+      #endregion // --- Localization ---
 
       private void btnReplace_Click(object sender, EventArgs e)
       {

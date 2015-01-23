@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Prizm.Main.Forms.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,8 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Settings
 {
-   public partial class PasswordChangeDialog : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class PasswordChangeDialog : PrizmForm
    {
       string passwordHash = string.Empty;
 
@@ -33,7 +36,19 @@ namespace Prizm.Main.Forms.Settings
       }
 
       public string NewPasswordHash { get; set; }
-   
+
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+          };
+      }
+
+      #endregion // --- Localization ---
 
       private void btnOk_Click(object sender, EventArgs e)
       {

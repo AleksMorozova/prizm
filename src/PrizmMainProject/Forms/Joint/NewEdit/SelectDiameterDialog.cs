@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public partial class SelectDiameterDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class SelectDiameterDialog : PrizmForm
     {
 
         public int Diameter { get; set; }
@@ -30,6 +33,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 diametersIntersection.Properties.Items.Add(t);
             }
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void diametersIntersection_SelectedIndexChanged(object sender, EventArgs e)
         {
