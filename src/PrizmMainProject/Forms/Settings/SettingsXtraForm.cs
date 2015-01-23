@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-
+using System.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
@@ -39,6 +39,7 @@ namespace Prizm.Main.Forms.Settings
         private PipeMillSizeType CurrentPipeMillSizeType;
         private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
+        private List<string> pipeSizesDuplicates; 
 
         public SettingsXtraForm()
         {
@@ -238,11 +239,16 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            GridView view = sender as GridView;
+            object sizeType = view.GetRow(view.FocusedRowHandle);
 
-            GridView v = sender as GridView;
-            object sizeType = v.GetRow(e.FocusedRowHandle);
+            var eArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
+                             view.FocusedRowHandle,
+                              pipesSizeListGridView.GetDataRow(view.FocusedRowHandle)
+                       );
+            pipesSizeListGridView_ValidateRow(pipesSizeListGridView, eArg);
 
-            if(sizeType != null)
+            if (sizeType != null)
             {
                 viewModel.UpdatePipeTests(sizeType);
             }
@@ -250,7 +256,40 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
             viewModel.ModifiableView.UpdateState();
+        }
 
+        private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            var view = sender as GridView;
+            pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
+
+            if (pipeSizesDuplicates.Count > 0)
+            {
+                view.SetColumnError(pipeSizeGridColumn, Resources.UNIQUE_VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            else
+            {
+                e.Valid = true;
+                view.ClearColumnErrors();
+            }
+        }
+
+        private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            if (e.Column.ToString() == "Типоразмер")
+            {
+                if (pipeSizesDuplicates.Count > 0)
+                {
+                    foreach (var item in pipeSizesDuplicates)
+                    {
+                        if ((e.CellValue != null) && (item == e.CellValue.ToString()))
+                        {
+                            e.Appearance.ForeColor = Color.Red;
+                        }
+                    }
+                }
+            }
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
@@ -404,28 +443,43 @@ namespace Prizm.Main.Forms.Settings
         {
             client.Properties.MaxLength = LengthLimit.MaxProjectClient;
             millName.Properties.MaxLength = LengthLimit.MaxProjectMillName;
+            projectTitle.Properties.MaxLength = LengthLimit.MaxProjectTitle;
             pipeNumberMask.Properties.MaxLength = LengthLimit.MaxPipeNumber;
             manufacturerRepositoryTextEdit.MaxLength = LengthLimit.MaxPlateManufacturerName;
-            typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipetestResultType;
+          
             codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
             controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
-            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
+
             welderFNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderFirstName;
             welderLNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderLastName;
             welderMNRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderMiddleName;
             welderCertificateTextEdit.MaxLength = LengthLimit.MaxWelderCertificate;
             stampRepositoryTextEdit.MaxLength = LengthLimit.MaxWelderStamp;
+
             inspectorFNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorFirstName;
             inspectorLNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorLastName;
             inspectorMNRepositoryTextEdit.MaxLength = LengthLimit.MaxInspectorMiddleName;
-            inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            //inspectorCertificateTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+
             typeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeMillSizeType;
-            codeRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestCode;
-            controlNameRepositoryTextEdit.MaxLength = LengthLimit.MaxPipeTestName;
-            subjectRepositoryItemEdit.MaxLength = LengthLimit.MaxPipeTestSubject;
             controlTypeItems.MaxLength = LengthLimit.MaxPipeTestControlType;
             resultTypeItems.MaxLength = LengthLimit.MaxPipetestResultType;
+
             categoryRepositoryTextEdit.MaxLength = LengthLimit.MaxCategoryName;
+
+            seamTypeRepositoryTextEdit.MaxLength = LengthLimit.MaxSeamTypeName;
+            pipelineOperationNameRepositoryItem.MaxLength = LengthLimit.MaxPipelineOperationLength;
+            componentTypeNameRepositoryItemTextEdit.MaxLength = LengthLimit.MaxComponentTypeName;
+            certificateTypeRepositoryItemTextEdit.MaxLength = LengthLimit.CertificateType;
+            inspectorSertificateNumberRepositoryItemTextEdit.MaxLength = LengthLimit.MaxInspectorCertificate;
+            userLoginRepositoryItemTextEdit.MaxLength= LengthLimit.UserLogin;
+            lastNameRepositoryItemTextEdit.MaxLength=LengthLimit.UserLastName;
+            userFirstNameRepositoryItemTextEdit.MaxLength = LengthLimit.UserFirstName;
+            userMiddleNameRepositoryItemTextEdit.MaxLength = LengthLimit.UserMiddleName;
+
+            roleNameRepositoryItemTextEdit1.MaxLength = LengthLimit.RoleName;
+            roleDescriptionRepositoryItemTextEdit1.MaxLength = LengthLimit.RoleDescription;
+
 
         }
 
@@ -858,38 +912,44 @@ namespace Prizm.Main.Forms.Settings
         bool IValidatable.Validate()
         {
             bool codeValidate = true;
+            bool pipeSizeValidate = true;
 
             if(pipeLayoutControlGroup.Tag != null)
             {
-                codeValidate = false;
-                for(int i = 0; i < inspectionView.RowCount; i++)
-                {
-                    if (Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
-                    {
-                        inspectionView.FocusedRowHandle = i;
+                codeValidate = CodeValidation();
+                pipeSizeValidate = PipeSizeValidation();
+            }
+            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate;
+        }
 
-                        inspectionView_ValidateRow(
-                            inspectionView,
-                            new DevExpress.XtraGrid.Views.Base
-                                .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
-                    }
-                }
+        private bool PipeSizeValidation()
+        {
+            var pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
+                                        pipesSizeListGridView.FocusedRowHandle,
+                                        pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
+                                   );
+            pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
 
-                foreach(PipeTest t in viewModel.PipeTests)
+            return pipeSizeEventArg.Valid;
+        }
+
+        private bool CodeValidation()
+        {
+            bool codeValidate = false;
+            for(int i = 0; i < inspectionView.RowCount; i++)
+            {
+                if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
                 {
-                    if(t.Code != null && t.Name != null && t.Category != null)
-                    {
-                        codeValidate = true;
-                    }
-                    else
-                    {
-                        codeValidate = false;
-                    }
+                    inspectionView.FocusedRowHandle = i;
+
+                    inspectionView_ValidateRow(
+                        inspectionView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
                 }
             }
-
-
-            return dxValidationProvider.Validate() && codeValidate;
+            codeValidate = PipeTestsCheck();
+            return codeValidate;
         }
 
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -978,6 +1038,41 @@ namespace Prizm.Main.Forms.Settings
         private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             IsModified = true;
+        }
+
+        private bool PipeTestsCheck()
+        {
+            bool codeValidate = true;
+
+            if (viewModel.PipeTests.Count > 0)
+            {
+                foreach (PipeTest t in viewModel.PipeTests)
+                {
+                    if (t.Code == null && t.Name == null)
+                    {
+                        codeValidate = false;
+                        inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                codeValidate = false;
+                inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+            }
+
+            return codeValidate;
+        }
+
+        private List<string> FindDuplicatesInTypeSizesGrid()
+        {
+            var pipeSizes = viewModel.PipeMillSizeType;
+
+            return pipeSizes.GroupBy(x => x.Type)
+                             .Where(g => g.Count() > 1)
+                             .Select(g => g.Key)
+                             .ToList();
         }
         
     }

@@ -45,6 +45,35 @@ namespace Prizm.Main.Forms.Railcar.Search
         }
 
         #region Search Fields
+
+        private string releaseNoteNumber = "";
+        public string ReleaseNoteNumber
+        {
+            get { return releaseNoteNumber; }
+            set
+            {
+                if (value != releaseNoteNumber)
+                {
+                    releaseNoteNumber = value;
+                    RaisePropertyChanged("ReleaseNoteNumber");
+                }
+            }
+        }
+
+        private DateTime releaseNoteDate = DateTime.MinValue;
+        public DateTime ReleaseNoteDate
+        {
+            get { return releaseNoteDate; }
+            set
+            {
+                if (value != releaseNoteDate)
+                {
+                    releaseNoteDate = value;
+                    RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+
         private string railcarNumber = "";
         public string RailcarNumber
         {

@@ -15,6 +15,7 @@ using NHibernate;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
+using Prizm.Main.Security;
 
 namespace Prizm.UnitTests.Forms.Parts
 {
@@ -32,6 +33,7 @@ namespace Prizm.UnitTests.Forms.Parts
             var repoComponent = new Mock<IComponentRepository>();
             var repoInspectionTestResult = new Mock<IInspectionTestResultRepository>();
             var modifiableView = new Mock<IModifiable>();
+            var ctx = new Mock<ISecurityContext>();
 
             Mock<IPartInspectionRepository> repos = new Mock<IPartInspectionRepository>();
             repos.SetupGet(_ => _.RepoComponent).Returns(repoComponent.Object);
@@ -41,10 +43,13 @@ namespace Prizm.UnitTests.Forms.Parts
             repos.SetupGet(_ => _.RepoSpool).Returns(repoSpool.Object);
 
             List<InspectionTestResult> list = new List<InspectionTestResult>() { new InspectionTestResult() };
-            var viewModel = new PartInspectionViewModel(session.Object, repos.Object, notify.Object);
+            var viewModel = new PartInspectionViewModel(session.Object, repos.Object, notify.Object, ctx.Object);
             viewModel.ModifiableView = modifiableView.Object;
             list.Add(new InspectionTestResult());
             Pipe part = new Pipe() { InspectionTestResults = list};
+
+            repos.Setup(_ => _.RepoPipe.Get(It.IsAny<Guid>())).Returns(part);
+
             Main.Forms.Parts.Search.Part notConverted = new Main.Forms.Parts.Search.Part()
             {
                 Id = part.Id,
@@ -52,8 +57,10 @@ namespace Prizm.UnitTests.Forms.Parts
             };
             repoInspectionTestResult.Setup(_ => _.GetByPartId(notConverted.Id)).Returns(list);
             viewModel.SelectedElement = notConverted;
-            var command = new SaveInspectionTestResultsCommand(repoInspectionTestResult.Object, viewModel, notify.Object);
+            var command = new SaveInspectionTestResultsCommand(repoInspectionTestResult.Object, viewModel, notify.Object, ctx.Object);
+           
             command.Execute();
+
             repoInspectionTestResult.Verify(_ => _.BeginTransaction(), Times.Once);
             repoInspectionTestResult.Verify(_ => _.SaveOrUpdate(It.IsAny<InspectionTestResult>()), Times.AtLeastOnce);
 

@@ -288,12 +288,14 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
+    <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\WelderCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\INotificationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
-    <Compile Include="Forms\Notifications\Request\AbstractNotificationFactory.cs" />
-    <Compile Include="Forms\Notifications\Request\CertificateNotificationFactory.cs" />
-    <Compile Include="Forms\Notifications\Request\DuplicateNumberNotificationFactory.cs" />
-    <Compile Include="Forms\Notifications\Request\INotificationRequest.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
+    <Compile Include="Forms\Notifications\NotificationService.cs" />
     <Compile Include="Forms\Notifications\NotificationViewModel.cs" />
     <Compile Include="Forms\Notifications\NotificationXtraForm.cs">
       <SubType>Form</SubType>
@@ -301,7 +303,10 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Notifications\Request\NotificationRequest.cs" />
+    <Compile Include="Forms\Notifications\Strategy\DublicateNumberFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
     <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -504,6 +509,12 @@
     </Compile>
     <Compile Include="Forms\Synch\ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\MissingPortionsDialog.Designer.cs">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />

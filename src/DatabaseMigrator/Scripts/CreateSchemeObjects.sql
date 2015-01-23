@@ -45,7 +45,7 @@ CREATE TABLE [dbo].[SeamType](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
-	[name] [nvarchar](30) NULL,
+	[name] [nvarchar](20) NULL,
 
  CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (
@@ -430,6 +430,8 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
+	[releaseNoteNumber] [nvarchar](20) NULL,
+	[releaseNoteDate] [date] NULL,
 	[number] [nvarchar](20) NULL,
 	[certificate] [nvarchar](20) NULL,
 	[destination] [nvarchar](50) NULL,

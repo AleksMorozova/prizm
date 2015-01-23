@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Ninject;
 using System.Text;
 using Prizm.Main.Security;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -38,6 +39,7 @@ namespace Prizm.Main.Forms.Spool
             this.id = id;
 
             InitializeComponent();
+            SetControlsTextLength();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             pipeNumber.SetAsIdentifier();
@@ -261,6 +263,12 @@ namespace Prizm.Main.Forms.Spool
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void SetControlsTextLength()
+        {
+            spoolNumber.Properties.MaxLength = LengthLimit.SpoolNumber;
+
         }
     }
 }
