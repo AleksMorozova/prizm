@@ -42,9 +42,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
 
-            shippedDate.Properties.NullDate = DateTime.MinValue;
-            shippedDate.Properties.NullText = string.Empty;
-
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
 
@@ -80,7 +77,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
