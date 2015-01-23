@@ -70,7 +70,6 @@
     <Compile Include="DAL\Hibernate\FileRepository.cs" />
     <Compile Include="DAL\Hibernate\HeatRepository.cs" />
     <Compile Include="DAL\Hibernate\HibernateUtil.cs" />
-    <Compile Include="DAL\Hibernate\IdNumber.cs" />
     <Compile Include="DAL\Hibernate\InspectionTestResultRepository.cs" />
     <Compile Include="DAL\Hibernate\InspectorCertificateTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\InspectorRepository.cs" />
