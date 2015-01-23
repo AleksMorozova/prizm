@@ -581,7 +581,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.BeginTransaction();
             #region MillPipe
             List<Pipe> pipes = new List<Pipe>();
-            for(int i = 0; i < 200; i++)
+            for(int i = 0; i < 2200; i++)
             {
                 var plate = new Plate
                     {
@@ -723,125 +723,48 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region Component
             List<Domain.Entity.Construction.Component> components = new List<Domain.Entity.Construction.Component>();
 
-            // 1 type component
-            for(int i = 0; i < 30; i++)
+            foreach(var type in componentTypes)
             {
-                var component = new Domain.Entity.Construction.Component
+                for(int i = 0; i < 300; i++)
                 {
-                    ConstructionStatus = PartConstructionStatus.Pending,
-                    InspectionStatus = PartInspectionStatus.Pending,
-                    Certificate = RndString(12),
-                    Length = rnd.Next(1000),
-                    Number = RndString(14),
-                    Type = componentTypes[0],
-                    IsAvailableToJoint = true,
-                    ToExport = true,
-                    IsActive = true
-                };
-                for(int j = 0; j < componentTypes[0].ConnectorsCount; j++)
-                {
-                    var con = new Connector
-                    {
-                        Component = component,
-                        Diameter = rnd.Next(1217, 1221),
-                        WallThickness = rnd.Next(40, 50),
-                        IsActive = true
-                    };
-                    component.Connectors.Add(con);
+                    var component = CreateComponent(type);
+                    firstSetupRepo.ComponentRepo.Save(component);
+                    components.Add(component);
                 }
-                firstSetupRepo.ComponentRepo.Save(component);
             }
-
-            // 2 type component
-            for(int i = 0; i < 30; i++)
-            {
-                var component = new Domain.Entity.Construction.Component
-                {
-                    ConstructionStatus = PartConstructionStatus.Pending,
-                    InspectionStatus = PartInspectionStatus.Pending,
-                    Certificate = RndString(12),
-                    Length = rnd.Next(1000),
-                    Number = RndString(14),
-                    Type = componentTypes[1],
-                    IsAvailableToJoint = true,
-                    ToExport = true,
-                    IsActive = true
-                };
-                for(int j = 0; j < componentTypes[1].ConnectorsCount; j++)
-                {
-                    var con = new Connector
-                    {
-                        Component = component,
-                        Diameter = rnd.Next(1217, 1221),
-                        WallThickness = rnd.Next(40, 50),
-                        IsActive = true
-                    };
-                    component.Connectors.Add(con);
-                }
-                firstSetupRepo.ComponentRepo.Save(component);
-            }
-
-            // 3 type component
-            for(int i = 0; i < 30; i++)
-            {
-                var component = new Domain.Entity.Construction.Component
-                {
-                    ConstructionStatus = PartConstructionStatus.Pending,
-                    InspectionStatus = PartInspectionStatus.Pending,
-                    Certificate = RndString(12),
-                    Length = rnd.Next(1000),
-                    Number = RndString(14),
-                    Type = componentTypes[2],
-                    IsAvailableToJoint = true,
-                    ToExport = true,
-                    IsActive = true
-                };
-                for(int j = 0; j < componentTypes[2].ConnectorsCount; j++)
-                {
-                    var con = new Connector
-                    {
-                        Component = component,
-                        Diameter = rnd.Next(1217, 1221),
-                        WallThickness = rnd.Next(40, 50),
-                        IsActive = true
-                    };
-                    component.Connectors.Add(con);
-                }
-                firstSetupRepo.ComponentRepo.Save(component);
-            }
-
-            // 4 type component
-            for(int i = 0; i < 30; i++)
-            {
-                var component = new Domain.Entity.Construction.Component
-                {
-                    ConstructionStatus = PartConstructionStatus.Pending,
-                    InspectionStatus = PartInspectionStatus.Pending,
-                    Certificate = RndString(12),
-                    Length = rnd.Next(1000),
-                    Number = RndString(14),
-                    Type = componentTypes[3],
-                    IsAvailableToJoint = true,
-                    ToExport = true,
-                    IsActive = true
-                };
-                for(int j = 0; j < componentTypes[3].ConnectorsCount; j++)
-                {
-                    var con = new Connector
-                    {
-                        Component = component,
-                        Diameter = rnd.Next(1217, 1221),
-                        WallThickness = rnd.Next(40, 50),
-                        IsActive = true
-                    };
-                    component.Connectors.Add(con);
-                }
-                firstSetupRepo.ComponentRepo.Save(component);
-            }
+           
             #endregion
             firstSetupRepo.Commit();
 
             return false;
+        }
+
+        private Domain.Entity.Construction.Component CreateComponent(ComponentType componentType)
+        {
+            var component = new Domain.Entity.Construction.Component
+            {
+                ConstructionStatus = PartConstructionStatus.Pending,
+                InspectionStatus = PartInspectionStatus.Pending,
+                Certificate = RndString(12),
+                Length = rnd.Next(1000),
+                Number = RndString(14),
+                Type = componentType,
+                IsAvailableToJoint = true,
+                ToExport = true,
+                IsActive = true
+            };
+            for(int j = 0; j < componentType.ConnectorsCount; j++)
+            {
+                var con = new Connector
+                {
+                    Component = component,
+                    Diameter = rnd.Next(1217, 1221),
+                    WallThickness = rnd.Next(40, 50),
+                    IsActive = true
+                };
+                component.Connectors.Add(con);
+            }
+            return component;
         }
 
         private IList<InspectorCertificate> CreateInspectorCertificates(Inspector insp, List<InspectorCertificateType> types)
