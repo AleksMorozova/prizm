@@ -17,7 +17,12 @@ namespace Prizm.UnitTests.Synch.SerializableEntities
       [XmlAttribute("PortionID")]
       public Guid PortionID { get; set; }
 
+
+      [XmlAttribute("PortionNumber")]
+      public int PortionNumber { get; set; }
+
       [XmlAttribute("WorkstationType")]
       public WorkstationType WorkstationType { get; set; }
+
    }
 }

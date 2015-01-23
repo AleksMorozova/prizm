@@ -81,6 +81,7 @@ namespace Prizm.Main.Synch.Import
          CheckPortion(manifest.PortionID);
 
          Project project = ImportProject(data.Project);
+         CheckProjectSequence(project, manifest.PortionNumber);
          IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, tempDir);
          IList<Joint> importedJoints = ImportJoints(manifest, data, tempDir);
          IList<Component> importedComponents = ImportComponents(manifest, data, tempDir);
@@ -99,6 +100,26 @@ namespace Prizm.Main.Synch.Import
          Portion portion = importRepo.PortionRepo.Get(portionId);
          if (portion != null)
             throw new ImportException(Resources.Import_SamePortion);
+          
+      }
+
+      private void CheckProjectSequence(Project project, int portionNumber)
+      {
+          IList<int> portionList = importRepo.PortionRepo.CheckPortionSequence(project);
+          if (portionList.Count != 0)
+          {
+              if (portionNumber - portionList.Max() != 1)
+              {
+                  throw new ImportException(string.Format("Для завода {0} присутствуют порции {1} ", project.MillName, portionList.Min().ToString() + " - " + portionList.Max().ToString()));
+              }
+          }
+          else 
+          {
+              if (portionNumber != 0)
+              {
+                  throw new ImportException("Ooops!");
+              }
+          }
       }
 
       private void SavePortionInfo(Manifest manifest, IList<Pipe> pipes, IList<Joint> joints, IList<Component> components, Project project)
@@ -106,6 +127,7 @@ namespace Prizm.Main.Synch.Import
          Portion portion = new Portion();
          portion.ExportDateTime = DateTime.Now;
          portion.Id = manifest.PortionID;
+         portion.IsExport = false;
 
          if (pipes != null && pipes.Count > 0)
          {
@@ -134,7 +156,7 @@ namespace Prizm.Main.Synch.Import
 
          if (project != null)
          {
-            portion.Projects.Add(project);
+             portion.Project = project;
          }
 
 

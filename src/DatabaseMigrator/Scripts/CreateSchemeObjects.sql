@@ -836,7 +836,11 @@ GO
 CREATE TABLE [dbo].[Portion] (
   [id] [uniqueidentifier] NOT NULL,
   [exportDateTime] [date] NOT NULL,
-CONSTRAINT [PK_Portion] PRIMARY KEY([id])
+  [isExport] [bit] NOT NULL,
+  [portionNumber] [int] NOT NULL,
+  [projectId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion] PRIMARY KEY([id]),
+CONSTRAINT [FK_Portion_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
 ) ON [PRIMARY]
 
 GO
@@ -848,18 +852,17 @@ CONSTRAINT [PK_Portion_Pipe] PRIMARY KEY([portionId],[pipeId]),
 CONSTRAINT [FK_Portion_Pipe_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
 CONSTRAINT [FK_Portion_Pipe_Pipe] FOREIGN KEY ([pipeId]) REFERENCES [dbo].[Pipe]([id])
 ) ON [PRIMARY]
-
 GO
 
-CREATE TABLE [dbo].[Portion_Project] (
-  [portionId] [uniqueidentifier] NOT NULL,
-  [projectId] [uniqueidentifier] NOT NULL,
-CONSTRAINT [PK_Portion_Project] PRIMARY KEY([portionId],[projectId]),
-CONSTRAINT [FK_Portion_Project_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
-CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
-) ON [PRIMARY]
+--CREATE TABLE [dbo].[Portion_Project] (
+--  [portionId] [uniqueidentifier] NOT NULL,
+--  [projectId] [uniqueidentifier] NOT NULL,
+--CONSTRAINT [PK_Portion_Project] PRIMARY KEY([portionId],[projectId]),
+--CONSTRAINT [FK_Portion_Project_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+--CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
+--) ON [PRIMARY]
 
-GO
+--GO
 
 CREATE TABLE [dbo].[Portion_Joint] (
   [portionId] [uniqueidentifier] NOT NULL,
