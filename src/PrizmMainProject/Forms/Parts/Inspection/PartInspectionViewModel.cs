@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                                 break;
                         }
                         var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);
-                        if (results != null)
+                        if (results != null )
                         {
                             InspectionTestResults = new BindingList<InspectionTestResult>(results);
                             convertedPart.InspectionTestResults = InspectionTestResults;
