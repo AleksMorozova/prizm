@@ -17,6 +17,7 @@ using Prizm.Main.Documents;
 using System.Linq;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -62,6 +63,30 @@ namespace Prizm.Main.Forms.Component.NewEdit
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {

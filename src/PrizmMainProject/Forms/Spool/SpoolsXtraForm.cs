@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Ninject;
 using System.Text;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -133,6 +134,30 @@ namespace Prizm.Main.Forms.Spool
             IsEditMode =((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive) ;
             BindCommands();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {

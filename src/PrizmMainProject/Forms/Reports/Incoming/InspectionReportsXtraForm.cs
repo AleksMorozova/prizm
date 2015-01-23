@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using System;
+using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
@@ -37,6 +39,30 @@ namespace Prizm.Main.Forms.Reports.Incoming
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void InspectionReportsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 {
@@ -60,6 +61,30 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             commandManager["PreviewButton"]
                 .Executor(viewModel.PreviewPipeReportCommand).AttachTo(previewButton);
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void pipeTypeCheckedCombo_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {

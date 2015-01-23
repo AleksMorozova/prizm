@@ -475,11 +475,9 @@ namespace Prizm.Main.Forms.MainChildForm
             StatusNotifyText(text);
         }
 
-        private void StatusNotifyText(string s)
+        private void StatusNotifyText(string text)
         {
-            var main = Program.MainForm as PrizmApplicationXtraForm;
-            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), s);
-            main.UpdateStatusBar(str);
+            Program.MainForm.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), text));
         }
 
         private int currentProcessingStep;

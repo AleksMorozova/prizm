@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -47,6 +48,30 @@ namespace Prizm.Main.Forms.Audit
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(search);
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>() 
+                { 
+                    // layout items
+                    //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                    // controls
+                    //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                    // grid column headers
+                    //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                    // layout control groups
+                    //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                    // other
+                };
+        }
+
+        #endregion // --- Localization ---
 
         private void AuditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {

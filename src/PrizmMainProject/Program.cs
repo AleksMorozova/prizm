@@ -214,10 +214,10 @@ namespace Prizm.Main
 
 
         //Global data
-        private static DevExpress.XtraEditors.XtraForm mainForm;
+        private static PrizmApplicationXtraForm mainForm;
         /// <summary>
         /// Global access to main form need to update statusbar texts
         /// </summary>
-        public static DevExpress.XtraEditors.XtraForm MainForm { get { return mainForm; } }
+        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
     }
 }

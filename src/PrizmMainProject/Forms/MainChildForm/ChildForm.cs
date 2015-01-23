@@ -13,7 +13,7 @@ using Prizm.Main.Languages;
 namespace Prizm.Main.Forms.MainChildForm
 {
     [System.ComponentModel.DesignerCategory("")] 
-    public class ChildForm : XtraForm, IModifiable, ILocalizable
+    public abstract class ChildForm : PrizmForm, IModifiable
     {
         #region --- Modified and header ---
 
@@ -124,28 +124,6 @@ namespace Prizm.Main.Forms.MainChildForm
             } 
         }
         #endregion // MdiParent
-
-        #region --- Localization ---
-
-        private List<LocalizedItem> localizedItems = null;
-
-        protected virtual List<LocalizedItem> CreateLocalizedItems() { return null; }
-
-        public IEnumerator<ILocalizedItem> GetEnumerator()
-        {
-            if (localizedItems == null)
-            {
-                localizedItems = CreateLocalizedItems();
-            }
-            return localizedItems.GetEnumerator();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return this.GetEnumerator();
-        }
-
-        #endregion // --- Localization ---
 
         #region --- Edit mode ---
 

@@ -14,6 +14,8 @@ using System.Linq;
 
 
 using construct = Prizm.Domain.Entity.Construction;
+using Prizm.Main.Languages;
+using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -59,6 +61,30 @@ namespace Prizm.Main.Forms.Reports.Construction
             commandManager["PreviewButton"]
                 .Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void RefreshTypes()
         {

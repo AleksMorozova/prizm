@@ -15,6 +15,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Controls;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Views.Grid;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -81,6 +82,30 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
