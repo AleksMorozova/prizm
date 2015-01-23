@@ -37,7 +37,11 @@ namespace Prizm.Main.Forms.PipeMill.Search
             {
                 pipeMillStatus.Properties.Items.Add(s,true);
             }
-            pipeActivity.Properties.Items.AddRange(viewModel.ActivityArray);
+            foreach (var s in viewModel.ActivityTypes)
+            {
+                pipeActivity.Properties.Items.Add(s);
+            }
+
   
             pipesSearchResult.DataBindings
                 .Add("DataSource", MillPipeSearchBindingSource, "Pipes");
@@ -45,7 +49,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "Activity");
-
 
         }
 
@@ -60,7 +63,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
             BindCommands();
             BindToViewModel();
-            pipeActivity.SelectedIndex = 1;
+            pipeActivity.SelectedIndex = 0;
             viewModel.Activity = pipeActivity.SelectedItem.ToString(); 
         }
 

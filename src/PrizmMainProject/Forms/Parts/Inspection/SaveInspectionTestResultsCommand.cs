@@ -18,15 +18,16 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly IInspectionTestResultRepository repo;
         private readonly PartInspectionViewModel viewModel;
         private readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify)
+        public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
         {
             this.repo = repo;
             this.viewModel = viewModel;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -34,6 +35,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             try
             {
+                viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
                 repo.BeginTransaction();
                 foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
                 {

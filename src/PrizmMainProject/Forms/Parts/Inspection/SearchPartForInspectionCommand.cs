@@ -22,15 +22,16 @@ namespace Prizm.Main.Forms.Parts.Inspection
     {
         PartInspectionViewModel viewModel;
         ISession session;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public SearchPartForInspectionCommand(PartInspectionViewModel viewModel, ISession session)
+        public SearchPartForInspectionCommand(PartInspectionViewModel viewModel, ISession session, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.session = session;
+            this.ctx = ctx;
         }
         [Command(UseCommandManager = false)]
         public void Execute()

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Office.Forms;
-using PrizmMain.DummyData;
 using Ninject;
 
 namespace Prizm.Main.Forms.Notifications
@@ -16,7 +15,7 @@ namespace Prizm.Main.Forms.Notifications
 
         public NotificationViewModel()
         {
-            notification =  NotificationManager.Instance.Notifications;
+            notification =  NotificationService.Instance.Notifications;
         }
 
         public List<Notification> Notification

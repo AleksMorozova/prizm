@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
 using Prizm.Data.DAL.Setup;
@@ -20,6 +21,19 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IRoleRepository RoleRepo { get; }
         ICategoryRepository CategoryRepo { get; }
         IJointOperationRepository JointOperationRepo { get; }
+        IPipeTestRepository TestRepo { get; }
+        IMillPipeSizeTypeRepository SizeTypeRepo { get; }
+        IPlateManufacturerRepository PlateManRepo { get; }
+        IHeatRepository HeatRepo { get; }
+        IPlateRepository PlateRepo { get; }
+        IPurchaseOrderRepository PurchaseRepo { get; }
+        IRailcarRepository RailRepo { get; }
+        IPipeRepository PipeRepo { get; }
+        IInspectorRepository InspectorRepo { get; }
+        IPipeTestResultRepository PipeTestResultRepo { get; }
+        IWelderRepository WelderRepo { get; }
+        IComponentTypeRepository ComponentTypeRepo { get; }
+        IComponentRepository ComponentRepo { get; }
 
         void Commit();
         void BeginTransaction();

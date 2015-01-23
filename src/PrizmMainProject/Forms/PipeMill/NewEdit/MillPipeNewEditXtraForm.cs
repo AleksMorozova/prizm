@@ -30,6 +30,7 @@ using Prizm.Main.Documents;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -83,6 +84,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(steelGrade);
             SetAlwaysReadOnly(weight);
             SetAlwaysReadOnly(length);
+            SetAlwaysReadOnly(pipeLength);
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
@@ -105,10 +107,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             AutoValidate = AutoValidate.EnableAllowFocusChange;
 
             IsEditMode = true;
+
+            // Select tab depending on is new pipe or existed
+            tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
+                pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
-
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
@@ -142,7 +147,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach(var t in viewModel.PipeTypes)
             {
-                if (t.IsActive)
+                if(t.IsActive)
                 {
                     pipeSize.Properties.Items.Add(t);
                 }
@@ -482,11 +487,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             pipeNumber.Properties.MaxLength = LengthLimit.MaxPipeNumber;
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
-            steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            resultStatusLookUpEdit.MaxLength = LengthLimit.MaxPipeTestResultStatus;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
-            //TODO: limit fields for Plate and heat parameters tab
         }
 
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
@@ -614,7 +616,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id, IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -628,9 +630,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void ShowHeatDialog(string number)
         {
-            var dlg = new HeatXtraForm(number);
-            dlg.ShowDialog();
+            using(new HeatXtraForm(number))
+            {
 
+            }
         }
 
         private void heatsLookUp_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -698,8 +701,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
-            viewModel.Dispose();
-            viewModel = null;
+            if(viewModel != null)
+            {
+                viewModel.Dispose();
+                viewModel = null; 
+            }
         }
 
         #region IValidatable Members
@@ -733,15 +739,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void ordersLookUp_Validated(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
-        }
-
-        private void inspections_Leave(object sender, EventArgs e)
-        {
-            //TODO: Review that functionality
-            if(viewModel.PipeLength != null)
-            {
-                pipeLength.Text = viewModel.PipeLength.ToString();
-            }
         }
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
@@ -783,6 +780,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                         IsModified = true;
                         inspections.RefreshDataSource();
+                        viewModel.GetLengthFromOperation();
+                        pipeLength.Refresh();
+                        weight.Refresh();
                     }
                 }
             }
@@ -797,6 +797,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();
+                    viewModel.GetLengthFromOperation();
+                    pipeLength.Refresh();
+                    weight.Refresh();
                 }
             }
         }
@@ -831,6 +834,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             IsModified = true;
+        }
+
+        private void pipeTabLayoutControlGroup_Shown(object sender, EventArgs e)
+        {
+            #region fields validation only afrer project tab is shown
+            ConditionValidationRule notBlankValidationRule = new ConditionValidationRule();
+            notBlankValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            notBlankValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            notBlankValidationRule.ErrorType = ErrorType.Critical;
+
+            dxValidationProvider.SetValidationRule(pipeCreationDate, notBlankValidationRule);
+            dxValidationProvider.SetValidationRule(pipeNumber, notBlankValidationRule);
+            dxValidationProvider.SetValidationRule(plateNumber, notBlankValidationRule);
+            #endregion
         }
     }
 }

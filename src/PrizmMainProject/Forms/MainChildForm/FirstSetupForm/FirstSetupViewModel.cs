@@ -26,13 +26,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] inspectorCertificateTypesName
             = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
 
-        private IList<SeamType> seamTypes;
-        private string[] seamTypesName
-           = new[] { "Прямой", "Спиральный", "Без шва" };
-
         private IList<Category> fixedCategoryes;
         private string[] fixedCategoryesName
-           = new[] { "Измерение длины" };
+           = new[] { "Измерение длины"};
 
         private readonly IFirstSetupRepo firstSetupRepo;
         public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
@@ -81,38 +77,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     }
                 }
                 return inspectorCertificateTypes;
-            }
-        }
-
-        public IList<SeamType> SeamTypes
-        {
-            get
-            {
-                if (seamTypes == null)
-                {
-                    seamTypes = new List<SeamType>();
-                    foreach (string str in seamTypesName)
-                    {
-                        seamTypes.Add(new SeamType() { Name = str, IsActive = true });
-                    }
-                }
-                return seamTypes;
-            }
-        }
-
-        public IList<Category> FixedCategoryes
-        {
-            get
-            {
-                if (fixedCategoryes == null)
-                {
-                    fixedCategoryes = new List<Category>();
-                    foreach (string str in fixedCategoryesName)
-                    {
-                        fixedCategoryes.Add(new Category() { Name = str, IsActive = true , Fixed=true, ResultType="int"}); 
-                    }
-                }
-                return fixedCategoryes;
             }
         }
 

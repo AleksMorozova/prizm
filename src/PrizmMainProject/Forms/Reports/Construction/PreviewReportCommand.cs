@@ -37,8 +37,31 @@ namespace Prizm.Main.Forms.Reports.Construction
         public void Execute()
         {
             viewModel.ReportCommand.Execute();
-            viewModel.report.CreateDocument();
-            viewModel.PreviewSource = viewModel.report;
+
+            if (viewModel.ReportType.Value == ReportType.TracingReport)
+            {
+                var report = new TracingReport();
+
+                report.DataSource = viewModel.ReportDataSource;
+
+                report.PipelineJointCount = viewModel.PipelineJointCount;
+                report.PipelinePipeCount = viewModel.PipelinePipeCount;
+                report.PipelineSpoolCount = viewModel.PipelineSpoolCount;
+                report.PipelineComponentCount = viewModel.PipelineComponentCount;
+                report.PipelineLength = viewModel.PipelineLength;
+
+                report.CreateDocument();
+                viewModel.PreviewSource = report;
+            }
+            else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
+            {
+                var report = new UsedProductsXtraReport();
+
+                report.DataSource = viewModel.ReportDataSource;
+
+                report.CreateDocument();
+                viewModel.PreviewSource = report;
+            }
         }
 
     

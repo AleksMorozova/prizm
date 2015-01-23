@@ -52,6 +52,8 @@
             this.barButtonItemFindEditJoints = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSpool = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemInspectionReports = new DevExpress.XtraBars.BarButtonItem();
+            this.pipeConstructionRepoBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.weldConstructionRepoBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemConstructionReports = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemSettings = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemSettingsProject = new DevExpress.XtraBars.BarButtonItem();
@@ -164,9 +166,11 @@
             this.barButtonStatusNotifications,
             this.barButtonItemComponentry,
             this.barButtonItemPartIncomingInspection,
-            this.importantMessages});
+            this.importantMessages,
+            this.weldConstructionRepoBarButton,
+            this.pipeConstructionRepoBarButton});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 63;
+            this.barManager1.MaxItemId = 65;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -204,16 +208,16 @@
             // barButtonItemExport
             // 
             this.barButtonItemExport.Caption = "&Экспорт";
-            this.barButtonItemExport.Enabled = false;
             this.barButtonItemExport.Id = 46;
             this.barButtonItemExport.Name = "barButtonItemExport";
+            this.barButtonItemExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExport_ItemClick);
             // 
             // barButtonItemImport
             // 
             this.barButtonItemImport.Caption = "&Импорт";
-            this.barButtonItemImport.Enabled = false;
             this.barButtonItemImport.Id = 49;
             this.barButtonItemImport.Name = "barButtonItemImport";
+            this.barButtonItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImport_ItemClick);
             // 
             // barButtonItemExit
             // 
@@ -284,6 +288,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemFindEditJoints),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemSpool, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemInspectionReports, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pipeConstructionRepoBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.weldConstructionRepoBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemConstructionReports)});
             this.barSubItemConstruction.Name = "barSubItemConstruction";
             // 
@@ -339,9 +345,23 @@
             this.barButtonItemInspectionReports.Name = "barButtonItemInspectionReports";
             this.barButtonItemInspectionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemInspectionReports_ItemClick);
             // 
+            // pipeConstructionRepoBarButton
+            // 
+            this.pipeConstructionRepoBarButton.Caption = "Отчет по трубам на стройке";
+            this.pipeConstructionRepoBarButton.Id = 64;
+            this.pipeConstructionRepoBarButton.Name = "pipeConstructionRepoBarButton";
+            this.pipeConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pipeConstructionRepoBarButton_ItemClick);
+            // 
+            // weldConstructionRepoBarButton
+            // 
+            this.weldConstructionRepoBarButton.Caption = "Отчет по сварке (по дате)";
+            this.weldConstructionRepoBarButton.Id = 63;
+            this.weldConstructionRepoBarButton.Name = "weldConstructionRepoBarButton";
+            this.weldConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.weldConstructionRepoBarButton_ItemClick);
+            // 
             // barButtonItemConstructionReports
             // 
-            this.barButtonItemConstructionReports.Caption = "&Отчеты по строительству";
+            this.barButtonItemConstructionReports.Caption = "&Отчет по сварке участка между пикетами";
             this.barButtonItemConstructionReports.Id = 34;
             this.barButtonItemConstructionReports.Name = "barButtonItemConstructionReports";
             this.barButtonItemConstructionReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConstructionReports_ItemClick);
@@ -432,6 +452,7 @@
             this.languageBarListItem.Caption = "languages";
             this.languageBarListItem.Id = 53;
             this.languageBarListItem.Name = "languageBarListItem";
+            this.languageBarListItem.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.languageBarListItem_ListItemClick);
             // 
             // barSubItemReports
             // 
@@ -742,6 +763,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemPartIncomingInspection;
         private DevExpress.XtraBars.BarButtonItem importantMessages;
         private DevExpress.Utils.WorkspaceManager workspaceManager;
+        private DevExpress.XtraBars.BarButtonItem weldConstructionRepoBarButton;
+        private DevExpress.XtraBars.BarButtonItem pipeConstructionRepoBarButton;
 
 
 

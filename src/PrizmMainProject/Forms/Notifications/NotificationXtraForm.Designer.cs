@@ -10,7 +10,6 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraLayout;
-using PrizmMain.DummyData;
 
 namespace PrizmMain.Forms.Notifications
 {
@@ -148,7 +147,7 @@ namespace PrizmMain.Forms.Notifications
             // colName
             // 
             this.colName.Caption = "Регистратор";
-            this.colName.FieldName = "Name";
+            this.colName.FieldName = "OwnerName";
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;

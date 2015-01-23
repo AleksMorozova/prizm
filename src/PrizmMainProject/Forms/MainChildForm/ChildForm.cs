@@ -11,7 +11,7 @@ using Prizm.Main.Commands;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-    [System.ComponentModel.DesignerCategory("")] 
+    [System.ComponentModel.DesignerCategory("")]
     public class ChildForm : XtraForm, IModifiable
     {
         #region --- Modified and header ---
@@ -26,33 +26,46 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="e">to pass to base class</param>
         protected override void OnTextChanged(System.EventArgs e)
         {
-            if (string.IsNullOrEmpty(originalText))
+            if(string.IsNullOrEmpty(originalText))
             {
                 originalText = this.Text;
             }
             base.OnTextChanged(e);
         }
 
+
+        bool isAutoValidate = true;
         /// <summary>
         /// Before closing.
         /// </summary>
         /// <param name="e">used for decision whether to close form or not</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (this.IsModified)
+            if(this.IsModified)
             {
-                DialogResult result = new SaveDialog().ShowDialog();
+                if(isAutoValidate)
+                {
+                    DialogResult result = new SaveDialog().ShowDialog();
+                    switch(result)
+                    {
+                        case DialogResult.Cancel:
+                            e.Cancel = true;
+                            break;
+                        case DialogResult.No:
+                            AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+                            isAutoValidate = false;
+                            Close();
+                            break;
+                        case DialogResult.Yes:
+                            if(SaveCommand != null && SaveCommand.CanExecute())
+                                SaveCommand.Execute();
+                            break;
+                        default:
+                            break;
+                    }
+                }
 
-                if (result == DialogResult.Yes)
-                {
-                   if (SaveCommand != null && SaveCommand.CanExecute())
-                      SaveCommand.Execute();
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                   e.Cancel = true;
-                   return;
-                }
+
             }
             base.OnFormClosing(e);
         }
@@ -70,18 +83,18 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <summary>
         /// modified state of document
         /// </summary>
-        public virtual bool IsModified 
-        { 
-           get
-           {
-              return isModified;
-           }
-           set
-           {
-              isModified = value;
-              SetCaption();
-              Modified(isModified);
-           }
+        public virtual bool IsModified
+        {
+            get
+            {
+                return isModified;
+            }
+            set
+            {
+                isModified = value;
+                SetCaption();
+                Modified(isModified);
+            }
         }
 
         /// <summary>
@@ -90,7 +103,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void SetCaption()
         {
             Text = string.Format("{0}{1}{2}", originalText,
-                !string.IsNullOrEmpty(headerNumberPart) ? ": " + headerNumberPart : string.Empty,  
+                !string.IsNullOrEmpty(headerNumberPart) ? ": " + headerNumberPart : string.Empty,
                 IsModified ? "*" : string.Empty);
         }
 
@@ -99,28 +112,28 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         protected ICommand SaveCommand
         {
-           get;
-           set;
+            get;
+            set;
         }
 
         public event System.Action<bool> Modified = delegate { };
 
         #endregion // Modified and header
 
-        #region --- MdiParent --- 
+        #region --- MdiParent ---
         /// <summary>
         /// override (hide) MdiParent to have automatic right type of main application form.
         /// </summary>
-        public new PrizmApplicationXtraForm MdiParent 
-        { 
-            get 
-            { 
-                return base.MdiParent as PrizmApplicationXtraForm; 
-            } 
-            set 
-            { 
-                base.MdiParent = value; 
-            } 
+        public new PrizmApplicationXtraForm MdiParent
+        {
+            get
+            {
+                return base.MdiParent as PrizmApplicationXtraForm;
+            }
+            set
+            {
+                base.MdiParent = value;
+            }
         }
         #endregion // MdiParent
 
@@ -142,7 +155,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 bool previous = isEditMode;
                 isEditMode = value;
 
-                if (isEditMode != previous)
+                if(isEditMode != previous)
                 {
                     SetEditModeAllChildren(this, isEditMode);
                 }
@@ -167,7 +180,7 @@ namespace Prizm.Main.Forms.MainChildForm
             public void Add(Control c, ControlCondition condition, Func<bool, bool> IsEditableMethod = null)
             {
                 var t = Tuple.Create<ControlCondition, Func<bool, bool>>(condition, IsEditableMethod);
-                if (!collection.ContainsKey(c))
+                if(!collection.ContainsKey(c))
                 {
                     collection.Add(c, t);
                 }
@@ -183,7 +196,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             public bool CheckConditionEditable(Control c, bool argument)
             {
-                return 
+                return
                        collection.ContainsKey(c) && collection[c].Item1 == ControlCondition.Conditional
                     && collection[c].Item2 != null && collection[c].Item2(argument);
             }
@@ -226,7 +239,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// It's argument true if edit mode is on</param>
         protected void SetConditional(Control c, Func<bool, bool> IsEditableMethod)
         {
-            if (IsEditableMethod == null)
+            if(IsEditableMethod == null)
             {
                 throw new ApplicationException(String.Format("No method defined for conditional mode of control {0}", c.ToString()));
             }
@@ -240,7 +253,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="editMode">is edit mode</param>
         private void SetEditModeAllChildren(Control control, bool editMode)
         {
-            foreach (Control c in control.Controls)
+            foreach(Control c in control.Controls)
             {
                 bool isControlReadOnly = true;      // secure control availability by default
 
@@ -260,24 +273,24 @@ namespace Prizm.Main.Forms.MainChildForm
                         isControlReadOnly = true;
                         break;
                 }
-                if (c is TextEdit)
+                if(c is TextEdit)
                 {
                     ((TextEdit)c).Properties.ReadOnly = isControlReadOnly;
                 }
-                else if (c is DevExpress.XtraGrid.GridControl)
+                else if(c is DevExpress.XtraGrid.GridControl)
                 {
-                    foreach (var v in ((DevExpress.XtraGrid.GridControl)c).Views)
+                    foreach(var v in ((DevExpress.XtraGrid.GridControl)c).Views)
                     {
                         ((GridView)v).OptionsBehavior.Editable = !isControlReadOnly;
                     }
                 }
-                else if (c is DevExpress.XtraEditors.CheckEdit)
+                else if(c is DevExpress.XtraEditors.CheckEdit)
                 {
                     ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
 
                 }
                 SetEditModeAllChildren(c, editMode);
-            } 
+            }
         }
 
         #endregion // Edit mode

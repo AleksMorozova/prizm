@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Security;
@@ -24,6 +25,20 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly ICategoryRepository categoryRepo;
         private readonly IJointOperationRepository jointOperationRepo;
 
+        private readonly IPipeTestRepository pipeTestsRepo;
+        private readonly IMillPipeSizeTypeRepository sizeTypeRepo;
+        private readonly IPlateManufacturerRepository plateManRepo;
+        private readonly IHeatRepository heatRepo;
+        private readonly IPlateRepository plateRepo;
+        private readonly IPurchaseOrderRepository purchaseRepo;
+        private readonly IRailcarRepository railRepo;
+        private readonly IPipeRepository pipeRepo;
+        private readonly IInspectorRepository inspectorRepo;
+        private readonly IPipeTestResultRepository pipeTestResultRepo;
+        private readonly IWelderRepository welderRepo;
+        private readonly IComponentTypeRepository componentTypeRepo;
+        private readonly IComponentRepository componentRepo;
+
         public FirstSetupRepo()
         {
             this.session = HibernateUtil.OpenSession(false);
@@ -35,6 +50,46 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.roleRepo = new RoleRepository(session);
             this.categoryRepo = new CategoryRepository(session);
             this.jointOperationRepo = new JointOperationRepository(session);
+            this.pipeTestsRepo = new PipeTestRepository(session);
+            this.sizeTypeRepo = new MillPipeSizeTypeRepository(session);
+            this.plateManRepo = new PlateManufacturerRepository(session);
+            this.heatRepo = new HeatRepository(session);
+            this.plateRepo = new PlateRepository(session);
+            this.purchaseRepo = new PurchaseOrderRepository(session);
+            this.railRepo = new RailcarRepository(session);
+            this.pipeRepo = new PipeRepository(session);
+            this.inspectorRepo = new InspectorRepository(session);
+            this.pipeTestResultRepo = new PipeTestResultRepository(session);
+            this.welderRepo = new WelderRepository(session);
+            componentTypeRepo = new ComponentTypeRepository(session);
+            componentRepo = new ComponentRepository(session);
+        }
+        public IComponentRepository ComponentRepo { get { return componentRepo; } }
+
+        public IComponentTypeRepository ComponentTypeRepo { get { return componentTypeRepo; } }
+
+        public IWelderRepository WelderRepo { get { return welderRepo; } }
+
+        public IPipeTestResultRepository PipeTestResultRepo { get { return pipeTestResultRepo; } }
+
+        public IInspectorRepository InspectorRepo { get { return inspectorRepo; } }
+
+        public IPipeRepository PipeRepo { get { return pipeRepo; } }
+
+        public IRailcarRepository RailRepo { get { return railRepo; } }
+
+        public IPurchaseOrderRepository PurchaseRepo { get { return purchaseRepo; } }
+
+        public IPlateRepository PlateRepo { get { return plateRepo; } }
+
+        public IHeatRepository HeatRepo { get { return heatRepo; } }
+
+        public IPlateManufacturerRepository PlateManRepo
+        { get { return plateManRepo; } }
+
+        public IPipeTestRepository TestRepo
+        {
+            get { return pipeTestsRepo; }
         }
 
         public IUserRepository UserRepo
@@ -92,5 +147,15 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             get { return jointOperationRepo; }
         }
+
+        #region IFirstSetupRepo Members
+
+
+        public IMillPipeSizeTypeRepository SizeTypeRepo
+        {
+            get { return sizeTypeRepo; }
+        }
+
+        #endregion
     }
 }

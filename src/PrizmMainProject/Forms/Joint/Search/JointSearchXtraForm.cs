@@ -13,6 +13,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -39,16 +40,19 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             BindCommands();
             BindToViewModel();
-
+            foreach (var s in viewModel.ActivityTypes)
+            {
+                activity.Properties.Items.Add(s);
+            }
             foreach(JointStatus item in Enum.GetValues(typeof(JointStatus)))
             {
-                if(item == JointStatus.Undefined)
+                if(item == JointStatus.Undefined || item == JointStatus.Deactivated)
                 {
                     continue;
                 }
                 controlState.Properties.Items.Add(new EnumWrapper<JointStatus>() { Value = item },true);
             }
-            activity.SelectedIndex = 1;
+            activity.SelectedIndex = 0;
             viewModel.Activity = activity.SelectedItem.ToString(); 
             RefreshCombo();
         }
@@ -56,6 +60,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void BindToViewModel()
         {
+
             bindingSource.DataSource = viewModel;
             jointNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             pegNumber.DataBindings.Add("EditValue", bindingSource, "PegNumber");
@@ -63,7 +68,6 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateTo.DataBindings.Add("EditValue", bindingSource, "ToDate");
             gridControlSerchResult.DataBindings.Add("DataSource", bindingSource, "Joints");
             activity.DataBindings.Add("EditValue", bindingSource, "Activity");
-            activity.Properties.Items.AddRange(viewModel.ActivityArray);
         }
 
         private void BindCommands()
@@ -137,6 +141,14 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     e.Appearance.ForeColor = Color.Gray;
                 }
+            }
+        }
+
+        private void activity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (activity.EditValue != Resources.StatusActive)
+            {
+                viewModel.Statuses.Add(JointStatus.Deactivated);
             }
         }
     }

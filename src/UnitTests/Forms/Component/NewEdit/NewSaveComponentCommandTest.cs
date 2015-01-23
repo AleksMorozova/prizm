@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Security;
 
 namespace Prizm.UnitTests.Forms.Component.NewEdit
 {
@@ -24,6 +25,7 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
             var modifiableView = new Mock<IModifiable>();
             var validatableView = new Mock<IValidatable>();
             var notify = new Mock<IUserNotify>();
+            var securityContext = new Mock<ISecurityContext>();
 
 
             var componentRepo = new Mock<IComponentRepository>();
@@ -52,7 +54,8 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
             var viewModel = new ComponentNewEditViewModel(
                 componentsRepos.Object,
                 Guid.Empty,
-                notify.Object);
+                notify.Object,
+                securityContext.Object);
 
             viewModel.Component = component;
             viewModel.ModifiableView = modifiableView.Object;
@@ -61,7 +64,8 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
             var command = new NewSaveComponentCommand(
                 viewModel,
                 componentsRepos.Object,
-                notify.Object);
+                notify.Object,
+                securityContext.Object);
 
             command.Execute();
 

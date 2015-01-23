@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Security;
 
 namespace Prizm.UnitTests.Forms.Spool
 {
@@ -21,7 +22,7 @@ namespace Prizm.UnitTests.Forms.Spool
         {
             var modifiableView = new Mock<IModifiable>();
             var notify = new Mock<IUserNotify>();
-
+            var ctx = new Mock<ISecurityContext>();
             var spoolRepo = new Mock<ISpoolRepository>();
             var pipeRepo = new Mock<IPipeRepository>();
             var inspectorRepo = new Mock<IInspectorRepository>();
@@ -29,7 +30,7 @@ namespace Prizm.UnitTests.Forms.Spool
             var spool = new Prizm.Domain.Entity.Construction.Spool();
             var pipe = new Prizm.Domain.Entity.Mill.Pipe();
 
-            spoolRepo.Setup(x => x.GetAvailablePipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
+            pipeRepo.Setup(x => x.GetAvailableForCutPipes()).Returns(new List<Prizm.Domain.Entity.Mill.Pipe>());
 
             var spoolRepos = new Mock<ISpoolRepositories>();
 
@@ -44,7 +45,8 @@ namespace Prizm.UnitTests.Forms.Spool
             var viewModel = new SpoolViewModel(
                 spoolRepos.Object,
                 Guid.Empty,
-                notify.Object);
+                notify.Object,
+                ctx.Object);
 
             viewModel.Spool = spool;
             viewModel.Pipe = pipe;
@@ -54,9 +56,11 @@ namespace Prizm.UnitTests.Forms.Spool
             var command = new SaveSpoolCommand(
                 viewModel,
                 spoolRepos.Object,
-                notify.Object);
+                notify.Object,
+                ctx.Object);
 
             viewModel.Spool.Length = 124;
+            viewModel.Pipe.Length = 1124;
             viewModel.Pipe.Number = "Test";
 
             command.Execute();

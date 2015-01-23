@@ -18,15 +18,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public JointDeactivationCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify)
+        public JointDeactivationCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
         {
             this.repo = repo;
             this.viewModel = viewModel;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -37,6 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                    Resources.DLG_JOINT_DEACTIVATION_HEADER))
             {              
                 viewModel.JointIsActive = false;
+                viewModel.Joint.Status = Domain.Entity.Construction.JointStatus.Deactivated;
                 repo.BeginTransaction();
                 repo.RepoJoint.Save(viewModel.Joint);
                 repo.Commit();

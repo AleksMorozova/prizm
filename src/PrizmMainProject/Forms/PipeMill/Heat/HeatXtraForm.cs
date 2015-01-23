@@ -18,7 +18,8 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         private HeatViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
 
-        public HeatXtraForm() : this("")
+        public HeatXtraForm()
+            : this("")
         {
 
         }
@@ -29,7 +30,32 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             SetControlsTextLength();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
 
+            if(viewModel.Heat == null)
+            {
+                CreateHeat(heatNumber);
+            }
+            else
+            {
+                this.ShowDialog();
+            }
+
+
             number.SetAsIdentifier();
+        }
+
+        private void CreateHeat(string heatNumber)
+        {
+            var numberForm = new HeatNumberXtraForm(heatNumber);
+
+            if(numberForm.ShowDialog() == DialogResult.OK)
+            {
+                viewModel.NewHeat(numberForm.Number);
+                this.ShowDialog();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void HeatXtraForm_Load(object sender, EventArgs e)
@@ -46,13 +72,11 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             plateManufacturer.DataBindings.Add("EditValue", bindingSource, "PlateManufacturer");
 
             RefreshControls();
-
-            
         }
 
         private void BindCommands()
         {
-            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton); 
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
         }
 
         private void HeatXtraForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -73,7 +97,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private void SetupHeats()
         {
-            foreach (var item in viewModel.Heats)
+            foreach(var item in viewModel.Heats)
             {
                 number.Properties.Items.Add(item);
             }
@@ -81,7 +105,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private void SetupManufacturers()
         {
-            foreach (var item in viewModel.Manufacrurers)
+            foreach(var item in viewModel.Manufacrurers)
             {
                 plateManufacturer.Properties.Items.Add(item);
             }
@@ -89,7 +113,6 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            viewModel.CreateHeat("");
             RefreshControls();
         }
 
@@ -98,5 +121,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
             steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
         }
+
+
     }
 }

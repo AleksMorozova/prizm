@@ -34,6 +34,16 @@ using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.DAL.Hibernate;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Forms.Parts.Inspection;
+using Prizm.Data.DAL.Notifications;
+using Prizm.Data.DAL.Synch;
+using Prizm.Main.Synch.Export;
+using Prizm.Main.Synch;
+using Prizm.Main.Forms.Synch;
+using Prizm.Main.Synch.Import;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
+using Prizm.Main.Languages;
+using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
+
 namespace Prizm.Main
 {
     public class PrizmModule : NinjectModule
@@ -83,6 +93,10 @@ namespace Prizm.Main
             Bind<IFileRepository>().To<FileRepository>();
             Bind<IInspectionTestResultRepository>().To<InspectionTestResultRepository>();
             Bind<IPartInspectionRepository>().To<PartInspectionRepository>();
+            Bind<INotificationRepository>().To<NotificationRepository>();
+            Bind<IPortionRepository>().To<PortionRepository>();
+            Bind<IExportRepository>().To<ExportRepository>();
+            Bind<IImportRepository>().To<ImportRepository>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
@@ -104,6 +118,8 @@ namespace Prizm.Main
             Bind<FirstSetupViewModel>().ToSelf();
             Bind<SpoolViewModel>().ToSelf();
             Bind<ExternalFilesViewModel>().ToSelf();
+            Bind<PipeConstractionReportViewModel>().ToSelf();
+            Bind<WeldDateReportViewModel>().ToSelf();
             #endregion
 
             #region Forms Binding
@@ -125,6 +141,10 @@ namespace Prizm.Main
             Bind<PartSearchXtraForm>().ToSelf();
             Bind<FirstSetupXtraForm>().ToSelf();
             Bind<ExternalFilesXtraForm>().ToSelf();
+            Bind<ExportForm>().ToSelf();
+            Bind<ImportForm>().ToSelf();
+            Bind<PipeConstractionReportXtraForm>().ToSelf();
+            Bind<WeldDateReportXtraForm>().ToSelf();
             #endregion
 
             #region Commands
@@ -133,6 +153,20 @@ namespace Prizm.Main
 
             Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
             Bind<AuditInterceptor>().ToSelf();
+
+            #region Synch
+            
+            Bind<IEncryptor>().To<Encryptor>();
+            Bind<IHasher>().To<Hasher>();
+
+            #endregion
+
+            #region Language
+
+            Bind<ILanguageManager>().To<LanguageManager>();
+
+            #endregion
+
         }
     }
 }

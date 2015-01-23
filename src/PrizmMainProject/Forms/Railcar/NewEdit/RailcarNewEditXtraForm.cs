@@ -42,14 +42,17 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
 
-            shippedDate.Properties.NullDate = DateTime.MinValue;
-            shippedDate.Properties.NullText = string.Empty;
+            releaseNoteDate.Properties.NullDate = DateTime.MinValue;
+            releaseNoteDate.Properties.NullText = string.Empty;
 
             this.railcarNumber.SetRequiredText();
+            this.releaseNoteDate.SetRequiredText();
+            this.releaseNoteNumber.SetRequiredText();
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
+            this.releaseNoteNumber.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 
@@ -74,8 +77,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
+            releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
         }
 
@@ -147,6 +151,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
             destination.Properties.MaxLength = LengthLimit.MaxRailcarDestination;
             certificateNumber.Properties.MaxLength = LengthLimit.MaxRailcarCertificate;
+            releaseNoteNumber.Properties.MaxLength = LengthLimit.MaxReleaseNoteNumber;
         }
 
         private void ButtonRefresh()
@@ -164,7 +169,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id,IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -194,6 +199,18 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private void shipButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
+        {
+           
+            commandManager.RefreshVisualState();
+        }
+
+        private void releaseNoteDate_EditValueChanged(object sender, EventArgs e)
+        {
+            
+            commandManager.RefreshVisualState();
         }
     }
 }

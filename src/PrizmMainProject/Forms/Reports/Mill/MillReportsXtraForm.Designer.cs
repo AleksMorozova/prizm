@@ -52,7 +52,6 @@
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.previewButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.createReportButtonEmptySpaceI = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.reportTypesEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.reportPeriodEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.statusesLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -80,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createReportButtonEmptySpaceI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportTypesEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusesLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -194,7 +192,7 @@
             this.reportTypes.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.reportTypes.Properties.Appearance.Options.UseBackColor = true;
             this.reportTypes.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.reportTypes.Size = new System.Drawing.Size(120, 58);
+            this.reportTypes.Size = new System.Drawing.Size(120, 82);
             this.reportTypes.StyleController = this.generalReportLayout;
             this.reportTypes.TabIndex = 79;
             this.reportTypes.SelectedIndexChanged += new System.EventHandler(this.reportTypes_SelectedIndexChanged);
@@ -237,7 +235,6 @@
             this.buttonsEmptySpace,
             this.previewButtonEmptySpace,
             this.createReportButtonEmptySpaceI,
-            this.reportTypesEmptySpace,
             this.reportPeriodEmptySpace,
             this.statusesLayout,
             this.emptySpaceItem1});
@@ -291,7 +288,6 @@
             this.createReportButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 5, 5);
             this.createReportButtonLayout.Text = "createReportButtonLayout";
             this.createReportButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.createReportButtonLayout.TextToControlDistance = 0;
             this.createReportButtonLayout.TextVisible = false;
             // 
             // previewButtonLayout
@@ -307,7 +303,6 @@
             this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 5, 5);
             this.previewButtonLayout.Text = "previewButtonLayout";
             this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewButtonLayout.TextToControlDistance = 0;
             this.previewButtonLayout.TextVisible = false;
             // 
             // reportPeriodLayout
@@ -320,7 +315,6 @@
             this.reportPeriodLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.reportPeriodLayout.Text = "reportPeriodLayout";
             this.reportPeriodLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.reportPeriodLayout.TextToControlDistance = 0;
             this.reportPeriodLayout.TextVisible = false;
             // 
             // reportTypesLayout
@@ -331,7 +325,7 @@
             this.reportTypesLayout.MaxSize = new System.Drawing.Size(126, 0);
             this.reportTypesLayout.MinSize = new System.Drawing.Size(126, 32);
             this.reportTypesLayout.Name = "reportTypesLayout";
-            this.reportTypesLayout.Size = new System.Drawing.Size(126, 78);
+            this.reportTypesLayout.Size = new System.Drawing.Size(126, 102);
             this.reportTypesLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.reportTypesLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 0, 0, 0);
             this.reportTypesLayout.Text = "Выбор типа";
@@ -383,19 +377,6 @@
             this.createReportButtonEmptySpaceI.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 2);
             this.createReportButtonEmptySpaceI.Text = "createReportButtonEmptySpaceI";
             this.createReportButtonEmptySpaceI.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // reportTypesEmptySpace
-            // 
-            this.reportTypesEmptySpace.AllowHotTrack = false;
-            this.reportTypesEmptySpace.CustomizationFormText = "reportTypesEmptySpace";
-            this.reportTypesEmptySpace.Location = new System.Drawing.Point(0, 78);
-            this.reportTypesEmptySpace.MinSize = new System.Drawing.Size(106, 24);
-            this.reportTypesEmptySpace.Name = "reportTypesEmptySpace";
-            this.reportTypesEmptySpace.Size = new System.Drawing.Size(126, 24);
-            this.reportTypesEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.reportTypesEmptySpace.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 0, 0, 0);
-            this.reportTypesEmptySpace.Text = "reportTypesEmptySpace";
-            this.reportTypesEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // reportPeriodEmptySpace
             // 
@@ -454,7 +435,6 @@
             this.previewLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.previewLayout.Text = "previewLayout";
             this.previewLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewLayout.TextToControlDistance = 0;
             this.previewLayout.TextVisible = false;
             // 
             // MillReportsXtraForm
@@ -489,7 +469,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createReportButtonEmptySpaceI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportTypesEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPeriodEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusesLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -524,7 +503,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem previewButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem createReportButtonEmptySpaceI;
-        private DevExpress.XtraLayout.EmptySpaceItem reportTypesEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem reportPeriodEmptySpace;
         private System.Windows.Forms.BindingSource millReportsBindingSource;
         private DevExpress.XtraEditors.CheckedListBoxControl statuses;

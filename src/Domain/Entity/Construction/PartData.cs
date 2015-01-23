@@ -25,7 +25,12 @@ namespace Prizm.Domain.Entity.Construction
         public string ConnectorsCount { get; set; }
 
 
-        public PartData() { this.Connectors = new List<Connector>(); }
+        public PartData() 
+        {
+           if (Id == Guid.Empty)
+              Id = Guid.NewGuid();
+           this.Connectors = new List<Connector>(); 
+        }
         /// <summary>
         /// Creates the PartData element on the corresponding Row
         /// </summary>

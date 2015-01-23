@@ -7,8 +7,9 @@ CREATE TABLE [dbo].[Category](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[fixed] [bit] NULL,
-	[name] [nvarchar](20) NULL,
+	[name] [nvarchar](40) NULL,
 	[resultType] [nvarchar](20) NULL,
+	[type][nvarchar](20) NULL,
 
  CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
 (
@@ -44,7 +45,7 @@ CREATE TABLE [dbo].[SeamType](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
-	[name] [nvarchar](30) NULL,
+	[name] [nvarchar](20) NULL,
 
  CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (
@@ -107,9 +108,9 @@ CREATE TABLE [dbo].[Component](
 	[constructionStatus] [nvarchar](15) NULL,
 
 	[componentTypeId] [uniqueidentifier] NULL,
+        [toExport] [bit] NOT NULL DEFAULT 0,
 
 	[isAvailableToJoint] [bit] NULL,
-	        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -236,12 +237,17 @@ CREATE TABLE [dbo].[Pipe](
 
 	[length] [int] NULL,
 	[number] [nvarchar](20) NULL,
-	[isActive] [bit] NULL,
+	[isActive] [bit] NULL,	
+	[millWeldSubStatus] [nvarchar](15) NULL,
+	[millExtCoatSubStatus] [nvarchar](15) NULL,
+	[millInterCoatSubStatus] [nvarchar](15) NULL,
 	[inspectionStatus] [nvarchar](15) NULL,
 	[constructionStatus] [nvarchar](15) NULL,
 	[projectId] [uniqueidentifier] NULL,
 	[isAvailableToJoint] [bit] NULL,
-        [toExport] [bit] NOT NULL DEFAULT 0,
+    [toExport] [bit] NOT NULL DEFAULT 0,
+	[isCutOnSpool] [bit] NOT NULL DEFAULT 0,
+
 
  CONSTRAINT [PK_Pipe] PRIMARY KEY CLUSTERED 
 (
@@ -427,10 +433,10 @@ CREATE TABLE [dbo].[Railcar](
 	[number] [nvarchar](20) NULL,
 	[certificate] [nvarchar](20) NULL,
 	[destination] [nvarchar](50) NULL,
-	[shippingDate] [date] NULL,
 	[isShipped] [bit] NULL,
 	 [toExport] [bit] NOT NULL DEFAULT 0,
 	[isActive] [bit] NULL,
+	[releaseNoteId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -440,7 +446,24 @@ CREATE TABLE [dbo].[Railcar](
 
 SET ANSI_PADDING OFF
 
+/****** Object:  Table [dbo].[ReleaseNote]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[ReleaseNote](
+	[id] [uniqueidentifier] NOT NULL,
+	[number] [nvarchar](20) NULL,
+	[date] [date] NULL,
+	[Shipped] [bit] NULL,
+	[isActive] [bit] NULL,
+ CONSTRAINT [PK_ReleaseNote] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+
+SET ANSI_PADDING OFF
 
 
 /****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -716,7 +739,7 @@ CREATE TABLE [dbo].[Joint](
 	[part1Type] [nvarchar](20) NULL,
 	[part2Id] [uniqueidentifier] NULL,
 	[part2Type] [nvarchar](20) NULL,
-	        [toExport] [bit] NOT NULL DEFAULT 0,
+        [toExport] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_Joint] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -853,4 +876,24 @@ CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [db
 
 GO
 
+CREATE TABLE [dbo].[Portion_Joint] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [jointId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Joint] PRIMARY KEY([portionId],[jointId]),
+CONSTRAINT [FK_Portion_Joint_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Joint_Joint] FOREIGN KEY ([jointId]) REFERENCES [dbo].[Joint]([id])
+) ON [PRIMARY]
 
+
+GO
+
+
+CREATE TABLE [dbo].[Portion_Component] (
+  [portionId] [uniqueidentifier] NOT NULL,
+  [componentId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion_Component] PRIMARY KEY([portionId],[componentId]),
+CONSTRAINT [FK_Portion_Component_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+CONSTRAINT [FK_Portion_Component_Component] FOREIGN KEY ([componentId]) REFERENCES [dbo].[Component]([id])
+) ON [PRIMARY]
+
+GO

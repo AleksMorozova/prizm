@@ -19,15 +19,16 @@ namespace Prizm.Main.Forms.Spool
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
-        ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
+        public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -38,6 +39,8 @@ namespace Prizm.Main.Forms.Spool
                 if (viewModel.CanCut)
                 {
                     viewModel.Pipe.ToExport = true;
+                    viewModel.Pipe.IsCutOnSpool = true;
+                    viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
                     repos.BeginTransaction();
                     repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                     repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);

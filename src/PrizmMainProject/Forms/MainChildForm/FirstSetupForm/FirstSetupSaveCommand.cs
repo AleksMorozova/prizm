@@ -48,18 +48,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-            SaveInspectorCertificateTypes();
-            SaveSeemTypes();
-            SaveCategoryes();
             firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Evict(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
-            EvictInspectorCertificateTypes();
-            EvictSeemTypes();
-            EvictCategoryes();
             viewModel.IsSaved = true;
+
+            var seeder = new InnitialDataSeeder(viewModel);
+            seeder.Seed(Program.IsSeed);
+            
+
         }
 
         public bool CanExecute()
@@ -74,46 +73,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             foreach (var ct in viewModel.InspectorCertificateTypes)
             {
                 firstSetupRepo.CertificateTypeRepo.Save(ct);
-            }
-        }
-
-        private void SaveSeemTypes()
-        {
-            foreach (var seam in viewModel. SeamTypes)
-            {
-                firstSetupRepo.SeemTypeRepo.Save(seam);
-            }
-        }
-
-        private void SaveCategoryes()
-        {
-            foreach (var category in viewModel.FixedCategoryes)
-            {
-                firstSetupRepo.CategoryRepo.Save(category);
-            }
-        }
-
-        private void EvictInspectorCertificateTypes()
-        {
-            foreach (var ct in viewModel.InspectorCertificateTypes)
-            {
-                firstSetupRepo.CertificateTypeRepo.Evict(ct);
-            }
-        }
-
-        private void EvictSeemTypes()
-        {
-            foreach (var seam in viewModel.SeamTypes)
-            {
-                firstSetupRepo.SeemTypeRepo.Evict(seam);
-            }
-        }
-
-        private void EvictCategoryes()
-        {
-            foreach (var category in viewModel.FixedCategoryes)
-            {
-                firstSetupRepo.CategoryRepo.Evict(category);
             }
         }
 

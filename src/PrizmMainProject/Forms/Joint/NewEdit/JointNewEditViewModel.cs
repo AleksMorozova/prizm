@@ -19,6 +19,8 @@ using construction = Prizm.Domain.Entity.Construction;
 using System.Windows.Forms;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Common;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -30,6 +32,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
+        private readonly ISecurityContext ctx;
         private readonly SaveJointCommand saveJointCommand;
         private readonly NewSaveJointCommand newSaveJointCommand;
         private readonly ExtractOperationsCommand extractOperationsCommand;
@@ -56,24 +59,26 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             IConstructionRepository repoConstruction, 
             IUserNotify notify, 
             Guid id, 
-            Prizm.Data.DAL.IMillReportsRepository adoRepo)
+            Prizm.Data.DAL.IMillReportsRepository adoRepo,
+            ISecurityContext ctx)
         {
             this.repoConstruction = repoConstruction;
             this.JointId = id;
             this.notify = notify;
             this.adoRepo = adoRepo;
+            this.ctx = ctx;
 
             #region Commands
             saveOrUpdateJointCommand =
-                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify));
+                ViewModelSource.Create(() => new SaveOrUpdateJointCommand(repoConstruction, this, notify, ctx));
             saveJointCommand =
-              ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify));
+              ViewModelSource.Create(() => new SaveJointCommand(repoConstruction, this, notify, ctx));
             newSaveJointCommand =
-              ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify));
+              ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify, ctx));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
             jointdeactivationCommand = 
-                ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify));
+                ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             #endregion
@@ -113,7 +118,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (testResults != null)
                 {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
-                }
+                } 
             }
         }
 
@@ -240,6 +245,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
+                    RaisePropertyChanged("JointConstructionStatus");
                 }
             }
         }
@@ -392,6 +398,35 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
         }
 
+        public EnumWrapper<JointStatus> JointConstructionStatus
+        {
+            get 
+            {
+                Joint.Status = JointStatus.Welded;
+                if (LoweringDate != DateTime.MinValue)
+                {
+                    Joint.Status = JointStatus.Lowered;
+                }
+                if (Joint.JointWeldResults.Where(_ => _.Date == JointWeldResults.Max(x => x.Date)).Any(x => x.Operation.Type == JointOperationType.Withdraw))
+                {
+                    Joint.Status = JointStatus.Withdrawn;
+                }
+                if (Joint.IsActive == false)
+                {
+                    Joint.Status = JointStatus.Deactivated;
+                }
+                return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
+            }
+            set 
+            {
+                if (value.Value != Joint.Status)
+                {
+                    JointConstructionStatus = value;
+                    Joint.Status = value.Value;
+                    RaisePropertyChanged("JointConstructionStatus");
+                }
+            }
+        }
 
         #region ===== Makeing The Connection =====
         /// <summary>
@@ -430,9 +465,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part.ConstructionStatus != PartConstructionStatus.Welded)
+                    if (part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
-                        part.ConstructionStatus = PartConstructionStatus.Welded;
+                        switch (Joint.Status)
+                        {
+                            case JointStatus.Lowered: part.ConstructionStatus = PartConstructionStatus.Lowered;
+                                break;
+                            case JointStatus.Welded: part.ConstructionStatus = PartConstructionStatus.Welded;
+                                break;
+                            default: part.ConstructionStatus = PartConstructionStatus.Pending;
+                                break;
+                        }
                     }
                     else
                     {
@@ -653,6 +696,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             partData.SetPartConnectors(row);
                         }
                     }
+                    // crutch for displaying data of connected elements
+                    if (FirstElement.Number != null && list.Where<PartData>(x => x.Id == FirstElement.Id).Count<PartData>() == 0)
+                        list.Add(FirstElement);
+                    if (SecondElement.Number != null && list.Where<PartData>(x => x.Id == SecondElement.Id).Count<PartData>() == 0)
+                        list.Add(SecondElement);
                 }
                 return list;
             }
@@ -689,8 +737,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
                 }
-
-                PartDataList.Add(p);
             }
             else
             {
@@ -737,8 +783,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
                 Joint = this.Joint
             };
-            JointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
-            this.Joint.JointWeldResults = JointWeldResults;
+            jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
+            this.Joint.JointWeldResults.Add(requredWeldResult);
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;

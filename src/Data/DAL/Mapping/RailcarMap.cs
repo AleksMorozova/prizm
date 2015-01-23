@@ -11,7 +11,6 @@ namespace Prizm.Data.DAL.Mapping
             Map(x => x.Number).Column("number");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
-	        Map(_ => _.ShippingDate, "shippingDate");
             Map(_ => _.IsShipped, "isShipped");
             HasMany(_ => _.Pipes).KeyColumn("railcarId");
         }
