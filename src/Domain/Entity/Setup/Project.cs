@@ -28,7 +28,7 @@ namespace Prizm.Domain.Entity
                            case '#': convertedToRegex = @"\d"; break;
                            case '@': convertedToRegex = @"\p{Lu}"; break;
                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
-                           case '&': convertedToRegex = @"\w"; break;
+                           case '?': convertedToRegex = @"\w"; break;
                            default: convertedToRegex = ch.ToString(); break;
                         }
                         mask.Append(convertedToRegex);
