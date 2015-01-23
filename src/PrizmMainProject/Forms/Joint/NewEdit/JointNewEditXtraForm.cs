@@ -120,10 +120,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointStatus.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
-            //firstJointElement.DataBindings
-            //    .Add("EditValue", jointNewEditBindingSoure, "FirstElement");
-            //secondJointElement.DataBindings
-            //    .Add("EditValue", jointNewEditBindingSoure, "SecondElement");
+            firstJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElement");
+            secondJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElement");
 
 
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
@@ -162,7 +162,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             lookup.Properties.DataSource = pipelinePiecesBindingSource;
             lookup.Properties.DisplayMember = "Number";
-            lookup.Properties.ValueMember = "Id";
         }
 
         private void BindCommands()
@@ -382,16 +381,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void firstJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.FirstElement =  firstJointElement.EditValue as PartData;
-
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }
 
         private void secondJointElement_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.SecondElement = secondJointElement.EditValue as PartData;
-
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }
