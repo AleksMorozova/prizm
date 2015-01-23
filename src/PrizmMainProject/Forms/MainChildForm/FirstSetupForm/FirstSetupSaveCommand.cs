@@ -48,7 +48,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-           // SaveInspectorCertificateTypes();
             firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
@@ -56,14 +55,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
             viewModel.IsSaved = true;
 
-            var seeder = new InnitialDataSeeder();
-
-            //seed oreration is bool type for any reason
-            seeder.SeedRequired(viewModel);
-            if(Program.IsSeed)
-            {
-                seeder.SeedOptional(viewModel);
-            }
+            var seeder = new InnitialDataSeeder(viewModel);
+            seeder.Seed(Program.IsSeed);
             
 
         }

@@ -13,22 +13,38 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
     public class InnitialDataSeeder : IDisposable
     {
         IFirstSetupRepo firstSetupRepo;
+        FirstSetupViewModel viewModel;
 
-        public InnitialDataSeeder()
+        List<SeamType> seamTypes;
+        List<InspectorCertificateType> inspetorCertTypes;
+        List<PipeMillSizeType> types;
+        List<Category> categories;
+        List<PipeTest> tests;
+
+        public InnitialDataSeeder(FirstSetupViewModel vm)
         {
             this.firstSetupRepo = new FirstSetupRepo();
+            this.viewModel = vm;
+        }
+
+        public bool Seed(bool isOptionalSeed)
+        {
+            bool req, opt = true;
+            req = SeedRequired();
+            if(isOptionalSeed)
+            {
+                opt = SeedOptional();
+            }
+            return req && opt;
         }
 
         private Random rnd = new Random();
 
-        public bool SeedOptional(FirstSetupViewModel vm)
+        private bool SeedRequired()
         {
-
-            // first of all
             firstSetupRepo.BeginTransaction();
-
             #region SeamTypes
-            SeamType[] seamTypes = 
+            seamTypes = new List<SeamType>
             {
                 new SeamType{Name = "Бесшовный", IsActive = true},
                 new SeamType{Name = "Прямой", IsActive = true},
@@ -38,12 +54,27 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 firstSetupRepo.SeemTypeRepo.Save(item);
             }
+            #endregion
             firstSetupRepo.Commit();
 
+            firstSetupRepo.BeginTransaction();
+            #region InspectorCertificateTypes
+            inspetorCertTypes = new List<InspectorCertificateType>
+            {
+                new InspectorCertificateType {Name = "Покрытия (Coating)",IsActive = true},
+                new InspectorCertificateType {Name = "РК (RT)",IsActive = true},
+                new InspectorCertificateType {Name = "ВИК (VT)",IsActive = true},
+                new InspectorCertificateType {Name = "УК (UT)",IsActive = true},
+                new InspectorCertificateType {Name = "НАКС (Welding Engineer)",IsActive = true},
+                new InspectorCertificateType {Name = "МК (MT)",IsActive = true}
+            };
+            inspetorCertTypes.ForEach(s => firstSetupRepo.CertificateTypeRepo.Save(s));
             #endregion
+            firstSetupRepo.Commit();
+
             firstSetupRepo.BeginTransaction();
             #region PipeMillSyzeType
-            PipeMillSizeType[] types = 
+            types = new List<PipeMillSizeType>
             {
                 new PipeMillSizeType
                 {
@@ -64,30 +95,33 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     SeamType = seamTypes[1]
                 },
             };
-            Array.ForEach(types, s => firstSetupRepo.SizeTypeRepo.Save(s));
+            types.ForEach(s => firstSetupRepo.SizeTypeRepo.Save(s));
             #endregion
             firstSetupRepo.Commit();
+
             firstSetupRepo.BeginTransaction();
             #region PipeTestCategory
-            Category[] categories = {
+            categories = new List<Category>
+            {
                 #region creating pipe test category
-		        new Category { Name = "Категория - 1", Fixed = false, Type = FixedCategory.Undef, IsActive = true},
+                new Category { Name = "Категория - 1", Fixed = false, Type = FixedCategory.Undef, IsActive = true},
                 new Category { Name = "Категория - 2", Fixed = false, Type = FixedCategory.Undef, IsActive = true},
                 new Category { Name = "Измерение длины", IsActive = true , Fixed=true, ResultType="int", Type=FixedCategory.Length},
                 new Category { Name = "Контроль сварки", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.Weld },
                 new Category { Name = "Контроль внешнего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.ExternalCoat },
                 new Category { Name = "Контроль внутреннего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.InternalCoat }
 	            #endregion
-                                    };
+            };
             foreach(var category in categories)
             {
                 firstSetupRepo.CategoryRepo.Save(category);
             }
             #endregion
             firstSetupRepo.Commit();
+
             firstSetupRepo.BeginTransaction();
             #region PipeTest
-            PipeTest[] tests = 
+            tests = new List<PipeTest>
             {
                 #region creating pipetests for first pipe size type
                 new PipeTest 
@@ -492,6 +526,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             #endregion
             firstSetupRepo.Commit();
+
+            return false;
+        }
+
+        private bool SeedOptional()
+        {
+
             firstSetupRepo.BeginTransaction();
             #region PlateManufacturers
             PlateManufacturer[] plateManufacturers = 
@@ -596,12 +637,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     Number = RndString(8),
                     Plate = plate,
-                    Mill = vm.MillName,
+                    Mill = viewModel.MillName,
                     Diameter = types[0].Diameter,
                     WallThickness = types[0].Thickness,
                     Type = types[rnd.Next(1)],
                     PurchaseOrder = orders[orders.Count - 1],
-                    Project = vm.Project,
+                    Project = viewModel.Project,
                     Status = PipeMillStatus.Produced,
                     ProductionDate = DateTime.Now.AddDays(-rnd.Next(20)),
                     ToExport = true,
@@ -634,23 +675,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     pipe.IsAvailableToJoint = true;
                 }
 
-                
+
                 firstSetupRepo.PipeRepo.Save(pipe);
             };
-            #endregion
-            firstSetupRepo.Commit();
-            firstSetupRepo.BeginTransaction();
-            #region InspectorCertificateTypes
-            List<InspectorCertificateType> inspetorCertTypes = new List<InspectorCertificateType>
-            {
-                new InspectorCertificateType {Name = "Покрытия (Coating)",IsActive = true},
-                new InspectorCertificateType {Name = "РК (RT)",IsActive = true},
-                new InspectorCertificateType {Name = "ВИК (VT)",IsActive = true},
-                new InspectorCertificateType {Name = "УК (UT)",IsActive = true},
-                new InspectorCertificateType {Name = "НАКС (Welding Engineer)",IsActive = true},
-                new InspectorCertificateType {Name = "МК (MT)",IsActive = true}
-            };
-            inspetorCertTypes.ForEach(s => firstSetupRepo.CertificateTypeRepo.Save(s));
             #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
@@ -691,8 +718,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                             MiddleName = RndName(mNames),
                         },
                         Stamp = RndString(12),
-                        Certificate = new Certificate 
-                        { 
+                        Certificate = new Certificate
+                        {
                             Number = RndString(14),
                             ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)),
                             IsActive = true
@@ -732,7 +759,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     components.Add(component);
                 }
             }
-           
+
             #endregion
             firstSetupRepo.Commit();
 
@@ -784,11 +811,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         }
 
-        public bool SeedRequired(FirstSetupViewModel vm)
-        {
-            return false;
-        }
-
         private string RndString(int size)
         {
             string result = String.Empty;
@@ -806,7 +828,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] fNames = { "Иван", "Сергей", "Николай", "Петр", "Савелий", "Исаак", "Фрол" };
         private string[] lNames = { "Иванов", "Самойлов", "Снигирев", "Голубев", "Татарский", "Колинич", "Леонов" };
         private string[] mNames = { "Петрович", "Николаевич", "Сергеевич", "Анатольевич", "Владимирович", "Георгиевич", "Павлович" };
-
 
         //random names
         public string RndName(string[] arr)
