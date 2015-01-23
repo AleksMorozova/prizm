@@ -701,8 +701,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void MillPipeNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
-            viewModel.Dispose();
-            viewModel = null;
+            if(viewModel != null)
+            {
+                viewModel.Dispose();
+                viewModel = null; 
+            }
         }
 
         #region IValidatable Members
