@@ -38,13 +38,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             bool req, opt = true;
             req = SeedRequired();
-            if(!isOptionalSeed)
+            if(isOptionalSeed)
             {
                 opt = SeedOptional();
             }
             return req && opt;
         }
-
         private Random rnd = new Random();
 
         private bool SeedRequired()

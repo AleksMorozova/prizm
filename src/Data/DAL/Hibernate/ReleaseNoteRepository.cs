@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
+using NHibernate.Linq;
 using Ninject;
 using Prizm.Data.DAL.Mill;
 using Prizm.Domain.Entity.Mill;
@@ -15,7 +16,7 @@ namespace Prizm.Data.DAL.Hibernate
     public class ReleaseNoteRepository : AbstractHibernateRepository<Guid, ReleaseNote>, IReleaseNoteRepository
     {
         [Inject]
-        public ReleaseNoteRepository(ISession session) : base(session){ }
+        public ReleaseNoteRepository(ISession session) : base(session) { }
 
         #region IReleaseNoteRepository Members
         public List<ReleaseNote> SearchReleases(string number, DateTime date, string railcar, string certificate, string reciver)
@@ -26,7 +27,7 @@ namespace Prizm.Data.DAL.Hibernate
             var s = session.QueryOver<ReleaseNote>(() => note)
                 .JoinAlias(() => note.Railcars, () => car)
                 .TransformUsing(Transformers.DistinctRootEntity);
-                
+
             if(!string.IsNullOrWhiteSpace(railcar))
             {
                 s.WhereRestrictionOn(() => car.Number).IsLike(railcar, MatchMode.Anywhere);
@@ -48,9 +49,8 @@ namespace Prizm.Data.DAL.Hibernate
                 s.Where(x => x.Date == date);
             }
 
-
             var list = new List<ReleaseNote>(s.List<ReleaseNote>());
-                
+
             return list;
         }
         #endregion

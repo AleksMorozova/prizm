@@ -32,9 +32,9 @@ namespace Prizm.Main.Forms.Railcar.Search
 
         private BindingList<ReleaseNoteProjection> projection = new BindingList<ReleaseNoteProjection>();
         public BindingList<ReleaseNoteProjection> Projection
-        { 
+        {
             get { return projection; }
-            set 
+            set
             {
                 if(projection != value)
                 {
