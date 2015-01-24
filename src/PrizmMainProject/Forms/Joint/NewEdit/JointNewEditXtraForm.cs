@@ -419,7 +419,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             commandManager.Dispose();
             viewModel.Dispose();
-            //viewModel = null;
+            viewModel = null;
         }
 
         private void controlOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
