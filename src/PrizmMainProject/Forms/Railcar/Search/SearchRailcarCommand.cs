@@ -23,7 +23,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
         [Inject]
         public SearchRailcarCommand(
-            RailcarSearchViewModel viewmodel, 
+            RailcarSearchViewModel viewmodel,
             IReleaseNoteRepository repo,
             IUserNotify notify)
         {
@@ -65,14 +65,13 @@ namespace Prizm.Main.Forms.Railcar.Search
 
                 viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
 
-
                 RefreshVisualStateEvent();
             }
-            catch (RepositoryException ex)
+            catch(RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-            
+
         }
 
         public bool CanExecute()
