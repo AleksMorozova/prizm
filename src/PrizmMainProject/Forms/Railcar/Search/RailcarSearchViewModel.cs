@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity.Mill;
 
 
 namespace Prizm.Main.Forms.Railcar.Search
@@ -20,119 +21,35 @@ namespace Prizm.Main.Forms.Railcar.Search
         private readonly SearchRailcarCommand searchCommand;
         private readonly IUserNotify notify;
 
-        private List<Railcar> railcars;
 
         [Inject]
         public RailcarSearchViewModel(IReleaseNoteRepository repo, IUserNotify notify)
         {
-            railcars = new List<Railcar>();
             this.repo = repo;
             this.notify = notify;
             searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
         }
 
-        public List<Railcar> Railcars
+        private List<ReleaseNote> releases = new List<ReleaseNote>();
+        public List<ReleaseNote> Releases
         {
-            get { return railcars; }
+            get { return releases; }
             set
             {
-                if (value != railcars)
+                if(value != releases)
                 {
-                    railcars = value;
-                    RaisePropertyChanged("Railcars");
+                    releases = value;
+                    RaisePropertiesChanged("Releases");
                 }
             }
         }
 
         #region Search Fields
 
-        private string releaseNoteNumber = "";
-        public string ReleaseNoteNumber
-        {
-            get { return releaseNoteNumber; }
-            set
-            {
-                if (value != releaseNoteNumber)
-                {
-                    releaseNoteNumber = value;
-                    RaisePropertyChanged("ReleaseNoteNumber");
-                }
-            }
-        }
-
-        private DateTime releaseNoteDate = DateTime.MinValue;
-        public DateTime ReleaseNoteDate
-        {
-            get { return releaseNoteDate; }
-            set
-            {
-                if (value != releaseNoteDate)
-                {
-                    releaseNoteDate = value;
-                    RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
-
-        private string railcarNumber = "";
-        public string RailcarNumber
-        {
-            get { return railcarNumber; }
-            set
-            {
-                if (value != railcarNumber)
-                {
-                    railcarNumber = value;
-                    RaisePropertyChanged("RailcarNumber");
-                }
-            }
-        }
-
-        private string receiver = "";
-        public string Receiver
-        {
-            get { return receiver; }
-            set
-            {
-                if (value != receiver)
-                {
-                    receiver = value;
-                    RaisePropertyChanged("Receiver");
-                }
-            }
-        }
-
-        private string certificate = "";
-        public string Certificate
-        {
-            get { return certificate; }
-            set
-            {
-                if (value != certificate)
-                {
-                    certificate = value;
-                    RaisePropertyChanged("Certificate");
-                }
-            }
-        }
-
-        private DateTime shippingDate = DateTime.MinValue;
-        public DateTime ShippingDate
-        {
-            get { return shippingDate; }
-            set
-            {
-                if (value != shippingDate)
-                {
-                    shippingDate = value;
-                    RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
-
-        
 
         #endregion
+
+
         public ICommand SearchCommand
         {
             get { return searchCommand; }
