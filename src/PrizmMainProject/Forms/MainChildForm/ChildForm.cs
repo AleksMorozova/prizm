@@ -13,7 +13,7 @@ using Prizm.Main.Languages;
 namespace Prizm.Main.Forms.MainChildForm
 {
     [System.ComponentModel.DesignerCategory("")]
-    public abstract class ChildForm : PrizmForm, IModifiable
+    public class ChildForm : PrizmForm, IModifiable
     {
         #region --- Modified and header ---
 
@@ -296,6 +296,10 @@ namespace Prizm.Main.Forms.MainChildForm
 
         #endregion // Edit mode
 
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            throw new ApplicationException("ChildForm.CreateLocalizedItems must not be called.");
+        }
 
     }
 

@@ -74,17 +74,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                // combo boxes
+                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusCombo1", "SearchPipe_MillStatusCombo2", "SearchPipe_MillStatusCombo3" }),
 
                 // other
             };

@@ -8,47 +8,112 @@ namespace Prizm.Main.Languages
 {
     public class LocalizedItem : ILocalizedItem
     {
-        private string resourceId;
+        private string[] resourceIds;
         private object obj;
         private Type type;
-        private string defaultValue;
+        private string[] defaultValues;
 
-        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup };
+        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup, ProgressPanel, CheckedComboBoxEdit, ComboBoxEdit };
 
         public LocalizedItem(DevExpress.XtraLayout.LayoutControlItem item, string resourceId)
         {
-            this.resourceId = resourceId;
+            const int TextsCount = 1;
+            this.resourceIds = new string[TextsCount] { resourceId };
             this.obj = (object)item;
             this.type = Type.LayoutControlItem;
-            this.defaultValue = item.Text;
+            this.defaultValues = new string[TextsCount] { item.Text };
         }
 
         public LocalizedItem(System.Windows.Forms.Control control, string resourceId)
         {
-            this.resourceId = resourceId;
+            const int TextsCount = 1;
+            this.resourceIds = new string[TextsCount] { resourceId };
             this.obj = (object)control;
             this.type = Type.Control;
-            this.defaultValue = control.Text;
+            this.defaultValues = new string[TextsCount] { control.Text };
         }
 
         public LocalizedItem(DevExpress.XtraGrid.Columns.GridColumn column, string resourceId)
         {
-            this.resourceId = resourceId;
+            const int TextsCount = 1;
+            this.resourceIds = new string[TextsCount] { resourceId };
             this.obj = (object)column;
             this.type = Type.GridColumn;
-            this.defaultValue = column.Caption;
+            this.defaultValues = new string[TextsCount] { column.Caption };
         }
 
         public LocalizedItem(DevExpress.XtraLayout.LayoutControlGroup group, string resourceId)
         {
-            this.resourceId = resourceId;
+            const int TextsCount = 1;
+            this.resourceIds = new string[TextsCount] { resourceId };
             this.obj = (object)group;
             this.type = Type.LayoutControlGroup;
-            this.defaultValue = group.Text;
+            this.defaultValues = new string[TextsCount] { group.Text };
+        }
+
+        public LocalizedItem(DevExpress.XtraWaitForm.ProgressPanel panel, string captionResourceId, string descriptionResourceId)
+        {
+            const int TextsCount = 2;
+            this.resourceIds = new string[TextsCount] { captionResourceId, descriptionResourceId };
+            this.obj = (object)panel;
+            this.type = Type.ProgressPanel;
+            this.defaultValues = new string[TextsCount] { panel.Caption, panel.Description };
+        }
+
+        public LocalizedItem(DevExpress.XtraEditors.CheckedComboBoxEdit checkedCombo, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)checkedCombo;
+            this.type = Type.CheckedComboBoxEdit;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = checkedCombo.Properties.Items[index].Description;
+            }
+        }
+
+        public LocalizedItem(DevExpress.XtraEditors.ComboBoxEdit combo, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)combo;
+            this.type = Type.ComboBoxEdit;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = combo.Properties.Items[index].ToString();
+            }
         }
 
         public string Text
         {
+            set
+            {
+                switch (type) // only types with one string
+                {
+                    case Type.Control:
+                        ((System.Windows.Forms.Control)obj).Text = value;
+                        break;
+                    case Type.LayoutControlItem:
+                        ((DevExpress.XtraLayout.LayoutControlItem)obj).Text = value;
+                        break;
+                    case Type.GridColumn:
+                        ((DevExpress.XtraGrid.Columns.GridColumn)obj).Caption = value;
+                        break;
+                    case Type.LayoutControlGroup:
+                        ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text = value;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public string this[int index]
+        {/*
             get
             {
                 string ret;
@@ -71,37 +136,68 @@ namespace Prizm.Main.Languages
                         break;
                 }
                 return ret;
-            }
+            }*/
             set
             {
-                switch (type)
+                if (defaultValues.Length < 2)
                 {
-                    case Type.Control:
-                        ((System.Windows.Forms.Control)obj).Text = value;
-                        break;
-                    case Type.LayoutControlItem:
-                        ((DevExpress.XtraLayout.LayoutControlItem)obj).Text = value;
-                        break;
-                    case Type.GridColumn:
-                        ((DevExpress.XtraGrid.Columns.GridColumn)obj).Caption = value;
-                        break;
-                    case Type.LayoutControlGroup:
-                        ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text = value;
-                        break;
-                    default:
-                        break;
+                    Text = value;
+                }
+                else
+                {
+                    switch (type) // only types with more than one string
+                    {
+                        case Type.ProgressPanel:
+
+                            if(index == 0)
+                                ((DevExpress.XtraWaitForm.ProgressPanel)obj).Caption = value;
+
+                            if(index == 1)
+                                ((DevExpress.XtraWaitForm.ProgressPanel)obj).Description = value;
+
+                            break;
+
+                        case Type.CheckedComboBoxEdit:
+
+                            if(index < this.defaultValues.Length)
+                            {
+                                ((DevExpress.XtraEditors.CheckedComboBoxEdit)obj).Properties.Items[index].Description = value;
+                            }
+
+                            break;
+
+                        case Type.ComboBoxEdit:
+
+                            if (index < this.defaultValues.Length)
+                            {
+                                ((DevExpress.XtraEditors.ComboBoxEdit)obj).Properties.Items[index] = value;
+                            }
+
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
             }
         }
 
-        public string ResourceId
+        public string GetResourceId(int index=0)
         {
-            get { return resourceId; }
+            return this.resourceIds.Length > index ? this.resourceIds[index] : "";
         }
 
         public void BackToDefault()
         {
-            Text = defaultValue;
+            for (int index = 0; index < this.defaultValues.Length; index++ )
+            {
+                this[index] = this.defaultValues[index];
+            }
+        }
+
+        public int Count
+        {
+            get { return this.defaultValues.Length; }
         }
 
     }

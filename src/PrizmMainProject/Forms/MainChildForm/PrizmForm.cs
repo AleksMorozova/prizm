@@ -36,6 +36,12 @@ namespace Prizm.Main.Forms.MainChildForm
             return this.GetEnumerator();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            Program.MainForm.ChangeLanguage(this);
+        }
+
         #endregion // --- Localization ---
 
     }

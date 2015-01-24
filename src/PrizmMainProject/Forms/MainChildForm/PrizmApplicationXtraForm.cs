@@ -695,20 +695,23 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        void ChangeLanguage(ILocalizable localizable)
+        public void ChangeLanguage(ILocalizable localizable)
         {
             if (localizable != null)
             {
                 foreach (var localizedItem in localizable)
                 {
-                    string resource;
-                    if (viewModel.TryGetLocalizedString(localizedItem.ResourceId, out resource))
+                    for (int index = 0; index < localizedItem.Count; index++)
                     {
-                        localizedItem.Text = resource;
-                    }
-                    else
-                    {
-                        localizedItem.BackToDefault();
+                        string resource;
+                        if (viewModel.TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
+                        {
+                            localizedItem.Text = resource;
+                        }
+                        else
+                        {
+                            localizedItem.BackToDefault();
+                        }
                     }
                 }
             }

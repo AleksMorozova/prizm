@@ -8,8 +8,10 @@ namespace Prizm.Main.Languages
 {
     public interface ILocalizedItem
     {
-        string Text { get; set; }
-        string ResourceId { get; }
+        string Text { set; }
+        int Count { get; }
+        string this[int index] { set; }
+        string GetResourceId(int index = 0);
         void BackToDefault();
     }
 
