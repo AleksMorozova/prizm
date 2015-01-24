@@ -41,6 +41,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
+        private EnumWrapper<JointStatus> jointStatus = new EnumWrapper<JointStatus>() { Value = JointStatus.Welded };
 
         private PartData firstElement;
         private PartData secondElement;
@@ -396,7 +397,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get 
             {
-                Joint.Status = JointStatus.Welded;
                 if (LoweringDate != DateTime.MinValue)
                 {
                     Joint.Status = JointStatus.Lowered;
@@ -409,13 +409,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.Status = JointStatus.Deactivated;
                 }
-                return new EnumWrapper<JointStatus>() { Value = Joint.Status}; 
+
+                jointStatus.Value = Joint.Status;
+
+                return jointStatus; 
             }
             set 
             {
                 if (value.Value != Joint.Status)
                 {
-                    JointConstructionStatus = value;
+                    jointStatus = value;
                     Joint.Status = value.Value;
                     RaisePropertyChanged("JointConstructionStatus");
                 }
@@ -774,7 +777,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Joint.FirstElement = new PartData();
             Joint.SecondElement = new PartData();
             this.Joint.IsActive = true;
-            this.Joint.Status = JointStatus.Welded;
+            this.Joint.Status = jointStatus.Value;
             this.JointTestResults = new BindingList<JointTestResult>();
             JointWeldResult requredWeldResult = new JointWeldResult()
             { 
