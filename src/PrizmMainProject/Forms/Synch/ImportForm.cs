@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +21,6 @@ namespace Prizm.Main.Forms.Synch
     public partial class ImportForm : PrizmForm
    {
       readonly DataImporter importer;
-
       [Inject]
       public ImportForm(DataImporter importer)
       {
@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Synch
          importer.OnConflict += importer_OnConflict;
          importer.OnMessage += importer_OnMessage;
          importer.OnProgress += importer_OnProgress;
+         importer.OnMissing += importer_OnMissing;
       }
 
 
@@ -104,6 +105,17 @@ namespace Prizm.Main.Forms.Synch
          args.ForAll = dlg.ForAll;
       }
 
+      void importer_OnMissing(MissingEventArgs args)
+      {
+          MissingPortionsDialog dialog = new MissingPortionsDialog(args.ExistingPortions,args.MissingPortions, args.MillName);
+          dialog.ShowDialog();
+          if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
+          {
+              importer.TaskIsCancelled = true; 
+          }
+      }
+
+
       void importer_OnError(ImportException e)
       {
          string msg = e.Message;
@@ -137,7 +149,7 @@ namespace Prizm.Main.Forms.Synch
 
          if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
          {
-            txtArchive.Text = dlg.FileName;
+            txtArchive.Text = dlg.FileName;        
          }
       }
 

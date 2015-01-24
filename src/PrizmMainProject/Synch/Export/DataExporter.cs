@@ -53,8 +53,13 @@ namespace Prizm.Main.Synch.Export
          
          exportRepo.PortionRepo.BeginTransaction();
 
-         Portion portion = new Portion();
-         portion.ExportDateTime = DateTime.Now;
+         Portion portion = new Portion()
+         {
+             ExportDateTime = DateTime.Now,
+             IsExport = true,
+             PortionNumber = exportRepo.PortionRepo.GetPortionNumber(exportRepo.ProjectRepo.GetSingle()),
+             Project = exportRepo.ProjectRepo.GetSingle()
+         };
 
          foreach (var pipe in pipesToExport)
          {
@@ -182,7 +187,7 @@ namespace Prizm.Main.Synch.Export
 
             FireMessage(Resources.Export_WritingData);
 
-            WriteManifest(tempDir, portion.Id, portion.ExportDateTime, project.WorkstationType);
+            WriteManifest(tempDir, portion.Id, portion.PortionNumber, portion.ExportDateTime, project.WorkstationType);
 
             WriteData<Data>(tempDir, data);
 

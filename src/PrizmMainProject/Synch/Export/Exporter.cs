@@ -69,11 +69,12 @@ namespace Prizm.Main.Synch.Export
       }
 
 
-      protected void WriteManifest(string tempDir, Guid portionId, DateTime exportDateTime, WorkstationType workstationType)
+      protected void WriteManifest(string tempDir, Guid portionId, int portionNumber, DateTime exportDateTime, WorkstationType workstationType)
       {
          Manifest manifest = new Manifest();
          manifest.ExportDateTime = exportDateTime;
          manifest.PortionID = portionId;
+         manifest.PortionNumber = portionNumber;
          manifest.WorkstationType = workstationType;
 
          XmlSerializer serializer = new XmlSerializer(typeof(Manifest));

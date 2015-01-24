@@ -483,6 +483,12 @@
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.Designer.cs">
+      <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -661,6 +667,7 @@
     <Compile Include="Synch\Import\ImportRepository.cs" />
     <Compile Include="Synch\Import\ImportResult.cs" />
     <Compile Include="Synch\Import\DataImporter.cs" />
+    <Compile Include="Synch\Import\MissingEventArgs.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentObject.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\ConnectorObject.cs" />
@@ -838,6 +845,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
