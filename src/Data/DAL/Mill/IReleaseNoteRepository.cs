@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.Mill
 {
-    class IReleaseNoteRepository
+    public class IReleaseNoteRepository
     {
     }
 }

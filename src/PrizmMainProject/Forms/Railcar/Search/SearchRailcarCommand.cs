@@ -24,7 +24,8 @@ namespace Prizm.Main.Forms.Railcar.Search
         [Inject]
         public SearchRailcarCommand(
             RailcarSearchViewModel viewmodel, 
-            IRailcarRepository repo, 
+            //IRailcarRepository repo, 
+            IReleaseNoteRepository repo,
             IUserNotify notify)
         {
             this.viewModel = viewmodel;
