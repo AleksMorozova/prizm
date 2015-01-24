@@ -7,7 +7,8 @@ namespace Prizm.Main.Synch.Import
 {
     public class MissingEventArgs
     {
-        public string Portions { get; set; }
+        public int[] ExistingPortions { get; set; }
+        public int[] MissingPortions { get; set; }
         public string MillName { get; set; }
     }
 }

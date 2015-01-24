@@ -92,11 +92,11 @@ namespace Prizm.Main.Forms.Synch
 
       void importer_OnMissing(MissingEventArgs args)
       {
-          MissingPortionsDialog dialog = new MissingPortionsDialog(args.Portions, args.MillName);
+          MissingPortionsDialog dialog = new MissingPortionsDialog(args.ExistingPortions,args.MissingPortions, args.MillName);
           dialog.ShowDialog();
           if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
           {
-              importer.TaskIsCancelled = true;                        
+              importer.TaskIsCancelled = true; 
           }
       }
 

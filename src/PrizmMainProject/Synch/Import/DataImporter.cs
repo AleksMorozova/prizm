@@ -93,8 +93,9 @@ namespace Prizm.Main.Synch.Import
 
                 SavePortionInfo(manifest, importedPipes, importedJoints, importedComponents, project);
             }
+            else { tempDir = ""; }
             importRepo.PipeRepo.Commit();
-
+            TaskIsCancelled = false;
             progress = 100;
             FireProgress(progress);
         }
@@ -108,14 +109,21 @@ namespace Prizm.Main.Synch.Import
 
         }
 
+        /// <summary>
+        /// Checks existing portions sequense. If sequences are not equal - generates arrays of existing and missinf elements
+        /// portionList - list of existing portions
+        /// controlList - list of control values
+        /// </summary>
         private void CheckProjectSequence(Project project, int portionNumber)
         {
-            IList<int> portionList = importRepo.PortionRepo.CheckPortionSequence(project);
-            if ((portionList.Count != 0 && portionNumber - portionList.Max() != 1) || (portionList.Count == 0 && portionNumber != 1))
-            {
+            List<int> portionList = importRepo.PortionRepo.CheckPortionSequence(project);
+            List<int> controlList = (portionNumber == 1) ? new List<int>() { 0 } : Enumerable.Range(1, portionNumber - 1).ToList();
+            if (!portionList.SequenceEqual(controlList))
+            {          
                 MissingEventArgs args = new MissingEventArgs();
                 args.MillName = project.MillName;
-                args.Portions = (portionList.Count != 0) ? portionList.Min().ToString() + "-" + portionList.Max().ToString() : "0";
+                args.ExistingPortions= portionList.ToArray<int>();
+                args.MissingPortions = (from i in controlList let found = portionList.Any(j => j == i) where !found select i).ToArray<int>();
                 FireMissing(args);
             }
         }
