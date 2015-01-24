@@ -529,15 +529,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public string RailcarShippingDate
-        {
-            get
-            {
-                return (Railcar == null || Railcar.ShippingDate == null
-                    ? string.Empty
-                    : Railcar.ShippingDate.Value.ToShortDateString());
-            }
-        }
         #endregion
 
         #region PipeMillSizeType

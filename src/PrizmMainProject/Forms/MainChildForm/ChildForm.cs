@@ -8,11 +8,12 @@ using Prizm.Main.Documents;
 using Prizm.Main.Properties;
 using Prizm.Main.Forms.Common;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
     [System.ComponentModel.DesignerCategory("")]
-    public class ChildForm : XtraForm, IModifiable
+    public abstract class ChildForm : PrizmForm, IModifiable
     {
         #region --- Modified and header ---
 
@@ -294,6 +295,7 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         #endregion // Edit mode
+
 
     }
 

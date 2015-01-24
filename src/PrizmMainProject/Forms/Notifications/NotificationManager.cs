@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Notifications
                     break;
                 default:
                     throw new NotImplementedException();
-                    break;
+                    //break; // unreachable code
             }
         }
 

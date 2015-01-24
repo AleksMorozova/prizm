@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ToExport = false;
                 }
-                viewModel.Railcar.ShippingDate = DateTime.MinValue;
+               
                 viewModel.IsShipped = false;
                 notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                 viewModel.SaveCommand.Execute();

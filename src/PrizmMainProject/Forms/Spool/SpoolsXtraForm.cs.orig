@@ -15,8 +15,11 @@ using System.Windows.Forms;
 using Ninject;
 using System.Text;
 using Prizm.Main.Security;
+<<<<<<< HEAD
 using Prizm.Main.Languages;
+=======
 using Prizm.Main.Common;
+>>>>>>> master
 
 namespace Prizm.Main.Forms.Spool
 {

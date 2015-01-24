@@ -62,25 +62,32 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         /// <param name="resourceId">id of requested string resource</param>
         /// <returns>localized string</returns>
-        public string GetLocalizedString(string resourceId)
+        public bool TryGetLocalizedString(string resourceId, out string resource)
         {
-            string ret = "<no resource>";
+            bool ret = true;
+            resource = String.Empty;
             try
             {
-                ret = langManager.Current.GetString(resourceId, langManager.CurrentCulture);
+                resource = langManager.Current.GetString(resourceId, langManager.CurrentCulture);
             }
             catch (SystemException )
             {
                 try
                 {
-                    ret = langManager.Default.GetString(resourceId, langManager.DefaultCulture);
+                    resource = langManager.Default.GetString(resourceId, langManager.DefaultCulture);
                 }
                 catch (SystemException )
                 {
+                    ret = false;
                     #if DEBUG
                     throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
                     #endif
                 }
+            }
+            if (String.IsNullOrWhiteSpace(resource))
+            {
+                resource = "<no resource>";
+                ret = false;
             }
             return ret;
         }

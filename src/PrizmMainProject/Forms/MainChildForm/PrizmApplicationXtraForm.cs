@@ -39,10 +39,11 @@ using Prizm.Main.Forms.Reports.Construction.PipeReport;
 using System.Globalization;
 using System.Resources;
 using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-    public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify
+    public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify, ILocalizable
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
@@ -134,6 +135,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 childForms[formType.Name].Add(newlyCreatedForm);
                 newlyCreatedForm.MdiParent = this;
                 newlyCreatedForm.FormClosed += ChildClosedEventHandler;
+                ChangeLanguage(newlyCreatedForm);
                 FramesCanOpen--;
             }
 
@@ -473,11 +475,9 @@ namespace Prizm.Main.Forms.MainChildForm
             StatusNotifyText(text);
         }
 
-        private void StatusNotifyText(string s)
+        private void StatusNotifyText(string text)
         {
-            var main = Program.MainForm as PrizmApplicationXtraForm;
-            var str = string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), s);
-            main.UpdateStatusBar(str);
+            Program.MainForm.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), text));
         }
 
         private int currentProcessingStep;
@@ -669,7 +669,7 @@ namespace Prizm.Main.Forms.MainChildForm
             int index = languageBarListItem.DataIndex;
             if (cultures.ContainsKey(e.Index) && viewModel.ChooseTranslation(cultures[e.Index]))
             {
-                CascadeLocalization();
+                CascadeChangeLanguage();
             }
             else
             {
@@ -681,11 +681,65 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <summary>
         /// Main window will modify own text according to current language, and impel it's children to do so.
         /// </summary>
-        void CascadeLocalization()
+        void CascadeChangeLanguage()
         {
-            //MessageBox.Show("CascadeLocalization");
-            //this.Text = viewModel.GetLocalizedString("MenuFile");
+            ChangeLanguage(this);
+            foreach (var childType in childForms)
+            {
+                foreach (var child in childType.Value)
+                {
+                    ILocalizable localizable = child as ILocalizable;
+
+                    ChangeLanguage(child as ILocalizable);
+                }
+            }
         }
 
+        void ChangeLanguage(ILocalizable localizable)
+        {
+            if (localizable != null)
+            {
+                foreach (var localizedItem in localizable)
+                {
+                    string resource;
+                    if (viewModel.TryGetLocalizedString(localizedItem.ResourceId, out resource))
+                    {
+                        localizedItem.Text = resource;
+                    }
+                    else
+                    {
+                        localizedItem.BackToDefault();
+                    }
+                }
+            }
+        }
+
+
+        #region --- Localization ---
+
+        List<LocalizedItem> localizedItems = null;
+
+        public IEnumerator<ILocalizedItem> GetEnumerator()
+        {
+            if (localizedItems == null)
+            {
+                localizedItems = new List<LocalizedItem>() 
+                { 
+                    // header
+
+                    // menu
+
+                    // other
+                };
+            }
+            return localizedItems.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
+        #endregion // --- Localization ---
     }
 }

@@ -26,6 +26,7 @@ using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -195,6 +196,30 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 DisableControlUnderWithdrawn();
             }
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {

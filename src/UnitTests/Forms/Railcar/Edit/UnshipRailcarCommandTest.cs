@@ -45,8 +45,6 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
 
             command.Execute();
 
-            Assert.That(viewModel.Railcar.ShippingDate, Is.EqualTo(DateTime.MinValue));
-
         }
     }
 }
