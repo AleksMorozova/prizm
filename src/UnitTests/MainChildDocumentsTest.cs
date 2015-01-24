@@ -1,6 +1,10 @@
 ﻿using Moq;
 using NUnit.Framework;
 
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+
 using Prizm.Main.Forms.Component.NewEdit;
 using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Main.Forms.Joint.Search;
@@ -11,44 +15,69 @@ using Prizm.Main.Forms.Railcar.Search;
 using Prizm.Main.Forms.Reports.Construction;
 using Prizm.Main.Forms.Reports.Incoming;
 using Prizm.Main.Forms.Reports.Mill;
-using Prizm.Main.Forms.Reports.Custom;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Forms.Spool;
 using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.Parts.Inspection;
-
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Audit;
 using PrizmMain.Forms.Notifications;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
+using Prizm.Main.Forms.Reports.Construction.PipeReport;
+using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
+using Prizm.Main.Forms.Synch;
+using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
+using Prizm.Main.Forms.PipeMill.Heat;
+using Prizm.Main.Forms.PipeMill.Purchase;
+using Prizm.Main.Forms.PipeMill;
+using Prizm.Main.Forms.Joint;
+using Prizm.Main.Forms.ExternalFile;
+using Prizm.Main.Forms.Common;
 
 namespace Prizm.UnitTests
 {
     [TestFixture]
     public class MainChildDocumentsTest
     {
-        [TestCase(typeof(MillPipeNewEditXtraForm))]
-        [TestCase(typeof(MillPipeSearchXtraForm))]
-        [TestCase(typeof(RailcarNewEditXtraForm))]
-        [TestCase(typeof(RailcarSearchXtraForm))]
-        [TestCase(typeof(MillReportsXtraForm))]
-        [TestCase(typeof(PartSearchXtraForm))]
-        [TestCase(typeof(InspectionReportsXtraForm))]
-        [TestCase(typeof(ComponentNewEditXtraForm))]
-        [TestCase(typeof(CustomReportsXtraForm))]
-        [TestCase(typeof(JointNewEditXtraForm))]
-        [TestCase(typeof(JointSearchXtraForm))]
-        [TestCase(typeof(ConstructionReportsXtraForm))]
-        [TestCase(typeof(SettingsXtraForm))]
-        [TestCase(typeof(SpoolsXtraForm))]
-        [TestCase(typeof(AuditXtraForm))]
-        [TestCase(typeof(NotificationXtraForm))]
-        [TestCase(typeof(PartInspectionXtraForm))]
-        public void TestChildFormSuccessor(System.Type type)
+
+        [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(MillPipeSearchXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(RailcarNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(RailcarSearchXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(MillReportsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(PartSearchXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(InspectionReportsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ComponentNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(JointNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(JointSearchXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ConstructionReportsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(SettingsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(SpoolsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(AuditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(NotificationXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(PartInspectionXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(PipeConstractionReportXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(WeldDateReportXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ExportForm), typeof(ChildForm))]
+        [TestCase(typeof(AboutXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(LoginForm), typeof(PrizmForm))]
+        [TestCase(typeof(SaveDialog), typeof(PrizmForm))]
+        [TestCase(typeof(ExternalFilesXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(JointCutDialog), typeof(PrizmForm))]
+        [TestCase(typeof(SelectDiameterDialog), typeof(PrizmForm))]
+        [TestCase(typeof(FirstSetupXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(AppSplashScreen), typeof(PrizmForm))]
+        [TestCase(typeof(AppWaitForm), typeof(PrizmForm))]
+        [TestCase(typeof(CreationDialog), typeof(PrizmForm))]
+        [TestCase(typeof(NumbersDialog), typeof(PrizmForm))]
+        [TestCase(typeof(PurchaseOrderXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(PasswordChangeDialog), typeof(PrizmForm))]
+        [TestCase(typeof(ConflictDialog), typeof(PrizmForm))]
+        [TestCase(typeof(ImportForm), typeof(PrizmForm))]
+        [TestCase(typeof(InspectionAddEditXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(HeatXtraForm), typeof(PrizmForm))]
+        public void TestNonDesignerFormEndSuccessor(System.Type type, System.Type baseForm)
         {
-            Assert.IsTrue(type.IsSubclassOf(typeof(ChildForm)), type.Name + " does not inherit from ChildForm!");
+            Assert.IsTrue(type.IsSubclassOf(baseForm), string.Format("{0} does not inherit from {1}!", type.Name, baseForm.Name));
 
             var attributes = type.GetCustomAttributes(typeof(System.ComponentModel.DesignerCategoryAttribute), false);
 
@@ -60,18 +89,24 @@ namespace Prizm.UnitTests
             }
         }
 
-        [Test]
-        public void TestChildForm()
+        [TestCase(typeof(ChildForm))]
+        [TestCase(typeof(PrizmForm))]
+        public void TestNonDesignerForm(System.Type type)
         {
-            var attributes = typeof(ChildForm).GetCustomAttributes(typeof(System.ComponentModel.DesignerCategoryAttribute), false);
+            var attributes = type.GetCustomAttributes(typeof(System.ComponentModel.DesignerCategoryAttribute), false);
 
-            Assert.GreaterOrEqual(attributes.Length, 1, "No DesignerCategoryAttribute for child form!");
+            Assert.GreaterOrEqual(attributes.Length, 1, string.Format("No DesignerCategoryAttribute for form {0}!", type.Name));
 
             foreach (var a in attributes)
             {
-                Assert.AreEqual(((System.ComponentModel.DesignerCategoryAttribute)a).Category, "", typeof(ChildForm) + " does not marked as empty DesignerCategoryAttribute");
+                Assert.AreEqual(((System.ComponentModel.DesignerCategoryAttribute)a).Category, "", string.Format("{0} does not marked as empty DesignerCategoryAttribute", type));
             }
+        }
 
+        [Test]
+        public void ChildFormSuccessorOfPrizmForm()
+        {
+            Assert.IsTrue(typeof(ChildForm).IsSubclassOf(typeof(PrizmForm)), "ChildForm does not inherit from PrizmForm!");
         }
 
 
@@ -83,7 +118,6 @@ namespace Prizm.UnitTests
         public void TestMainForm(System.Type type)
         {
             var filter = new TypeFilter(InterfaceFilter);
-            var mainForm = new PrizmApplicationXtraForm();
 
             var typeArr = type.FindInterfaces(filter, typeof(INewEditEntityForm));
 
@@ -92,10 +126,7 @@ namespace Prizm.UnitTests
 
         public bool InterfaceFilter(System.Type typeObj, System.Object criteriaObj)
         {
-            if (typeObj.ToString() == criteriaObj.ToString())
-                return true;
-            else
-                return false;
+            return typeObj.ToString() == criteriaObj.ToString();
         }
     }
 

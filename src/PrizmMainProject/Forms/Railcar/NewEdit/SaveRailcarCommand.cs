@@ -47,10 +47,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
 
-            if(viewModel.Railcar.ShippingDate == DateTime.MinValue)
-            {
-                viewModel.Railcar.ShippingDate = null;
-            }
+           
             try
             {
                 foreach(var pipe in viewModel.Railcar.Pipes)
@@ -83,10 +80,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public bool CanExecute()
         {
-            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number) 
-                && !viewModel.IsShipped
-                && !string.IsNullOrWhiteSpace(viewModel.ReleaseNoteNumber)
-                && viewModel.ReleaseNoteDate != DateTime.MinValue;
+            bool condition = !string.IsNullOrWhiteSpace(viewModel.Number)
+                && !viewModel.IsShipped;
 
             bool conditionAndPermission;
             if(viewModel.IsNew)

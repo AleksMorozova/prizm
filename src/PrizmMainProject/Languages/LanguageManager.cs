@@ -155,5 +155,17 @@ namespace Prizm.Main.Languages
                 return cultures[indexDefault].Culture;
             }
         }
+
+        public int LanguagesCount
+        {
+            get 
+            {
+                if (cultures.Count < 0)
+                {
+                    FindAvailableTranslations();
+                }
+                return cultures.Count;
+            }
+        }
     }
 }

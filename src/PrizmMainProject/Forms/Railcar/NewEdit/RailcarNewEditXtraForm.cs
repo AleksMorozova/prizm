@@ -17,6 +17,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -41,9 +42,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
-
-            shippedDate.Properties.NullDate = DateTime.MinValue;
-            shippedDate.Properties.NullText = string.Empty;
 
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
@@ -73,6 +71,30 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             IsEditMode = !viewModel.IsShipped;
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
+
         private void BindToViewModel()
         {
             bindingSource.DataSource = viewModel;
@@ -80,7 +102,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
@@ -207,13 +228,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.ReleaseNoteNumber = releaseNoteNumber.EditValue.ToString();
+           
             commandManager.RefreshVisualState();
         }
 
         private void releaseNoteDate_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.ReleaseNoteDate = releaseNoteDate.DateTime;
+            
             commandManager.RefreshVisualState();
         }
     }

@@ -15,6 +15,8 @@ using Prizm.Main.Forms.MainChildForm;
 
 using Prizm.Main.DummyData;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
+using System.Collections.Generic;
 
 
 namespace Prizm.Main.Forms.Railcar.Search
@@ -61,6 +63,30 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void railcarListView_DoubleClick(object sender, EventArgs e)
         {

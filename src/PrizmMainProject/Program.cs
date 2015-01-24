@@ -24,6 +24,9 @@ namespace Prizm.Main
     internal static class Program
     {
         public static IKernel Kernel { get; private set; }
+
+        private static bool isSeed = false;
+        public static bool IsSeed { get { return isSeed; } }
         /// <summary>
         /// the months count of user password prolongation
         /// </summary>
@@ -35,8 +38,17 @@ namespace Prizm.Main
         ///     The main entry point for the application.
         /// </summary>
         [STAThread]
-        private static void Main()
+        private static void Main(string[] args)
         {
+
+            foreach(var item in args)
+            {
+                if(item.Equals("seed"))
+                {
+                    isSeed = true;
+                }
+            }
+
             bool cmdLineMode = false;
             try
             {
@@ -214,10 +226,10 @@ namespace Prizm.Main
 
 
         //Global data
-        private static DevExpress.XtraEditors.XtraForm mainForm;
+        private static PrizmApplicationXtraForm mainForm;
         /// <summary>
         /// Global access to main form need to update statusbar texts
         /// </summary>
-        public static DevExpress.XtraEditors.XtraForm MainForm { get { return mainForm; } }
+        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
     }
 }

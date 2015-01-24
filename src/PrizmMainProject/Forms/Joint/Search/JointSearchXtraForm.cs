@@ -14,6 +14,8 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
+using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -79,6 +81,30 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             RefreshCombo();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void RefreshCombo()
         {

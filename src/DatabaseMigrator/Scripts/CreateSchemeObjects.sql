@@ -430,15 +430,13 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
-	[releaseNoteNumber] [nvarchar](20) NULL,
-	[releaseNoteDate] [date] NULL,
 	[number] [nvarchar](20) NULL,
 	[certificate] [nvarchar](20) NULL,
 	[destination] [nvarchar](50) NULL,
-	[shippingDate] [date] NULL,
 	[isShipped] [bit] NULL,
 	 [toExport] [bit] NOT NULL DEFAULT 0,
 	[isActive] [bit] NULL,
+	[releaseNoteId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -448,7 +446,24 @@ CREATE TABLE [dbo].[Railcar](
 
 SET ANSI_PADDING OFF
 
+/****** Object:  Table [dbo].[ReleaseNote]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[ReleaseNote](
+	[id] [uniqueidentifier] NOT NULL,
+	[number] [nvarchar](20) NULL,
+	[date] [date] NULL,
+	[Shipped] [bit] NULL,
+	[isActive] [bit] NULL,
+ CONSTRAINT [PK_ReleaseNote] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+
+SET ANSI_PADDING OFF
 
 
 /****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/

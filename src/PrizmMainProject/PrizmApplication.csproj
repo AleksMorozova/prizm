@@ -216,6 +216,7 @@
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Audit\TracingModeEnum.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
     <Compile Include="Forms\Common\AboutXtraForm.cs">
       <SubType>Form</SubType>
@@ -288,6 +289,7 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
+    <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
     <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
@@ -500,7 +502,9 @@
     <Compile Include="Forms\Synch\ConflictDialog.Designer.cs">
       <DependentUpon>ConflictDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Synch\ExportForm.cs" />
+    <Compile Include="Forms\Synch\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Synch\ExportForm.Designer.cs">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
@@ -510,6 +514,7 @@
     <Compile Include="Forms\Synch\ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Languages\ILocalizable.cs" />
     <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,6 +523,7 @@
     </Compile>
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Languages\LocalizedItem.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -624,35 +630,11 @@
     <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.Designer.cs">
-      <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.Designer.cs">
-      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.Designer.cs">
-      <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.Designer.cs">
-      <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
@@ -792,9 +774,6 @@
     <EmbeddedResource Include="Forms\Reports\Construction\WeldDateReports\WeldDateXtraReport.resx">
       <DependentUpon>WeldDateXtraReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
-      <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExternalFile\ExternalFilesXtraForm.resx">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -839,9 +818,6 @@
     <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.resx">
-      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -854,12 +830,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Spool\SpoolsXtraForm.resx">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\UserRole\User\UserInfoXtraForm.resx">
-      <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
-      <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ConflictDialog.resx">
       <DependentUpon>ConflictDialog.cs</DependentUpon>
