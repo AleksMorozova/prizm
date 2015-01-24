@@ -41,6 +41,7 @@
             this.releasesGrid = new DevExpress.XtraGrid.GridControl();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.number = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,10 +67,9 @@
             this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unshipButton)).BeginInit();
@@ -96,9 +96,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // openRailcarButton
@@ -143,6 +143,7 @@
             this.releasesGrid.TabIndex = 9;
             this.releasesGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.railcarListView});
+            this.releasesGrid.DoubleClick += new System.EventHandler(this.releasesGrid_DoubleClick);
             // 
             // railcarListView
             // 
@@ -164,6 +165,12 @@
             this.railcarListView.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.railcarListView_CustomRowCellEdit);
             this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.Caption = "Id";
+            this.Id.FieldName = "Id";
+            this.Id.Name = "Id";
             // 
             // releaseNoteNumberGridColumn
             // 
@@ -196,7 +203,7 @@
             // dest
             // 
             this.dest.Caption = "Получатель";
-            this.dest.FieldName = "carDestination";
+            this.dest.FieldName = "CarDestination";
             this.dest.Name = "dest";
             this.dest.OptionsColumn.AllowEdit = false;
             this.dest.Visible = true;
@@ -449,6 +456,16 @@
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextVisible = false;
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(436, 50);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(212, 14);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // resultParametersLayoutGroup
             // 
             this.resultParametersLayoutGroup.CustomizationFormText = "Результаты поиска";
@@ -471,22 +488,6 @@
             this.railcarsListLayout.Text = "Резул&ьтат";
             this.railcarsListLayout.TextSize = new System.Drawing.Size(0, 0);
             this.railcarsListLayout.TextVisible = false;
-            // 
-            // Id
-            // 
-            this.Id.Caption = "Id";
-            this.Id.FieldName = "Id";
-            this.Id.Name = "Id";
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(436, 50);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(212, 14);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // RailcarSearchXtraForm
             // 
@@ -527,9 +528,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

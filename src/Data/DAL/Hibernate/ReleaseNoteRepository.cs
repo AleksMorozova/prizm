@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
+using NHibernate.Transform;
 using Ninject;
 using Prizm.Data.DAL.Mill;
 using Prizm.Domain.Entity.Mill;
@@ -23,7 +24,8 @@ namespace Prizm.Data.DAL.Hibernate
             Railcar car = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car);
+                .JoinAlias(() => note.Railcars, () => car)
+                .TransformUsing(Transformers.DistinctRootEntity);
                 
             if(!string.IsNullOrWhiteSpace(railcar))
             {

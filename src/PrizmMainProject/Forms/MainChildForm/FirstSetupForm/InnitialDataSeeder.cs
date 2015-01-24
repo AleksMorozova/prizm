@@ -13,11 +13,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
     public class InnitialDataSeeder : IDisposable
     {
         private const int HEATCOUNT = 5;
-        private const int PIPECOUNT = 10;
-        private const int INSPECTORCOUNT = 5;
-        private const int WELDERCOUNT = 5;
-        private const int COMPONENTCOUNT = 3;
-        private const int RELEASECOUNT = 20;
+        private const int PIPECOUNT = 1210;
+        private const int INSPECTORCOUNT = 25;
+        private const int WELDERCOUNT = 25;
+        private const int COMPONENTCOUNT = 300;
+        private const int RELEASECOUNT = 48;
 
         IFirstSetupRepo firstSetupRepo;
         FirstSetupViewModel viewModel;

@@ -148,5 +148,10 @@ namespace Prizm.Main.Forms.Railcar.Search
             }
         }
 
+        private void releasesGrid_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
