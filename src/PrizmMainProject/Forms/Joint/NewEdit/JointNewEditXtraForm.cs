@@ -419,7 +419,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             commandManager.Dispose();
             viewModel.Dispose();
-            viewModel = null;
+            //viewModel = null;
         }
 
         private void controlOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
@@ -561,16 +561,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.JointWeldResults[selectedIndex].Operation != null &&
                     viewModel.JointWeldResults[selectedIndex].Operation.Type == JointOperationType.Withdraw)
                 {
+                    viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
                     viewModel.JointCut();
 
                     if (viewModel.Joint.Status == JointStatus.Withdrawn)
                     {
-                        viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
-
                         DisableControlUnderWithdrawn();
+                        checkEdit.Checked = true;
                     }
                     else
                     {
+                        viewModel.JointWeldResults[selectedIndex].IsCompleted = false;
                         checkEdit.Checked = false;
                     }
                 }

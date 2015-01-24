@@ -33,14 +33,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                    Resources.DLG_JOINT_WITHDRAWN_HEADER))
             {
                 viewModel.JointDisconnection();
-                viewModel.Joint.Status = Domain.Entity.Construction.JointStatus.Withdrawn;
+
                 viewModel.FirstElement = null;
                 viewModel.SecondElement = null;
+
+                viewModel.Joint.FirstElement = null;
+                viewModel.Joint.SecondElement = null;
+
+                viewModel.Joint.Status = Domain.Entity.Construction.JointStatus.Withdrawn;
 
                 repo.BeginTransaction();
                 repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
                 repo.Commit();
                 repo.RepoJoint.Evict(viewModel.Joint);
+
+                viewModel.ModifiableView.IsModified = false;
             }
         }
 

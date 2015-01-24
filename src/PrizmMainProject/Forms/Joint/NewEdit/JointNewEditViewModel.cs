@@ -98,10 +98,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                if (Joint.FirstElement != null && Joint.SecondElement != null)
+                if (Joint.FirstElement != null 
+                    && Joint.SecondElement != null 
+                    && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
                 {
-                    FirstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                    SecondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                    this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                    this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+
+                    Joint.FirstElement = this.firstElement;
+                    Joint.SecondElement = this.secondElement;
                 }
 
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
@@ -424,6 +429,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
+            if (this.Joint.FirstElement.Id == firstElement.Id && this.Joint.SecondElement.Id == secondElement.Id)
+            { 
+                return true; 
+            }
+
             if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null) 
             { 
                 this.JointDisconnection(); 
@@ -694,23 +704,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             partData.SetPartConnectors(row);
                         }
                     }
-
-                    #region  crutch for displaying data of connected elements
-                    /*
-                    if (Joint.FirstElement.Number != null
-                        && list.Where<PartData>(x => x.Id == Joint.FirstElement.Id)
-                        .Count<PartData>() == 0)
-                    {
-                        list.Add(Joint.FirstElement);
-                    }
-                    if (Joint.SecondElement.Number != null
-                        && list.Where<PartData>(x => x.Id == Joint.SecondElement.Id)
-                        .Count<PartData>() == 0)
-                    {
-                        list.Add(Joint.SecondElement);
-                    }
-                    */
-                    #endregion
                 }
                 return list;
             }
@@ -719,20 +712,19 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         /// <summary>
-        /// 
+        /// The method gets PartData from list if current element has isAvaliableToJoint = true 
+        /// (if isAvaliableToJoint = false element will be added to list)
         /// </summary>
-        /// <param name="partData"></param>
-        /// <param name="part"></param>
-        /// <returns></returns>
+        /// <param name="partData">current PartData-element</param>
+        /// <param name="part">corresponding Part-element</param>
+        /// <returns>PartData-element from this.PartDataList</returns>
         private PartData GetPartDataFromList(PartData partData, Part part)
         {
-            PartData p;
-
             if (PartDataList == null) { PartDataList = new BindingList<PartData>(); }
 
             if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
             {
-                p = new PartData(part, this.Joint.Id);
+                PartData p = new PartData(part, this.Joint.Id);
 
                 if (partData.PartType == PartType.Pipe)
                 {
@@ -744,6 +736,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
                 }
+
+                list.Add(p);
             }
             else
             {
@@ -767,15 +761,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
                 }
+                
+                PartDataList.First<PartData>(x => x.Id == partData.Id).Connectors.Add(connector);
 
-                p = PartDataList.First<PartData>(x => x.Id == partData.Id);
-
-                p.Connectors.Add(connector);
             }
-
-            list.Add(p);
-
-            return p;
+            return PartDataList.First<PartData>(x => x.Id == partData.Id);
         }
 
         public void NewJoint()
