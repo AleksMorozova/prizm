@@ -16,14 +16,14 @@ namespace Prizm.Main.Forms.Railcar.Search
 {
     public class RailcarSearchViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository repo;
+        private readonly IReleaseNoteRepository repo;
         private readonly SearchRailcarCommand searchCommand;
         private readonly IUserNotify notify;
 
         private List<Railcar> railcars;
 
         [Inject]
-        public RailcarSearchViewModel(IRailcarRepository repo, IUserNotify notify)
+        public RailcarSearchViewModel(IReleaseNoteRepository repo, IUserNotify notify)
         {
             railcars = new List<Railcar>();
             this.repo = repo;

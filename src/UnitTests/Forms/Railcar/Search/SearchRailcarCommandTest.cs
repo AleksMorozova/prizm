@@ -24,7 +24,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
             var iSQLQuery = new Mock<ISQLQuery>();
             var notify = new Mock<IUserNotify>();
 
-            Mock<IRailcarRepository> repo = new Mock<IRailcarRepository>();
+            Mock<IReleaseNoteRepository> repo = new Mock<IReleaseNoteRepository>();
 
             var railcars = new List<Prizm.Main.Forms.Railcar.Search.Railcar>();
             {

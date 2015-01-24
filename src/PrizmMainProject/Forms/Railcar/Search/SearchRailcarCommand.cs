@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.Railcar.Search
     public class SearchRailcarCommand : ICommand
     {
         private readonly RailcarSearchViewModel viewModel;
-        private readonly IRailcarRepository repo;
+        private readonly IReleaseNoteRepository repo;
         private readonly IUserNotify notify;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
@@ -24,7 +24,6 @@ namespace Prizm.Main.Forms.Railcar.Search
         [Inject]
         public SearchRailcarCommand(
             RailcarSearchViewModel viewmodel, 
-            //IRailcarRepository repo, 
             IReleaseNoteRepository repo,
             IUserNotify notify)
         {
@@ -38,26 +37,7 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             try
             {
-                var railcars = new List<Railcar>();
-
-                var query = repo
-                    .CreateSQLQuery(RailcarQuery.BuildSql(
-                    viewModel.RailcarNumber, 
-                    viewModel.Certificate, 
-                    viewModel.Receiver,
-                    viewModel.ShippingDate, 
-                    viewModel.ReleaseNoteNumber,
-                    viewModel.ReleaseNoteDate))
-                    .SetResultTransformer(RailcarQuery.Transformer);
-
-                var qparts = query.List<Railcar>();
-
-                foreach (var item in qparts)
-                {
-                    railcars.Add(item);
-                }
-
-                viewModel.Railcars = railcars;
+              
             }
             catch (RepositoryException ex)
             {
