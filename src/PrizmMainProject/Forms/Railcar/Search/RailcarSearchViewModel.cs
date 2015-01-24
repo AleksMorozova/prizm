@@ -46,9 +46,76 @@ namespace Prizm.Main.Forms.Railcar.Search
 
         #region Search Fields
 
+        private string releaseNoteNumber = "";
+        public string ReleaseNoteNumber
+        {
+            get { return releaseNoteNumber; }
+            set
+            {
+                if(value != releaseNoteNumber)
+                {
+                    releaseNoteNumber = value;
+                    RaisePropertyChanged("ReleaseNoteNumber");
+                }
+            }
+        }
 
+        private DateTime releaseNoteDate = DateTime.MinValue;
+        public DateTime ReleaseNoteDate
+        {
+            get { return releaseNoteDate; }
+            set
+            {
+                if(value != releaseNoteDate)
+                {
+                    releaseNoteDate = value;
+                    RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+
+        private string railcarNumber = "";
+        public string RailcarNumber
+        {
+            get { return railcarNumber; }
+            set
+            {
+                if(value != railcarNumber)
+                {
+                    railcarNumber = value;
+                    RaisePropertyChanged("RailcarNumber");
+                }
+            }
+        }
+
+        private string receiver = "";
+        public string Receiver
+        {
+            get { return receiver; }
+            set
+            {
+                if(value != receiver)
+                {
+                    receiver = value;
+                    RaisePropertyChanged("Receiver");
+                }
+            }
+        }
+
+        private string certificate = "";
+        public string Certificate
+        {
+            get { return certificate; }
+            set
+            {
+                if(value != certificate)
+                {
+                    certificate = value;
+                    RaisePropertyChanged("Certificate");
+                }
+            }
+        }
         #endregion
-
 
         public ICommand SearchCommand
         {

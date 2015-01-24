@@ -37,7 +37,15 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             try
             {
-              
+                var list = viewModel.Releases;
+                list = repo.SearchReleases(
+                    viewModel.ReleaseNoteNumber,
+                    viewModel.ReleaseNoteDate,
+                    viewModel.RailcarNumber,
+                    viewModel.Certificate,
+                    viewModel.Receiver);
+                
+ 
             }
             catch (RepositoryException ex)
             {
