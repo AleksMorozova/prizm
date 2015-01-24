@@ -53,11 +53,15 @@ namespace Prizm.Main.Forms.Railcar.Search
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
+            //releasesGrid.DataSource = viewModel.Projection;
+            releasesGrid.DataBindings.Add("DataSource", bindingSource, "Projection");
+
         }
 
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         #region --- Localization ---
@@ -137,8 +141,11 @@ namespace Prizm.Main.Forms.Railcar.Search
         private void RailcarSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
-            viewModel.Dispose();
-            viewModel = null;
+            if(viewModel != null)
+            {
+                viewModel.Dispose();
+                viewModel = null; 
+            }
         }
 
     }

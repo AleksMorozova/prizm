@@ -30,16 +30,16 @@ namespace Prizm.Main.Forms.Railcar.Search
             searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
         }
 
-        private List<ReleaseNote> releases = new List<ReleaseNote>();
-        public List<ReleaseNote> Releases
-        {
-            get { return releases; }
-            set
+        private BindingList<ReleaseNoteProjection> projection = new BindingList<ReleaseNoteProjection>();
+        public BindingList<ReleaseNoteProjection> Projection
+        { 
+            get { return projection; }
+            set 
             {
-                if(value != releases)
+                if(projection != value)
                 {
-                    releases = value;
-                    RaisePropertiesChanged("Releases");
+                    projection = value;
+                    RaisePropertyChanged("Projection");
                 }
             }
         }

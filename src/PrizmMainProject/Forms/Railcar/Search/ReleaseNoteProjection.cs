@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Prizm.Main.Forms.Railcar.Search
+{
+    public class ReleaseNoteProjection
+    {
+        public Guid Id { get; set; }
+        public string CarNumber { get; set; }
+        public string CarCertificate { get; set; }
+        public string CarDestination { get; set; }
+        public string NoteNumber { get; set; }
+        public string NoteDate { get; set; }
+        public string Status { get; set; }
+    }
+}

@@ -37,16 +37,36 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             try
             {
-                var list = viewModel.Releases;
-                list = repo.SearchReleases(
+                var projList = viewModel.Projection;
+                projList.Clear();
+                var list = repo.SearchReleases(
                     viewModel.ReleaseNoteNumber,
                     viewModel.ReleaseNoteDate,
                     viewModel.RailcarNumber,
                     viewModel.Certificate,
                     viewModel.Receiver);
-            
-                
- 
+
+                foreach(var release in list)
+                {
+                    foreach(var car in release.Railcars)
+                    {
+                        projList.Add(new ReleaseNoteProjection
+                        {
+                            Id = release.Id,
+                            NoteNumber = release.Number,
+                            NoteDate = release.Date.Value.ToShortDateString(),
+                            CarNumber = car.Number,
+                            CarCertificate = car.Certificate,
+                            CarDestination = car.Destination,
+                            Status = car.IsShipped ? Resources.Shipped : Resources.RailcarPending
+                        });
+                    }
+                }
+
+                viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
+
+
+                RefreshVisualStateEvent();
             }
             catch (RepositoryException ex)
             {
