@@ -54,6 +54,7 @@ namespace Prizm.Main
             #region Repository
             Bind<ISession>().ToMethod(_ => HibernateUtil.OpenSession(true));
 
+            Bind<IReleaseNoteRepository>().To<ReleaseNoteRepository>();
             Bind<IRailcarRepository>().To<RailcarRepository>();
             Bind<IPipeRepository>().To<PipeRepository>();
             Bind<IHeatRepository>().To<HeatRepository>();

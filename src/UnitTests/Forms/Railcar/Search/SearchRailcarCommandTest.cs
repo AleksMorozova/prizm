@@ -24,19 +24,19 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
             var iSQLQuery = new Mock<ISQLQuery>();
             var notify = new Mock<IUserNotify>();
 
-            Mock<IRailcarRepository> repo = new Mock<IRailcarRepository>();
+            Mock<IReleaseNoteRepository> repo = new Mock<IReleaseNoteRepository>();
 
-            var railcars = new List<Prizm.Main.Forms.Railcar.Search.Railcar>();
+            var railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
             {
-                new Prizm.Main.Forms.Railcar.Search.Railcar { Number = "Test1" };
-                new Prizm.Main.Forms.Railcar.Search.Railcar { Number = "Test2" };
+                new Prizm.Domain.Entity.Mill.Railcar { Number = "Test1" };
+                new Prizm.Domain.Entity.Mill.Railcar { Number = "Test2" };
             };
 
 
             var viewModel = new RailcarSearchViewModel(repo.Object, notify.Object);
             viewModel.RailcarNumber = "Test";
 
-            iQuery.Setup(x => x.List<Prizm.Main.Forms.Railcar.Search.Railcar>())
+            iQuery.Setup(x => x.List<Prizm.Domain.Entity.Mill.Railcar>())
                 .Returns(railcars).Verifiable();
 
             iSQLQuery.Setup(x => x.SetResultTransformer(It.IsAny<IResultTransformer>()))
@@ -55,7 +55,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
                 repo.Object
                 .CreateSQLQuery(It.IsAny<string>())
                 .SetResultTransformer(It.IsAny<IResultTransformer>())
-                .List<Prizm.Main.Forms.Railcar.Search.Railcar>(), railcars);
+                .List<Prizm.Domain.Entity.Mill.Railcar>(), railcars);
 
         }
     }

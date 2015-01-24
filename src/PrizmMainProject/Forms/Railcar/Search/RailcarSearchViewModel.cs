@@ -10,36 +10,36 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity.Mill;
 
 
 namespace Prizm.Main.Forms.Railcar.Search
 {
     public class RailcarSearchViewModel : ViewModelBase, IDisposable
     {
-        private readonly IRailcarRepository repo;
+        private readonly IReleaseNoteRepository repo;
         private readonly SearchRailcarCommand searchCommand;
         private readonly IUserNotify notify;
 
-        private List<Railcar> railcars;
 
         [Inject]
-        public RailcarSearchViewModel(IRailcarRepository repo, IUserNotify notify)
+        public RailcarSearchViewModel(IReleaseNoteRepository repo, IUserNotify notify)
         {
-            railcars = new List<Railcar>();
             this.repo = repo;
             this.notify = notify;
             searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
         }
 
-        public List<Railcar> Railcars
+        private BindingList<ReleaseNoteProjection> projection = new BindingList<ReleaseNoteProjection>();
+        public BindingList<ReleaseNoteProjection> Projection
         {
-            get { return railcars; }
+            get { return projection; }
             set
             {
-                if (value != railcars)
+                if(projection != value)
                 {
-                    railcars = value;
-                    RaisePropertyChanged("Railcars");
+                    projection = value;
+                    RaisePropertyChanged("Projection");
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             get { return releaseNoteNumber; }
             set
             {
-                if (value != releaseNoteNumber)
+                if(value != releaseNoteNumber)
                 {
                     releaseNoteNumber = value;
                     RaisePropertyChanged("ReleaseNoteNumber");
@@ -66,7 +66,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             get { return releaseNoteDate; }
             set
             {
-                if (value != releaseNoteDate)
+                if(value != releaseNoteDate)
                 {
                     releaseNoteDate = value;
                     RaisePropertyChanged("ShippingDate");
@@ -80,7 +80,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             get { return railcarNumber; }
             set
             {
-                if (value != railcarNumber)
+                if(value != railcarNumber)
                 {
                     railcarNumber = value;
                     RaisePropertyChanged("RailcarNumber");
@@ -94,7 +94,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             get { return receiver; }
             set
             {
-                if (value != receiver)
+                if(value != receiver)
                 {
                     receiver = value;
                     RaisePropertyChanged("Receiver");
@@ -108,31 +108,15 @@ namespace Prizm.Main.Forms.Railcar.Search
             get { return certificate; }
             set
             {
-                if (value != certificate)
+                if(value != certificate)
                 {
                     certificate = value;
                     RaisePropertyChanged("Certificate");
                 }
             }
         }
-
-        private DateTime shippingDate = DateTime.MinValue;
-        public DateTime ShippingDate
-        {
-            get { return shippingDate; }
-            set
-            {
-                if (value != shippingDate)
-                {
-                    shippingDate = value;
-                    RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
-
-        
-
         #endregion
+
         public ICommand SearchCommand
         {
             get { return searchCommand; }
