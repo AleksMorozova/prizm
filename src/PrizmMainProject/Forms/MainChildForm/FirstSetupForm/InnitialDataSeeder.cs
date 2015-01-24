@@ -12,6 +12,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class InnitialDataSeeder : IDisposable
     {
+        private const int HEATCOUNT = 5;
+        private const int PIPECOUNT = 10;
+        private const int INSPECTORCOUNT = 5;
+        private const int WELDERCOUNT = 5;
+        private const int COMPONENTCOUNT = 3;
+        private const int RELEASECOUNT = 20;
+
         IFirstSetupRepo firstSetupRepo;
         FirstSetupViewModel viewModel;
 
@@ -31,7 +38,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             bool req, opt = true;
             req = SeedRequired();
-            if(isOptionalSeed)
+            if(!isOptionalSeed)
             {
                 opt = SeedOptional();
             }
@@ -551,7 +558,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.BeginTransaction();
             #region Heat
             List<Heat> heats = new List<Heat>();
-            for(int i = 0; i < 15; i++)
+            for(int i = 0; i < HEATCOUNT; i++)
             {
                 heats.Add
                     (
@@ -582,41 +589,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #endregion
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
-            #region Railcar
-            Domain.Entity.Mill.Railcar[] cars = 
-            {
-                new Domain.Entity.Mill.Railcar
-                {
-                    Number = RndString(6),
-                    Certificate = RndString(8),
-                    Destination = "Строительство 1",
-                    IsShipped = false,
-                    IsActive = true
-                },
-                new Domain.Entity.Mill.Railcar
-                {
-                    Number = RndString(6),
-                    Certificate = RndString(8),
-                    Destination = "Строительство 2",
-                    IsShipped = false,
-                    IsActive = true
-                },
-                new Domain.Entity.Mill.Railcar
-                {
-                    Number = RndString(6),
-                    Certificate = RndString(8),
-                    Destination = "Строительство 3",
-                    IsShipped = false,
-                    IsActive = true
-                },
-            };
-            Array.ForEach(cars, s => firstSetupRepo.RailRepo.Save(s));
-            #endregion
-            firstSetupRepo.Commit();
-            firstSetupRepo.BeginTransaction();
             #region MillPipe
             List<Pipe> pipes = new List<Pipe>();
-            for(int i = 0; i < 2200; i++)
+            for(int i = 0; i < PIPECOUNT; i++)
             {
                 var plate = new Plate
                     {
@@ -677,7 +652,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.BeginTransaction();
             #region Inspector
             List<Inspector> inspectors = new List<Inspector>();
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < INSPECTORCOUNT; i++)
             {
                 var insp = new Inspector
                     {
@@ -700,7 +675,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region Welder
             List<Welder> welders = new List<Welder>();
 
-            for(int i = 0; i < 30; i++)
+            for(int i = 0; i < WELDERCOUNT; i++)
             {
                 var welder = new Welder
                     {
@@ -746,7 +721,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             foreach(var type in componentTypes)
             {
-                for(int i = 0; i < 300; i++)
+                for(int i = 0; i < COMPONENTCOUNT; i++)
                 {
                     var component = CreateComponent(type);
                     firstSetupRepo.ComponentRepo.Save(component);
@@ -756,8 +731,43 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             #endregion
             firstSetupRepo.Commit();
+            firstSetupRepo.BeginTransaction();
+            #region Release
+            List<ReleaseNote> releases = new List<ReleaseNote>();
+            for(int i = 0; i < RELEASECOUNT; i++)
+            {
+                ReleaseNote release = new ReleaseNote
+                {
+                    Number = RndString(10),
+                    Shipped = false,
+                    Date = DateTime.Now.AddDays(-rnd.Next(10)),
+                    IsActive = true
+                };
+                release.Railcars = CreateRailcars(rnd.Next(2, 5));
+                firstSetupRepo.ReleaseRepo.Save(release);
+            }
+            #endregion
+            firstSetupRepo.Commit();
 
             return false;
+        }
+
+        private IList<Domain.Entity.Mill.Railcar> CreateRailcars(int num)
+        {
+            List<Domain.Entity.Mill.Railcar> cars = new List<Domain.Entity.Mill.Railcar>();
+            for(int i = 0; i < num; i++)
+            {
+                var car = new Domain.Entity.Mill.Railcar
+                {
+                    Number = RndString(10),
+                    Certificate = RndString(8),
+                    Destination = "Destination " + i,
+                    IsActive = true
+                };
+                firstSetupRepo.RailRepo.Save(car);
+                cars.Add(car);
+            }
+            return cars;
         }
 
         private Domain.Entity.Construction.Component CreateComponent(ComponentType componentType)
@@ -822,6 +832,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private string[] fNames = { "Иван", "Сергей", "Николай", "Петр", "Савелий", "Исаак", "Фрол" };
         private string[] lNames = { "Иванов", "Самойлов", "Снигирев", "Голубев", "Татарский", "Колинич", "Леонов" };
         private string[] mNames = { "Петрович", "Николаевич", "Сергеевич", "Анатольевич", "Владимирович", "Георгиевич", "Павлович" };
+
 
         //random names
         public string RndName(string[] arr)

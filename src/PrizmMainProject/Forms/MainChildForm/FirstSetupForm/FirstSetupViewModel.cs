@@ -22,14 +22,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupViewModel : ViewModelBase
     {
-        private IList<InspectorCertificateType> inspectorCertificateTypes;
-        private string[] inspectorCertificateTypesName
-            = new[] { "НАКС (Welding Engineer)", "ВИК (VT)", "РК (RT)", "УК (UT)", "МК (MT)", "Покрытия (Coating)" };
-
-        private IList<Category> fixedCategoryes;
-        private string[] fixedCategoryesName
-           = new[] { "Измерение длины"};
-
         private readonly IFirstSetupRepo firstSetupRepo;
         public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
         FirstSetupSaveCommand saveCommand;
@@ -63,22 +55,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private Project project = new Project() { IsNative = true};
         private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
-
-        public IList<InspectorCertificateType> InspectorCertificateTypes
-        {
-            get
-            {
-                if (inspectorCertificateTypes == null)
-                {
-                    inspectorCertificateTypes = new List<InspectorCertificateType>();
-                    foreach (string str in inspectorCertificateTypesName)
-                    {
-                        inspectorCertificateTypes.Add(new InspectorCertificateType() { Name = str, IsActive = true });
-                    }
-                }
-                return inspectorCertificateTypes;
-            }
-        }
 
         #region BindingFields
 

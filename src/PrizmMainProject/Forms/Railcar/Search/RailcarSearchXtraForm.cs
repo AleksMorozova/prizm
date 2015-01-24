@@ -30,8 +30,6 @@ namespace Prizm.Main.Forms.Railcar.Search
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
-            shippedDate.Properties.NullDate = DateTime.MinValue;
-            shippedDate.Properties.NullText = string.Empty;
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();
@@ -53,8 +51,6 @@ namespace Prizm.Main.Forms.Railcar.Search
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "RailcarNumber");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
-            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
-            railcarList.DataBindings.Add("DataSource", bindingSource, "Railcars");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
         }

@@ -68,14 +68,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.FirstName);
         }
 
-        private void SaveInspectorCertificateTypes()
-        {
-            foreach (var ct in viewModel.InspectorCertificateTypes)
-            {
-                firstSetupRepo.CertificateTypeRepo.Save(ct);
-            }
-        }
-
         #endregion
     }
 }

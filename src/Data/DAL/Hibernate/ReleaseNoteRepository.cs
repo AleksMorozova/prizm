@@ -14,5 +14,12 @@ namespace Prizm.Data.DAL.Hibernate
     {
         [Inject]
         public ReleaseNoteRepository(ISession session) : base(session){ }
+
+        #region IReleaseNoteRepository Members
+        public List<ReleaseNote> SearchReleases(string number, DateTime date, string railcar, string certificate, string reciver)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
