@@ -120,10 +120,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointStatus.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
-            firstJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "FirstElement");
-            secondJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "SecondElement");
 
 
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
@@ -131,8 +127,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             SetLookup(firstJointElement);
             SetLookup(secondJointElement);
 
-            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
+            firstJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
+            secondJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
 
+
+
+            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -161,6 +163,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void SetLookup(LookUpEdit lookup)
         {
             lookup.Properties.DataSource = pipelinePiecesBindingSource;
+            lookup.Properties.ValueMember = "Id";
             lookup.Properties.DisplayMember = "Number";
         }
 

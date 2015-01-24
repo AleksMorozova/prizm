@@ -98,12 +98,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                if (Joint.FirstElement != null)
+                if (Joint.FirstElement != null && Joint.SecondElement != null)
                 {
                     FirstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                }
-                if (Joint.SecondElement != null)
-                {
                     SecondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
                 }
 
@@ -116,7 +113,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (testResults != null)
                 {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
-                } 
+                }
             }
         }
 
@@ -341,26 +338,20 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public Guid FirstElementId
         {
-            get
-            {                
-                return (Joint.FirstElement == null) ? Guid.Empty : Joint.FirstElement.Id;
-            }
+            get { return (this.FirstElement == null) ? Guid.Empty : this.FirstElement.Id; }
             set
             {
-                Joint.FirstElement = FindElementById(value);
+                this.FirstElement = FindElementById(value);
                 RaisePropertyChanged("FirstElement");
             }
         }
 
         public Guid SecondElementId
         {
-            get
-            {
-                return (Joint.SecondElement == null) ? Guid.Empty : Joint.SecondElement.Id;
-            }
+            get { return (this.SecondElement == null) ? Guid.Empty : this.SecondElement.Id; }
             set
             {
-                Joint.SecondElement = FindElementById(value);
+                this.SecondElement = FindElementById(value);
                 RaisePropertyChanged("SecondElement");
             }
         }
@@ -433,6 +424,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
+            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null) 
+            { 
+                this.JointDisconnection(); 
+            }
+
             Joint.FirstElement = firstElement;
             Joint.SecondElement = secondElement;
 
@@ -670,7 +666,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (Pieces != null)
+                if (list == null && Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
                     string tempNumber = string.Empty;
@@ -698,11 +694,23 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             partData.SetPartConnectors(row);
                         }
                     }
-                    // crutch for displaying data of connected elements
-                    if (Joint.FirstElement.Number != null && list.Where<PartData>(x => x.Id == Joint.FirstElement.Id).Count<PartData>() == 0)
+
+                    #region  crutch for displaying data of connected elements
+                    /*
+                    if (Joint.FirstElement.Number != null
+                        && list.Where<PartData>(x => x.Id == Joint.FirstElement.Id)
+                        .Count<PartData>() == 0)
+                    {
                         list.Add(Joint.FirstElement);
-                    if (Joint.SecondElement.Number != null && list.Where<PartData>(x => x.Id == Joint.SecondElement.Id).Count<PartData>() == 0)
+                    }
+                    if (Joint.SecondElement.Number != null
+                        && list.Where<PartData>(x => x.Id == Joint.SecondElement.Id)
+                        .Count<PartData>() == 0)
+                    {
                         list.Add(Joint.SecondElement);
+                    }
+                    */
+                    #endregion
                 }
                 return list;
             }
@@ -720,10 +728,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             PartData p;
 
-            if (PartDataList == null)
-            {
-                PartDataList = new BindingList<PartData>();
-            }
+            if (PartDataList == null) { PartDataList = new BindingList<PartData>(); }
 
             if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
             {
@@ -768,6 +773,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 p.Connectors.Add(connector);
             }
 
+            list.Add(p);
+
             return p;
         }
 
@@ -803,7 +810,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if (jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
             {
-                var jointCutDialog = new JointCutDialog(jointElements[0], jointElements[1]);
+                var jointCutDialog = new JointCutDialog(jointElements.First(), jointElements.Last());
 
                 if (jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
