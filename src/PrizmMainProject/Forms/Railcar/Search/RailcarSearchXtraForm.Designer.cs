@@ -143,7 +143,6 @@
             this.releasesGrid.TabIndex = 9;
             this.releasesGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.railcarListView});
-            this.releasesGrid.DoubleClick += new System.EventHandler(this.releasesGrid_DoubleClick);
             // 
             // railcarListView
             // 
@@ -162,7 +161,6 @@
             this.railcarListView.OptionsBehavior.ReadOnly = true;
             this.railcarListView.OptionsNavigation.UseTabKey = false;
             this.railcarListView.OptionsView.ShowGroupPanel = false;
-            this.railcarListView.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.railcarListView_CustomRowCellEdit);
             this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
@@ -228,24 +226,6 @@
             this.statusColumn.Visible = true;
             this.statusColumn.VisibleIndex = 5;
             this.statusColumn.Width = 133;
-            // 
-            // shipGridButton
-            // 
-            this.shipGridButton.AutoHeight = false;
-            this.shipGridButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("shipGridButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
-            this.shipGridButton.Name = "shipGridButton";
-            this.shipGridButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.shipGridButton.Click += new System.EventHandler(this.shipGridButton_Click);
-            // 
-            // unshipGridButton
-            // 
-            this.unshipGridButton.AutoHeight = false;
-            this.unshipGridButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("unshipGridButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
-            this.unshipGridButton.Name = "unshipGridButton";
-            this.unshipGridButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.unshipGridButton.Click += new System.EventHandler(this.unshipGridButton_Click);
             // 
             // searchButton
             // 

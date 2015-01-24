@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Railcar.Search
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class RailcarSearchXtraForm : ChildForm
     {
         private ICommandManager commandManager = new CommandManager();
@@ -93,7 +93,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             GridView view = (GridView)sender;
             GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
 
-            if (info.InRow || info.InRowCell)
+            if(info.InRow || info.InRowCell)
             {
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
@@ -102,37 +102,9 @@ namespace Prizm.Main.Forms.Railcar.Search
             }
         }
 
-        private void railcarListView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
-        {
-            if (e.Column.FieldName != "ShippingButton")
-            {
-                return;
-            }
-            GridView gv = sender as GridView;
-            var tmp = (bool)gv.GetRowCellValue(e.RowHandle, "IsShipped");
-            if (tmp)
-            {
-                e.RepositoryItem = unshipGridButton;
-            }
-            else
-            {
-                e.RepositoryItem = shipGridButton;
-            }
-        }
-
-        private void shipGridButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ship");
-        }
-
-        private void unshipGridButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Unship");
-        }
-
         private void railcarListView_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter)
             {
                 railcarListView_DoubleClick(sender, e);
             }
@@ -144,14 +116,8 @@ namespace Prizm.Main.Forms.Railcar.Search
             if(viewModel != null)
             {
                 viewModel.Dispose();
-                viewModel = null; 
+                viewModel = null;
             }
         }
-
-        private void releasesGrid_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
