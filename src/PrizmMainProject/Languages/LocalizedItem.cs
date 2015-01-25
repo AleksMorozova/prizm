@@ -70,7 +70,7 @@ namespace Prizm.Main.Languages
             for (int index = 0; index < resourceIds.Length; index++)
             {
                 this.resourceIds[index] = resourceIds[index];
-                this.defaultValues[index] = checkedCombo.Properties.Items[index].Description;
+                this.defaultValues[index] = (string)checkedCombo.Properties.Items[index].Description;
             }
         }
 
@@ -113,33 +113,10 @@ namespace Prizm.Main.Languages
         }
 
         public string this[int index]
-        {/*
-            get
-            {
-                string ret;
-                switch (type)
-                {
-                    case Type.Control:
-                        ret = ((System.Windows.Forms.Control)obj).Text;
-                        break;
-                    case Type.LayoutControlItem:
-                        ret = ((DevExpress.XtraLayout.LayoutControlItem)obj).Text;
-                        break;
-                    case Type.GridColumn:
-                        ret = ((DevExpress.XtraGrid.Columns.GridColumn)obj).Caption;
-                        break;
-                    case Type.LayoutControlGroup:
-                        ret = ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text;
-                        break;
-                    default:
-                        ret = "";
-                        break;
-                }
-                return ret;
-            }*/
+        {
             set
             {
-                if (defaultValues.Length < 2)
+                if (Count < 2)
                 {
                     Text = value;
                 }
@@ -159,7 +136,7 @@ namespace Prizm.Main.Languages
 
                         case Type.CheckedComboBoxEdit:
 
-                            if(index < this.defaultValues.Length)
+                            if (index < Count)
                             {
                                 ((DevExpress.XtraEditors.CheckedComboBoxEdit)obj).Properties.Items[index].Description = value;
                             }
@@ -167,12 +144,13 @@ namespace Prizm.Main.Languages
                             break;
 
                         case Type.ComboBoxEdit:
-
-                            if (index < this.defaultValues.Length)
+                            var combo = (DevExpress.XtraEditors.ComboBoxEdit)obj;
+                            int selectedIndex = combo.SelectedIndex; // because editing Properties.Items drops selected index value to -1
+                            if (index < Count)
                             {
                                 ((DevExpress.XtraEditors.ComboBoxEdit)obj).Properties.Items[index] = value;
                             }
-
+                            combo.SelectedIndex = selectedIndex; // restore selected index for combo
                             break;
 
                         default:
@@ -187,17 +165,63 @@ namespace Prizm.Main.Languages
             return this.resourceIds.Length > index ? this.resourceIds[index] : "";
         }
 
-        public void BackToDefault()
+        public void BackToDefault(int index=-1)
         {
-            for (int index = 0; index < this.defaultValues.Length; index++ )
+            if (index < 0)
             {
-                this[index] = this.defaultValues[index];
+                for (int i = 0; i < Count; i++)
+                {
+                    this[i] = this.defaultValues[i];
+                }
             }
+            else
+            {
+                if (index < Count)
+                {
+                    this[index] = this.defaultValues[index];
+                }
+            }
+
         }
 
         public int Count
         {
             get { return this.defaultValues.Length; }
+        }
+
+        public void Refresh()
+        {
+            switch (type) 
+            {
+                case Type.Control:
+                    ((System.Windows.Forms.Control)obj).Refresh();
+                    break;
+                case Type.LayoutControlItem:
+                    // ??
+                    break;
+                case Type.GridColumn:
+                    // ??
+                    break;
+                case Type.LayoutControlGroup:
+                    // ??
+                    break;
+                case Type.ProgressPanel:
+                        ((DevExpress.XtraWaitForm.ProgressPanel)obj).Refresh();
+                    break;
+                case Type.CheckedComboBoxEdit:
+                        ((DevExpress.XtraEditors.CheckedComboBoxEdit)obj).Refresh();
+                    break;
+                case Type.ComboBoxEdit:
+                        var combo = (DevExpress.XtraEditors.ComboBoxEdit)obj;
+                        if (combo.SelectedIndex >= 0)
+                        {
+                            combo.EditValue = combo.Properties.Items[combo.SelectedIndex];
+                        }
+                        combo.Refresh();
+                    break;
+                default:
+                    break;
+            }
         }
 
     }

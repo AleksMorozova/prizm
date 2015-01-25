@@ -10,9 +10,43 @@ namespace Prizm.Main.Common
     /// <summary>
     /// Generic wrapper for Enum type which use embedded resources 
     /// </summary>
-    /// <typeparam name="TEnum"> Enum type </typeparam>
-    public class EnumWrapper<TEnum>
+    /// <typeparam name="TEnum">Enum type</typeparam>
+    public class EnumWrapper<TEnum> where TEnum : struct, IConvertible
     {
+        private class PrivateEnumerator : IEnumerable<Tuple<int, string>>
+        {
+            private bool skip0;
+            public PrivateEnumerator(bool skip0 = false)
+            {
+                this.skip0 = skip0;
+            }
+
+            public IEnumerator<Tuple<int, string>> GetEnumerator()
+            {
+                var type = typeof(TEnum);
+                if (!type.IsEnum)
+                {
+                    throw new ArgumentException(string.Format("{0} must be an enumerated type", type));
+                }
+                int index = this.skip0 ? 1 : 0;
+                while (Enum.IsDefined(type, index))
+                {
+                    yield return new Tuple<int, string>(index, Enum.GetName(type, index));
+                    index++;
+                }
+            }
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return this.GetEnumerator();
+            }
+        }
+
+        public static IEnumerable<Tuple<int, string>> EnumerateItems(bool skip0 = false)
+        {
+            return new PrivateEnumerator(skip0);
+        }
+
         /// <summary>
         /// The Enum value, which will be wrapped
         /// </summary>
@@ -24,18 +58,11 @@ namespace Prizm.Main.Common
         {
             get
             {
-                if (Value == null)
-                {
-                    return string.Empty;
-                }
-                return Enum.GetName(typeof(TEnum), Value);
+                return "";
             }
             set
             {
-                if (value != Name)
-                {
-                    Value = (TEnum)Enum.Parse(typeof(TEnum), value);
-                }
+                
             }
         }
 
@@ -45,10 +72,11 @@ namespace Prizm.Main.Common
         public string Text
         {
             get
-            {
+            {/*
                 string result = Resources.ResourceManager.GetString(typeof(TEnum).Name + "_" + Name);
                 result = String.IsNullOrEmpty(result) ? Resources.ResourceManager.GetString(Name) : result;
-                return result;
+                return result;*/
+                return "";
             }
         }
 

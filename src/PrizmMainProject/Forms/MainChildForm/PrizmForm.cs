@@ -14,13 +14,13 @@ using Prizm.Main.Languages;
 namespace Prizm.Main.Forms.MainChildForm
 {
     [System.ComponentModel.DesignerCategory("")]
-    public abstract class PrizmForm : DevExpress.XtraEditors.XtraForm, ILocalizable
+    public class PrizmForm : DevExpress.XtraEditors.XtraForm, ILocalizable
     {
         #region --- Localization ---
 
         private List<LocalizedItem> localizedItems = null;
 
-        protected abstract List<LocalizedItem> CreateLocalizedItems();
+        protected virtual List<LocalizedItem> CreateLocalizedItems() { return null; } // not abstract because of designer
 
         public IEnumerator<ILocalizedItem> GetEnumerator()
         {
@@ -39,7 +39,10 @@ namespace Prizm.Main.Forms.MainChildForm
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            Program.MainForm.ChangeLanguage(this);
+            if (!DesignMode)
+            {
+                Program.MainForm.ChangeLanguage(this);
+            }
         }
 
         #endregion // --- Localization ---

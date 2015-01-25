@@ -11,8 +11,9 @@ namespace Prizm.Main.Languages
         string Text { set; }
         int Count { get; }
         string this[int index] { set; }
-        string GetResourceId(int index = 0);
-        void BackToDefault();
+        string GetResourceId(int index);
+        void BackToDefault(int index);
+        void Refresh();
     }
 
     public interface ILocalizable : IEnumerable<ILocalizedItem>

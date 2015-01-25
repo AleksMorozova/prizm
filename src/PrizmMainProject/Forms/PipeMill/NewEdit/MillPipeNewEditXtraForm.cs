@@ -198,8 +198,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-            shippedDate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
+            //shippedDate.DataBindings
+            //    .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings

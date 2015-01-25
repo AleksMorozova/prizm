@@ -33,6 +33,7 @@ using Prizm.Main.Forms.Joint;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Forms.Common;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.Settings.Inspections;
 
 namespace Prizm.UnitTests
 {
@@ -81,6 +82,10 @@ namespace Prizm.UnitTests
         [TestCase(typeof(ImportForm), typeof(PrizmForm))]
         [TestCase(typeof(InspectionAddEditXtraForm), typeof(PrizmForm))]
         [TestCase(typeof(HeatXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(PrizmApplicationXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(HeatNumberXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(MillInspectionXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(MissingPortionsDialog), typeof(PrizmForm))]
         public void TestNonDesignerFormEndSuccessor(System.Type type, System.Type baseForm)
         {
             Assert.IsTrue(type.IsSubclassOf(baseForm), string.Format("{0} does not inherit from {1}!", type.Name, baseForm.Name));
