@@ -13,6 +13,8 @@ namespace Prizm.Main.Common
     /// <typeparam name="TEnum">Enum type</typeparam>
     public class EnumWrapper<TEnum> where TEnum : struct, IConvertible
     {
+        #region --- Enumerator ---
+
         private class PrivateEnumerator : IEnumerable<Tuple<int, string>>
         {
             private bool skip0;
@@ -47,6 +49,33 @@ namespace Prizm.Main.Common
             return new PrivateEnumerator(skip0);
         }
 
+        #endregion // --- Enumerator ---
+
+        #region --- Conversion --- 
+
+        private System.Type type;
+
+        public EnumWrapper()
+            : this(default(TEnum))
+        {
+        }
+
+        public EnumWrapper(TEnum value)
+        {
+            this.type = typeof(TEnum);
+            Value = value;
+        }
+
+        /// <summary>
+        /// Use with caution: name should strictly correspond to one of enum items
+        /// </summary>
+        /// <param name="name"></param>
+        public EnumWrapper(string name)
+        {
+            this.type = typeof(TEnum);
+            Name = name;
+        }
+
         /// <summary>
         /// The Enum value, which will be wrapped
         /// </summary>
@@ -58,35 +87,18 @@ namespace Prizm.Main.Common
         {
             get
             {
-                return "";
+                return Enum.GetName(type, Value);
             }
             set
             {
-                
+                Value = (TEnum)Enum.Parse(this.type, value);
             }
         }
 
-        /// <summary>
-        /// the translated value  of Enum, which is displayed in the control
-        /// </summary>
-        public string Text
-        {
-            get
-            {/*
-                string result = Resources.ResourceManager.GetString(typeof(TEnum).Name + "_" + Name);
-                result = String.IsNullOrEmpty(result) ? Resources.ResourceManager.GetString(Name) : result;
-                return result;*/
-                return "";
-            }
-        }
-
-        /// <summary>
-        /// overridden for comboBox displaying
-        /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
-            return Text;
+            return Name;
         }
+        #endregion // --- Conversion --- 
     }
 }

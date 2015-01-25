@@ -527,7 +527,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
 
-            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
+            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Name, "]");
 
             if(!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
             {

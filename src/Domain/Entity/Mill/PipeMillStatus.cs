@@ -15,16 +15,9 @@ namespace Prizm.Domain.Entity.Mill
     /// </summary>
     public enum PipeMillStatus
     {
-        Undefined
-            = 0,
-
-        Produced
-            = 1,
-
-        Stocked
-            = 2,
-
-        Shipped
-            = 3
+        Undefined = 0,
+        Produced = 1,
+        Stocked = 2,
+        Shipped = 3
     }
 }

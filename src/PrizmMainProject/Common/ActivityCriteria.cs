@@ -11,6 +11,7 @@ namespace Prizm.Main.Common
     /// Used for all combo boxes with activity search criteria.
     /// Please do not add items that will not go to combo choices.
     /// Items must be numbered from 0 and without gaps.
+    /// Items may be removed if necessary.
     /// </summary>
     public enum ActivityCriteria
     {

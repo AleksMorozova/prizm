@@ -49,7 +49,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.ModifiableView.IsEditMode = false;
                 }
             }
-            else if (viewModel.PipeStatus.Value == PipeMillStatus.Shipped)
+            else if (viewModel.PipeStatus == PipeMillStatus.Shipped)
             {
                 notify.ShowInfo(
                     Resources.DLG_PIPE_IS_SHIPPED,

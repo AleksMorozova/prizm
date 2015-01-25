@@ -13,7 +13,7 @@ namespace Prizm.Main.Languages
         private Type type;
         private string[] defaultValues;
 
-        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup, ProgressPanel, CheckedComboBoxEdit, ComboBoxEdit };
+        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup, ProgressPanel, CheckedComboBoxEdit, ComboBoxEdit, TextEditOneWayStatus };
 
         public LocalizedItem(DevExpress.XtraLayout.LayoutControlItem item, string resourceId)
         {
@@ -88,6 +88,25 @@ namespace Prizm.Main.Languages
             }
         }
 
+        /// <summary>
+        /// list is required to be at least the same size as resourceIds
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="resourceIds"></param>
+        public LocalizedItem(DevExpress.XtraEditors.TextEdit edit, List<string> list, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)new Tuple<DevExpress.XtraEditors.TextEdit, List<string>>(edit, list);
+            this.type = Type.TextEditOneWayStatus;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = list[index];
+            }
+        }
+
         public string Text
         {
             set
@@ -151,6 +170,14 @@ namespace Prizm.Main.Languages
                                 ((DevExpress.XtraEditors.ComboBoxEdit)obj).Properties.Items[index] = value;
                             }
                             combo.SelectedIndex = selectedIndex; // restore selected index for combo
+                            break;
+
+                        case Type.TextEditOneWayStatus:
+                            var list = ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item2;
+                            if (index < list.Count)
+                            {
+                                list[index] = value;
+                            }
                             break;
 
                         default:
@@ -218,6 +245,9 @@ namespace Prizm.Main.Languages
                             combo.EditValue = combo.Properties.Items[combo.SelectedIndex];
                         }
                         combo.Refresh();
+                    break;
+                case Type.TextEditOneWayStatus:
+                    ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item1.Refresh();
                     break;
                 default:
                     break;

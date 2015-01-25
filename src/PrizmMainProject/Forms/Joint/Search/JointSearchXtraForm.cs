@@ -42,17 +42,13 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             BindCommands();
             BindToViewModel();
-            foreach (var s in viewModel.ActivityTypes)
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
-                activity.Properties.Items.Add(s);
+                activity.Properties.Items.Add(item.Item2);
             }
-            foreach(JointStatus item in Enum.GetValues(typeof(JointStatus)))
+            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0:true))
             {
-                if(item == JointStatus.Undefined || item == JointStatus.Deactivated)
-                {
-                    continue;
-                }
-                controlState.Properties.Items.Add(new EnumWrapper<JointStatus>() { Value = item },true);
+                controlState.Properties.Items.Add(item.Item2, isChecked:true);
             }
             activity.SelectedIndex = 0;
             viewModel.Activity = activity.SelectedItem.ToString(); 
@@ -133,8 +129,8 @@ namespace Prizm.Main.Forms.Joint.Search
         private string LocalizeStatus(GridView view, int p)
         {
             JointStatus status = (JointStatus)view.GetListSourceRowCellValue(p, "Status");
-            var wrp = new EnumWrapper<JointStatus>() { Value = status };
-            return wrp.Text;
+            var wrp = new EnumWrapper<JointStatus>(status);
+            return wrp.Name;
         }
 
         private void resultView_DoubleClick(object sender, EventArgs e)
@@ -172,10 +168,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void activity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (activity.EditValue != Resources.StatusActive)
-            {
-                viewModel.Statuses.Add(JointStatus.Deactivated);
-            }
+            // TODO
         }
     }
 }

@@ -98,7 +98,7 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 return
                    workstationName ??
-                    new EnumWrapper<WorkstationType>() { Value = ProjectSettings.WorkstationType };
+                    new EnumWrapper<WorkstationType>(ProjectSettings.WorkstationType);
             }
             set
             {

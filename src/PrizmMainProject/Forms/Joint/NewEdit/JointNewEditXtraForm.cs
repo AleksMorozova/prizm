@@ -39,7 +39,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private JointWeldResult currentJointWeldResult;
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
-        BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
+        BindingList<EnumWrapper<JointTestResultStatus>> availableResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
@@ -301,11 +301,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
                 if (jointTestResult != null && jointTestResult.Operation != null)
                 {
-                    availabeResults.Clear();
-                    if (jointTestResult.Operation.TestHasAccepted) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Accepted });
-                    if (jointTestResult.Operation.TestHasToRepair) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Repair });
-                    if (jointTestResult.Operation.TestHasToWithdraw) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Withdraw });
-                    resultStatusLookUpEdit.DataSource = availabeResults;
+                    availableResults.Clear();
+
+                    if (jointTestResult.Operation.TestHasAccepted)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Accepted));
+
+                    if (jointTestResult.Operation.TestHasToRepair)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Repair));
+
+                    if (jointTestResult.Operation.TestHasToWithdraw)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Withdraw));
+
+                    resultStatusLookUpEdit.DataSource = availableResults;
                 }
             }
         }

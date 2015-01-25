@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel.ReportCommand.Execute();
 
-            if (viewModel.ReportType.Value == ReportType.TracingReport)
+            if (viewModel.ReportType == ReportType.TracingReport)
             {
                 var report = new TracingReport();
 
@@ -53,7 +53,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 report.CreateDocument();
                 viewModel.PreviewSource = report;
             }
-            else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
+            else if (viewModel.ReportType == ReportType.UsedProductReport)
             {
                 var report = new UsedProductsXtraReport();
 
