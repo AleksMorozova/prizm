@@ -121,18 +121,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointStatus.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
-            firstJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
-            secondJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
+
 
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
 
             SetLookup(firstJointElement);
             SetLookup(secondJointElement);
 
-            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
+            firstJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
+            secondJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
 
+
+
+            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -161,8 +164,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void SetLookup(LookUpEdit lookup)
         {
             lookup.Properties.DataSource = pipelinePiecesBindingSource;
-            lookup.Properties.DisplayMember = "Number";
             lookup.Properties.ValueMember = "Id";
+            lookup.Properties.DisplayMember = "Number";
         }
 
         private void BindCommands()
@@ -558,16 +561,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.JointWeldResults[selectedIndex].Operation != null &&
                     viewModel.JointWeldResults[selectedIndex].Operation.Type == JointOperationType.Withdraw)
                 {
+                    viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
                     viewModel.JointCut();
 
                     if (viewModel.Joint.Status == JointStatus.Withdrawn)
                     {
-                        viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
-
                         DisableControlUnderWithdrawn();
+                        checkEdit.Checked = true;
                     }
                     else
                     {
+                        viewModel.JointWeldResults[selectedIndex].IsCompleted = false;
                         checkEdit.Checked = false;
                     }
                 }
