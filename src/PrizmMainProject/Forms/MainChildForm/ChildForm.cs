@@ -300,7 +300,6 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             throw new ApplicationException("ChildForm.CreateLocalizedItems must not be called.");
         }
-
     }
 
 

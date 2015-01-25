@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -97,11 +98,11 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -169,7 +170,7 @@
             this.jointNumber.Location = new System.Drawing.Point(34, 69);
             this.jointNumber.Margin = new System.Windows.Forms.Padding(0);
             this.jointNumber.Name = "jointNumber";
-            this.jointNumber.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.jointNumber.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.jointNumber.Properties.Appearance.Options.UseBackColor = true;
             this.jointNumber.Size = new System.Drawing.Size(258, 20);
             this.jointNumber.StyleController = this.newJointLayoutControl;
@@ -598,7 +599,7 @@
             // 
             this.secondJointElement.Location = new System.Drawing.Point(311, 116);
             this.secondJointElement.Name = "secondJointElement";
-            this.secondJointElement.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.secondJointElement.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.secondJointElement.Properties.Appearance.Options.UseBackColor = true;
             this.secondJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.secondJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -607,7 +608,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
-            this.secondJointElement.Properties.NullText = "Введите номер";
+            this.secondJointElement.Properties.NullText = "";
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(268, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
@@ -621,7 +622,7 @@
             // 
             this.firstJointElement.Location = new System.Drawing.Point(34, 116);
             this.firstJointElement.Name = "firstJointElement";
-            this.firstJointElement.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
+            this.firstJointElement.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.firstJointElement.Properties.Appearance.Options.UseBackColor = true;
             this.firstJointElement.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.firstJointElement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -630,7 +631,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
-            this.firstJointElement.Properties.NullText = "Введите номер";
+            this.firstJointElement.Properties.NullText = "";
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(258, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;

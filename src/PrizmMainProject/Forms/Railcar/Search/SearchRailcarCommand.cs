@@ -16,15 +16,15 @@ namespace Prizm.Main.Forms.Railcar.Search
     public class SearchRailcarCommand : ICommand
     {
         private readonly RailcarSearchViewModel viewModel;
-        private readonly IRailcarRepository repo;
+        private readonly IReleaseNoteRepository repo;
         private readonly IUserNotify notify;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
         public SearchRailcarCommand(
-            RailcarSearchViewModel viewmodel, 
-            IRailcarRepository repo, 
+            RailcarSearchViewModel viewmodel,
+            IReleaseNoteRepository repo,
             IUserNotify notify)
         {
             this.viewModel = viewmodel;
@@ -37,32 +37,41 @@ namespace Prizm.Main.Forms.Railcar.Search
         {
             try
             {
-                var railcars = new List<Railcar>();
-
-                var query = repo
-                    .CreateSQLQuery(RailcarQuery.BuildSql(
-                    viewModel.RailcarNumber, 
-                    viewModel.Certificate, 
-                    viewModel.Receiver,
-                    viewModel.ShippingDate, 
+                var projList = viewModel.Projection;
+                projList.Clear();
+                var list = repo.SearchReleases(
                     viewModel.ReleaseNoteNumber,
-                    viewModel.ReleaseNoteDate))
-                    .SetResultTransformer(RailcarQuery.Transformer);
+                    viewModel.ReleaseNoteDate,
+                    viewModel.RailcarNumber,
+                    viewModel.Certificate,
+                    viewModel.Receiver);
 
-                var qparts = query.List<Railcar>();
-
-                foreach (var item in qparts)
+                foreach(var release in list)
                 {
-                    railcars.Add(item);
+                    foreach(var car in release.Railcars)
+                    {
+                        projList.Add(new ReleaseNoteProjection
+                        {
+                            Id = release.Id,
+                            NoteNumber = release.Number,
+                            NoteDate = release.Date.Value.ToShortDateString(),
+                            CarNumber = car.Number,
+                            CarCertificate = car.Certificate,
+                            CarDestination = car.Destination,
+                            Status = car.IsShipped ? Resources.Shipped : Resources.RailcarPending
+                        });
+                    }
                 }
 
-                viewModel.Railcars = railcars;
+                viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
+
+                RefreshVisualStateEvent();
             }
-            catch (RepositoryException ex)
+            catch(RepositoryException ex)
             {
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
-            
+
         }
 
         public bool CanExecute()

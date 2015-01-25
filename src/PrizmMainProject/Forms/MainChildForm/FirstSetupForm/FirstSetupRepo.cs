@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IWelderRepository welderRepo;
         private readonly IComponentTypeRepository componentTypeRepo;
         private readonly IComponentRepository componentRepo;
+        private readonly IReleaseNoteRepository releaseRepo;
 
         public FirstSetupRepo()
         {
@@ -63,7 +64,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.welderRepo = new WelderRepository(session);
             componentTypeRepo = new ComponentTypeRepository(session);
             componentRepo = new ComponentRepository(session);
+            releaseRepo = new ReleaseNoteRepository(session);
         }
+        public IReleaseNoteRepository ReleaseRepo { get { return releaseRepo; } }
+
         public IComponentRepository ComponentRepo { get { return componentRepo; } }
 
         public IComponentTypeRepository ComponentTypeRepo { get { return componentTypeRepo; } }

@@ -134,7 +134,6 @@
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
-    <Compile Include="DAL\Mapping\ReleaseNote.cs" />
     <Compile Include="DAL\Mapping\ReleaseNoteMap.cs" />
     <Compile Include="DAL\Mapping\RoleMap.cs" />
     <Compile Include="DAL\Mapping\SeamTypeMap.cs" />

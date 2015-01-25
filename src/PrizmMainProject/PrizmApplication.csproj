@@ -404,8 +404,7 @@
     <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\Railcar.cs" />
-    <Compile Include="Forms\Railcar\Search\RailcarQuery.cs" />
+    <Compile Include="Forms\Railcar\Search\ReleaseNoteProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
