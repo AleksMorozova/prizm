@@ -51,13 +51,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
             {
-                if (true)
+                int distinctSizes = r.Pipes.Select(p => p.Type).Distinct().Count();
+                if (distinctSizes > 1)
                 {
-                    int distinctSizes = r.Pipes.Select(p => p.Type).Distinct().Count();
-                    if (distinctSizes > 1)
-                    {
-                        difTypeSize = true;
-                    }
+                    difTypeSize = true;
                 }
             }
 
