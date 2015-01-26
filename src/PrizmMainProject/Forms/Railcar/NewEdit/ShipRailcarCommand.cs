@@ -64,12 +64,16 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             
 
-            if(!noPipe&&!difTypeSize)
+            if(!noPipe||!difTypeSize)
             {
-                 foreach(var pipe in viewModel.Railcar.Pipes)
+                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
                 {
-                    pipe.Status = PipeMillStatus.Shipped;
-                    pipe.ToExport = true;
+                    foreach (var pipe in r.Pipes)
+                    {
+                        pipe.Status = PipeMillStatus.Shipped;
+
+                        pipe.ToExport = true;
+                    }
                 }
                 viewModel.Shipped = true;
                 viewModel.SaveCommand.Execute();
