@@ -122,7 +122,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -792,7 +792,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(viewModel != null)
             {
                 viewModel.Dispose();
-                viewModel = null; 
+                viewModel = null;
             }
         }
 
