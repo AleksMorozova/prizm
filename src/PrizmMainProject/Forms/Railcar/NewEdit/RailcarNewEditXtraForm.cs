@@ -46,12 +46,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
 
-            //this.railcarNumber.SetRequiredText();
             this.releaseNoteDate.SetRequiredText();
             this.releaseNoteNumber.SetRequiredText();
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
-            //this.railcarNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
@@ -68,7 +66,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
-           // IsEditMode = !viewModel.IsShipped;
+            IsEditMode = !viewModel.Shipped;
         }
 
         #region --- Localization ---
@@ -99,7 +97,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             bindingSource.DataSource = viewModel;
 
-            //railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             railcarNumber.Properties.DataSource = viewModel.Railcars;
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Railcar");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
@@ -245,6 +242,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             var currentRailcar = sender as LookUpEdit;
             viewModel.Railcar = currentRailcar.EditValue as Prizm.Domain.Entity.Mill.Railcar;
+            
         }
 
         private void railcarNumber_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
@@ -258,6 +256,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             viewModel.Railcars.Add(r);
             viewModel.Railcar = r;
+        }
+
+        private void railcarNumber_EditValueChanged_1(object sender, EventArgs e)
+        {
+            certificateNumber.Refresh();
+            destination.Refresh();
         }
     }
 }

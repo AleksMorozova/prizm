@@ -36,19 +36,22 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.Railcar.IsShipped)
+            if(!viewModel.Shipped)
             {
                 notify.ShowError(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER);
             }
             else
             {
-                foreach(var pipe in viewModel.Railcar.Pipes)
-                {
+                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars) 
+                {                 
+                    foreach(var pipe in r.Pipes)
+                    {
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ToExport = false;
+                    }
                 }
                
-                //viewModel.IsShipped = false;
+                viewModel.Shipped = false;
                 notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                 viewModel.SaveCommand.Execute();
             }
@@ -56,7 +59,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         }
         public bool CanExecute()
         {
-            return (viewModel.Railcar.IsShipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.UnshipAtMill));
+            return (viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.UnshipAtMill));
         }
     }
 }

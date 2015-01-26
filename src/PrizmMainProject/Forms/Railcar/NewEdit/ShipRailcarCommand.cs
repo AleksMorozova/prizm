@@ -33,39 +33,59 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(viewModel.Railcar.Pipes.Count == 0)
+            bool noPipe = false;
+            bool difTypeSize = false;
+            foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars) 
+            {
+                if (r.Pipes.Count == 0) 
+                {
+                    noPipe = true;
+                }
+            }
+
+            if (noPipe)
             {
                 notify.ShowError(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER);
                 return;
             }
 
-            int distinctSizes = viewModel.Railcar.Pipes.Select(p => p.Type).Distinct().Count();
+            foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+            {
+                if (true)
+                {
+                    int distinctSizes = r.Pipes.Select(p => p.Type).Distinct().Count();
+                    if (distinctSizes > 1)
+                    {
+                        difTypeSize = true;
+                    }
+                }
+            }
 
-            if(distinctSizes > 1)
+            if (difTypeSize)
             {
                 notify.ShowError(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER);
             }
-            else
-            {
-                
+            
 
-                foreach(var pipe in viewModel.Railcar.Pipes)
+            if(!noPipe&&!difTypeSize)
+            {
+                 foreach(var pipe in viewModel.Railcar.Pipes)
                 {
                     pipe.Status = PipeMillStatus.Shipped;
                     pipe.ToExport = true;
                 }
-               // viewModel.IsShipped = true;
+                viewModel.Shipped = true;
                 viewModel.SaveCommand.Execute();
-                notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
+                notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.ReleaseNote.Number, Resources.AlertInfoHeader);
             }
+            
             RefreshVisualStateEvent();
         }
 
         public bool CanExecute()
         {
-            return (!viewModel.Railcar.IsShipped
-                && !string.IsNullOrWhiteSpace(viewModel.Number)
-                && viewModel.Pipes.Count != 0);
+            return (!viewModel.Shipped
+                && !string.IsNullOrWhiteSpace(viewModel.Number)); //&& viewModel.Pipes.Count != 0
         }
     }
 }

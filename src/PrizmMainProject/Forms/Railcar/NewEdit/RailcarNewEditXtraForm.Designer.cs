@@ -219,14 +219,18 @@
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.railcarNumber.Properties.DisplayMember = "Railcars";
+            this.railcarNumber.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Number"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Certificate", "Certificate"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Destination", "Destination")});
+            this.railcarNumber.Properties.DisplayMember = "Number";
             this.railcarNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.railcarNumber.Properties.ValueMember = "Number";
             this.railcarNumber.Size = new System.Drawing.Size(322, 20);
             this.railcarNumber.StyleController = this.generalLayout;
             this.railcarNumber.TabIndex = 15;
             this.railcarNumber.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.railcarNumber_ProcessNewValue);
             this.railcarNumber.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.railcarNumber_QueryCloseUp);
+            this.railcarNumber.EditValueChanged += new System.EventHandler(this.railcarNumber_EditValueChanged_1);
             // 
             // releaseNoteNumber
             // 

@@ -55,8 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             else
             {
-                Railcar = repos.RailcarRepo.Get(id);
-                
+                ReleaseNote = repos.ReleaseNoteRepo.Get(id);
             }
             
         }
@@ -72,6 +71,21 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public ReleaseNote ReleaseNote { get; set; }
 
         #region Release Note
+
+        public bool Shipped
+        {
+            get { return ReleaseNote.Shipped; }
+            set
+            {
+                if (value != ReleaseNote.Shipped)
+                {
+                    ReleaseNote.Shipped = value;
+                    RaisePropertyChanged("Shipped");
+                    modifiableView.IsEditMode = !value;
+                }
+            }
+        }
+
         public string Number
         {
             get { return ReleaseNote.Number; }
@@ -116,6 +130,16 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 if (value != ReleaseNote.Railcars)
                 {
+                    int index = ReleaseNote.Railcars.IndexOf(railcar);
+                    if (index > 0)
+                    {
+                        ReleaseNote.Railcars[index] = railcar;
+                    }
+                    else
+                    {
+                        ReleaseNote.Railcars.Add(railcar);
+                    }
+
                     ReleaseNote.Railcars = value;
                     RaisePropertyChanged("Railcars");
                 }
@@ -135,6 +159,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 {
                     railcar = value;
                     RaisePropertyChanged("Railcar");
+                    RaisePropertyChanged("Certificate");
+                    RaisePropertyChanged("Destination");
                 }
             }
         }
