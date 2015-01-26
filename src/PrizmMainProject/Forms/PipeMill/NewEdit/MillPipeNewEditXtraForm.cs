@@ -49,6 +49,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
+        private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
+        private void UpdateTextEdit() {
+            pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
+        }
 
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
@@ -228,7 +232,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
             Binding bind = new Binding("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            bind.Format += (sender, e) => { e.Value = localizedAllPipeMillStatus[(int)e.Value]; };
+            bind.FormattingEnabled = true;
+            bind.Format += (sender, e) => { originalStatus = (PipeMillStatus)e.Value; e.Value = (string)localizedAllPipeMillStatus[(int)e.Value]; };
+            bind.Parse += (sender, e) => { e.Value = originalStatus; };
             millStatus.DataBindings.Add(bind);
 
             ordersLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
@@ -355,9 +361,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     new LocalizedItem(inspectionsTabLayoutControlGroup, "NewEditPipe_InspectionsTabGroup"),
 
 
-                    // one-way text edit for statuses
-                    new LocalizedItem(millStatus, localizedAllPipeMillStatus, 
+                    // one-way text edit for statuses. See data binding for appropriate text edit, to understand the connection.
+                    new LocalizedItem(UpdateTextEdit, localizedAllPipeMillStatus,
                         new string [] {"NewEditPipe_PipeStatusUndefined", "NewEditPipe_PipeStatusProduced", "NewEditPipe_PipeStatusStocked", "NewEditPipe_PipeStatusShipped"} ),
+
 
                     // other
                 };

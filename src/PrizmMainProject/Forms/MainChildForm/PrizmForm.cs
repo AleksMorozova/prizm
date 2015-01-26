@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.MainChildForm
             base.OnLoad(e);
             if (!DesignMode)
             {
-                Program.MainForm.ChangeLanguage(this);
+                Program.LanguageManager.ChangeLanguage(this);
             }
         }
 

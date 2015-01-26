@@ -74,10 +74,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
             return new List<LocalizedItem>()
             {
                 // checked combo boxes
-                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusCombo1", "SearchPipe_MillStatusCombo2", "SearchPipe_MillStatusCombo3" }),
+                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusProduced", "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
 
                 // combo boxes
                 new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_ActivityComboActive", "SearchPipe_ActivityComboNotActive", "SearchPipe_ActivityComboAll" }),
+
+                // readonly grid cell
+                new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
+                                                              "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
 
                 // layout items
                 new LocalizedItem(pipeNumberLayout, "SearchPipe_NumberLabel"),
