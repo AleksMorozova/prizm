@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
             var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
 
-            if (defaultStation == WorkstationType.Undef)
+            if (defaultStation == WorkstationType.Undefined)
             {
                 defaultStation = WorkstationType.Mill;
             }
@@ -74,7 +74,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public string Type
         {
-            get { return (new EnumWrapper<WorkstationType>() { Value = project.WorkstationType }).Text; }
+            get { return new EnumWrapper<WorkstationType>(project.WorkstationType).Name; }
         }
 
         public int Size

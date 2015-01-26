@@ -297,7 +297,9 @@ namespace Prizm.Main.Forms.MainChildForm
         #endregion // Edit mode
 
         protected override List<LocalizedItem> CreateLocalizedItems()
-        { return null; }
+        {
+            throw new ApplicationException("ChildForm.CreateLocalizedItems must not be called.");
+        }
     }
 
 

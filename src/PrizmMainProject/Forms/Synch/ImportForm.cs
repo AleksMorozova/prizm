@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Ninject;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Import;
 using System;
@@ -16,7 +17,8 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Synch
 {
-   public partial class ImportForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ImportForm : PrizmForm
    {
       readonly DataImporter importer;
       [Inject]
@@ -33,7 +35,20 @@ namespace Prizm.Main.Forms.Synch
          importer.OnMissing += importer_OnMissing;
       }
 
-      void SetProgressBar(int progress)
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+          };
+      }
+
+      #endregion // --- Localization ---
+       
+       void SetProgressBar(int progress)
       {
          if (progressBarControl.InvokeRequired)
          {

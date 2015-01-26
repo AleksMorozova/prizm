@@ -43,9 +43,9 @@ namespace Prizm.Main.Forms.Reports.Mill
             statuses.DataSource = viewModel.Statuses;
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
-            foreach (EnumWrapper<ReportType> item in viewModel.ReportTypes)
+            foreach (var item in EnumWrapper<MillReportType>.EnumerateItems())
             {
-                reportTypes.Properties.Items.Add(new RadioGroupItem(item.Value, item.Text));
+                reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
             }
 
             reportTypes.DataBindings.Add("EditValue", millReportsBindingSource, "SelectedReportType");
@@ -105,13 +105,13 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void reportTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = (ReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
+            var selected = (MillReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;
             statuses.Enabled = true;
 
             
-                if (selected != ReportType.ByCategories)
+                if (selected != MillReportType.ByCategories)
                 {
                     testCategories.Enabled = false;
                     statuses.Enabled = false;

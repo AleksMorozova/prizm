@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public partial class NumbersDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class NumbersDialog : PrizmForm
     {
         BindingList<Part> parts;
         PartInspectionViewModel viewModel;
@@ -28,6 +31,17 @@ namespace Prizm.Main.Forms.Parts.Inspection
             searchResults.DataSource = parts;
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
         private void acceptButton_Click(object sender, EventArgs e)
         {
             Part selectedElement = searchResultsView.GetRow(searchResultsView.FocusedRowHandle) as Part;

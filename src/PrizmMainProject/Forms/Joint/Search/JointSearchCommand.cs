@@ -34,11 +34,7 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             repo.Clear();
             DetachedCriteria criteria = DetachedCriteria.For<Construction.Joint>();
-            if(viewModel.Statuses.Count == 0)
-            {
-
-            }
-            else
+            if(viewModel.Statuses.Count > 0)
             {
                 if(!string.IsNullOrWhiteSpace(viewModel.Number))
                 {

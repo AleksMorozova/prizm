@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +13,8 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Common
 {
-   public partial class LoginForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class LoginForm : PrizmForm
    {
       public LoginForm()
       {
@@ -27,5 +30,17 @@ namespace Prizm.Main.Forms.Common
       {
          get { return txtPassword.Text; }
       }
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+          };
+      }
+
+      #endregion // --- Localization ---
    }
 }

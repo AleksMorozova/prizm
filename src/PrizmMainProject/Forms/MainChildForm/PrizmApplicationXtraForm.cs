@@ -43,7 +43,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-    public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify, ILocalizable
+    public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
@@ -135,7 +135,6 @@ namespace Prizm.Main.Forms.MainChildForm
                 childForms[formType.Name].Add(newlyCreatedForm);
                 newlyCreatedForm.MdiParent = this;
                 newlyCreatedForm.FormClosed += ChildClosedEventHandler;
-                ChangeLanguage(newlyCreatedForm);
                 FramesCanOpen--;
             }
 
@@ -528,7 +527,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
 
-            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
+            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Name, "]");
 
             if(!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
             {
@@ -695,49 +694,37 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        void ChangeLanguage(ILocalizable localizable)
+        public void ChangeLanguage(ILocalizable localizable)
         {
             if (localizable != null)
             {
                 foreach (var localizedItem in localizable)
                 {
-                    string resource;
-                    if (viewModel.TryGetLocalizedString(localizedItem.ResourceId, out resource))
+                    for (int index = 0; index < localizedItem.Count; index++)
                     {
-                        localizedItem.Text = resource;
+                        string resource;
+                        if (viewModel.TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
+                        {
+                            localizedItem[index] = resource;
+                        }
+                        else
+                        {
+                            localizedItem.BackToDefault(index);
+                        }
                     }
-                    else
-                    {
-                        localizedItem.BackToDefault();
-                    }
+                    localizedItem.Refresh();
                 }
             }
         }
 
-
         #region --- Localization ---
 
-        List<LocalizedItem> localizedItems = null;
-
-        public IEnumerator<ILocalizedItem> GetEnumerator()
+        protected override List<LocalizedItem> CreateLocalizedItems()
         {
-            if (localizedItems == null)
+            return new List<LocalizedItem>()
             {
-                localizedItems = new List<LocalizedItem>() 
-                { 
-                    // header
-
-                    // menu
-
-                    // other
-                };
-            }
-            return localizedItems.GetEnumerator();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return this.GetEnumerator();
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
         }
 
         #endregion // --- Localization ---

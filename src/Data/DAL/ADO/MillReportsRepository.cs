@@ -18,7 +18,7 @@ namespace Prizm.Data.DAL.ADO
         public MillReportsRepository() { }
         private SqlConnection connection = null;
 
-        public DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, ReportType reportType, List<string> statuses, bool previewFlag = false)
+        public DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, MillReportType reportType, List<string> statuses, bool previewFlag = false)
         {
             CreateConnection();
             DataSet pipeDataSet = new DataSet();
@@ -43,7 +43,7 @@ namespace Prizm.Data.DAL.ADO
 
                         switch (reportType)
                         {
-                            case ReportType.ByCategories:
+                            case MillReportType.ByCategories:
                                 {
                                     var categoryParameters = new string[categories.Count];
                                     for (int i = 0; i < categories.Count; i++)
@@ -74,7 +74,7 @@ namespace Prizm.Data.DAL.ADO
                                     command.CommandText = tempSQLObject.ToString(); 
 
                                 }; break;
-                            case ReportType.ByProducing:
+                            case MillReportType.ByProducing:
                                 tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllProduced).WhereAnd().Where("PipeMillStatus", "=", "'Produced'").WhereAnd().Where("Pipe.isActive", "=", "1");
                                 if (previewFlag)
                                     {
@@ -82,7 +82,7 @@ namespace Prizm.Data.DAL.ADO
                                     }
                                 command.CommandText =tempSQLObject.ToString(); 
                                 break;
-                            case ReportType.ByShipped:
+                            case MillReportType.ByShipped:
                                 tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllShipped).WhereAnd().Where("PipeMillStatus", "=", "'Shipped'").WhereAnd().Where("Pipe.isActive", "=", "1");
                                     if (previewFlag)
                                     {

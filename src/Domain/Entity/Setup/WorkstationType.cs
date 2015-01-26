@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity.Setup
 {
+    /// <summary>
+    /// Sequence of numbers in this enum is used for different purposes. Rules are:
+    /// - 0 is always Undefined
+    /// - do not make gaps in numbering
+    /// - all new items should be added to the end. Old items must remain as is (comment them as unused if they will become so).
+    /// - never change names of existing items.
+    /// </summary>
     public enum WorkstationType
     {
+        Undefined = 0,
         Master = 1,
         Mill = 2,
         Inspection = 3,
-        Construction = 4,
-
-        Undef = 0
+        Construction = 4
     }
 }

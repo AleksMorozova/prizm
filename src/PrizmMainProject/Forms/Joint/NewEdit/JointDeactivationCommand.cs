@@ -38,7 +38,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                    Resources.DLG_JOINT_DEACTIVATION_HEADER))
             {              
                 viewModel.JointIsActive = false;
-                viewModel.Joint.Status = Domain.Entity.Construction.JointStatus.Deactivated;
 
                 repo.BeginTransaction();
                 repo.RepoJoint.Save(viewModel.Joint);

@@ -47,6 +47,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private PipeTestResult currentTestResult;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        private List<string> localizedAllPipeMillStatus = new List<string>();
+
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
         public MillPipeNewEditXtraForm(Guid id)
@@ -119,6 +122,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            {
+                localizedAllPipeMillStatus.Add(item.Item2);
+            }
 
             BindCommands();
             BindToViewModel();
@@ -138,7 +145,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             IsModified = false;
             pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
-
         }
 
         private void BindToViewModel()
@@ -198,8 +204,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-            shippedDate.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
+            //shippedDate.DataBindings
+            //    .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings
@@ -221,8 +227,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
-            millStatus.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PipeStatus");
+            Binding bind = new Binding("EditValue", pipeNewEditBindingSource, "PipeStatus");
+            bind.Format += (sender, e) => { e.Value = localizedAllPipeMillStatus[(int)e.Value]; };
+            millStatus.DataBindings.Add(bind);
 
             ordersLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
 
@@ -297,6 +304,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     // layout control groups
                     new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                    // one-way text edit for statuses
+                    new LocalizedItem(millStatus, localizedAllPipeMillStatus, 
+                        new string [] {"NewEditPipe_PipeStatusUndefined", "NewEditPipe_PipeStatusProduced", "NewEditPipe_PipeStatusStocked", "NewEditPipe_PipeStatusShipped"} ),
 
                     // other
                 };

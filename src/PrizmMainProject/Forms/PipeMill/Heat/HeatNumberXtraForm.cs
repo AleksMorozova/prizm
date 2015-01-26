@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
-    public partial class HeatNumberXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class HeatNumberXtraForm : PrizmForm
     {
         public HeatNumberXtraForm(string number)
         {
@@ -20,6 +22,18 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             SetControlsTextLength();
             this.number.Text = number;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
 
         public string Number { get { return number.Text; } }
 

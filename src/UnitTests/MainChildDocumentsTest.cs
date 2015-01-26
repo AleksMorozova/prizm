@@ -32,12 +32,21 @@ using Prizm.Main.Forms.PipeMill;
 using Prizm.Main.Forms.Joint;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Forms.Common;
+using Prizm.Main.Languages;
+using Prizm.Main.Forms.Settings.Inspections;
 
 namespace Prizm.UnitTests
 {
     [TestFixture]
     public class MainChildDocumentsTest
     {
+        [TestCase(typeof(AppSplashScreen), typeof(ILocalizable))]
+        [TestCase(typeof(AppWaitForm), typeof(ILocalizable))]
+        public void ImplementsInterface(System.Type type, System.Type interf)
+        {
+            Assert.IsTrue(type.GetInterfaces().Contains(interf), string.Format("{0} does not implement {1}!", type.Name, interf.Name));
+        }
+
 
         [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildForm))]
         [TestCase(typeof(MillPipeSearchXtraForm), typeof(ChildForm))]
@@ -65,8 +74,6 @@ namespace Prizm.UnitTests
         [TestCase(typeof(JointCutDialog), typeof(PrizmForm))]
         [TestCase(typeof(SelectDiameterDialog), typeof(PrizmForm))]
         [TestCase(typeof(FirstSetupXtraForm), typeof(PrizmForm))]
-        [TestCase(typeof(AppSplashScreen), typeof(PrizmForm))]
-        [TestCase(typeof(AppWaitForm), typeof(PrizmForm))]
         [TestCase(typeof(CreationDialog), typeof(PrizmForm))]
         [TestCase(typeof(NumbersDialog), typeof(PrizmForm))]
         [TestCase(typeof(PurchaseOrderXtraForm), typeof(PrizmForm))]
@@ -75,6 +82,10 @@ namespace Prizm.UnitTests
         [TestCase(typeof(ImportForm), typeof(PrizmForm))]
         [TestCase(typeof(InspectionAddEditXtraForm), typeof(PrizmForm))]
         [TestCase(typeof(HeatXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(PrizmApplicationXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(HeatNumberXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(MillInspectionXtraForm), typeof(PrizmForm))]
+        [TestCase(typeof(MissingPortionsDialog), typeof(PrizmForm))]
         public void TestNonDesignerFormEndSuccessor(System.Type type, System.Type baseForm)
         {
             Assert.IsTrue(type.IsSubclassOf(baseForm), string.Format("{0} does not inherit from {1}!", type.Name, baseForm.Name));

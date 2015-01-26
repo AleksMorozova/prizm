@@ -9,10 +9,12 @@ using System.Collections.Generic;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
-    public partial class HeatXtraForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class HeatXtraForm : PrizmForm
     {
 
         private HeatViewModel viewModel;
@@ -42,6 +44,18 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
             number.SetAsIdentifier();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void CreateHeat(string heatNumber)
         {

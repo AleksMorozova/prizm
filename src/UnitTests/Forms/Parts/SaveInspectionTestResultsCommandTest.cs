@@ -53,7 +53,7 @@ namespace Prizm.UnitTests.Forms.Parts
             Main.Forms.Parts.Search.Part notConverted = new Main.Forms.Parts.Search.Part()
             {
                 Id = part.Id,
-                Type = new EnumWrapper<PartType>() { Value = PartType.Pipe }
+                Type = new EnumWrapper<PartType>(PartType.Pipe)
             };
             repoInspectionTestResult.Setup(_ => _.GetByPartId(notConverted.Id)).Returns(list);
             viewModel.SelectedElement = notConverted;

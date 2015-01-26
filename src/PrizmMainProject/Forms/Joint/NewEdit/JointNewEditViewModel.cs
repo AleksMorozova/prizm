@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
-        private EnumWrapper<JointStatus> jointStatus = new EnumWrapper<JointStatus>() { Value = JointStatus.Welded };
+        private EnumWrapper<JointStatus> jointStatus = new EnumWrapper<JointStatus>(JointStatus.Welded);
 
         private PartData firstElement;
         private PartData secondElement;
@@ -404,10 +404,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (Joint.JointWeldResults.Where(_ => _.Date == JointWeldResults.Max(x => x.Date)).Any(x => x.Operation.Type == JointOperationType.Withdraw))
                 {
                     Joint.Status = JointStatus.Withdrawn;
-                }
-                if (Joint.IsActive == false)
-                {
-                    Joint.Status = JointStatus.Deactivated;
                 }
 
                 jointStatus.Value = Joint.Status;

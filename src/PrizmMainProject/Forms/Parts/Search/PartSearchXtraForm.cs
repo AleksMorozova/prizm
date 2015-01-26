@@ -40,17 +40,14 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-            foreach (var s in viewModel.ActivityTypes)
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
-                activity.Properties.Items.Add(s);
+                activity.Properties.Items.Add(item.Item2);
             }
-            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
-            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
-            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
-
-            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
+            {
+                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
+            }
             RefreshTypes();
             activity.SelectedIndex = 0;
             viewModel.Activity = activity.SelectedItem.ToString();

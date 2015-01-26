@@ -46,8 +46,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
         internal static string BuildSql(
             string Number,
             IList<PipeMillSizeType> CheckedPipeTypes,
-            string Activity,
-            IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes)
+            ActivityCriteria Activity,
+            HashSet<PipeMillStatus> CheckedStatusTypes)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -72,20 +72,20 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
             if (CheckedPipeTypes.Count > 0)
             {
-                sb.Append(" AND [Type] IN (");
+                sb.Append(" AND [Pipe].[typeId] IN (");
                 foreach (var t in CheckedPipeTypes)
                 {
-                    sb.Append(string.Format("  N'{0}',", t.Type));
+                    sb.Append(string.Format("  N'{0}',", t.Id.ToString()));
                 }
                 sb.Remove(sb.Length - 1, 1);
                 sb.Append(" )");
             }
 
-            if (string.Equals(Activity, Resources.StatusActive))
+            if (Activity == ActivityCriteria.StatusActive)
             {
                 sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", true));
             }
-            else if (string.Equals(Activity, Resources.StatusUnactive))
+            else if (Activity == ActivityCriteria.StatusUnactive)
             {
                 sb.Append(string.Format(" AND [Pipe].[isActive] = N'{0}'", false));
             }
@@ -95,13 +95,15 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 sb.Append(" AND PipeMillStatus IN (");
                 foreach (var s in CheckedStatusTypes)
                 {
-                    sb.Append(string.Format("  N'{0}',", s.Name));
+                    sb.Append(string.Format("  N'{0}',", Enum.GetName(typeof(PipeMillStatus),s)));
                 }
                 sb.Remove(sb.Length - 1, 1);
                 sb.Append(" )");
             }
 
-            return sb.ToString();
+            //return sb.ToString();
+            string ret = sb.ToString();
+            return ret;
         }
     }
 }

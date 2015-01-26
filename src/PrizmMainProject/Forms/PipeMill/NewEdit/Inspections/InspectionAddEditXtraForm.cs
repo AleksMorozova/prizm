@@ -13,10 +13,13 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Forms.PipeMill.NewEdit.Inspections;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public partial class InspectionAddEditXtraForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class InspectionAddEditXtraForm : PrizmForm
     {
         public InspectionAddEditViewModel viewModel;
 
@@ -78,6 +81,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             factLimit.DataBindings.Add("EditValue", bindingSource, "FactLimit");
         }
 
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
+        
         private void code_EditValueChanged(object sender, EventArgs e)
         {
             var cd = code.EditValue;

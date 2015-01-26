@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public bool CanExecute()
         {
-            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undef
+            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undefined
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Login) && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.LastName) 
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.FirstName);
         }

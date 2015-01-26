@@ -8,10 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Synch
 {
-    public partial class MissingPortionsDialog : DevExpress.XtraEditors.XtraForm
+    public partial class MissingPortionsDialog : PrizmForm
     {
         public MissingPortionsDialog(int[] existingPortions, int[] missingPortions, string millName)
         {
@@ -49,6 +51,19 @@ namespace Prizm.Main.Forms.Synch
             }
             missingNumbers.Text += sb.ToString();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
+
 
         private bool CheckDiapason(int[] arr)
         {

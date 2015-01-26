@@ -34,14 +34,16 @@ namespace Prizm.Main.Forms.PipeMill.Search
             {
                 pipeSize.Properties.Items.Add(s,true);
             }
-            foreach (var s in viewModel.StatusTypes)
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0 : true))
             {
-                pipeMillStatus.Properties.Items.Add(s,true);
+                pipeMillStatus.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled: true);
             }
-            foreach (var s in viewModel.ActivityTypes)
+
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
-                pipeActivity.Properties.Items.Add(s);
+                pipeActivity.Properties.Items.Add(item.Item2);
             }
+            viewModel.Activity = ActivityCriteria.StatusActive;
 
   
             pipesSearchResult.DataBindings
@@ -49,8 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             pipeNumber.DataBindings
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings
-                .Add("EditValue", MillPipeSearchBindingSource, "Activity");
-
+                .Add("SelectedIndex", MillPipeSearchBindingSource, "ActivityIndex");
         }
 
         private void BindCommands()
@@ -64,8 +65,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
             BindCommands();
             BindToViewModel();
-            pipeActivity.SelectedIndex = 0;
-            viewModel.Activity = pipeActivity.SelectedItem.ToString(); 
         }
 
         #region --- Localization ---
@@ -74,17 +73,11 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                // checked combo boxes
+                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusCombo1", "SearchPipe_MillStatusCombo2", "SearchPipe_MillStatusCombo3" }),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                // combo boxes
+                new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_ActivityComboActive", "SearchPipe_ActivityComboNotActive", "SearchPipe_ActivityComboAll" }),
 
                 // other
             };
@@ -139,7 +132,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             {
                 if (pipeMillStatus.Properties.Items[i].CheckState == CheckState.Checked)
                 {
-                    viewModel.CheckedStatusTypes.Add(pipeMillStatus.Properties.Items[i].Value as EnumWrapper<PipeMillStatus>);
+                    viewModel.CheckedStatusTypes.Add((PipeMillStatus)pipeMillStatus.Properties.Items[i].Value);
                 }
             }
         }

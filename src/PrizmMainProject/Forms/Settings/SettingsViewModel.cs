@@ -493,12 +493,9 @@ namespace Prizm.Main.Forms.Settings
         {
             JointOperationTypes = new List<EnumWrapper<JointOperationType>>();
 
-            foreach (string jointOperationTypeName in Enum.GetNames(typeof(JointOperationType)))
+            foreach(var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0:true))
             {
-                if (jointOperationTypeName != Enum.GetName(typeof(JointOperationType), JointOperationType.Undefined))
-                {
-                    JointOperationTypes.Add(new EnumWrapper<JointOperationType>() { Name = jointOperationTypeName });
-                }
+                JointOperationTypes.Add(new EnumWrapper<JointOperationType>((JointOperationType)item.Item1)); // TODO: binding list vs localization - ?
             }
         }
 

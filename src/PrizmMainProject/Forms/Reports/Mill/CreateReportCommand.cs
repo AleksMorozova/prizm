@@ -42,7 +42,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             try
             {
-                if (viewModel.SelectedReportType == ReportType.ByProducing)
+                if (viewModel.SelectedReportType == MillReportType.ByProducing)
                 {
                     data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
                     AdditionToTheReport report = new AdditionToTheReport();
@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();
                 }
-                else if (viewModel.SelectedReportType == ReportType.General)
+                else if (viewModel.SelectedReportType == MillReportType.General)
                 {
                     data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                     GeneralInformationXtraReport report = new GeneralInformationXtraReport();
