@@ -738,7 +738,8 @@ namespace Prizm.Main.Forms.Settings
             var data = v.GetRow(e.RowHandle) as WelderViewType;
             if(data != null)
             {
-                if((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.Date < DateTime.Now)
+                if ((e.Column.Name == colInspectorCertExp.Name || e.Column.Name == inspectorCertificateNumberCol.Name) 
+                    && data.CertificateExpiration.Date < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);

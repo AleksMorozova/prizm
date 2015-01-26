@@ -398,7 +398,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (selectedOperation != null 
                 && selectedOperation.Type != JointOperationType.Weld 
                 && selectedOperation.Type != JointOperationType.Withdraw
-                && view.FocusedColumn.FieldName == "Welders")
+                && view.FocusedColumn.Name == weldersGridColumn.Name)
             {
                 e.Cancel = true;
             }

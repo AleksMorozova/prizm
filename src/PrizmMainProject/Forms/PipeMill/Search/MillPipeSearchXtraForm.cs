@@ -20,6 +20,10 @@ namespace Prizm.Main.Forms.PipeMill.Search
     {
         private MillPipeSearchViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        private List<string> localizedAllPipeMillStatus = new List<string>();
+
         public MillPipeSearchXtraForm()
         {
             InitializeComponent();
@@ -63,6 +67,11 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             viewModel = (MillPipeSearchViewModel)Program.Kernel.GetService(typeof(MillPipeSearchViewModel));
 
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            {
+                localizedAllPipeMillStatus.Add(item.Item2);
+            }
+
             BindCommands();
             BindToViewModel();
         }
@@ -78,10 +87,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
                 // combo boxes
                 new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_ActivityComboActive", "SearchPipe_ActivityComboNotActive", "SearchPipe_ActivityComboAll" }),
-
-                // readonly grid cell
-                new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
-                                                              "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
 
                 // layout items
                 new LocalizedItem(pipeNumberLayout, "SearchPipe_NumberLabel"),
@@ -110,6 +115,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 new LocalizedItem(searchLayoutGroup, "SearchPipe_SearchGroup"),
                 new LocalizedItem(searchResultLayoutGroup, "SearchPipe_ResultGroup"),
 
+                // one-way by-column transformation statuses.
+                // See grid's CustomColumnDisplayText for all grid's columns, to understand the connection.
+                // one localized item per column. 
+                // the same ...CustomColumnDisplayText method must be used for all columns,
+                // but private localized list (f.e. localizedAllPipeMillStatus) is different for each column. 
+                new LocalizedItem(pipesSearchResultView, localizedAllPipeMillStatus,
+                    new string [] { "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
+                                    "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
                 // other
             };
         }
@@ -184,6 +197,18 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 if(!data.IsActive)
                 {
                     e.Appearance.ForeColor = Color.Gray;
+                }
+            }
+        }
+
+        private void pipesSearchResultView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == statusSearchGridColumn.Name)
+            {
+                PipeMillStatus result;
+                if (Enum.TryParse<PipeMillStatus>((string)e.Value, out result))
+                {
+                    e.DisplayText = localizedAllPipeMillStatus[(int)result];
                 }
             }
         }

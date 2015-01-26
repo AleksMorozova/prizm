@@ -120,7 +120,7 @@ namespace Prizm.Main.Forms.Joint.Search
         private void resultView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
-            if(e.Column.FieldName == "statusLocalizedCol" && e.IsGetData)
+            if(e.Column.Name == statusLocalizedCol.Name && e.IsGetData)
             {
                 e.Value = LocalizeStatus(view, e.ListSourceRowIndex);
             }
