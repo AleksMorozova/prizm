@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -68,7 +67,7 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -109,7 +108,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -241,6 +240,7 @@
             this.pipesSearchResultView.OptionsNavigation.UseTabKey = false;
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
             this.pipesSearchResultView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSearchResultView_RowCellStyle);
+            this.pipesSearchResultView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.pipesSearchResultView_CustomColumnDisplayText);
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
             // 

@@ -534,7 +534,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
-            if(e.Column.FieldName == "Expected" && e.IsGetData)
+            if (e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
                 e.Value =
                     getExpectedValue(view, e.ListSourceRowIndex);
         }

@@ -68,17 +68,9 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                // radio groups
+                new LocalizedItem(tracingModeRadioGroup, 
+                    new string[]{ "ConstructionReport_RadioJoints", "ConstructionReport_RadioKP" }),
 
                 // other
             };
