@@ -304,6 +304,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     // controls
                     new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                    new LocalizedItem(deactivated, "NewEditPipe_DeactivatedCheckbox"),
 
                     // grid column headers
                     new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
@@ -314,6 +315,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     // one-way text edit for statuses. See data binding for appropriate text edit, to understand the connection.
                     new LocalizedItem(UpdateTextEdit, localizedAllPipeMillStatus,
                         new string [] {"NewEditPipe_PipeStatusUndefined", "NewEditPipe_PipeStatusProduced", "NewEditPipe_PipeStatusStocked", "NewEditPipe_PipeStatusShipped"} ),
+
 
                     // other
                 };

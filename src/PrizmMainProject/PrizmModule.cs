@@ -41,7 +41,6 @@ using Prizm.Main.Synch;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Synch.Import;
 using Prizm.Main.Forms.Reports.Construction.PipeReport;
-using Prizm.Main.Languages;
 using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
 
 namespace Prizm.Main
@@ -159,12 +158,6 @@ namespace Prizm.Main
             
             Bind<IEncryptor>().To<Encryptor>();
             Bind<IHasher>().To<Hasher>();
-
-            #endregion
-
-            #region Language
-
-            Bind<ILanguageManager>().To<LanguageManager>();
 
             #endregion
 

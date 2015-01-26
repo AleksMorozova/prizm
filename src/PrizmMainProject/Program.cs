@@ -17,6 +17,7 @@ using Prizm.Data.DAL;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.Main.Forms.Settings;
 using DevExpress.XtraSplashScreen;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main
@@ -33,6 +34,13 @@ namespace Prizm.Main
         private const int monthsCountPasswordProlongation = 3;
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
+
+        #region --- Language ---
+        private static readonly ILanguageManager langManager = new LanguageManager();
+        public static ILanguageManager LanguageManager { get { return langManager; } }
+
+
+        #endregion // --- Language ---
 
         /// <summary>
         ///     The main entry point for the application.
