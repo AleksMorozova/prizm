@@ -13,7 +13,19 @@ namespace Prizm.Main.Languages
         private Type type;
         private string[] defaultValues;
 
-        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup, ProgressPanel, CheckedComboBoxEdit, ComboBoxEdit, TextEditOneWayStatus, GridView };
+        private enum Type 
+        { 
+            Control, 
+            LayoutControlItem, 
+            GridColumn, 
+            LayoutControlGroup, 
+            ProgressPanel, 
+            CheckedComboBoxEdit,
+            ComboBoxEdit,
+            RadioGroup,
+            TextEditOneWayStatus, 
+            GridView
+        };
 
         public LocalizedItem(DevExpress.XtraLayout.LayoutControlItem item, string resourceId)
         {
@@ -87,6 +99,20 @@ namespace Prizm.Main.Languages
                 this.defaultValues[index] = combo.Properties.Items[index].ToString();
             }
         }
+        public LocalizedItem(DevExpress.XtraEditors.RadioGroup radio, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)radio;
+            this.type = Type.RadioGroup;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = radio.Properties.Items[index].ToString();
+            }
+        }
+
         /// <summary>
         /// Use this item to localize the output in text edit, where value is the one of enumberation members.
         /// list is required to be at least the same size as resourceIds
@@ -194,6 +220,14 @@ namespace Prizm.Main.Languages
                             combo.SelectedIndex = selectedIndex; // restore selected index for combo
                             break;
 
+                        case Type.RadioGroup:
+                            var radio = (DevExpress.XtraEditors.RadioGroup)obj;
+                            if (index < Count)
+                            {
+                                ((DevExpress.XtraEditors.RadioGroup)obj).Properties.Items[index].Description = value;
+                            }
+                            break;
+
                         case Type.TextEditOneWayStatus:
                             {
                                 var list = ((Tuple<Action, List<string>>)obj).Item2;
@@ -279,6 +313,9 @@ namespace Prizm.Main.Languages
                             combo.EditValue = combo.Properties.Items[combo.SelectedIndex];
                         }
                         combo.Refresh();
+                    break;
+                case Type.RadioGroup:
+                    ((DevExpress.XtraEditors.RadioGroup)obj).Refresh();
                     break;
                 case Type.TextEditOneWayStatus:
                     ((Tuple<Action, List<string>>)obj).Item1.Invoke();
