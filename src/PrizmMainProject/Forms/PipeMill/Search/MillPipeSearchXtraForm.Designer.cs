@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -42,7 +42,7 @@
             this.pipesSearchResult = new DevExpress.XtraGrid.GridControl();
             this.pipesSearchResultView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pipeDiameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipeTypeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeMillGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.heatNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusSearchGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -109,7 +109,7 @@
             this.extraButton.AutoHeight = false;
             this.extraButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.extraButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "extra inf", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("extraButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.extraButton.Name = "extraButton";
             this.extraButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -228,7 +228,7 @@
             // 
             this.pipesSearchResultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.pipeNumberGridColumn,
-            this.pipeDiameterGridColumn,
+            this.pipeTypeSizeGridColumn,
             this.pipeMillGridColumn,
             this.heatNumberGridColumn,
             this.statusSearchGridColumn,
@@ -254,15 +254,15 @@
             this.pipeNumberGridColumn.VisibleIndex = 0;
             this.pipeNumberGridColumn.Width = 170;
             // 
-            // pipeDiameterGridColumn
+            // pipeTypeSizeGridColumn
             // 
-            this.pipeDiameterGridColumn.Caption = "Типоразмер";
-            this.pipeDiameterGridColumn.FieldName = "Type";
-            this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
-            this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
-            this.pipeDiameterGridColumn.Visible = true;
-            this.pipeDiameterGridColumn.VisibleIndex = 2;
-            this.pipeDiameterGridColumn.Width = 170;
+            this.pipeTypeSizeGridColumn.Caption = "Типоразмер";
+            this.pipeTypeSizeGridColumn.FieldName = "Type";
+            this.pipeTypeSizeGridColumn.Name = "pipeTypeSizeGridColumn";
+            this.pipeTypeSizeGridColumn.OptionsColumn.AllowEdit = false;
+            this.pipeTypeSizeGridColumn.Visible = true;
+            this.pipeTypeSizeGridColumn.VisibleIndex = 2;
+            this.pipeTypeSizeGridColumn.Width = 170;
             // 
             // pipeMillGridColumn
             // 
@@ -637,7 +637,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem searchGroupEmptySpace;
         private System.Windows.Forms.BindingSource MillPipeSearchBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn pipeDiameterGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeTypeSizeGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn pipeMillGridColumn;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeSize;
         private DevExpress.XtraLayout.LayoutControlItem PipeSizeLayoutControl;
