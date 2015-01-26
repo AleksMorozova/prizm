@@ -483,6 +483,7 @@
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -826,6 +827,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Inspections\MillInspectionXtraForm.resx">
+      <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\PasswordChangeDialog.resx">
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>

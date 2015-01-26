@@ -53,6 +53,7 @@
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\FixedCategory.cs" />
+    <Compile Include="Entity\Setup\FrequencyMeasure.cs" />
     <Compile Include="Entity\Setup\InspectorCertificateType.cs" />
     <Compile Include="Entity\Setup\JointOperationType.cs" />
     <Compile Include="Entity\Construction\PartConstructionStatus.cs" />
