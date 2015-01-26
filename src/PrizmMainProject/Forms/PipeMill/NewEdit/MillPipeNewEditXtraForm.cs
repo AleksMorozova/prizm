@@ -122,7 +122,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -295,15 +295,65 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 { 
                     // layout items
                     new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                    new LocalizedItem(pipeSizeLayout, "NewEditPipe_PipeSizeLabel"),
+                    new LocalizedItem(heatsLayout, "NewEditPipe_HeatsComboLabel"),
+                    new LocalizedItem(ordersLayout, "NewEditPipe_PurchaseOrdersComboLabel"),
+                    new LocalizedItem(purchaseOrderDateLayoutControl, "NewEditPipe_PurchaseOrederDateLabel"),
+                    new LocalizedItem(creationDateLayout, "NewEditPipe_PipeCreationLabel"),
+                    new LocalizedItem(statusLayout, "NewEditPipe_PipeStatusLabel"),
+
+                    new LocalizedItem(plateNumberLayout, "NewEditPipe_PlateNumberLabel"),
+                    new LocalizedItem(plateThicknessLayoutControlItem, "NewEditPipe_PlateThicknessLabel"),
+                    new LocalizedItem(plateManufacturer, "NewEditPipe_PlateManufacturerLabel"),
+                    new LocalizedItem(steelGradeLayoutControlItem, "NewEditPipe_PlateSteelGradeLabel"),
+                    
+                    new LocalizedItem(pipeLengthLayout, "NewEditPipe_PipeLengthLabel"),
+                    new LocalizedItem(weightLayoutControlItem, "NewEditPipe_PipeWeightLabel"),
+
+                    new LocalizedItem(lengthLayoutControlItem, "NewEditPipe_TypeSizeLengthLabel"),
+                    new LocalizedItem(diameterLayoutControlItem, "NewEditPipe_TypeSizeDiameterLabel"),
+                    new LocalizedItem(thicknessLayoutControlItem, "NewEditPipe_TypeSizeThicknessLabel"),
+
+                    new LocalizedItem(railcarLayoutControlItem, "NewEditPipe_RailcarNumber_Label"),
+                    new LocalizedItem(certificateLayoutControlItem, "NewEditPipe_RailcarCertificate_Label"),
+                    new LocalizedItem(shippedDateLayoutControlItem, "NewEditPipe_RailcarShippedDate_Label"),
+                    new LocalizedItem(destinationLayoutControlItem, "NewEditPipe_RailcarDestination_Label"),
 
                     // controls
                     new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                    new LocalizedItem(deactivated, "NewEditPipe_DeactivatedCheckBox"),
+                    new LocalizedItem(saveButton, "NewEditPipe_SaveButton"),
+                    new LocalizedItem(saveAndNewButton, "NewEditPipe_SaveAndNewButton"),
+
+                    new LocalizedItem(addInspectionButton, "NewEditPipe_InspectionsAddButton"),
+                    new LocalizedItem(editInspectionButton, "NewEditPipe_InspectionsEditsButton"),
 
                     // grid column headers
                     new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                    new LocalizedItem(weldingDateGridColumn, "NewEditPipe_WeldingDateColumnHeader"),
+                    
+                    new LocalizedItem(coatingDateGridColumn, "NewEditPipe_CoatingDateColumnHeader"),
+                    new LocalizedItem(coatingTypeGridColumn, "NewEditPipe_CoatingTypeColumnHeader"),
+
+                    new LocalizedItem(inspectionCodeGridColumn, "NewEditPipe_InspectionCodeColumnHeader"),
+                    new LocalizedItem(inspectionNameGridColumn, "NewEditPipe_InspectionNameColumnHeader"),
+                    new LocalizedItem(categoryGridColumn, "NewEditPipe_InspectionCategoryColumnHeader"),
+                    new LocalizedItem(expectedResultGridColumn, "NewEditPipe_InspectionExpectedResultColumnHeader"),
+                    new LocalizedItem(valueGridColumn, "NewEditPipe_InspectionValueColumnHeader"),
+                    new LocalizedItem(inspectionResultGridColumn, "NewEditPipe_InspectionResultColumnHeader"),
+                    new LocalizedItem(controlDateGridColumn, "NewEditPipe_InspectionDateColumnHeader"),
+                    new LocalizedItem(inspectorsGridColumn, "NewEditPipe_InspectorsCodeColumnHeader"),
 
                     // layout control groups
                     new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                    new LocalizedItem(factSizeLayoutControlGroup, "NewEditPipe_FactSizeGroup"),
+                    new LocalizedItem(typeSizeaParametersLyoutGroup, "NewEditPipe_TypeSizeGroup"),
+                    new LocalizedItem(shippingLayoutControlGroup, "NewEditPipe_ShippingGroup"),
+                    new LocalizedItem(coverLayoutControlGroup, "NewEditPipe_CoverGroup"),
+                    new LocalizedItem(weldsLayoutControlGroup, "NewEditPipe_WeldsGroup"),
+                    new LocalizedItem(pipeTabLayoutControlGroup, "NewEditPipe_PipeTabGroup"),
+                    new LocalizedItem(inspectionsTabLayoutControlGroup, "NewEditPipe_InspectionsTabGroup"),
+
 
                     // one-way text edit for statuses
                     new LocalizedItem(millStatus, localizedAllPipeMillStatus, 
@@ -742,7 +792,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(viewModel != null)
             {
                 viewModel.Dispose();
-                viewModel = null; 
+                viewModel = null;
             }
         }
 
