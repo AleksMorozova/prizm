@@ -54,7 +54,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     pipe.Status = PipeMillStatus.Shipped;
                     pipe.ToExport = true;
                 }
-                viewModel.IsShipped = true;
+               // viewModel.IsShipped = true;
                 viewModel.SaveCommand.Execute();
                 notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.Railcar.Number, Resources.AlertInfoHeader);
             }

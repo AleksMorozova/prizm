@@ -46,12 +46,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
 
-            this.railcarNumber.SetRequiredText();
+            //this.railcarNumber.SetRequiredText();
             this.releaseNoteDate.SetRequiredText();
             this.releaseNoteNumber.SetRequiredText();
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
-            this.railcarNumber.SetAsIdentifier();
+            //this.railcarNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
-            IsEditMode = !viewModel.IsShipped;
+           // IsEditMode = !viewModel.IsShipped;
         }
 
         #region --- Localization ---
@@ -99,12 +99,14 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             bindingSource.DataSource = viewModel;
 
-            railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
+            //railcarNumber.DataBindings.Add("EditValue", bindingSource, "Number");
+            railcarNumber.Properties.DataSource = viewModel.Railcars;
+            railcarNumber.DataBindings.Add("EditValue", bindingSource, "Railcar");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
-            releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
-            releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
+            releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
+            releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
         }
 
@@ -141,6 +143,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
+            viewModel.pipesList.Add(viewModel.pipeToAdd, viewModel.Railcar);
             pipesList.RefreshDataSource();
             IsModified = true;
             commandManager.RefreshVisualState();
@@ -236,6 +239,25 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             
             commandManager.RefreshVisualState();
+        }
+
+        private void railcarNumber_QueryCloseUp(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var currentRailcar = sender as LookUpEdit;
+            viewModel.Railcar = currentRailcar.EditValue as Prizm.Domain.Entity.Mill.Railcar;
+        }
+
+        private void railcarNumber_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+            Prizm.Domain.Entity.Mill.Railcar r = new Prizm.Domain.Entity.Mill.Railcar
+            {
+                Number = railcarNumber.Text,
+                Certificate = viewModel.Certificate,
+                Destination = viewModel.Destination
+            };
+
+            viewModel.Railcars.Add(r);
+            viewModel.Railcar = r;
         }
     }
 }

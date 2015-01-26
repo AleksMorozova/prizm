@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     pipe.ToExport = false;
                 }
                
-                viewModel.IsShipped = false;
+                //viewModel.IsShipped = false;
                 notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
                 viewModel.SaveCommand.Execute();
             }

@@ -13,6 +13,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.Certificate, "certificate");
             Map(_ => _.IsShipped, "isShipped");
             HasMany(_ => _.Pipes).KeyColumn("railcarId");
+            References<ReleaseNote>(x => x.ReleaseNote).Column("releaseNoteId");
         }
     }
 }
