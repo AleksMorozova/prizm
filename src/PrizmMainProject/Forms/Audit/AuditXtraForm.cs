@@ -58,16 +58,26 @@ namespace Prizm.Main.Forms.Audit
             return new List<LocalizedItem>() 
                 { 
                     // layout items
-                    //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                    new LocalizedItem(numberLayout, "Audit_ElementNumberLabel"),
+                    new LocalizedItem(periodLabelLayout,"Audit_PeriodLabel"),
+                    new LocalizedItem(startDateLayout,"Audit_StartDateLabel"),
+                    new LocalizedItem(endDateLayout,"Audit_EndDateLabel"),
+                    new LocalizedItem(userLayout,"Audit_UserLabel"),
 
                     // controls
-                    //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                    new LocalizedItem(search, "Audit_SearchButton"),
 
                     // grid column headers
-                    //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                    new LocalizedItem(userGridColumn, "Audit_UserColumnHeader"),
+                    new LocalizedItem(dateGridColumn, "Audit_DateColumnHeader"),
+                    new LocalizedItem(entityGridColumn, "Audit_EntityColumnHeader"),
+                    new LocalizedItem(oldValueGridColumn, "Audit_OldValueColumnHeader"),
+                    new LocalizedItem(newValueGridColumn, "Audit_NewValueColumnHeader"),
+                    new LocalizedItem(fieldGridColumn, "Audit_FieldColumnHeader"),
+                    new LocalizedItem(numberColumn, "Audit_NumberColumnHeader"),
 
                     // layout control groups
-                    //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                    new LocalizedItem(searchParametersLayoutGroup, "Audit_SearchParametersGroup"),
 
                     // other
                 };
