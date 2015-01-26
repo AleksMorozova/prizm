@@ -73,18 +73,24 @@ namespace Prizm.Main.Forms.Parts.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(numberLayoutControl, "PartSearch_SearchNumberLabel"),
+                new LocalizedItem(typeLayoutControl, "PartSearch_SearchTypeLabel"),
+                new LocalizedItem(activityLayout, "PartSearch_ActivityLabel"),
 
                 // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+               new LocalizedItem(searchButton, "PartSearch_SearchButton"),
+               new LocalizedItem(type, new  string [] {"PartSearch_PartTypePipe", "PartSearch_PartTypeSpool", "PartSearch_PartTypeComponent"} ),
+               new LocalizedItem(activity, new  string [] {"PartSearch_StatusActive", "PartSearch_StatusInactive","PartSearch_StatusAll" }),
 
                 // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(numberCol, "PartSearch_NumberColumnHeader"),
+                new LocalizedItem(typeCol, "PartSearch_TypeColumnHeader"),
 
                 // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(searchLayoutControlGroup, "PartSearch_SearchGroup"),
+                new LocalizedItem(searchResultLayoutGroup, "PartSearch_SearchResultGroup"),
+                // form
+                //??
             };
         }
 
