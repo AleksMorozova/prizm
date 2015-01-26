@@ -87,16 +87,16 @@ namespace Prizm.Main.Languages
                 this.defaultValues[index] = combo.Properties.Items[index].ToString();
             }
         }
-
         /// <summary>
         /// list is required to be at least the same size as resourceIds
         /// </summary>
-        /// <param name="list"></param>
-        /// <param name="resourceIds"></param>
-        public LocalizedItem(DevExpress.XtraEditors.TextEdit edit, List<string> list, string[] resourceIds)
+        /// <param name="update">method which will update text edit from binding source</param>
+        /// <param name="list">list of translations</param>
+        /// <param name="resourceIds">list of resource ids</param>
+        public LocalizedItem(Action update, List<string> list, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
-            this.obj = (object)new Tuple<DevExpress.XtraEditors.TextEdit, List<string>>(edit, list);
+            this.obj = (object)new Tuple<Action, List<string>>(update, list);
             this.type = Type.TextEditOneWayStatus;
             this.defaultValues = new string[resourceIds.Length];
 
@@ -173,7 +173,7 @@ namespace Prizm.Main.Languages
                             break;
 
                         case Type.TextEditOneWayStatus:
-                            var list = ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item2;
+                            var list = ((Tuple<Action, List<string>>)obj).Item2;
                             if (index < list.Count)
                             {
                                 list[index] = value;
@@ -247,7 +247,7 @@ namespace Prizm.Main.Languages
                         combo.Refresh();
                     break;
                 case Type.TextEditOneWayStatus:
-                    ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item1.Refresh();
+                    ((Tuple<Action, List<string>>)obj).Item1.Invoke();
                     break;
                 default:
                     break;
