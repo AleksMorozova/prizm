@@ -68,19 +68,16 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(reportTypeLayout, "ConstructionReports_ReportTypeLayout"),
+                new LocalizedItem(typeLayout, "ConstructionReports_TypeLayout"),
+                new LocalizedItem(startJointLayout, "ConstructionReports_StartJointLayout"),
+                new LocalizedItem(startKPComboBoxLayoutControl, "ConstructionReports_StartKPComboBoxLayoutControl"),
+                new LocalizedItem(endJointLayout, "ConstructionReports_EndJointLayout"),
+                new LocalizedItem(endKPLayout, "ConstructionReports_EndKPLayout"),
+                new LocalizedItem(previewButton, "ConstructionReports_PreviewButton"),
+                new LocalizedItem(createReportButton, "ConstructionReports_CreateReportButton"),
+                new LocalizedItem(createReportaLyoutGroup, "ConstructionReports_CreateReportaLyoutGroup"),
+                new LocalizedItem(previewLayoutGroup, "ConstructionReports_PreviewLayoutGroup"),
             };
         }
 
