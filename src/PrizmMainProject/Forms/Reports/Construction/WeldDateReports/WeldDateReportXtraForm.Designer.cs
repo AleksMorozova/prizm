@@ -145,6 +145,7 @@
             this.jointReportViewer.Location = new System.Drawing.Point(24, 131);
             this.jointReportViewer.Name = "jointReportViewer";
             this.jointReportViewer.Size = new System.Drawing.Size(876, 256);
+            this.jointReportViewer.Status = " ";
             this.jointReportViewer.TabIndex = 4;
             // 
             // Root
