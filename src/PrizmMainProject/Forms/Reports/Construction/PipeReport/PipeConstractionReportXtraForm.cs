@@ -68,19 +68,13 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(pipeNumberLayout, "PipeConstractionReport_PipeNumberLayout"),
+                new LocalizedItem(pipeTypeCheckedComboLayout, "PipeConstractionReport_PipeTypeCheckedComboLayout"),
+                new LocalizedItem(pipeCertNumberLayout, "PipeConstractionReport_PipeCertNumberLayout"),
+                new LocalizedItem(pipeReportParametersLayoutGroup, "PipeConstractionReport_PipeReportParametersLayoutGroup"),
+                new LocalizedItem(previewButton, "PipeConstractionReport_PreviewButton"),
+                new LocalizedItem(createReportButton, "PipeConstractionReport_CreateReportButton"),
+                new LocalizedItem(documentViewerLayoutGroup, "PipeConstractionReport_DocumentViewerLayoutGroup"),
             };
         }
 
