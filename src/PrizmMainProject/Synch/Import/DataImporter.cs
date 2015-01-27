@@ -195,7 +195,10 @@ namespace Prizm.Main.Synch.Import
             pipe.ProductionDate = pipeObj.ProductionDate;
             pipe.Type = ImportSizeType(pipeObj.Type);
             pipe.Railcar = ImportRailcar(pipeObj.Railcar);
-            pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
+            if (pipeObj.Railcar!=null)
+            {
+                pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
+            }
             pipe.PurchaseOrder = ImportPurchaseOrder(pipeObj.PurchaseOrder);
             pipe.Status = pipeObj.Status;
 
