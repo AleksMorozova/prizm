@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionReportsXtraForm));
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
@@ -48,7 +47,7 @@
             this.DateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.previewReportLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectionReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionReportsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endDate.Properties.CalendarTimeProperties)).BeginInit();
