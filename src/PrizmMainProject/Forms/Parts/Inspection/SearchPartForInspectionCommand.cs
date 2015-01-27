@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             viewModel.Parts = parts;
             if (parts.Count > 0)
             {
-                NumbersDialog dialog = new NumbersDialog(parts, viewModel);
+                InspectionSelectPartDialog dialog = new InspectionSelectPartDialog(parts, viewModel);
                 dialog.ShowDialog();
             }
             else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry))
