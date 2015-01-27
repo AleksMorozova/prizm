@@ -49,7 +49,12 @@ namespace Prizm.Main.Forms.ExternalFile
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                //controls
+                new LocalizedItem(addFile, "ExternalFiles_AddFileButton"),
+                
+                 // grid column headers
+                new LocalizedItem(colFileName, "ExternalFiles_FilENameColumnHeader"),
+                new LocalizedItem(colUploadDate, "ExternalFiles_UploadDateColumnHeader"),
             };
         }
 
