@@ -32,8 +32,8 @@ namespace Prizm.Main.Forms.Joint.Search
 
         #region BindingFields
 
-        private string activity;
-        public string Activity
+        private ActivityCriteria activity;
+        public ActivityCriteria Activity
         {
             get { return activity; }
             set
@@ -42,6 +42,20 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     activity = value;
                     RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
+
+        public int ActivityIndex
+        {
+            get { return (int)Activity; }
+            set
+            {
+                if (value != (int)Activity)
+                {
+                    Activity = (ActivityCriteria)value;
+                    RaisePropertyChanged("ActivityIndex");
                 }
             }
         }
