@@ -90,17 +90,25 @@ namespace Prizm.Main.Forms.Parts.Inspection
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
+                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
+                new LocalizedItem(elementNumberLayout, "PartInspection_ElementNumberLabel"),
+                new LocalizedItem(elementTypeLayout, "PartInspection_ElementTypeLabel"),
 
                 // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(searchButton, "PartInspection_SearchButton"),
+                new LocalizedItem(saveButton, "PartInspection_SaveButton"),
+                new LocalizedItem(saveAndClearButton, "PartInspection_SaveAndClearButton"),
 
                 // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(colDate, "PartInspection_DateColumnHeader"),
+                new LocalizedItem(colResult, "PartInspection_ResultColumnHeader"),
+                new LocalizedItem(colInspector, "PartInspection_InspectorColumnHeader"),
+                new LocalizedItem(colReason, "PartInspection_ReasonColumnHeader"),
 
                 // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
+                new LocalizedItem(searchElementGroup, "PartInspection_SearchGroup"),
+                new LocalizedItem(inspectionControlGroup, "PartInspection_IncomingInspectionGroup"),
                 // other
             };
         }

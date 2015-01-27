@@ -42,7 +42,9 @@ namespace Prizm.Main.Forms.Synch
       {
           return new List<LocalizedItem>()
           {
-              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+              new LocalizedItem(archive, "Import_ArchiveLabel"),
+              new LocalizedItem(btnBrowse, "Import_BrowseButton"),
+              new LocalizedItem(btnImport, "Import_ImportButton"),
           };
       }
 
