@@ -66,7 +66,6 @@
             this.barSubItemLanguage = new DevExpress.XtraBars.BarSubItem();
             this.languageBarListItem = new DevExpress.XtraBars.BarListItem();
             this.barSubItemMisc = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemAudit = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemImportantMessages = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
@@ -79,6 +78,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItemSettingsDictionaries = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCustomReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRailcar = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
@@ -462,13 +462,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemImportantMessages)});
             this.barSubItemMisc.Name = "barSubItemMisc";
             // 
-            // barButtonItemCustomReport
-            // 
-            this.barButtonItemCustomReport.Caption = "&Конструктор отчетов";
-            this.barButtonItemCustomReport.Enabled = false;
-            this.barButtonItemCustomReport.Id = 24;
-            this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
-            // 
             // barButtonItemAudit
             // 
             this.barButtonItemAudit.Caption = "&Аудит";
@@ -532,7 +525,7 @@
             // barButtonStatusNotifications
             // 
             this.barButtonStatusNotifications.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonStatusNotifications.Caption = "Сообщения системы(0)";
+            this.barButtonStatusNotifications.Caption = "Важные сообщения";
             this.barButtonStatusNotifications.Glyph = global::Prizm.Main.Properties.Resources.critical_warning;
             this.barButtonStatusNotifications.Id = 59;
             this.barButtonStatusNotifications.Name = "barButtonStatusNotifications";
@@ -571,6 +564,13 @@
             // 
             this.barButtonItemSettingsDictionaries.Id = 57;
             this.barButtonItemSettingsDictionaries.Name = "barButtonItemSettingsDictionaries";
+            // 
+            // barButtonItemCustomReport
+            // 
+            this.barButtonItemCustomReport.Caption = "&Конструктор отчетов";
+            this.barButtonItemCustomReport.Enabled = false;
+            this.barButtonItemCustomReport.Id = 24;
+            this.barButtonItemCustomReport.Name = "barButtonItemCustomReport";
             // 
             // barButtonItemRailcar
             // 
