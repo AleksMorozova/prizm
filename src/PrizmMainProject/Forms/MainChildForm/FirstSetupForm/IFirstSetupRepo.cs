@@ -34,6 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IWelderRepository WelderRepo { get; }
         IComponentTypeRepository ComponentTypeRepo { get; }
         IComponentRepository ComponentRepo { get; }
+        IReleaseNoteRepository ReleaseRepo { get; }
 
         void Commit();
         void BeginTransaction();

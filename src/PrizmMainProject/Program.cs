@@ -17,6 +17,9 @@ using Prizm.Data.DAL;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.Main.Forms.Settings;
 using DevExpress.XtraSplashScreen;
+using Prizm.Main.Languages;
+using System.Collections.Generic;
+using Prizm.Main.Common;
 
 
 namespace Prizm.Main
@@ -34,6 +37,27 @@ namespace Prizm.Main
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
 
+        #region --- Language ---
+        private static readonly ILanguageManager langManager = new LanguageManager();
+        public static ILanguageManager LanguageManager { get { return langManager; } }
+
+        private static void AddLocalizationTemplatesFromForm(System.Type type, List<string> templateStrings)
+        {
+            if (type.IsSubclassOf(typeof(PrizmForm)))
+            {
+                templateStrings.Add("-----------------------------------------------");
+                foreach (ILocalizedItem item in (ILocalizable)Activator.CreateInstance(type))
+                {
+                    for (int index = 0; index < item.Count; index++)
+                    {
+                        templateStrings.Add(item.GetResourceId(index));
+                    }
+                }
+            }
+        }
+
+        #endregion // --- Language ---
+
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
@@ -41,11 +65,28 @@ namespace Prizm.Main
         private static void Main(string[] args)
         {
 
-            foreach(var item in args)
+            foreach(var arg in args)
             {
-                if(item.Equals("seed"))
+                if(arg.Equals("seed"))
                 {
                     isSeed = true;
+                }
+                if (arg.Equals("template"))
+                {
+                    LocalizedItem.IsCreatingTemplate = true;
+                    List<string> templateStrings = new List<string>();
+                    AddLocalizationTemplatesFromForm(typeof(PrizmApplicationXtraForm), templateStrings);
+                    // TODO: add all other forms here
+
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(
+                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append:false))
+                    {
+                        foreach (var line in templateStrings)
+                        {
+                            file.WriteLine(line);
+                        }
+                    }
+                    return;
                 }
             }
 
@@ -226,10 +267,10 @@ namespace Prizm.Main
 
 
         //Global data
-        private static DevExpress.XtraEditors.XtraForm mainForm;
+        private static PrizmApplicationXtraForm mainForm;
         /// <summary>
         /// Global access to main form need to update statusbar texts
         /// </summary>
-        public static DevExpress.XtraEditors.XtraForm MainForm { get { return mainForm; } }
+        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
     }
 }

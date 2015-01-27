@@ -63,7 +63,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 else if (viewModel.MakeTheConnection())
                 {
                     viewModel.SaveOrUpdateJointCommand.Execute();
-                    viewModel.JointDisconnection();
                 }
                 else
                 {

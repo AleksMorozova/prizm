@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Parts.Search
             {
                 Id = (Guid)tuple[0],
                 Number = (string)tuple[1],
-                Type = new EnumWrapper<PartType> { Value = (PartType)Enum.Parse(typeof(PartType), tuple[3].ToString()) },
+                Type = new EnumWrapper<PartType>(tuple[3].ToString()),
                 IsActive=Boolean.Parse(tuple[2].ToString())
             };
         }

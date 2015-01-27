@@ -13,10 +13,13 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Forms.PipeMill.NewEdit.Inspections;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public partial class InspectionAddEditXtraForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class InspectionAddEditXtraForm : PrizmForm
     {
         public InspectionAddEditViewModel viewModel;
 
@@ -44,7 +47,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
                 this.Text = "Добавление контрольной операции";
             }
-            
+
         }
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
@@ -77,6 +80,37 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             factString.DataBindings.Add("EditValue", bindingSource, "FactString");
             factLimit.DataBindings.Add("EditValue", bindingSource, "FactLimit");
         }
+
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(codeLayoutControlItem, "InspectionAddEdit_CodeLabel"),
+                new LocalizedItem(categoryLayoutControlItem, "InspectionAddEdit_CategoryLabel"),
+                new LocalizedItem(nameLayoutControlItem, "InspectionAddEdit_NameLabel"),
+                new LocalizedItem(expectedLayoutControlItem, "InspectionAddEdit_ExpectedResultLabel"),
+                new LocalizedItem(factStringLayoutControlItem, "InspectionAddEdit_FactStringResultLabel"),
+                new LocalizedItem(factBool, "InspectionAddEdit_FactBoolResultLabel"),
+                new LocalizedItem(factLimitLayout, "InspectionAddEdit_FactLimitResultLabel"),
+                new LocalizedItem(dateLayoutControlItem, "InspectionAddEdit_DateLabel"),
+                new LocalizedItem(statusLayoutControlItem, "InspectionAddEdit_StatusLabel"),
+                new LocalizedItem(inspectorsLayoutControlItem, "InspectionAddEdit_InspectorsLabel"),
+
+                new LocalizedItem(operationLayoutControlGroup, "InspectionAddEdit_OperationGroup"),
+                new LocalizedItem(resultLayoutControlGroup, "InspectionAddEdit_ResultGroup"),
+                new LocalizedItem(factStringLayoutControlGroup, "InspectionAddEdit_FactStringGroup"),
+                new LocalizedItem(factBoolLayoutControlGroup, "InspectionAddEdit_FactBoolGroup"),
+                new LocalizedItem(factDiapasonLayoutControlGroup, "InspectionAddEdit_FactLimitGroup"),
+
+                new LocalizedItem(saveButton, "InspectionAddEdit_SaveButton"),
+                new LocalizedItem(cancelButton, "InspectionAddEdit_CancelButton")
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void code_EditValueChanged(object sender, EventArgs e)
         {

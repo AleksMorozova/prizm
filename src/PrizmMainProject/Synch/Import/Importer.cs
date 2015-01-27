@@ -27,6 +27,8 @@ namespace Prizm.Main.Synch.Import
 
       public event Action<ConflictEventArgs> OnConflict;
 
+      public event Action<MissingEventArgs> OnMissing;
+
       public event Action OnDone;
 
       protected void FireMessage(string msg)
@@ -56,6 +58,12 @@ namespace Prizm.Main.Synch.Import
       {
          if (OnConflict != null)
             OnConflict(args);
+      }
+
+      protected void FireMissing(MissingEventArgs args)
+      {
+          if (OnMissing != null)
+              OnMissing(args);
       }
 
       protected void FireOnDone()

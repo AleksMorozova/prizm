@@ -16,5 +16,21 @@ namespace Prizm.Data.DAL.Hibernate
       public PortionRepository(ISession session) : base(session)
       {
       }
+      public int GetPortionNumber(Project currentProject)
+      {      
+          IList<Portion> portionList =  session.QueryOver<Portion>().Where(_ => _.IsExport == true && _.Project == currentProject).List<Portion>();
+          return (portionList.Count == 0) ? 1 : portionList.Max(_ => _.PortionNumber) + 1;
+      }
+
+      public List<int> CheckPortionSequence(Project importProject)
+      {        
+          IList<int> result = session.QueryOver<Portion>().Where(_ => _.IsExport == false && _.Project == importProject)
+                                                                 .Select(_ => _.PortionNumber).List<int>();
+          List<int> sorted =  new List<int>(result);
+          sorted.Sort();
+
+          return (result.Count == 0) ? new List<int>() { 0 } : sorted;
+ 
+      }
    }
 }

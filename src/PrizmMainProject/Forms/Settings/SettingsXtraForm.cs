@@ -10,9 +10,6 @@ using Ninject.Parameters;
 
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Controls;
-using Prizm.Main.Forms.Settings.Dictionary;
-using Prizm.Main.Forms.Settings.UserRole.Role;
-using Prizm.Main.Forms.Settings.UserRole.User;
 using Prizm.Main.Forms.MainChildForm;
 
 using Prizm.Main.Properties;
@@ -29,6 +26,7 @@ using System.Drawing;
 using Prizm.Main.Documents;
 using DevExpress.XtraEditors.DXErrorProvider;
 using System.Windows.Forms;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -54,41 +52,6 @@ namespace Prizm.Main.Forms.Settings
             viewModel.ModifiableView = this;
         }
 
-        #region Role Setting
-
-        private void editRoleButton_Click(object sender, EventArgs e)
-        {
-            //TODO: change for normal logic
-            var editForm = new RolesPrivilegeEditXtraForm(false);
-            editForm.ShowDialog();
-        }
-
-        private void roleAddButton_Click(object sender, EventArgs e)
-        {
-            //TODO: change for normal logic
-            var editForm = new RolesPrivilegeEditXtraForm();
-            editForm.ShowDialog();
-        }
-
-        #endregion
-
-        #region User setting
-
-        private void userEditButton_Click(object sender, EventArgs e)
-        {
-            //TODO: change for normal logic
-            var editUser = new UserInfoXtraForm(false);
-            editUser.ShowDialog();
-        }
-
-        #endregion
-
-        private void editItem_Click(object sender, EventArgs e)
-        {
-            //TODO: change for normal logic
-            var editDictionary = new SettingsEditDictionaryXtraForm();
-            editDictionary.ShowDialog();
-        }
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
@@ -229,6 +192,30 @@ namespace Prizm.Main.Forms.Settings
 
             viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void SettingsXtraForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
@@ -751,7 +738,8 @@ namespace Prizm.Main.Forms.Settings
             var data = v.GetRow(e.RowHandle) as WelderViewType;
             if(data != null)
             {
-                if((e.Column.FieldName == "CertificateExpiration" || e.Column.FieldName == "Certificate.Number") && data.CertificateExpiration.Date < DateTime.Now)
+                if ((e.Column.Name == colInspectorCertExp.Name || e.Column.Name == inspectorCertificateNumberCol.Name) 
+                    && data.CertificateExpiration.Date < DateTime.Now)
                 {
                     e.Appearance.ForeColor = Color.Red;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);

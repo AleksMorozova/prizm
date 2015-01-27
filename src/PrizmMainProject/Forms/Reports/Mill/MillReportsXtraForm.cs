@@ -16,6 +16,7 @@ using System.Text;
 using DevExpress.XtraEditors.Controls;
 using Prizm.Main.Common;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
@@ -42,9 +43,9 @@ namespace Prizm.Main.Forms.Reports.Mill
             statuses.DataSource = viewModel.Statuses;
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
-            foreach (EnumWrapper<ReportType> item in viewModel.ReportTypes)
+            foreach (var item in EnumWrapper<MillReportType>.EnumerateItems())
             {
-                reportTypes.Properties.Items.Add(new RadioGroupItem(item.Value, item.Text));
+                reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
             }
 
             reportTypes.DataBindings.Add("EditValue", millReportsBindingSource, "SelectedReportType");
@@ -66,6 +67,30 @@ namespace Prizm.Main.Forms.Reports.Mill
             viewModel.EndDate = DateTime.Now.Date;
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+
+                // controls
+                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+
+                // grid column headers
+                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+
+                // layout control groups
+                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
+
         private void generalReportTypes_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
             List<Guid> checkedItems = new List<Guid>();
@@ -80,13 +105,13 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void reportTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = (ReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
+            var selected = (MillReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;
             statuses.Enabled = true;
 
             
-                if (selected != ReportType.ByCategories)
+                if (selected != MillReportType.ByCategories)
                 {
                     testCategories.Enabled = false;
                     statuses.Enabled = false;

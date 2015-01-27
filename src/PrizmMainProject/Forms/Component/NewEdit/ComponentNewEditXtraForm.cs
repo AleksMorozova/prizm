@@ -17,6 +17,7 @@ using Prizm.Main.Documents;
 using System.Linq;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -62,6 +63,36 @@ namespace Prizm.Main.Forms.Component.NewEdit
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(newComponentLayoutGroup, "ComponentNewEdit_NewComponentLayoutGroup"),
+                new LocalizedItem(componentNumberLayout, "ComponentNewEdit_ComponentNumberLayout"),
+                new LocalizedItem(typeLayoutControl, "ComponentNewEdit_TypeLayoutControl"),
+                new LocalizedItem(certificateLayout, "ComponentNewEdit_CertificateLayout"),
+                new LocalizedItem(componentLengthLayout, "ComponentNewEdit_ComponentLengthLayout"),
+                new LocalizedItem(parametersGridLayout, "ComponentNewEdit_ParametersGridLayout"),
+                
+                new LocalizedItem(attachmentsButton, "ComponentNewEdit_AttachmentsButton"),
+                new LocalizedItem(deactivated, "ComponentNewEdit_Deactivated"),
+                new LocalizedItem(newSaveComponentButton, "ComponentNewEdit_NewSaveComponentButton"),
+                new LocalizedItem(saveComponentButton, "ComponentNewEdit_SaveComponentButton"),
+
+                new LocalizedItem(inspectionDateColumn, "ComponentNewEdit_InspectionDateColumn"),
+                new LocalizedItem(inspectorColumn, "ComponentNewEdit_InspectorColumn"),
+                new LocalizedItem(resultColumn, "ComponentNewEdit_ResultColumn"),
+                new LocalizedItem(reasonColumn, "ComponentNewEdit_ReasonColumn"),
+
+                new LocalizedItem(diameterGridColumn, "ComponentNewEdit_DiameterGridColumn"),
+                new LocalizedItem(wallThicknessGridColumn, "ComponentNewEdit_WallThicknessGridColumn")
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {

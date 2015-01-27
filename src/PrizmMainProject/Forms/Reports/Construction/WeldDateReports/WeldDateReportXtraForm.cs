@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 {
@@ -62,5 +63,23 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             BindToViewModel();
             BindCommands();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(weldDateFromLayout, "WeldDateReport_WeldDateFromLayout"),
+                new LocalizedItem(weldDateToLayout, "WeldDateReport_WeldDateToLayout"),
+                new LocalizedItem(previewButton, "WeldDateReport_PreviewButton"),
+                new LocalizedItem(createReportButton, "WeldDateReport_CreateReportButton"),
+                new LocalizedItem(weldReportParameterGroup, "WeldDateReport_WeldReportParameterGroup"),
+                new LocalizedItem(jointReportViewerGroup, "WeldDateReport_JointReportViewerGroup"),
+            };
+        }
+
+        #endregion // --- Localization ---
+
     }
 }

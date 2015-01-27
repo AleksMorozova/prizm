@@ -15,7 +15,11 @@ namespace Prizm.Domain.Entity
         /// <summary>
         /// Id of modified entity
         /// </summary>
-        public virtual Guid EntityID { get; set; } 
+        public virtual Guid EntityID { get; set; }
+        /// <summary>
+        /// number - name for Id of entity
+        /// </summary>
+        public virtual string Number { get; set; } 
         /// <summary>
         /// modified date
         /// </summary>

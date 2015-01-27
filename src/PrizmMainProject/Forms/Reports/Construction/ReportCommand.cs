@@ -69,12 +69,12 @@ namespace Prizm.Main.Forms.Reports.Construction
                 viewModel.EndPK = viewModel.EndJoint.NumberKP;
             }
 
-            if (viewModel.ReportType.Value == ReportType.TracingReport && notNullJointsCondition)
+            if (viewModel.ReportType == ReportType.TracingReport && notNullJointsCondition)
             {
                 PipelineTracing();
                 viewModel.ReportDataSource = tracingDataList;
             }
-            else if (viewModel.ReportType.Value == ReportType.UsedProductReport)
+            else if (viewModel.ReportType == ReportType.UsedProductReport)
             {
                 GetUsedProduct();
                 viewModel.ReportDataSource = data;

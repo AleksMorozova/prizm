@@ -1,6 +1,6 @@
-﻿namespace PrizmMain.Forms
+﻿namespace Prizm.Main.Forms.Settings.Inspections
 {
-    partial class UserRolesEditXtraForm
+    partial class MillInspectionXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "UserRolesEditXtraForm";
+            this.Text = "MillInspectionXtraForm";
         }
 
         #endregion

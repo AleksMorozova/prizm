@@ -26,6 +26,7 @@ using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -38,7 +39,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private JointWeldResult currentJointWeldResult;
         InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
-        BindingList<EnumWrapper<JointTestResultStatus>> availabeResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
+        BindingList<EnumWrapper<JointTestResultStatus>> availableResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
@@ -120,18 +121,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointStatus.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
 
-            firstJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
-            secondJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
+
 
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
 
             SetLookup(firstJointElement);
             SetLookup(secondJointElement);
 
-            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
+            firstJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
+            secondJointElement.DataBindings
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
 
+
+
+            ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -160,8 +164,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void SetLookup(LookUpEdit lookup)
         {
             lookup.Properties.DataSource = pipelinePiecesBindingSource;
-            lookup.Properties.DisplayMember = "Number";
             lookup.Properties.ValueMember = "Id";
+            lookup.Properties.DisplayMember = "Number";
         }
 
         private void BindCommands()
@@ -192,6 +196,53 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 DisableControlUnderWithdrawn();
             }
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(jointNumberLayout, "JointNew_JointNumberLayout"),
+                new LocalizedItem(jointStatusLayout, "JointNew_JointStatusLayout"),
+                new LocalizedItem(firstJointElementLayout, "JointNew_FirstJointElementLayout"),
+                new LocalizedItem(secondJointElementLayout, "JointNew_SecondJointElementLayout"),
+                new LocalizedItem(jointParametersLayoutGroup, "JointNew_JointParametersLayoutGroup"),
+                
+                new LocalizedItem(loweringLayoutGroup, "JointNew_LoweringLayoutGroup"),
+                new LocalizedItem(loweringDateLayout, "JointNew_LoweringDateLayout"),
+                new LocalizedItem(PKLabelLayout, "JointNew_PKLabelLayout"),
+                new LocalizedItem(PKNumberLayout, "JointNew_PKNumberLayout"),
+                new LocalizedItem(distanceFromPKLayout, "JointNew_DistanceFromPKLayout"),
+                new LocalizedItem(GPSLabelLayout, "JointNew_GPSLabelLayout"),
+                new LocalizedItem(GPSLatLayout, "JointNew_GPSLatLayout"),
+                new LocalizedItem(GPSLongLayout, "JointNew_GPSLongLayout"),
+                new LocalizedItem(elevationLayout, "JointNew_ElevationLayout"),      
+         
+                new LocalizedItem(inspectionLayoutGroup, "JointNew_InspectionLayoutGroup"),
+                new LocalizedItem(repairOperationLayout, "JointNew_RepairOperationLayout"),    
+                new LocalizedItem(controlOperationsLayout, "JointNew_ControlOperationsLayout"),
+
+                new LocalizedItem(saveButton, "JointNew_SaveButton"),    
+                new LocalizedItem(saveAndCreateButton, "JointNew_SaveAndCreateButton"), 
+                new LocalizedItem(extraFiles, "JointNew_ExtraFiles"),
+                new LocalizedItem(deactivated, "JointNew_Deactivated"),
+                
+                new LocalizedItem(repairTypeGridColumn, "JointNew_RepairTypeGridColumn"),
+                new LocalizedItem(repairDateGridColumn, "JointNew_RepairDateGridColumn"),
+                new LocalizedItem(completedGridColumn, "JointNew_CompletedGridColumn"),
+                new LocalizedItem(weldersGridColumn, "JointNew_WeldersGridColumn"),
+
+                new LocalizedItem(controlTypeGridColumn, "JointNew_ControlTypeGridColumn"),
+                new LocalizedItem(resultGridColumn, "JointNew_ResultGridColumn"),
+                new LocalizedItem(controlDateGridColumn, "JointNew_ControlDateGridColumn"),
+                new LocalizedItem(inspectorsGridColumn, "JointNew_InspectorsGridColumn"),
+                new LocalizedItem(valueGridColumn, "JointNew_ValueGridColumn"),
+
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
@@ -273,11 +324,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
                 if (jointTestResult != null && jointTestResult.Operation != null)
                 {
-                    availabeResults.Clear();
-                    if (jointTestResult.Operation.TestHasAccepted) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Accepted });
-                    if (jointTestResult.Operation.TestHasToRepair) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Repair });
-                    if (jointTestResult.Operation.TestHasToWithdraw) availabeResults.Add(new EnumWrapper<JointTestResultStatus>() { Value = JointTestResultStatus.Withdraw });
-                    resultStatusLookUpEdit.DataSource = availabeResults;
+                    availableResults.Clear();
+
+                    if (jointTestResult.Operation.TestHasAccepted)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Accepted));
+
+                    if (jointTestResult.Operation.TestHasToRepair)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Repair));
+
+                    if (jointTestResult.Operation.TestHasToWithdraw)
+                        availableResults.Add(new EnumWrapper<JointTestResultStatus>(JointTestResultStatus.Withdraw));
+
+                    resultStatusLookUpEdit.DataSource = availableResults;
                 }
             }
         }
@@ -363,7 +421,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (selectedOperation != null 
                 && selectedOperation.Type != JointOperationType.Weld 
                 && selectedOperation.Type != JointOperationType.Withdraw
-                && view.FocusedColumn.FieldName == "Welders")
+                && view.FocusedColumn.Name == weldersGridColumn.Name)
             {
                 e.Cancel = true;
             }
@@ -533,16 +591,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.JointWeldResults[selectedIndex].Operation != null &&
                     viewModel.JointWeldResults[selectedIndex].Operation.Type == JointOperationType.Withdraw)
                 {
+                    viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
                     viewModel.JointCut();
 
                     if (viewModel.Joint.Status == JointStatus.Withdrawn)
                     {
-                        viewModel.JointWeldResults[selectedIndex].IsCompleted = true;
-
                         DisableControlUnderWithdrawn();
+                        checkEdit.Checked = true;
                     }
                     else
                     {
+                        viewModel.JointWeldResults[selectedIndex].IsCompleted = false;
                         checkEdit.Checked = false;
                     }
                 }

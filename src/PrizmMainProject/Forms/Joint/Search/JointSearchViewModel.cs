@@ -21,8 +21,7 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private readonly JointSearchCommand searchCommand;
         private readonly IJointRepository repo;
-        private EnumWrapper<ActivityCriteria> activityArray;
-        public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
+
         [Inject]
         public JointSearchViewModel(IJointRepository repo)
         {
@@ -33,24 +32,8 @@ namespace Prizm.Main.Forms.Joint.Search
 
         #region BindingFields
 
-        public EnumWrapper<ActivityCriteria> ActivityArray
-        {
-            get
-            {
-                return activityArray;
-            }
-            set
-            {
-                if (value != activityArray)
-                {
-                    activityArray = value;
-                    RaisePropertyChanged("ActivityArray");
-                }
-            }
-        }
-
-        private string activity;
-        public string Activity
+        private ActivityCriteria activity;
+        public ActivityCriteria Activity
         {
             get { return activity; }
             set
@@ -59,6 +42,20 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     activity = value;
                     RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
+
+        public int ActivityIndex
+        {
+            get { return (int)Activity; }
+            set
+            {
+                if (value != (int)Activity)
+                {
+                    Activity = (ActivityCriteria)value;
+                    RaisePropertyChanged("ActivityIndex");
                 }
             }
         }
@@ -175,12 +172,6 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void LoadStatuses()
         {
-            ActivityTypes = new List<EnumWrapper<ActivityCriteria>>();
-
-            foreach (string activeType in Enum.GetNames(typeof(ActivityCriteria)))
-            {
-                ActivityTypes.Add(new EnumWrapper<ActivityCriteria>() { Name = activeType });
-            }
         }
     }
 }

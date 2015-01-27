@@ -324,19 +324,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public EnumWrapper<PipeMillStatus> PipeStatus
+        public PipeMillStatus PipeStatus
         {
             get
             {
-                return (StatusTypes.Any<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status)
-                    ? StatusTypes.First<EnumWrapper<PipeMillStatus>>(x => x.Value == Pipe.Status)
-                    : null);
+                return Pipe.Status;
             }
             set
             {
-                if(value != null && value.Value != Pipe.Status)
+                if(value != Pipe.Status)
                 {
-                    Pipe.Status = value.Value;
+                    Pipe.Status = value;
                     RaisePropertyChanged("PipeStatus");
                 }
             }
@@ -741,12 +739,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
-            foreach(string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0:true))
             {
-                if(statusTypeName != Enum.GetName(typeof(PipeMillStatus), PipeMillStatus.Undefined))
-                {
-                    StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
-                }
+                StatusTypes.Add(new EnumWrapper<PipeMillStatus>(item.Item2));
             }
         }
 
