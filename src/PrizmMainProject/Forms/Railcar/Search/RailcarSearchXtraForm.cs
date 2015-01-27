@@ -71,20 +71,31 @@ namespace Prizm.Main.Forms.Railcar.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(releaseNoteNumberayout, "ReleaseSearch_NumberLabel"),
+                new LocalizedItem(releaseNoteDateLayout, "ReleaseSearch_DateLabel"),
+                new LocalizedItem(destinationLayout, "ReleaseSearch_DestinationLabel"),
+                new LocalizedItem(railcarNumberLayout, "ReleaseSearch_RailcarLabel"),
+                new LocalizedItem(certificateNumberLayout, "ReleaseSearch_CertificateLabel"),
 
                 // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(searchButton, "NewEditPipe_SearchButton"),
 
                 // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(releaseNoteNumberGridColumn, "ReleaseSearch_ReleaseNumberColumnHeader"),
+                new LocalizedItem(releaseNoteDateGridColumn, "ReleaseSearch_ReleaseDateColumnHeader"),
+                new LocalizedItem(number, "ReleaseSearch_RailcarNumberColumnHeader"),
+                new LocalizedItem(dest, "ReleaseSearch_DestinationColumnHeader"),
+                new LocalizedItem(certificate, "ReleaseSearch_CertificateColumnHeader"),
+                new LocalizedItem(statusColumn, "ReleaseSearch_RailcarNumberColumnHeader"),
 
                 // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                new LocalizedItem(searchParametersLayoutGroup, "ReleaseSearch_SearchGroup"),
+                new LocalizedItem(resultParametersLayoutGroup, "ReleaseSearch_ResultGroup"),
 
                 // other
             };
         }
+
 
         #endregion // --- Localization ---
 
