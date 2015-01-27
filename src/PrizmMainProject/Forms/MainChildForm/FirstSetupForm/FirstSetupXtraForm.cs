@@ -57,7 +57,20 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(titleLayoutControl, "FirstSetup_ProjectTitleLabel"),
+                new LocalizedItem(fileLayoutControlItem, "FirstSetup_FileSizeLabel"),
+                new LocalizedItem(typeLayoutControlItem, "FirstSetup_TypeLabel"),
+                new LocalizedItem(millLayoutControlItem, "FirstSetup_MillLabel"),
+                new LocalizedItem(loginLayoutControlItem, "FirstSetup_LoginLabel"),
+                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
+                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
+                new LocalizedItem(reEnterLayoutControlItem, "FirstSetup_ReEnterPasswordLabel"),
+                new LocalizedItem(lastNameLayoutControlItem, "FirstSetup_LastNameLabel"),
+                new LocalizedItem(firstNameLayoutControlItem, "FirstSetup_FirstNameLabel"),
+                new LocalizedItem(millLayoutControlItem, "FirstSetup_MiddleNameLabel"),
+                
+                new LocalizedItem(saveButton, "FirstSetup_SaveButton"),
+                new LocalizedItem(cancelButton, "FirstSetup_CancelButton")
             };
         }
 
