@@ -25,7 +25,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             if (current == null)
             {
-                pipeTest = new PipeTest() { ResultType = PipeTestResultType.Undef };
+                pipeTest = new PipeTest();
             }
             else
             {
@@ -200,6 +200,45 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 {
                     pipeTest.Frequency.Measure= value;
                     RaisePropertyChanged("FrequencyMeasure");
+                }
+            }
+        }
+
+        public int ResultTypeIndex
+        {
+            get { return (int)ResultType; }
+            set
+            {
+                if (value != (int)ResultType)
+                {
+                    ResultType = (PipeTestResultType)value;
+                    RaisePropertyChanged("ResultTypeIndex");
+                }
+            }
+        }
+
+        public int ControlTypeIndex
+        {
+            get { return (int)PipeTestControlType; }
+            set
+            {
+                if (value != (int)PipeTestControlType)
+                {
+                    PipeTestControlType = (PipeTestControlType)value;
+                    RaisePropertyChanged("ControlTypeIndex");
+                }
+            }
+        }
+
+        public int FrequencyMeasureIndex
+        {
+            get { return (int)FrequencyMeasure; }
+            set 
+            {
+                if (value != (int)FrequencyMeasure)
+                {
+                    FrequencyMeasure = (FrequencyMeasure)value;
+                    RaisePropertyChanged("FrequencyMeasureIndex");
                 }
             }
         }

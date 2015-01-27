@@ -21,11 +21,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
-
         public MillInspectionXtraForm(PipeTest current, IList<EnumWrapper<PipeTestControlType>> controlTypes, IList<EnumWrapper<PipeTestResultType>> resultTypes, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
             viewModel = new MillInspectionViewModel(current, controlTypes, resultTypes, categoryTypes);
+            
             ChangeExpected();
             ChangeFrequency();
             if (current != null)
@@ -48,6 +48,18 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
+            {
+                resultType.Properties.Items.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
+            {
+                controlType.Properties.Items.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
+            {
+                frequencyMeasure.Properties.Items.Add(item.Item2);
+            }
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
         }
@@ -59,16 +71,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
             operationName.DataBindings.Add("EditValue", bindingSource, "Name");
             isRequired.DataBindings.Add("EditValue", bindingSource, "IsRequired");
             isActive.DataBindings.Add("EditValue", bindingSource, "IsActive");
-            
-            controlType.Properties.DataSource = viewModel.ControlTypes;
-            controlType.Properties.DisplayMember = "Name";
-            controlType.Properties.ValueMember = "Value";
-            controlType.DataBindings.Add("EditValue", bindingSource, "PipeTestControlType");
 
-            resultType.Properties.DataSource = viewModel.ResultTypes;
-            resultType.Properties.DisplayMember = "Name";
-            resultType.Properties.ValueMember = "Value";
-            resultType.DataBindings.Add("EditValue", bindingSource, "ResultType");
+            controlType.DataBindings.Add("SelectedIndex", bindingSource, "ControlTypeIndex");
+            resultType.DataBindings.Add("SelectedIndex", bindingSource, "ResultTypeIndex");
+            frequencyMeasure.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyMeasureIndex");
 
             category.Properties.DataSource = viewModel.CategoryTypes;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
@@ -78,7 +84,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
-            frequencyMeasure.DataBindings.Add("EditValue", bindingSource, "FrequencyMeasure");
+      
         }
 
         private void ChangeExpected()
@@ -102,19 +108,20 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        private void resultType_EditValueChanged(object sender, EventArgs e)
-        {
-            viewModel.ResultType = (PipeTestResultType)resultType.EditValue;
-            ChangeExpected();
-        }
-
         private void ChangeFrequency()
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            viewModel.PipeTest.Frequency = null;
+
             if (!viewModel.IsRequired)
+            {
                 frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            viewModel.PipeTest.Frequency = new PipeTestFrequency();
+                if (viewModel.PipeTest.Frequency == null)
+                    viewModel.PipeTest.Frequency = new PipeTestFrequency();
+            }
+            else
+            {
+                viewModel.PipeTest.Frequency = null;
+            }
         }
 
         private void isRequired_CheckedChanged(object sender, EventArgs e)
@@ -129,15 +136,22 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                  new LocalizedItem(resultType, new  string [] {"MillInspection_ResultTypeBoolean","MillInspection_ResultTypeString", "MillInspection_ResultTypeRange" }),
+                  new LocalizedItem(controlType, new  string [] {"MillInspection_ControlTypeWitness","MillInspection_ControlTypeReview", "MillInspection_ControlTypeMonitor", "MillInspection_ControlTypeHold" }),
+                  new LocalizedItem(frequencyMeasure, new  string [] {"MillInspection_FrequencyMeasureMeters","MillInspection_FrequencyMeasureTons", "MillInspection_FrequencyMeasurePipes" }),
             };
         }
-
         #endregion // --- Localization ---
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void resultType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            viewModel.ResultTypeIndex = resultType.SelectedIndex + 1;
+            ChangeExpected();
         }
     }
 }
