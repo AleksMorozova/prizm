@@ -38,6 +38,7 @@
             this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.pipeNumberLookUp = new DevExpress.XtraEditors.LookUpEdit();
             this.railcarNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.releaseNoteNumber = new DevExpress.XtraEditors.TextEdit();
             this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
@@ -47,20 +48,16 @@
             this.removePipe = new DevExpress.XtraEditors.SimpleButton();
             this.addPipeButton = new DevExpress.XtraEditors.SimpleButton();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
-            this.pipeNumberLookUp = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.pipeListLookUpView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.pipeNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pipeSizeType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteDate = new DevExpress.XtraEditors.DateEdit();
             this.railcarLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.releasedNoteNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.addPipeLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
             this.addPipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.addButtonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipesListLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pipeListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.removePipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -80,23 +77,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeListLookUpView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.releasedNoteNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addButtonEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).BeginInit();
@@ -190,6 +186,7 @@
             // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.pipeNumberLookUp);
             this.generalLayout.Controls.Add(this.railcarNumber);
             this.generalLayout.Controls.Add(this.releaseNoteNumber);
             this.generalLayout.Controls.Add(this.attachmentsButton);
@@ -201,7 +198,6 @@
             this.generalLayout.Controls.Add(this.addPipeButton);
             this.generalLayout.Controls.Add(this.pipesList);
             this.generalLayout.Controls.Add(this.certificateNumber);
-            this.generalLayout.Controls.Add(this.pipeNumberLookUp);
             this.generalLayout.Controls.Add(this.releaseNoteDate);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
@@ -212,6 +208,20 @@
             this.generalLayout.Size = new System.Drawing.Size(1275, 510);
             this.generalLayout.TabIndex = 20;
             this.generalLayout.Text = "layoutControl1";
+            // 
+            // pipeNumberLookUp
+            // 
+            this.pipeNumberLookUp.Location = new System.Drawing.Point(35, 169);
+            this.pipeNumberLookUp.Name = "pipeNumberLookUp";
+            this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pipeNumberLookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер")});
+            this.pipeNumberLookUp.Properties.NullText = "";
+            this.pipeNumberLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.pipeNumberLookUp.Size = new System.Drawing.Size(322, 20);
+            this.pipeNumberLookUp.StyleController = this.generalLayout;
+            this.pipeNumberLookUp.TabIndex = 16;
             // 
             // railcarNumber
             // 
@@ -224,6 +234,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Certificate", "Certificate"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Destination", "Destination")});
             this.railcarNumber.Properties.DisplayMember = "Number";
+            this.railcarNumber.Properties.NullText = "";
             this.railcarNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.railcarNumber.Size = new System.Drawing.Size(322, 20);
             this.railcarNumber.StyleController = this.generalLayout;
@@ -313,51 +324,6 @@
             this.certificateNumber.StyleController = this.generalLayout;
             this.certificateNumber.TabIndex = 5;
             // 
-            // pipeNumberLookUp
-            // 
-            this.pipeNumberLookUp.EditValue = "";
-            this.pipeNumberLookUp.Location = new System.Drawing.Point(35, 169);
-            this.pipeNumberLookUp.Name = "pipeNumberLookUp";
-            this.pipeNumberLookUp.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.pipeNumberLookUp.Properties.DisplayMember = "Number";
-            this.pipeNumberLookUp.Properties.NullText = "";
-            this.pipeNumberLookUp.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.FrameResize;
-            this.pipeNumberLookUp.Properties.ValueMember = "Id";
-            this.pipeNumberLookUp.Properties.View = this.pipeListLookUpView;
-            this.pipeNumberLookUp.Size = new System.Drawing.Size(322, 20);
-            this.pipeNumberLookUp.StyleController = this.generalLayout;
-            this.pipeNumberLookUp.TabIndex = 7;
-            // 
-            // pipeListLookUpView
-            // 
-            this.pipeListLookUpView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.pipeNumber,
-            this.pipeSizeType});
-            this.pipeListLookUpView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.pipeListLookUpView.Name = "pipeListLookUpView";
-            this.pipeListLookUpView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.pipeListLookUpView.OptionsView.ShowGroupPanel = false;
-            this.pipeListLookUpView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.pipeNumber, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // pipeNumber
-            // 
-            this.pipeNumber.Caption = "Номер трубы";
-            this.pipeNumber.FieldName = "Number";
-            this.pipeNumber.Name = "pipeNumber";
-            this.pipeNumber.Visible = true;
-            this.pipeNumber.VisibleIndex = 0;
-            // 
-            // pipeSizeType
-            // 
-            this.pipeSizeType.Caption = "Типоразмер";
-            this.pipeSizeType.FieldName = "Type";
-            this.pipeSizeType.Name = "pipeSizeType";
-            this.pipeSizeType.Visible = true;
-            this.pipeSizeType.VisibleIndex = 1;
-            // 
             // releaseNoteDate
             // 
             this.releaseNoteDate.EditValue = null;
@@ -414,29 +380,17 @@
             // 
             this.addPipeLayoutGroup.CustomizationFormText = "layoutControlGroup1";
             this.addPipeLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.pipeNumberLayout,
             this.certificateNumberLayout,
             this.layoutControlDestination,
             this.addPipeLayoutControl,
             this.addButtonEmptySpaceItem,
-            this.railcarNumberLayout});
+            this.railcarNumberLayout,
+            this.pipeNumberLayout});
             this.addPipeLayoutGroup.Location = new System.Drawing.Point(0, 108);
             this.addPipeLayoutGroup.Name = "addPipeLayoutGroup";
             this.addPipeLayoutGroup.Size = new System.Drawing.Size(371, 289);
             this.addPipeLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.addPipeLayoutGroup.Text = "Добавление труб";
-            // 
-            // pipeNumberLayout
-            // 
-            this.pipeNumberLayout.Control = this.pipeNumberLookUp;
-            this.pipeNumberLayout.CustomizationFormText = "Ном&ер трубы";
-            this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
-            this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(336, 50);
-            this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeNumberLayout.Text = "Ном&ер трубы";
-            this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pipeNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // certificateNumberLayout
             // 
@@ -497,6 +451,18 @@
             this.railcarNumberLayout.Text = "Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.railcarNumberLayout.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // pipeNumberLayout
+            // 
+            this.pipeNumberLayout.Control = this.pipeNumberLookUp;
+            this.pipeNumberLayout.CustomizationFormText = "Ном&ер трубы";
+            this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.pipeNumberLayout.Name = "pipeNumberLayout";
+            this.pipeNumberLayout.Size = new System.Drawing.Size(336, 50);
+            this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.pipeNumberLayout.Text = "Ном&ер трубы";
+            this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
             // pipesListLayoutGroup
             // 
@@ -661,23 +627,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destination.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLookUp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeListLookUpView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.releaseNoteDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.releasedNoteNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPipeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addButtonEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeListLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.removePipeLayoutControl)).EndInit();
@@ -713,17 +678,12 @@
         private DevExpress.XtraLayout.LayoutControlItem pipeListLayout;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraEditors.SimpleButton addPipeButton;
-        private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
         private DevExpress.XtraLayout.LayoutControlItem addPipeLayoutControl;
         private DevExpress.XtraEditors.SimpleButton removePipe;
         private DevExpress.XtraLayout.LayoutControlItem removePipeLayoutControl;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemRailcar;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryGridLookUpEditStatus;
-        private DevExpress.XtraEditors.GridLookUpEdit pipeNumberLookUp;
-        private DevExpress.XtraGrid.Views.Grid.GridView pipeListLookUpView;
-        private DevExpress.XtraGrid.Columns.GridColumn pipeNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn pipeSizeType;
         private DevExpress.XtraEditors.TextEdit destination;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlDestination;
         private DevExpress.XtraEditors.SimpleButton attachmentsButton;
@@ -743,5 +703,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem buttonEmptySpace;
         private DevExpress.XtraEditors.LookUpEdit railcarNumber;
         private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
+        private DevExpress.XtraEditors.LookUpEdit pipeNumberLookUp;
+        private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
     }
 }

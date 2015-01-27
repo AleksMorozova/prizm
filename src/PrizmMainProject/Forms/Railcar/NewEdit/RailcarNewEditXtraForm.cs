@@ -104,7 +104,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
+
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Properties.DisplayMember = "Number";
+            pipeNumberLookUp.Properties.ValueMember = "Id";
         }
 
         private void BindCommands()
@@ -189,7 +192,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.GetStoredPipes();
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             pipeNumberLookUp.Refresh();
-            pipeListLookUpView.RefreshData();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
