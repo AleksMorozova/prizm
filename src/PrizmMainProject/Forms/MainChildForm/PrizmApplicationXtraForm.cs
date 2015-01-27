@@ -43,6 +43,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
         private static uint FramesCanOpen = 20;
@@ -701,7 +702,42 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(barSubItemApplication, "Menu_File"),
+                new LocalizedItem(barButtonItemExport, "Menu_File_Export"),
+                new LocalizedItem(barButtonItemImport, "Menu_File_Import"),
+                new LocalizedItem(barButtonItemExit, "Menu_File_Exit"),
+                new LocalizedItem(barSubItemMill, "Menu_Mill"),
+                new LocalizedItem(barButtonItemNewPipe, "Menu_Mill_NewPipe"),
+                new LocalizedItem(barButtonItemMillFindEditPipes, "Menu_Mill_SearchPipes"),
+                new LocalizedItem(barButtonItemNewRailcar, "Menu_Mill_NewReleaseNote"),
+                new LocalizedItem(barButtonItemFindEditShipRailcars, "Menu_Mill_SearchReleaseNotes"),
+                new LocalizedItem(barButtonItemMillReports, "Menu_Mill_Reports"),
+                new LocalizedItem(barSubItemConstruction, "Menu_Construction"),
+                new LocalizedItem(barButtonItemNewComponent, "Menu_Construction_NewComponent"),
+                new LocalizedItem(barButtonItemNewJoint, "Menu_Construction_NewJoint"),
+                new LocalizedItem(barButtonItemPartIncomingInspection, "Menu_Construction_PartIncomingInspection"),
+                new LocalizedItem(barButtonItemFindEditParts, "Menu_Construction_FindParts"),
+                new LocalizedItem(barButtonItemFindEditJoints, "Menu_Construction_FindJoints"),
+                new LocalizedItem(barButtonItemSpool, "Menu_Construction_Spool"),
+                new LocalizedItem(barButtonItemInspectionReports, "Menu_Construction_InspectionReports"),
+                new LocalizedItem(pipeConstructionRepoBarButton, "Menu_Construction_PipeReports"),
+                new LocalizedItem(weldConstructionRepoBarButton, "Menu_Construction_WeldReports"),
+                new LocalizedItem(barButtonItemConstructionReports, "Menu_Construction_JointPKReports"),
+                new LocalizedItem(barSubItemSettings, "Menu_Settings"),
+                new LocalizedItem(barButtonItemSettingsProject, "Menu_Settings_Project"),
+                new LocalizedItem(barButtonItemSettingsPipe, "Menu_Settings_Pipe"),
+                new LocalizedItem(barButtonItemSettingsPipeline, "Menu_Settings_Pipeline"),
+                new LocalizedItem(barButtonItemComponentry, "Menu_Settings_Componentry"),
+                new LocalizedItem(barButtonItemSettingsWelders, "Menu_Settings_Welders"),
+                new LocalizedItem(barButtonItemSettingsInspectors, "Menu_Settings_Inspectors"),
+                new LocalizedItem(barButtonItemSettingsUsers, "Menu_Settings_Users"),
+                new LocalizedItem(barButtonItemRoles, "Menu_Settings_Roles"),
+                new LocalizedItem(barSubItemLanguage, "Menu_Settings_Language"),
+                new LocalizedItem(barSubItemMisc, "Menu_Misc"),
+                new LocalizedItem(barButtonItemAudit, "Menu_Misc_Audit"),
+                new LocalizedItem(barButtonItemImportantMessages, "Menu_Misc_ImportantMessages"),
+                new LocalizedItem(barSubItemHelp, "Menu_Help"),
+                new LocalizedItem(barButtonItemAbout, "Menu_Help_About"),
             };
         }
 
