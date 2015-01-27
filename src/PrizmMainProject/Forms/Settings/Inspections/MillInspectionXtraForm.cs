@@ -77,6 +77,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
             boolExpected.DataBindings.Add("EditValue", bindingSource, "BoolExpected");
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
+            frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
+            frequencyMeasure.DataBindings.Add("EditValue", bindingSource, "FrequencyMeasure");
         }
 
         private void ChangeExpected()
@@ -109,8 +111,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
         private void ChangeFrequency()
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            viewModel.PipeTest.Frequency = null;
             if (!viewModel.IsRequired)
                 frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            viewModel.PipeTest.Frequency = new PipeTestFrequency();
         }
 
         private void isRequired_CheckedChanged(object sender, EventArgs e)
@@ -130,5 +134,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
         }
 
         #endregion // --- Localization ---
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

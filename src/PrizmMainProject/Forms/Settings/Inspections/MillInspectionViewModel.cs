@@ -178,6 +178,32 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
+        public int FrequencyQuantaty
+        {
+            get { return (pipeTest.Frequency == null)? 0 : pipeTest.Frequency.Quantaty; }
+            set
+            {
+                if (value != pipeTest.Frequency.Quantaty)
+                {
+                    pipeTest.Frequency.Quantaty = value;
+                    RaisePropertyChanged("FrequencyQuantaty");
+                }
+            }
+        }
+
+        public FrequencyMeasure FrequencyMeasure
+        {
+            get { return (pipeTest.Frequency == null) ? FrequencyMeasure.Undefined : pipeTest.Frequency.Measure; }
+            set
+            {
+                if (value != pipeTest.Frequency.Measure)
+                {
+                    pipeTest.Frequency.Measure= value;
+                    RaisePropertyChanged("FrequencyMeasure");
+                }
+            }
+        }
+
         #endregion
     }
 }

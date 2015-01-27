@@ -187,6 +187,7 @@
             // 
             // saveButton
             // 
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.Location = new System.Drawing.Point(427, 286);
             this.saveButton.Name = "saveButton";
@@ -194,6 +195,7 @@
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 17;
             this.saveButton.Text = "Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // frequencyMeasure
             // 
