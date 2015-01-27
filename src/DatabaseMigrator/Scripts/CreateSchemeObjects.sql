@@ -300,7 +300,8 @@ CREATE TABLE [dbo].[PipeTest](
 	[boolExpected] [bit] NULL,
 	[isRequired] [bit] NULL,
 	[pipeMillSizeTypeId] [uniqueidentifier] NULL,
-	
+	[frequency] [int] NULL,
+	[frequencyMeasure] [nvarchar](10) NULL,
 	[categoryId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
