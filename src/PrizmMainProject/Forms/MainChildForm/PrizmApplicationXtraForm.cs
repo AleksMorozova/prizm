@@ -639,7 +639,7 @@ namespace Prizm.Main.Forms.MainChildForm
             cultures.Clear();
             languageBarListItem.ShowChecks = true;
             int indexDefault = 0;
-            var list = viewModel.GetLanguagesCultures(out indexDefault);
+            var list = Program.LanguageManager.GetCultures(out indexDefault);
             foreach (var culture in list)
             {
                 int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
@@ -666,7 +666,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
         {
             int index = languageBarListItem.DataIndex;
-            if (cultures.ContainsKey(e.Index) && viewModel.ChooseTranslation(cultures[e.Index]))
+            if (cultures.ContainsKey(e.Index) && Program.LanguageManager.LoadTranslation(cultures[e.Index]))
             {
                 CascadeChangeLanguage();
             }
@@ -682,40 +682,18 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         void CascadeChangeLanguage()
         {
-            ChangeLanguage(this);
+            Program.LanguageManager.ChangeLanguage(this);
             foreach (var childType in childForms)
             {
                 foreach (var child in childType.Value)
                 {
                     ILocalizable localizable = child as ILocalizable;
 
-                    ChangeLanguage(child as ILocalizable);
+                    Program.LanguageManager.ChangeLanguage(child as ILocalizable);
                 }
             }
         }
 
-        public void ChangeLanguage(ILocalizable localizable)
-        {
-            if (localizable != null)
-            {
-                foreach (var localizedItem in localizable)
-                {
-                    for (int index = 0; index < localizedItem.Count; index++)
-                    {
-                        string resource;
-                        if (viewModel.TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
-                        {
-                            localizedItem[index] = resource;
-                        }
-                        else
-                        {
-                            localizedItem.BackToDefault(index);
-                        }
-                    }
-                    localizedItem.Refresh();
-                }
-            }
-        }
 
         #region --- Localization ---
 
