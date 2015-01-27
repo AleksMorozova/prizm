@@ -9,6 +9,16 @@ namespace Prizm.Main.Languages
 {
     public class LocalizedItem : ILocalizedItem
     {
+        // this is bad approach to not construct object completely.
+        // in this case, this is workaround to not load all forms as usual (it is not necessary).
+        // this mode will be used in exceptional case, on creation of resource template.
+        public static bool IsCreatingTemplate { get; set; }
+
+        static LocalizedItem()
+        {
+            IsCreatingTemplate = false;
+        }
+
         private string[] resourceIds;
         private object obj;
         private ItemType type;
@@ -35,6 +45,9 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 1;
             this.resourceIds = new string[TextsCount] { resourceId };
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)control;
             this.type = ItemType.Control;
             this.defaultValues = new string[TextsCount] { control.Text };
@@ -44,6 +57,9 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 1;
             this.resourceIds = new string[TextsCount] { resourceId };
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)item;
             this.type = ItemType.LayoutControlItem;
             this.defaultValues = new string[TextsCount] { item.Text };
@@ -53,6 +69,9 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 1;
             this.resourceIds = new string[TextsCount] { resourceId };
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)column;
             this.type = ItemType.GridColumn;
             this.defaultValues = new string[TextsCount] { column.Caption };
@@ -62,6 +81,9 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 1;
             this.resourceIds = new string[TextsCount] { resourceId };
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)group;
             this.type = ItemType.LayoutControlGroup;
             this.defaultValues = new string[TextsCount] { group.Text };
@@ -71,6 +93,9 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 1;
             this.resourceIds = new string[TextsCount] { resourceId };
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)item;
             this.type = ItemType.BarItem;
             this.defaultValues = new string[TextsCount] { item.Caption };
@@ -79,13 +104,19 @@ namespace Prizm.Main.Languages
         public LocalizedItem(DevExpress.XtraBars.BarItem item, List<string> list, string [] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)new Tuple<DevExpress.XtraBars.BarItem, List<string>>(item, list);
             this.type = ItemType.BarItemCustomCaption;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = (index == 0) ? item.Caption : "";
             }
         }
@@ -94,6 +125,10 @@ namespace Prizm.Main.Languages
         {
             const int TextsCount = 2;
             this.resourceIds = new string[TextsCount] { captionResourceId, descriptionResourceId };
+
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)panel;
             this.type = ItemType.ProgressPanel;
             this.defaultValues = new string[TextsCount] { panel.Caption, panel.Description };
@@ -102,13 +137,19 @@ namespace Prizm.Main.Languages
         public LocalizedItem(DevExpress.XtraEditors.CheckedComboBoxEdit checkedCombo, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)checkedCombo;
             this.type = ItemType.CheckedComboBoxEdit;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = (string)checkedCombo.Properties.Items[index].Description;
             }
         }
@@ -116,26 +157,39 @@ namespace Prizm.Main.Languages
         public LocalizedItem(DevExpress.XtraEditors.ComboBoxEdit combo, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)combo;
             this.type = ItemType.ComboBoxEdit;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = combo.Properties.Items[index].ToString();
             }
         }
+
         public LocalizedItem(DevExpress.XtraEditors.RadioGroup radio, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)radio;
             this.type = ItemType.RadioGroup;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = radio.Properties.Items[index].ToString();
             }
         }
@@ -150,13 +204,19 @@ namespace Prizm.Main.Languages
         public LocalizedItem(Action update, List<string> list, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)new Tuple<Action, List<string>>(update, list);
             this.type = ItemType.TextEditOneWayStatus;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = list[index];
             }
         }
@@ -171,13 +231,19 @@ namespace Prizm.Main.Languages
         public LocalizedItem(DevExpress.XtraGrid.Views.Grid.GridView grid, List<string> list, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)new Tuple<DevExpress.XtraGrid.Views.Grid.GridView, List<string>>(grid, list);
             this.type = ItemType.GridView;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = list[index];
             }
         }
@@ -185,13 +251,19 @@ namespace Prizm.Main.Languages
         public LocalizedItem(PrizmForm form, List<string> list, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+
+            if (IsCreatingTemplate) return;
+
             this.obj = (object)new Tuple<PrizmForm, List<string>>(form, list);
             this.type = ItemType.FormHeader;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
             {
-                this.resourceIds[index] = resourceIds[index];
                 this.defaultValues[index] = list[index];
             }
         }
@@ -335,7 +407,7 @@ namespace Prizm.Main.Languages
 
         public int Count
         {
-            get { return this.defaultValues.Length; }
+            get { return this.resourceIds.Length; }
         }
 
         public void Refresh()
