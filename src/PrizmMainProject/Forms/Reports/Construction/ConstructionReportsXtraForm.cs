@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 .Add("DocumentSource", bindingSource, "PreviewSource");
 
             reportType.DataBindings
-                .Add("EditValue", bindingSource, "ReportType");
+                .Add("SelectedIndex", bindingSource, "ReportTypeIndex");
 
             start.DataBindings
                 .Add("EditValue", bindingSource, "StartJoint");
@@ -68,17 +68,19 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                new LocalizedItem(reportTypeLayout, "ConstructionReports_ReportTypeLayout"),
+                new LocalizedItem(typeLayout, "ConstructionReports_TypeLayout"),
+                new LocalizedItem(startJointLayout, "ConstructionReports_StartJointLayout"),
+                new LocalizedItem(startKPComboBoxLayoutControl, "ConstructionReports_StartKPComboBoxLayoutControl"),
+                new LocalizedItem(endJointLayout, "ConstructionReports_EndJointLayout"),
+                new LocalizedItem(endKPLayout, "ConstructionReports_EndKPLayout"),
+                new LocalizedItem(previewButton, "ConstructionReports_PreviewButton"),
+                new LocalizedItem(createReportButton, "ConstructionReports_CreateReportButton"),
+                new LocalizedItem(createReportaLyoutGroup, "ConstructionReports_CreateReportaLyoutGroup"),
+                new LocalizedItem(previewLayoutGroup, "ConstructionReports_PreviewLayoutGroup"),
+                // radio groups
+                new LocalizedItem(tracingModeRadioGroup, 
+                    new string[]{ "ConstructionReport_RadioJoints", "ConstructionReport_RadioKP" }),
 
                 // other
             };
@@ -104,16 +106,13 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-            foreach (var pt in (PartType[])Enum.GetValues(typeof(PartType)))
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0:true))
             {
-                if (pt == PartType.Undefined) continue;
-                var wrapPartType = new EnumWrapper<PartType> { Value = pt };
-                type.Properties.Items.Add(wrapPartType.Value, wrapPartType.Text, CheckState.Checked, true);
+                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, true);
             }
-
-            foreach (var rt in (ReportType[])Enum.GetValues(typeof(ReportType)))
+            foreach(var item in EnumWrapper<ReportType>.EnumerateItems())
             {
-                reportType.Properties.Items.Add(new EnumWrapper<ReportType> { Value = rt });
+                reportType.Properties.Items.Add(item.Item2);
             }
 
             viewModel.LoadData();
@@ -140,26 +139,20 @@ namespace Prizm.Main.Forms.Reports.Construction
             endKPComboBox.SelectedIndex = 0;
             viewModel.EndPK = (endKPComboBox.EditValue != null) ? (int)endKPComboBox.EditValue : default(int);
 
-            reportType.SelectedIndex = 0;
-            viewModel.ReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
+            viewModel.ReportTypeIndex = reportType.SelectedIndex = 0;
 
             tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var wrapReportType = reportType.SelectedItem as EnumWrapper<ReportType>;
-            
-            if (wrapReportType != null)
+            if (viewModel.ReportType == ReportType.UsedProductReport)
             {
-                if (wrapReportType.Value == ReportType.UsedProductReport)
-                {
-                    typeLayout.ContentVisible = true;
-                }
-                else
-                {
-                    typeLayout.ContentVisible = false;
-                }
+                typeLayout.ContentVisible = true;
+            }
+            else
+            {
+                typeLayout.ContentVisible = false;
             }
         }
 

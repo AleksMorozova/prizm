@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
-    public partial class MillInspectionXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
 
@@ -114,6 +116,17 @@ namespace Prizm.Main.Forms.Settings.Inspections
             viewModel.IsRequired = isRequired.Checked;
             ChangeFrequency();
         }
+        
+        #region --- Localization ---
 
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+            };
+        }
+
+        #endregion // --- Localization ---
     }
 }

@@ -11,18 +11,34 @@ using DevExpress.XtraEditors;
 using Prizm.Main.Properties;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Component.NewEdit;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public partial class CreationDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class CreateSpoolComponentDialog : PrizmForm
     {
-        public CreationDialog(string elementNumber)
+        public CreateSpoolComponentDialog(string elementNumber)
         {
             InitializeComponent();
-            partRadioGroupLayout.Text += elementNumber + "?";
-            partRadioGroup.Properties.Items[0].Description = Resources.Spool;
-            partRadioGroup.Properties.Items[1].Description = Resources.Component;
+            numberLabelLayout.Text = elementNumber + "?";
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(questionLabelLayout, "CreateSpoolComponentDialog_CreateElementQuestionLabel"),
+                new LocalizedItem(partRadioGroup, new string[]{ "CreateSpoolComponentDialog_RadioSpool", "CreateSpoolComponentDialog_RadioComponent"}),
+                new LocalizedItem(cancelButton, "CreateSpoolComponentDialog_CancelButton"),
+                new LocalizedItem(acceptButton, "CreateSpoolComponentDialog_CreateButton"),
+            };
+        }
+
+        #endregion // --- Localization ---
+
 
         /// <summary>
         /// Setup of dialog testResult: if yes - spool was selected, no - component
@@ -39,5 +55,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 this.DialogResult = DialogResult.No;                              
             }
         }
+
     }
 }

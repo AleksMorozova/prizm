@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Railcar.Search
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class RailcarSearchXtraForm : ChildForm
     {
         private ICommandManager commandManager = new CommandManager();
@@ -30,8 +30,6 @@ namespace Prizm.Main.Forms.Railcar.Search
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
-            shippedDate.Properties.NullDate = DateTime.MinValue;
-            shippedDate.Properties.NullText = string.Empty;
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();
@@ -53,15 +51,17 @@ namespace Prizm.Main.Forms.Railcar.Search
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "RailcarNumber");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
-            shippedDate.DataBindings.Add("EditValue", bindingSource, "ShippingDate");
-            railcarList.DataBindings.Add("DataSource", bindingSource, "Railcars");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
+            //releasesGrid.DataSource = viewModel.Projection;
+            releasesGrid.DataBindings.Add("DataSource", bindingSource, "Projection");
+
         }
 
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
         }
 
         #region --- Localization ---
@@ -71,20 +71,31 @@ namespace Prizm.Main.Forms.Railcar.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(releaseNoteNumberayout, "ReleaseSearch_NumberLabel"),
+                new LocalizedItem(releaseNoteDateLayout, "ReleaseSearch_DateLabel"),
+                new LocalizedItem(destinationLayout, "ReleaseSearch_DestinationLabel"),
+                new LocalizedItem(railcarNumberLayout, "ReleaseSearch_RailcarLabel"),
+                new LocalizedItem(certificateNumberLayout, "ReleaseSearch_CertificateLabel"),
 
                 // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(searchButton, "NewEditPipe_SearchButton"),
 
                 // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(releaseNoteNumberGridColumn, "ReleaseSearch_ReleaseNumberColumnHeader"),
+                new LocalizedItem(releaseNoteDateGridColumn, "ReleaseSearch_ReleaseDateColumnHeader"),
+                new LocalizedItem(number, "ReleaseSearch_RailcarNumberColumnHeader"),
+                new LocalizedItem(dest, "ReleaseSearch_DestinationColumnHeader"),
+                new LocalizedItem(certificate, "ReleaseSearch_CertificateColumnHeader"),
+                new LocalizedItem(statusColumn, "ReleaseSearch_RailcarNumberColumnHeader"),
 
                 // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                new LocalizedItem(searchParametersLayoutGroup, "ReleaseSearch_SearchGroup"),
+                new LocalizedItem(resultParametersLayoutGroup, "ReleaseSearch_ResultGroup")
 
                 // other
             };
         }
+
 
         #endregion // --- Localization ---
 
@@ -93,7 +104,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             GridView view = (GridView)sender;
             GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
 
-            if (info.InRow || info.InRowCell)
+            if(info.InRow || info.InRowCell)
             {
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
@@ -102,37 +113,9 @@ namespace Prizm.Main.Forms.Railcar.Search
             }
         }
 
-        private void railcarListView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
-        {
-            if (e.Column.FieldName != "ShippingButton")
-            {
-                return;
-            }
-            GridView gv = sender as GridView;
-            var tmp = (bool)gv.GetRowCellValue(e.RowHandle, "IsShipped");
-            if (tmp)
-            {
-                e.RepositoryItem = unshipGridButton;
-            }
-            else
-            {
-                e.RepositoryItem = shipGridButton;
-            }
-        }
-
-        private void shipGridButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ship");
-        }
-
-        private void unshipGridButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Unship");
-        }
-
         private void railcarListView_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter)
             {
                 railcarListView_DoubleClick(sender, e);
             }
@@ -141,9 +124,11 @@ namespace Prizm.Main.Forms.Railcar.Search
         private void RailcarSearchXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
-            viewModel.Dispose();
-            viewModel = null;
+            if(viewModel != null)
+            {
+                viewModel.Dispose();
+                viewModel = null;
+            }
         }
-
     }
 }

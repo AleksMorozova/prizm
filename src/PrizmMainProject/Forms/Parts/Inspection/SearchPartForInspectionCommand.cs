@@ -51,12 +51,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
             viewModel.Parts = parts;
             if (parts.Count > 0)
             {
-                NumbersDialog dialog = new NumbersDialog(parts, viewModel);
+                InspectionSelectPartDialog dialog = new InspectionSelectPartDialog(parts, viewModel);
                 dialog.ShowDialog();
             }
             else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry))
             {
-                CreationDialog dialog = new CreationDialog(viewModel.SearchNumber);
+                CreateSpoolComponentDialog dialog = new CreateSpoolComponentDialog(viewModel.SearchNumber);
                 dialog.ShowDialog();
                 var parent = viewModel.CurrentForm.MdiParent as PrizmApplicationXtraForm;
                 if (parent != null && dialog.DialogResult == DialogResult.Yes)

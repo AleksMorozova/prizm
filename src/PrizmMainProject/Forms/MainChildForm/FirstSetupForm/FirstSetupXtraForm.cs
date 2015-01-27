@@ -12,10 +12,12 @@ using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
 using Ninject;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
-    public partial class FirstSetupXtraForm : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class FirstSetupXtraForm : PrizmForm
     {
         FirstSetupViewModel viewModel;
 
@@ -48,6 +50,31 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstName.DataBindings.Add("EditValue", bindingSource, "FirstName");
             middleName.DataBindings.Add("EditValue", bindingSource, "MiddleName");
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(titleLayoutControl, "FirstSetup_ProjectTitleLabel"),
+                new LocalizedItem(fileLayoutControlItem, "FirstSetup_FileSizeLabel"),
+                new LocalizedItem(typeLayoutControlItem, "FirstSetup_TypeLabel"),
+                new LocalizedItem(millLayoutControlItem, "FirstSetup_MillLabel"),
+                new LocalizedItem(loginLayoutControlItem, "FirstSetup_LoginLabel"),
+                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
+                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
+                new LocalizedItem(reEnterLayoutControlItem, "FirstSetup_ReEnterPasswordLabel"),
+                new LocalizedItem(lastNameLayoutControlItem, "FirstSetup_LastNameLabel"),
+                new LocalizedItem(firstNameLayoutControlItem, "FirstSetup_FirstNameLabel"),
+                new LocalizedItem(millLayoutControlItem, "FirstSetup_MiddleNameLabel"),
+                
+                new LocalizedItem(saveButton, "FirstSetup_SaveButton"),
+                new LocalizedItem(cancelButton, "FirstSetup_CancelButton")
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void saveButton_Click(object sender, EventArgs e)
         {

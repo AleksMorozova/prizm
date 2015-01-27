@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint
 {
-    public partial class JointCutDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class JointCutDialog : PrizmForm
     {
         private Part part1;
         private Part part2;
@@ -43,5 +46,27 @@ namespace Prizm.Main.Forms.Joint
             secondJoinedPartLength.DataBindings
                 .Add("EditValue", part2, "Length");
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(firstJoinedPartGroup, "JointCutDialog_FirstJoinedPartGroup"),
+                new LocalizedItem(firstJoinedPartNumberLayout, "JointCutDialog_FirstJoinedPartNumberLayout"),
+                new LocalizedItem(firstJoinedPartLengthLayout, "JointCutDialog_FirstJoinedPartLengthLayout"),
+
+                new LocalizedItem(secondJoinedPartGroup, "JointCutDialog_SecondJoinedPartGroup"),
+                new LocalizedItem(secondJoinedPartNumberLayout, "JointCutDialog_SecondJoinedPartNumberLayout"),
+                new LocalizedItem(secondJoinedPartLengthLayout, "JointCutDialog_SecondJoinedPartLengthLayout"),
+
+                new LocalizedItem(cutJointButton, "JointCutDialog_CutJointButton"),
+                new LocalizedItem(cancelButton, "JointCutDialog_CancelButton"),
+            };
+        }
+
+        #endregion // --- Localization ---
+    
     }
 }

@@ -9,10 +9,13 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
-    public partial class ExternalFilesXtraForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ExternalFilesXtraForm : PrizmForm
     {
         private ExternalFilesViewModel viewModel;
 
@@ -39,6 +42,24 @@ namespace Prizm.Main.Forms.ExternalFile
             files.DataSource = viewModel.Files;
         }
 
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                //controls
+                new LocalizedItem(addFile, "ExternalFiles_AddFileButton"),
+                
+                 // grid column headers
+                new LocalizedItem(colFileName, "ExternalFiles_FilENameColumnHeader"),
+                new LocalizedItem(colUploadDate, "ExternalFiles_UploadDateColumnHeader"),
+            };
+        }
+
+        #endregion // --- Localization ---
+        
         private void addFile_Click(object sender, EventArgs e)
         {
             Guid newNameId = Guid.NewGuid();

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Main.Forms.Reports.Construction
+namespace Prizm.Domain.Entity.Mill
 {
     /// <summary>
     /// All items in this list should correspond to appropriate types of report.
     /// Items must be numbered from 0 and without gaps.
     /// Items may be removed if necessary.
     /// </summary>
-    public enum ReportType
+    public enum MillReportType
     {
-        TracingReport = 0,
-        UsedProductReport = 1
+        ByCategories = 0,
+        ByShipped = 1,
+        ByProducing = 2,
+        General = 3
     }
 }

@@ -52,8 +52,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn
-                    || viewModel.MakeTheConnection())
+                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                {
+                    viewModel.SaveOrUpdateJointCommand.Execute();
+                }
+                else if (viewModel.MakeTheConnection())
                 {
                     viewModel.SaveOrUpdateJointCommand.Execute();
                 }

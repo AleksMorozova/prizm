@@ -40,17 +40,14 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-            foreach (var s in viewModel.ActivityTypes)
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
-                activity.Properties.Items.Add(s);
+                activity.Properties.Items.Add(item.Item2);
             }
-            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
-            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
-            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
-
-            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
+            {
+                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
+            }
             RefreshTypes();
             activity.SelectedIndex = 0;
             viewModel.Activity = activity.SelectedItem.ToString();
@@ -76,18 +73,24 @@ namespace Prizm.Main.Forms.Parts.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(numberLayoutControl, "PartSearch_SearchNumberLabel"),
+                new LocalizedItem(typeLayoutControl, "PartSearch_SearchTypeLabel"),
+                new LocalizedItem(activityLayout, "PartSearch_ActivityLabel"),
 
                 // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+               new LocalizedItem(searchButton, "PartSearch_SearchButton"),
+               new LocalizedItem(type, new  string [] {"PartSearch_PartTypePipe", "PartSearch_PartTypeSpool", "PartSearch_PartTypeComponent"} ),
+               new LocalizedItem(activity, new  string [] {"PartSearch_StatusActive", "PartSearch_StatusInactive","PartSearch_StatusAll" }),
 
                 // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(numberCol, "PartSearch_NumberColumnHeader"),
+                new LocalizedItem(typeCol, "PartSearch_TypeColumnHeader"),
 
                 // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(searchLayoutControlGroup, "PartSearch_SearchGroup"),
+                new LocalizedItem(searchResultLayoutGroup, "PartSearch_SearchResultGroup"),
+                // form
+                //??
             };
         }
 

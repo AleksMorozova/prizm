@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private DataTable data;
         private construct.Joint startJoint;
         private construct.Joint endJoint;
-        private EnumWrapper<ReportType> reportType;
+        private ReportType reportType;
         private IList<PartData> partDataList;
 
         public int PipelineJointCount { get; set; }
@@ -204,7 +204,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-        public EnumWrapper<ReportType> ReportType
+        public ReportType ReportType
         {
             get { return reportType; }
             set
@@ -213,6 +213,19 @@ namespace Prizm.Main.Forms.Reports.Construction
                 {
                     reportType = value;
                     RaisePropertyChanged("ReportType");
+                }
+            }
+        }
+
+        public int ReportTypeIndex
+        {
+            get { return (int)reportType; }
+            set
+            {
+                if (value != (int)reportType)
+                {
+                    reportType = (ReportType)value;
+                    RaisePropertyChanged("ReportTypeIndex");
                 }
             }
         }

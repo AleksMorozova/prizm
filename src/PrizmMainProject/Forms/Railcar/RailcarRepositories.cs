@@ -15,6 +15,7 @@ namespace Prizm.Main.Forms.Railcar
         ISession session;
         private readonly IPipeRepository pipeRepo;
         private readonly IRailcarRepository railcarRepo;
+        private readonly IReleaseNoteRepository releaseNoteRepo;
 
         [Inject]
         public RailcarRepositories(ISession session)
@@ -22,6 +23,7 @@ namespace Prizm.Main.Forms.Railcar
             this.session = session;
             this.pipeRepo = new PipeRepository(session);
             this.railcarRepo = new RailcarRepository(session);
+            this.releaseNoteRepo = new ReleaseNoteRepository(session);
         }
 
         public IPipeRepository PipeRepo
@@ -47,6 +49,12 @@ namespace Prizm.Main.Forms.Railcar
         public void Dispose()
         {
             session.Dispose();
+        }
+
+
+        public IReleaseNoteRepository ReleaseNoteRepo
+        {
+            get { return releaseNoteRepo; }
         }
     }
 }

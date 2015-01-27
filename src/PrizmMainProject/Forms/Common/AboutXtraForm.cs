@@ -11,10 +11,12 @@ using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using System.Reflection;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Common
 {
-    public partial class AboutXtraForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class AboutXtraForm : PrizmForm
     {
         public AboutXtraForm()
         {
@@ -25,5 +27,16 @@ namespace Prizm.Main.Forms.Common
         {
             this.titleLabel.Text = Resources.AboutForm_TitleLabel;
         }
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>() 
+                { 
+                    //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                };
+        }
+
+        #endregion // --- Localization ---
     }
 }

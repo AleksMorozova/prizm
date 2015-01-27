@@ -8,9 +8,12 @@ namespace Prizm.Main.Languages
 {
     public interface ILocalizedItem
     {
-        string Text { get; set; }
-        string ResourceId { get; }
-        void BackToDefault();
+        string Text { set; }
+        int Count { get; }
+        string this[int index] { set; }
+        string GetResourceId(int index);
+        void BackToDefault(int index);
+        void Refresh();
     }
 
     public interface ILocalizable : IEnumerable<ILocalizedItem>

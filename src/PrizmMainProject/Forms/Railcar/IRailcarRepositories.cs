@@ -11,6 +11,7 @@ namespace Prizm.Main.Forms.Railcar
     {
         IPipeRepository PipeRepo { get; }
         IRailcarRepository RailcarRepo { get; }
+        IReleaseNoteRepository ReleaseNoteRepo { get; }
 
         void Commit();
         void BeginTransaction();

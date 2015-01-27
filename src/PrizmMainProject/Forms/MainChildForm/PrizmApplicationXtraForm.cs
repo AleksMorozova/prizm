@@ -40,10 +40,12 @@ using System.Globalization;
 using System.Resources;
 using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-    public partial class PrizmApplicationXtraForm : XtraForm, IUserNotify, ILocalizable
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
         private static uint FramesCanOpen = 20;
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
@@ -56,9 +58,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-
-            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
-            NotificationService.Instance.RequestAllNotification();
         }
 
         /// <summary>
@@ -135,7 +134,6 @@ namespace Prizm.Main.Forms.MainChildForm
                 childForms[formType.Name].Add(newlyCreatedForm);
                 newlyCreatedForm.MdiParent = this;
                 newlyCreatedForm.FormClosed += ChildClosedEventHandler;
-                ChangeLanguage(newlyCreatedForm);
                 FramesCanOpen--;
             }
 
@@ -528,20 +526,20 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
 
-            this.Text = string.Concat(this.Text, " [", viewModel.WorkstationType.Text, "]");
-
-            if(!string.IsNullOrEmpty(viewModel.ProjectSettings.Title))
-            {
-                this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
-            }
+            localizedHeader.Add(this.Text);
+            localizedHeader.Add(WorkstationType.Mill.ToString());
+            localizedHeader.Add(WorkstationType.Master.ToString());
+            localizedHeader.Add(WorkstationType.Construction.ToString());
 
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
+
+            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
+            NotificationService.Instance.RequestAllNotification();
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //OpenChildForm(typeof(AboutXtraForm));
             AboutXtraForm form = new AboutXtraForm();
             form.ShowDialog();
         }
@@ -588,7 +586,8 @@ namespace Prizm.Main.Forms.MainChildForm
         private void OnNotificationRefresh(object sender, EventArgs e)
         {
             int NotificationCount = NotificationService.Instance.NotificationCount;
-            barButtonStatusNotifications.Caption = string.Format("{0} ({1})", Resources.SystemNotification, NotificationCount);
+            barButtonStatusNotifications.Caption = string.Format("{0} ({1})",
+                localizedNotificationPanelButton.Count > 0 ? localizedNotificationPanelButton[0] : "", NotificationCount);
         }
 
         private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)
@@ -618,7 +617,6 @@ namespace Prizm.Main.Forms.MainChildForm
                     barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster);
                     barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster);
                     break;
-                case Domain.Entity.Setup.WorkstationType.Inspection:
                 case Domain.Entity.Setup.WorkstationType.Construction:
                     barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromConstruction);
                     barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtConstruction);
@@ -640,7 +638,7 @@ namespace Prizm.Main.Forms.MainChildForm
             cultures.Clear();
             languageBarListItem.ShowChecks = true;
             int indexDefault = 0;
-            var list = viewModel.GetLanguagesCultures(out indexDefault);
+            var list = Program.LanguageManager.GetCultures(out indexDefault);
             foreach (var culture in list)
             {
                 int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
@@ -667,7 +665,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
         {
             int index = languageBarListItem.DataIndex;
-            if (cultures.ContainsKey(e.Index) && viewModel.ChooseTranslation(cultures[e.Index]))
+            if (cultures.ContainsKey(e.Index) && Program.LanguageManager.LoadTranslation(cultures[e.Index]))
             {
                 CascadeChangeLanguage();
             }
@@ -683,33 +681,14 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         void CascadeChangeLanguage()
         {
-            ChangeLanguage(this);
+            Program.LanguageManager.ChangeLanguage(this);
             foreach (var childType in childForms)
             {
                 foreach (var child in childType.Value)
                 {
                     ILocalizable localizable = child as ILocalizable;
 
-                    ChangeLanguage(child as ILocalizable);
-                }
-            }
-        }
-
-        void ChangeLanguage(ILocalizable localizable)
-        {
-            if (localizable != null)
-            {
-                foreach (var localizedItem in localizable)
-                {
-                    string resource;
-                    if (viewModel.TryGetLocalizedString(localizedItem.ResourceId, out resource))
-                    {
-                        localizedItem.Text = resource;
-                    }
-                    else
-                    {
-                        localizedItem.BackToDefault();
-                    }
+                    Program.LanguageManager.ChangeLanguage(child as ILocalizable);
                 }
             }
         }
@@ -717,27 +696,77 @@ namespace Prizm.Main.Forms.MainChildForm
 
         #region --- Localization ---
 
-        List<LocalizedItem> localizedItems = null;
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        protected List<string> localizedNotificationPanelButton = new List<string>();
 
-        public IEnumerator<ILocalizedItem> GetEnumerator()
+        public override void UpdateTitle()
         {
-            if (localizedItems == null)
+            // base.UpdateTitle(); should not be called
+            this.Text = string.Concat(localizedHeader[0], " [", 
+                viewModel.ProjectSettings.WorkstationType == WorkstationType.Mill 
+                ? localizedHeader[1]
+                : viewModel.ProjectSettings.WorkstationType == WorkstationType.Master
+                    ? localizedHeader[2]
+                    : viewModel.ProjectSettings.WorkstationType == WorkstationType.Construction
+                        ? localizedHeader[3]
+                        : ""
+            , "]");
+
+            if (!string.IsNullOrWhiteSpace(viewModel.ProjectSettings.Title))
             {
-                localizedItems = new List<LocalizedItem>() 
-                { 
-                    // header
-
-                    // menu
-
-                    // other
-                };
+                this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
-            return localizedItems.GetEnumerator();
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        protected override List<LocalizedItem> CreateLocalizedItems()
         {
-            return this.GetEnumerator();
+            return new List<LocalizedItem>()
+            {
+                // menu items
+                new LocalizedItem(barSubItemApplication, "Menu_File"),
+                new LocalizedItem(barButtonItemExport, "Menu_File_Export"),
+                new LocalizedItem(barButtonItemImport, "Menu_File_Import"),
+                new LocalizedItem(barButtonItemExit, "Menu_File_Exit"),
+                new LocalizedItem(barSubItemMill, "Menu_Mill"),
+                new LocalizedItem(barButtonItemNewPipe, "Menu_Mill_NewPipe"),
+                new LocalizedItem(barButtonItemMillFindEditPipes, "Menu_Mill_SearchPipes"),
+                new LocalizedItem(barButtonItemNewRailcar, "Menu_Mill_NewReleaseNote"),
+                new LocalizedItem(barButtonItemFindEditShipRailcars, "Menu_Mill_SearchReleaseNotes"),
+                new LocalizedItem(barButtonItemMillReports, "Menu_Mill_Reports"),
+                new LocalizedItem(barSubItemConstruction, "Menu_Construction"),
+                new LocalizedItem(barButtonItemNewComponent, "Menu_Construction_NewComponent"),
+                new LocalizedItem(barButtonItemNewJoint, "Menu_Construction_NewJoint"),
+                new LocalizedItem(barButtonItemPartIncomingInspection, "Menu_Construction_PartIncomingInspection"),
+                new LocalizedItem(barButtonItemFindEditParts, "Menu_Construction_FindParts"),
+                new LocalizedItem(barButtonItemFindEditJoints, "Menu_Construction_FindJoints"),
+                new LocalizedItem(barButtonItemSpool, "Menu_Construction_Spool"),
+                new LocalizedItem(barButtonItemInspectionReports, "Menu_Construction_InspectionReports"),
+                new LocalizedItem(pipeConstructionRepoBarButton, "Menu_Construction_PipeReports"),
+                new LocalizedItem(weldConstructionRepoBarButton, "Menu_Construction_WeldReports"),
+                new LocalizedItem(barButtonItemConstructionReports, "Menu_Construction_JointPKReports"),
+                new LocalizedItem(barSubItemSettings, "Menu_Settings"),
+                new LocalizedItem(barButtonItemSettingsProject, "Menu_Settings_Project"),
+                new LocalizedItem(barButtonItemSettingsPipe, "Menu_Settings_Pipe"),
+                new LocalizedItem(barButtonItemSettingsPipeline, "Menu_Settings_Pipeline"),
+                new LocalizedItem(barButtonItemComponentry, "Menu_Settings_Componentry"),
+                new LocalizedItem(barButtonItemSettingsWelders, "Menu_Settings_Welders"),
+                new LocalizedItem(barButtonItemSettingsInspectors, "Menu_Settings_Inspectors"),
+                new LocalizedItem(barButtonItemSettingsUsers, "Menu_Settings_Users"),
+                new LocalizedItem(barButtonItemRoles, "Menu_Settings_Roles"),
+                new LocalizedItem(barSubItemLanguage, "Menu_Settings_Language"),
+                new LocalizedItem(barSubItemMisc, "Menu_Misc"),
+                new LocalizedItem(barButtonItemAudit, "Menu_Misc_Audit"),
+                new LocalizedItem(barButtonItemImportantMessages, "Menu_Misc_ImportantMessages"),
+                new LocalizedItem(barSubItemHelp, "Menu_Help"),
+                new LocalizedItem(barButtonItemAbout, "Menu_Help_About"),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] { "MainWindowHeader_Title", 
+                    "MainWindowHeader_Mill", "MainWindowHeader_Master", "MainWindowHeader_Construction" } ),
+
+                // status bar notifications panel button
+                new LocalizedItem(barButtonStatusNotifications, localizedNotificationPanelButton, new string[] {"MainWindow_StatusNotificationsHeader" }),
+            };
         }
 
         #endregion // --- Localization ---

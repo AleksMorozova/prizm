@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuditXtraForm));
             this.searchGroupLayout = new DevExpress.XtraLayout.LayoutControl();
             this.number = new DevExpress.XtraEditors.TextEdit();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.radioPeriodUser = new DevExpress.XtraEditors.RadioGroup();
             this.search = new DevExpress.XtraEditors.SimpleButton();
             this.user = new DevExpress.XtraEditors.ComboBoxEdit();
             this.periodLabel = new DevExpress.XtraEditors.LabelControl();
@@ -56,12 +56,12 @@
             this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.numberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
             this.searchGroupLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPeriodUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsView)).BeginInit();
@@ -79,14 +79,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // searchGroupLayout
             // 
             this.searchGroupLayout.Controls.Add(this.number);
-            this.searchGroupLayout.Controls.Add(this.radioGroup1);
+            this.searchGroupLayout.Controls.Add(this.radioPeriodUser);
             this.searchGroupLayout.Controls.Add(this.search);
             this.searchGroupLayout.Controls.Add(this.user);
             this.searchGroupLayout.Controls.Add(this.periodLabel);
@@ -111,19 +111,19 @@
             this.number.StyleController = this.searchGroupLayout;
             this.number.TabIndex = 11;
             // 
-            // radioGroup1
+            // radioPeriodUser
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(145, 43);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.radioPeriodUser.Location = new System.Drawing.Point(145, 43);
+            this.radioPeriodUser.Name = "radioPeriodUser";
+            this.radioPeriodUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioPeriodUser.Properties.Appearance.Options.UseBackColor = true;
+            this.radioPeriodUser.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Период"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Пользователь")});
-            this.radioGroup1.Size = new System.Drawing.Size(109, 77);
-            this.radioGroup1.StyleController = this.searchGroupLayout;
-            this.radioGroup1.TabIndex = 10;
-            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
+            this.radioPeriodUser.Size = new System.Drawing.Size(109, 77);
+            this.radioPeriodUser.StyleController = this.searchGroupLayout;
+            this.radioPeriodUser.TabIndex = 10;
+            this.radioPeriodUser.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
             // 
             // search
             // 
@@ -149,12 +149,11 @@
             // 
             // periodLabel
             // 
-            this.periodLabel.Location = new System.Drawing.Point(260, 43);
+            this.periodLabel.Location = new System.Drawing.Point(372, 43);
             this.periodLabel.Name = "periodLabel";
-            this.periodLabel.Size = new System.Drawing.Size(52, 13);
+            this.periodLabel.Size = new System.Drawing.Size(142, 13);
             this.periodLabel.StyleController = this.searchGroupLayout;
             this.periodLabel.TabIndex = 7;
-            this.periodLabel.Text = "За период";
             // 
             // auditResults
             // 
@@ -304,7 +303,7 @@
             this.endDateLayout,
             this.startDateLayout,
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.numberLayout});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
             this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 124);
@@ -365,10 +364,9 @@
             this.periodLabelLayout.Location = new System.Drawing.Point(234, 0);
             this.periodLabelLayout.Name = "periodLabelLayout";
             this.periodLabelLayout.Size = new System.Drawing.Size(260, 17);
-            this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 0, 0, 0);
-            this.periodLabelLayout.Text = "periodLabelLayout";
-            this.periodLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.periodLabelLayout.TextVisible = false;
+            this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 0, 0);
+            this.periodLabelLayout.Text = "За период";
+            this.periodLabelLayout.TextSize = new System.Drawing.Size(81, 13);
             // 
             // endDateLayout
             // 
@@ -404,7 +402,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.radioGroup1;
+            this.layoutControlItem1.Control = this.radioPeriodUser;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(121, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -413,16 +411,16 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlItem2
+            // numberLayout
             // 
-            this.layoutControlItem2.Control = this.number;
-            this.layoutControlItem2.CustomizationFormText = "Номер элемента";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(121, 81);
-            this.layoutControlItem2.Text = "Номер элемента";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 13);
+            this.numberLayout.Control = this.number;
+            this.numberLayout.CustomizationFormText = "Номер элемента";
+            this.numberLayout.Location = new System.Drawing.Point(0, 0);
+            this.numberLayout.Name = "numberLayout";
+            this.numberLayout.Size = new System.Drawing.Size(121, 81);
+            this.numberLayout.Text = "Номер элемента";
+            this.numberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.numberLayout.TextSize = new System.Drawing.Size(81, 13);
             // 
             // auditResultsLayout
             // 
@@ -451,7 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();
             this.searchGroupLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPeriodUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsView)).EndInit();
@@ -469,7 +467,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).EndInit();
             this.ResumeLayout(false);
 
@@ -501,9 +499,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn newValueGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn entityGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn fieldGridColumn;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.RadioGroup radioPeriodUser;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem numberLayout;
         private DevExpress.XtraGrid.Columns.GridColumn numberColumn;
         private DevExpress.XtraEditors.TextEdit number;
     }

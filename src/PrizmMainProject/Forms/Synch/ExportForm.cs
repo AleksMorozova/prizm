@@ -42,19 +42,18 @@ namespace Prizm.Main.Forms.Synch
       {
           return new List<LocalizedItem>()
           {
-              // layout items
-              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
               // controls
-              //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
+              new LocalizedItem(btnExport, "Export_ExportButton"),
+              new LocalizedItem(progressPanel,"Export_PleaseWaitPanel", "Export_ExportingData"),
+              new LocalizedItem(lblLog,"Export_LogLabel"),
+              new LocalizedItem(btnReexport, "Export_ReexportButton"),
+              
               // grid column headers
-              //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-              // layout control groups
-              //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
+              new LocalizedItem(portionId, "Export_PortionIdColumnHeader"),
+              new LocalizedItem(gridColumnExportDate, "Export_ExportDateColumnHeader"),
               // other
+              new LocalizedItem(logTabPage,"Export_LogTab"),
+              new LocalizedItem(historyTabPage,"Export_HistoryTab"),
           };
       }
 
