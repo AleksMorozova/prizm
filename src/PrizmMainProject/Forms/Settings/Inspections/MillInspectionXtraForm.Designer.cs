@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.category = new DevExpress.XtraEditors.LookUpEdit();
             this.resultType = new DevExpress.XtraEditors.LookUpEdit();
@@ -64,7 +64,7 @@
             this.controlTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.resultTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.categoryLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).BeginInit();
@@ -98,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
@@ -155,7 +154,7 @@
             this.resultType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.resultType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Тип результата")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Тип результата")});
             this.resultType.Properties.NullText = "";
             this.resultType.Size = new System.Drawing.Size(305, 20);
             this.resultType.StyleController = this.mainLayoutControl;
@@ -169,7 +168,7 @@
             this.controlType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.controlType.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Вид контроля")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Вид контроля")});
             this.controlType.Properties.NullText = "";
             this.controlType.Size = new System.Drawing.Size(305, 20);
             this.controlType.StyleController = this.mainLayoutControl;
@@ -177,6 +176,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
             this.cancelButton.Location = new System.Drawing.Point(536, 286);
             this.cancelButton.Name = "cancelButton";
@@ -509,13 +509,16 @@
             // 
             // MillInspectionXtraForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(655, 320);
             this.Controls.Add(this.mainLayoutControl);
             this.Name = "MillInspectionXtraForm";
             this.Text = "Добавление контрольной операции";
             this.Load += new System.EventHandler(this.MillInspectionXtraForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).EndInit();
@@ -549,7 +552,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1069,7 +1069,10 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
-
+                        addForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
+                        viewModel.PipeTests.Add(addForm.viewModel.PipeTest);
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
                     }
                 }
             }

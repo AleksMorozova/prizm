@@ -13,9 +13,11 @@ using Prizm.Main.Common;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
@@ -36,11 +38,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             if (boolExpected.Checked)
             {
-                boolExpected.Text = " [ Да ] ";
+                boolExpected.Text = " [ "+ Resources.YES +" ] ";
             }
             else
             {
-                boolExpected.Text = " [ Нет ] ";
+                boolExpected.Text = " [ " + Resources.NO + " ] ";
             }
         }
 
@@ -59,12 +61,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
             isActive.DataBindings.Add("EditValue", bindingSource, "IsActive");
             
             controlType.Properties.DataSource = viewModel.ControlTypes;
-            controlType.Properties.DisplayMember = "Text";
+            controlType.Properties.DisplayMember = "Name";
             controlType.Properties.ValueMember = "Value";
             controlType.DataBindings.Add("EditValue", bindingSource, "PipeTestControlType");
 
             resultType.Properties.DataSource = viewModel.ResultTypes;
-            resultType.Properties.DisplayMember = "Text";
+            resultType.Properties.DisplayMember = "Name";
             resultType.Properties.ValueMember = "Value";
             resultType.DataBindings.Add("EditValue", bindingSource, "ResultType");
 
