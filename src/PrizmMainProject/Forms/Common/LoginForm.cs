@@ -37,7 +37,10 @@ namespace Prizm.Main.Forms.Common
       {
           return new List<LocalizedItem>()
           {
-              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+              new LocalizedItem(lblLogin, "Login_LoginLabel"),
+              new LocalizedItem(lblPassword, "Login_PasswordLabel"),
+              new LocalizedItem(btnLogin, "Login_LoginButton"),
+              new LocalizedItem(btnExit, "Login_ExitButton")
           };
       }
 

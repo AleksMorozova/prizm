@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
 
-            if(string.IsNullOrWhiteSpace(viewModel.Railcar.Number))
+            if(string.IsNullOrWhiteSpace(viewModel.Number))
             {
                 notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
                 return;
@@ -50,21 +50,19 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
            
             try
             {
-                foreach(var pipe in viewModel.Railcar.Pipes)
-                {
-                    pipe.Railcar = viewModel.Railcar;
-                }
 
                 repos.BeginTransaction();
-                repos.RailcarRepo.SaveOrUpdate(viewModel.Railcar);
+
+                repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
                 repos.Commit();
-                repos.RailcarRepo.Evict(viewModel.Railcar);
+
+                repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
 
                 //saving attached documents
-                if(viewModel.FilesFormViewModel != null)
+                if (viewModel.FilesFormViewModel != null)
                 {
-                    viewModel.FilesFormViewModel.Item = viewModel.Railcar.Id;
+                    viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
                     viewModel.FilesFormViewModel = null;
                 }
@@ -81,7 +79,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public bool CanExecute()
         {
             bool condition = !string.IsNullOrWhiteSpace(viewModel.Number)
-                && !viewModel.IsShipped;
+                && !viewModel.Shipped;
 
             bool conditionAndPermission;
             if(viewModel.IsNew)

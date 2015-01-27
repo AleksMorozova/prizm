@@ -14,7 +14,7 @@ namespace Prizm.Domain.Entity.Mill
         public virtual string Destination { get; set; }
         //remove!
         public virtual bool IsShipped { get; set; }
-
+        public virtual ReleaseNote ReleaseNote { get; set; }
         public virtual IList<Pipe> Pipes { get; set; }
 
       

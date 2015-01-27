@@ -78,6 +78,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                 new LocalizedItem(createReportButton, "ConstructionReports_CreateReportButton"),
                 new LocalizedItem(createReportaLyoutGroup, "ConstructionReports_CreateReportaLyoutGroup"),
                 new LocalizedItem(previewLayoutGroup, "ConstructionReports_PreviewLayoutGroup"),
+                // radio groups
+                new LocalizedItem(tracingModeRadioGroup, 
+                    new string[]{ "ConstructionReport_RadioJoints", "ConstructionReport_RadioKP" }),
+
+                // other
             };
         }
 

@@ -44,7 +44,6 @@
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
@@ -59,7 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,15 +73,15 @@
             this.masterLayoutControl.Name = "masterLayoutControl";
             this.masterLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(580, 118, 423, 437);
             this.masterLayoutControl.Root = this.rootLayoutGroup;
-            this.masterLayoutControl.Size = new System.Drawing.Size(472, 173);
+            this.masterLayoutControl.Size = new System.Drawing.Size(472, 202);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
             // 
             // steelGrade
             // 
-            this.steelGrade.Location = new System.Drawing.Point(235, 38);
+            this.steelGrade.Location = new System.Drawing.Point(233, 43);
             this.steelGrade.Name = "steelGrade";
-            this.steelGrade.Size = new System.Drawing.Size(208, 20);
+            this.steelGrade.Size = new System.Drawing.Size(212, 20);
             this.steelGrade.StyleController = this.masterLayoutControl;
             this.steelGrade.TabIndex = 8;
             // 
@@ -91,9 +89,9 @@
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(247, 129);
+            this.saveButton.Location = new System.Drawing.Point(228, 158);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(102, 22);
+            this.saveButton.Size = new System.Drawing.Size(121, 22);
             this.saveButton.StyleController = this.masterLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "&Сохранить";
@@ -102,7 +100,7 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(353, 129);
+            this.cancelButton.Location = new System.Drawing.Point(353, 158);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(97, 22);
             this.cancelButton.StyleController = this.masterLayoutControl;
@@ -111,7 +109,7 @@
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(29, 38);
+            this.number.Location = new System.Drawing.Point(27, 43);
             this.number.Name = "number";
             this.number.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.number.Properties.Appearance.Options.UseBackColor = true;
@@ -119,13 +117,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.number.Properties.PopupSizeable = true;
             this.number.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.number.Size = new System.Drawing.Size(188, 20);
+            this.number.Size = new System.Drawing.Size(192, 20);
             this.number.StyleController = this.masterLayoutControl;
             this.number.TabIndex = 4;
             // 
             // plateManufacturer
             // 
-            this.plateManufacturer.Location = new System.Drawing.Point(29, 78);
+            this.plateManufacturer.Location = new System.Drawing.Point(27, 93);
             this.plateManufacturer.Name = "plateManufacturer";
             this.plateManufacturer.Properties.Appearance.BackColor = System.Drawing.Color.LightYellow;
             this.plateManufacturer.Properties.Appearance.Options.UseBackColor = true;
@@ -133,7 +131,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.plateManufacturer.Properties.PopupSizeable = true;
             this.plateManufacturer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.plateManufacturer.Size = new System.Drawing.Size(414, 20);
+            this.plateManufacturer.Size = new System.Drawing.Size(418, 20);
             this.plateManufacturer.StyleController = this.masterLayoutControl;
             this.plateManufacturer.TabIndex = 9;
             // 
@@ -149,12 +147,11 @@
             this.numberLayoutControl,
             this.steelLayoutControl,
             this.plateManufacturerLayoutControl,
-            this.divideButtonEmptySpace,
-            this.emptySpaceItem1});
+            this.divideButtonEmptySpace});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "Root";
             this.rootLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
-            this.rootLayoutGroup.Size = new System.Drawing.Size(472, 173);
+            this.rootLayoutGroup.Size = new System.Drawing.Size(472, 202);
             this.rootLayoutGroup.Text = "Root";
             this.rootLayoutGroup.TextVisible = false;
             // 
@@ -162,33 +159,31 @@
             // 
             this.saveLayoutControl.Control = this.saveButton;
             this.saveLayoutControl.CustomizationFormText = "saveLayoutControl";
-            this.saveLayoutControl.Location = new System.Drawing.Point(225, 107);
+            this.saveLayoutControl.Location = new System.Drawing.Point(206, 136);
             this.saveLayoutControl.Name = "saveLayoutControl";
-            this.saveLayoutControl.Size = new System.Drawing.Size(106, 26);
+            this.saveLayoutControl.Size = new System.Drawing.Size(125, 26);
             this.saveLayoutControl.Text = "saveLayoutControl";
             this.saveLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.saveLayoutControl.TextToControlDistance = 0;
             this.saveLayoutControl.TextVisible = false;
             // 
             // cancelLayoutControl
             // 
             this.cancelLayoutControl.Control = this.cancelButton;
             this.cancelLayoutControl.CustomizationFormText = "cancelLayoutControl";
-            this.cancelLayoutControl.Location = new System.Drawing.Point(331, 107);
+            this.cancelLayoutControl.Location = new System.Drawing.Point(331, 136);
             this.cancelLayoutControl.Name = "cancelLayoutControl";
             this.cancelLayoutControl.Size = new System.Drawing.Size(101, 26);
             this.cancelLayoutControl.Text = "cancelLayoutControl";
             this.cancelLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.cancelLayoutControl.TextToControlDistance = 0;
             this.cancelLayoutControl.TextVisible = false;
             // 
             // buttonsLeftEmptySpace
             // 
             this.buttonsLeftEmptySpace.AllowHotTrack = false;
             this.buttonsLeftEmptySpace.CustomizationFormText = "buttonsLeftEmptySpace";
-            this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(0, 107);
+            this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(0, 136);
             this.buttonsLeftEmptySpace.Name = "buttonsLeftEmptySpace";
-            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(112, 26);
+            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(206, 26);
             this.buttonsLeftEmptySpace.Text = "buttonsLeftEmptySpace";
             this.buttonsLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -198,8 +193,8 @@
             this.numberLayoutControl.CustomizationFormText = "Номер плавки";
             this.numberLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.numberLayoutControl.Name = "numberLayoutControl";
-            this.numberLayoutControl.Size = new System.Drawing.Size(206, 40);
-            this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
+            this.numberLayoutControl.Size = new System.Drawing.Size(206, 50);
+            this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.numberLayoutControl.Text = "Ном&ер плавки";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayoutControl.TextSize = new System.Drawing.Size(111, 13);
@@ -210,8 +205,8 @@
             this.steelLayoutControl.CustomizationFormText = "Марка стали";
             this.steelLayoutControl.Location = new System.Drawing.Point(206, 0);
             this.steelLayoutControl.Name = "steelLayoutControl";
-            this.steelLayoutControl.Size = new System.Drawing.Size(226, 40);
-            this.steelLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
+            this.steelLayoutControl.Size = new System.Drawing.Size(226, 50);
+            this.steelLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.steelLayoutControl.Text = "&Марка стали";
             this.steelLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.steelLayoutControl.TextSize = new System.Drawing.Size(111, 13);
@@ -220,10 +215,10 @@
             // 
             this.plateManufacturerLayoutControl.Control = this.plateManufacturer;
             this.plateManufacturerLayoutControl.CustomizationFormText = "Производитель листа";
-            this.plateManufacturerLayoutControl.Location = new System.Drawing.Point(0, 40);
+            this.plateManufacturerLayoutControl.Location = new System.Drawing.Point(0, 50);
             this.plateManufacturerLayoutControl.Name = "plateManufacturerLayoutControl";
-            this.plateManufacturerLayoutControl.Size = new System.Drawing.Size(432, 40);
-            this.plateManufacturerLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
+            this.plateManufacturerLayoutControl.Size = new System.Drawing.Size(432, 50);
+            this.plateManufacturerLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.plateManufacturerLayoutControl.Text = "&Производитель листа";
             this.plateManufacturerLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateManufacturerLayoutControl.TextSize = new System.Drawing.Size(111, 13);
@@ -232,23 +227,13 @@
             // 
             this.divideButtonEmptySpace.AllowHotTrack = false;
             this.divideButtonEmptySpace.CustomizationFormText = "divideButtonEmptySpace";
-            this.divideButtonEmptySpace.Location = new System.Drawing.Point(0, 80);
+            this.divideButtonEmptySpace.Location = new System.Drawing.Point(0, 100);
             this.divideButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.divideButtonEmptySpace.Name = "divideButtonEmptySpace";
-            this.divideButtonEmptySpace.Size = new System.Drawing.Size(432, 27);
+            this.divideButtonEmptySpace.Size = new System.Drawing.Size(432, 36);
             this.divideButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(112, 107);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(113, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // HeatXtraForm
             // 
@@ -256,7 +241,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(472, 173);
+            this.ClientSize = new System.Drawing.Size(472, 202);
             this.Controls.Add(this.masterLayoutControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HeatXtraForm";
@@ -277,7 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -298,7 +282,6 @@
         private DevExpress.XtraEditors.TextEdit steelGrade;
         private DevExpress.XtraLayout.LayoutControlItem steelLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayoutControl;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.ComboBoxEdit number;
         private DevExpress.XtraEditors.ComboBoxEdit plateManufacturer;
     }

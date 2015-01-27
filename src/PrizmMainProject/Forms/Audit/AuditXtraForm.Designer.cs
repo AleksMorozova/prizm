@@ -56,7 +56,7 @@
             this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.numberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
             this.searchGroupLayout.SuspendLayout();
@@ -79,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,12 +149,11 @@
             // 
             // periodLabel
             // 
-            this.periodLabel.Location = new System.Drawing.Point(260, 43);
+            this.periodLabel.Location = new System.Drawing.Point(372, 43);
             this.periodLabel.Name = "periodLabel";
-            this.periodLabel.Size = new System.Drawing.Size(52, 13);
+            this.periodLabel.Size = new System.Drawing.Size(142, 13);
             this.periodLabel.StyleController = this.searchGroupLayout;
             this.periodLabel.TabIndex = 7;
-            this.periodLabel.Text = "За период";
             // 
             // auditResults
             // 
@@ -304,7 +303,7 @@
             this.endDateLayout,
             this.startDateLayout,
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.numberLayout});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
             this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 124);
@@ -365,10 +364,9 @@
             this.periodLabelLayout.Location = new System.Drawing.Point(234, 0);
             this.periodLabelLayout.Name = "periodLabelLayout";
             this.periodLabelLayout.Size = new System.Drawing.Size(260, 17);
-            this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 0, 0, 0);
-            this.periodLabelLayout.Text = "periodLabelLayout";
-            this.periodLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.periodLabelLayout.TextVisible = false;
+            this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 0, 0);
+            this.periodLabelLayout.Text = "За период";
+            this.periodLabelLayout.TextSize = new System.Drawing.Size(81, 13);
             // 
             // endDateLayout
             // 
@@ -413,16 +411,16 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlItem2
+            // numberLayout
             // 
-            this.layoutControlItem2.Control = this.number;
-            this.layoutControlItem2.CustomizationFormText = "Номер элемента";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(121, 81);
-            this.layoutControlItem2.Text = "Номер элемента";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 13);
+            this.numberLayout.Control = this.number;
+            this.numberLayout.CustomizationFormText = "Номер элемента";
+            this.numberLayout.Location = new System.Drawing.Point(0, 0);
+            this.numberLayout.Name = "numberLayout";
+            this.numberLayout.Size = new System.Drawing.Size(121, 81);
+            this.numberLayout.Text = "Номер элемента";
+            this.numberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.numberLayout.TextSize = new System.Drawing.Size(81, 13);
             // 
             // auditResultsLayout
             // 
@@ -469,7 +467,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).EndInit();
             this.ResumeLayout(false);
 
@@ -503,7 +501,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn fieldGridColumn;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem numberLayout;
         private DevExpress.XtraGrid.Columns.GridColumn numberColumn;
         private DevExpress.XtraEditors.TextEdit number;
     }

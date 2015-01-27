@@ -13,7 +13,19 @@ namespace Prizm.Main.Languages
         private Type type;
         private string[] defaultValues;
 
-        private enum Type { Control, LayoutControlItem, GridColumn, LayoutControlGroup, ProgressPanel, CheckedComboBoxEdit, ComboBoxEdit, TextEditOneWayStatus };
+        private enum Type 
+        { 
+            Control, 
+            LayoutControlItem, 
+            GridColumn, 
+            LayoutControlGroup, 
+            ProgressPanel, 
+            CheckedComboBoxEdit,
+            ComboBoxEdit,
+            RadioGroup,
+            TextEditOneWayStatus, 
+            GridView
+        };
 
         public LocalizedItem(DevExpress.XtraLayout.LayoutControlItem item, string resourceId)
         {
@@ -87,17 +99,53 @@ namespace Prizm.Main.Languages
                 this.defaultValues[index] = combo.Properties.Items[index].ToString();
             }
         }
-
-        /// <summary>
-        /// list is required to be at least the same size as resourceIds
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="resourceIds"></param>
-        public LocalizedItem(DevExpress.XtraEditors.TextEdit edit, List<string> list, string[] resourceIds)
+        public LocalizedItem(DevExpress.XtraEditors.RadioGroup radio, string[] resourceIds)
         {
             this.resourceIds = new string[resourceIds.Length];
-            this.obj = (object)new Tuple<DevExpress.XtraEditors.TextEdit, List<string>>(edit, list);
+            this.obj = (object)radio;
+            this.type = Type.RadioGroup;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = radio.Properties.Items[index].ToString();
+            }
+        }
+
+        /// <summary>
+        /// Use this item to localize the output in text edit, where value is the one of enumberation members.
+        /// list is required to be at least the same size as resourceIds
+        /// </summary>
+        /// <param name="update">method which will update text edit from binding source</param>
+        /// <param name="list">list of translations</param>
+        /// <param name="resourceIds">list of resource ids</param>
+        public LocalizedItem(Action update, List<string> list, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)new Tuple<Action, List<string>>(update, list);
             this.type = Type.TextEditOneWayStatus;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+                this.defaultValues[index] = list[index];
+            }
+        }
+
+        /// <summary>
+        /// Use this item to localize the output in certain grid column, when enumeration members are displaying as cell values.
+        /// list is required to be at least the same size as resourceIds.
+        /// </summary>
+        /// <param name="grid">grid reference</param>
+        /// <param name="list">list of translations</param>
+        /// <param name="resourceIds">list of resource ids</param>
+        public LocalizedItem(DevExpress.XtraGrid.Views.Grid.GridView grid, List<string> list, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            this.obj = (object)new Tuple<DevExpress.XtraGrid.Views.Grid.GridView, List<string>>(grid, list);
+            this.type = Type.GridView;
             this.defaultValues = new string[resourceIds.Length];
 
             for (int index = 0; index < resourceIds.Length; index++)
@@ -172,11 +220,31 @@ namespace Prizm.Main.Languages
                             combo.SelectedIndex = selectedIndex; // restore selected index for combo
                             break;
 
-                        case Type.TextEditOneWayStatus:
-                            var list = ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item2;
-                            if (index < list.Count)
+                        case Type.RadioGroup:
+                            var radio = (DevExpress.XtraEditors.RadioGroup)obj;
+                            if (index < Count)
                             {
-                                list[index] = value;
+                                ((DevExpress.XtraEditors.RadioGroup)obj).Properties.Items[index].Description = value;
+                            }
+                            break;
+
+                        case Type.TextEditOneWayStatus:
+                            {
+                                var list = ((Tuple<Action, List<string>>)obj).Item2;
+                                if (index < list.Count)
+                                {
+                                    list[index] = value;
+                                }
+                            }
+                            break;
+
+                        case Type.GridView:
+                            {
+                                var list = ((Tuple<DevExpress.XtraGrid.Views.Grid.GridView, List<string>>)obj).Item2;
+                                if (index < list.Count)
+                                {
+                                    list[index] = value;
+                                }
                             }
                             break;
 
@@ -246,8 +314,14 @@ namespace Prizm.Main.Languages
                         }
                         combo.Refresh();
                     break;
+                case Type.RadioGroup:
+                    ((DevExpress.XtraEditors.RadioGroup)obj).Refresh();
+                    break;
                 case Type.TextEditOneWayStatus:
-                    ((Tuple<DevExpress.XtraEditors.TextEdit, List<string>>)obj).Item1.Refresh();
+                    ((Tuple<Action, List<string>>)obj).Item1.Invoke();
+                    break;
+                case Type.GridView:
+                    ((Tuple<DevExpress.XtraGrid.Views.Grid.GridView, List<string>>)obj).Item1.RefreshData();
                     break;
                 default:
                     break;

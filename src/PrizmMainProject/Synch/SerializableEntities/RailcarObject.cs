@@ -23,6 +23,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Certificate = railcar.Certificate;
          this.Destination = railcar.Destination;
          this.IsShipped = railcar.IsShipped;
+         this.ReleaseNote = railcar.ReleaseNote;
       }
 
       public static implicit operator RailcarObject(Railcar railcar)
@@ -50,6 +51,9 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("IsShipped")]
       public bool IsShipped { get; set; }
+
+      [XmlAttribute("ReleaseNote")]
+      public ReleaseNote ReleaseNote { get; set; }
 
    }
 }

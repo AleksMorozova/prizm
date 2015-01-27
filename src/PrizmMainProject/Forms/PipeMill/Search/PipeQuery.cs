@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             pipe.HeatNumber = (string)tuple[2];
             pipe.Mill = (string)tuple[3];
             pipe.ProductionDate = (DateTime)tuple[4];
-            pipe.PipeMillStatus = Resources.ResourceManager.GetString((string)tuple[5]);
+            pipe.PipeMillStatus = (string)tuple[5];
             pipe.IsActive = (bool)tuple[6];
             pipe.PurchaseOrderNumber = (string)tuple[7];
             pipe.Type = (string)tuple[8];
@@ -101,9 +101,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 sb.Append(" )");
             }
 
-            //return sb.ToString();
-            string ret = sb.ToString();
-            return ret;
+            return sb.ToString();
         }
     }
 }
