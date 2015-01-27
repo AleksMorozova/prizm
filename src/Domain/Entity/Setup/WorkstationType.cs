@@ -18,7 +18,6 @@ namespace Prizm.Domain.Entity.Setup
         Undefined = 0,
         Master = 1,
         Mill = 2,
-        Inspection = 3,
-        Construction = 4
+        Construction = 3
     }
 }

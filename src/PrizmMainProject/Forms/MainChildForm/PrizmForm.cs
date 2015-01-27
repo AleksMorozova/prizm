@@ -18,6 +18,20 @@ namespace Prizm.Main.Forms.MainChildForm
     {
         #region --- Localization ---
 
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        protected List<string> localizedHeader = new List<string>();
+
+        /// <summary>
+        /// override this method for special title updates
+        /// </summary>
+        public virtual void UpdateTitle()
+        {
+            if (localizedHeader != null && localizedHeader.Count > 0)
+            {
+                this.Text = localizedHeader[0];
+            }
+        }
+        
         private List<LocalizedItem> localizedItems = null;
 
         protected virtual List<LocalizedItem> CreateLocalizedItems() { return null; } // not abstract because of designer
