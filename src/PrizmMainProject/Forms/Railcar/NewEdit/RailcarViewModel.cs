@@ -344,9 +344,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             Number = string.Empty;
             Railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
-            //Destination = string.Empty;
-            //Certificate = string.Empty;
-            //Pipes = new List<Pipe>();
         }
 
         public void GetStoredPipes()
