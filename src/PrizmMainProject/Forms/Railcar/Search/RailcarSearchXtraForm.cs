@@ -90,7 +90,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
                 // layout control groups
                 new LocalizedItem(searchParametersLayoutGroup, "ReleaseSearch_SearchGroup"),
-                new LocalizedItem(resultParametersLayoutGroup, "ReleaseSearch_ResultGroup"),
+                new LocalizedItem(resultParametersLayoutGroup, "ReleaseSearch_ResultGroup")
 
                 // other
             };
