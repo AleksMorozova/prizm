@@ -107,7 +107,7 @@
             // searchButton
             // 
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(221, 62);
+            this.searchButton.Location = new System.Drawing.Point(218, 61);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 7);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(116, 22);
@@ -171,7 +171,7 @@
             // inspectionHistory
             // 
             this.inspectionHistory.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspectionHistory.Location = new System.Drawing.Point(382, 50);
+            this.inspectionHistory.Location = new System.Drawing.Point(372, 53);
             this.inspectionHistory.MainView = this.inspectionHistoryGridView;
             this.inspectionHistory.Name = "inspectionHistory";
             this.inspectionHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -179,7 +179,7 @@
             this.resultLookUpEdit,
             this.inspectorsPopupContainerEdit,
             this.reasonTextEdit});
-            this.inspectionHistory.Size = new System.Drawing.Size(528, 346);
+            this.inspectionHistory.Size = new System.Drawing.Size(535, 340);
             this.inspectionHistory.TabIndex = 5;
             this.inspectionHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
@@ -275,25 +275,25 @@
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(49, 246);
+            this.pipeLength.Location = new System.Drawing.Point(42, 234);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Properties.ReadOnly = true;
-            this.pipeLength.Size = new System.Drawing.Size(126, 20);
+            this.pipeLength.Size = new System.Drawing.Size(129, 20);
             this.pipeLength.StyleController = this.mainLayoutControl;
             this.pipeLength.TabIndex = 3;
             this.pipeLength.TextChanged += new System.EventHandler(this.pipeLength_TextChanged);
             // 
             // spoolNumber
             // 
-            this.spoolNumber.Location = new System.Drawing.Point(33, 162);
+            this.spoolNumber.Location = new System.Drawing.Point(29, 155);
             this.spoolNumber.Name = "spoolNumber";
-            this.spoolNumber.Size = new System.Drawing.Size(213, 20);
+            this.spoolNumber.Size = new System.Drawing.Size(225, 20);
             this.spoolNumber.StyleController = this.mainLayoutControl;
             this.spoolNumber.TabIndex = 2;
             // 
             // pipeNumber
             // 
-            this.pipeNumber.Location = new System.Drawing.Point(31, 64);
+            this.pipeNumber.Location = new System.Drawing.Point(29, 65);
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.pipeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -304,7 +304,7 @@
             this.pipeNumber.Properties.NullText = "";
             this.pipeNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.pipeNumber.Properties.ValueMember = "Number";
-            this.pipeNumber.Size = new System.Drawing.Size(172, 20);
+            this.pipeNumber.Size = new System.Drawing.Size(173, 20);
             this.pipeNumber.StyleController = this.mainLayoutControl;
             this.pipeNumber.TabIndex = 0;
             // 
@@ -315,13 +315,13 @@
             0,
             0,
             0});
-            this.spoolLength.Location = new System.Drawing.Point(196, 246);
+            this.spoolLength.Location = new System.Drawing.Point(192, 234);
             this.spoolLength.Name = "spoolLength";
             this.spoolLength.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spoolLength.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.spoolLength.Properties.Mask.EditMask = "d";
-            this.spoolLength.Size = new System.Drawing.Size(120, 20);
+            this.spoolLength.Size = new System.Drawing.Size(123, 20);
             this.spoolLength.StyleController = this.mainLayoutControl;
             this.spoolLength.TabIndex = 4;
             // 
@@ -356,17 +356,17 @@
             this.pipeSearchayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeSearchayoutGroup.Name = "pipeSearchayoutGroup";
             this.pipeSearchayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 9);
-            this.pipeSearchayoutGroup.Size = new System.Drawing.Size(339, 93);
-            this.pipeSearchayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 7);
+            this.pipeSearchayoutGroup.Size = new System.Drawing.Size(339, 90);
+            this.pipeSearchayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeSearchayoutGroup.Text = "Поиск трубы";
             // 
             // upperSearchEmptySpace
             // 
             this.upperSearchEmptySpace.AllowHotTrack = false;
             this.upperSearchEmptySpace.CustomizationFormText = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Location = new System.Drawing.Point(193, 0);
+            this.upperSearchEmptySpace.Location = new System.Drawing.Point(187, 0);
             this.upperSearchEmptySpace.Name = "upperSearchEmptySpace";
-            this.upperSearchEmptySpace.Size = new System.Drawing.Size(140, 14);
+            this.upperSearchEmptySpace.Size = new System.Drawing.Size(140, 10);
             this.upperSearchEmptySpace.Text = "upperSearchEmptySpace";
             this.upperSearchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -374,7 +374,7 @@
             // 
             this.searchLayoutControlItem.Control = this.searchButton;
             this.searchLayoutControlItem.CustomizationFormText = "searchLayoutControlItem";
-            this.searchLayoutControlItem.Location = new System.Drawing.Point(193, 14);
+            this.searchLayoutControlItem.Location = new System.Drawing.Point(187, 10);
             this.searchLayoutControlItem.Name = "searchLayoutControlItem";
             this.searchLayoutControlItem.Size = new System.Drawing.Size(140, 40);
             this.searchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 13, 7, 7);
@@ -388,8 +388,8 @@
             this.pipeNumberLabel.CustomizationFormText = "Номер трубы";
             this.pipeNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLabel.Name = "pipeNumberLabel";
-            this.pipeNumberLabel.Size = new System.Drawing.Size(193, 54);
-            this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 7, 7, 7);
+            this.pipeNumberLabel.Size = new System.Drawing.Size(187, 50);
+            this.pipeNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeNumberLabel.Text = "Ном&ер трубы";
             this.pipeNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLabel.TextSize = new System.Drawing.Size(78, 13);
@@ -402,7 +402,7 @@
             this.incomingInspectionLayoutGroup.Location = new System.Drawing.Point(339, 0);
             this.incomingInspectionLayoutGroup.Name = "incomingInspectionLayoutGroup";
             this.incomingInspectionLayoutGroup.Size = new System.Drawing.Size(569, 393);
-            this.incomingInspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 2, 2, 2);
+            this.incomingInspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.incomingInspectionLayoutGroup.Text = "Входно&й контроль";
             // 
             // inspectionHistoryLayout
@@ -411,7 +411,7 @@
             this.inspectionHistoryLayout.CustomizationFormText = "Входно&й контроль";
             this.inspectionHistoryLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionHistoryLayout.Name = "inspectionHistoryLayout";
-            this.inspectionHistoryLayout.Size = new System.Drawing.Size(532, 350);
+            this.inspectionHistoryLayout.Size = new System.Drawing.Size(539, 344);
             this.inspectionHistoryLayout.Text = "Входно&й контроль";
             this.inspectionHistoryLayout.TextSize = new System.Drawing.Size(0, 0);
             this.inspectionHistoryLayout.TextVisible = false;
@@ -424,11 +424,11 @@
             this.layoutlengthGroup,
             this.spoolNumberEmptySpace,
             this.spoolCreationEmptySpace});
-            this.spoolLayoutGroup.Location = new System.Drawing.Point(0, 93);
+            this.spoolLayoutGroup.Location = new System.Drawing.Point(0, 90);
             this.spoolLayoutGroup.Name = "spoolLayoutGroup";
             this.spoolLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 9, 0, 9);
-            this.spoolLayoutGroup.Size = new System.Drawing.Size(339, 300);
-            this.spoolLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 7, 2);
+            this.spoolLayoutGroup.Size = new System.Drawing.Size(339, 303);
+            this.spoolLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.spoolLayoutGroup.Text = "Создание катушки";
             // 
             // spoolNumberLabel
@@ -437,8 +437,8 @@
             this.spoolNumberLabel.CustomizationFormText = "Номер катушки";
             this.spoolNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.spoolNumberLabel.Name = "spoolNumberLabel";
-            this.spoolNumberLabel.Size = new System.Drawing.Size(244, 62);
-            this.spoolNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 15, 7, 15);
+            this.spoolNumberLabel.Size = new System.Drawing.Size(239, 50);
+            this.spoolNumberLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.spoolNumberLabel.Text = "Номер кат&ушки";
             this.spoolNumberLabel.TextLocation = DevExpress.Utils.Locations.Top;
             this.spoolNumberLabel.TextSize = new System.Drawing.Size(78, 13);
@@ -449,11 +449,11 @@
             this.layoutlengthGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipelengthLabel,
             this.spoonlengthLabel});
-            this.layoutlengthGroup.Location = new System.Drawing.Point(0, 62);
+            this.layoutlengthGroup.Location = new System.Drawing.Point(0, 50);
             this.layoutlengthGroup.Name = "layoutlengthGroup";
             this.layoutlengthGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutlengthGroup.Size = new System.Drawing.Size(324, 94);
-            this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 7, 0, 15);
+            this.layoutlengthGroup.Size = new System.Drawing.Size(318, 89);
+            this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutlengthGroup.Text = "Длина";
             // 
             // pipelengthLabel
@@ -462,7 +462,7 @@
             this.pipelengthLabel.CustomizationFormText = "Труба";
             this.pipelengthLabel.Location = new System.Drawing.Point(0, 0);
             this.pipelengthLabel.Name = "pipelengthLabel";
-            this.pipelengthLabel.Size = new System.Drawing.Size(147, 54);
+            this.pipelengthLabel.Size = new System.Drawing.Size(150, 54);
             this.pipelengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 7, 7, 7);
             this.pipelengthLabel.Text = "&Труба";
             this.pipelengthLabel.TextLocation = DevExpress.Utils.Locations.Top;
@@ -472,11 +472,11 @@
             // 
             this.spoonlengthLabel.Control = this.spoolLength;
             this.spoonlengthLabel.CustomizationFormText = "Катушка";
-            this.spoonlengthLabel.Location = new System.Drawing.Point(147, 0);
+            this.spoonlengthLabel.Location = new System.Drawing.Point(150, 0);
             this.spoonlengthLabel.MinSize = new System.Drawing.Size(50, 25);
             this.spoonlengthLabel.Name = "spoonlengthLabel";
             this.spoonlengthLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 0);
-            this.spoonlengthLabel.Size = new System.Drawing.Size(149, 54);
+            this.spoonlengthLabel.Size = new System.Drawing.Size(152, 54);
             this.spoonlengthLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.spoonlengthLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 15, 7, 15);
             this.spoonlengthLabel.Text = "Кату&шка";
@@ -487,9 +487,9 @@
             // 
             this.spoolNumberEmptySpace.AllowHotTrack = false;
             this.spoolNumberEmptySpace.CustomizationFormText = "spoolNumberEmptySpace";
-            this.spoolNumberEmptySpace.Location = new System.Drawing.Point(244, 0);
+            this.spoolNumberEmptySpace.Location = new System.Drawing.Point(239, 0);
             this.spoolNumberEmptySpace.Name = "spoolNumberEmptySpace";
-            this.spoolNumberEmptySpace.Size = new System.Drawing.Size(80, 62);
+            this.spoolNumberEmptySpace.Size = new System.Drawing.Size(79, 50);
             this.spoolNumberEmptySpace.Text = "spoolNumberEmptySpace";
             this.spoolNumberEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -497,9 +497,9 @@
             // 
             this.spoolCreationEmptySpace.AllowHotTrack = false;
             this.spoolCreationEmptySpace.CustomizationFormText = "spoolCreationEmptySpace";
-            this.spoolCreationEmptySpace.Location = new System.Drawing.Point(0, 156);
+            this.spoolCreationEmptySpace.Location = new System.Drawing.Point(0, 139);
             this.spoolCreationEmptySpace.Name = "spoolCreationEmptySpace";
-            this.spoolCreationEmptySpace.Size = new System.Drawing.Size(324, 105);
+            this.spoolCreationEmptySpace.Size = new System.Drawing.Size(318, 124);
             this.spoolCreationEmptySpace.Text = "spoolCreationEmptySpace";
             this.spoolCreationEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
