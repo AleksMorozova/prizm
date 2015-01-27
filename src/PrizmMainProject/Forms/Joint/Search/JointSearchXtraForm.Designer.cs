@@ -133,7 +133,6 @@
             this.activity.Size = new System.Drawing.Size(174, 20);
             this.activity.StyleController = this.searchLayoutControl;
             this.activity.TabIndex = 66;
-            this.activity.SelectedIndexChanged += new System.EventHandler(this.activity_SelectedIndexChanged);
             // 
             // gridControlSerchResult
             // 
