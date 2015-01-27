@@ -144,18 +144,26 @@ namespace Prizm.Main.Forms.Spool
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(pipeNumberLabel, "Spoon_PipeNumberLabel"),
+                new LocalizedItem(spoolNumberLabel, "Spoon_SpoonNumberLabel"),
+                new LocalizedItem(pipeNumberLabel, "Spoon_PipeNumberLabel"),
+                new LocalizedItem(pipelengthLabel, "Spoon_PipeLengthLabel"),
+                new LocalizedItem(spoonlengthLabel, "Spoon_SpoonLengthLabel"),
+                
+                new LocalizedItem(pipeSearchayoutGroup, "Spoon_PipeSearchGroup"),
+                new LocalizedItem(spoolLayoutGroup, "Spoon_SpoonGroup"),
+                new LocalizedItem(layoutlengthGroup, "Spoon_LenghtGroup"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(inspectionDateGridColumn, "Spoon_InspectionDateColumn"),
+                new LocalizedItem(inspectionResultGridColumn, "Spoon_InspectionResultColumn"),
+                new LocalizedItem(inspectorsGridColumn, "Spoon_InspectionInspectorsColumn"),
+                new LocalizedItem(reasonGridColumn, "Spoon_InspectionReasonColumn"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(searchButton, "Spoon_SearchButton"),
+                new LocalizedItem(attachmentsButton, "Spoon_AttachButton"),
+                new LocalizedItem(saveButton, "Spoon_SaveButton"),
 
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(deactivated, "Spoon_DeactivatedCheckBox")
             };
         }
 
