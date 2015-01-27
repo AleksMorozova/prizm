@@ -53,7 +53,16 @@ namespace Prizm.Main.Forms.Joint
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(firstJoinedPartGroup, "JointCutDialog_FirstJoinedPartGroup"),
+                new LocalizedItem(firstJoinedPartNumberLayout, "JointCutDialog_FirstJoinedPartNumberLayout"),
+                new LocalizedItem(firstJoinedPartLengthLayout, "JointCutDialog_FirstJoinedPartLengthLayout"),
+
+                new LocalizedItem(secondJoinedPartGroup, "JointCutDialog_SecondJoinedPartGroup"),
+                new LocalizedItem(secondJoinedPartNumberLayout, "JointCutDialog_SecondJoinedPartNumberLayout"),
+                new LocalizedItem(secondJoinedPartLengthLayout, "JointCutDialog_SecondJoinedPartLengthLayout"),
+
+                new LocalizedItem(cutJointButton, "JointCutDialog_CutJointButton"),
+                new LocalizedItem(cancelButton, "JointCutDialog_CancelButton"),
             };
         }
 

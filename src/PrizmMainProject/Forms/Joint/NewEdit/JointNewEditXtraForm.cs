@@ -203,19 +203,42 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(jointNumberLayout, "JointNew_JointNumberLayout"),
+                new LocalizedItem(jointStatusLayout, "JointNew_JointStatusLayout"),
+                new LocalizedItem(firstJointElementLayout, "JointNew_FirstJointElementLayout"),
+                new LocalizedItem(secondJointElementLayout, "JointNew_SecondJointElementLayout"),
+                new LocalizedItem(jointParametersLayoutGroup, "JointNew_JointParametersLayoutGroup"),
+                
+                new LocalizedItem(loweringLayoutGroup, "JointNew_LoweringLayoutGroup"),
+                new LocalizedItem(loweringDateLayout, "JointNew_LoweringDateLayout"),
+                new LocalizedItem(PKLabelLayout, "JointNew_PKLabelLayout"),
+                new LocalizedItem(PKNumberLayout, "JointNew_PKNumberLayout"),
+                new LocalizedItem(distanceFromPKLayout, "JointNew_DistanceFromPKLayout"),
+                new LocalizedItem(GPSLabelLayout, "JointNew_GPSLabelLayout"),
+                new LocalizedItem(GPSLatLayout, "JointNew_GPSLatLayout"),
+                new LocalizedItem(GPSLongLayout, "JointNew_GPSLongLayout"),
+                new LocalizedItem(elevationLayout, "JointNew_ElevationLayout"),      
+         
+                new LocalizedItem(inspectionLayoutGroup, "JointNew_InspectionLayoutGroup"),
+                new LocalizedItem(repairOperationLayout, "JointNew_RepairOperationLayout"),    
+                new LocalizedItem(controlOperationsLayout, "JointNew_ControlOperationsLayout"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(saveButton, "JointNew_SaveButton"),    
+                new LocalizedItem(saveAndCreateButton, "JointNew_SaveAndCreateButton"), 
+                new LocalizedItem(extraFiles, "JointNew_ExtraFiles"),
+                new LocalizedItem(deactivated, "JointNew_Deactivated"),
+                
+                new LocalizedItem(repairTypeGridColumn, "JointNew_RepairTypeGridColumn"),
+                new LocalizedItem(repairDateGridColumn, "JointNew_RepairDateGridColumn"),
+                new LocalizedItem(completedGridColumn, "JointNew_CompletedGridColumn"),
+                new LocalizedItem(weldersGridColumn, "JointNew_WeldersGridColumn"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(controlTypeGridColumn, "JointNew_ControlTypeGridColumn"),
+                new LocalizedItem(resultGridColumn, "JointNew_ResultGridColumn"),
+                new LocalizedItem(controlDateGridColumn, "JointNew_ControlDateGridColumn"),
+                new LocalizedItem(inspectorsGridColumn, "JointNew_InspectorsGridColumn"),
+                new LocalizedItem(valueGridColumn, "JointNew_ValueGridColumn"),
 
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
             };
         }
 

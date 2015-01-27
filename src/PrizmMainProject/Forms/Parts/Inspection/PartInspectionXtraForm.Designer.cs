@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartInspectionXtraForm));
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
@@ -58,8 +57,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -289,7 +288,6 @@
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.searchButtonLayout.TextToControlDistance = 0;
             this.searchButtonLayout.TextVisible = false;
             // 
             // searchNumberLayout
@@ -371,7 +369,6 @@
             this.inspectionsLayout.Text = "inspectionsLayout";
             this.inspectionsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionsLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.inspectionsLayout.TextToControlDistance = 0;
             this.inspectionsLayout.TextVisible = false;
             // 
             // elementEmptySpaceItem
@@ -394,7 +391,6 @@
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayout.TextToControlDistance = 0;
             this.saveButtonLayout.TextVisible = false;
             // 
             // saveAndClearLayout
@@ -407,7 +403,6 @@
             this.saveAndClearLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
             this.saveAndClearLayout.Text = "saveAndClearLayout";
             this.saveAndClearLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.saveAndClearLayout.TextToControlDistance = 0;
             this.saveAndClearLayout.TextVisible = false;
             // 
             // buttonsEmptySpaceItem

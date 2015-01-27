@@ -68,6 +68,16 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             return new List<LocalizedItem>()
             {
+                new LocalizedItem(reportTypeLayout, "ConstructionReports_ReportTypeLayout"),
+                new LocalizedItem(typeLayout, "ConstructionReports_TypeLayout"),
+                new LocalizedItem(startJointLayout, "ConstructionReports_StartJointLayout"),
+                new LocalizedItem(startKPComboBoxLayoutControl, "ConstructionReports_StartKPComboBoxLayoutControl"),
+                new LocalizedItem(endJointLayout, "ConstructionReports_EndJointLayout"),
+                new LocalizedItem(endKPLayout, "ConstructionReports_EndKPLayout"),
+                new LocalizedItem(previewButton, "ConstructionReports_PreviewButton"),
+                new LocalizedItem(createReportButton, "ConstructionReports_CreateReportButton"),
+                new LocalizedItem(createReportaLyoutGroup, "ConstructionReports_CreateReportaLyoutGroup"),
+                new LocalizedItem(previewLayoutGroup, "ConstructionReports_PreviewLayoutGroup"),
                 // radio groups
                 new LocalizedItem(tracingModeRadioGroup, 
                     new string[]{ "ConstructionReport_RadioJoints", "ConstructionReport_RadioKP" }),

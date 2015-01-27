@@ -70,19 +70,12 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(weldDateFromLayout, "WeldDateReport_WeldDateFromLayout"),
+                new LocalizedItem(weldDateToLayout, "WeldDateReport_WeldDateToLayout"),
+                new LocalizedItem(previewButton, "WeldDateReport_PreviewButton"),
+                new LocalizedItem(createReportButton, "WeldDateReport_CreateReportButton"),
+                new LocalizedItem(weldReportParameterGroup, "WeldDateReport_WeldReportParameterGroup"),
+                new LocalizedItem(jointReportViewerGroup, "WeldDateReport_JointReportViewerGroup"),
             };
         }
 

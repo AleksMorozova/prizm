@@ -20,6 +20,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
         private readonly IRailcarRepositories repos;
         private readonly IUserNotify notify;
         private readonly SaveRailcarCommand saveCommand;
@@ -30,7 +31,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         IModifiable modifiableView;
         public IValidatable validatableView { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
-
+        public Dictionary<Pipe, Prizm.Domain.Entity.Mill.Railcar> pipesList =
+           new Dictionary<Pipe, Prizm.Domain.Entity.Mill.Railcar>();
+        public Pipe pipeToAdd;
         public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
@@ -52,8 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             else
             {
-                Railcar = repos.RailcarRepo.Get(id);
-                
+                ReleaseNote = repos.ReleaseNoteRepo.Get(id);
             }
             
         }
@@ -65,76 +67,193 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             get { return allPipes; }
         }
 
-        public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
+        //public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
+        public ReleaseNote ReleaseNote { get; set; }
 
-      
-        public string Number
+        #region Release Note
+
+        public bool Shipped
         {
-            get { return Railcar.Number; }
+            get { return ReleaseNote.Shipped; }
             set
             {
-                if (value != Railcar.Number)
+                if (value != ReleaseNote.Shipped)
                 {
-                    Railcar.Number = value;
-                    RaisePropertyChanged("Number");
-                }
-            }
-        }
-
-        public string Destination
-        {
-            get { return Railcar.Destination; }
-            set
-            {
-                if (value != Railcar.Destination)
-                {
-                    Railcar.Destination = value;
-                    RaisePropertyChanged("Destination");
-                }
-            }
-        }
-
-        public string Certificate
-        {
-            get { return Railcar.Certificate; }
-            set
-            {
-                if (value != Railcar.Certificate)
-                {
-                    Railcar.Certificate = value;
-                    RaisePropertyChanged("Certificate");
-                }
-            }
-        }
-
-      
-
-        public bool IsShipped
-        {
-            get { return Railcar.IsShipped; }
-            set
-            {
-                if (value != Railcar.IsShipped)
-                {
-                    Railcar.IsShipped = value;
-                    RaisePropertyChanged("IsShipped");
+                    ReleaseNote.Shipped = value;
+                    RaisePropertyChanged("Shipped");
                     modifiableView.IsEditMode = !value;
                 }
             }
         }
 
+        public string Number
+        {
+            get { return ReleaseNote.Number; }
+            set
+            {
+                if (value != ReleaseNote.Number)
+                {
+                    ReleaseNote.Number = value;
+                    RaisePropertyChanged("Number");
+                }
+            }
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                if (ReleaseNote.Date.HasValue)
+                {
+                    return ReleaseNote.Date.Value;
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+
+            }
+            set
+            {
+                if (value != ReleaseNote.Date)
+                {
+                    ReleaseNote.Date = value;
+                    RaisePropertyChanged("Date");
+                }
+            }
+        }
+
+        public IList<Prizm.Domain.Entity.Mill.Railcar> Railcars
+        {
+            get { return ReleaseNote.Railcars; }
+            set
+            {
+                if (value != ReleaseNote.Railcars)
+                {
+                    int index = ReleaseNote.Railcars.IndexOf(railcar);
+                    if (index > 0)
+                    {
+                        ReleaseNote.Railcars[index] = railcar;
+                    }
+                    else
+                    {
+                        ReleaseNote.Railcars.Add(railcar);
+                    }
+
+                    ReleaseNote.Railcars = value;
+                    RaisePropertyChanged("Railcars");
+                }
+            }
+        }
+
+        # endregion
+
+        #region Railcar Note
+
+        public Prizm.Domain.Entity.Mill.Railcar Railcar
+        {
+            get { return railcar; }
+            set
+            {
+                if (value != railcar)
+                {
+                    railcar = value;
+                    RaisePropertyChanged("Railcar");
+                    RaisePropertyChanged("Certificate");
+                    RaisePropertyChanged("Destination");
+                }
+            }
+        }
+        public string RailcarNumber
+        {
+            get
+            {
+                if (railcar != null)
+                {
+                    return railcar.Number;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            set
+            {
+                if (value != railcar.Number)
+                {
+                    railcar.Number = value;
+                    RaisePropertyChanged("RailcarNumber");
+                }
+            }
+        }
+        public string Destination
+        {
+            get
+            {
+                if (railcar != null)
+                {
+                    return railcar.Destination;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            set
+            {
+                if (value != railcar.Destination)
+                {
+                    railcar.Destination = value;
+                    RaisePropertyChanged("Destination");
+                }
+            }
+        }
+        public string Certificate
+        {
+            get
+            {
+                if (railcar != null)
+                {
+                    return railcar.Certificate;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            set
+            {
+                if (value != railcar.Certificate)
+                {
+                    railcar.Certificate = value;
+                    RaisePropertyChanged("Certificate");
+                }
+            }
+        }
         public IList<Pipe> Pipes
         {
-            get { return Railcar.Pipes; }
-            set 
+            get
             {
-                if (value != Railcar.Pipes)
+                if (railcar != null)
                 {
-                    Railcar.Pipes = value;
+                    return railcar.Pipes;
+                }
+                else
+                {
+                    return new List<Pipe>();
+                }
+            }
+            set
+            {
+                if (value != railcar.Pipes)
+                {
+                    railcar.Pipes = value;
                     RaisePropertyChanged("Pipes");
                 }
             }
         }
+
+        # endregion Railcar Note
 
         #region Commands
         public ICommand SaveCommand
@@ -174,7 +293,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 	        }
             GetStoredPipes();
 
-            var pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
+            pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
 
             if (!(pipeToAdd.Railcar == null))
             {
@@ -218,16 +337,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         public void NewRailcar()
         {
-            if (Railcar == null)
+            if (ReleaseNote == null)
             {
-                Railcar = new Prizm.Domain.Entity.Mill.Railcar {IsShipped = false, IsActive = true};
+                ReleaseNote = new ReleaseNote { Shipped = false, IsActive = true };
             }
 
             Number = string.Empty;
-            Destination = string.Empty;
-            Certificate = string.Empty;
-
-            Pipes = new List<Pipe>();
+            Railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
         }
 
         public void GetStoredPipes()

@@ -677,6 +677,7 @@
     <Compile Include="Synch\SerializableEntities\ProjectObject.cs" />
     <Compile Include="Synch\SerializableEntities\PurchaseOrderObject.cs" />
     <Compile Include="Synch\SerializableEntities\RailcarObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ReleaseNoteObject.cs" />
     <Compile Include="Synch\SerializableEntities\RoleObject.cs" />
     <Compile Include="Synch\SerializableEntities\SeamTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\SizeTypeObject.cs" />

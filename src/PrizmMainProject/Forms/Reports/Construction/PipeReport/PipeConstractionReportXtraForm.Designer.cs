@@ -153,6 +153,7 @@
             this.pipeReportViewer.Location = new System.Drawing.Point(24, 131);
             this.pipeReportViewer.Name = "pipeReportViewer";
             this.pipeReportViewer.Size = new System.Drawing.Size(876, 256);
+            this.pipeReportViewer.Status = " ";
             this.pipeReportViewer.TabIndex = 4;
             // 
             // Root
