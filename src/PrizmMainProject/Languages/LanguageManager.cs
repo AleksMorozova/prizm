@@ -50,6 +50,11 @@ namespace Prizm.Main.Languages
         private const string defaultCulture = "ru-RU";
         private CultureInfo defaultCultureInfo = new CultureInfo(defaultCulture);
 
+        public LanguageManager()
+        {
+            FindAvailableTranslations();
+        }
+
         /// <summary>
         /// Is supposed to be called once, finding all available external files with translation resources
         /// </summary>
@@ -179,7 +184,8 @@ namespace Prizm.Main.Languages
                 {
                     ret = false;
 #if DEBUG
-                    throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
+                    //it will not work for forms text
+                    //throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
 #endif
                 }
             }

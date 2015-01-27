@@ -136,7 +136,7 @@
             this.previewReportDocument.Location = new System.Drawing.Point(29, 140);
             this.previewReportDocument.Name = "previewReportDocument";
             this.previewReportDocument.Size = new System.Drawing.Size(882, 281);
-            this.previewReportDocument.Status = "Документ не содержит каких-либо страниц.";
+            this.previewReportDocument.Status = " ";
             this.previewReportDocument.TabIndex = 50;
             // 
             // startDate
@@ -203,7 +203,6 @@
             this.incomingInspectionDateLayout.Size = new System.Drawing.Size(136, 17);
             this.incomingInspectionDateLayout.Text = "incomingInspectionDateLayout";
             this.incomingInspectionDateLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.incomingInspectionDateLayout.TextToControlDistance = 0;
             this.incomingInspectionDateLayout.TextVisible = false;
             // 
             // endDateLayout
@@ -228,7 +227,6 @@
             this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 15, 0);
             this.createButtonLayout.Text = "createButtonLayout";
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.createButtonLayout.TextToControlDistance = 0;
             this.createButtonLayout.TextVisible = false;
             // 
             // labelEmptySpaceItem
@@ -253,7 +251,6 @@
             this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 15, 0);
             this.previewButtonLayout.Text = "previewButtonLayout";
             this.previewButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewButtonLayout.TextToControlDistance = 0;
             this.previewButtonLayout.TextVisible = false;
             // 
             // DateEmptySpace
@@ -287,7 +284,6 @@
             this.previewLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.previewLayout.Text = "previewLayout";
             this.previewLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.previewLayout.TextToControlDistance = 0;
             this.previewLayout.TextVisible = false;
             // 
             // InspectionReportsXtraForm

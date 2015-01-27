@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 localizedItems = new List<LocalizedItem>()
                 {
-                    //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                    new LocalizedItem(labelMessage, "InitialSplashScreen_Label"),
                 };
             }
             return localizedItems.GetEnumerator();
@@ -51,6 +51,14 @@ namespace Prizm.Main.Forms.MainChildForm
             return this.GetEnumerator();
         }
 
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            if (!DesignMode)
+            {
+                Program.LanguageManager.ChangeLanguage(this);
+            }
+        }
         #endregion // --- Localization ---
     
     }

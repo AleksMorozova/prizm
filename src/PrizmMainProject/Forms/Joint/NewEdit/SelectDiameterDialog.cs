@@ -40,7 +40,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(diametersIntersectionLayout, "SelectDiameterDialog_DiametersIntersectionLayout"),
+                new LocalizedItem(saveChosenDiameter, "SelectDiameterDialog_SaveChosenDiameter"),
             };
         }
 
