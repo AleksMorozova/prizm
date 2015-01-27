@@ -15,11 +15,11 @@ using Prizm.Main.Languages;
 namespace Prizm.Main.Forms.Parts.Inspection
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class NumbersDialog : PrizmForm
+    public partial class InspectionSelectPartDialog : PrizmForm
     {
         BindingList<Part> parts;
         PartInspectionViewModel viewModel;
-        public NumbersDialog(BindingList<Part> parts, PartInspectionViewModel viewModel)
+        public InspectionSelectPartDialog(BindingList<Part> parts, PartInspectionViewModel viewModel)
         {
             this.parts = parts;
             this.viewModel = viewModel;
@@ -37,7 +37,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(searchResultsLayout, "InspectionSelectPartDialog_SearchResultsLabel"),
+                new LocalizedItem(cancelButton, "InspectionSelectPartDialog_CancelButton"),
+                new LocalizedItem(acceptButton, "InspectionSelectPartDialog_InspectionButton"),
+                // grid column headers
+                new LocalizedItem(numberCol, "InspectionSelectPartDialog_NumberColumnHeader"),
+                new LocalizedItem(typeCol, "InspectionSelectPartDialog_TypeColumnHeader"),
             };
         }
 

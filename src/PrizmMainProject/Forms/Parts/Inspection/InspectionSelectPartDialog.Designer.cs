@@ -1,6 +1,6 @@
 ﻿namespace Prizm.Main.Forms.Parts.Inspection
 {
-    partial class NumbersDialog
+    partial class InspectionSelectPartDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -161,7 +161,6 @@
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 15, 0);
             this.cancelButtonLayout.Text = "cancelButtonLayout";
             this.cancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.cancelButtonLayout.TextToControlDistance = 0;
             this.cancelButtonLayout.TextVisible = false;
             // 
             // acceptButtonLayout
@@ -174,10 +173,9 @@
             this.acceptButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
             this.acceptButtonLayout.Text = "acceptButtonLayout";
             this.acceptButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.acceptButtonLayout.TextToControlDistance = 0;
             this.acceptButtonLayout.TextVisible = false;
             // 
-            // NumbersDialog
+            // InspectionSelectPartDialog
             // 
             this.AcceptButton = this.acceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +183,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(417, 261);
             this.Controls.Add(this.dialogLayout);
-            this.Name = "NumbersDialog";
+            this.Name = "InspectionSelectPartDialog";
             this.Text = "Выбор элемента";
             this.Load += new System.EventHandler(this.NumbersDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dialogLayout)).EndInit();

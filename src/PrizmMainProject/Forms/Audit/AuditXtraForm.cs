@@ -79,7 +79,8 @@ namespace Prizm.Main.Forms.Audit
                     // layout control groups
                     new LocalizedItem(searchParametersLayoutGroup, "Audit_SearchParametersGroup"),
 
-                    // other
+                    // radiogroup
+                    new LocalizedItem(radioPeriodUser, new string [] {"Audit_RadioPeriod", "Audit_RadioUser"}),
                 };
         }
 
