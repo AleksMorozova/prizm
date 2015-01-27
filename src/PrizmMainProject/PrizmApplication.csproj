@@ -310,11 +310,11 @@
     <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.Designer.cs">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.Designer.cs">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Parts\Inspection\NumbersDialog.cs">
       <SubType>Form</SubType>
@@ -725,8 +725,8 @@
     <EmbeddedResource Include="Forms\Notifications\NotificationXtraForm.resx">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Parts\Inspection\CreationDialog.resx">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.resx">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\NumbersDialog.resx">
       <DependentUpon>NumbersDialog.cs</DependentUpon>

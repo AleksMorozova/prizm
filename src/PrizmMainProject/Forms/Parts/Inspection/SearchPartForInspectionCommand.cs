@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
             else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry))
             {
-                CreationDialog dialog = new CreationDialog(viewModel.SearchNumber);
+                CreateSpoolComponentDialog dialog = new CreateSpoolComponentDialog(viewModel.SearchNumber);
                 dialog.ShowDialog();
                 var parent = viewModel.CurrentForm.MdiParent as PrizmApplicationXtraForm;
                 if (parent != null && dialog.DialogResult == DialogResult.Yes)

@@ -74,7 +74,7 @@ namespace Prizm.UnitTests
         [TestCase(typeof(JointCutDialog), typeof(PrizmForm))]
         [TestCase(typeof(SelectDiameterDialog), typeof(PrizmForm))]
         [TestCase(typeof(FirstSetupXtraForm), typeof(PrizmForm))]
-        [TestCase(typeof(CreationDialog), typeof(PrizmForm))]
+        [TestCase(typeof(CreateSpoolComponentDialog), typeof(PrizmForm))]
         [TestCase(typeof(NumbersDialog), typeof(PrizmForm))]
         [TestCase(typeof(PurchaseOrderXtraForm), typeof(PrizmForm))]
         [TestCase(typeof(PasswordChangeDialog), typeof(PrizmForm))]
