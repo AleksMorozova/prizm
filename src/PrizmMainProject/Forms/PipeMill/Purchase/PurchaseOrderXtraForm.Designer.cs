@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrderXtraForm));
             this.purchaseOrderLayout = new DevExpress.XtraLayout.LayoutControl();
             this.date = new DevExpress.XtraEditors.DateEdit();
@@ -42,7 +41,7 @@
             this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.canselLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).BeginInit();
             this.purchaseOrderLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).BeginInit();
@@ -69,35 +68,35 @@
             this.purchaseOrderLayout.Name = "purchaseOrderLayout";
             this.purchaseOrderLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(694, 114, 250, 350);
             this.purchaseOrderLayout.Root = this.purchaseOrderLayoutGroup;
-            this.purchaseOrderLayout.Size = new System.Drawing.Size(389, 129);
+            this.purchaseOrderLayout.Size = new System.Drawing.Size(389, 116);
             this.purchaseOrderLayout.TabIndex = 0;
             this.purchaseOrderLayout.Text = "layoutControl1";
             // 
             // date
             // 
             this.date.EditValue = null;
-            this.date.Location = new System.Drawing.Point(278, 35);
+            this.date.Location = new System.Drawing.Point(276, 33);
             this.date.Name = "date";
             this.date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date.Size = new System.Drawing.Size(92, 20);
+            this.date.Size = new System.Drawing.Size(96, 20);
             this.date.StyleController = this.purchaseOrderLayout;
             this.date.TabIndex = 5;
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(19, 35);
+            this.number.Location = new System.Drawing.Point(17, 33);
             this.number.Name = "number";
-            this.number.Size = new System.Drawing.Size(241, 20);
+            this.number.Size = new System.Drawing.Size(245, 20);
             this.number.StyleController = this.purchaseOrderLayout;
             this.number.TabIndex = 4;
             // 
             // saveButton
             // 
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(171, 66);
+            this.saveButton.Location = new System.Drawing.Point(171, 81);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(89, 23);
             this.saveButton.StyleController = this.purchaseOrderLayout;
@@ -108,7 +107,7 @@
             // cancelButton
             // 
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(278, 66);
+            this.cancelButton.Location = new System.Drawing.Point(278, 81);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(92, 23);
             this.cancelButton.StyleController = this.purchaseOrderLayout;
@@ -125,12 +124,12 @@
             this.purchaseOrderNumberLayout,
             this.purchaseOrderDateLayout,
             this.saveButtonEmptySpace,
-            this.generalEmptySpace,
             this.saveButtonLayoutControl,
-            this.canselLayoutControl});
+            this.canselLayoutControl,
+            this.generalEmptySpace});
             this.purchaseOrderLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.purchaseOrderLayoutGroup.Name = "purchaseOrderLayoutGroup";
-            this.purchaseOrderLayoutGroup.Size = new System.Drawing.Size(389, 129);
+            this.purchaseOrderLayoutGroup.Size = new System.Drawing.Size(389, 116);
             this.purchaseOrderLayoutGroup.Text = "purchaseOrderLayoutGroup";
             this.purchaseOrderLayoutGroup.TextVisible = false;
             // 
@@ -140,8 +139,8 @@
             this.purchaseOrderNumberLayout.CustomizationFormText = "Номер Наряд заказа";
             this.purchaseOrderNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.purchaseOrderNumberLayout.Name = "purchaseOrderNumberLayout";
-            this.purchaseOrderNumberLayout.Size = new System.Drawing.Size(259, 54);
-            this.purchaseOrderNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
+            this.purchaseOrderNumberLayout.Size = new System.Drawing.Size(259, 50);
+            this.purchaseOrderNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.purchaseOrderNumberLayout.Text = "Ном&ер";
             this.purchaseOrderNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.purchaseOrderNumberLayout.TextSize = new System.Drawing.Size(31, 13);
@@ -152,8 +151,8 @@
             this.purchaseOrderDateLayout.CustomizationFormText = "Дата наряд-заказа";
             this.purchaseOrderDateLayout.Location = new System.Drawing.Point(259, 0);
             this.purchaseOrderDateLayout.Name = "purchaseOrderDateLayout";
-            this.purchaseOrderDateLayout.Size = new System.Drawing.Size(110, 54);
-            this.purchaseOrderDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
+            this.purchaseOrderDateLayout.Size = new System.Drawing.Size(110, 50);
+            this.purchaseOrderDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.purchaseOrderDateLayout.Text = "&Дата";
             this.purchaseOrderDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.purchaseOrderDateLayout.TextSize = new System.Drawing.Size(31, 13);
@@ -162,7 +161,7 @@
             // 
             this.saveButtonEmptySpace.AllowHotTrack = false;
             this.saveButtonEmptySpace.CustomizationFormText = "saveButtonEmptySpace";
-            this.saveButtonEmptySpace.Location = new System.Drawing.Point(0, 54);
+            this.saveButtonEmptySpace.Location = new System.Drawing.Point(0, 69);
             this.saveButtonEmptySpace.Name = "saveButtonEmptySpace";
             this.saveButtonEmptySpace.Size = new System.Drawing.Size(159, 27);
             this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
@@ -172,9 +171,9 @@
             // 
             this.generalEmptySpace.AllowHotTrack = false;
             this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
-            this.generalEmptySpace.Location = new System.Drawing.Point(0, 81);
+            this.generalEmptySpace.Location = new System.Drawing.Point(0, 50);
             this.generalEmptySpace.Name = "generalEmptySpace";
-            this.generalEmptySpace.Size = new System.Drawing.Size(369, 28);
+            this.generalEmptySpace.Size = new System.Drawing.Size(369, 19);
             this.generalEmptySpace.Text = "generalEmptySpace";
             this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -182,7 +181,7 @@
             // 
             this.saveButtonLayoutControl.Control = this.saveButton;
             this.saveButtonLayoutControl.CustomizationFormText = "saveButtonLayoutControl";
-            this.saveButtonLayoutControl.Location = new System.Drawing.Point(159, 54);
+            this.saveButtonLayoutControl.Location = new System.Drawing.Point(159, 69);
             this.saveButtonLayoutControl.MaxSize = new System.Drawing.Size(154, 31);
             this.saveButtonLayoutControl.MinSize = new System.Drawing.Size(70, 27);
             this.saveButtonLayoutControl.Name = "saveButtonLayoutControl";
@@ -191,14 +190,13 @@
             this.saveButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 0, 0);
             this.saveButtonLayoutControl.Text = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.saveButtonLayoutControl.TextToControlDistance = 0;
             this.saveButtonLayoutControl.TextVisible = false;
             // 
             // canselLayoutControl
             // 
             this.canselLayoutControl.Control = this.cancelButton;
             this.canselLayoutControl.CustomizationFormText = "canselLayoutControl";
-            this.canselLayoutControl.Location = new System.Drawing.Point(259, 54);
+            this.canselLayoutControl.Location = new System.Drawing.Point(259, 69);
             this.canselLayoutControl.MaxSize = new System.Drawing.Size(154, 31);
             this.canselLayoutControl.MinSize = new System.Drawing.Size(70, 27);
             this.canselLayoutControl.Name = "canselLayoutControl";
@@ -207,14 +205,13 @@
             this.canselLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.canselLayoutControl.Text = "canselLayoutControl";
             this.canselLayoutControl.TextSize = new System.Drawing.Size(0, 0);
-            this.canselLayoutControl.TextToControlDistance = 0;
             this.canselLayoutControl.TextVisible = false;
             // 
             // PurchaseOrderXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 129);
+            this.ClientSize = new System.Drawing.Size(389, 116);
             this.Controls.Add(this.purchaseOrderLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseOrderXtraForm";

@@ -76,18 +76,24 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(releasedNoteNumberLayout, "RailcarNewEdit_ReleaseNumberLabel"),
+                new LocalizedItem(releasedNoteDateLayout, "RailcarNewEdit_ReleaseDateLabel"),
+                new LocalizedItem(railcarNumberLayout, "RailcarNewEdit_RailcarNumberLabel"),
+                new LocalizedItem(certificateNumberLayout, "RailcarNewEdit_CertificateLabel"),
+                new LocalizedItem(layoutControlDestination, "RailcarNewEdit_DestinationLabel"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                //buttons
+                new LocalizedItem(addPipeButton, "RailcarNewEdit_AddPipeButton"),
+                new LocalizedItem(removePipe, "RailcarNewEdit_RemovePipeButton"),
+                new LocalizedItem(attachmentsButton, "RailcarNewEdit_AttachmentsButton"),
+                new LocalizedItem(shipButton, "RailcarNewEdit_ShipButton"),
+                new LocalizedItem(unshipButton, "RailcarNewEdit_UnshipButton"),
+                new LocalizedItem(saveButton, "RailcarNewEdit_SaveButton"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                //columns
+                new LocalizedItem(pipeNumberGridColumn, "RailcarNewEdit_PipeNumberColumn"),
+                new LocalizedItem(pipeSizeGridColumn, "RailcarNewEdit_PipeTypeSizeColumn"),
+                new LocalizedItem(pipeStatusGridColumn, "RailcarNewEdit_PipeStatusColumn")
             };
         }
 
@@ -104,7 +110,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
+
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Properties.DisplayMember = "Number";
+            pipeNumberLookUp.Properties.ValueMember = "Id";
         }
 
         private void BindCommands()
@@ -189,12 +198,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.GetStoredPipes();
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             pipeNumberLookUp.Refresh();
-            pipeListLookUpView.RefreshData();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id,IsEditMode);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id, IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -228,13 +236,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
         {
-           
+
             commandManager.RefreshVisualState();
         }
 
         private void releaseNoteDate_EditValueChanged(object sender, EventArgs e)
         {
-            
+
             commandManager.RefreshVisualState();
         }
 
@@ -242,7 +250,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             var currentRailcar = sender as LookUpEdit;
             viewModel.Railcar = currentRailcar.EditValue as Prizm.Domain.Entity.Mill.Railcar;
-            
+
         }
 
         private void railcarNumber_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)

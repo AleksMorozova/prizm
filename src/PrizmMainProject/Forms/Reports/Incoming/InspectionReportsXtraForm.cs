@@ -47,18 +47,15 @@ namespace Prizm.Main.Forms.Reports.Incoming
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(incomingInspectionDateLabel, "InspectionReport_DateLabel"),
+                new LocalizedItem(startDateLayout, "InspectionReport_StartDateLabel"),
+                new LocalizedItem(endDateLayout, "InspectionReport_EndDateLabel"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(createReportLayoutGroup, "InspectionReport_CreateGroup"),
+                new LocalizedItem(previewReportLayoutGroup, "InspectionReport_PreviewGroup"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(previewButton, "InspectionReport_PreviewButton"),
+                new LocalizedItem(createReportButton, "InspectionReport_CreateButton")
             };
         }
 

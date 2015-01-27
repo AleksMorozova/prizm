@@ -70,19 +70,25 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(newComponentLayoutGroup, "ComponentNewEdit_NewComponentLayoutGroup"),
+                new LocalizedItem(componentNumberLayout, "ComponentNewEdit_ComponentNumberLayout"),
+                new LocalizedItem(typeLayoutControl, "ComponentNewEdit_TypeLayoutControl"),
+                new LocalizedItem(certificateLayout, "ComponentNewEdit_CertificateLayout"),
+                new LocalizedItem(componentLengthLayout, "ComponentNewEdit_ComponentLengthLayout"),
+                new LocalizedItem(parametersGridLayout, "ComponentNewEdit_ParametersGridLayout"),
+                
+                new LocalizedItem(attachmentsButton, "ComponentNewEdit_AttachmentsButton"),
+                new LocalizedItem(deactivated, "ComponentNewEdit_Deactivated"),
+                new LocalizedItem(newSaveComponentButton, "ComponentNewEdit_NewSaveComponentButton"),
+                new LocalizedItem(saveComponentButton, "ComponentNewEdit_SaveComponentButton"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(inspectionDateColumn, "ComponentNewEdit_InspectionDateColumn"),
+                new LocalizedItem(inspectorColumn, "ComponentNewEdit_InspectorColumn"),
+                new LocalizedItem(resultColumn, "ComponentNewEdit_ResultColumn"),
+                new LocalizedItem(reasonColumn, "ComponentNewEdit_ReasonColumn"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(diameterGridColumn, "ComponentNewEdit_DiameterGridColumn"),
+                new LocalizedItem(wallThicknessGridColumn, "ComponentNewEdit_WallThicknessGridColumn")
             };
         }
 
