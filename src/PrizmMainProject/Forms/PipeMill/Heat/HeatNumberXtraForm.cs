@@ -14,6 +14,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class HeatNumberXtraForm : PrizmForm
     {
         public HeatNumberXtraForm(string number)

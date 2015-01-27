@@ -13,6 +13,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionXtraForm()
