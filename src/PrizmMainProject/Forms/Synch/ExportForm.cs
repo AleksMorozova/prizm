@@ -52,6 +52,8 @@ namespace Prizm.Main.Forms.Synch
               new LocalizedItem(portionId, "Export_PortionIdColumnHeader"),
               new LocalizedItem(gridColumnExportDate, "Export_ExportDateColumnHeader"),
               // other
+              new LocalizedItem(logTabPage,"Export_LogTab"),
+              new LocalizedItem(historyTabPage,"Export_HistoryTab"),
           };
       }
 

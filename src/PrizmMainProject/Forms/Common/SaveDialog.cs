@@ -27,7 +27,10 @@ namespace Prizm.Main.Forms.Common
       {
           return new List<LocalizedItem>()
           {
-              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+              new LocalizedItem(lblText, "SaveDialog_SaveLabel"),
+              new LocalizedItem(btnSave, "SaveDialog_SaveButton"),
+              new LocalizedItem(btnDontSave, "SaveDialog_DontSaveButton"),
+              new LocalizedItem(btnCancel, "SaveDialog_CancelButton"),
           };
       }
 

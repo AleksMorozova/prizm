@@ -14,6 +14,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class HeatNumberXtraForm : PrizmForm
     {
         public HeatNumberXtraForm(string number)
@@ -29,7 +30,9 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(numberLayoutControl, "HeatNumber_HeatNumberLabel"),
+                new LocalizedItem(saveButton, "HeatNumber_SaveButton"),
+                new LocalizedItem(cancelButton, "HeatNumber_CancelButton"),
             };
         }
 

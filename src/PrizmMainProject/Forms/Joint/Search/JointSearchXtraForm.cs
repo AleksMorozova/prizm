@@ -48,11 +48,11 @@ namespace Prizm.Main.Forms.Joint.Search
             }
             foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0:true))
             {
-                controlState.Properties.Items.Add(item.Item2, isChecked:true);
+                controlState.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled: true);
             }
             activity.SelectedIndex = 0;
-            viewModel.Activity = activity.SelectedItem.ToString(); 
-            RefreshCombo();
+            viewModel.Activity = ActivityCriteria.StatusActive;
+            controlState_CloseUp(controlState, new DevExpress.XtraEditors.Controls.CloseUpEventArgs(true));
         }
 
 
@@ -65,7 +65,7 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateFrom.DataBindings.Add("EditValue", bindingSource, "FromDate");
             weldingDateTo.DataBindings.Add("EditValue", bindingSource, "ToDate");
             gridControlSerchResult.DataBindings.Add("DataSource", bindingSource, "Joints");
-            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.DataBindings.Add("SelectedIndex", bindingSource, "ActivityIndex");
         }
 
         private void BindCommands()
@@ -75,7 +75,15 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void controlState_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            RefreshCombo();
+            viewModel.Statuses.Clear();
+
+            for (int i = 0; i < controlState.Properties.Items.Count; i++)
+            {
+                if (controlState.Properties.Items[i].CheckState == CheckState.Checked)
+                {
+                    viewModel.Statuses.Add((JointStatus)controlState.Properties.Items[i].Value);
+                }
+            }
         }
 
         #region --- Localization ---
@@ -84,38 +92,29 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
+                new LocalizedItem(activity, new string[]{ "JointSearch_ActivityCriteria_StatusActive", "JointSearch_ActivityCriteria_StatusUnactive", "JointSearch_ActivityCriteria_StatusAll"}),
+                new LocalizedItem(controlState, new string[]{ "JointSearch_JointStatus_Welded", "JointSearch_JointStatus_Lowered", "JointSearch_JointStatus_Withdrawn"}),
+                new LocalizedItem(jointNumberLayout, "JointSearch_JointNumber"),
+                new LocalizedItem(controlStateLayout, "JointSearch_ControlStateLayout"),
+                new LocalizedItem(weldingDateLabel, "JointSearch_WeldingDateLabel"),
+                new LocalizedItem(weldingDateFromLayout, "JointSearch_WeldingDateFromLayout"),
+                new LocalizedItem(weldingDateToLayout, "JointSearch_WeldingDateToLayout"),
+                new LocalizedItem(KMlayout, "JointSearch_KMlayout"),
+                new LocalizedItem(activityLayout, "JointSearch_ActivityLayout"),
+                new LocalizedItem(searchLayoutGroup, "JointSearch_SearchLayoutGroup"),
+                new LocalizedItem(searchButton, "JointSearch_SearchButton"),
+                new LocalizedItem(searchResultLayoutGroup, "JointSearch_SearchResultLayoutGroup"),
+                new LocalizedItem(jointNumberGridColumn, "JointSearch_JointNumberGridColumn"),
+                new LocalizedItem(joinStatusGridColumn, "JointSearch_JoinStatusGridColumn"),
+                new LocalizedItem(numberKPCol, "JointSearch_NumberKPCol"),
+                new LocalizedItem(loweringDateCol, "JointSearch_LoweringDateCol"),
+                new LocalizedItem(gpsLatCol, "JointSearch_GpsLatCol"),
+                new LocalizedItem(gpsLongCol, "JointSearch_GpsLongCol"),
+                new LocalizedItem(gpsHeightCol, "JointSearch_GpsHeightCol")
             };
         }
 
         #endregion // --- Localization ---
-
-        private void RefreshCombo()
-        {
-            BindingList<JointStatus> checkedStatuses = new BindingList<JointStatus>();
-            for(int i = 0; i < controlState.Properties.Items.Count; i++)
-            {
-                if(controlState.Properties.Items[i].CheckState == CheckState.Checked )
-                {
-                    var status = (EnumWrapper<JointStatus>)controlState.Properties.Items[i].Value;
-                    checkedStatuses.Add(status.Value);
-                }
-            }
-            viewModel.Statuses.Clear();
-            viewModel.Statuses = checkedStatuses;
-        }
 
         private void resultView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
@@ -164,11 +163,6 @@ namespace Prizm.Main.Forms.Joint.Search
                     e.Appearance.ForeColor = Color.Gray;
                 }
             }
-        }
-
-        private void activity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // TODO
         }
     }
 }

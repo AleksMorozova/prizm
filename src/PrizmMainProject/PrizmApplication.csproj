@@ -310,17 +310,17 @@
     <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.Designer.cs">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.Designer.cs">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\NumbersDialog.cs">
+    <Compile Include="Forms\Parts\Inspection\InspectionSelectPartDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\NumbersDialog.Designer.cs">
-      <DependentUpon>NumbersDialog.cs</DependentUpon>
+    <Compile Include="Forms\Parts\Inspection\InspectionSelectPartDialog.Designer.cs">
+      <DependentUpon>InspectionSelectPartDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Parts\Inspection\PartInspectionRepository.cs" />
     <Compile Include="Forms\Parts\Inspection\PartInspectionViewModel.cs" />
@@ -362,7 +362,9 @@
       <DependentUpon>ComponentNewEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\PrizmApplicationViewModel.cs" />
-    <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs" />
+    <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\PipeMill\Heat\HeatNumberXtraForm.Designer.cs">
       <DependentUpon>HeatNumberXtraForm.cs</DependentUpon>
     </Compile>
@@ -481,7 +483,9 @@
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
-    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.Designer.cs">
       <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
     </Compile>
@@ -612,7 +616,9 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchXtraForm.Designer.cs">
       <DependentUpon>MillPipeSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.cs" />
+    <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
@@ -726,11 +732,11 @@
     <EmbeddedResource Include="Forms\Notifications\NotificationXtraForm.resx">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Parts\Inspection\CreationDialog.resx">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.resx">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Parts\Inspection\NumbersDialog.resx">
-      <DependentUpon>NumbersDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Parts\Inspection\InspectionSelectPartDialog.resx">
+      <DependentUpon>InspectionSelectPartDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
       <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>

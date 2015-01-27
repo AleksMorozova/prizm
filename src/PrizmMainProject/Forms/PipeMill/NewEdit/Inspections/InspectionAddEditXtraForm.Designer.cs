@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.factLimit = new DevExpress.XtraEditors.SpinEdit();
@@ -66,9 +65,9 @@
             this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.testsBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
@@ -137,7 +136,7 @@
             this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.rootLayoutControl.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rootLayoutControl.Root = this.rootLayoutGroup;
-            this.rootLayoutControl.Size = new System.Drawing.Size(816, 567);
+            this.rootLayoutControl.Size = new System.Drawing.Size(816, 586);
             this.rootLayoutControl.TabIndex = 0;
             this.rootLayoutControl.Text = "layoutControl1";
             // 
@@ -214,7 +213,7 @@
             this.inspectors.DataSource = null;
             this.inspectors.Location = new System.Drawing.Point(371, 166);
             this.inspectors.Name = "inspectors";
-            this.inspectors.Size = new System.Drawing.Size(413, 342);
+            this.inspectors.Size = new System.Drawing.Size(413, 361);
             this.inspectors.TabIndex = 11;
             // 
             // date
@@ -269,7 +268,7 @@
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(560, 532);
+            this.saveButton.Location = new System.Drawing.Point(560, 551);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(105, 22);
             this.saveButton.StyleController = this.rootLayoutControl;
@@ -281,7 +280,7 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(695, 532);
+            this.cancelButton.Location = new System.Drawing.Point(695, 551);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(101, 22);
             this.cancelButton.StyleController = this.rootLayoutControl;
@@ -302,7 +301,7 @@
             this.footerEmptySpaceItem});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "rootLayoutGroup";
-            this.rootLayoutGroup.Size = new System.Drawing.Size(816, 567);
+            this.rootLayoutGroup.Size = new System.Drawing.Size(816, 586);
             this.rootLayoutGroup.Text = "rootLayoutGroup";
             this.rootLayoutGroup.TextVisible = false;
             // 
@@ -359,7 +358,7 @@
             // 
             this.saveLayoutControlItem.Control = this.saveButton;
             this.saveLayoutControlItem.CustomizationFormText = "Сохранить";
-            this.saveLayoutControlItem.Location = new System.Drawing.Point(540, 520);
+            this.saveLayoutControlItem.Location = new System.Drawing.Point(540, 539);
             this.saveLayoutControlItem.Name = "saveLayoutControlItem";
             this.saveLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 2);
             this.saveLayoutControlItem.Size = new System.Drawing.Size(125, 27);
@@ -371,7 +370,7 @@
             // 
             this.delimiterEmptySpaceItem.AllowHotTrack = false;
             this.delimiterEmptySpaceItem.CustomizationFormText = "emptySpaceItem1";
-            this.delimiterEmptySpaceItem.Location = new System.Drawing.Point(665, 520);
+            this.delimiterEmptySpaceItem.Location = new System.Drawing.Point(665, 539);
             this.delimiterEmptySpaceItem.MaxSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.MinSize = new System.Drawing.Size(10, 27);
             this.delimiterEmptySpaceItem.Name = "delimiterEmptySpaceItem";
@@ -384,7 +383,7 @@
             // 
             this.cancelLayoutControlItem.Control = this.cancelButton;
             this.cancelLayoutControlItem.CustomizationFormText = "Отменить";
-            this.cancelLayoutControlItem.Location = new System.Drawing.Point(675, 520);
+            this.cancelLayoutControlItem.Location = new System.Drawing.Point(675, 539);
             this.cancelLayoutControlItem.Name = "cancelLayoutControlItem";
             this.cancelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 2, 2);
             this.cancelLayoutControlItem.Size = new System.Drawing.Size(121, 27);
@@ -406,7 +405,7 @@
             this.dateLayoutControlItem});
             this.resultLayoutControlGroup.Location = new System.Drawing.Point(0, 99);
             this.resultLayoutControlGroup.Name = "resultLayoutControlGroup";
-            this.resultLayoutControlGroup.Size = new System.Drawing.Size(796, 421);
+            this.resultLayoutControlGroup.Size = new System.Drawing.Size(796, 440);
             this.resultLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.resultLayoutControlGroup.Text = "Результат";
             // 
@@ -428,7 +427,7 @@
             this.inspectorsLayoutControlItem.CustomizationFormText = "Инспекторы";
             this.inspectorsLayoutControlItem.Location = new System.Drawing.Point(339, 0);
             this.inspectorsLayoutControlItem.Name = "inspectorsLayoutControlItem";
-            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(427, 372);
+            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(427, 391);
             this.inspectorsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.inspectorsLayoutControlItem.Text = "Инспекторы";
             this.inspectorsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -440,7 +439,7 @@
             this.bottomEmptySpaceItem.CustomizationFormText = "emptySpaceItem3";
             this.bottomEmptySpaceItem.Location = new System.Drawing.Point(0, 360);
             this.bottomEmptySpaceItem.Name = "bottomEmptySpaceItem";
-            this.bottomEmptySpaceItem.Size = new System.Drawing.Size(339, 12);
+            this.bottomEmptySpaceItem.Size = new System.Drawing.Size(339, 31);
             this.bottomEmptySpaceItem.Text = "bottomEmptySpaceItem";
             this.bottomEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -542,7 +541,7 @@
             // 
             this.footerEmptySpaceItem.AllowHotTrack = false;
             this.footerEmptySpaceItem.CustomizationFormText = "emptySpaceItem2";
-            this.footerEmptySpaceItem.Location = new System.Drawing.Point(0, 520);
+            this.footerEmptySpaceItem.Location = new System.Drawing.Point(0, 539);
             this.footerEmptySpaceItem.Name = "footerEmptySpaceItem";
             this.footerEmptySpaceItem.Size = new System.Drawing.Size(540, 27);
             this.footerEmptySpaceItem.Text = "footerEmptySpaceItem";
@@ -554,7 +553,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(816, 567);
+            this.ClientSize = new System.Drawing.Size(816, 586);
             this.Controls.Add(this.rootLayoutControl);
             this.Name = "InspectionAddEditXtraForm";
             this.Text = "InspectionAddEditXtraForm";

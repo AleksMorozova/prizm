@@ -36,7 +36,11 @@ namespace Prizm.Main.Forms.Synch
       {
           return new List<LocalizedItem>()
           {
-              //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+              new LocalizedItem(lblTitle, "ConflictDialog_ConflictLabel"),
+              new LocalizedItem(btnReplace, "ConflictDialog_ReplaceButton"),
+              new LocalizedItem(btnSkip, "ConflictDialog_SkipButton"),
+              new LocalizedItem(btnPostpone, "ConflictDialog_PostponeButton"),
+              new LocalizedItem(chkForAll, "ConflictDialog_ApplyForAllChechbox"),
           };
       }
 

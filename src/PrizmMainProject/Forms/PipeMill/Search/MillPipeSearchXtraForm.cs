@@ -21,9 +21,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private MillPipeSearchViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
 
-        // do NOT re-create it because reference passed to localization item. Clean it instead.
-        private List<string> localizedAllPipeMillStatus = new List<string>();
-
         public MillPipeSearchXtraForm()
         {
             InitializeComponent();
@@ -77,6 +74,9 @@ namespace Prizm.Main.Forms.PipeMill.Search
         }
 
         #region --- Localization ---
+
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        private List<string> localizedAllPipeMillStatus = new List<string>();
 
         protected override List<LocalizedItem> CreateLocalizedItems()
         {

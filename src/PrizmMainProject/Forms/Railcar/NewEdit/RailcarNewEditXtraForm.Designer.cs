@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RailcarNewEditXtraForm));
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -69,9 +68,9 @@
             this.unshipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -225,7 +224,7 @@
             // 
             // railcarNumber
             // 
-            this.railcarNumber.Location = new System.Drawing.Point(35, 255);
+            this.railcarNumber.Location = new System.Drawing.Point(35, 253);
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -245,9 +244,9 @@
             // 
             // releaseNoteNumber
             // 
-            this.releaseNoteNumber.Location = new System.Drawing.Point(20, 27);
+            this.releaseNoteNumber.Location = new System.Drawing.Point(25, 25);
             this.releaseNoteNumber.Name = "releaseNoteNumber";
-            this.releaseNoteNumber.Size = new System.Drawing.Size(352, 20);
+            this.releaseNoteNumber.Size = new System.Drawing.Size(357, 20);
             this.releaseNoteNumber.StyleController = this.generalLayout;
             this.releaseNoteNumber.TabIndex = 1;
             this.releaseNoteNumber.EditValueChanged += new System.EventHandler(this.releaseNoteNumber_EditValueChanged);
@@ -265,7 +264,7 @@
             // 
             // destination
             // 
-            this.destination.Location = new System.Drawing.Point(35, 355);
+            this.destination.Location = new System.Drawing.Point(35, 353);
             this.destination.Name = "destination";
             this.destination.Size = new System.Drawing.Size(322, 20);
             this.destination.StyleController = this.generalLayout;
@@ -308,9 +307,9 @@
             // addPipeButton
             // 
             this.addPipeButton.Image = ((System.Drawing.Image)(resources.GetObject("addPipeButton.Image")));
-            this.addPipeButton.Location = new System.Drawing.Point(212, 203);
+            this.addPipeButton.Location = new System.Drawing.Point(212, 195);
             this.addPipeButton.Name = "addPipeButton";
-            this.addPipeButton.Size = new System.Drawing.Size(145, 22);
+            this.addPipeButton.Size = new System.Drawing.Size(145, 28);
             this.addPipeButton.StyleController = this.generalLayout;
             this.addPipeButton.TabIndex = 8;
             this.addPipeButton.Text = "&Добавить трубу";
@@ -318,7 +317,7 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(35, 305);
+            this.certificateNumber.Location = new System.Drawing.Point(35, 303);
             this.certificateNumber.Name = "certificateNumber";
             this.certificateNumber.Size = new System.Drawing.Size(322, 20);
             this.certificateNumber.StyleController = this.generalLayout;
@@ -327,7 +326,7 @@
             // releaseNoteDate
             // 
             this.releaseNoteDate.EditValue = null;
-            this.releaseNoteDate.Location = new System.Drawing.Point(20, 81);
+            this.releaseNoteDate.Location = new System.Drawing.Point(25, 75);
             this.releaseNoteDate.Name = "releaseNoteDate";
             this.releaseNoteDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -335,7 +334,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.releaseNoteDate.Properties.Mask.EditMask = "";
             this.releaseNoteDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.releaseNoteDate.Size = new System.Drawing.Size(352, 20);
+            this.releaseNoteDate.Size = new System.Drawing.Size(357, 20);
             this.releaseNoteDate.StyleController = this.generalLayout;
             this.releaseNoteDate.TabIndex = 2;
             this.releaseNoteDate.EditValueChanged += new System.EventHandler(this.releaseNoteDate_EditValueChanged);
@@ -370,8 +369,8 @@
             this.releasedNoteNumberLayout.CustomizationFormText = "layoutControlItem1";
             this.releasedNoteNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.releasedNoteNumberLayout.Name = "releasedNoteNumberLayout";
-            this.releasedNoteNumberLayout.Size = new System.Drawing.Size(371, 54);
-            this.releasedNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.releasedNoteNumberLayout.Size = new System.Drawing.Size(371, 50);
+            this.releasedNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.releasedNoteNumberLayout.Text = "Номер";
             this.releasedNoteNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteNumberLayout.TextSize = new System.Drawing.Size(101, 13);
@@ -386,9 +385,9 @@
             this.addButtonEmptySpaceItem,
             this.railcarNumberLayout,
             this.pipeNumberLayout});
-            this.addPipeLayoutGroup.Location = new System.Drawing.Point(0, 108);
+            this.addPipeLayoutGroup.Location = new System.Drawing.Point(0, 100);
             this.addPipeLayoutGroup.Name = "addPipeLayoutGroup";
-            this.addPipeLayoutGroup.Size = new System.Drawing.Size(371, 289);
+            this.addPipeLayoutGroup.Size = new System.Drawing.Size(371, 295);
             this.addPipeLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
             this.addPipeLayoutGroup.Text = "Добавление труб";
             // 
@@ -396,7 +395,7 @@
             // 
             this.certificateNumberLayout.Control = this.certificateNumber;
             this.certificateNumberLayout.CustomizationFormText = "Certificate number";
-            this.certificateNumberLayout.Location = new System.Drawing.Point(0, 136);
+            this.certificateNumberLayout.Location = new System.Drawing.Point(0, 142);
             this.certificateNumberLayout.Name = "certificateNumberLayout";
             this.certificateNumberLayout.Size = new System.Drawing.Size(336, 50);
             this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -408,7 +407,7 @@
             // 
             this.layoutControlDestination.Control = this.destination;
             this.layoutControlDestination.CustomizationFormText = "&Получатель";
-            this.layoutControlDestination.Location = new System.Drawing.Point(0, 186);
+            this.layoutControlDestination.Location = new System.Drawing.Point(0, 192);
             this.layoutControlDestination.Name = "layoutControlDestination";
             this.layoutControlDestination.Size = new System.Drawing.Size(336, 50);
             this.layoutControlDestination.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -423,7 +422,7 @@
             this.addPipeLayoutControl.Location = new System.Drawing.Point(177, 50);
             this.addPipeLayoutControl.MinSize = new System.Drawing.Size(154, 36);
             this.addPipeLayoutControl.Name = "addPipeLayoutControl";
-            this.addPipeLayoutControl.Size = new System.Drawing.Size(159, 36);
+            this.addPipeLayoutControl.Size = new System.Drawing.Size(159, 42);
             this.addPipeLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.addPipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.addPipeLayoutControl.Text = "addPipelayoutControl";
@@ -436,7 +435,7 @@
             this.addButtonEmptySpaceItem.CustomizationFormText = "emptySpaceItem1";
             this.addButtonEmptySpaceItem.Location = new System.Drawing.Point(0, 50);
             this.addButtonEmptySpaceItem.Name = "addButtonEmptySpaceItem";
-            this.addButtonEmptySpaceItem.Size = new System.Drawing.Size(177, 36);
+            this.addButtonEmptySpaceItem.Size = new System.Drawing.Size(177, 42);
             this.addButtonEmptySpaceItem.Text = "addButtonEmptySpaceItem";
             this.addButtonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -444,7 +443,7 @@
             // 
             this.railcarNumberLayout.Control = this.railcarNumber;
             this.railcarNumberLayout.CustomizationFormText = "Номер вагона";
-            this.railcarNumberLayout.Location = new System.Drawing.Point(0, 86);
+            this.railcarNumberLayout.Location = new System.Drawing.Point(0, 92);
             this.railcarNumberLayout.Name = "railcarNumberLayout";
             this.railcarNumberLayout.Size = new System.Drawing.Size(336, 50);
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -517,10 +516,10 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 397);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 395);
             this.buttonsEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(371, 78);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(371, 80);
             this.buttonsEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -529,10 +528,10 @@
             // 
             this.releasedNoteDateLayout.Control = this.releaseNoteDate;
             this.releasedNoteDateLayout.CustomizationFormText = "Дата разрешени&я";
-            this.releasedNoteDateLayout.Location = new System.Drawing.Point(0, 54);
+            this.releasedNoteDateLayout.Location = new System.Drawing.Point(0, 50);
             this.releasedNoteDateLayout.Name = "releasedNoteDateLayout";
-            this.releasedNoteDateLayout.Size = new System.Drawing.Size(371, 54);
-            this.releasedNoteDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.releasedNoteDateLayout.Size = new System.Drawing.Size(371, 50);
+            this.releasedNoteDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.releasedNoteDateLayout.Text = "Дата";
             this.releasedNoteDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteDateLayout.TextSize = new System.Drawing.Size(101, 13);
