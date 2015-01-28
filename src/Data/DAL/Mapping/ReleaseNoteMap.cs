@@ -16,7 +16,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.Number).Column("number");
             Map(_ => _.Date).Column("date");
             Map(x => x.Shipped).Column("Shipped");
-            HasMany(_ => _.Railcars).KeyColumn("releaseNoteId").Inverse().Cascade.SaveUpdate().Not.LazyLoad();
+            HasMany(_ => _.Railcars).KeyColumn("releaseNoteId").Cascade.SaveUpdate().Not.LazyLoad();//.Inverse()
         }
     }
 }

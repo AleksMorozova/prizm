@@ -195,7 +195,7 @@ namespace Prizm.Main.Synch.Import
             pipe.ProductionDate = pipeObj.ProductionDate;
             pipe.Type = ImportSizeType(pipeObj.Type);
             pipe.Railcar = ImportRailcar(pipeObj.Railcar);
-            if (pipeObj.Railcar!=null)
+            if (pipeObj.Railcar != null)
             {
                 pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
             }
@@ -920,7 +920,7 @@ namespace Prizm.Main.Synch.Import
 
             bool isNew = false;
             ReleaseNote releaseNote = importRepo.ReleaseNoteRepo.Get(releaseNoteObj.Id);
-            if (releaseNoteObj == null)
+            if (releaseNote == null)
             {
                 releaseNote = new ReleaseNote();
                 isNew = true;
@@ -930,7 +930,7 @@ namespace Prizm.Main.Synch.Import
             releaseNote.IsActive = releaseNoteObj.IsActive;
             releaseNote.Number = releaseNoteObj.Number;
             releaseNote.Shipped = releaseNoteObj.Shipped;
-            releaseNote.Date = releaseNote.Date;
+            releaseNote.Date = releaseNoteObj.Date;
 
 
             if (isNew)
