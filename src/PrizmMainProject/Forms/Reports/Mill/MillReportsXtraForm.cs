@@ -17,6 +17,8 @@ using DevExpress.XtraEditors.Controls;
 using Prizm.Main.Common;
 using Prizm.Main.Commands;
 using Prizm.Main.Languages;
+using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
@@ -29,6 +31,8 @@ namespace Prizm.Main.Forms.Reports.Mill
         public MillReportsXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.reports_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void BindToViewModel()
