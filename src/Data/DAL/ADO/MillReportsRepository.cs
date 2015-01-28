@@ -18,6 +18,45 @@ namespace Prizm.Data.DAL.ADO
         public MillReportsRepository() { }
         private SqlConnection connection = null;
 
+        public DataSet GetReleaseNotes(DateTime startDate, DateTime finalDate)
+        {
+            CreateConnection();
+            DataSet releaseNoteDataSet = new DataSet();
+
+            try
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+
+                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                    {
+                        connection.Open();
+                        adapter.TableMappings.Add("Table", "Pipe");
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@startDate", startDate);
+                        command.Parameters.AddWithValue("@finalDate", finalDate);
+                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetReleaseNotes).ToString();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(releaseNoteDataSet);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("GetPipesByStatus", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return releaseNoteDataSet;
+        }
+
         public DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, MillReportType reportType, List<string> statuses, bool previewFlag = false)
         {
             CreateConnection();
