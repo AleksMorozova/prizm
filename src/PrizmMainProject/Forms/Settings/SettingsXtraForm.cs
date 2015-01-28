@@ -266,7 +266,20 @@ namespace Prizm.Main.Forms.Settings
                 // components page
                 new LocalizedItem(partsTypeLayoutControlItem, "SettingsComponent_PartsType"),
 
+                new LocalizedItem(typeColumn, "SettingsComponent_TypeColumn"),
+                new LocalizedItem(connectorsNumbersColumn, "SettingsComponent_ConnectorsNumberColumn"),
+                new LocalizedItem(isActiveComponentColumn, "SettingsComponent_IsActiveTypeColumn"),
+
                 // welders page
+                new LocalizedItem(colWelderLastName, "SettingsWelders_LastNameColumn"),
+                new LocalizedItem(colWelderFirstName, "SettingsWelders_FirstNameColumn"),
+                new LocalizedItem(colWelderMiddleName, "SettingsWelders_MiddleNameColumn"),
+                new LocalizedItem(colWelderCert, "SettingsWelders_CertificateNameColumn"),
+                new LocalizedItem(colWelderCertExp, "SettingsWelders_ExpiredColumn"),
+                new LocalizedItem(colWelderStamp, "SettingsWelders_StampColumn"),
+                new LocalizedItem(colWelderGrade, "SettingsWelders_GradeColumn"),
+                new LocalizedItem(colWelderActive, "SettingsWelders_IsActiveColumn"),
+
                 // inspectors page
                 // users page
                 // roles page
