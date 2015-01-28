@@ -358,6 +358,16 @@ namespace Prizm.Main.Forms.Settings
               }
            }
 
+           foreach (var insp in this.Inspectors)
+           {
+               // Due to incomplete the collection type matching returned at reading from the database and properties binding  
+               // the following solution have been proposed. Perhaps this problem can be solved by entities mapping.
+               if (insp.Certificates.Count == 0)
+               {
+                   insp.Certificates = new List<InspectorCertificate>();
+               }
+           }
+
            Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
