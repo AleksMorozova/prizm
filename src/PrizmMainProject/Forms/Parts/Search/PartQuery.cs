@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.Parts.Search
 
         #endregion
 
-        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number, string Activity)
+        internal static string BuildSql(System.ComponentModel.BindingList<PartType> partTypes, string number, ActivityCriteria Activity)
         {
             if(partTypes.Count == 0)
             {
@@ -48,11 +48,11 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             if (!string.IsNullOrWhiteSpace(number))
             {
-                if (Activity.Equals(Resources.StatusActive))
+                if (Activity == ActivityCriteria.StatusActive)
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
                 }
-                else if (Activity.Equals(Resources.StatusUnactive))
+                else if ( Activity == ActivityCriteria.StatusUnactive)
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters()); 
                 }
@@ -60,11 +60,11 @@ namespace Prizm.Main.Forms.Parts.Search
 
             else
             {
-                if (Activity.Equals(Resources.StatusActive))
+                if (Activity == ActivityCriteria.StatusActive)
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' ", true);
                 }
-                else if (Activity.Equals(Resources.StatusUnactive))
+                else if (Activity == ActivityCriteria.StatusUnactive)
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' ", false);
                 }

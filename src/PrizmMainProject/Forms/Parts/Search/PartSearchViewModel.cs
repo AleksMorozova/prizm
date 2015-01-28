@@ -21,7 +21,7 @@ namespace Prizm.Main.Forms.Parts.Search
     {
         PartsSearchCommand searchCommand;
         ISession session;
-        
+
 
         [Inject]
         public PartSearchViewModel(ISession session)
@@ -30,8 +30,8 @@ namespace Prizm.Main.Forms.Parts.Search
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
             LoadStatuses();
         }
-        private string activity;
-        public string Activity
+        private ActivityCriteria activity;
+        public ActivityCriteria Activity
         {
             get { return activity; }
             set
@@ -44,13 +44,26 @@ namespace Prizm.Main.Forms.Parts.Search
             }
         }
 
+        public int ActivityIndex
+        {
+            get { return (int)Activity; }
+            set
+            {
+                if (value != (int)Activity)
+                {
+                    Activity = (ActivityCriteria)value;
+                    RaisePropertyChanged("ActivityIndex");
+                }
+            }
+        }
+
         private string number = string.Empty;
         public string Number
         {
             get { return number; }
             set
             {
-                if(value != number)
+                if (value != number)
                 {
                     number = value;
                     RaisePropertyChanged("Number");
@@ -59,12 +72,12 @@ namespace Prizm.Main.Forms.Parts.Search
         }
 
         private BindingList<Part> parts = new BindingList<Part>();
-        public BindingList<Part> Parts 
+        public BindingList<Part> Parts
         {
             get { return parts; }
             set
             {
-                if(value != parts)
+                if (value != parts)
                 {
                     parts = value;
                     RaisePropertyChanged("Parts");
@@ -78,14 +91,14 @@ namespace Prizm.Main.Forms.Parts.Search
             get { return types; }
             set
             {
-                if(value != types)
+                if (value != types)
                 {
                     types = value;
                     RaisePropertyChanged("Types");
                 }
             }
         }
-        
+
         public ICommand SearchCommand
         {
             get { return searchCommand; }
