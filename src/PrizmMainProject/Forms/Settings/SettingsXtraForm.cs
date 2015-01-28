@@ -328,6 +328,12 @@ namespace Prizm.Main.Forms.Settings
         private void gridViewWelders_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             ValidatePersonName(gridViewWelders, colWelderFirstName, colWelderLastName, e);
+            string certificate = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderCert);
+            if (String.IsNullOrEmpty(certificate))
+            {
+                gridViewWelders.SetColumnError(colWelderCert, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
         }
 
         private void gridViewInspectors_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
