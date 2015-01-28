@@ -27,7 +27,9 @@ namespace Prizm.Main.Forms.Common
 
         private void AboutXtraForm_Load(object sender, EventArgs e)
         {
-            this.titleLabel.Text = Resources.AboutForm_TitleLabel;
+            titleLabel.Text = Resources.AboutForm_TitleLabel;
+            textEditVersionNumber.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            textEditVersionNumber.ReadOnly = true;
         }
         #region --- Localization ---
 
@@ -36,7 +38,6 @@ namespace Prizm.Main.Forms.Common
             return new List<LocalizedItem>() 
                 { 
                     new LocalizedItem(labelVersion, "About_VersionLabel"),
-                    new LocalizedItem(assemblyLabel, "About_AssemblyLabel"),
 
                     new LocalizedItem(acceptButton, "About_AcceptButton")
                 };

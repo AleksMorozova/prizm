@@ -2,16 +2,20 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Prizm"
-#define MyAppVersion "1.0.0.1"
+#include "version.txt"
 #define MyAppPublisher ""
 #define MyAppURL ""
 #define MyAppExeName "Prizm.Program.exe"
 #define MyAppMigratorExeName "Prizm.DatabaseMigrator.exe"
 #define MyAppExeConfigName MyAppExeName + ".config"
-#define MyDateTimeString GetDateTimeString('yyyy/mm/dd', '_', '');
+#define MyAssemblyVersionString StringChange(MyAppVersion, ".", "_")
 #define DevExpressPath GetEnv('DEV_EXPRESS14_PATH')
 #define PrizmExternalPath GetEnv('PRIZM_EXTERNAL')
 #define PrizmRoot "Prizm"
+
+;#define MyFileVersion GetFileVersion("{app}\{#MyAppExeName}")
+;it is decided not to use FileVersion yet. Assembly version will be used.
+
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -29,7 +33,7 @@ DefaultDirName={pf}\{#PrizmRoot}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=..\install\Release
-OutputBaseFilename=setup_prism_{#MyDateTimeString}
+OutputBaseFilename=setup_prism_{#MyAssemblyVersionString}
 Compression=lzma
 ArchitecturesInstallIn64BitMode=x64
 SolidCompression=yes
