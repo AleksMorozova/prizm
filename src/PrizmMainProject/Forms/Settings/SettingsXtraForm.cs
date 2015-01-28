@@ -300,10 +300,34 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(certificateIsActiveColumn, "SettingsInspectors_CertificateIsActiveColumn"),
 
                 // users page
-                // roles page
-                // common page
+                new LocalizedItem(userLayoutControlItem, "SettingsUser_UsersLabel"),
 
-                //new LocalizedItem(, "Settings_Label"),
+                new LocalizedItem(colLogin, "SettingsUser_LoginColumn"),
+                new LocalizedItem(colLastName, "SettingsUser_LastNameColumn"),
+                new LocalizedItem(colMiddleName, "SettingsUser_MiddleNameColumn"),
+                new LocalizedItem(colFirstName, "SettingsUser_FirstNameColumn"),
+                new LocalizedItem(colPasswordExpires, "SettingsUser_PassExpiredColumn"),
+                new LocalizedItem(colActive, "SettingsUser_IsActiveColumn"),
+                new LocalizedItem(colUserPass, "SettingsUser_PassColumn"),
+
+                // roles page
+                new LocalizedItem(rolesTabLayoutControlItem, "SettingsRoles_Label"),
+                new LocalizedItem(permissionLayoutControlItem, "SettingsRoles_PermissionLabel"),
+
+                new LocalizedItem(colRoleSetupName, "SettingsRole_NameColumn"),
+                new LocalizedItem(colDesc, "SettingsRole_DescriptionColumn"),
+                // common pages
+                new LocalizedItem(projectLayoutControlGroup, "Settings_ProjectTab"),
+                new LocalizedItem(pipeLayoutControlGroup, "Settings_PipeTab"),
+                new LocalizedItem(lineLayoutControlGroup, "Settings_LineTab"),
+                new LocalizedItem(partsLayoutControlGroup, "Settings_PartsTab"),
+                new LocalizedItem(weldersLayoutControlGroup, "Settings_WeldersTab"),
+                new LocalizedItem(inspectorsLayoutControlGroup, "Settings_InspectorsTab"),
+                new LocalizedItem(usersLayoutControlGroup, "Settings_UsersTab"),
+                new LocalizedItem(rolesLayoutControlGroup, "Settings_RolesTab"),
+
+                new LocalizedItem(saveButton, "Settings_SaveButton"),
+                new LocalizedItem(closeButton, "Settings_CloseButton"),
             };
         }
 
