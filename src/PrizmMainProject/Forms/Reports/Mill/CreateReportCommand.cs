@@ -58,14 +58,21 @@ namespace Prizm.Main.Forms.Reports.Mill
                 }
                 else if (viewModel.SelectedReportType == MillReportType.General)
                 {
-                    //data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
-                    //GeneralInformationXtraReport report = new GeneralInformationXtraReport();
-                    //report.DataSource = data;
+                    data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
+                    GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                    report.DataSource = data;
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
+                else if (viewModel.SelectedReportType == MillReportType.ByShipped)
+                {
                     LoadingXtraReport report = new LoadingXtraReport();
-                    LoadSubXtraReport report2 = new LoadSubXtraReport();
-                    //report2.noteId.Value = "1";
+                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                    SubReportForLoadingXtraReport report2 = new SubReportForLoadingXtraReport();
+                    report2.DataSource = repo.GetRailcars(viewModel.StartDate, viewModel.EndDate);
                     report.RequestParameters = false;
-                    //report.xr.ReportSource = report2;
+                    report.xrSubreport1.ReportSource = report2;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();

@@ -25,5 +25,6 @@ namespace Prizm.Data.DAL
         BindingList<int> GetAllKP();
         DataTable GetPipelineElements(DateTime? weldDateFrom, DateTime? weldDateTo);
         DataSet GetReleaseNotes(DateTime startDate, DateTime finalDate);
+        DataSet GetRailcars(DateTime startDate, DateTime finalDate);
     }
 }
