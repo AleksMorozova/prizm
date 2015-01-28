@@ -82,6 +82,7 @@ Source: "{#DevExpressPath}DevExpress.XtraLayout.v14.2.dll"; DestDir: "{app}"; Fl
 Source: "{#DevExpressPath}DevExpress.XtraPrinting.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraTreeList.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.DataAccess.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraReports.v14.2.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#PrizmExternalPath}\external\DotNetFX45\dotnetfx45_full_x86_x64.exe"; DestDir: "{tmp}"; DestName: "dotnetfx45_full_x86_x64.exe"; Flags: ignoreversion nocompression; Check: not IsRequiredDotNetDetected
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsLocalDb11Installed
