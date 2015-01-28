@@ -14,13 +14,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public class MillInspectionViewModel : ViewModelBase
     {
         private PipeTest pipeTest;
-        public IList<EnumWrapper<PipeTestControlType>> ControlTypes;
-        public IList<EnumWrapper<PipeTestResultType>> ResultTypes;
         public BindingList<Category> CategoryTypes;
-        public MillInspectionViewModel(PipeTest current, IList<EnumWrapper<PipeTestControlType>> controlTypes, IList<EnumWrapper<PipeTestResultType>> resultTypes, BindingList<Category> CategoryTypes)
+        public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes)
         {
-            this.ControlTypes = controlTypes;
-            this.ResultTypes = resultTypes;
             this.CategoryTypes = CategoryTypes;
 
             if (current == null)

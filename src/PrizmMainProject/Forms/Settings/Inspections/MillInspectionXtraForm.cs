@@ -21,11 +21,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
-        public MillInspectionXtraForm(PipeTest current, IList<EnumWrapper<PipeTestControlType>> controlTypes, IList<EnumWrapper<PipeTestResultType>> resultTypes, BindingList<Category> categoryTypes)
+        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
-            viewModel = new MillInspectionViewModel(current, controlTypes, resultTypes, categoryTypes);
-            
+            viewModel = new MillInspectionViewModel(current, categoryTypes);
+            SetControlsTextLength();
             ChangeExpected();
             ChangeFrequency();
             if (current != null)
@@ -164,14 +164,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
         }
         #endregion // --- Localization ---
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void resultType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeExpected();
+        }
+
+        private void SetControlsTextLength()
+        {
+            code.Properties.MaxLength = LengthLimit.MaxPipeTestCode;
+            operationName.Properties.MaxLength = LengthLimit.MaxPipeTestName;
         }
     }
 }
