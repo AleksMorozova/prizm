@@ -92,16 +92,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
             
             boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch (viewModel.ResultType)
+            switch (resultType.SelectedIndex)
             {
-                case PipeTestResultType.Boolean:
+                case 0: //PipeTestResultType.Boolean 
                     boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case PipeTestResultType.Diapason:
+                case 1: //PipeTestResultType.Diapason
                     rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case PipeTestResultType.String:
-                case PipeTestResultType.Undef:
+                case 2: //PipeTestResultType.String
                     break;
                 default:
                     break;
@@ -172,7 +171,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void resultType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            viewModel.ResultTypeIndex = resultType.SelectedIndex + 1;
             ChangeExpected();
         }
     }

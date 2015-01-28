@@ -206,12 +206,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         public int ResultTypeIndex
         {
-            get { return (int)ResultType; }
+            get { return (int)ResultType - 1; }
             set
             {
-                if (value != (int)ResultType)
+                if (value != (int)ResultType - 1)
                 {
-                    ResultType = (PipeTestResultType)value;
+                    ResultType = (PipeTestResultType)value + 1;
                     RaisePropertyChanged("ResultTypeIndex");
                 }
             }
@@ -219,12 +219,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         public int ControlTypeIndex
         {
-            get { return (int)PipeTestControlType; }
+            get { return (int)PipeTestControlType - 1; }
             set
             {
-                if (value != (int)PipeTestControlType)
+                if (value != (int)PipeTestControlType - 1)
                 {
-                    PipeTestControlType = (PipeTestControlType)value;
+                    PipeTestControlType = (PipeTestControlType)value + 1;
                     RaisePropertyChanged("ControlTypeIndex");
                 }
             }
@@ -232,12 +232,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         public int FrequencyMeasureIndex
         {
-            get { return (int)FrequencyMeasure; }
+            get { return (int)FrequencyMeasure - 1; }
             set 
             {
-                if (value != (int)FrequencyMeasure)
+                if (value != (int)FrequencyMeasure - 1)
                 {
-                    FrequencyMeasure = (FrequencyMeasure)value;
+                    FrequencyMeasure = (FrequencyMeasure)value + 1;
                     RaisePropertyChanged("FrequencyMeasureIndex");
                 }
             }
