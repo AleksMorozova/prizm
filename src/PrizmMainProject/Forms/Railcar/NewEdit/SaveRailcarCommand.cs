@@ -50,7 +50,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
            
             try
             {
-
+                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+                {
+                    r.ReleaseNote = viewModel.ReleaseNote;
+                }
                 repos.BeginTransaction();
 
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
