@@ -235,8 +235,31 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(addTestButton, "SettingsPipe_AddTestButton"),
                 new LocalizedItem(editTestButton, "SettingsPipe_EditTestButton"),
 
+                new LocalizedItem(pipeSizeGridColumn, "SettingsPipe_SizeGridColumn"),
+                new LocalizedItem(isActiveGridColumn, "SettingsPipe_SizeIsActiveGridColumn"),
+                
+                new LocalizedItem(pipeSizeGridColumn, "SettingsPipe_InspectionsCodeColumn"),
+                new LocalizedItem(inspectionNameGridColumn, "SettingsPipe_InspectionsNameColumn"),
+                new LocalizedItem(categoryColumn, "SettingsPipe_InspectionsCategoryColumn"),
+                new LocalizedItem(controlTypeGridColumn, "SettingsPipe_InspectionsControlTypeColumn"),
+                new LocalizedItem(resultTypeGridColumn, "SettingsPipe_InspectionsResultTypeColumn"),
+                new LocalizedItem(boolExpectedGridColumn, "SettingsPipe_InspectionsBoolExpectedColumn"),
+                new LocalizedItem(minExpectedGridColumn, "SettingsPipe_InspectionsMinExpectedColumn"),
+                new LocalizedItem(maxExpectedGridColumn, "SettingsPipe_InspectionsMaxExpectedColumn"),
+                new LocalizedItem(isRequiredGridColumn, "SettingsPipe_InspectionsIsReqiredColumn"),
+                new LocalizedItem(testIsActiveGridColumn, "SettingsPipe_InspectionsIsActiveColumn"),
+
                 // pipe line page
                 new LocalizedItem(lineLayoutControlGroup, "SettingsLine_LineGroup"),
+
+                new LocalizedItem(nameGridColumn, "SettingsLine_NameColumn"),
+                new LocalizedItem(isRequiredForJointGridColumn, "SettingsLine_IsReqiredColumn"),
+                new LocalizedItem(TestTypeColumn, "SettingsLine_TestTypeColumn"),
+                new LocalizedItem(testHasAcceptedGridColumn, "SettingsLine_HasAcceptedColumn"),
+                new LocalizedItem(testHasToRepairGridColumn, "SettingsLine_RepairColumn"),
+                new LocalizedItem(testHasToWithdrawGridColumn, "SettingsLine_WithdrawColumn"),
+                new LocalizedItem(testResultRequiredGridColumn, "SettingsLine_IsReqiredColumn"),
+                new LocalizedItem(isActiveJointOperationGridColumn, "SettingsLine_IsActiveColumn"),
 
                 // components page
                 new LocalizedItem(partsTypeLayoutControlItem, "SettingsComponent_PartsType"),
