@@ -281,6 +281,24 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(colWelderActive, "SettingsWelders_IsActiveColumn"),
 
                 // inspectors page
+                new LocalizedItem(inspectorsLayoutControlItem, "SettingsInspectors_InspectorsLabel"),
+                new LocalizedItem(certificateLayoutControlItem, "SettingsInspectors_CertificatesLabel"),
+                new LocalizedItem(certTypeListLayoutControlItem, "SettingsInspectors_CertificateTypesLabel"),
+
+                new LocalizedItem(inspectorsLayoutControlGroup, "SettingsInspectors_InspectorsGroup"),
+                new LocalizedItem(certificateTypeLayoutControlGroup, "SettingsInspectors_CertificatesGroup"),
+                // inspectors grid
+                new LocalizedItem(colInspectorLastName, "SettingsInspectors_LastNameColumn"),
+                new LocalizedItem(colInspectorFirstName, "SettingsInspectors_FirstNameColumn"),
+                new LocalizedItem(colInspectorMiddleName, "SettingsInspectors_MiddleNameColumn"),
+                // certificates grid
+                new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
+                new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),
+                new LocalizedItem(inspectorCertificateExpirationCol, "SettingsInspectors_CertificateExpirationColumn"),
+                // types grid
+                new LocalizedItem(certificateNameColumn, "SettingsInspectors_CertificateNameColumn"),
+                new LocalizedItem(certificateIsActiveColumn, "SettingsInspectors_CertificateIsActiveColumn"),
+
                 // users page
                 // roles page
                 // common page
