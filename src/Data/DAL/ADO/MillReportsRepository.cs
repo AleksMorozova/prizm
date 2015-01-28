@@ -426,8 +426,10 @@ namespace Prizm.Data.DAL.ADO
 
             tempSQLObject = SQLProvider.GetQuery(
                 SQLProvider.SQLStatic.GetJointsByDate)
-                .WhereAnd().Where("wr.MinDate", "<=", string.Concat("N'", weldDateTo.Value.ToString(), "'"))
-                .WhereAnd().Where("wr.MinDate", ">=", string.Concat("N'", weldDateFrom.Value.ToString(), "'"));
+                //.WhereAnd().Where("wr.MinDate", "<=", string.Concat("N'", weldDateTo.Value.ToString(), "'"))
+                //.WhereAnd().Where("wr.MinDate", ">=", string.Concat("N'", weldDateFrom.Value.ToString(), "'"));
+                .WhereAnd().Where("wr.MinDate", "<=", string.Format("N'{0}-{1}-{2}'", weldDateTo.Value.Year, weldDateTo.Value.Month, weldDateTo.Value.Day))
+                .WhereAnd().Where("wr.MinDate", ">=", string.Format("N'{0}-{1}-{2}'", weldDateFrom.Value.Year, weldDateFrom.Value.Month, weldDateFrom.Value.Day));
 
             return GetPipelineElements(tempSQLObject.ToString());
 
