@@ -441,6 +441,12 @@ namespace Prizm.Main.Forms.Settings
         private void gridViewWelders_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             ValidatePersonName(gridViewWelders, colWelderFirstName, colWelderLastName, e);
+            string certificate = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderCert);
+            if (String.IsNullOrEmpty(certificate))
+            {
+                gridViewWelders.SetColumnError(colWelderCert, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
         }
 
         private void gridViewInspectors_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
@@ -1180,7 +1186,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if(IsEditMode)
             {
-                using(var addForm = new MillInspectionXtraForm(null, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
                 {
                     if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
@@ -1201,7 +1207,7 @@ namespace Prizm.Main.Forms.Settings
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
                 if(selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
                     {
                         editForm.ShowDialog();
                     }
@@ -1216,7 +1222,7 @@ namespace Prizm.Main.Forms.Settings
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
                 if(selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
                     {
                         editForm.ShowDialog();
                     }

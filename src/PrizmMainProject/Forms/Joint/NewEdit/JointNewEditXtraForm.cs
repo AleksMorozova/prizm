@@ -440,12 +440,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void firstJointElement_EditValueChanged(object sender, EventArgs e)
         {
+            viewModel.FirstElementId = (Guid)firstJointElement.EditValue;
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }
 
         private void secondJointElement_EditValueChanged(object sender, EventArgs e)
         {
+            viewModel.SecondElementId = (Guid)secondJointElement.EditValue;
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }

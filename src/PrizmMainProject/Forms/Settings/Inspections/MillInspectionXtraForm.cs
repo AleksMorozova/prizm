@@ -21,11 +21,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
-        public MillInspectionXtraForm(PipeTest current, IList<EnumWrapper<PipeTestControlType>> controlTypes, IList<EnumWrapper<PipeTestResultType>> resultTypes, BindingList<Category> categoryTypes)
+        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
-            viewModel = new MillInspectionViewModel(current, controlTypes, resultTypes, categoryTypes);
-            
+            viewModel = new MillInspectionViewModel(current, categoryTypes);
+            SetControlsTextLength();
             ChangeExpected();
             ChangeFrequency();
             if (current != null)
@@ -92,16 +92,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
             
             boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch (viewModel.ResultType)
+            switch (resultType.SelectedIndex)
             {
-                case PipeTestResultType.Boolean:
+                case 0: //PipeTestResultType.Boolean 
                     boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case PipeTestResultType.Diapason:
+                case 1: //PipeTestResultType.Diapason
                     rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case PipeTestResultType.String:
-                case PipeTestResultType.Undef:
+                case 2: //PipeTestResultType.String
                     break;
                 default:
                     break;
@@ -136,22 +135,44 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             return new List<LocalizedItem>()
             {
+                //controls
                   new LocalizedItem(resultType, new  string [] {"MillInspection_ResultTypeBoolean","MillInspection_ResultTypeString", "MillInspection_ResultTypeRange" }),
                   new LocalizedItem(controlType, new  string [] {"MillInspection_ControlTypeWitness","MillInspection_ControlTypeReview", "MillInspection_ControlTypeMonitor", "MillInspection_ControlTypeHold" }),
                   new LocalizedItem(frequencyMeasure, new  string [] {"MillInspection_FrequencyMeasureMeters","MillInspection_FrequencyMeasureTons", "MillInspection_FrequencyMeasurePipes" }),
+                  new LocalizedItem(saveButton, "MillInspection_SaveButton"),
+                  new LocalizedItem(cancelButton, "MillInspection_CancelButton"),
+                  new LocalizedItem(isRequired, "MillInspection_IsRequiredCheckbox"),
+                  new LocalizedItem(isActive, "MillInspection_IsActiveCheckbox"),
+                  new LocalizedItem(boolExpected, "MillInspection_YesNoExpectedCheckbox"),
+
+                  //layouts
+                  new LocalizedItem(codeLayout, "MillInspection_CodeLabel"),
+                  new LocalizedItem(operationNameLayout, "MillInspection_NameLabel"),
+                  new LocalizedItem(categoryLayout, "MillInspection_CategoryLabel"),
+                  new LocalizedItem(resultTypeLayout, "MillInspection_ResultTypeLabel"),
+                  new LocalizedItem(controlTypeLayout, "MillInspection_ControlTypeLabel"),
+                  new LocalizedItem(minExpectedLayout, "MillInspection_FromLabel"),
+                  new LocalizedItem(maxExpectedLayout, "MillInspection_ToLabel"),
+                  new LocalizedItem(frequencyLayout, "MillInspection_FrequencyLabel"),
+                  new LocalizedItem(frequencyMeasureLayout, "MillInspection_FrequencyMeasureLabel"),
+
+                   // layout control groups
+                   new LocalizedItem(rangeExpectedGroup, "MillInspection_RangeControlValueGroup"),
+                   new LocalizedItem(boolExpectedGroup, "MillInspection_BoolControlValueGroup"),
+                   new LocalizedItem(frequencyGroup, "MillInspection_FrequencyGroup"),
             };
         }
         #endregion // --- Localization ---
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void resultType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            viewModel.ResultTypeIndex = resultType.SelectedIndex + 1;
             ChangeExpected();
+        }
+
+        private void SetControlsTextLength()
+        {
+            code.Properties.MaxLength = LengthLimit.MaxPipeTestCode;
+            operationName.Properties.MaxLength = LengthLimit.MaxPipeTestName;
         }
     }
 }

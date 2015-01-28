@@ -154,6 +154,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             viewModel.pipesList.Add(viewModel.pipeToAdd, viewModel.Railcar);
             pipesList.RefreshDataSource();
+            pipeNumberLookUp.EditValue = null;
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             IsModified = true;
             commandManager.RefreshVisualState();
 
@@ -166,6 +168,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 viewModel.RemovePipe(number);
                 pipesList.RefreshDataSource();
+                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
                 IsModified = true;
                 commandManager.RefreshVisualState();
             }
