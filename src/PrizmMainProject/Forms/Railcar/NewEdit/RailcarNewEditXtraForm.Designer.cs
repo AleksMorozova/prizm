@@ -210,7 +210,7 @@
             // 
             // pipeNumberLookUp
             // 
-            this.pipeNumberLookUp.Location = new System.Drawing.Point(35, 169);
+            this.pipeNumberLookUp.Location = new System.Drawing.Point(35, 161);
             this.pipeNumberLookUp.Name = "pipeNumberLookUp";
             this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -332,8 +332,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.releaseNoteDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.releaseNoteDate.Properties.Mask.EditMask = "";
-            this.releaseNoteDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.releaseNoteDate.Size = new System.Drawing.Size(357, 20);
             this.releaseNoteDate.StyleController = this.generalLayout;
             this.releaseNoteDate.TabIndex = 2;
