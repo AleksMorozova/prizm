@@ -1067,7 +1067,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if (IsEditMode)
             {
-                using (var addForm = new MillInspectionXtraForm(null, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
                 {
                     if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
@@ -1088,7 +1088,7 @@ namespace Prizm.Main.Forms.Settings
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
                 if (selectedTest != null)
                 {
-                    using (var editForm = new MillInspectionXtraForm(selectedTest, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                    using (var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
                     {
                         editForm.ShowDialog();
                     }
@@ -1103,7 +1103,7 @@ namespace Prizm.Main.Forms.Settings
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
                 if (selectedTest != null)
                 {
-                    using (var editForm = new MillInspectionXtraForm(selectedTest, viewModel.ControlType, viewModel.ResultType, viewModel.CategoryTypes))
+                    using (var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
                     {
                         editForm.ShowDialog();
                     }
