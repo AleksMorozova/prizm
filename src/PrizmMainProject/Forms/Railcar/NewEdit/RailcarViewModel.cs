@@ -20,6 +20,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        public BindingList<Pipe> ReleaseNotePipes { get; set; }
         private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
         private readonly IRailcarRepositories repos;
         private readonly IUserNotify notify;
@@ -57,10 +58,34 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 ReleaseNote = repos.ReleaseNoteRepo.Get(id);
             }
-            
+           
         }
 
-        
+        public void LoadData()
+        {
+            ReleaseNotePipes = new BindingList<Pipe>();
+            //if (ReleaseNote != null)
+            //{
+            //    GetAllPipes();
+            //}
+            //else 
+            //{ 
+            //    ReleaseNotePipes = new BindingList<Pipe>();
+            //}
+        }
+
+        private void GetAllPipes()
+        {
+            if (ReleaseNotePipes == null)
+                ReleaseNotePipes = new BindingList<Pipe>();
+
+            IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(ReleaseNote.Id);
+            foreach (var p in pipes)
+            {
+                ReleaseNotePipes.Add(p);
+            }
+        }
+
 
         public List<Pipe> AllPipes
         {
@@ -104,15 +129,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             get
             {
                 return ReleaseNote.Date;
-                //if (ReleaseNote.Date)
-                //{
-                //    return ReleaseNote.Date;
-                //}
-                //else
-                //{
-                //    return DateTime.MinValue;
-                //}
-
             }
             set
             {
@@ -304,6 +320,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             else
             {
                 Pipes.Add(pipeToAdd);
+                ReleaseNotePipes.Add(pipeToAdd);
             }
 
             
