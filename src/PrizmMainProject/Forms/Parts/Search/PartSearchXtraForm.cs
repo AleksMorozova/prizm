@@ -52,7 +52,6 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             RefreshTypes();
             activity.SelectedIndex = 0;
-            viewModel.Activity = activity.SelectedItem.ToString();
         }
 
         private void BindToViewModel()
@@ -60,7 +59,7 @@ namespace Prizm.Main.Forms.Parts.Search
             bindingSource.DataSource = viewModel;
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
             number.DataBindings.Add("Editvalue", bindingSource, "Number");
-            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.DataBindings.Add("SelectedIndex", bindingSource, "ActivityIndex");
         }
 
         private void BindCommands()
