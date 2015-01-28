@@ -489,6 +489,12 @@
     <Compile Include="Forms\Reports\Mill\LoadingXtraReport.Designer.cs">
       <DependentUpon>LoadingXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\LoadSubXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\LoadSubXtraReport.Designer.cs">
+      <DependentUpon>LoadSubXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MainXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -828,6 +834,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\LoadingXtraReport.resx">
       <DependentUpon>LoadingXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\LoadSubXtraReport.resx">
+      <DependentUpon>LoadSubXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MainXtraReport.resx">
       <DependentUpon>MainXtraReport.cs</DependentUpon>

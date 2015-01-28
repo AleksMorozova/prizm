@@ -61,11 +61,11 @@ namespace Prizm.Main.Forms.Reports.Mill
                     //data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                     //GeneralInformationXtraReport report = new GeneralInformationXtraReport();
                     //report.DataSource = data;
-                    MainXtraReport report = new MainXtraReport();
-                    SubXtraReport report2 = new SubXtraReport();
-                    report2.param.Value = "1";
+                    LoadingXtraReport report = new LoadingXtraReport();
+                    LoadSubXtraReport report2 = new LoadSubXtraReport();
+                    //report2.noteId.Value = "1";
                     report.RequestParameters = false;
-                    report.xrSubreport1.ReportSource = report2;
+                    //report.xr.ReportSource = report2;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();
