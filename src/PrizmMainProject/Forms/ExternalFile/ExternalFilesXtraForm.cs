@@ -37,6 +37,11 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
+        public ExternalFilesXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void ExternalFilesXtraForm_Load(object sender, EventArgs e)
         {
             files.DataSource = viewModel.Files;

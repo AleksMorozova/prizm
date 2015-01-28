@@ -24,6 +24,11 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             this.number.Text = number;
         }
 
+        public HeatNumberXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()
@@ -32,7 +37,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             {
                 new LocalizedItem(numberLayoutControl, "HeatNumber_HeatNumberLabel"),
                 new LocalizedItem(saveButton, "HeatNumber_SaveButton"),
-                new LocalizedItem(cancelButton, "HeatNumber_CancelButton"),
+                new LocalizedItem(cancelButton, "HeatNumber_CancelButton")
             };
         }
 

@@ -31,6 +31,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             this.Text += ": [" + viewModel.Type + "]";
         }
 
+        public FirstSetupXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();

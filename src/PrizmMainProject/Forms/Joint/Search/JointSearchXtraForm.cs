@@ -40,6 +40,11 @@ namespace Prizm.Main.Forms.Joint.Search
 
         }
 
+        public JointSearchXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void JointSearchXtraForm_Load(object sender, System.EventArgs e)
         {
             BindCommands();

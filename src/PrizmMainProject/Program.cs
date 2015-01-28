@@ -64,32 +64,6 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
-
-            foreach(var arg in args)
-            {
-                if(arg.Equals("seed"))
-                {
-                    isSeed = true;
-                }
-                if (arg.Equals("template"))
-                {
-                    LocalizedItem.IsCreatingTemplate = true;
-                    List<string> templateStrings = new List<string>();
-                    AddLocalizationTemplatesFromForm(typeof(PrizmApplicationXtraForm), templateStrings);
-                    // TODO: add all other forms here
-
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(
-                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append:false))
-                    {
-                        foreach (var line in templateStrings)
-                        {
-                            file.WriteLine(line);
-                        }
-                    }
-                    return;
-                }
-            }
-
             bool cmdLineMode = false;
             try
             {
@@ -112,6 +86,18 @@ namespace Prizm.Main
 
                 //Permissions setup
                 CreatePermissions();
+
+                foreach(var arg in args)
+                {
+                    if(arg.Equals("seed"))
+                    {
+                        isSeed = true;
+                    }
+                    if(arg.Equals("template"))
+                    {
+                        LocalizationsItems();
+                    }
+                }
 
                 while (!CreateProject())
                 { }               
@@ -151,6 +137,72 @@ namespace Prizm.Main
                 // Hide splash screen
                 SplashScreenManager.CloseForm(false);
             }
+        }
+
+        private static void LocalizationsItems()
+        {
+            LocalizedItem.IsCreatingTemplate = true;
+            List<string> templateStrings = new List<string>();
+            List<PrizmForm> forms = new List<PrizmForm>();
+            forms.Add(new PrizmApplicationXtraForm());
+            forms.Add(new Prizm.Main.Forms.Component.NewEdit.ComponentNewEditXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.NewEdit.MillPipeNewEditXtraForm());
+            forms.Add(new AboutXtraForm());
+            forms.Add(new LoginForm());
+            forms.Add(new SaveDialog());
+            forms.Add(new Prizm.Main.Forms.ExternalFile.ExternalFilesXtraForm());
+            forms.Add(new Prizm.Main.Forms.Joint.JointCutDialog());
+            forms.Add(new Prizm.Main.Forms.Joint.NewEdit.JointNewEditXtraForm());
+            forms.Add(new Prizm.Main.Forms.Joint.NewEdit.SelectDiameterDialog());
+            forms.Add(new Prizm.Main.Forms.Joint.Search.JointSearchXtraForm());
+            forms.Add(new FirstSetupXtraForm());
+            forms.Add(new PrizmMain.Forms.Notifications.NotificationXtraForm());
+            forms.Add(new Prizm.Main.Forms.Parts.Inspection.CreateSpoolComponentDialog());
+            forms.Add(new Prizm.Main.Forms.Parts.Inspection.InspectionSelectPartDialog());
+            forms.Add(new Prizm.Main.Forms.Parts.Inspection.PartInspectionXtraForm());
+            forms.Add(new Prizm.Main.Forms.Parts.Search.PartSearchXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.Heat.HeatNumberXtraForm());
+            //forms.Add(new Prizm.Main.Forms.PipeMill.Heat.HeatXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.NewEdit.InspectionAddEditXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.PurchaseOrderXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.Search.MillPipeSearchXtraForm());
+            forms.Add(new Prizm.Main.Forms.Railcar.NewEdit.RailcarNewEditXtraForm());
+            forms.Add(new Prizm.Main.Forms.Reports.Construction.PipeReport.PipeConstractionReportXtraForm());
+            forms.Add(new Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportXtraForm());
+            forms.Add(new Prizm.Main.Forms.Reports.Construction.ConstructionReportsXtraForm());
+            forms.Add(new Prizm.Main.Forms.Reports.Incoming.InspectionReportsXtraForm());
+            forms.Add(new Prizm.Main.Forms.Railcar.Search.RailcarSearchXtraForm());
+            forms.Add(new Prizm.Main.Forms.Reports.Mill.MillReportsXtraForm());
+            forms.Add(new Prizm.Main.Forms.Settings.Inspections.MillInspectionXtraForm());
+            forms.Add(new PasswordChangeDialog());
+            forms.Add(new SettingsXtraForm());
+            forms.Add(new Prizm.Main.Forms.Spool.SpoolsXtraForm());
+            forms.Add(new Prizm.Main.Forms.Synch.ConflictDialog());
+            forms.Add(new Prizm.Main.Forms.Synch.ExportForm());
+            forms.Add(new Prizm.Main.Forms.Synch.ImportForm());
+            foreach(var form in forms)
+            {
+                foreach(ILocalizedItem item in form)
+                {
+                    for(int index = 0; index < item.Count; index++)
+                    {
+                        templateStrings.Add(item.GetResourceId(index));
+                    }
+                }
+            }
+
+            //AddLocalizationTemplatesFromForm(typeof(PrizmApplicationXtraForm), templateStrings);
+            // TODO: add all other forms here
+
+            using(System.IO.StreamWriter file = new System.IO.StreamWriter(
+                System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false))
+            {
+                foreach(var line in templateStrings)
+                {
+                    file.WriteLine(line);
+                }
+            }
+            return;
         }
 
         static LoginResult Login(ref string failMessage)

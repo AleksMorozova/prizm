@@ -34,6 +34,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
+        public MillInspectionXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void boolExpected_CheckedChanged(object sender, EventArgs e)
         {
             if (boolExpected.Checked)

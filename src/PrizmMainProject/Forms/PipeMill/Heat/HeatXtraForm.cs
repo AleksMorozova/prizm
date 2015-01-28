@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
                 new LocalizedItem(plateManufacturerLayoutControl, "Heat_PlateManufacturerLabel"),
 
                 new LocalizedItem(saveButton, "Heat_SaveButton"),
-                new LocalizedItem(cancelButton, "Heat_CancelButton"),
+                new LocalizedItem(cancelButton, "Heat_CancelButton")
             };
         }
 

@@ -26,6 +26,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
             numberLabelLayout.Text = elementNumber + "?";
         }
 
+        public CreateSpoolComponentDialog()
+        {
+            // TODO: Complete member initialization
+        }
+
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()

@@ -50,6 +50,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         }
 
+        public InspectionAddEditXtraForm()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();

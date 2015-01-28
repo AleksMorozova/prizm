@@ -30,6 +30,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
             this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
+        public InspectionSelectPartDialog()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void NumbersDialog_Load(object sender, EventArgs e)
         {
             searchResults.DataSource = parts;
