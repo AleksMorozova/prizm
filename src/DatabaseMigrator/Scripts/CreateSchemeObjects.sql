@@ -300,7 +300,8 @@ CREATE TABLE [dbo].[PipeTest](
 	[boolExpected] [bit] NULL,
 	[isRequired] [bit] NULL,
 	[pipeMillSizeTypeId] [uniqueidentifier] NULL,
-	
+	[frequency] [int] NULL,
+	[frequencyMeasure] [nvarchar](10) NULL,
 	[categoryId] [uniqueidentifier] NULL,
 
 	[isActive] [bit] NULL,
@@ -430,15 +431,13 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Railcar](
 	[id] [uniqueidentifier] NOT NULL,
-	[releaseNoteNumber] [nvarchar](20) NULL,
-	[releaseNoteDate] [date] NULL,
 	[number] [nvarchar](20) NULL,
 	[certificate] [nvarchar](20) NULL,
 	[destination] [nvarchar](50) NULL,
-	[shippingDate] [date] NULL,
 	[isShipped] [bit] NULL,
 	 [toExport] [bit] NOT NULL DEFAULT 0,
 	[isActive] [bit] NULL,
+	[releaseNoteId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Railcar] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -448,7 +447,24 @@ CREATE TABLE [dbo].[Railcar](
 
 SET ANSI_PADDING OFF
 
+/****** Object:  Table [dbo].[ReleaseNote]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[ReleaseNote](
+	[id] [uniqueidentifier] NOT NULL,
+	[number] [nvarchar](20) NULL,
+	[date] [date] NULL,
+	[Shipped] [bit] NULL,
+	[isActive] [bit] NULL,
+ CONSTRAINT [PK_ReleaseNote] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+
+SET ANSI_PADDING OFF
 
 
 /****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
@@ -836,7 +852,11 @@ GO
 CREATE TABLE [dbo].[Portion] (
   [id] [uniqueidentifier] NOT NULL,
   [exportDateTime] [date] NOT NULL,
-CONSTRAINT [PK_Portion] PRIMARY KEY([id])
+  [isExport] [bit] NOT NULL,
+  [portionNumber] [int] NOT NULL,
+  [projectId] [uniqueidentifier] NOT NULL,
+CONSTRAINT [PK_Portion] PRIMARY KEY([id]),
+CONSTRAINT [FK_Portion_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
 ) ON [PRIMARY]
 
 GO
@@ -848,18 +868,17 @@ CONSTRAINT [PK_Portion_Pipe] PRIMARY KEY([portionId],[pipeId]),
 CONSTRAINT [FK_Portion_Pipe_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
 CONSTRAINT [FK_Portion_Pipe_Pipe] FOREIGN KEY ([pipeId]) REFERENCES [dbo].[Pipe]([id])
 ) ON [PRIMARY]
-
 GO
 
-CREATE TABLE [dbo].[Portion_Project] (
-  [portionId] [uniqueidentifier] NOT NULL,
-  [projectId] [uniqueidentifier] NOT NULL,
-CONSTRAINT [PK_Portion_Project] PRIMARY KEY([portionId],[projectId]),
-CONSTRAINT [FK_Portion_Project_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
-CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
-) ON [PRIMARY]
+--CREATE TABLE [dbo].[Portion_Project] (
+--  [portionId] [uniqueidentifier] NOT NULL,
+--  [projectId] [uniqueidentifier] NOT NULL,
+--CONSTRAINT [PK_Portion_Project] PRIMARY KEY([portionId],[projectId]),
+--CONSTRAINT [FK_Portion_Project_Portion] FOREIGN KEY ([portionId]) REFERENCES [dbo].[Portion]([id]),
+--CONSTRAINT [FK_Portion_Project_Project] FOREIGN KEY ([projectId]) REFERENCES [dbo].[Project]([id])
+--) ON [PRIMARY]
 
-GO
+--GO
 
 CREATE TABLE [dbo].[Portion_Joint] (
   [portionId] [uniqueidentifier] NOT NULL,

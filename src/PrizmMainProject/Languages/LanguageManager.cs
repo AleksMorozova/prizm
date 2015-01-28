@@ -50,6 +50,11 @@ namespace Prizm.Main.Languages
         private const string defaultCulture = "ru-RU";
         private CultureInfo defaultCultureInfo = new CultureInfo(defaultCulture);
 
+        public LanguageManager()
+        {
+            FindAvailableTranslations();
+        }
+
         /// <summary>
         /// Is supposed to be called once, finding all available external files with translation resources
         /// </summary>
@@ -121,7 +126,7 @@ namespace Prizm.Main.Languages
 
         private ResourceManager manager = null;
 
-        public ResourceManager Current 
+        private ResourceManager Current 
         { 
             get 
             {
@@ -133,7 +138,7 @@ namespace Prizm.Main.Languages
             } 
         }
 
-        public ResourceManager Default
+        private ResourceManager Default
         {
             get
             {
@@ -141,19 +146,79 @@ namespace Prizm.Main.Languages
             }
         }
 
-        public CultureInfo CurrentCulture
+        private CultureInfo CurrentCulture
         {
             get 
             {
                 return cultures[indexCurrent].Culture;
             }
         }
-        public CultureInfo DefaultCulture
+        private CultureInfo DefaultCulture
         {
             get
             {
                 return cultures[indexDefault].Culture;
             }
         }
+
+        /// <summary>
+        /// retrieves localized string when available. Otherwise retrieves default string.
+        /// </summary>
+        /// <param name="resourceId">id of requested string resource</param>
+        /// <returns>localized string</returns>
+        private bool TryGetLocalizedString(string resourceId, out string resource)
+        {
+            bool ret = true;
+            resource = String.Empty;
+            try
+            {
+                resource = this.Current.GetString(resourceId, this.CurrentCulture);
+            }
+            catch (SystemException)
+            {
+                try
+                {
+                    resource = this.Default.GetString(resourceId, this.DefaultCulture);
+                }
+                catch (SystemException)
+                {
+                    ret = false;
+#if DEBUG
+                    //it will not work for forms text
+                    //throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
+#endif
+                }
+            }
+            if (String.IsNullOrWhiteSpace(resource))
+            {
+                resource = "<no resource>";
+                ret = false;
+            }
+            return ret;
+        }
+
+        public void ChangeLanguage(ILocalizable localizable)
+        {
+            if (localizable != null)
+            {
+                foreach (var localizedItem in localizable)
+                {
+                    for (int index = 0; index < localizedItem.Count; index++)
+                    {
+                        string resource;
+                        if (TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
+                        {
+                            localizedItem[index] = resource;
+                        }
+                        else
+                        {
+                            localizedItem.BackToDefault(index);
+                        }
+                    }
+                    localizedItem.Refresh();
+                }
+            }
+        }
+
     }
 }

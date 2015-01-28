@@ -8,14 +8,12 @@ namespace Prizm.Data.DAL.Mapping
         public RailcarMap()
         {
             Table("Railcar");
-            Map(_ => _.ReleaseNoteNumber, "releaseNoteNumber");
-            Map(_ => _.ReleaseNoteDate, "releaseNoteDate");
             Map(x => x.Number).Column("number");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");
-	        Map(_ => _.ShippingDate, "shippingDate");
             Map(_ => _.IsShipped, "isShipped");
             HasMany(_ => _.Pipes).KeyColumn("railcarId");
+            References<ReleaseNote>(x => x.ReleaseNote).Column("releaseNoteId");
         }
     }
 }

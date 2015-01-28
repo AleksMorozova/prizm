@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public partial class SelectDiameterDialog : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class SelectDiameterDialog : PrizmForm
     {
 
         public int Diameter { get; set; }
@@ -20,6 +24,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public SelectDiameterDialog()
         {
             InitializeComponent();
+
+            Bitmap bmp = Resources.joint_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
             saveChosenDiameter.Enabled = false;
         }
 
@@ -30,6 +38,19 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 diametersIntersection.Properties.Items.Add(t);
             }
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(diametersIntersectionLayout, "SelectDiameterDialog_DiametersIntersectionLayout"),
+                new LocalizedItem(saveChosenDiameter, "SelectDiameterDialog_SaveChosenDiameter"),
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void diametersIntersection_SelectedIndexChanged(object sender, EventArgs e)
         {

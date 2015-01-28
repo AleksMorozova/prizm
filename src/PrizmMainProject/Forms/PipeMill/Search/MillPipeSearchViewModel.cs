@@ -29,17 +29,13 @@ using Prizm.Main.Properties;
         readonly IMillRepository repoMill;
 
         private IList<Pipe> pipes;
-        private IList<EnumWrapper<PipeMillStatus>> statusTypes;
-        public IList<EnumWrapper<PipeMillStatus>> CheckedStatusTypes;
+        public HashSet<PipeMillStatus> CheckedStatusTypes;
         public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
         private IList<PipeMillSizeType> pipeTypes;
         private IList<PipeMillSizeType> checkedPipeTypes 
             = new List<PipeMillSizeType>();
 
         private string pipeNumber = String.Empty; 
-
-        private EnumWrapper<PipeMillStatus> pipeMillStatus;
-        private EnumWrapper<ActivityCriteria> activityArray;
 
         [Inject]
         public MillPipeSearchViewModel(
@@ -59,8 +55,8 @@ using Prizm.Main.Properties;
         }
 
         #region Properties
-        private string activity;
-        public string Activity
+        private ActivityCriteria activity;
+        public ActivityCriteria Activity
         {
             get { return activity; }
             set
@@ -69,6 +65,19 @@ using Prizm.Main.Properties;
                 {
                     activity = value;
                     RaisePropertyChanged("Activity");
+                }
+            }
+        }
+
+        public int ActivityIndex
+        {
+            get { return (int)Activity; }
+            set
+            {
+                if (value != (int)Activity)
+                {
+                    Activity = (ActivityCriteria)value;
+                    RaisePropertyChanged("ActivityIndex");
                 }
             }
         }
@@ -131,50 +140,6 @@ using Prizm.Main.Properties;
             }
         }
 
-        public EnumWrapper<PipeMillStatus> PipeMillStatus
-        {
-            get
-            {
-                return pipeMillStatus;
-            }
-            set
-            {
-                if (value != pipeMillStatus)
-                {
-                    pipeMillStatus = value;
-                    RaisePropertyChanged("PipeMillStatus");
-                }
-            }
-        }
-
-        public EnumWrapper<ActivityCriteria> ActivityArray
-        {
-            get
-            {
-                return activityArray;
-            }
-            set
-            {
-                if (value != activityArray)
-                {
-                    activityArray = value;
-                    RaisePropertyChanged("ActivityArray");
-                }
-            }
-        }
-
-        public IList<EnumWrapper<PipeMillStatus>> StatusTypes
-        {
-            get { return statusTypes; }
-            set
-            {
-                if (value != statusTypes)
-                {
-                    statusTypes = value;
-                    RaisePropertyChanged("StatusTypes");
-                }
-            }
-        } 
         #endregion
 
         public ICommand SearchCommand
@@ -189,22 +154,11 @@ using Prizm.Main.Properties;
 
         private void LoadStatuses()
         {
-            StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
-            CheckedStatusTypes = new List<EnumWrapper<PipeMillStatus>>();
-            ActivityTypes = new List<EnumWrapper<ActivityCriteria>>();
+            CheckedStatusTypes = new HashSet<PipeMillStatus>();
 
-            foreach (string statusTypeName in Enum.GetNames(typeof(PipeMillStatus)))
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0 : true))
             {
-                if (statusTypeName != Enum.GetName(typeof(PipeMillStatus), Prizm.Domain.Entity.Mill.PipeMillStatus.Undefined))
-                {
-                    StatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
-                    CheckedStatusTypes.Add(new EnumWrapper<PipeMillStatus>() { Name = statusTypeName });
-                }
-            }
-
-            foreach (string activeType in Enum.GetNames(typeof(ActivityCriteria))) 
-            {
-                ActivityTypes.Add(new EnumWrapper<ActivityCriteria>() { Name = activeType });
+                    CheckedStatusTypes.Add((PipeMillStatus)item.Item1);
             }
         }
 

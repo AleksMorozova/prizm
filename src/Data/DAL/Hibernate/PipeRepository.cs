@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Domain.Entity.Construction;
+using NHibernate.Linq;
+using NHibernate.Criterion;
+using NHibernate.Transform;
+using NHibernate.SqlCommand;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -39,7 +43,20 @@ namespace Prizm.Data.DAL.Hibernate
         {
             try
             {
-                return session.QueryOver<Pipe>().Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive==true))).List<Pipe>();
+                PipeTestResult result = null;
+                Inspector inspector = null;
+                Certificate certificate = null;
+
+                var q = session.QueryOver<Pipe>()
+                    .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true)))
+                    .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity)
+                    .List<Pipe>();
+
+                return q;
+
             }
             catch (GenericADOException ex)
             {
@@ -64,16 +81,31 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
 
-
-
         public IList<Pipe> GetPipesToExport()
         {
            try
            {
-              return session
-                 .QueryOver<Pipe>()
-                 .Where(p => p.ToExport)
-                 .List<Pipe>();
+               //Pipe p = null;
+               //PipeTestResult ptr = null;
+               //Inspector ins = null;
+
+              //var q = session
+              //   .QueryOver<Pipe>(() => p)
+              //   .Left.JoinAlias(() => p.PipeTestResult, () => ptr)
+              //   .Left.JoinAlias(() => ptr.Inspectors, () => ins)
+              //   .Where(_ => _.ToExport)
+              //   .List<Pipe>();
+               PipeTestResult result = null;
+               Inspector inspector = null;
+               Certificate certificate = null;
+               var q = session.QueryOver<Pipe>()
+                   .Where(n => ((n.ToExport == true)))
+                   .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+                   .TransformUsing(Transformers.DistinctRootEntity)
+                   .List<Pipe>();
+              return q;
            }
            catch (GenericADOException ex)
            {

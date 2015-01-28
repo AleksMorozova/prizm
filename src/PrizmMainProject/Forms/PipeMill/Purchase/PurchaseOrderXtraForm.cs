@@ -13,10 +13,13 @@ using Prizm.Main.Forms.PipeMill.Purchase;
 using Ninject;
 using Ninject.Parameters;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill
 {
-    public partial class PurchaseOrderXtraForm : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class PurchaseOrderXtraForm : PrizmForm
     {
         PurchaseOrderViewModel viewModel;
 
@@ -44,6 +47,22 @@ namespace Prizm.Main.Forms.PipeMill
             number.DataBindings.Add("EditValue", bindingSource, "Number");
             date.DataBindings.Add("EditValue", bindingSource, "Date");
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(purchaseOrderNumberLayout, "PurchaseOrder_NumberLabel"),
+                new LocalizedItem(purchaseOrderDateLayout, "PurchaseOrder_DateLabel"),
+
+                new LocalizedItem(saveButton, "PurchaseOrder_SaveButton"),
+                new LocalizedItem(cancelButton, "PurchaseOrder_CancelButton")
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void saveButton_Click(object sender, EventArgs e)
         {

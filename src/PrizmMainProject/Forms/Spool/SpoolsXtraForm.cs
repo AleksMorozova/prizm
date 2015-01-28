@@ -15,6 +15,9 @@ using System.Windows.Forms;
 using Ninject;
 using System.Text;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
+using Prizm.Main.Common;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -38,29 +41,32 @@ namespace Prizm.Main.Forms.Spool
             this.id = id;
 
             InitializeComponent();
+            Bitmap bmp = Resources.spool_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+            SetControlsTextLength();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             pipeNumber.SetAsIdentifier();
             spoolNumber.SetAsIdentifier();
-            if (number != string.Empty)
+            if(number != string.Empty)
             {
                 viewModel.SpoolNumber = number;
             }
             SetAlwaysReadOnly(pipeLength);
-            if (id == Guid.Empty)
+            if(id == Guid.Empty)
             {
                 SetAlwaysEditable(pipeNumber);
             }
             else
             {
                 this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
-                SetAlwaysReadOnly(pipeNumber); 
+                SetAlwaysReadOnly(pipeNumber);
             }
             IsEditMode = true;
 
         }
 
-        public SpoolsXtraForm() : this(Guid.Empty, string.Empty) {  }
+        public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }
         public SpoolsXtraForm(Guid id) : this(id, string.Empty) { }
         public SpoolsXtraForm(string number) : this(Guid.Empty, number) { }
 
@@ -111,7 +117,7 @@ namespace Prizm.Main.Forms.Spool
         {
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
-            commandManager["Deactivate"].Executor(viewModel.DeactivateCommand).AttachTo(deactivated);          
+            commandManager["Deactivate"].Executor(viewModel.DeactivateCommand).AttachTo(deactivated);
             SaveCommand = viewModel.SaveCommand;
 
             viewModel.DeactivateCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
@@ -125,19 +131,51 @@ namespace Prizm.Main.Forms.Spool
         {
             BindToViewModel();
 
-            attachmentsButton.Enabled = 
-                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) 
-                &&  ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled =
+                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty)
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode =((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive) ;
+            IsEditMode = ((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                new LocalizedItem(pipeNumberLabel, "Spool_PipeNumberLabel"),
+                new LocalizedItem(spoolNumberLabel, "Spool_SpoolNumberLabel"),
+                new LocalizedItem(pipeNumberLabel, "Spool_PipeNumberLabel"),
+                new LocalizedItem(pipelengthLabel, "Spool_PipeLengthLabel"),
+                new LocalizedItem(spoonlengthLabel, "Spool_SpoolLengthLabel"),
+                
+                new LocalizedItem(pipeSearchayoutGroup, "Spool_PipeSearchGroup"),
+                new LocalizedItem(spoolLayoutGroup, "Spool_SpoolGroup"),
+                new LocalizedItem(layoutlengthGroup, "Spool_LenghtGroup"),
+
+                new LocalizedItem(inspectionDateGridColumn, "Spool_InspectionDateColumn"),
+                new LocalizedItem(inspectionResultGridColumn, "Spool_InspectionResultColumn"),
+                new LocalizedItem(inspectorsGridColumn, "Spool_InspectionInspectorsColumn"),
+                new LocalizedItem(reasonGridColumn, "Spool_InspectionReasonColumn"),
+
+                new LocalizedItem(searchButton, "Spool_SearchButton"),
+                new LocalizedItem(attachmentsButton, "Spool_AttachButton"),
+                new LocalizedItem(saveButton, "Spool_SaveButton"),
+
+                new LocalizedItem(deactivated, "Spool_DeactivatedCheckBox")
+            };
+        }
+
+        #endregion // --- Localization ---
+
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id,IsEditMode);
-            if (viewModel.FilesFormViewModel == null)
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Spool.Id, IsEditMode);
+            if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
@@ -162,7 +200,7 @@ namespace Prizm.Main.Forms.Spool
         {
             LookUpEdit lookup = sender as LookUpEdit;
 
-            if (!(lookup.EditValue is PartInspectionStatus))
+            if(!(lookup.EditValue is PartInspectionStatus))
             {
                 KeyValuePair<PartInspectionStatus, string> val
                     = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
@@ -172,7 +210,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void resultLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PartInspectionStatus)
+            if(e.Value is PartInspectionStatus)
             {
                 e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
             }
@@ -181,12 +219,12 @@ namespace Prizm.Main.Forms.Spool
         private void inspectorsPopupContainerEdit_Popup(object sender, System.EventArgs e)
         {
             inspectionHistoryGridView.ClearSelection();
-            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            if(inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
             {
                 InspectionTestResult inspectionTestResult
                     = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectorSelectionControl.SelectInspectors(inspectionTestResult.Inspectors);
                 }
@@ -195,16 +233,16 @@ namespace Prizm.Main.Forms.Spool
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            if(inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
             {
                 IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
                 InspectionTestResult inspectionTestResult
                     = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectionTestResult.Inspectors.Clear();
-                    foreach (Inspector i in selectedInspectors)
+                    foreach(Inspector i in selectedInspectors)
                     {
                         inspectionTestResult.Inspectors.Add(i);
                     }
@@ -218,7 +256,7 @@ namespace Prizm.Main.Forms.Spool
                = inspectionHistoryGridView
                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
+            if(inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
                 inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
                 e.Cancel = true;
@@ -231,11 +269,11 @@ namespace Prizm.Main.Forms.Spool
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
-                    e.DisplayText = string.Empty;
+            if(e.Value == null)
+                e.DisplayText = string.Empty;
 
-                IList<Inspector> inspectors = e.Value as IList<Inspector>;
-                e.DisplayText = viewModel.FormatInspectorList(inspectors);
+            IList<Inspector> inspectors = e.Value as IList<Inspector>;
+            e.DisplayText = viewModel.FormatInspectorList(inspectors);
         }
 
         private void pipeLength_TextChanged(object sender, EventArgs e)
@@ -246,7 +284,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
         private void searchButton_Click(object sender, EventArgs e)
-        {          
+        {
             attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
         }
 
@@ -261,6 +299,12 @@ namespace Prizm.Main.Forms.Spool
             commandManager.Dispose();
             viewModel.Dispose();
             viewModel = null;
+        }
+
+        private void SetControlsTextLength()
+        {
+            spoolNumber.Properties.MaxLength = LengthLimit.SpoolNumber;
+
         }
     }
 }

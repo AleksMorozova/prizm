@@ -48,7 +48,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-            SaveInspectorCertificateTypes();
             firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
@@ -56,27 +55,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
             viewModel.IsSaved = true;
 
-            var seeder = new InnitialDataSeeder();
-
-            //seed oreration is bool type for any reason
-            seeder.SeedRequired();
-            seeder.SeedOptional();
+            var seeder = new InnitialDataSeeder(viewModel);
+            seeder.Seed(Program.IsSeed);
+            
 
         }
 
         public bool CanExecute()
         {
-            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undef
+            return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undefined
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Login) && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.LastName) 
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.FirstName);
-        }
-
-        private void SaveInspectorCertificateTypes()
-        {
-            foreach (var ct in viewModel.InspectorCertificateTypes)
-            {
-                firstSetupRepo.CertificateTypeRepo.Save(ct);
-            }
         }
 
         #endregion

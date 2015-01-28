@@ -19,6 +19,7 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Spool;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
@@ -32,6 +33,8 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             InitializeComponent();
             number.SetAsIdentifier();
+            Bitmap bmp = Resources.search_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
@@ -39,17 +42,14 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-            foreach (var s in viewModel.ActivityTypes)
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
-                activity.Properties.Items.Add(s);
+                activity.Properties.Items.Add(item.Item2);
             }
-            var pipeCheck = new EnumWrapper<PartType> { Value = PartType.Pipe };
-            var spoolCheck = new EnumWrapper<PartType> { Value = PartType.Spool };
-            var componentCheck = new EnumWrapper<PartType> { Value = PartType.Component };
-
-            type.Properties.Items.Add(pipeCheck.Value, pipeCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(spoolCheck.Value, spoolCheck.Text, CheckState.Checked, true);
-            type.Properties.Items.Add(componentCheck.Value, componentCheck.Text, CheckState.Checked, true);
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
+            {
+                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
+            }
             RefreshTypes();
             activity.SelectedIndex = 0;
             viewModel.Activity = activity.SelectedItem.ToString();
@@ -68,6 +68,37 @@ namespace Prizm.Main.Forms.Parts.Search
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
         }
 
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                new LocalizedItem(numberLayoutControl, "PartSearch_SearchNumberLabel"),
+                new LocalizedItem(typeLayoutControl, "PartSearch_SearchTypeLabel"),
+                new LocalizedItem(activityLayout, "PartSearch_ActivityLabel"),
+
+                // controls
+               new LocalizedItem(searchButton, "PartSearch_SearchButton"),
+               new LocalizedItem(type, new  string [] {"PartSearch_PartTypePipe", "PartSearch_PartTypeSpool", "PartSearch_PartTypeComponent"} ),
+               new LocalizedItem(activity, new  string [] {"PartSearch_StatusActive", "PartSearch_StatusInactive","PartSearch_StatusAll" }),
+
+                // grid column headers
+                new LocalizedItem(numberCol, "PartSearch_NumberColumnHeader"),
+                new LocalizedItem(typeCol, "PartSearch_TypeColumnHeader"),
+
+                // layout control groups
+                new LocalizedItem(searchLayoutControlGroup, "PartSearch_SearchGroup"),
+                new LocalizedItem(searchResultLayoutGroup, "PartSearch_SearchResultGroup"),
+                // form
+                //??
+            };
+        }
+
+        #endregion // --- Localization ---
+
+    
         private void type_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
             RefreshTypes();

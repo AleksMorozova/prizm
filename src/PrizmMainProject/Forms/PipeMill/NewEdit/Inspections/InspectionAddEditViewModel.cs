@@ -233,7 +233,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         DateTime date = DateTime.Now;
         public DateTime Date
         {
-            get { return date; }
+            get { return (testResult.Date == null) ? date : (DateTime)testResult.Date; }
             set
             {
                 if(value != date)

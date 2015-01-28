@@ -15,14 +15,16 @@ namespace Prizm.Data.DAL.Mapping
       {
          Id(_ => _.Id).Column("Id").UnsavedValue(Guid.Empty).GeneratedBy.Assigned();
          Map(_ => _.ExportDateTime).Column("ExportDateTime");
+         Map(_ => _.IsExport).Column("isExport");
+         Map(_ => _.PortionNumber).Column("portionNumber");
+
          HasManyToMany<Pipe>(_ => _.Pipes)
             .Table("Portion_Pipe")
             .ParentKeyColumn("portionId")
             .ChildKeyColumn("pipeId").Not.LazyLoad();
-         HasManyToMany<Project>(_ => _.Projects)
-            .Table("Portion_Project")
-            .ParentKeyColumn("portionId")
-            .ChildKeyColumn("projectId").Not.LazyLoad();
+
+         References<Project>(_ => _.Project).Column("projectId");
+
          HasManyToMany<Project>(_ => _.Joints)
             .Table("Portion_Joint")
             .ParentKeyColumn("portionId")

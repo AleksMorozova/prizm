@@ -15,6 +15,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Controls;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Views.Grid;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -29,6 +30,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public PartInspectionXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.inControl_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetAlwaysEditable(searchNumber);
             searchNumber.SetAsIdentifier();
             IsEditMode = true;
@@ -81,6 +84,38 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectorsPopupContainerEdit.PopupControl = inspectorsPopup;
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                // layout items
+                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
+                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
+                new LocalizedItem(elementNumberLayout, "PartInspection_ElementNumberLabel"),
+                new LocalizedItem(elementTypeLayout, "PartInspection_ElementTypeLabel"),
+
+                // controls
+                new LocalizedItem(searchButton, "PartInspection_SearchButton"),
+                new LocalizedItem(saveButton, "PartInspection_SaveButton"),
+                new LocalizedItem(saveAndClearButton, "PartInspection_SaveAndClearButton"),
+
+                // grid column headers
+                new LocalizedItem(colDate, "PartInspection_DateColumnHeader"),
+                new LocalizedItem(colResult, "PartInspection_ResultColumnHeader"),
+                new LocalizedItem(colInspector, "PartInspection_InspectorColumnHeader"),
+                new LocalizedItem(colReason, "PartInspection_ReasonColumnHeader"),
+
+                // layout control groups
+                new LocalizedItem(searchElementGroup, "PartInspection_SearchGroup"),
+                new LocalizedItem(inspectionControlGroup, "PartInspection_IncomingInspectionGroup"),
+                // other
+            };
+        }
+
+        #endregion // --- Localization ---
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {

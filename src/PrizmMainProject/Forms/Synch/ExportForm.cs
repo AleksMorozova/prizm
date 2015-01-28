@@ -3,6 +3,7 @@ using Ninject;
 using Prizm.Data.DAL.Synch;
 using Prizm.Domain.Entity;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Export;
 using System;
@@ -17,7 +18,8 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Synch
 {
-   public partial class ExportForm : ChildForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ExportForm : ChildForm
    {
       readonly DataExporter exporter;
 
@@ -33,6 +35,29 @@ namespace Prizm.Main.Forms.Synch
       {
          InitializeComponent();
       }
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              // controls
+              new LocalizedItem(btnExport, "Export_ExportButton"),
+              new LocalizedItem(progressPanel,"Export_PleaseWaitPanel", "Export_ExportingData"),
+              new LocalizedItem(lblLog,"Export_LogLabel"),
+              new LocalizedItem(btnReexport, "Export_ReexportButton"),
+              
+              // grid column headers
+              new LocalizedItem(portionId, "Export_PortionIdColumnHeader"),
+              new LocalizedItem(gridColumnExportDate, "Export_ExportDateColumnHeader"),
+              // other
+              new LocalizedItem(logTabPage,"Export_LogTab"),
+              new LocalizedItem(historyTabPage,"Export_HistoryTab"),
+          };
+      }
+
+      #endregion // --- Localization ---
 
       void DoExport(Portion portion = null)
       {

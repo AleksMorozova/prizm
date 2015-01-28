@@ -47,15 +47,20 @@ namespace Prizm.UnitTests.Forms.Parts
             viewModel.ModifiableView = modifiableView.Object;
             list.Add(new InspectionTestResult());
             Pipe part = new Pipe() { InspectionTestResults = list};
+
+            repos.Setup(_ => _.RepoPipe.Get(It.IsAny<Guid>())).Returns(part);
+
             Main.Forms.Parts.Search.Part notConverted = new Main.Forms.Parts.Search.Part()
             {
                 Id = part.Id,
-                Type = new EnumWrapper<PartType>() { Value = PartType.Pipe }
+                Type = new EnumWrapper<PartType>(PartType.Pipe)
             };
             repoInspectionTestResult.Setup(_ => _.GetByPartId(notConverted.Id)).Returns(list);
             viewModel.SelectedElement = notConverted;
             var command = new SaveInspectionTestResultsCommand(repoInspectionTestResult.Object, viewModel, notify.Object, ctx.Object);
+           
             command.Execute();
+
             repoInspectionTestResult.Verify(_ => _.BeginTransaction(), Times.Once);
             repoInspectionTestResult.Verify(_ => _.SaveOrUpdate(It.IsAny<InspectionTestResult>()), Times.AtLeastOnce);
 

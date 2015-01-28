@@ -63,6 +63,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>prizma_appIcon_256.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -178,6 +181,7 @@
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
+    <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
@@ -216,6 +220,7 @@
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Audit\TracingModeEnum.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
     <Compile Include="Forms\Common\AboutXtraForm.cs">
       <SubType>Form</SubType>
@@ -288,6 +293,7 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
+    <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
     <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
@@ -307,17 +313,17 @@
     <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.cs">
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\CreationDialog.Designer.cs">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.Designer.cs">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\NumbersDialog.cs">
+    <Compile Include="Forms\Parts\Inspection\InspectionSelectPartDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Parts\Inspection\NumbersDialog.Designer.cs">
-      <DependentUpon>NumbersDialog.cs</DependentUpon>
+    <Compile Include="Forms\Parts\Inspection\InspectionSelectPartDialog.Designer.cs">
+      <DependentUpon>InspectionSelectPartDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Parts\Inspection\PartInspectionRepository.cs" />
     <Compile Include="Forms\Parts\Inspection\PartInspectionViewModel.cs" />
@@ -403,8 +409,7 @@
     <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\Railcar.cs" />
-    <Compile Include="Forms\Railcar\Search\RailcarQuery.cs" />
+    <Compile Include="Forms\Railcar\Search\ReleaseNoteProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
@@ -493,6 +498,13 @@
       <DependentUpon>SubXtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.Designer.cs">
+      <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\PasswordChangeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,7 +524,9 @@
     <Compile Include="Forms\Synch\ConflictDialog.Designer.cs">
       <DependentUpon>ConflictDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Synch\ExportForm.cs" />
+    <Compile Include="Forms\Synch\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Synch\ExportForm.Designer.cs">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
@@ -522,8 +536,14 @@
     <Compile Include="Forms\Synch\ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Languages\ILocalizable.cs" />
+    <Compile Include="Forms\Synch\MissingPortionsDialog.cs" />
+    <Compile Include="Forms\Synch\MissingPortionsDialog.Designer.cs">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Languages\LocalizedItem.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -630,35 +650,11 @@
     <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Reports\Custom\CustomReportsXtraForm.Designer.cs">
-      <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.Designer.cs">
-      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.Designer.cs">
       <DependentUpon>SettingsXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\User\UserInfoXtraForm.Designer.cs">
-      <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.Designer.cs">
-      <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrizmModule.cs" />
     <Compile Include="Program.cs" />
@@ -685,6 +681,7 @@
     <Compile Include="Synch\Import\ImportRepository.cs" />
     <Compile Include="Synch\Import\ImportResult.cs" />
     <Compile Include="Synch\Import\DataImporter.cs" />
+    <Compile Include="Synch\Import\MissingEventArgs.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentObject.cs" />
     <Compile Include="Synch\SerializableEntities\ComponentTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\ConnectorObject.cs" />
@@ -700,6 +697,7 @@
     <Compile Include="Synch\SerializableEntities\ProjectObject.cs" />
     <Compile Include="Synch\SerializableEntities\PurchaseOrderObject.cs" />
     <Compile Include="Synch\SerializableEntities\RailcarObject.cs" />
+    <Compile Include="Synch\SerializableEntities\ReleaseNoteObject.cs" />
     <Compile Include="Synch\SerializableEntities\RoleObject.cs" />
     <Compile Include="Synch\SerializableEntities\SeamTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\SizeTypeObject.cs" />
@@ -750,11 +748,11 @@
     <EmbeddedResource Include="Forms\Notifications\NotificationXtraForm.resx">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Parts\Inspection\CreationDialog.resx">
-      <DependentUpon>CreationDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.resx">
+      <DependentUpon>CreateSpoolComponentDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Parts\Inspection\NumbersDialog.resx">
-      <DependentUpon>NumbersDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Parts\Inspection\InspectionSelectPartDialog.resx">
+      <DependentUpon>InspectionSelectPartDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Parts\Inspection\PartInspectionXtraForm.resx">
       <DependentUpon>PartInspectionXtraForm.cs</DependentUpon>
@@ -796,9 +794,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Construction\WeldDateReports\WeldDateXtraReport.resx">
       <DependentUpon>WeldDateXtraReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reports\Custom\CustomReportsXtraForm.resx">
-      <DependentUpon>CustomReportsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExternalFile\ExternalFilesXtraForm.resx">
       <DependentUpon>ExternalFilesXtraForm.cs</DependentUpon>
@@ -850,11 +845,11 @@
     <EmbeddedResource Include="Forms\Reports\Mill\SubXtraReport.resx">
       <DependentUpon>SubXtraReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\Dictionary\SettingsEditDictionaryXtraForm.resx">
-      <DependentUpon>SettingsEditDictionaryXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Inspections\MillInspectionXtraForm.resx">
+      <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\PasswordChangeDialog.resx">
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
@@ -866,12 +861,6 @@
     <EmbeddedResource Include="Forms\Spool\SpoolsXtraForm.resx">
       <DependentUpon>SpoolsXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\UserRole\User\UserInfoXtraForm.resx">
-      <DependentUpon>UserInfoXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\UserRole\Role\RolesPrivilegeEditXtraForm.resx">
-      <DependentUpon>RolesPrivilegeEditXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ConflictDialog.resx">
       <DependentUpon>ConflictDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -880,6 +869,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
+      <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1095,7 +1087,24 @@
   <ItemGroup>
     <None Include="Resources\import.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="prizma_appIcon_16.ico" />
+    <Content Include="prizma_appIcon_256.ico" />
+    <Content Include="prizma_appIcon_32.ico" />
+    <Content Include="prizma_appIcon_48.ico" />
+    <None Include="Resources\history_item_16.png" />
+    <None Include="Resources\page_setup_16.png" />
+    <None Include="Resources\properties_16.png" />
+    <None Include="Resources\spool_icon.png" />
+    <None Include="Resources\shipment_icon.png" />
+    <None Include="Resources\search_icon.png" />
+    <None Include="Resources\reports_icon.png" />
+    <None Include="Resources\prizma_appIcon_32.png" />
+    <None Include="Resources\mill_pipe_icon.png" />
+    <None Include="Resources\joint_icon.png" />
+    <None Include="Resources\inControl_icon.png" />
+    <None Include="Resources\components_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

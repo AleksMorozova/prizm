@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Ninject;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Import;
 using System;
@@ -10,15 +11,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Synch
 {
-   public partial class ImportForm : XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class ImportForm : PrizmForm
    {
       readonly DataImporter importer;
-
       [Inject]
       public ImportForm(DataImporter importer)
       {
@@ -30,9 +32,25 @@ namespace Prizm.Main.Forms.Synch
          importer.OnConflict += importer_OnConflict;
          importer.OnMessage += importer_OnMessage;
          importer.OnProgress += importer_OnProgress;
+         importer.OnMissing += importer_OnMissing;
       }
 
-      void SetProgressBar(int progress)
+
+      #region --- Localization ---
+
+      protected override List<LocalizedItem> CreateLocalizedItems()
+      {
+          return new List<LocalizedItem>()
+          {
+              new LocalizedItem(archive, "Import_ArchiveLabel"),
+              new LocalizedItem(btnBrowse, "Import_BrowseButton"),
+              new LocalizedItem(btnImport, "Import_ImportButton"),
+          };
+      }
+
+      #endregion // --- Localization ---
+       
+       void SetProgressBar(int progress)
       {
          if (progressBarControl.InvokeRequired)
          {
@@ -89,6 +107,17 @@ namespace Prizm.Main.Forms.Synch
          args.ForAll = dlg.ForAll;
       }
 
+      void importer_OnMissing(MissingEventArgs args)
+      {
+          MissingPortionsDialog dialog = new MissingPortionsDialog(args.ExistingPortions,args.MissingPortions, args.MillName);
+          dialog.ShowDialog();
+          if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
+          {
+              importer.TaskIsCancelled = true; 
+          }
+      }
+
+
       void importer_OnError(ImportException e)
       {
          string msg = e.Message;
@@ -122,7 +151,7 @@ namespace Prizm.Main.Forms.Synch
 
          if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
          {
-            txtArchive.Text = dlg.FileName;
+            txtArchive.Text = dlg.FileName;        
          }
       }
 

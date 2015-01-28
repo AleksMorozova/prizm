@@ -38,12 +38,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                    Resources.DLG_JOINT_DEACTIVATION_HEADER))
             {              
                 viewModel.JointIsActive = false;
-                viewModel.Joint.Status = Domain.Entity.Construction.JointStatus.Deactivated;
+
                 repo.BeginTransaction();
                 repo.RepoJoint.Save(viewModel.Joint);
                 repo.Commit();
                 repo.RepoJoint.Evict(viewModel.Joint);
+
                 viewModel.ModifiableView.IsEditMode = false;
+                viewModel.ModifiableView.IsModified = false;
             }
             else
             {

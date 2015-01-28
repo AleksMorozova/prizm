@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -42,7 +41,7 @@
             this.pipesSearchResult = new DevExpress.XtraGrid.GridControl();
             this.pipesSearchResultView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.pipeDiameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pipeTypeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeMillGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.heatNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusSearchGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +67,7 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -228,7 +227,7 @@
             // 
             this.pipesSearchResultView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.pipeNumberGridColumn,
-            this.pipeDiameterGridColumn,
+            this.pipeTypeSizeGridColumn,
             this.pipeMillGridColumn,
             this.heatNumberGridColumn,
             this.statusSearchGridColumn,
@@ -241,6 +240,7 @@
             this.pipesSearchResultView.OptionsNavigation.UseTabKey = false;
             this.pipesSearchResultView.OptionsView.ShowGroupPanel = false;
             this.pipesSearchResultView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSearchResultView_RowCellStyle);
+            this.pipesSearchResultView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.pipesSearchResultView_CustomColumnDisplayText);
             this.pipesSearchResultView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSearchResultView_KeyDown);
             this.pipesSearchResultView.DoubleClick += new System.EventHandler(this.pipesSearchResultView_DoubleClick);
             // 
@@ -254,15 +254,15 @@
             this.pipeNumberGridColumn.VisibleIndex = 0;
             this.pipeNumberGridColumn.Width = 170;
             // 
-            // pipeDiameterGridColumn
+            // pipeTypeSizeGridColumn
             // 
-            this.pipeDiameterGridColumn.Caption = "Типоразмер";
-            this.pipeDiameterGridColumn.FieldName = "Type";
-            this.pipeDiameterGridColumn.Name = "pipeDiameterGridColumn";
-            this.pipeDiameterGridColumn.OptionsColumn.AllowEdit = false;
-            this.pipeDiameterGridColumn.Visible = true;
-            this.pipeDiameterGridColumn.VisibleIndex = 2;
-            this.pipeDiameterGridColumn.Width = 170;
+            this.pipeTypeSizeGridColumn.Caption = "Типоразмер";
+            this.pipeTypeSizeGridColumn.FieldName = "Type";
+            this.pipeTypeSizeGridColumn.Name = "pipeTypeSizeGridColumn";
+            this.pipeTypeSizeGridColumn.OptionsColumn.AllowEdit = false;
+            this.pipeTypeSizeGridColumn.Visible = true;
+            this.pipeTypeSizeGridColumn.VisibleIndex = 2;
+            this.pipeTypeSizeGridColumn.Width = 170;
             // 
             // pipeMillGridColumn
             // 
@@ -637,7 +637,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem searchGroupEmptySpace;
         private System.Windows.Forms.BindingSource MillPipeSearchBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn pipeDiameterGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn pipeTypeSizeGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn pipeMillGridColumn;
         private DevExpress.XtraEditors.CheckedComboBoxEdit pipeSize;
         private DevExpress.XtraLayout.LayoutControlItem PipeSizeLayoutControl;

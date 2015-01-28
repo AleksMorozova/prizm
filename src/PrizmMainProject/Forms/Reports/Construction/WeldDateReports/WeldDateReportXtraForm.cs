@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 {
@@ -22,6 +24,9 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         public WeldDateReportXtraForm()
         {
             InitializeComponent();
+
+            Bitmap bmp = Resources.reports_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
 
             weldDateFrom.Properties.NullDate = DateTime.MinValue;
             weldDateFrom.Properties.NullText = string.Empty;
@@ -62,5 +67,23 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             BindToViewModel();
             BindCommands();
         }
+
+        #region --- Localization ---
+
+        protected override List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(weldDateFromLayout, "WeldDateReport_WeldDateFromLayout"),
+                new LocalizedItem(weldDateToLayout, "WeldDateReport_WeldDateToLayout"),
+                new LocalizedItem(previewButton, "WeldDateReport_PreviewButton"),
+                new LocalizedItem(createReportButton, "WeldDateReport_CreateReportButton"),
+                new LocalizedItem(weldReportParameterGroup, "WeldDateReport_WeldReportParameterGroup"),
+                new LocalizedItem(jointReportViewerGroup, "WeldDateReport_JointReportViewerGroup"),
+            };
+        }
+
+        #endregion // --- Localization ---
+
     }
 }

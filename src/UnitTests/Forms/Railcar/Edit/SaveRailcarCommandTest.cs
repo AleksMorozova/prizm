@@ -28,7 +28,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
-            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object, ctx.Object);
+            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object,ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);

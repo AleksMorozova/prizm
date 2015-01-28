@@ -29,10 +29,10 @@ namespace Prizm.Main.Forms.Reports.Mill
         public object previewSource;
         private BindingList<Category> inspectionCategories;
         public List<Guid> SearchIds = new List<Guid>();
-        public List<string> SearchStatuses= new List <string>();
-        public BindingList<EnumWrapper<ReportType>> ReportTypes = new BindingList<EnumWrapper<ReportType>>();
+        public List<string> SearchStatuses = new List<string>();
+        public BindingList<EnumWrapper<MillReportType>> ReportTypes = new BindingList<EnumWrapper<MillReportType>>();
         private BindingList<EnumWrapper<PipeTestResultStatus>> statuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
-        private Prizm.Domain.Entity.Mill.ReportType selectedReportType = Prizm.Domain.Entity.Mill.ReportType.ByCategories;
+        private Prizm.Domain.Entity.Mill.MillReportType selectedReportType = Prizm.Domain.Entity.Mill.MillReportType.ByCategories;
 
         [Inject]
         public MillReportsViewModel(IMillReportsRepository repo, IUserNotify notify, ICategoryRepository repoCategory)
@@ -49,14 +49,9 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void LoadAllReportTypes()
         {
-            foreach (string reportType in Enum.GetNames(typeof(ReportType)))
+            foreach(string reportType in Enum.GetNames(typeof(MillReportType)))
             {
-
-                ReportTypes.Add(new EnumWrapper<ReportType>()
-                {
-                    Name = reportType
-                }
-                );
+                ReportTypes.Add(new EnumWrapper<MillReportType>(reportType));
             }
         }
 
@@ -68,7 +63,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             set
             {
-                if (value != previewSource)
+                if(value != previewSource)
                 {
                     previewSource = value;
                     RaisePropertyChanged("PreviewSource");
@@ -84,7 +79,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             set
             {
-                if (value != startDate)
+                if(value != startDate)
                 {
                     startDate = value;
                     RaisePropertyChanged("StartDate");
@@ -100,7 +95,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             set
             {
-                if (value != endDate)
+                if(value != endDate)
                 {
                     endDate = value;
                     RaisePropertyChanged("EndDate");
@@ -124,7 +119,7 @@ namespace Prizm.Main.Forms.Reports.Mill
         private void GetAllCategories()
         {
             var categories = this.repoCategory.GetAll();
-            if (categories != null)
+            if(categories != null)
                 inspectionCategories = new BindingList<Category>(categories);
         }
 
@@ -136,7 +131,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
         }
 
-        public ReportType SelectedReportType
+        public MillReportType SelectedReportType
         {
             get
             {
@@ -144,7 +139,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             set
             {
-                if (value != selectedReportType)
+                if(value != selectedReportType)
                 {
                     selectedReportType = value;
                     RaisePropertyChanged("SelectedReportType");
@@ -163,14 +158,14 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void LoadAllStatuses()
         {
-            foreach (string status in Enum.GetNames(typeof(PipeTestResultStatus)))
+            foreach(string status in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
-                if (status != Enum.GetName(typeof(PipeTestResultStatus), Prizm.Domain.Entity.Mill.PipeTestResultStatus.Undef))
-                statuses.Add(new EnumWrapper<PipeTestResultStatus>()
-                {
-                    Name = status
-                }
-                );
+                if(status != Enum.GetName(typeof(PipeTestResultStatus), Prizm.Domain.Entity.Mill.PipeTestResultStatus.Undef))
+                    statuses.Add(new EnumWrapper<PipeTestResultStatus>()
+                    {
+                        Name = status
+                    }
+                    );
             }
         }
     }

@@ -32,12 +32,9 @@ namespace Prizm.Main.Forms.Joint.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            repo.Clear();
             DetachedCriteria criteria = DetachedCriteria.For<Construction.Joint>();
-            if(viewModel.Statuses.Count == 0)
-            {
-
-            }
-            else
+            if(viewModel.Statuses.Count > 0)
             {
                 if(!string.IsNullOrWhiteSpace(viewModel.Number))
                 {
@@ -56,11 +53,11 @@ namespace Prizm.Main.Forms.Joint.Search
                 }
                 criteria.Add(Restrictions.In("Status", viewModel.Statuses));
 
-                if (viewModel.Activity.Equals(Resources.StatusActive))
+                if (viewModel.Activity.Equals(ActivityCriteria.StatusActive))
                 {
                     criteria.Add(Restrictions.Eq("IsActive", true));
                 }
-                else if (viewModel.Activity.Equals(Resources.StatusUnactive))
+                else if (viewModel.Activity.Equals(ActivityCriteria.StatusUnactive))
                 {
                     criteria.Add(Restrictions.Eq("IsActive", false));
                 }

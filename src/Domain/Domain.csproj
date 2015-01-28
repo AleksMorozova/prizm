@@ -47,11 +47,12 @@
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
     <Compile Include="Entity\Construction\PartData.cs" />
     <Compile Include="Entity\Construction\PartType.cs" />
-    <Compile Include="Entity\Mill\ActivityCriteria.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
+    <Compile Include="Entity\Mill\ReleaseNote.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\FixedCategory.cs" />
+    <Compile Include="Entity\Setup\FrequencyMeasure.cs" />
     <Compile Include="Entity\Setup\InspectorCertificateType.cs" />
     <Compile Include="Entity\Setup\JointOperationType.cs" />
     <Compile Include="Entity\Construction\PartConstructionStatus.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="Entity\Security\Permission.cs" />
     <Compile Include="Entity\Security\Role.cs" />
     <Compile Include="Entity\Security\User.cs" />
-    <Compile Include="Entity\Mill\ReportType.cs" />
+    <Compile Include="Entity\Mill\MillReportType.cs" />
     <Compile Include="Entity\Setup\Inspector.cs" />
     <Compile Include="Entity\Mill\Mill.cs" />
     <Compile Include="Entity\Setup\InspectorCertificate.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Entity\Setup\PipeTest.cs" />
     <Compile Include="Entity\Setup\PipeTestControlType.cs" />
     <Compile Include="Entity\Mill\PipeTestResult.cs" />
+    <Compile Include="Entity\Setup\PipeTestFrequency.cs" />
     <Compile Include="Entity\Setup\PipeTestResultType.cs" />
     <Compile Include="Entity\Mill\Plate.cs" />
     <Compile Include="Entity\Mill\PlateManufacturer.cs" />

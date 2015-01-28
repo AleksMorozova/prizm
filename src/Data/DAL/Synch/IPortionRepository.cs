@@ -9,5 +9,7 @@ namespace Prizm.Data.DAL.Synch
 {
    public interface IPortionRepository : IRepository<Guid, Portion>
    {
+       int GetPortionNumber(Project currentProject);
+       List<int> CheckPortionSequence(Project importProject);
    }
 }

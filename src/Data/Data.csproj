@@ -89,6 +89,7 @@
     <Compile Include="DAL\Hibernate\ProjectRepository.cs" />
     <Compile Include="DAL\Hibernate\PurchaseOrderRepository.cs" />
     <Compile Include="DAL\Hibernate\RailcarRepository.cs" />
+    <Compile Include="DAL\Hibernate\ReleaseNoteRepository.cs" />
     <Compile Include="DAL\Hibernate\RoleRepository.cs" />
     <Compile Include="DAL\Hibernate\SeamTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\SpoolRepository.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="DAL\Mapping\ProjectMap.cs" />
     <Compile Include="DAL\Mapping\PurchaseOrderMap.cs" />
     <Compile Include="DAL\Mapping\RailcarMap.cs" />
+    <Compile Include="DAL\Mapping\ReleaseNoteMap.cs" />
     <Compile Include="DAL\Mapping\RoleMap.cs" />
     <Compile Include="DAL\Mapping\SeamTypeMap.cs" />
     <Compile Include="DAL\Mapping\SpoolMap.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="DAL\Mill\IWelderRepository.cs" />
     <Compile Include="DAL\Mill\IWeldRepository.cs" />
     <Compile Include="DAL\Mill\ICategoryRepository.cs" />
+    <Compile Include="DAL\Mill\IReleaseNoteRepository.cs" />
     <Compile Include="DAL\Notifications\INotificationRepository.cs" />
     <Compile Include="DAL\RepositoryException.cs" />
     <Compile Include="DAL\Security\IPermissionRepository.cs" />

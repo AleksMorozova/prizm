@@ -22,11 +22,8 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Number = railcar.Number;
          this.Certificate = railcar.Certificate;
          this.Destination = railcar.Destination;
-         if (railcar.ShippingDate != null)
-         {
-            this.ShippingDate = railcar.ShippingDate.Value;
-         }
          this.IsShipped = railcar.IsShipped;
+         this.ReleaseNote = railcar.ReleaseNote;
       }
 
       public static implicit operator RailcarObject(Railcar railcar)
@@ -49,11 +46,14 @@ namespace Prizm.Main.Synch.SerializableEntities
       [XmlAttribute("Destination")]
       public string Destination { get; set; }
 
-      [XmlAttribute("ShippingDate")]
-      public DateTime ShippingDate { get; set; }
-
       [XmlAttribute("IsShipped")]
       public bool IsShipped { get; set; }
+
+      [XmlAttribute("toExport")]
+      public bool ToExport { get; set; }
+
+      [XmlElement("ReleaseNote")]
+      public ReleaseNoteObject ReleaseNote { get; set; }
 
    }
 }
