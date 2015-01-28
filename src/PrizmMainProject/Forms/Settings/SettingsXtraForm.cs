@@ -200,19 +200,40 @@ namespace Prizm.Main.Forms.Settings
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                // project page
+                new LocalizedItem(projectTitleLayoutControlItem, "SettingsProject_TitleLabel"),
+                new LocalizedItem(clientLayoutControlItem, "SettingsProject_ClientLabel"),
+                new LocalizedItem(plateManLayoutControlItem, "SettingsProject_PlateManufacturerLabel"),
+                new LocalizedItem(extDocumentSizeLayoutControlItem, "SettingsProject_DocumentSizeLabel"),
+                new LocalizedItem(millNameLayoutControlItem, "SettingsProject_MillLabel"),
+                new LocalizedItem(maskLayoutControlItem, "SettingsProject_MaskEditLabel"),
+                new LocalizedItem(maskLabelLayoutControlItem, "SettingsProject_MaskLabel"),
+                new LocalizedItem(operationsLayoutControlItem, "SettingsProject_OperationsLabel"),
+                new LocalizedItem(seamsLayoutControlItem, "SettingsProject_SeamsLabel"),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(commonParamsLayoutControlGroup, "SettingsProject_CommonGroup"),
+                new LocalizedItem(millLayoutControlGroup, "SettingsProject_MillGroup"),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                // plate manufacturer grid
+                new LocalizedItem(plateManufacturerGridColumn, "SettingsProject_PlateManColumn"),
+                // inspections grid
+                new LocalizedItem(categoryNameColumn, "SettingsProject_InspectionsCategoryColumn"),
+                new LocalizedItem(isActiveColumn, "SettingsProject_InspectionsIsActiveColumn"),
+                // seams grid
+                new LocalizedItem(seemTypeColumn, "SettingsProject_SeamTypeColumn"),
+                new LocalizedItem(seemTypeIsActiveColumn, "SettingsProject_SeamIsActiveColumn"),
 
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
 
-                // other
+                // pipe page
+                // pipe line page
+                // components page
+                // welders page
+                // inspectors page
+                // users page
+                // roles page
+                // common page
+
+                //new LocalizedItem(, "Settings_Label"),
             };
         }
 
