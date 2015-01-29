@@ -70,7 +70,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindToViewModel();
             IsModified = false;
             IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
-            viewModel.LoadData();
         }
 
         #region --- Localization ---

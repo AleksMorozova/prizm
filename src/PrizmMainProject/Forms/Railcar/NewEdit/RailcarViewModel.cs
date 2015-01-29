@@ -53,33 +53,35 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             if (id == Guid.Empty)
             {
                 NewRailcar();
+                ReleaseNotePipes = new BindingList<Pipe>();
             }
             else
             {
                 ReleaseNote = repos.ReleaseNoteRepo.Get(id);
+                LoadData(id);
             }
            
         }
 
-        public void LoadData()
+        public void LoadData(Guid id)
         {
             ReleaseNotePipes = new BindingList<Pipe>();
-            //if (ReleaseNote != null)
-            //{
-            //    GetAllPipes();
-            //}
-            //else 
-            //{ 
-            //    ReleaseNotePipes = new BindingList<Pipe>();
-            //}
+            if (ReleaseNote != null)
+            {
+                GetAllPipes(id);
+            }
+            else
+            {
+                ReleaseNotePipes = new BindingList<Pipe>();
+            }
         }
 
-        private void GetAllPipes()
+        private void GetAllPipes(Guid id)
         {
             if (ReleaseNotePipes == null)
                 ReleaseNotePipes = new BindingList<Pipe>();
 
-            IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(ReleaseNote.Id);
+            IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
             foreach (var p in pipes)
             {
                 ReleaseNotePipes.Add(p);
