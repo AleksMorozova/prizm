@@ -62,7 +62,7 @@ namespace Prizm.Main.Forms.Spool
                 this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
                 SetAlwaysReadOnly(pipeNumber);
             }
-            IsEditMode = true;
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
         }
 

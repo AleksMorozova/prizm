@@ -29,6 +29,7 @@ using System.Windows.Forms;
 using Prizm.Main.Languages;
 using Prizm.Main.Forms.Settings.Inspections;
 using Domain.Entity.Security;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -108,8 +109,8 @@ namespace Prizm.Main.Forms.Settings
             );
 
             UpdateSeamTypesComboBox();
-
-            IsEditMode = true;
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
 
 
         }
@@ -679,7 +680,7 @@ namespace Prizm.Main.Forms.Settings
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
                         if(viewModel.RoleHasPermission(role, perm)
-                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), perm.Name)))
+                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(perm))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -706,7 +707,7 @@ namespace Prizm.Main.Forms.Settings
             switch(e.Action)
             {
                 case CollectionChangeAction.Add:
-                    if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), p.Name)))
+                    if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
                     {
                         view.UnselectRow(e.ControllerRow);
                     }
@@ -1245,7 +1246,7 @@ namespace Prizm.Main.Forms.Settings
 
             Permission p = view.GetRow(e.RowHandle) as Permission;
 
-            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), p.Name)))
+            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
             {
                 e.Appearance.ForeColor = Color.Gray;
             }

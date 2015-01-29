@@ -98,7 +98,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
-            IsEditMode = true;
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
             attachmentsButton.Enabled = true;
             #endregion //--- Read-only controls ---
 

@@ -23,10 +23,15 @@ namespace Prizm.Main.Security
          return loggedUser.Name;
       }
 
-      bool RoleHasPermission(Role r, Privileges privilege)
+      private bool RoleHasPermission(Role r, Privileges privilege)
       {
           return PrivilegeBelongsToCurrentWorkstation(privilege) &&
               (from p in r.Permissions where p.Name == privilege.ToString() select p).Count() > 0;
+      }
+
+      public static bool PrivilegeBelongsToCurrentWorkstation(Permission permission)
+      {
+          return PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), permission.Name));
       }
 
       public static bool PrivilegeBelongsToCurrentWorkstation(Privileges privilege)
