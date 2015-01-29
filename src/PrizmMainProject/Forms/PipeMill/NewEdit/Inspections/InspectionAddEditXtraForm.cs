@@ -135,7 +135,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 case PipeTestResultType.Diapason:
                     factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case PipeTestResultType.Undef:
+                case PipeTestResultType.Undefined:
                     break;
                 default:
                     break;
@@ -161,7 +161,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 case PipeTestResultType.Diapason:
                     viewModel.TestResult.Value = viewModel.FactLimit;
                     break;
-                case PipeTestResultType.Undef:
+                case PipeTestResultType.Undefined:
                     break;
                 default:
                     break;

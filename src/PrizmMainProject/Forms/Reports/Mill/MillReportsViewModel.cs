@@ -31,7 +31,6 @@ namespace Prizm.Main.Forms.Reports.Mill
         public List<Guid> SearchIds = new List<Guid>();
         public List<string> SearchStatuses = new List<string>();
         public BindingList<EnumWrapper<MillReportType>> ReportTypes = new BindingList<EnumWrapper<MillReportType>>();
-        private BindingList<EnumWrapper<PipeTestResultStatus>> statuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
         private Prizm.Domain.Entity.Mill.MillReportType selectedReportType = Prizm.Domain.Entity.Mill.MillReportType.ByCategories;
 
         [Inject]
@@ -44,7 +43,6 @@ namespace Prizm.Main.Forms.Reports.Mill
             previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
             GetAllCategories();
             LoadAllReportTypes();
-            LoadAllStatuses();
         }
 
         private void LoadAllReportTypes()
@@ -148,25 +146,5 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         }
 
-        public BindingList<EnumWrapper<PipeTestResultStatus>> Statuses
-        {
-            get
-            {
-                return statuses;
-            }
-        }
-
-        private void LoadAllStatuses()
-        {
-            foreach(string status in Enum.GetNames(typeof(PipeTestResultStatus)))
-            {
-                if(status != Enum.GetName(typeof(PipeTestResultStatus), Prizm.Domain.Entity.Mill.PipeTestResultStatus.Undef))
-                    statuses.Add(new EnumWrapper<PipeTestResultStatus>()
-                    {
-                        Name = status
-                    }
-                    );
-            }
-        }
     }
 }

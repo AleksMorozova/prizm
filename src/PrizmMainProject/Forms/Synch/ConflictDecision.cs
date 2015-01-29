@@ -8,9 +8,9 @@ namespace Prizm.Main.Forms.Synch
 {
    public enum ConflictDecision
    {
+      Undefined,
       Replace,
       Postpone,
       Skip,
-      Undef
    }
 }

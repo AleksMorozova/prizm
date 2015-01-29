@@ -95,6 +95,15 @@ namespace Prizm.Main.Common
             }
         }
 
+        // TODO: care about data binding by Text (grids)
+        public string Text
+        {
+            get
+            {
+                return Name;
+            }
+        }
+
         public override string ToString()
         {
             return Name;

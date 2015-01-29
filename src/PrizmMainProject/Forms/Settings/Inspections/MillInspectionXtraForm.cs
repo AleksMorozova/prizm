@@ -92,15 +92,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
             
             boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch (resultType.SelectedIndex)
+            switch ((PipeTestResultType)resultType.SelectedIndex+1)
             {
-                case 0: //PipeTestResultType.Boolean 
+                case PipeTestResultType.Boolean:
                     boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case 1: //PipeTestResultType.Diapason
+                case PipeTestResultType.Diapason:
                     rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     break;
-                case 2: //PipeTestResultType.String
+                case PipeTestResultType.String:
                     break;
                 default:
                     break;
@@ -136,9 +136,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
             return new List<LocalizedItem>()
             {
                 //controls
-                  new LocalizedItem(resultType, new  string [] {"MillInspection_ResultTypeBoolean","MillInspection_ResultTypeString", "MillInspection_ResultTypeRange" }),
-                  new LocalizedItem(controlType, new  string [] {"MillInspection_ControlTypeWitness","MillInspection_ControlTypeReview", "MillInspection_ControlTypeMonitor", "MillInspection_ControlTypeHold" }),
-                  new LocalizedItem(frequencyMeasure, new  string [] {"MillInspection_FrequencyMeasureMeters","MillInspection_FrequencyMeasureTons", "MillInspection_FrequencyMeasurePipes" }),
+                // TODO: care about data binding by Text (grids)
+                  //new LocalizedItem(resultType, new  string [] {"MillInspection_ResultTypeBoolean", "MillInspection_ResultTypeRange", "MillInspection_ResultTypeString" }),
+                  //new LocalizedItem(controlType, new  string [] {"MillInspection_ControlTypeWitness","MillInspection_ControlTypeReview", "MillInspection_ControlTypeMonitor", "MillInspection_ControlTypeHold" }),
+                  //new LocalizedItem(frequencyMeasure, new  string [] {"MillInspection_FrequencyMeasureMeters","MillInspection_FrequencyMeasureTons", "MillInspection_FrequencyMeasurePipes" }),
                   new LocalizedItem(saveButton, "MillInspection_SaveButton"),
                   new LocalizedItem(cancelButton, "MillInspection_CancelButton"),
                   new LocalizedItem(isRequired, "MillInspection_IsRequiredCheckbox"),

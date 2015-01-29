@@ -91,7 +91,7 @@ namespace Prizm.Main.Forms.Settings
 
            foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
            {
-               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undef))
+               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undefined))
                ControlType.Add(new EnumWrapper<PipeTestControlType>()
                {
                    Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName)
@@ -101,7 +101,7 @@ namespace Prizm.Main.Forms.Settings
 
            foreach (string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
            {
-               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undef))
+               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undefined))
                ResultType.Add(new EnumWrapper<PipeTestResultType>()
                {
                    Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName)

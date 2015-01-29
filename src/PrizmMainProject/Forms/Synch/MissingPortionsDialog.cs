@@ -13,6 +13,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Synch
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class MissingPortionsDialog : PrizmForm
     {
         public MissingPortionsDialog(int[] existingPortions, int[] missingPortions, string millName)
