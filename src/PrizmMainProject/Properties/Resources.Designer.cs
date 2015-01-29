@@ -225,6 +225,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Проверьте контрольные операции..
+        /// </summary>
+        internal static string CHEK_CONTROL_OPERATIONS {
+            get {
+                return ResourceManager.GetString("CHEK_CONTROL_OPERATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Клиент.
         /// </summary>
         internal static string Client {

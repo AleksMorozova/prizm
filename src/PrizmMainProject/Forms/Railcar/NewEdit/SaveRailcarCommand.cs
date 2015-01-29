@@ -47,13 +47,22 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 return;
             }
 
-           
+
             try
             {
-                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+
+                var notEmpty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
+
+                foreach(var item in notEmpty)
+                {
+                    viewModel.Railcars.Remove(item);
+                }
+
+                foreach(var r in viewModel.Railcars)
                 {
                     r.ReleaseNote = viewModel.ReleaseNote;
                 }
+
                 repos.BeginTransaction();
 
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
@@ -63,7 +72,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 viewModel.ModifiableView.IsModified = false;
 
                 //saving attached documents
-                if (viewModel.FilesFormViewModel != null)
+                if(viewModel.FilesFormViewModel != null)
                 {
                     viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();

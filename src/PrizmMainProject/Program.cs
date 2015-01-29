@@ -21,6 +21,7 @@ using Prizm.Main.Languages;
 using System.Collections.Generic;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Setup;
+using System.Threading;
 
 
 namespace Prizm.Main
@@ -65,7 +66,8 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
-
+            Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
+            Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
             foreach(var arg in args)
             {
                 if(arg.Equals("seed"))

@@ -1038,4 +1038,7 @@
   <data name="SearchPipe_MillStatusStocked" xml:space="preserve">
     <value>На складе</value>
   </data>
+  <data name="CHEK_CONTROL_OPERATIONS" xml:space="preserve">
+    <value>Проверьте контрольные операции.</value>
+  </data>
 </root>

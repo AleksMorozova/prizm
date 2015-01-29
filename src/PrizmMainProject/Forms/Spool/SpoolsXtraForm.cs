@@ -62,6 +62,7 @@ namespace Prizm.Main.Forms.Spool
                 this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
                 SetAlwaysReadOnly(pipeNumber);
             }
+            IsEditMode = true;//do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
         }
@@ -135,7 +136,7 @@ namespace Prizm.Main.Forms.Spool
                 (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = ((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
+            IsEditMode = ((this.id != Guid.Empty|| viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
         }
 
