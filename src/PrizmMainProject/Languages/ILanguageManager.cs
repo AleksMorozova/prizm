@@ -13,5 +13,6 @@ namespace Prizm.Main.Languages
         IReadOnlyList<CultureInfo> GetCultures(out int indexDefault);
         bool LoadTranslation(CultureInfo culture);
         void ChangeLanguage(ILocalizable localizable);
+        CultureInfo CultureInfo { get; }
     }
 }

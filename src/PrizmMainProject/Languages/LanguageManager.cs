@@ -220,5 +220,10 @@ namespace Prizm.Main.Languages
             }
         }
 
+        public CultureInfo CultureInfo
+        {
+            get { return defaultCultureInfo; }
+        }
+
     }
 }
