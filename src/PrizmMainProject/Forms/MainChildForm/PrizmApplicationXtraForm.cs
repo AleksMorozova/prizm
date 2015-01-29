@@ -727,7 +727,7 @@ namespace Prizm.Main.Forms.MainChildForm
             barButtonItemNewRailcar.Enabled = ctx.HasAccess(Privileges.CreateReleaseNote);
             barButtonItemNewJoint.Enabled = ctx.HasAccess(Privileges.CreateJoint);
             barButtonItemNewComponent.Enabled = ctx.HasAccess(Privileges.CreateComponent);
-            barButtonItemSpool.Enabled = ctx.HasAccess(Privileges.CreateSpool) || ctx.HasAccess(Privileges.ViewSpool) || ctx.HasAccess(Privileges.EditSpool);
+            barButtonItemSpool.Enabled = ctx.HasAccess(Privileges.CreateSpool) || ctx.HasAccess(Privileges.EditSpool);
             barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
             barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
 
