@@ -149,13 +149,16 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            viewModel.ReportTypeIndex = reportType.SelectedIndex;
             if (viewModel.ReportType == ReportType.UsedProductReport)
             {
                 typeLayout.ContentVisible = true;
+                infoLabelLayout.ContentVisible = true;
             }
             else
             {
                 typeLayout.ContentVisible = false;
+                infoLabelLayout.ContentVisible = false;
             }
         }
 
