@@ -29,18 +29,25 @@ namespace Prizm.Data.DAL.Hibernate
                 Railcar car = null;
                 Pipe pipe = null;
 
+                PipeTestResult result = null;
+                Inspector inspector = null;
+                Certificate cert = null;
+
                 var s = session.QueryOver<ReleaseNote>(() => note)
-                    .Where(n => ((n.Id==Id)))
-                    .JoinAlias(() => note.Railcars, () => car)
-                    .JoinAlias(() => car.Pipes, () => pipe)
+                .Where(n => ((n.Id == Id)))
+                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
+                .JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                .JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
                     .TransformUsing(Transformers.DistinctRootEntity);
 
                 var listReleaseNote = new List<ReleaseNote>(s.List<ReleaseNote>());
-                foreach (ReleaseNote n in listReleaseNote) 
+                foreach(ReleaseNote n in listReleaseNote)
                 {
                     foreach(Prizm.Domain.Entity.Mill.Railcar r in n.Railcars)
                     {
-                        foreach (Pipe p in r.Pipes) 
+                        foreach(Pipe p in r.Pipes)
                         {
                             pipeList.Add(p);
                         }
@@ -50,7 +57,7 @@ namespace Prizm.Data.DAL.Hibernate
                 return pipeList;
 
             }
-            catch (GenericADOException ex)
+            catch(GenericADOException ex)
             {
                 throw new RepositoryException("Get pipes from Release note", ex);
             }
@@ -62,10 +69,16 @@ namespace Prizm.Data.DAL.Hibernate
             ReleaseNote note = null;
             Railcar car = null;
             Pipe pipe = null;
+            PipeTestResult result = null;
+            Inspector inspector = null;
+            Certificate cert = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car)
-                .JoinAlias(() => car.Pipes, () => pipe)
+                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
+                .JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                .JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
                 .TransformUsing(Transformers.DistinctRootEntity);
 
             if(!string.IsNullOrWhiteSpace(railcar))
