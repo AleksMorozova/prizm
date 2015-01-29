@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class HeatXtraForm : PrizmForm
     {
-
+        private string heatNumber;
         private HeatViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
 
@@ -31,7 +31,12 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             InitializeComponent();
             SetControlsTextLength();
             viewModel = (HeatViewModel)Program.Kernel.Get<HeatViewModel>(new ConstructorArgument("heatNumber", heatNumber));
+            this.heatNumber = heatNumber;
+            number.SetAsIdentifier();
+        }
 
+        public void ShowForm()
+        {
             if(viewModel.Heat == null)
             {
                 CreateHeat(heatNumber);
@@ -40,9 +45,6 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             {
                 this.ShowDialog();
             }
-
-
-            number.SetAsIdentifier();
         }
 
         #region --- Localization ---

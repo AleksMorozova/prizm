@@ -23,6 +23,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
+            // if start with null value from language template
+            if(tests == null)
+            {
+                return;
+            }
+
             this.availableTests = tests;
             this.inspectors = inspectors;
             this.statuses = statuses;

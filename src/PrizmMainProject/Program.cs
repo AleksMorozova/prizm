@@ -162,7 +162,7 @@ namespace Prizm.Main
             forms.Add(new Prizm.Main.Forms.Parts.Inspection.PartInspectionXtraForm());
             forms.Add(new Prizm.Main.Forms.Parts.Search.PartSearchXtraForm());
             forms.Add(new Prizm.Main.Forms.PipeMill.Heat.HeatNumberXtraForm());
-            //forms.Add(new Prizm.Main.Forms.PipeMill.Heat.HeatXtraForm());
+            forms.Add(new Prizm.Main.Forms.PipeMill.Heat.HeatXtraForm());
             forms.Add(new Prizm.Main.Forms.PipeMill.NewEdit.InspectionAddEditXtraForm());
             forms.Add(new Prizm.Main.Forms.PipeMill.PurchaseOrderXtraForm());
             forms.Add(new Prizm.Main.Forms.PipeMill.Search.MillPipeSearchXtraForm());
@@ -186,7 +186,7 @@ namespace Prizm.Main
                 {
                     for(int index = 0; index < item.Count; index++)
                     {
-                        templateStrings.Add(item.GetResourceId(index));
+                        templateStrings.Add(item.GetResourceId(index));// + "=" + item.Text);
                     }
                 }
             }

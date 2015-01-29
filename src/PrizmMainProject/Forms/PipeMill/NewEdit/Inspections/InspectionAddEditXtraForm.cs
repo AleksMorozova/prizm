@@ -50,7 +50,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         }
 
-        public InspectionAddEditXtraForm()
+        public InspectionAddEditXtraForm() : this(null,null,null,null)
         {
             // TODO: Complete member initialization
         }

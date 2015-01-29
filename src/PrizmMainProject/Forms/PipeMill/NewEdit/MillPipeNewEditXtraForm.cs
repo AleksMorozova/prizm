@@ -727,9 +727,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void ShowHeatDialog(string number)
         {
-            using(new HeatXtraForm(number))
+            using(var heatform = new HeatXtraForm(number))
             {
-
+                heatform.ShowForm();
             }
         }
 

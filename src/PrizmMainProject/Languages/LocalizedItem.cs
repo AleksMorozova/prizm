@@ -270,6 +270,31 @@ namespace Prizm.Main.Languages
 
         public string Text
         {
+            //get 
+            //{
+            //    switch(type) // only types with one string
+            //    {
+            //        case ItemType.Control:
+            //            return ((System.Windows.Forms.Control)obj).Text;
+                  
+            //        case ItemType.LayoutControlItem:
+            //            return ((DevExpress.XtraLayout.LayoutControlItem)obj).Text;
+                  
+            //        case ItemType.GridColumn:
+            //            return ((DevExpress.XtraGrid.Columns.GridColumn)obj).Caption;
+                       
+            //        case ItemType.LayoutControlGroup:
+            //            return ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text;
+             
+            //        case ItemType.BarItem:
+            //            return ((DevExpress.XtraBars.BarItem)obj).Caption;
+                   
+            //        default:
+            //            break;
+            //    }
+            //    throw new NotSupportedException(string.Format("Type {0} not supported by Localized item",type));
+            //} 
+
             set
             {
                 switch (type) // only types with one string
