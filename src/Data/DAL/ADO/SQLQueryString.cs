@@ -43,11 +43,11 @@ namespace Prizm.Data.DAL.ADO
         /// </summary>
         private const string GetReleaseNotes = @"Select Distinct(note.number) Notes, (Select Count(r.number) from Railcar r where r.releaseNoteId=note.id) as railcars
 from ReleaseNote note where note.date>=  @startDate and note.date <= @finalDate ";
-        //where r.releaseNoteId = @note
-        private const string GetRailcars = @"Select number number, certificate certificate, 
-destination destination from Railcar where releaseNoteId in 
-(Select id From ReleaseNote WHERE date >= @startDate and date <= @finalDate)
-";
+ 
+        private const string GetRailcars = @"select number, destination, certificate, n.length length,n.weight weight from Railcar r 
+inner join (select SUM (length) length, sum (weight) weight, railcarId from Pipe group by railcarId) n
+on n.railcarId = r.id where releaseNoteId in 
+(Select id From ReleaseNote WHERE date >= @startDate and date <= @finalDate)";
         private const string GettAllKP = @"Select distinct(numberKP) From Joint";
 
         private const string GetAllProducedPipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, weight as weight,Pipe.length as length,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive, Pipe.productionDate as shippingDate
