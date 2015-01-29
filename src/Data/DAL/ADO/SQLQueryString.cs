@@ -219,7 +219,7 @@ select Component.number as number, Joint.part2Type as type, Joint.numberKP
                 ComponentType CT ON CT.Id = C.componentTypeId
             WHERE C.isActive = 1 
                 AND C.constructionStatus 
-                    IN (N'Welded', N'Lowered', N'Filled', N'AlongTrench', N'Undefined')
+                    IN (N'Welded', N'Lowered', N'Filled', N'AlongTrench', N'Undefined', N'Pending')
 
             ORDER BY number";
 
