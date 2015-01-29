@@ -859,7 +859,7 @@
     <value>Общий отчет</value>
   </data>
   <data name="CHECK_VALUES" xml:space="preserve">
-    <value>Проверте значения</value>
+    <value>Проверьте значения</value>
   </data>
   <data name="UNIQUE_VALUE_REQUIRED" xml:space="preserve">
     <value>Введите уникальное значение</value>
