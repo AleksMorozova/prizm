@@ -253,9 +253,14 @@ namespace Prizm.Main.Forms.Settings
             var view = sender as GridView;
             pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
 
-            if (pipeSizesDuplicates.Count > 0 || !CodeValidation())
+            if (pipeSizesDuplicates.Count > 0)
             {
                 view.SetColumnError(pipeSizeGridColumn, Resources.UNIQUE_VALUE_REQUIRED);
+                e.Valid = false;
+            }
+            else if (!CodeValidation())
+            {
+                view.SetColumnError(pipeSizeGridColumn, Resources.CHEK_CONTROL_OPERATIONS);
                 e.Valid = false;
             }
             else
@@ -919,9 +924,7 @@ namespace Prizm.Main.Forms.Settings
 
             for (int i = 0; i < pipesSizeListGridView.RowCount; i++)
             {
-
                 pipesSizeListGridView.FocusedRowHandle = i;
-
 
                 pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
                                             pipesSizeListGridView.FocusedRowHandle,
@@ -929,10 +932,7 @@ namespace Prizm.Main.Forms.Settings
                                        );
 
                 pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
-
             }
-
-
 
             return pipeSizeEventArg.Valid;
         }
