@@ -720,7 +720,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             switch (viewModel.WorkstationType.Value)
             {
-                case Domain.Entity.Setup.WorkstationType.Master: 
+                case Domain.Entity.Setup.WorkstationType.Master:
                     barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster);
                     barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster);
                     break;

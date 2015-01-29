@@ -59,8 +59,8 @@
             this.createButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
@@ -87,8 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportType
@@ -468,10 +468,6 @@
             this.infoLabelLayout.TextSize = new System.Drawing.Size(0, 0);
             this.infoLabelLayout.TextVisible = false;
             // 
-            // bindingSource
-            // 
-            this.bindingSource.AllowNew = false;
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -481,6 +477,10 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(489, 14);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.AllowNew = false;
             // 
             // ConstructionReportsXtraForm
             // 
@@ -519,8 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
