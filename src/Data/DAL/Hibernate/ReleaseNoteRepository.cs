@@ -37,9 +37,9 @@ namespace Prizm.Data.DAL.Hibernate
                 .Where(n => ((n.Id == Id)))
                 .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
                 .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                .JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
-                .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
-                .JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
+                //.JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                //.JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                //.JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
                     .TransformUsing(Transformers.DistinctRootEntity);
 
                 var listReleaseNote = new List<ReleaseNote>(s.List<ReleaseNote>());
@@ -68,17 +68,9 @@ namespace Prizm.Data.DAL.Hibernate
         {
             ReleaseNote note = null;
             Railcar car = null;
-            Pipe pipe = null;
-            PipeTestResult result = null;
-            Inspector inspector = null;
-            Certificate cert = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
                 .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                .JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
-                .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
-                .JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
                 .TransformUsing(Transformers.DistinctRootEntity);
 
             if(!string.IsNullOrWhiteSpace(railcar))

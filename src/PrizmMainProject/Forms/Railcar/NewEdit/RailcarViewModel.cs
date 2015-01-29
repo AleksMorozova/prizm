@@ -346,6 +346,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                         pipesList.Remove(pipe);
                         Pipes.Remove(pipe);
                         AllPipes.Add(pipe);
+                        ReleaseNotePipes.Remove(pipe);
                         pipe.Railcar = null;
                         repos.PipeRepo.Merge(pipe);
                         break;
