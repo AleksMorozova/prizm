@@ -141,7 +141,7 @@
   <data name="AlertUnsipRailcar" xml:space="preserve">
     <value>Отгрузка вагона отменена. Дата отгрузки аннулированна. Трубы перемещены на склад.</value>
   </data>
-  <data name="Mill" xml:space="preserve">
+  <data name="MainWindowHeader_Mill" xml:space="preserve">
     <value>Завод</value>
   </data>
   <data name="MinExpected" xml:space="preserve">
@@ -217,7 +217,7 @@
   <data name="DocumentSizeLimit" xml:space="preserve">
     <value>Ограничение размера документа</value>
   </data>
-  <data name="ByCategories" xml:space="preserve">
+  <data name="MillReport_TypeByCategories" xml:space="preserve">
     <value>По категориям</value>
   </data>
   <data name="Inspector" xml:space="preserve">
@@ -229,7 +229,7 @@
   <data name="IDS_NO_MORE_DOCUMENTS" xml:space="preserve">
     <value>Нельзя одновременно открыть больше документов.</value>
   </data>
-  <data name="PipeTestControlType_Witness" xml:space="preserve">
+  <data name="MillInspection_ControlTypeWitness" xml:space="preserve">
     <value>Присутствие</value>
   </data>
   <data name="DLG_PIPE_IN_RAILCAR" xml:space="preserve">
@@ -253,14 +253,14 @@
   <data name="SecurityPrivilege_UnshipAtMill" xml:space="preserve">
     <value>Отмена разрешения на отгрузку на заводе</value>
   </data>
-  <data name="PipeTestControlType_Hold" xml:space="preserve">
+  <data name="MillInspection_ControlTypeHold" xml:space="preserve">
     <value>Обязательный</value>
   </data>
   <data name="Grade" xml:space="preserve">
     <value>Разряд</value>
   </data>
-  <data name="Lowered" xml:space="preserve">
-    <value>Укладка</value>
+  <data name="JointSearch_JointStatus_Lowered" xml:space="preserve">
+    <value>Уложен</value>
   </data>
   <data name="TestResultIncorrectDate" xml:space="preserve">
     <value>Дата не может быть пустой или будущей</value>
@@ -358,7 +358,7 @@
   <data name="SecurityPrivilege_EditSettings" xml:space="preserve">
     <value>Изменение настроек</value>
   </data>
-  <data name="PipeTestControlType_Monitor" xml:space="preserve">
+  <data name="MillInspection_ControlTypeMonitor" xml:space="preserve">
     <value>Визуальный</value>
   </data>
   <data name="Destination" xml:space="preserve">
@@ -382,7 +382,7 @@
   <data name="critical_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\critical_warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Master" xml:space="preserve">
+  <data name="MainWindowHeader_Master" xml:space="preserve">
     <value>Главный</value>
   </data>
   <data name="PipeTestResultStatus_Repair" xml:space="preserve">
@@ -400,10 +400,10 @@
   <data name="JointTestResultStatus_Withdraw" xml:space="preserve">
     <value>Вырезка</value>
   </data>
-  <data name="Welded" xml:space="preserve">
+  <data name="JointSearch_JointStatus_Welded" xml:space="preserve">
     <value>Сварен</value>
   </data>
-  <data name="PipeTestResultType_String" xml:space="preserve">
+  <data name="MillInspection_ResultTypeString" xml:space="preserve">
     <value>Строка</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -433,7 +433,7 @@
   <data name="PipeTestResult" xml:space="preserve">
     <value>Результат контольной операции трубы</value>
   </data>
-  <data name="PipeTestResultType_Diapason" xml:space="preserve">
+  <data name="MillInspection_ResultTypeRange" xml:space="preserve">
     <value>Диапазон</value>
   </data>
   <data name="DIAMETER_VALUE_VALIDATION" xml:space="preserve">
@@ -448,7 +448,7 @@
   <data name="StatusAll" xml:space="preserve">
     <value>Все</value>
   </data>
-  <data name="ByShipped" xml:space="preserve">
+  <data name="MillReport_TypeByShipped" xml:space="preserve">
     <value>По отгруженным</value>
   </data>
   <data name="AlertFailureReportDateHeader" xml:space="preserve">
@@ -466,7 +466,7 @@
   <data name="InspectionStatus" xml:space="preserve">
     <value>Статус на входном контроле</value>
   </data>
-  <data name="PipeTestResultType_Boolean" xml:space="preserve">
+  <data name="MillInspection_ResultTypeBoolean" xml:space="preserve">
     <value>Логический</value>
   </data>
   <data name="AlertFailureHeader" xml:space="preserve">
@@ -626,7 +626,7 @@
 процессом производства, транспортировки 
 и строительства промышленных труб.</value>
   </data>
-  <data name="Construction" xml:space="preserve">
+  <data name="MainWindowHeader_Construction" xml:space="preserve">
     <value>Строительство</value>
   </data>
   <data name="MillPipeNumberMaskRegexp" xml:space="preserve">
@@ -791,7 +791,7 @@
   <data name="SecurityPrivilege_ViewSettings" xml:space="preserve">
     <value>Просмотр настроек</value>
   </data>
-  <data name="PipeTestControlType_Review" xml:space="preserve">
+  <data name="MillInspection_ControlTypeReview" xml:space="preserve">
     <value>По документации</value>
   </data>
   <data name="SecurityPrivilege_ImportDataAtMaster" xml:space="preserve">
@@ -836,7 +836,7 @@
   <data name="Empty_Operation_Name" xml:space="preserve">
     <value>Введите название операции</value>
   </data>
-  <data name="Withdrawn" xml:space="preserve">
+  <data name="JointSearch_JointStatus_Withdrawn" xml:space="preserve">
     <value>Вырезан</value>
   </data>
   <data name="DLG_JOINT_WITHDRAWN" xml:space="preserve">
@@ -855,7 +855,7 @@
   <data name="Deactivated" xml:space="preserve">
     <value>Деактивирован</value>
   </data>
-  <data name="General" xml:space="preserve">
+  <data name="MillReport_TypeGeneral" xml:space="preserve">
     <value>Общий отчет</value>
   </data>
   <data name="CHECK_VALUES" xml:space="preserve">
@@ -980,6 +980,63 @@
   </data>
   <data name="SecurityPrivilege_SearchReleaseNotes" xml:space="preserve">
     <value>Поиск разрешений на отгрузку</value>
+  </data>
+  <data name="JointSearch_ActivityCriteria_StatusActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="JointSearch_ActivityCriteria_StatusAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="JointSearch_ActivityCriteria_StatusUnactive" xml:space="preserve">
+    <value>Неактивные</value>
+  </data>
+  <data name="MillInspection_FrequencyMeasureMeters" xml:space="preserve">
+    <value>метров</value>
+  </data>
+  <data name="MillInspection_FrequencyMeasurePipes" xml:space="preserve">
+    <value>штук</value>
+  </data>
+  <data name="MillInspection_FrequencyMeasureTons" xml:space="preserve">
+    <value>тонн</value>
+  </data>
+  <data name="MillReport_TypeByProduced" xml:space="preserve">
+    <value>В производстве</value>
+  </data>
+  <data name="PartSearch_PartTypeComponent" xml:space="preserve">
+    <value>Компонент</value>
+  </data>
+  <data name="PartSearch_PartTypePipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="PartSearch_PartTypeSpool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
+  <data name="PartSearch_StatusActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="PartSearch_StatusAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="PartSearch_StatusInactive" xml:space="preserve">
+    <value>Неактивные</value>
+  </data>
+  <data name="SearchPipe_ActivityComboActive" xml:space="preserve">
+    <value>Активные</value>
+  </data>
+  <data name="SearchPipe_ActivityComboAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="SearchPipe_ActivityComboNotActive" xml:space="preserve">
+    <value>Неактивные</value>
+  </data>
+  <data name="SearchPipe_MillStatusProduced" xml:space="preserve">
+    <value>В производстве</value>
+  </data>
+  <data name="SearchPipe_MillStatusShipped" xml:space="preserve">
+    <value>Отгружена</value>
+  </data>
+  <data name="SearchPipe_MillStatusStocked" xml:space="preserve">
+    <value>На складе</value>
   </data>
   <data name="CHEK_CONTROL_OPERATIONS" xml:space="preserve">
     <value>Проверьте контрольные операции.</value>

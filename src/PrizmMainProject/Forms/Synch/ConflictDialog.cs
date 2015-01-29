@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.Synch
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ConflictDialog : PrizmForm
    {
-      ConflictDecision decision = ConflictDecision.Undef;
+      ConflictDecision decision = ConflictDecision.Undefined;
 
       public ConflictDialog()
       {

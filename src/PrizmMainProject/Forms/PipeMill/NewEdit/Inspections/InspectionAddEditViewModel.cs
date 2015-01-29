@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                     case PipeTestResultType.Diapason:
                         factLimit = current.Value;
                         break;
-                    case PipeTestResultType.Undef:
+                    case PipeTestResultType.Undefined:
                         break;
                     default:
                         break;
@@ -155,7 +155,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                     case PipeTestResultType.Diapason:
                         expStr = testResult.Operation.MinExpected + " - " + testResult.Operation.MaxExpected;
                         break;
-                    case PipeTestResultType.Undef:
+                    case PipeTestResultType.Undefined:
                         break;
                     default:
                         break;
@@ -179,7 +179,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 case PipeTestResultType.Diapason:
                     expStr = testResult.Operation.MinExpected + " - " + testResult.Operation.MaxExpected;
                     break;
-                case PipeTestResultType.Undef:
+                case PipeTestResultType.Undefined:
                     break;
                 default:
                     break;

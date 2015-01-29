@@ -138,7 +138,7 @@
             // 
             // frequencyMeasure
             // 
-            this.frequencyMeasure.Location = new System.Drawing.Point(366, 320);
+            this.frequencyMeasure.Location = new System.Drawing.Point(367, 373);
             this.frequencyMeasure.Name = "frequencyMeasure";
             this.frequencyMeasure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -148,36 +148,37 @@
             // 
             // controlType
             // 
-            this.controlType.Location = new System.Drawing.Point(317, 80);
+            this.controlType.Location = new System.Drawing.Point(318, 133);
             this.controlType.Name = "controlType";
             this.controlType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.controlType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.controlType.Size = new System.Drawing.Size(285, 20);
             this.controlType.StyleController = this.mainLayoutControl;
             this.controlType.TabIndex = 23;
             // 
             // resultType
             // 
-            this.resultType.Location = new System.Drawing.Point(17, 80);
+            this.resultType.Location = new System.Drawing.Point(17, 133);
             this.resultType.Name = "resultType";
             this.resultType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.resultType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.resultType.Size = new System.Drawing.Size(286, 20);
+            this.resultType.Size = new System.Drawing.Size(287, 20);
             this.resultType.StyleController = this.mainLayoutControl;
             this.resultType.TabIndex = 22;
             this.resultType.SelectedIndexChanged += new System.EventHandler(this.resultType_SelectedIndexChanged);
             // 
             // category
             // 
-            this.category.Location = new System.Drawing.Point(17, 30);
+            this.category.Location = new System.Drawing.Point(17, 83);
             this.category.Name = "category";
             this.category.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.category.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Группа")});
             this.category.Properties.NullText = "";
-            this.category.Size = new System.Drawing.Size(286, 20);
+            this.category.Size = new System.Drawing.Size(287, 20);
             this.category.StyleController = this.mainLayoutControl;
             this.category.TabIndex = 21;
             // 
@@ -185,7 +186,7 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(504, 371);
+            this.cancelButton.Location = new System.Drawing.Point(505, 424);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(93, 22);
             this.cancelButton.StyleController = this.mainLayoutControl;
@@ -196,7 +197,7 @@
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(384, 371);
+            this.saveButton.Location = new System.Drawing.Point(385, 424);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(96, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
@@ -205,17 +206,17 @@
             // 
             // frequency
             // 
-            this.frequency.Location = new System.Drawing.Point(29, 320);
+            this.frequency.Location = new System.Drawing.Point(29, 373);
             this.frequency.Name = "frequency";
             this.frequency.Properties.Mask.EditMask = "n0";
             this.frequency.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.frequency.Size = new System.Drawing.Size(323, 20);
+            this.frequency.Size = new System.Drawing.Size(324, 20);
             this.frequency.StyleController = this.mainLayoutControl;
             this.frequency.TabIndex = 15;
             // 
             // maxExpected
             // 
-            this.maxExpected.Location = new System.Drawing.Point(321, 161);
+            this.maxExpected.Location = new System.Drawing.Point(322, 214);
             this.maxExpected.Name = "maxExpected";
             this.maxExpected.Properties.Mask.EditMask = "n0";
             this.maxExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -225,27 +226,27 @@
             // 
             // minExpected
             // 
-            this.minExpected.Location = new System.Drawing.Point(29, 161);
+            this.minExpected.Location = new System.Drawing.Point(29, 214);
             this.minExpected.Name = "minExpected";
             this.minExpected.Properties.Mask.EditMask = "n0";
             this.minExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.minExpected.Size = new System.Drawing.Size(278, 20);
+            this.minExpected.Size = new System.Drawing.Size(279, 20);
             this.minExpected.StyleController = this.mainLayoutControl;
             this.minExpected.TabIndex = 12;
             // 
             // boolExpected
             // 
-            this.boolExpected.Location = new System.Drawing.Point(24, 233);
+            this.boolExpected.Location = new System.Drawing.Point(24, 286);
             this.boolExpected.Name = "boolExpected";
             this.boolExpected.Properties.Caption = "Результат";
-            this.boolExpected.Size = new System.Drawing.Size(571, 19);
+            this.boolExpected.Size = new System.Drawing.Size(572, 19);
             this.boolExpected.StyleController = this.mainLayoutControl;
             this.boolExpected.TabIndex = 11;
             this.boolExpected.CheckedChanged += new System.EventHandler(this.boolExpected_CheckedChanged);
             // 
             // isActive
             // 
-            this.isActive.Location = new System.Drawing.Point(317, 29);
+            this.isActive.Location = new System.Drawing.Point(318, 82);
             this.isActive.Name = "isActive";
             this.isActive.Properties.Caption = "Активна";
             this.isActive.Size = new System.Drawing.Size(285, 19);
@@ -254,7 +255,7 @@
             // 
             // isRequired
             // 
-            this.isRequired.Location = new System.Drawing.Point(416, -21);
+            this.isRequired.Location = new System.Drawing.Point(417, 32);
             this.isRequired.Name = "isRequired";
             this.isRequired.Properties.Caption = "Обязательна для выполнения";
             this.isRequired.Size = new System.Drawing.Size(186, 19);
@@ -264,15 +265,15 @@
             // 
             // operationName
             // 
-            this.operationName.Location = new System.Drawing.Point(135, -20);
+            this.operationName.Location = new System.Drawing.Point(135, 33);
             this.operationName.Name = "operationName";
-            this.operationName.Size = new System.Drawing.Size(267, 20);
+            this.operationName.Size = new System.Drawing.Size(268, 20);
             this.operationName.StyleController = this.mainLayoutControl;
             this.operationName.TabIndex = 5;
             // 
             // code
             // 
-            this.code.Location = new System.Drawing.Point(17, -20);
+            this.code.Location = new System.Drawing.Point(17, 33);
             this.code.Name = "code";
             this.code.Size = new System.Drawing.Size(104, 20);
             this.code.StyleController = this.mainLayoutControl;
@@ -298,9 +299,9 @@
             this.rangeExpectedGroup,
             this.boolExpectedGroup,
             this.emptySpaceItem1});
-            this.Root.Location = new System.Drawing.Point(0, -53);
+            this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(619, 458);
+            this.Root.Size = new System.Drawing.Size(620, 458);
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
             // 
@@ -320,7 +321,7 @@
             // 
             this.isRequiredLayout.Control = this.isRequired;
             this.isRequiredLayout.CustomizationFormText = "isRequiredLayout";
-            this.isRequiredLayout.Location = new System.Drawing.Point(399, 0);
+            this.isRequiredLayout.Location = new System.Drawing.Point(400, 0);
             this.isRequiredLayout.Name = "isRequiredLayout";
             this.isRequiredLayout.Size = new System.Drawing.Size(200, 50);
             this.isRequiredLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 20, 0);
@@ -332,7 +333,7 @@
             // 
             this.isActiveLayout.Control = this.isActive;
             this.isActiveLayout.CustomizationFormText = "isActiveLayout";
-            this.isActiveLayout.Location = new System.Drawing.Point(300, 50);
+            this.isActiveLayout.Location = new System.Drawing.Point(301, 50);
             this.isActiveLayout.Name = "isActiveLayout";
             this.isActiveLayout.Size = new System.Drawing.Size(299, 50);
             this.isActiveLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 20, 5);
@@ -346,7 +347,7 @@
             this.operationNameLayout.CustomizationFormText = "Название операции";
             this.operationNameLayout.Location = new System.Drawing.Point(118, 0);
             this.operationNameLayout.Name = "operationNameLayout";
-            this.operationNameLayout.Size = new System.Drawing.Size(281, 50);
+            this.operationNameLayout.Size = new System.Drawing.Size(282, 50);
             this.operationNameLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.operationNameLayout.Text = "Название операции";
             this.operationNameLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -356,7 +357,7 @@
             // 
             this.saveButtonLayout.Control = this.saveButton;
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
-            this.saveButtonLayout.Location = new System.Drawing.Point(362, 412);
+            this.saveButtonLayout.Location = new System.Drawing.Point(363, 412);
             this.saveButtonLayout.Name = "saveButtonLayout";
             this.saveButtonLayout.Size = new System.Drawing.Size(120, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 0, 0);
@@ -369,7 +370,7 @@
             this.cancelButtonLayout.AllowHtmlStringInCaption = true;
             this.cancelButtonLayout.Control = this.cancelButton;
             this.cancelButtonLayout.CustomizationFormText = "cancelButtonLayout";
-            this.cancelButtonLayout.Location = new System.Drawing.Point(482, 412);
+            this.cancelButtonLayout.Location = new System.Drawing.Point(483, 412);
             this.cancelButtonLayout.Name = "cancelButtonLayout";
             this.cancelButtonLayout.Size = new System.Drawing.Size(117, 26);
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 0, 0);
@@ -383,7 +384,7 @@
             this.buttonsEmptySpaceI.CustomizationFormText = "buttonsEmptySpaceI";
             this.buttonsEmptySpaceI.Location = new System.Drawing.Point(0, 412);
             this.buttonsEmptySpaceI.Name = "buttonsEmptySpaceI";
-            this.buttonsEmptySpaceI.Size = new System.Drawing.Size(362, 26);
+            this.buttonsEmptySpaceI.Size = new System.Drawing.Size(363, 26);
             this.buttonsEmptySpaceI.Text = "buttonsEmptySpaceI";
             this.buttonsEmptySpaceI.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -393,7 +394,7 @@
             this.categoryLayout.CustomizationFormText = "Группа";
             this.categoryLayout.Location = new System.Drawing.Point(0, 50);
             this.categoryLayout.Name = "categoryLayout";
-            this.categoryLayout.Size = new System.Drawing.Size(300, 50);
+            this.categoryLayout.Size = new System.Drawing.Size(301, 50);
             this.categoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.categoryLayout.Text = "Группа";
             this.categoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -405,7 +406,7 @@
             this.resultTypeLayout.CustomizationFormText = "Тип результата";
             this.resultTypeLayout.Location = new System.Drawing.Point(0, 100);
             this.resultTypeLayout.Name = "resultTypeLayout";
-            this.resultTypeLayout.Size = new System.Drawing.Size(300, 50);
+            this.resultTypeLayout.Size = new System.Drawing.Size(301, 50);
             this.resultTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.resultTypeLayout.Text = "Тип результата";
             this.resultTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -415,7 +416,7 @@
             // 
             this.controlTypeLayout.Control = this.controlType;
             this.controlTypeLayout.CustomizationFormText = "Тип контроля";
-            this.controlTypeLayout.Location = new System.Drawing.Point(300, 100);
+            this.controlTypeLayout.Location = new System.Drawing.Point(301, 100);
             this.controlTypeLayout.Name = "controlTypeLayout";
             this.controlTypeLayout.Size = new System.Drawing.Size(299, 50);
             this.controlTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -431,7 +432,7 @@
             this.frequencyMeasureLayout});
             this.frequencyGroup.Location = new System.Drawing.Point(0, 309);
             this.frequencyGroup.Name = "frequencyGroup";
-            this.frequencyGroup.Size = new System.Drawing.Size(599, 93);
+            this.frequencyGroup.Size = new System.Drawing.Size(600, 93);
             this.frequencyGroup.Text = "Частота проведения";
             // 
             // frequencyLayout
@@ -440,7 +441,7 @@
             this.frequencyLayout.CustomizationFormText = "Частота";
             this.frequencyLayout.Location = new System.Drawing.Point(0, 0);
             this.frequencyLayout.Name = "frequencyLayout";
-            this.frequencyLayout.Size = new System.Drawing.Size(337, 50);
+            this.frequencyLayout.Size = new System.Drawing.Size(338, 50);
             this.frequencyLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.frequencyLayout.Text = "Частота";
             this.frequencyLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -450,7 +451,7 @@
             // 
             this.frequencyMeasureLayout.Control = this.frequencyMeasure;
             this.frequencyMeasureLayout.CustomizationFormText = "Единицы измерения";
-            this.frequencyMeasureLayout.Location = new System.Drawing.Point(337, 0);
+            this.frequencyMeasureLayout.Location = new System.Drawing.Point(338, 0);
             this.frequencyMeasureLayout.Name = "frequencyMeasureLayout";
             this.frequencyMeasureLayout.Size = new System.Drawing.Size(238, 50);
             this.frequencyMeasureLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -466,14 +467,14 @@
             this.minExpectedLayout});
             this.rangeExpectedGroup.Location = new System.Drawing.Point(0, 150);
             this.rangeExpectedGroup.Name = "rangeExpectedGroup";
-            this.rangeExpectedGroup.Size = new System.Drawing.Size(599, 93);
+            this.rangeExpectedGroup.Size = new System.Drawing.Size(600, 93);
             this.rangeExpectedGroup.Text = "Контрольное значение";
             // 
             // maxExpectedLayout
             // 
             this.maxExpectedLayout.Control = this.maxExpected;
             this.maxExpectedLayout.CustomizationFormText = "До";
-            this.maxExpectedLayout.Location = new System.Drawing.Point(292, 0);
+            this.maxExpectedLayout.Location = new System.Drawing.Point(293, 0);
             this.maxExpectedLayout.Name = "maxExpectedLayout";
             this.maxExpectedLayout.Size = new System.Drawing.Size(283, 50);
             this.maxExpectedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -489,7 +490,7 @@
             this.minExpectedLayout.MaxSize = new System.Drawing.Size(0, 24);
             this.minExpectedLayout.MinSize = new System.Drawing.Size(157, 24);
             this.minExpectedLayout.Name = "minExpectedLayout";
-            this.minExpectedLayout.Size = new System.Drawing.Size(292, 50);
+            this.minExpectedLayout.Size = new System.Drawing.Size(293, 50);
             this.minExpectedLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.minExpectedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.minExpectedLayout.Text = "От";
@@ -503,7 +504,7 @@
             this.boolExpectedLayout});
             this.boolExpectedGroup.Location = new System.Drawing.Point(0, 243);
             this.boolExpectedGroup.Name = "boolExpectedGroup";
-            this.boolExpectedGroup.Size = new System.Drawing.Size(599, 66);
+            this.boolExpectedGroup.Size = new System.Drawing.Size(600, 66);
             this.boolExpectedGroup.Text = "Контрольное значение";
             // 
             // boolExpectedLayout
@@ -512,7 +513,7 @@
             this.boolExpectedLayout.CustomizationFormText = "boolExpectedLayout";
             this.boolExpectedLayout.Location = new System.Drawing.Point(0, 0);
             this.boolExpectedLayout.Name = "boolExpectedLayout";
-            this.boolExpectedLayout.Size = new System.Drawing.Size(575, 23);
+            this.boolExpectedLayout.Size = new System.Drawing.Size(576, 23);
             this.boolExpectedLayout.Text = "boolExpectedLayout";
             this.boolExpectedLayout.TextSize = new System.Drawing.Size(0, 0);
             this.boolExpectedLayout.TextVisible = false;
@@ -523,7 +524,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 402);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(599, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(600, 10);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 

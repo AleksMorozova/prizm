@@ -644,7 +644,7 @@ namespace Prizm.Main.Synch.Import
             }
 
             int step = PROGRESS_RANGE / pipes.Count;
-            ConflictDecision decision = ConflictDecision.Undef;
+            ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
 
             foreach (var pipeObj in pipes)
@@ -668,7 +668,7 @@ namespace Prizm.Main.Synch.Import
                 }
                 else
                 {
-                    if (decision == ConflictDecision.Undef || !forAll)
+                    if (decision == ConflictDecision.Undefined || !forAll)
                     {
                         ConflictEventArgs args = new ConflictEventArgs();
                         args.Message = string.Format(Resources.Import_Conflict, pipeObj.Number);

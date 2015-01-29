@@ -44,12 +44,15 @@ namespace Prizm.Main.Forms.Reports.Mill
             testCategories.DataSource = viewModel.InspectionCategories;
             testCategories.DisplayMember = "Name";
             testCategories.ValueMember = "Id";
-            statuses.DataSource = viewModel.Statuses;
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
             foreach(var item in EnumWrapper<MillReportType>.EnumerateItems())
             {
                 reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
+            }
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            {
+                statuses.Items.Add(item.Item2);
             }
 
             reportTypes.DataBindings.Add("EditValue", millReportsBindingSource, "SelectedReportType");
@@ -69,7 +72,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
-            reportTypes.SelectedIndex = 0;
+            reportTypes.SelectedIndex = 3;
         }
 
         #region --- Localization ---
@@ -92,7 +95,11 @@ namespace Prizm.Main.Forms.Reports.Mill
                 new LocalizedItem(previewLayoutGroup, "MillReport_PreviewGroup"),
 
                 new LocalizedItem(createReportButton, "MillReport_CreateButton"),
-                new LocalizedItem(previewButton, "MillReport_PreviewButton")
+                new LocalizedItem(previewButton, "MillReport_PreviewButton"),
+
+                new LocalizedItem(reportTypes, new string[] { "MillReport_TypeByCategories", "MillReport_TypeByShipped", "MillReport_TypeByProduced", "MillReport_TypeGeneral" }),
+
+                //new LocalizedItem(statuses, new string[] { "", "", "", "" }),
             };
         }
 

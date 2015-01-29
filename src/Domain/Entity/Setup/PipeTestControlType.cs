@@ -2,7 +2,7 @@
 {
     public enum PipeTestControlType
     {
-        Undef = 0,
+        Undefined = 0,
         Witness = 1,
         Review = 2,
         Monitor = 3,
