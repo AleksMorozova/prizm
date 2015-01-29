@@ -27,7 +27,7 @@ namespace Prizm.Main.Forms.Common
 
         private void AboutXtraForm_Load(object sender, EventArgs e)
         {
-            titleLabel.Text = Resources.AboutForm_TitleLabel;
+            titleLabel.Text = Program.LanguageManager.GetString(StringResources.AboutForm_TitleLabel);
             textEditVersionNumber.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             textEditVersionNumber.ReadOnly = true;
         }

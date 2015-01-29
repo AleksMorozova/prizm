@@ -546,6 +546,8 @@
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Languages\LocalizedItem.cs" />
+    <Compile Include="Languages\StringResource.cs" />
+    <Compile Include="Languages\StringResources.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -14,5 +14,6 @@ namespace Prizm.Main.Languages
         bool LoadTranslation(CultureInfo culture);
         void ChangeLanguage(ILocalizable localizable);
         CultureInfo DefaultCultureInfo { get; }
+        string GetString(StringResource resourceDescription);
     }
 }
