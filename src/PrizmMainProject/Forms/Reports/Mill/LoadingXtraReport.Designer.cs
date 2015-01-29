@@ -30,7 +30,8 @@
         {
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -52,9 +53,8 @@
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.subReportForLoadingXtraReport1 = new Prizm.Main.Forms.Reports.Mill.SubReportForLoadingXtraReport();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.subReportForLoadingXtraReport1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -71,13 +71,25 @@
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrSubreport1
+            // xrLabel4
             // 
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(151.5747F, 0F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new Prizm.Main.Forms.Reports.Mill.SubReportForLoadingXtraReport();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(335.9741F, 113.0834F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.railcars")});
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(666.0489F, 0F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(93.95117F, 23F);
+            this.xrLabel4.Text = "xrLabel4";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.Notes")});
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(151.5747F, 23F);
+            this.xrLabel3.Text = "xrLabel3";
             // 
             // xrLine2
             // 
@@ -128,7 +140,7 @@
             // 
             this.xrLabel1.BorderColor = System.Drawing.Color.Black;
             this.xrLabel1.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(488.4081F, 0F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(666.0489F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(93.09192F, 36F);
@@ -226,13 +238,13 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel10,
-            this.xrLabel9,
             this.xrLabel8,
             this.xrLabel7,
             this.xrLabel6,
             this.xrLabel2,
-            this.xrLabel1});
+            this.xrLabel1,
+            this.xrLabel9,
+            this.xrLabel10});
             this.GroupHeader1.HeightF = 36.875F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
@@ -240,7 +252,7 @@
             // 
             this.xrLabel10.BorderColor = System.Drawing.Color.Black;
             this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(693.3419F, 0F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(599.3908F, 0F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(66.65808F, 36F);
@@ -253,7 +265,7 @@
             // 
             this.xrLabel9.BorderColor = System.Drawing.Color.Black;
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(581.5F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(487.5488F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(111.842F, 36F);
@@ -298,6 +310,14 @@
             this.xrLabel6.StylePriority.UseForeColor = false;
             this.xrLabel6.Text = "Номер вагона";
             // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(151.5747F, 0F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new Prizm.Main.Forms.Reports.Mill.SubReportForLoadingXtraReport();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(514.4742F, 113.0834F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            // 
             // subReportForLoadingXtraReport1
             // 
             this.subReportForLoadingXtraReport1.DataMember = "CustomSqlQuery";
@@ -307,26 +327,6 @@
             this.subReportForLoadingXtraReport1.PageHeight = 1100;
             this.subReportForLoadingXtraReport1.PageWidth = 850;
             this.subReportForLoadingXtraReport1.Version = "14.2";
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.Notes")});
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(151.5747F, 23F);
-            this.xrLabel3.Text = "xrLabel3";
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.railcars")});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(487.5488F, 0F);
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(93.95117F, 23F);
-            this.xrLabel4.Text = "xrLabel4";
             // 
             // LoadingXtraReport
             // 
