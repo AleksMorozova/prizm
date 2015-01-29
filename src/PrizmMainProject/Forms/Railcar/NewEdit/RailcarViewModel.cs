@@ -321,6 +321,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 Pipes.Add(pipeToAdd);
                 ReleaseNotePipes.Add(pipeToAdd);
+                AllPipes.Remove(pipeToAdd);
             }
 
             
@@ -340,7 +341,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 {
                     try
                     {
+                        pipesList.Remove(pipe);
                         Pipes.Remove(pipe);
+                        AllPipes.Add(pipe);
                         pipe.Railcar = null;
                         repos.PipeRepo.Merge(pipe);
                         break;
