@@ -34,13 +34,12 @@ namespace Prizm.Main.Forms.Notifications.Data
         public override string GetOwnerName(object[] tuple)
         {
             string middleName = (tuple[3] == null) ? "" : tuple[3].ToString();
-            return tuple[1].ToString() + " " + tuple[2].ToString() + " " + middleName + " " +
-            Resources.ResourceManager.GetString("Certificate") + " №" + tuple[4].ToString();
+            return tuple[1].ToString() + " " + tuple[2].ToString() + " " + middleName;
         }
 
         public override DateTime GetDateToOccur(object[] tuple)
         {
-            return (DateTime)tuple[5];
+            return (DateTime)tuple[4];
         }
 
 
