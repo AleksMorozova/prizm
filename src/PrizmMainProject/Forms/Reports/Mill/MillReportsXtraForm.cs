@@ -69,6 +69,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
+            reportTypes.SelectedIndex = 0;
         }
 
         #region --- Localization ---
@@ -111,6 +112,7 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void reportTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (reportTypes.SelectedIndex < 0) return;
             var selected = (MillReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;

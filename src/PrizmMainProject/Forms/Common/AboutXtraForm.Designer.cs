@@ -29,28 +29,21 @@
         private void InitializeComponent()
         {
             this.labelVersion = new DevExpress.XtraEditors.LabelControl();
-            this.assemblyLabel = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.titleLabel = new DevExpress.XtraEditors.LabelControl();
             this.acceptButton = new DevExpress.XtraEditors.SimpleButton();
+            this.textEditVersionNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditVersionNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVersion
             // 
-            this.labelVersion.Location = new System.Drawing.Point(290, 85);
+            this.labelVersion.Location = new System.Drawing.Point(290, 119);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(39, 13);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Версия:";
-            // 
-            // assemblyLabel
-            // 
-            this.assemblyLabel.Location = new System.Drawing.Point(290, 116);
-            this.assemblyLabel.Name = "assemblyLabel";
-            this.assemblyLabel.Size = new System.Drawing.Size(56, 13);
-            this.assemblyLabel.TabIndex = 1;
-            this.assemblyLabel.Text = "Сборка от:";
             // 
             // pictureBox
             // 
@@ -78,22 +71,31 @@
             this.acceptButton.TabIndex = 6;
             this.acceptButton.Text = "ОК";
             // 
+            // textEditVersionNumber
+            // 
+            this.textEditVersionNumber.Location = new System.Drawing.Point(345, 112);
+            this.textEditVersionNumber.Name = "textEditVersionNumber";
+            this.textEditVersionNumber.Size = new System.Drawing.Size(165, 20);
+            this.textEditVersionNumber.TabIndex = 7;
+            // 
             // AboutXtraForm
             // 
             this.AcceptButton = this.acceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.acceptButton;
             this.ClientSize = new System.Drawing.Size(539, 250);
+            this.Controls.Add(this.textEditVersionNumber);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.assemblyLabel);
             this.Controls.Add(this.labelVersion);
             this.Name = "AboutXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
             this.Load += new System.EventHandler(this.AboutXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditVersionNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,9 +104,9 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelVersion;
-        private DevExpress.XtraEditors.LabelControl assemblyLabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private DevExpress.XtraEditors.LabelControl titleLabel;
         private DevExpress.XtraEditors.SimpleButton acceptButton;
+        private DevExpress.XtraEditors.TextEdit textEditVersionNumber;
     }
 }
