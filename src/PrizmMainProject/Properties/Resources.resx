@@ -981,4 +981,7 @@
   <data name="SecurityPrivilege_SearchReleaseNotes" xml:space="preserve">
     <value>Поиск разрешений на отгрузку</value>
   </data>
+  <data name="CHEK_CONTROL_OPERATIONS" xml:space="preserve">
+    <value>Проверьте контрольные операции.</value>
+  </data>
 </root>
